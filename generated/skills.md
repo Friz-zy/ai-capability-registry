@@ -9,6 +9,10 @@ All paths below are relative to this file's directory.
 4. Open tag catalog
 5. Load skill file
 
+## Usage
+Read skill file content. Apply skill guidance when task matches.
+Do not load skills preemptively — use only when relevant to current task.
+
 ## Roles
 
 - **Personal AI Assistant**: `roles/personal-assistant/skills.md`

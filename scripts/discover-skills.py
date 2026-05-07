@@ -248,6 +248,10 @@ def generate_root_skills_md(
         "4. Open tag catalog",
         "5. Load skill file",
         "",
+        "## Usage",
+        "Read skill file content. Apply skill guidance when task matches.",
+        "Do not load skills preemptively — use only when relevant to current task.",
+        "",
         "## Roles",
         "",
     ]
