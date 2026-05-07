@@ -1,0 +1,11 @@
+# Global Skills Registry
+
+Generated from `registry/skills.yaml`.
+
+{% for category, skills in skills_by_category.items() %}
+## {{ category }}
+
+{% for skill in skills %}
+- **{{ skill.name }}** (`{{ skill.id }}`): {{ skill.description }}
+{% endfor %}
+{% endfor %}

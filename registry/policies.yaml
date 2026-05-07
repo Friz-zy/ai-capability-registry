@@ -1,0 +1,59 @@
+security_policy:
+  allow:
+    - docker
+    - hosted_https
+    - hosted_https_oauth
+  deny:
+    - curl_pipe_sh
+    - npm_global_exec
+    - python_remote_exec
+    - arbitrary_shell_mcp
+    - unrestricted_filesystem_mcp
+    - unrestricted_browser_exec
+    - local_database_mcp
+  require:
+    - pinned_versions
+    - license_check
+    - manual_review
+    - read_only_default
+
+trust_levels:
+  trusted:
+    description: Official vendor or reputable security-reviewed source.
+    allowed_actions:
+      - index
+      - install
+      - enable_by_default
+  reviewed:
+    description: Manually reviewed source from a known maintainer or curated marketplace.
+    allowed_actions:
+      - index
+      - install
+      - enable_manually
+  candidate:
+    description: Useful discovery source that is not trusted for direct installation.
+    allowed_actions:
+      - index_only
+  denied:
+    description: Unsafe execution model, unknown maintainer, or known risky behavior.
+    allowed_actions: []
+  trusted_runtime_layer:
+    description: Infrastructure layer used to isolate allowlisted capabilities.
+    allowed_actions:
+      - index
+      - install
+      - route_allowlisted_only
+
+promotion_policy:
+  default_state: index_only
+  promote_to_reviewed_requires:
+    - maintainer_check
+    - license_check
+    - source_review
+    - scripts_review
+    - pinned_commit
+  promote_to_trusted_requires:
+    - official_vendor_or_security_vendor
+    - stable_execution_model
+    - documented_permissions
+    - reproducible_install

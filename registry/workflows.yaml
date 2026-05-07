@@ -1,0 +1,51 @@
+workflows:
+  - id: secure-capability-onboarding
+    name: Secure Capability Onboarding
+    description: Review, pin, index, generate, and manually promote a new skill or MCP server.
+    category:
+      - security
+      - governance
+    steps:
+      - identify_source_owner
+      - verify_execution_model
+      - check_license
+      - review_scripts_and_hooks
+      - pin_tag_and_commit
+      - add_registry_entry
+      - run_validation
+      - generate_artifacts
+      - enable_manually_if_reviewed
+    required_policies:
+      - manual_review
+      - pinned_versions
+      - license_check
+
+  - id: agent-bootstrap
+    name: Agent Bootstrap
+    description: Generate agent-specific config references from registry metadata.
+    category:
+      - integration
+      - adapters
+    steps:
+      - validate_registry
+      - generate_indexes
+      - generate_agent_configs
+      - link_artifacts
+    required_policies:
+      - read_only_default
+
+  - id: mcp-risk-review
+    name: MCP Risk Review
+    description: Review MCP server permissions, transport, runtime, and data exposure before enablement.
+    category:
+      - security
+      - mcp
+    steps:
+      - verify_hosted_or_docker_runtime
+      - verify_no_unrestricted_local_execution
+      - classify_data_risk
+      - require_read_only_or_ask_before_write
+      - document_required_secrets
+    required_policies:
+      - manual_review
+      - read_only_default

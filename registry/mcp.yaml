@@ -1,0 +1,230 @@
+mcp_servers:
+  - id: github
+    name: GitHub MCP
+    description: Official GitHub MCP server for repositories, issues, pull requests, Actions, and security findings.
+    source:
+      type: hosted_or_docker
+      repo: https://github.com/github/github-mcp-server
+      image: ghcr.io/github/github-mcp-server
+      hosted_url: https://api.githubcopilot.com/mcp/
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: repository_data
+      permission_default: read_only
+    transport:
+      type: streamable_http_or_stdio
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - cursor
+    capabilities:
+      - repositories
+      - pull_requests
+      - issues
+      - actions
+      - security_findings
+    trust: trusted
+    runtime: hosted_or_docker
+    default_mode: read_only
+    enabled: true
+
+  - id: sentry
+    name: Sentry MCP
+    description: Official hosted MCP for Sentry issues, errors, projects, and incident analysis.
+    source:
+      type: hosted_https_oauth
+      hosted_url: https://mcp.sentry.dev/mcp
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: production_error_data
+      permission_default: read_only
+    transport:
+      type: streamable_http
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+    capabilities:
+      - issues
+      - projects
+      - error_analysis
+    trust: trusted
+    runtime: hosted_https_oauth
+    default_mode: read_only
+    enabled: true
+
+  - id: linear
+    name: Linear MCP
+    description: Official Linear remote MCP for issues, projects, comments, and planning workflows.
+    source:
+      type: hosted_https_oauth
+      hosted_url: https://mcp.linear.app/sse
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: product_planning_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+    capabilities:
+      - issues
+      - projects
+      - comments
+    trust: trusted
+    runtime: hosted_https_oauth
+    default_mode: ask_before_write
+    enabled: true
+
+  - id: notion
+    name: Notion MCP
+    description: Official Notion MCP integration controlled by workspace permissions.
+    source:
+      type: hosted_https_oauth
+      hosted_url: https://mcp.notion.com/mcp
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: private_workspace_data
+      permission_default: restricted_workspace
+    transport:
+      type: streamable_http
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+    capabilities:
+      - pages
+      - databases
+      - comments
+    trust: trusted
+    runtime: hosted_https_oauth
+    default_mode: restricted_workspace
+    enabled: true
+
+  - id: posthog
+    name: PostHog MCP
+    description: Official PostHog MCP for product analytics and operational insight workflows.
+    source:
+      type: hosted_https
+      hosted_url: https://mcp.posthog.com/mcp
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: analytics_user_data
+      permission_default: read_only
+    transport:
+      type: streamable_http
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+    capabilities:
+      - analytics
+      - feature_flags
+      - product_insights
+    trust: trusted
+    runtime: hosted_https
+    default_mode: read_only
+    enabled: true
+
+  - id: tavily
+    name: Tavily MCP
+    description: Official Tavily MCP for search and extraction research workflows.
+    source:
+      type: hosted_https_oauth
+      hosted_url: https://mcp.tavily.com/mcp
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: web_prompt_injection
+      permission_default: search_extract_only
+    transport:
+      type: streamable_http
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+    capabilities:
+      - search
+      - extract
+      - research
+    trust: trusted
+    runtime: hosted_https_oauth
+    default_mode: search_extract_only
+    enabled: true
+
+  - id: firecrawl
+    name: Firecrawl MCP
+    description: Firecrawl MCP for search, scrape, and structured extraction, with browser/session tools disabled by default.
+    source:
+      type: hosted_https
+      hosted_url: https://mcp.firecrawl.dev/mcp
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: web_prompt_injection
+      permission_default: scrape_extract_only
+      disabled_by_default:
+        - browser_session_tools
+        - unrestricted_crawl
+    transport:
+      type: streamable_http
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+    capabilities:
+      - search
+      - scrape
+      - extract
+    trust: reviewed
+    runtime: hosted_https
+    default_mode: scrape_extract_only
+    enabled: false
+
+  - id: docker-mcp-gateway
+    name: Docker MCP Gateway
+    description: Docker-managed runtime layer for orchestrating allowlisted MCP servers with container isolation.
+    source:
+      type: docker
+      image: docker/mcp-gateway
+      docs: https://docs.docker.com/reference/cli/docker/mcp/
+    security:
+      local_code_execution: isolated_container_only
+      sandboxed: true
+      reviewed: true
+      data_risk: depends_on_configured_server
+      permission_default: allowlisted_images_only
+      deny:
+        - privileged_containers
+        - host_network
+        - unrestricted_mounts
+    transport:
+      type: stdio_or_streamable_http
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - cursor
+    capabilities:
+      - runtime_isolation
+      - server_catalog
+      - secrets_routing
+    trust: trusted_runtime_layer
+    runtime: docker
+    default_mode: allowlisted_images_only
+    enabled: true

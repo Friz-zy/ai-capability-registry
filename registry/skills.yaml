@@ -1,0 +1,572 @@
+skills:
+  - id: anthropic-skills
+    name: Anthropic Skills
+    description: Official Anthropic skill catalog for Claude workflows.
+    source:
+      type: git
+      repo: https://github.com/anthropics/skills
+      subdir: .
+      external_path: external/anthropic-skills
+    category:
+      - core
+      - official
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: official_vendor
+    activation:
+      keywords:
+        - claude
+        - skill
+        - official
+    compatibility:
+      - claude-code
+      - kilo-code
+      - codex-cli
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: anthropic-claude-plugins-official
+    name: Anthropic Claude Plugins Official
+    description: Anthropic official Claude plugin marketplace for approved Claude workflows.
+    source:
+      type: git
+      repo: https://github.com/anthropics/claude-plugins-official
+      subdir: .
+      external_path: external/anthropic-claude-plugins-official
+    category:
+      - core
+      - official
+      - marketplace
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: official_vendor_approved_marketplace
+    activation:
+      keywords:
+        - claude plugin
+        - official plugin
+        - approved marketplace
+    compatibility:
+      - claude-code
+      - kilo-code
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: anthropic-knowledge-work-plugins
+    name: Anthropic Knowledge Work Plugins
+    description: Anthropic official knowledge-work plugin marketplace for document, research, and productivity workflows.
+    source:
+      type: git
+      repo: https://github.com/anthropics/knowledge-work-plugins
+      subdir: .
+      external_path: external/anthropic-knowledge-work-plugins
+    category:
+      - research
+      - productivity
+      - official
+      - marketplace
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: official_vendor_approved_marketplace
+    activation:
+      keywords:
+        - knowledge work
+        - document workflow
+        - research workflow
+        - official plugin
+    compatibility:
+      - claude-code
+      - kilo-code
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: openai-skills
+    name: OpenAI Skills
+    description: Official OpenAI skills catalog for Codex and portable agent workflows.
+    source:
+      type: git
+      repo: https://github.com/openai/skills
+      subdir: .
+      external_path: external/openai-skills
+    category:
+      - core
+      - official
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: official_vendor
+    activation:
+      keywords:
+        - codex
+        - openai
+        - skill
+    compatibility:
+      - codex-cli
+      - kilo-code
+      - claude-code
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: agentskills-spec
+    name: Agent Skills Specification
+    description: Portable skill format used as an intermediate representation for agent adapters.
+    source:
+      type: git
+      repo: https://github.com/agentskills/agentskills
+      subdir: .
+      external_path: external/agentskills-spec
+    category:
+      - core
+      - standard
+    trust:
+      level: candidate
+      curated: true
+      reviewed: true
+      reason: portable_standard
+    activation:
+      keywords:
+        - portable skills
+        - skill specification
+        - adapter
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - cursor
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: false
+      reviewed: true
+    enabled: true
+
+  - id: trailofbits-skills
+    name: Trail of Bits Skills
+    description: Security research, vulnerability detection, and audit workflows from Trail of Bits.
+    source:
+      type: git
+      repo: https://github.com/trailofbits/skills
+      subdir: .
+      external_path: external/trailofbits-skills
+    category:
+      - security
+      - audit
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: reputable_security_vendor
+    activation:
+      keywords:
+        - audit
+        - vulnerability
+        - security review
+        - fuzzing
+    compatibility:
+      - claude-code
+      - kilo-code
+      - codex-cli
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: trailofbits-skills-curated
+    name: Trail of Bits Curated Skills
+    description: Community-vetted Claude Code plugin marketplace curated by Trail of Bits.
+    source:
+      type: git
+      repo: https://github.com/trailofbits/skills-curated
+      subdir: .
+      external_path: external/trailofbits-skills-curated
+    category:
+      - security
+      - curated
+      - marketplace
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: explicit_security_review
+    activation:
+      keywords:
+        - curated
+        - plugin marketplace
+        - security workflow
+    compatibility:
+      - claude-code
+      - kilo-code
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: trailofbits-skills-internal
+    name: Trail of Bits Internal Skills
+    description: Private Trail of Bits internal skill marketplace for approved internal security workflows.
+    source:
+      type: git
+      repo: https://github.com/trailofbits/skills-internal
+      subdir: .
+      external_path: external/trailofbits-skills-internal
+      visibility: private
+    category:
+      - security
+      - internal
+      - marketplace
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: reputable_security_vendor_private_approved_marketplace
+    activation:
+      keywords:
+        - internal security workflow
+        - audit
+        - trail of bits
+    compatibility:
+      - claude-code
+      - kilo-code
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: false
+
+  - id: superpowers
+    name: Superpowers
+    description: Workflow framework for advanced agent behaviors, TDD, and multi-skill orchestration.
+    source:
+      type: git
+      repo: https://github.com/obra/superpowers
+      subdir: .
+      external_path: external/superpowers
+    category:
+      - core
+      - workflow
+      - orchestration
+    trust:
+      level: candidate
+      curated: false
+      reviewed: true
+      reason: approved_by_trailofbits_curated_marketplace
+    activation:
+      keywords:
+        - workflow
+        - tdd
+        - orchestration
+        - review
+    compatibility:
+      - claude-code
+      - kilo-code
+      - codex-cli
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: everyinc-compound-engineering-plugin
+    name: Every Inc Compound Engineering Plugin
+    description: Approved marketplace source for production engineering workflows and multi-agent review.
+    source:
+      type: git
+      repo: https://github.com/EveryInc/compound-engineering-plugin
+      subdir: .
+      external_path: external/everyinc-compound-engineering-plugin
+    category:
+      - backend
+      - workflow
+      - review
+      - marketplace
+    trust:
+      level: candidate
+      curated: true
+      reviewed: true
+      reason: approved_marketplace_production_engineering
+    activation:
+      keywords:
+        - production engineering
+        - multi-agent review
+        - engineering workflow
+    compatibility:
+      - claude-code
+      - kilo-code
+      - codex-cli
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: coreyhaines-marketingskills
+    name: Corey Haines Marketing Skills
+    description: Approved marketplace source for marketing-focused skills and growth workflows.
+    source:
+      type: git
+      repo: https://github.com/coreyhaines31/marketingskills
+      subdir: .
+      external_path: external/coreyhaines-marketingskills
+    category:
+      - founder
+      - marketing
+      - marketplace
+    trust:
+      level: candidate
+      curated: true
+      reviewed: true
+      reason: approved_marketplace_marketing_workflows
+    activation:
+      keywords:
+        - marketing
+        - growth
+        - positioning
+        - copywriting
+    compatibility:
+      - claude-code
+      - kilo-code
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: ghostsecurity-skills
+    name: Ghost Security Skills
+    description: Approved marketplace source for application security testing skills.
+    source:
+      type: git
+      repo: https://github.com/ghostsecurity/skills
+      subdir: .
+      external_path: external/ghostsecurity-skills
+    category:
+      - security
+      - appsec
+      - marketplace
+    trust:
+      level: candidate
+      curated: true
+      reviewed: true
+      reason: approved_marketplace_application_security_testing
+    activation:
+      keywords:
+        - application security
+        - appsec
+        - security testing
+        - vulnerability
+    compatibility:
+      - claude-code
+      - kilo-code
+      - codex-cli
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: awesome-claude-skills
+    name: Awesome Claude Skills
+    description: Discovery index for Claude skill candidates. Not installed directly.
+    source:
+      type: git
+      repo: https://github.com/ComposioHQ/awesome-claude-skills
+      subdir: .
+      external_path: external/indexes/awesome-claude-skills
+    category:
+      - research
+      - discovery
+    trust:
+      level: candidate
+      curated: false
+      reviewed: false
+      reason: discovery_only_not_direct_install
+    activation:
+      keywords:
+        - discovery
+        - awesome list
+        - candidate skills
+    compatibility:
+      - claude-code
+      - kilo-code
+    artifacts:
+      prompt: README.md
+      examples: null
+      scripts: null
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: unknown
+      arbitrary_exec: unknown
+      reviewed: false
+    enabled: false
+
+  - id: alirezarezvani-claude-skills
+    name: alirezarezvani Claude Skills
+    description: Broad community multi-domain skill catalog for engineering, marketing, product, and compliance workflows.
+    source:
+      type: git
+      repo: https://github.com/alirezarezvani/claude-skills
+      subdir: .
+      external_path: external/indexes/alirezarezvani-claude-skills
+    category:
+      - research
+      - productivity
+      - candidate
+    trust:
+      level: candidate
+      curated: false
+      reviewed: false
+      reason: broad_catalog_requires_manual_review
+    activation:
+      keywords:
+        - product
+        - founder
+        - compliance
+        - marketing
+    compatibility:
+      - claude-code
+      - kilo-code
+    artifacts:
+      prompt: README.md
+      examples: null
+      scripts: null
+    version:
+      tag: null
+      commit: null
+      pinned: false
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: unknown
+      arbitrary_exec: unknown
+      reviewed: false
+    enabled: false
