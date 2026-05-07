@@ -1,12 +1,12 @@
-# Tag: constant-time-testing
+# constant-time-testing
 
-Skills with tag `constant-time-testing`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## constant-time-testing
+## Skills
 
+### constant-time-testing
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md`
-- **Tags**: `constant`, `constant-time-testing`, `handbook`, `testing`, `testing-handbook`, `time`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md`

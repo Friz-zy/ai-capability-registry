@@ -1,147 +1,87 @@
-# Tag: handbook
+# handbook
 
-Skills with tag `handbook`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## address-sanitizer
+## Skills
 
+### address-sanitizer
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md`
-- **Tags**: `address`, `address-sanitizer`, `handbook`, `sanitizer`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md`
 
-## aflpp
-
+### aflpp
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp/SKILL.md`
-- **Tags**: `aflpp`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp/SKILL.md`
 
-## atheris
-
+### atheris
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris/SKILL.md`
-- **Tags**: `atheris`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris/SKILL.md`
 
-## cargo-fuzz
-
+### cargo-fuzz
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md`
-- **Tags**: `cargo`, `cargo-fuzz`, `fuzz`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md`
 
-## constant-time-testing
-
+### constant-time-testing
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md`
-- **Tags**: `constant`, `constant-time-testing`, `handbook`, `testing`, `testing-handbook`, `time`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md`
 
-## coverage-analysis
-
+### coverage-analysis
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md`
-- **Tags**: `analysis`, `coverage`, `coverage-analysis`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md`
 
-## fuzzing-dictionary
-
+### fuzzing-dictionary
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md`
-- **Tags**: `dictionary`, `fuzzing`, `fuzzing-dictionary`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md`
 
-## fuzzing-obstacles
-
+### fuzzing-obstacles
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md`
-- **Tags**: `fuzzing`, `fuzzing-obstacles`, `handbook`, `obstacles`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md`
 
-## harness-writing
-
+### harness-writing
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing/SKILL.md`
-- **Tags**: `handbook`, `harness`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing/SKILL.md`
 
-## libafl
-
+### libafl
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl/SKILL.md`
-- **Tags**: `handbook`, `libafl`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl/SKILL.md`
 
-## libfuzzer
-
+### libfuzzer
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md`
-- **Tags**: `handbook`, `libfuzzer`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md`
 
-## ossfuzz
-
+### ossfuzz
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md`
-- **Tags**: `handbook`, `ossfuzz`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md`
 
-## policy-lookup
-
+### policy-lookup
 Find and explain company policies in plain language. Trigger with "what's our PTO policy", "can I work remotely from another country", "how do expenses work", or any plain-language question about benefits, travel, leave, or handbook rules.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup/SKILL.md`
-- **Tags**: `another`, `benefits`, `can`, `company`, `country`, `expenses`, `explain`, `find`, `handbook`, `human`, `language`, `leave`, `lookup`, `our`, `plain`, `plain-language`, `policies`, `policy`, `policy-lookup`, `pto`, `question`, `remotely`, `travel`, `trigger`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup/SKILL.md`
 
-## ruzzy
-
+### ruzzy
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md`
-- **Tags**: `handbook`, `ruzzy`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md`
 
-## testing-handbook-generator
-
+### testing-handbook-generator
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md`
-- **Tags**: `generator`, `handbook`, `testing`, `testing-handbook`, `testing-handbook-generator`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md`
 
-## wycheproof
-
+### wycheproof
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof/SKILL.md`
-- **Tags**: `handbook`, `testing`, `testing-handbook`, `wycheproof`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof/SKILL.md`

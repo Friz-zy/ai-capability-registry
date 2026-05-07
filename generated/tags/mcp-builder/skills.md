@@ -1,12 +1,12 @@
-# Tag: mcp-builder
+# mcp-builder
 
-Skills with tag `mcp-builder`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## mcp-builder
+## Skills
 
+### mcp-builder
 Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).
 
-- **Source**: `anthropic-skills` (trusted)
-- **Path**: `external/anthropic-skills/skills/mcp-builder`
-- **Skill file**: `external/anthropic-skills/skills/mcp-builder/SKILL.md`
-- **Tags**: `apis`, `builder`, `building`, `context`, `creating`, `designed`, `enable`, `fastmcp`, `high`, `high-quality`, `integrate`, `interact`, `llms`, `mcp`, `mcp-builder`, `model`, `node`, `protocol`, `python`, `quality`, `sdk`, `servers`, `services`, `typescript`, `well`, `well-designed`, `whether`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-skills/skills/mcp-builder/SKILL.md`

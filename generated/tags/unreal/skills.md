@@ -1,12 +1,12 @@
-# Tag: unreal
+# unreal
 
-Skills with tag `unreal`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-meeting-sdk-unreal
+## Skills
 
+### zoom-meeting-sdk-unreal
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal/SKILL.md`
-- **Tags**: `meeting`, `meeting-sdk`, `partner`, `sdk`, `unreal`, `zoom`, `zoom-meeting-sdk-unreal`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal/SKILL.md`

@@ -1,29 +1,15 @@
-# Role: Legal Operations Assistant
+# Legal Operations Assistant
 
-Profile: `legal-ops`
+## How to find skills
+1. Find relevant tag below
+2. Read tag catalog
+3. Load skill file
 
-Delegates to tag catalogs for categories: `legal`
+## Tags
 
-## contract
-
-[Tag catalog: generated/tags/contract/skills.md](generated/tags/contract/skills.md) (9 skills)
-
-## legal
-
-[Tag catalog: generated/tags/legal/skills.md](generated/tags/legal/skills.md) (10 skills)
-
-## legal-risk-assessment
-
-[Tag catalog: generated/tags/legal-risk-assessment/skills.md](generated/tags/legal-risk-assessment/skills.md) (1 skills)
-
-## nda
-
-[Tag catalog: generated/tags/nda/skills.md](generated/tags/nda/skills.md) (2 skills)
-
-## review-contract
-
-[Tag catalog: generated/tags/review-contract/skills.md](generated/tags/review-contract/skills.md) (1 skills)
-
-## triage-nda
-
-[Tag catalog: generated/tags/triage-nda/skills.md](generated/tags/triage-nda/skills.md) (1 skills)
+- **contract**: 9 skills — `generated/tags/contract/skills.md`
+- **legal**: 10 skills — `generated/tags/legal/skills.md`
+- **legal-risk-assessment**: 1 skills — `generated/tags/legal-risk-assessment/skills.md`
+- **nda**: 2 skills — `generated/tags/nda/skills.md`
+- **review-contract**: 1 skills — `generated/tags/review-contract/skills.md`
+- **triage-nda**: 1 skills — `generated/tags/triage-nda/skills.md`

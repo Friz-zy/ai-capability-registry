@@ -1,12 +1,12 @@
-# Tag: libfuzzer
+# libfuzzer
 
-Skills with tag `libfuzzer`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## libfuzzer
+## Skills
 
+### libfuzzer
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md`
-- **Tags**: `handbook`, `libfuzzer`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md`

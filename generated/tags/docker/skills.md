@@ -1,12 +1,12 @@
-# Tag: docker
+# docker
 
-Skills with tag `docker`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## video-sdk/linux
+## Skills
 
+### video-sdk/linux
 Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux/SKILL.md`
-- **Tags**: `audio`, `bots`, `capture`, `docker`, `gtk`, `headless`, `injection`, `integration`, `linux`, `partner`, `raw`, `sdk`, `support`, `video`, `video-sdk`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux/SKILL.md`

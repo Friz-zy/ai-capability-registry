@@ -1,12 +1,12 @@
-# Tag: differential-review
+# differential-review
 
-Skills with tag `differential-review`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## differential-review
+## Skills
 
+### differential-review
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/differential-review/skills/differential-review`
-- **Skill file**: `external/trailofbits-skills/plugins/differential-review/skills/differential-review/SKILL.md`
-- **Tags**: `differential`, `differential-review`, `review`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/differential-review/skills/differential-review/SKILL.md`

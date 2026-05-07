@@ -1,21 +1,17 @@
-# Tag: think
+# think
 
-Skills with tag `think`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## design-critique
+## Skills
 
+### design-critique
 Get structured design feedback on usability, hierarchy, and consistency. Trigger with "review this design", "critique this mockup", "what do you think of this screen?", or when sharing a Figma link or screenshot for feedback at any stage from exploration to final polish.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/design/skills/design-critique`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/design/skills/design-critique/SKILL.md`
-- **Tags**: `consistency`, `critique`, `design`, `design-critique`, `exploration`, `feedback`, `figma`, `final`, `hierarchy`, `link`, `mockup`, `polish`, `review`, `screen`, `screenshot`, `sharing`, `stage`, `structured`, `think`, `trigger`, `usability`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/design/skills/design-critique/SKILL.md`
 
-## product-brainstorming
-
+### product-brainstorming
 Brainstorm product ideas, explore problem spaces, and challenge assumptions as a thinking partner. Use when exploring a new opportunity, generating solutions to a product problem, stress-testing an idea, or when a PM needs to think out loud with a sharp sparring partner before converging on a direction.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/product-management/skills/product-brainstorming`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/product-management/skills/product-brainstorming/SKILL.md`
-- **Tags**: `assumptions`, `brainstorm`, `brainstorming`, `challenge`, `converging`, `direction`, `explore`, `exploring`, `generating`, `idea`, `ideas`, `loud`, `management`, `needs`, `opportunity`, `out`, `partner`, `problem`, `product`, `product-brainstorming`, `product-management`, `sharp`, `solutions`, `spaces`, `sparring`, `stress`, `stress-testing`, `testing`, `think`, `thinking`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/product-management/skills/product-brainstorming/SKILL.md`

@@ -1,21 +1,17 @@
-# Tag: adjustments
+# adjustments
 
-Skills with tag `adjustments`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## financial-statements
+## Skills
 
+### financial-statements
 Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, closing the books and need to flag material variances, comparing actuals to budget, building a financial summary for leadership review, or looking up GAAP presentation requirements and period-end adjustments.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/finance/skills/financial-statements`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/finance/skills/financial-statements/SKILL.md`
-- **Tags**: `actuals`, `adjustments`, `analysis`, `balance`, `books`, `budget`, `building`, `cash`, `closing`, `comparing`, `comparison`, `end`, `finance`, `financial`, `financial-statements`, `flag`, `flow`, `gaap`, `income`, `leadership`, `looking`, `material`, `monthly`, `over`, `period`, `period-end`, `period-over-period`, `preparing`, `presentation`, `quarterly`, `requirements`, `review`, `sheet`, `statement`, `statements`, `summary`, `variance`, `variances`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/finance/skills/financial-statements/SKILL.md`
 
-## journal-entry
-
+### journal-entry
 Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/finance/skills/journal-entry`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/finance/skills/journal-entry/SKILL.md`
-- **Tags**: `accruals`, `adjustments`, `amortization`, `audit`, `booking`, `credits`, `debits`, `deferred`, `depreciation`, `detail`, `documenting`, `end`, `entries`, `entry`, `finance`, `journal`, `journal-entry`, `month`, `month-end`, `payroll`, `posting`, `prepaid`, `prepare`, `proper`, `recognition`, `recording`, `revenue`, `review`, `supporting`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/finance/skills/journal-entry/SKILL.md`

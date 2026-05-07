@@ -1,12 +1,12 @@
-# Tag: fuzzing-dictionary
+# fuzzing-dictionary
 
-Skills with tag `fuzzing-dictionary`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## fuzzing-dictionary
+## Skills
 
+### fuzzing-dictionary
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md`
-- **Tags**: `dictionary`, `fuzzing`, `fuzzing-dictionary`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md`

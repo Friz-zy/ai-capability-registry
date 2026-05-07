@@ -1,12 +1,12 @@
-# Tag: line-by-line
+# line-by-line
 
-Skills with tag `line-by-line`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## audit-context-building
+## Skills
 
+### audit-context-building
 Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/audit-context-building/skills/audit-context-building`
-- **Skill file**: `external/trailofbits-skills/plugins/audit-context-building/skills/audit-context-building/SKILL.md`
-- **Tags**: `analysis`, `architectural`, `audit`, `audit-context-building`, `bug`, `build`, `building`, `code`, `context`, `deep`, `enables`, `finding`, `granular`, `line`, `line-by-line`, `ultra`, `ultra-granular`, `vulnerability`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/audit-context-building/skills/audit-context-building/SKILL.md`

@@ -4,24 +4,14 @@ Generates skill maps organized by tags and roles.
 
 Output structure:
   generated/
-  ├── skills.md              # Root registry: all roles
-  ├── agents.md.template    # Bootstrap template for agents
+  ├── skills.md              # Root registry with navigation instructions
+  ├── agents.md.template    # Minimal bootstrap: just path to skills.md
   ├── roles/
   │   ├── <role-id>/
-  │   │   └── skills.md     # Delegates to tag catalogs
-  │   └── ...
+  │   │   └── skills.md     # Role catalog with tag delegation
   └── tags/
       ├── <tag>/
-      │   └── skills.md     # List of skills with full paths
-      └── ...
-
-Logic:
-  1. Load registry (skills.yaml) - only trusted + reviewed sources
-  2. Scan external/ repos for SKILL.md files
-  3. Extract tags from skill names, descriptions, paths
-  4. Group skills by tags
-  5. Group tags by roles (via profiles' include.categories)
-  6. Generate markdown catalogs
+      │   └── skills.md     # Tag catalog with skill listings
 """
 
 from __future__ import annotations
@@ -56,8 +46,8 @@ def rel(path: Path) -> str:
     return path.relative_to(ROOT).as_posix()
 
 
-def slug(value: str) -> str:
-    return re.sub(r"[^a-zA-Z0-9]+", "-", value.lower()).strip("-")
+def abs_path(path: Path) -> str:
+    return str(path.absolute())
 
 
 def should_skip(path: Path) -> bool:
@@ -140,6 +130,8 @@ class SkillRecord:
         self.tags = tags
         self.full_path = rel(skill_dir)
         self.skill_file_rel = rel(skill_file)
+        self.full_abs_path = abs_path(skill_dir)
+        self.skill_file_abs = abs_path(skill_file)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -177,7 +169,6 @@ def discover_skills(
         if not root.exists():
             continue
 
-        # Scan for SKILL.md files
         for skill_file in sorted(root.rglob("SKILL.md")):
             if should_skip(skill_file.relative_to(root)):
                 continue
@@ -187,7 +178,6 @@ def discover_skills(
             name = frontmatter.get("name") or skill_dir.name
             description = frontmatter.get("description") or ""
 
-            # Extract relative path for tag extraction
             rel_path = skill_dir.relative_to(root).as_posix()
             tags = extract_tags(rel_path, name, description)
 
@@ -212,24 +202,27 @@ def discover_skills(
 
 
 def generate_tag_skills_md(tag: str, skills: list[SkillRecord]) -> str:
-    """Generate skills.md for a single tag."""
+    """Generate skills.md for a single tag - minimal, actionable."""
+    if not skills:
+        return f"# Tag: {tag}\n\nNo skills found.\n"
+    
     lines = [
-        f"# Tag: {tag}",
+        f"# {tag}",
         "",
-        f"Skills with tag `{tag}`:",
+        "## Navigation",
+        "Read skill files below to understand capabilities.",
+        "Load skill file when task matches.",
+        "",
+        "## Skills",
         "",
     ]
 
     for skill in sorted(skills, key=lambda s: s.name):
         lines.extend([
-            f"## {skill.name}",
+            f"### {skill.name}",
+            f"{skill.description or 'No description.'}",
             "",
-            f"{skill.description or '_No description_'}",
-            "",
-            f"- **Source**: `{skill.source_id}` ({skill.source_trust})",
-            f"- **Path**: `{skill.full_path}`",
-            f"- **Skill file**: `{skill.skill_file_rel}`",
-            f"- **Tags**: {', '.join(f'`{t}`' for t in sorted(skill.tags))}",
+            f"File: `{skill.skill_file_abs}`",
             "",
         ])
 
@@ -241,35 +234,31 @@ def generate_role_skills_md(
     tag_categories: dict[str, list[str]],
     skills_by_tag: dict[str, list[SkillRecord]],
 ) -> str:
-    """Generate skills.md for a role, delegating to tag catalogs."""
+    """Generate skills.md for a role - minimal, delegates to tags."""
     profile_id = profile["id"]
     role_title = profile.get("role", {}).get("title") or profile["name"]
-    
-    # Get categories from profile's include section
     categories = profile.get("include", {}).get("categories", [])
-    
-    # Get all tags for these categories
     category_tags = get_tags_for_categories(categories, tag_categories)
     
+    # Get tags that have skills
+    tags_with_skills = {tag for tag in category_tags if skills_by_tag.get(tag)}
+    
     lines = [
-        f"# Role: {role_title}",
+        f"# {role_title}",
         "",
-        f"Profile: `{profile_id}`",
+        "## How to find skills",
+        "1. Find relevant tag below",
+        "2. Read tag catalog",
+        "3. Load skill file",
         "",
-        f"Delegates to tag catalogs for categories: {', '.join(f'`{c}`' for c in sorted(categories))}",
+        "## Tags",
         "",
     ]
 
-    for tag in sorted(category_tags):
-        skills = skills_by_tag.get(tag, [])
-        count = len(skills)
+    for tag in sorted(tags_with_skills):
+        count = len(skills_by_tag.get(tag, []))
         tag_path = f"generated/tags/{tag}/skills.md"
-        lines.extend([
-            f"## {tag}",
-            "",
-            f"[Tag catalog: {tag_path}]({tag_path}) ({count} skills)",
-            "",
-        ])
+        lines.append(f"- **{tag}**: {count} skills — `{tag_path}`")
 
     return "\n".join(lines)
 
@@ -280,20 +269,18 @@ def generate_root_skills_md(
     skills_by_tag: dict[str, list[SkillRecord]],
     tag_to_category: dict[str, str],
 ) -> str:
-    """Generate root skills.md with all roles."""
+    """Generate root skills.md with navigation instructions."""
     lines = [
-        "# AI Capability Registry - Skills Index",
-        "",
-        "This is a catalog of available AI capabilities organized by roles and tags.",
-        "Agents should read this file first to determine which skill catalogs to load.",
+        "# AI Capability Registry",
         "",
         "## Navigation",
         "",
         "```",
-        "1. Select your role from the list below",
-        "2. Read the role's skills.md to see which tag catalogs are relevant",
-        "3. Read the tag catalog to find specific skills",
-        "4. Read the skill file directly when needed",
+        "1. Select role below based on your task",
+        "2. Open role's skills.md",
+        "3. Find relevant tag",
+        "4. Open tag catalog",
+        "5. Load skill file",
         "```",
         "",
         "## Roles",
@@ -304,101 +291,38 @@ def generate_root_skills_md(
         profile_id = profile["id"]
         role_title = profile.get("role", {}).get("title") or profile["name"]
         role_path = f"generated/roles/{profile_id}/skills.md"
-        desc = profile.get("description", "")
-        lines.extend([
-            f"### {role_title}",
-            "",
-            f"{desc}",
-            "",
-            f"[Role catalog: {role_path}]({role_path})",
-            "",
-        ])
+        lines.append(f"- **{role_title}**: `{role_path}`")
 
     lines.extend([
-        "## Tag Summary",
-        "",
-        f"Total unique tags: {len(skills_by_tag)}",
-        "",
-    ])
-
-    # Group skills by category for summary
-    by_category: dict[str, list[tuple[str, int]]] = defaultdict(list)
-    for tag, count in sorted((t, len(s)) for t, s in skills_by_tag.items()):
-        cat = tag_to_category.get(tag, "uncategorized")
-        by_category[cat].append((tag, count))
-
-    for category in sorted(by_category.keys()):
-        lines.append(f"### {category}")
-        for tag, count in sorted(by_category[category]):
-            lines.append(f"- `{tag}`: {count} skills")
-        lines.append("")
-
-    return "\n".join(lines)
-
-
-def generate_agents_template(
-    root_skills_path: str,
-    profiles: list[dict[str, Any]],
-) -> str:
-    """Generate agents.md.template for agent bootstrap."""
-    lines = [
-        "# Agent Bootstrap Template",
-        "",
-        "This file provides routing instructions for AI agents.",
-        "Agents should read `generated/skills.md` first to understand available capabilities.",
-        "",
-        "## Capability Registry Location",
-        "",
-        f"`{root_skills_path}`",
-        "",
-        "## How to Use",
-        "",
-        "1. **Determine your role** - Select the most relevant role from `generated/skills.md`",
-        "2. **Read role catalog** - Navigate to `generated/roles/<role-id>/skills.md`",
-        "3. **Select relevant tags** - Each role delegates to tag catalogs",
-        "4. **Load specific skills** - Read tag catalogs and directly access skill files",
         "",
         "## Policy",
         "",
-        "- Only use skills from **trusted** or **reviewed** sources",
-        "- Prefer Docker or hosted MCP servers when available",
+        "- Use only **trusted** or **reviewed** sources",
+        "- Prefer Docker/hosted MCP servers",
         "- Never execute untrusted local scripts",
-        "- Always verify skill file integrity before execution",
         "",
-        "## Available Roles",
-        "",
-    ]
-
-    for profile in profiles:
-        profile_id = profile["id"]
-        role_title = profile.get("role", {}).get("title") or profile["name"]
-        role_path = f"generated/roles/{profile_id}/skills.md"
-        lines.append(f"- **{role_title}**: [{role_path}]({role_path})")
-
-    lines.extend([
-        "",
-        "## Skill Resolution Example",
-        "",
-        "```",
-        "Task: Review Terraform configuration for AWS",
-        "",
-        "1. Read generated/skills.md",
-        "2. Find relevant role (e.g., devops-platform-engineer)",
-        "3. Read generated/roles/devops-platform-engineer/skills.md",
-        "4. Navigate to generated/tags/terraform/skills.md",
-        "5. Find specific skill (e.g., terraform/security.md)",
-        "6. Read external/anthropic-skills/terraform/security.md",
-        "```",
     ])
 
     return "\n".join(lines)
 
 
-def cleanup_generated() -> None:
-    """Clean generated directory, keeping structure but removing old content."""
-    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+def generate_agents_template(root_skills_path: str) -> str:
+    """Generate minimal agents.md.template - just path to skills.md."""
+    return f"""# Agent Bootstrap
 
-    # Remove everything except .gitkeep if it exists
+Read this file to find available capabilities:
+
+```
+{root_skills_path}
+```
+
+Follow the navigation instructions in that file.
+"""
+
+
+def cleanup_generated() -> None:
+    """Clean generated directory."""
+    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     for item in GENERATED_DIR.iterdir():
         if item.name == ".gitkeep":
             continue
@@ -410,15 +334,11 @@ def cleanup_generated() -> None:
 
 def main() -> int:
     registry = load_all()
-
-    # Clean and prepare generated directory
     cleanup_generated()
 
-    # Build structures
     tag_to_category = build_tag_to_categories(registry["tag_categories"])
     tag_categories = registry["tag_categories"]
 
-    # Discover skills from trusted/reviewed sources
     skills, skills_by_tag = discover_skills(registry)
 
     print(f"Discovered {len(skills)} skills across {len(skills_by_tag)} tags")
@@ -447,18 +367,16 @@ def main() -> int:
     )
     write_text(GENERATED_DIR / "skills.md", root_skills_content)
 
-    # Generate agents.md.template
-    agents_content = generate_agents_template(
-        "generated/skills.md",
-        registry["profiles"],
-    )
+    # Generate agents.md.template with absolute path
+    skills_abs_path = abs_path(GENERATED_DIR / "skills.md")
+    agents_content = generate_agents_template(skills_abs_path)
     write_text(GENERATED_DIR / "agents.md.template", agents_content)
 
     print("Generated skill maps:")
     print(f"  - generated/skills.md (root index)")
-    print(f"  - generated/agents.md.template (agent bootstrap)")
-    print(f"  - {len(registry['profiles'])} role catalogs in generated/roles/")
-    print(f"  - {len(skills_by_tag)} tag catalogs in generated/tags/")
+    print(f"  - generated/agents.md.template (minimal bootstrap)")
+    print(f"  - {len(registry['profiles'])} role catalogs")
+    print(f"  - {len(skills_by_tag)} tag catalogs")
 
     return 0
 

@@ -1,12 +1,12 @@
-# Tag: design-handoff
+# design-handoff
 
-Skills with tag `design-handoff`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## design-handoff
+## Skills
 
+### design-handoff
 Generate developer handoff specs from a design. Use when a design is ready for engineering and needs a spec sheet covering layout, design tokens, component props, interaction states, responsive breakpoints, edge cases, and animation details.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/design/skills/design-handoff`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/design/skills/design-handoff/SKILL.md`
-- **Tags**: `animation`, `breakpoints`, `cases`, `component`, `covering`, `design`, `design-handoff`, `developer`, `edge`, `engineering`, `handoff`, `interaction`, `layout`, `needs`, `props`, `ready`, `responsive`, `sheet`, `spec`, `specs`, `states`, `tokens`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/design/skills/design-handoff/SKILL.md`

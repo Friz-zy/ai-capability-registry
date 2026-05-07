@@ -1,12 +1,12 @@
-# Tag: discover-brand
+# discover-brand
 
-Skills with tag `discover-brand`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## discover-brand
+## Skills
 
+### discover-brand
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand/SKILL.md`
-- **Tags**: `brand`, `brand-voice`, `discover`, `discover-brand`, `partner`, `voice`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand/SKILL.md`

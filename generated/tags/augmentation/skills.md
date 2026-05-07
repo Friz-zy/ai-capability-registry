@@ -1,12 +1,12 @@
-# Tag: augmentation
+# augmentation
 
-Skills with tag `augmentation`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## audit-augmentation
+## Skills
 
+### audit-augmentation
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/trailmark/skills/audit-augmentation`
-- **Skill file**: `external/trailofbits-skills/plugins/trailmark/skills/audit-augmentation/SKILL.md`
-- **Tags**: `audit`, `audit-augmentation`, `augmentation`, `trailmark`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/trailmark/skills/audit-augmentation/SKILL.md`

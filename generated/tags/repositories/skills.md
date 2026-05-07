@@ -1,30 +1,22 @@
-# Tag: repositories
+# repositories
 
-Skills with tag `repositories`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## claude-md-improver
+## Skills
 
+### claude-md-improver
 Audit and improve CLAUDE.md files in repositories. Use when user asks to check, audit, update, improve, or fix CLAUDE.md files. Scans for all CLAUDE.md files, evaluates quality against templates, outputs quality report, then makes targeted updates. Also use when the user mentions "CLAUDE.md maintenance" or "project memory optimization".
 
-- **Source**: `anthropic-claude-plugins-official` (trusted)
-- **Path**: `external/anthropic-claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver`
-- **Skill file**: `external/anthropic-claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/SKILL.md`
-- **Tags**: `against`, `asks`, `audit`, `evaluates`, `fix`, `improve`, `improver`, `maintenance`, `makes`, `management`, `md-improver`, `md-management`, `memory`, `mentions`, `optimization`, `outputs`, `project`, `quality`, `report`, `repositories`, `scans`, `targeted`, `then`, `updates`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/SKILL.md`
 
-## openai-security-ownership-map
-
+### openai-security-ownership-map
 Analyze git repositories to build a security ownership topology (people-to-file), compute
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map/SKILL.md`
-- **Tags**: `analyze`, `build`, `compute`, `git`, `map`, `ownership`, `people`, `people-to`, `repositories`, `security`, `security-ownership-map`, `topology`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map/SKILL.md`
 
-## security-ownership-map
-
+### security-ownership-map
 Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.curated/security-ownership-map`
-- **Skill file**: `external/openai-skills/skills/.curated/security-ownership-map/SKILL.md`
-- **Tags**: `analysis`, `analyze`, `build`, `bus`, `bus-factor`, `checks`, `clusters`, `code`, `codeowners`, `compute`, `csv`, `curated`, `databases`, `explicitly`, `export`, `factor`, `general`, `git`, `graph`, `grounded`, `history`, `hotspots`, `lists`, `maintainer`, `maintainers`, `map`, `non`, `non-security`, `oriented`, `orphaned`, `ownership`, `people`, `people-to`, `questions`, `reality`, `repositories`, `risk`, `security`, `security-oriented`, `security-ownership-map`, `sensitive`, `sensitive-code`, `topology`, `trigger`, `visualization`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/security-ownership-map/SKILL.md`

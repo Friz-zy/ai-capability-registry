@@ -1,30 +1,22 @@
-# Tag: format
+# format
 
-Skills with tag `format`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## dwarf-expert
+## Skills
 
+### dwarf-expert
 Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5). Triggers when understanding DWARF information, interacting with DWARF files, answering DWARF-related questions, or working with code that parses DWARF data.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/dwarf-expert/skills/dwarf-expert`
-- **Skill file**: `external/trailofbits-skills/plugins/dwarf-expert/skills/dwarf-expert/SKILL.md`
-- **Tags**: `analyzing`, `answering`, `code`, `data`, `debug`, `dwarf`, `dwarf-expert`, `expert`, `expertise`, `format`, `information`, `interacting`, `parses`, `provides`, `questions`, `standard`, `triggers`, `understanding`, `v3-v5`, `working`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/dwarf-expert/skills/dwarf-expert/SKILL.md`
 
-## example-skill
-
+### example-skill
 This skill should be used when the user asks to "demonstrate skills", "show skill format", "create a skill template", or discusses skill development patterns. Provides a reference template for creating Claude Code plugin skills.
 
-- **Source**: `anthropic-claude-plugins-official` (trusted)
-- **Path**: `external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-skill`
-- **Skill file**: `external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-skill/SKILL.md`
-- **Tags**: `asks`, `code`, `create`, `creating`, `demonstrate`, `development`, `discusses`, `format`, `provides`, `show`, `used`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-skill/SKILL.md`
 
-## instrument-data-to-allotrope
-
+### instrument-data-to-allotrope
 Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) JSON format or flattened 2D CSV. Use this skill when scientists need to standardize instrument data for LIMS systems, data lakes, or downstream analysis. Supports auto-detection of instrument types. Outputs include full ASM JSON, flattened CSV for easy import, and exportable Python code for data engineers. Common triggers include converting instrument files, standardizing lab data, preparing data for upload to LIMS/ELN systems, or generating parser code for production pipelines.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/bio-research/skills/instrument-data-to-allotrope`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/bio-research/skills/instrument-data-to-allotrope/SKILL.md`
-- **Tags**: `allotrope`, `analysis`, `asm`, `auto`, `auto-detection`, `bio`, `bio-research`, `code`, `convert`, `converting`, `csv`, `data`, `detection`, `downstream`, `easy`, `eln`, `engineers`, `excel`, `exportable`, `flattened`, `format`, `full`, `generating`, `import`, `include`, `instrument`, `instrument-data-to-allotrope`, `lab`, `laboratory`, `lakes`, `lims`, `model`, `outputs`, `parser`, `pdf`, `pipelines`, `preparing`, `production`, `python`, `research`, `scientists`, `simple`, `standardize`, `standardizing`, `supports`, `systems`, `triggers`, `txt`, `types`, `upload`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/bio-research/skills/instrument-data-to-allotrope/SKILL.md`

@@ -1,30 +1,22 @@
-# Tag: brand-voice
+# brand-voice
 
-Skills with tag `brand-voice`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## brand-voice-enforcement
+## Skills
 
+### brand-voice-enforcement
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement/SKILL.md`
-- **Tags**: `brand`, `brand-voice`, `brand-voice-enforcement`, `enforcement`, `partner`, `voice`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement/SKILL.md`
 
-## discover-brand
-
+### discover-brand
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand/SKILL.md`
-- **Tags**: `brand`, `brand-voice`, `discover`, `discover-brand`, `partner`, `voice`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand/SKILL.md`
 
-## guideline-generation
-
+### guideline-generation
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation/SKILL.md`
-- **Tags**: `brand`, `brand-voice`, `generation`, `guideline`, `guideline-generation`, `partner`, `voice`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: generator
+# generator
 
-Skills with tag `generator`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## testing-handbook-generator
+## Skills
 
+### testing-handbook-generator
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md`
-- **Tags**: `generator`, `handbook`, `testing`, `testing-handbook`, `testing-handbook-generator`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md`

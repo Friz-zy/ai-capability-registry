@@ -1,12 +1,12 @@
-# Tag: wanting
+# wanting
 
-Skills with tag `wanting`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## digest
+## Skills
 
+### digest
 Generate a daily or weekly digest of activity across all connected sources. Use when catching up after time away, starting the day and wanting a summary of mentions and action items, or reviewing a week's decisions and document updates grouped by project.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/enterprise-search/skills/digest`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/enterprise-search/skills/digest/SKILL.md`
-- **Tags**: `activity`, `away`, `catching`, `connected`, `daily`, `day`, `decisions`, `digest`, `document`, `enterprise`, `enterprise-search`, `grouped`, `items`, `mentions`, `project`, `reviewing`, `search`, `sources`, `starting`, `summary`, `time`, `updates`, `wanting`, `week`, `weekly`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/enterprise-search/skills/digest/SKILL.md`

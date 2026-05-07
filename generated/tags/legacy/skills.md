@@ -1,12 +1,12 @@
-# Tag: legacy
+# legacy
 
-Skills with tag `legacy`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## wooyun-legacy
+## Skills
 
+### wooyun-legacy
 >-
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/wooyun-legacy/skills/wooyun-legacy`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/wooyun-legacy/skills/wooyun-legacy/SKILL.md`
-- **Tags**: `legacy`, `wooyun`, `wooyun-legacy`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/wooyun-legacy/skills/wooyun-legacy/SKILL.md`

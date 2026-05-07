@@ -1,12 +1,12 @@
-# Tag: pre-reads
+# pre-reads
 
-Skills with tag `pre-reads`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## notion-meeting-intelligence
+## Skills
 
+### notion-meeting-intelligence
 Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.curated/notion-meeting-intelligence`
-- **Skill file**: `external/openai-skills/skills/.curated/notion-meeting-intelligence/SKILL.md`
-- **Tags**: `agendas`, `attendees`, `codex`, `context`, `curated`, `drafting`, `gathering`, `intelligence`, `materials`, `meeting`, `notion`, `notion-meeting-intelligence`, `pre`, `pre-reads`, `prepare`, `reads`, `research`, `tailoring`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/notion-meeting-intelligence/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: connections
+# connections
 
-Skills with tag `connections`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## setup-zoom-websockets
+## Skills
 
+### setup-zoom-websockets
 Reference skill for Zoom WebSockets. Use after routing to a low-latency event workflow when persistent connections, faster event delivery, or security constraints make WebSockets preferable to webhooks.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/websockets`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/websockets/SKILL.md`
-- **Tags**: `connections`, `constraints`, `delivery`, `event`, `faster`, `latency`, `low`, `low-latency`, `make`, `partner`, `persistent`, `preferable`, `routing`, `security`, `webhooks`, `websockets`, `zoom`, `zoom-websockets`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/websockets/SKILL.md`

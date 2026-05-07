@@ -1,12 +1,12 @@
-# Tag: security-awareness
+# security-awareness
 
-Skills with tag `security-awareness`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## security-awareness
+## Skills
 
+### security-awareness
 >
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/security-awareness/skills/security-awareness`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/security-awareness/skills/security-awareness/SKILL.md`
-- **Tags**: `awareness`, `security`, `security-awareness`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/security-awareness/skills/security-awareness/SKILL.md`

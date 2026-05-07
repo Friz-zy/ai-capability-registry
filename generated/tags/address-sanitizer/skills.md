@@ -1,12 +1,12 @@
-# Tag: address-sanitizer
+# address-sanitizer
 
-Skills with tag `address-sanitizer`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## address-sanitizer
+## Skills
 
+### address-sanitizer
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md`
-- **Tags**: `address`, `address-sanitizer`, `handbook`, `sanitizer`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md`

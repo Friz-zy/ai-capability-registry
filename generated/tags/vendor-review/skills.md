@@ -1,12 +1,12 @@
-# Tag: vendor-review
+# vendor-review
 
-Skills with tag `vendor-review`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## vendor-review
+## Skills
 
+### vendor-review
 Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, deciding whether to renew or replace a contract, comparing two vendors side-by-side, or building a TCO breakdown and negotiation points before procurement sign-off.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/operations/skills/vendor-review`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/operations/skills/vendor-review/SKILL.md`
-- **Tags**: `analysis`, `assessment`, `breakdown`, `building`, `comparing`, `contract`, `cost`, `deciding`, `evaluate`, `negotiation`, `off`, `operations`, `points`, `procurement`, `proposal`, `recommendation`, `renew`, `replace`, `review`, `reviewing`, `risk`, `side`, `side-by-side`, `sign`, `sign-off`, `tco`, `two`, `vendor`, `vendor-review`, `vendors`, `whether`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/operations/skills/vendor-review/SKILL.md`

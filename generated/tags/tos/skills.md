@@ -1,12 +1,12 @@
-# Tag: tos
+# tos
 
-Skills with tag `tos`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## notion-knowledge-capture
+## Skills
 
+### notion-knowledge-capture
 Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.curated/notion-knowledge-capture`
-- **Skill file**: `external/openai-skills/skills/.curated/notion-knowledge-capture/SKILL.md`
-- **Tags**: `capture`, `chats`, `conversations`, `curated`, `decisions`, `entries`, `faqs`, `knowledge`, `linking`, `notes`, `notion`, `notion-knowledge-capture`, `pages`, `proper`, `structured`, `tos`, `turning`, `wiki`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/notion-knowledge-capture/SKILL.md`

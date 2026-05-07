@@ -1,12 +1,12 @@
-# Tag: libafl
+# libafl
 
-Skills with tag `libafl`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## libafl
+## Skills
 
+### libafl
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl/SKILL.md`
-- **Tags**: `handbook`, `libafl`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl/SKILL.md`

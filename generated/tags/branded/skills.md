@@ -1,12 +1,12 @@
-# Tag: branded
+# branded
 
-Skills with tag `branded`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## create-an-asset
+## Skills
 
+### create-an-asset
 Generate tailored sales assets (landing pages, decks, one-pagers, workflow demos) from your deal context. Describe your prospect, audience, and goal — get a polished, branded asset ready to share with customers.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/sales/skills/create-an-asset`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/sales/skills/create-an-asset/SKILL.md`
-- **Tags**: `asset`, `assets`, `audience`, `branded`, `context`, `create`, `create-an-asset`, `customers`, `deal`, `decks`, `demos`, `describe`, `goal`, `landing`, `one`, `one-pagers`, `pagers`, `pages`, `polished`, `prospect`, `ready`, `sales`, `share`, `tailored`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/sales/skills/create-an-asset/SKILL.md`

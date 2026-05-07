@@ -1,12 +1,12 @@
-# Tag: zoom-meeting-sdk-windows
+# zoom-meeting-sdk-windows
 
-Skills with tag `zoom-meeting-sdk-windows`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-meeting-sdk-windows
+## Skills
 
+### zoom-meeting-sdk-windows
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows/SKILL.md`
-- **Tags**: `meeting`, `meeting-sdk`, `partner`, `sdk`, `windows`, `zoom`, `zoom-meeting-sdk-windows`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows/SKILL.md`

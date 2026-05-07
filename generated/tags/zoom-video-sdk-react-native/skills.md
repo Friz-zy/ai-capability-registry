@@ -1,12 +1,12 @@
-# Tag: zoom-video-sdk-react-native
+# zoom-video-sdk-react-native
 
-Skills with tag `zoom-video-sdk-react-native`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-video-sdk-react-native
+## Skills
 
+### zoom-video-sdk-react-native
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native/SKILL.md`
-- **Tags**: `native`, `partner`, `react`, `react-native`, `sdk`, `video`, `video-sdk`, `zoom`, `zoom-video-sdk-react-native`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native/SKILL.md`

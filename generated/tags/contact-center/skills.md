@@ -1,48 +1,32 @@
-# Tag: contact-center
+# contact-center
 
-Skills with tag `contact-center`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## build-zoom-contact-center-app
+## Skills
 
+### build-zoom-contact-center-app
 Reference skill for Zoom Contact Center. Use after routing to a contact-center workflow when implementing app, web, or native integrations; engagement context and state handling; campaigns; callbacks; or version-drift troubleshooting.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/SKILL.md`
-- **Tags**: `app`, `build`, `build-zoom-contact-center-app`, `callbacks`, `campaigns`, `center`, `contact`, `contact-center`, `context`, `drift`, `engagement`, `handling`, `implementing`, `integrations`, `native`, `partner`, `routing`, `state`, `troubleshooting`, `version`, `version-drift`, `web`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/SKILL.md`
 
-## contact-center/android
-
+### contact-center/android
 Zoom Contact Center SDK for Android. Use for native Android chat/video/ZVA/scheduled callback integrations, campaign mode, service lifecycle, and rejoin handling.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android/SKILL.md`
-- **Tags**: `android`, `callback`, `campaign`, `center`, `chat`, `contact`, `contact-center`, `handling`, `integrations`, `lifecycle`, `mode`, `native`, `partner`, `rejoin`, `scheduled`, `sdk`, `service`, `video`, `zoom`, `zva`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android/SKILL.md`
 
-## contact-center/ios
-
+### contact-center/ios
 Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrations, app lifecycle bridging, rejoin flow, and callback handling.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios/SKILL.md`
-- **Tags**: `app`, `bridging`, `callback`, `center`, `chat`, `contact`, `contact-center`, `flow`, `handling`, `integrations`, `ios`, `lifecycle`, `native`, `partner`, `rejoin`, `scheduled`, `sdk`, `video`, `zoom`, `zva`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios/SKILL.md`
 
-## contact-center/web
-
+### contact-center/web
 Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handling, app-context integrations, and Smart Embed postMessage workflows.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web/SKILL.md`
-- **Tags**: `app`, `app-context`, `campaign`, `center`, `chat`, `contact`, `contact-center`, `context`, `embed`, `embeds`, `engagement`, `event`, `handling`, `integrations`, `partner`, `postmessage`, `sdk`, `smart`, `video`, `web`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web/SKILL.md`
 
-## zoom-rtms
-
+### zoom-rtms
 Reference skill for Zoom RTMS. Use after routing to a live-media workflow when processing real-time audio, video, chat, transcripts, screen share, or contact-center voice streams.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rtms`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rtms/SKILL.md`
-- **Tags**: `audio`, `center`, `chat`, `contact`, `contact-center`, `live`, `live-media`, `media`, `partner`, `processing`, `real`, `real-time`, `routing`, `rtms`, `screen`, `share`, `streams`, `time`, `transcripts`, `video`, `voice`, `zoom`, `zoom-rtms`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rtms/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: humanizer
+# humanizer
 
-Skills with tag `humanizer`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## humanizer
+## Skills
 
+### humanizer
 |
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/humanizer/skills/humanizer`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/humanizer/skills/humanizer/SKILL.md`
-- **Tags**: `humanizer`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/humanizer/skills/humanizer/SKILL.md`

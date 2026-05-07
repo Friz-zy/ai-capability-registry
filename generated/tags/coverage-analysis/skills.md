@@ -1,12 +1,12 @@
-# Tag: coverage-analysis
+# coverage-analysis
 
-Skills with tag `coverage-analysis`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## coverage-analysis
+## Skills
 
+### coverage-analysis
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md`
-- **Tags**: `analysis`, `coverage`, `coverage-analysis`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md`

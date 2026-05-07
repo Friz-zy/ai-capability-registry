@@ -1,89 +1,30 @@
-# Role: Operations Manager
+# Operations Manager
 
-Profile: `operations-manager`
+## How to find skills
+1. Find relevant tag below
+2. Read tag catalog
+3. Load skill file
 
-Delegates to tag catalogs for categories: `customer_success`, `operations`, `research`
+## Tags
 
-## account-research
-
-[Tag catalog: generated/tags/account-research/skills.md](generated/tags/account-research/skills.md) (2 skills)
-
-## analysis
-
-[Tag catalog: generated/tags/analysis/skills.md](generated/tags/analysis/skills.md) (39 skills)
-
-## capacity-plan
-
-[Tag catalog: generated/tags/capacity-plan/skills.md](generated/tags/capacity-plan/skills.md) (1 skills)
-
-## change-request
-
-[Tag catalog: generated/tags/change-request/skills.md](generated/tags/change-request/skills.md) (1 skills)
-
-## competitive-intelligence
-
-[Tag catalog: generated/tags/competitive-intelligence/skills.md](generated/tags/competitive-intelligence/skills.md) (1 skills)
-
-## customer
-
-[Tag catalog: generated/tags/customer/skills.md](generated/tags/customer/skills.md) (10 skills)
-
-## customer-support
-
-[Tag catalog: generated/tags/customer-support/skills.md](generated/tags/customer-support/skills.md) (5 skills)
-
-## documentation
-
-[Tag catalog: generated/tags/documentation/skills.md](generated/tags/documentation/skills.md) (12 skills)
-
-## extract
-
-[Tag catalog: generated/tags/extract/skills.md](generated/tags/extract/skills.md) (3 skills)
-
-## kb-article
-
-[Tag catalog: generated/tags/kb-article/skills.md](generated/tags/kb-article/skills.md) (1 skills)
-
-## knowledge
-
-[Tag catalog: generated/tags/knowledge/skills.md](generated/tags/knowledge/skills.md) (8 skills)
-
-## operations
-
-[Tag catalog: generated/tags/operations/skills.md](generated/tags/operations/skills.md) (10 skills)
-
-## pdf
-
-[Tag catalog: generated/tags/pdf/skills.md](generated/tags/pdf/skills.md) (8 skills)
-
-## research
-
-[Tag catalog: generated/tags/research/skills.md](generated/tags/research/skills.md) (24 skills)
-
-## search
-
-[Tag catalog: generated/tags/search/skills.md](generated/tags/search/skills.md) (8 skills)
-
-## summarize
-
-[Tag catalog: generated/tags/summarize/skills.md](generated/tags/summarize/skills.md) (3 skills)
-
-## support
-
-[Tag catalog: generated/tags/support/skills.md](generated/tags/support/skills.md) (13 skills)
-
-## transcript
-
-[Tag catalog: generated/tags/transcript/skills.md](generated/tags/transcript/skills.md) (3 skills)
-
-## vendor-review
-
-[Tag catalog: generated/tags/vendor-review/skills.md](generated/tags/vendor-review/skills.md) (1 skills)
-
-## weekly-prep-brief
-
-[Tag catalog: generated/tags/weekly-prep-brief/skills.md](generated/tags/weekly-prep-brief/skills.md) (1 skills)
-
-## xlsx
-
-[Tag catalog: generated/tags/xlsx/skills.md](generated/tags/xlsx/skills.md) (2 skills)
+- **account-research**: 2 skills — `generated/tags/account-research/skills.md`
+- **analysis**: 39 skills — `generated/tags/analysis/skills.md`
+- **capacity-plan**: 1 skills — `generated/tags/capacity-plan/skills.md`
+- **change-request**: 1 skills — `generated/tags/change-request/skills.md`
+- **competitive-intelligence**: 1 skills — `generated/tags/competitive-intelligence/skills.md`
+- **customer**: 10 skills — `generated/tags/customer/skills.md`
+- **customer-support**: 5 skills — `generated/tags/customer-support/skills.md`
+- **documentation**: 12 skills — `generated/tags/documentation/skills.md`
+- **extract**: 3 skills — `generated/tags/extract/skills.md`
+- **kb-article**: 1 skills — `generated/tags/kb-article/skills.md`
+- **knowledge**: 8 skills — `generated/tags/knowledge/skills.md`
+- **operations**: 10 skills — `generated/tags/operations/skills.md`
+- **pdf**: 8 skills — `generated/tags/pdf/skills.md`
+- **research**: 24 skills — `generated/tags/research/skills.md`
+- **search**: 8 skills — `generated/tags/search/skills.md`
+- **summarize**: 3 skills — `generated/tags/summarize/skills.md`
+- **support**: 13 skills — `generated/tags/support/skills.md`
+- **transcript**: 3 skills — `generated/tags/transcript/skills.md`
+- **vendor-review**: 1 skills — `generated/tags/vendor-review/skills.md`
+- **weekly-prep-brief**: 1 skills — `generated/tags/weekly-prep-brief/skills.md`
+- **xlsx**: 2 skills — `generated/tags/xlsx/skills.md`

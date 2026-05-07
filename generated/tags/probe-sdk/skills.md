@@ -1,12 +1,12 @@
-# Tag: probe-sdk
+# probe-sdk
 
-Skills with tag `probe-sdk`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## probe-sdk
+## Skills
 
+### probe-sdk
 Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing browser compatibility, media permissions, audio or video diagnostics, and network readiness before users join.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/probe-sdk`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/probe-sdk/SKILL.md`
-- **Tags**: `audio`, `browser`, `compatibility`, `diagnostics`, `join`, `media`, `network`, `partner`, `permissions`, `preflight`, `probe`, `probe-sdk`, `readiness`, `routing`, `sdk`, `testing`, `video`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/probe-sdk/SKILL.md`

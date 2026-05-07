@@ -1,12 +1,12 @@
-# Tag: ruzzy
+# ruzzy
 
-Skills with tag `ruzzy`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## ruzzy
+## Skills
 
+### ruzzy
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md`
-- **Tags**: `handbook`, `ruzzy`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md`

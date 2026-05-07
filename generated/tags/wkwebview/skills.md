@@ -1,12 +1,12 @@
-# Tag: wkwebview
+# wkwebview
 
-Skills with tag `wkwebview`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## virtual-agent/ios
+## Skills
 
+### virtual-agent/ios
 Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, message handlers, support_handoff relay, and URL routing policies.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios/SKILL.md`
-- **Tags**: `handlers`, `handoff`, `injection`, `integration`, `ios`, `message`, `objective`, `objective-c`, `partner`, `policies`, `relay`, `routing`, `script`, `support`, `support-handoff`, `swift`, `url`, `virtual`, `wkwebview`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios/SKILL.md`

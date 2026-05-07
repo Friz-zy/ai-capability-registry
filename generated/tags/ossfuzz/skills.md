@@ -1,12 +1,12 @@
-# Tag: ossfuzz
+# ossfuzz
 
-Skills with tag `ossfuzz`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## ossfuzz
+## Skills
 
+### ossfuzz
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md`
-- **Tags**: `handbook`, `ossfuzz`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md`

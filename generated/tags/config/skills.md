@@ -1,21 +1,17 @@
-# Tag: config
+# config
 
-Skills with tag `config`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## insecure-defaults
+## Skills
 
+### insecure-defaults
 Detects fail-open insecure defaults (hardcoded secrets, weak auth, permissive security) that allow apps to run insecurely in production. Use when auditing security, reviewing config management, or analyzing environment variable handling.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults`
-- **Skill file**: `external/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults/SKILL.md`
-- **Tags**: `allow`, `analyzing`, `apps`, `auditing`, `auth`, `config`, `defaults`, `detects`, `environment`, `fail`, `fail-open`, `handling`, `hardcoded`, `insecure`, `insecure-defaults`, `insecurely`, `management`, `open`, `permissive`, `production`, `reviewing`, `secrets`, `security`, `variable`, `weak`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults/SKILL.md`
 
-## migrate-to-codex
-
+### migrate-to-codex
 Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.curated/migrate-to-codex`
-- **Skill file**: `external/openai-skills/skills/.curated/migrate-to-codex/SKILL.md`
-- **Tags**: `codex`, `config`, `curated`, `global`, `instruction`, `mcp`, `migrate`, `migrate-to-codex`, `project`, `supported`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/migrate-to-codex/SKILL.md`

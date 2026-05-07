@@ -1,12 +1,12 @@
-# Tag: bridging
+# bridging
 
-Skills with tag `bridging`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## contact-center/ios
+## Skills
 
+### contact-center/ios
 Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrations, app lifecycle bridging, rejoin flow, and callback handling.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios/SKILL.md`
-- **Tags**: `app`, `bridging`, `callback`, `center`, `chat`, `contact`, `contact-center`, `flow`, `handling`, `integrations`, `ios`, `lifecycle`, `native`, `partner`, `rejoin`, `scheduled`, `sdk`, `video`, `zoom`, `zva`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios/SKILL.md`

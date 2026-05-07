@@ -1,12 +1,12 @@
-# Tag: progressive
+# progressive
 
-Skills with tag `progressive`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## skill-development
+## Skills
 
+### skill-development
 This skill should be used when the user wants to "create a skill", "add a skill to plugin", "write a new skill", "improve skill description", "organize skill content", or needs guidance on skill structure, progressive disclosure, or skill development best practices for Claude Code plugins.
 
-- **Source**: `anthropic-claude-plugins-official` (trusted)
-- **Path**: `external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/skill-development`
-- **Skill file**: `external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/skill-development/SKILL.md`
-- **Tags**: `code`, `content`, `create`, `description`, `dev`, `development`, `disclosure`, `guidance`, `improve`, `needs`, `organize`, `practices`, `progressive`, `structure`, `used`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/skill-development/SKILL.md`

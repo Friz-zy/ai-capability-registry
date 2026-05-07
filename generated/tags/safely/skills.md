@@ -1,12 +1,12 @@
-# Tag: safely
+# safely
 
-Skills with tag `safely`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## git-cleanup
+## Skills
 
+### git-cleanup
 Safely analyzes and cleans up local git branches and worktrees by categorizing them as merged, squash-merged, superseded, or active work.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/git-cleanup/skills/git-cleanup`
-- **Skill file**: `external/trailofbits-skills/plugins/git-cleanup/skills/git-cleanup/SKILL.md`
-- **Tags**: `active`, `analyzes`, `branches`, `categorizing`, `cleans`, `cleanup`, `git`, `git-cleanup`, `local`, `merged`, `safely`, `squash`, `squash-merged`, `superseded`, `them`, `worktrees`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/git-cleanup/skills/git-cleanup/SKILL.md`

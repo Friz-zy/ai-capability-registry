@@ -1,12 +1,12 @@
-# Tag: obstacles
+# obstacles
 
-Skills with tag `obstacles`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## fuzzing-obstacles
+## Skills
 
+### fuzzing-obstacles
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md`
-- **Tags**: `fuzzing`, `fuzzing-obstacles`, `handbook`, `obstacles`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md`

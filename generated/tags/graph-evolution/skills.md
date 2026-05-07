@@ -1,12 +1,12 @@
-# Tag: graph-evolution
+# graph-evolution
 
-Skills with tag `graph-evolution`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## graph-evolution
+## Skills
 
+### graph-evolution
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/trailmark/skills/graph-evolution`
-- **Skill file**: `external/trailofbits-skills/plugins/trailmark/skills/graph-evolution/SKILL.md`
-- **Tags**: `evolution`, `graph`, `graph-evolution`, `trailmark`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/trailmark/skills/graph-evolution/SKILL.md`

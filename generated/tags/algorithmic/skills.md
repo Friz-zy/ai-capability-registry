@@ -1,12 +1,12 @@
-# Tag: algorithmic
+# algorithmic
 
-Skills with tag `algorithmic`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## algorithmic-art
+## Skills
 
+### algorithmic-art
 Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.
 
-- **Source**: `anthropic-skills` (trusted)
-- **Path**: `external/anthropic-skills/skills/algorithmic-art`
-- **Skill file**: `external/anthropic-skills/skills/algorithmic-art/SKILL.md`
-- **Tags**: `algorithmic`, `algorithmic-art`, `art`, `artists`, `avoid`, `code`, `copying`, `copyright`, `create`, `creating`, `existing`, `exploration`, `fields`, `flow`, `generative`, `interactive`, `original`, `parameter`, `particle`, `randomness`, `rather`, `request`, `seeded`, `systems`, `than`, `violations`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-skills/skills/algorithmic-art/SKILL.md`

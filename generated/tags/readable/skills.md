@@ -1,12 +1,12 @@
-# Tag: readable
+# readable
 
-Skills with tag `readable`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## status-report
+## Skills
 
+### status-report
 Generate a status report with KPIs, risks, and action items. Use when writing a weekly or monthly update for leadership, summarizing project health with green/yellow/red status, surfacing risks and decisions that need stakeholder attention, or turning a pile of project tracker activity into a readable narrative.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/operations/skills/status-report`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/operations/skills/status-report/SKILL.md`
-- **Tags**: `activity`, `attention`, `decisions`, `green`, `health`, `items`, `kpis`, `leadership`, `monthly`, `narrative`, `operations`, `pile`, `project`, `readable`, `red`, `report`, `risks`, `stakeholder`, `status`, `status-report`, `summarizing`, `surfacing`, `tracker`, `turning`, `weekly`, `yellow`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/operations/skills/status-report/SKILL.md`

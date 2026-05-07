@@ -1,12 +1,12 @@
-# Tag: here
+# here
 
-Skills with tag `here`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## start
+## Skills
 
+### start
 Start here for any Zoom integration or app idea. Use when you need to choose the right Zoom surface, shape the architecture, or route into the correct implementation skill without reading the whole Zoom doc set first.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/start`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/start/SKILL.md`
-- **Tags**: `app`, `architecture`, `choose`, `correct`, `doc`, `here`, `idea`, `implementation`, `integration`, `partner`, `reading`, `right`, `route`, `set`, `shape`, `start`, `surface`, `whole`, `without`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/start/SKILL.md`

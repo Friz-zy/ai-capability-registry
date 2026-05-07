@@ -1,12 +1,12 @@
-# Tag: fixed
+# fixed
 
-Skills with tag `fixed`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## journal-entry-prep
+## Skills
 
+### journal-entry-prep
 Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/finance/skills/journal-entry-prep`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/finance/skills/journal-entry-prep/SKILL.md`
-- **Tags**: `accruals`, `amortization`, `asset`, `booking`, `close`, `credits`, `debits`, `depreciation`, `documentation`, `end`, `entries`, `entry`, `finance`, `fixed`, `journal`, `journal-entry-prep`, `manual`, `month`, `month-end`, `payroll`, `prep`, `prepaid`, `prepare`, `proper`, `recognition`, `revenue`, `supporting`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/finance/skills/journal-entry-prep/SKILL.md`

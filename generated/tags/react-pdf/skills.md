@@ -1,12 +1,12 @@
-# Tag: react-pdf
+# react-pdf
 
-Skills with tag `react-pdf`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## react-pdf
+## Skills
 
-_No description_
+### react-pdf
+No description.
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/react-pdf/skills/react-pdf`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/react-pdf/skills/react-pdf/SKILL.md`
-- **Tags**: `pdf`, `react`, `react-pdf`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/react-pdf/skills/react-pdf/SKILL.md`

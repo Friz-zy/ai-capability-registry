@@ -1,12 +1,12 @@
-# Tag: own
+# own
 
-Skills with tag `own`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## seo-audit
+## Skills
 
+### seo-audit
 Run a comprehensive SEO audit — keyword research, on-page analysis, content gaps, technical checks, and competitor comparison. Use when assessing a site's SEO health, when finding keyword opportunities and content gaps competitors own, or when you need a prioritized action plan split into quick wins and strategic investments.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit/SKILL.md`
-- **Tags**: `analysis`, `assessing`, `audit`, `checks`, `comparison`, `competitor`, `competitors`, `comprehensive`, `content`, `finding`, `gaps`, `health`, `investments`, `keyword`, `marketing`, `on-page`, `opportunities`, `own`, `page`, `plan`, `prioritized`, `research`, `seo`, `seo-audit`, `site`, `split`, `strategic`, `technical`, `wins`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit/SKILL.md`

@@ -1,125 +1,36 @@
-# Role: Product Designer
+# Product Designer
 
-Profile: `designer`
+## How to find skills
+1. Find relevant tag below
+2. Read tag catalog
+3. Load skill file
 
-Delegates to tag catalogs for categories: `design`, `frontend`, `research`
+## Tags
 
-## accessibility
-
-[Tag catalog: generated/tags/accessibility/skills.md](generated/tags/accessibility/skills.md) (6 skills)
-
-## account-research
-
-[Tag catalog: generated/tags/account-research/skills.md](generated/tags/account-research/skills.md) (2 skills)
-
-## analysis
-
-[Tag catalog: generated/tags/analysis/skills.md](generated/tags/analysis/skills.md) (39 skills)
-
-## brand
-
-[Tag catalog: generated/tags/brand/skills.md](generated/tags/brand/skills.md) (8 skills)
-
-## brand-review
-
-[Tag catalog: generated/tags/brand-review/skills.md](generated/tags/brand-review/skills.md) (1 skills)
-
-## canvas
-
-[Tag catalog: generated/tags/canvas/skills.md](generated/tags/canvas/skills.md) (4 skills)
-
-## competitive-intelligence
-
-[Tag catalog: generated/tags/competitive-intelligence/skills.md](generated/tags/competitive-intelligence/skills.md) (1 skills)
-
-## css
-
-[Tag catalog: generated/tags/css/skills.md](generated/tags/css/skills.md) (3 skills)
-
-## design
-
-[Tag catalog: generated/tags/design/skills.md](generated/tags/design/skills.md) (31 skills)
-
-## design-critique
-
-[Tag catalog: generated/tags/design-critique/skills.md](generated/tags/design-critique/skills.md) (1 skills)
-
-## design-handoff
-
-[Tag catalog: generated/tags/design-handoff/skills.md](generated/tags/design-handoff/skills.md) (1 skills)
-
-## design-system
-
-[Tag catalog: generated/tags/design-system/skills.md](generated/tags/design-system/skills.md) (0 skills)
-
-## documentation
-
-[Tag catalog: generated/tags/documentation/skills.md](generated/tags/documentation/skills.md) (12 skills)
-
-## extract
-
-[Tag catalog: generated/tags/extract/skills.md](generated/tags/extract/skills.md) (3 skills)
-
-## figma
-
-[Tag catalog: generated/tags/figma/skills.md](generated/tags/figma/skills.md) (9 skills)
-
-## frontend
-
-[Tag catalog: generated/tags/frontend/skills.md](generated/tags/frontend/skills.md) (4 skills)
-
-## html
-
-[Tag catalog: generated/tags/html/skills.md](generated/tags/html/skills.md) (10 skills)
-
-## knowledge
-
-[Tag catalog: generated/tags/knowledge/skills.md](generated/tags/knowledge/skills.md) (8 skills)
-
-## pdf
-
-[Tag catalog: generated/tags/pdf/skills.md](generated/tags/pdf/skills.md) (8 skills)
-
-## react
-
-[Tag catalog: generated/tags/react/skills.md](generated/tags/react/skills.md) (6 skills)
-
-## research
-
-[Tag catalog: generated/tags/research/skills.md](generated/tags/research/skills.md) (24 skills)
-
-## research-synthesis
-
-[Tag catalog: generated/tags/research-synthesis/skills.md](generated/tags/research-synthesis/skills.md) (1 skills)
-
-## search
-
-[Tag catalog: generated/tags/search/skills.md](generated/tags/search/skills.md) (8 skills)
-
-## summarize
-
-[Tag catalog: generated/tags/summarize/skills.md](generated/tags/summarize/skills.md) (3 skills)
-
-## transcript
-
-[Tag catalog: generated/tags/transcript/skills.md](generated/tags/transcript/skills.md) (3 skills)
-
-## ui
-
-[Tag catalog: generated/tags/ui/skills.md](generated/tags/ui/skills.md) (0 skills)
-
-## ux
-
-[Tag catalog: generated/tags/ux/skills.md](generated/tags/ux/skills.md) (0 skills)
-
-## web
-
-[Tag catalog: generated/tags/web/skills.md](generated/tags/web/skills.md) (25 skills)
-
-## webapp
-
-[Tag catalog: generated/tags/webapp/skills.md](generated/tags/webapp/skills.md) (1 skills)
-
-## xlsx
-
-[Tag catalog: generated/tags/xlsx/skills.md](generated/tags/xlsx/skills.md) (2 skills)
+- **accessibility**: 6 skills — `generated/tags/accessibility/skills.md`
+- **account-research**: 2 skills — `generated/tags/account-research/skills.md`
+- **analysis**: 39 skills — `generated/tags/analysis/skills.md`
+- **brand**: 8 skills — `generated/tags/brand/skills.md`
+- **brand-review**: 1 skills — `generated/tags/brand-review/skills.md`
+- **canvas**: 4 skills — `generated/tags/canvas/skills.md`
+- **competitive-intelligence**: 1 skills — `generated/tags/competitive-intelligence/skills.md`
+- **css**: 3 skills — `generated/tags/css/skills.md`
+- **design**: 31 skills — `generated/tags/design/skills.md`
+- **design-critique**: 1 skills — `generated/tags/design-critique/skills.md`
+- **design-handoff**: 1 skills — `generated/tags/design-handoff/skills.md`
+- **documentation**: 12 skills — `generated/tags/documentation/skills.md`
+- **extract**: 3 skills — `generated/tags/extract/skills.md`
+- **figma**: 9 skills — `generated/tags/figma/skills.md`
+- **frontend**: 4 skills — `generated/tags/frontend/skills.md`
+- **html**: 10 skills — `generated/tags/html/skills.md`
+- **knowledge**: 8 skills — `generated/tags/knowledge/skills.md`
+- **pdf**: 8 skills — `generated/tags/pdf/skills.md`
+- **react**: 6 skills — `generated/tags/react/skills.md`
+- **research**: 24 skills — `generated/tags/research/skills.md`
+- **research-synthesis**: 1 skills — `generated/tags/research-synthesis/skills.md`
+- **search**: 8 skills — `generated/tags/search/skills.md`
+- **summarize**: 3 skills — `generated/tags/summarize/skills.md`
+- **transcript**: 3 skills — `generated/tags/transcript/skills.md`
+- **web**: 25 skills — `generated/tags/web/skills.md`
+- **webapp**: 1 skills — `generated/tags/webapp/skills.md`
+- **xlsx**: 2 skills — `generated/tags/xlsx/skills.md`

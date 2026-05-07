@@ -1,30 +1,22 @@
-# Tag: ownership
+# ownership
 
-Skills with tag `ownership`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## openai-security-ownership-map
+## Skills
 
+### openai-security-ownership-map
 Analyze git repositories to build a security ownership topology (people-to-file), compute
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map/SKILL.md`
-- **Tags**: `analyze`, `build`, `compute`, `git`, `map`, `ownership`, `people`, `people-to`, `repositories`, `security`, `security-ownership-map`, `topology`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map/SKILL.md`
 
-## security-ownership-map
-
+### security-ownership-map
 Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.curated/security-ownership-map`
-- **Skill file**: `external/openai-skills/skills/.curated/security-ownership-map/SKILL.md`
-- **Tags**: `analysis`, `analyze`, `build`, `bus`, `bus-factor`, `checks`, `clusters`, `code`, `codeowners`, `compute`, `csv`, `curated`, `databases`, `explicitly`, `export`, `factor`, `general`, `git`, `graph`, `grounded`, `history`, `hotspots`, `lists`, `maintainer`, `maintainers`, `map`, `non`, `non-security`, `oriented`, `orphaned`, `ownership`, `people`, `people-to`, `questions`, `reality`, `repositories`, `risk`, `security`, `security-oriented`, `security-ownership-map`, `sensitive`, `sensitive-code`, `topology`, `trigger`, `visualization`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/security-ownership-map/SKILL.md`
 
-## solana-vulnerability-scanner
-
+### solana-vulnerability-scanner
 Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/building-secure-contracts/skills/solana-vulnerability-scanner`
-- **Skill file**: `external/trailofbits-skills/plugins/building-secure-contracts/skills/solana-vulnerability-scanner/SKILL.md`
-- **Tags**: `anchor`, `arbitrary`, `auditing`, `building`, `building-secure-contracts`, `checks`, `contracts`, `cpi`, `critical`, `improper`, `including`, `missing`, `ownership`, `pda`, `programs`, `scanner`, `scans`, `secure`, `signer`, `solana`, `solana-vulnerability-scanner`, `spoofing`, `sysvar`, `validation`, `vulnerabilities`, `vulnerability`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/building-secure-contracts/skills/solana-vulnerability-scanner/SKILL.md`

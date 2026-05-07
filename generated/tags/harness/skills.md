@@ -1,12 +1,12 @@
-# Tag: harness
+# harness
 
-Skills with tag `harness`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## harness-writing
+## Skills
 
+### harness-writing
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing/SKILL.md`
-- **Tags**: `handbook`, `harness`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: p2p
+# p2p
 
-Skills with tag `p2p`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## sox-testing
+## Skills
 
+### sox-testing
 Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/finance/skills/sox-testing`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/finance/skills/sox-testing/SKILL.md`
-- **Tags**: `annual`, `assessments`, `building`, `classifying`, `close`, `control`, `deficiency`, `evaluating`, `finance`, `itgc`, `p2p`, `planning`, `pulling`, `quarterly`, `revenue`, `sample`, `selections`, `sox`, `sox-testing`, `testing`, `workpaper`, `workpapers`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/finance/skills/sox-testing/SKILL.md`

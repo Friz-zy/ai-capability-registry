@@ -1,12 +1,12 @@
-# Tag: zoom-meeting-sdk-macos
+# zoom-meeting-sdk-macos
 
-Skills with tag `zoom-meeting-sdk-macos`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-meeting-sdk-macos
+## Skills
 
+### zoom-meeting-sdk-macos
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos/SKILL.md`
-- **Tags**: `macos`, `meeting`, `meeting-sdk`, `partner`, `sdk`, `zoom`, `zoom-meeting-sdk-macos`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos/SKILL.md`

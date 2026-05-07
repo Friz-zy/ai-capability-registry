@@ -1,30 +1,22 @@
-# Tag: effective
+# effective
 
-Skills with tag `effective`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## data-visualization
+## Skills
 
+### data-visualization
 Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when building charts, choosing the right chart type for a dataset, creating publication-quality figures, or applying design principles like accessibility and color theory.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/data/skills/data-visualization`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/data/skills/data-visualization/SKILL.md`
-- **Tags**: `accessibility`, `applying`, `building`, `chart`, `charts`, `choosing`, `color`, `create`, `creating`, `data`, `data-visualization`, `dataset`, `design`, `effective`, `figures`, `like`, `matplotlib`, `plotly`, `principles`, `publication`, `publication-quality`, `python`, `quality`, `right`, `seaborn`, `theory`, `visualization`, `visualizations`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/data/skills/data-visualization/SKILL.md`
 
-## skill-creator
-
+### skill-creator
 Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.system/skill-creator`
-- **Skill file**: `external/openai-skills/skills/.system/skill-creator/SKILL.md`
-- **Tags**: `capabilities`, `codex`, `create`, `creating`, `creator`, `effective`, `existing`, `extends`, `integrations`, `knowledge`, `specialized`, `used`, `want`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.system/skill-creator/SKILL.md`
 
-## slack-messaging
-
+### slack-messaging
 Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-messaging`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-messaging/SKILL.md`
-- **Tags**: `composing`, `effective`, `formatted`, `guidance`, `messages`, `messaging`, `mrkdwn`, `partner`, `slack`, `slack-messaging`, `syntax`, `well`, `well-formatted`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-messaging/SKILL.md`

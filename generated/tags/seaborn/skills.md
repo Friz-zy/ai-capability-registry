@@ -1,12 +1,12 @@
-# Tag: seaborn
+# seaborn
 
-Skills with tag `seaborn`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## data-visualization
+## Skills
 
+### data-visualization
 Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when building charts, choosing the right chart type for a dataset, creating publication-quality figures, or applying design principles like accessibility and color theory.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/data/skills/data-visualization`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/data/skills/data-visualization/SKILL.md`
-- **Tags**: `accessibility`, `applying`, `building`, `chart`, `charts`, `choosing`, `color`, `create`, `creating`, `data`, `data-visualization`, `dataset`, `design`, `effective`, `figures`, `like`, `matplotlib`, `plotly`, `principles`, `publication`, `publication-quality`, `python`, `quality`, `right`, `seaborn`, `theory`, `visualization`, `visualizations`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/data/skills/data-visualization/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: lookups
+# lookups
 
-Skills with tag `lookups`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## analyze
+## Skills
 
+### analyze
 Answer data questions -- from quick lookups to full analyses. Use when looking up a single metric, investigating what's driving a trend or drop, comparing segments over time, or preparing a formal data report for stakeholders.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/data/skills/analyze`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/data/skills/analyze/SKILL.md`
-- **Tags**: `analyses`, `analyze`, `answer`, `comparing`, `data`, `driving`, `drop`, `formal`, `full`, `investigating`, `looking`, `lookups`, `metric`, `over`, `preparing`, `questions`, `report`, `segments`, `single`, `stakeholders`, `time`, `trend`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/data/skills/analyze/SKILL.md`

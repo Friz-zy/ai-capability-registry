@@ -1,12 +1,12 @@
-# Tag: aggregation
+# aggregation
 
-Skills with tag `aggregation`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## validate-data
+## Skills
 
+### validate-data
 QA an analysis before sharing -- methodology, accuracy, and bias checks. Use when reviewing an analysis before a stakeholder presentation, spot-checking calculations and aggregation logic, verifying a SQL query's results look right, or assessing whether conclusions are actually supported by the data.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/data/skills/validate-data`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/data/skills/validate-data/SKILL.md`
-- **Tags**: `accuracy`, `actually`, `aggregation`, `analysis`, `assessing`, `bias`, `calculations`, `checking`, `checks`, `conclusions`, `data`, `logic`, `look`, `methodology`, `presentation`, `query`, `reviewing`, `right`, `sharing`, `spot`, `spot-checking`, `sql`, `stakeholder`, `supported`, `validate`, `validate-data`, `verifying`, `whether`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/data/skills/validate-data/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: slack-search
+# slack-search
 
-Skills with tag `slack-search`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## slack-search
+## Skills
 
+### slack-search
 Guidance for effectively searching Slack to find messages, files, channels, and people
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search/SKILL.md`
-- **Tags**: `channels`, `effectively`, `find`, `guidance`, `messages`, `partner`, `people`, `search`, `searching`, `slack`, `slack-search`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: sarif-parsing
+# sarif-parsing
 
-Skills with tag `sarif-parsing`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## sarif-parsing
+## Skills
 
+### sarif-parsing
 >-
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing`
-- **Skill file**: `external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing/SKILL.md`
-- **Tags**: `analysis`, `parsing`, `sarif`, `sarif-parsing`, `static`, `static-analysis`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: data-context-extractor
+# data-context-extractor
 
-Skills with tag `data-context-extractor`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## data-context-extractor
+## Skills
 
+### data-context-extractor
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/data/skills/data-context-extractor`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/data/skills/data-context-extractor/SKILL.md`
-- **Tags**: `context`, `data`, `data-context-extractor`, `extractor`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/data/skills/data-context-extractor/SKILL.md`

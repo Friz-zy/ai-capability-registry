@@ -1,12 +1,12 @@
-# Tag: contacts
+# contacts
 
-Skills with tag `contacts`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## prospect
+## Skills
 
+### prospect
 Build targeted account or contact lists using Common Room's Prospector. Triggers on 'find companies that match [criteria]', 'build a prospect list', 'find contacts at [type of company]', 'show me companies hiring [role]', or any list-building request.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/prospect`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/prospect/SKILL.md`
-- **Tags**: `account`, `build`, `building`, `companies`, `company`, `contact`, `contacts`, `criteria`, `find`, `hiring`, `lists`, `match`, `partner`, `prospect`, `prospector`, `request`, `role`, `room`, `show`, `targeted`, `triggers`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/prospect/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: atheris
+# atheris
 
-Skills with tag `atheris`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## atheris
+## Skills
 
+### atheris
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris/SKILL.md`
-- **Tags**: `atheris`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris/SKILL.md`

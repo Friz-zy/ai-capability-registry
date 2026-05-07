@@ -1,12 +1,12 @@
-# Tag: sql-queries
+# sql-queries
 
-Skills with tag `sql-queries`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## sql-queries
+## Skills
 
+### sql-queries
 Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/data/skills/sql-queries`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/data/skills/sql-queries/SKILL.md`
-- **Tags**: `aggregations`, `analytical`, `between`, `bigquery`, `building`, `complex`, `correct`, `ctes`, `data`, `databricks`, `dialects`, `etc`, `functions`, `major`, `optimizing`, `performant`, `postgresql`, `queries`, `slow`, `snowflake`, `sql`, `sql-queries`, `translating`, `warehouse`, `window`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/data/skills/sql-queries/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: zoom-video-sdk-unity
+# zoom-video-sdk-unity
 
-Skills with tag `zoom-video-sdk-unity`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-video-sdk-unity
+## Skills
 
+### zoom-video-sdk-unity
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity/SKILL.md`
-- **Tags**: `partner`, `sdk`, `unity`, `video`, `video-sdk`, `zoom`, `zoom-video-sdk-unity`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity/SKILL.md`

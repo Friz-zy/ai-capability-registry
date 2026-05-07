@@ -1,12 +1,12 @@
-# Tag: yara-authoring
+# yara-authoring
 
-Skills with tag `yara-authoring`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## yara-rule-authoring
+## Skills
 
+### yara-rule-authoring
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring`
-- **Skill file**: `external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md`
-- **Tags**: `authoring`, `rule`, `yara`, `yara-authoring`, `yara-rule-authoring`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: sandboxer
+# sandboxer
 
-Skills with tag `sandboxer`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## seatbelt-sandboxer
+## Skills
 
+### seatbelt-sandboxer
 Generates minimal macOS Seatbelt sandbox configurations. Use when sandboxing, isolating, or restricting macOS applications with allowlist-based profiles.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer`
-- **Skill file**: `external/trailofbits-skills/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer/SKILL.md`
-- **Tags**: `allowlist`, `applications`, `configurations`, `generates`, `isolating`, `macos`, `minimal`, `profiles`, `restricting`, `sandbox`, `sandboxer`, `sandboxing`, `seatbelt`, `seatbelt-sandboxer`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer/SKILL.md`

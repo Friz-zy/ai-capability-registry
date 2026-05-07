@@ -1,145 +1,38 @@
-# Role: Personal AI Assistant
-
-Profile: `personal-assistant`
-
-Delegates to tag catalogs for categories: `core`, `personal_assistant`, `research`
-
-## account-research
-
-[Tag catalog: generated/tags/account-research/skills.md](generated/tags/account-research/skills.md) (2 skills)
-
-## analysis
-
-[Tag catalog: generated/tags/analysis/skills.md](generated/tags/analysis/skills.md) (39 skills)
-
-## architecture
-
-[Tag catalog: generated/tags/architecture/skills.md](generated/tags/architecture/skills.md) (11 skills)
-
-## brainstorm
-
-[Tag catalog: generated/tags/brainstorm/skills.md](generated/tags/brainstorm/skills.md) (1 skills)
-
-## brainstorming
-
-[Tag catalog: generated/tags/brainstorming/skills.md](generated/tags/brainstorming/skills.md) (1 skills)
-
-## calendar
-
-[Tag catalog: generated/tags/calendar/skills.md](generated/tags/calendar/skills.md) (4 skills)
-
-## code
-
-[Tag catalog: generated/tags/code/skills.md](generated/tags/code/skills.md) (50 skills)
-
-## code-review
-
-[Tag catalog: generated/tags/code-review/skills.md](generated/tags/code-review/skills.md) (1 skills)
-
-## collaboration
-
-[Tag catalog: generated/tags/collaboration/skills.md](generated/tags/collaboration/skills.md) (0 skills)
-
-## competitive-intelligence
-
-[Tag catalog: generated/tags/competitive-intelligence/skills.md](generated/tags/competitive-intelligence/skills.md) (1 skills)
-
-## debug
-
-[Tag catalog: generated/tags/debug/skills.md](generated/tags/debug/skills.md) (9 skills)
-
-## debugging
-
-[Tag catalog: generated/tags/debugging/skills.md](generated/tags/debugging/skills.md) (8 skills)
-
-## documentation
-
-[Tag catalog: generated/tags/documentation/skills.md](generated/tags/documentation/skills.md) (12 skills)
-
-## email
-
-[Tag catalog: generated/tags/email/skills.md](generated/tags/email/skills.md) (15 skills)
-
-## extract
-
-[Tag catalog: generated/tags/extract/skills.md](generated/tags/extract/skills.md) (3 skills)
-
-## knowledge
-
-[Tag catalog: generated/tags/knowledge/skills.md](generated/tags/knowledge/skills.md) (8 skills)
-
-## notes
-
-[Tag catalog: generated/tags/notes/skills.md](generated/tags/notes/skills.md) (7 skills)
-
-## pdf
-
-[Tag catalog: generated/tags/pdf/skills.md](generated/tags/pdf/skills.md) (8 skills)
-
-## personal
-
-[Tag catalog: generated/tags/personal/skills.md](generated/tags/personal/skills.md) (1 skills)
-
-## planning
-
-[Tag catalog: generated/tags/planning/skills.md](generated/tags/planning/skills.md) (15 skills)
-
-## productivity
-
-[Tag catalog: generated/tags/productivity/skills.md](generated/tags/productivity/skills.md) (4 skills)
-
-## refactor
-
-[Tag catalog: generated/tags/refactor/skills.md](generated/tags/refactor/skills.md) (3 skills)
-
-## research
-
-[Tag catalog: generated/tags/research/skills.md](generated/tags/research/skills.md) (24 skills)
-
-## review
-
-[Tag catalog: generated/tags/review/skills.md](generated/tags/review/skills.md) (30 skills)
-
-## schedule
-
-[Tag catalog: generated/tags/schedule/skills.md](generated/tags/schedule/skills.md) (0 skills)
-
-## search
-
-[Tag catalog: generated/tags/search/skills.md](generated/tags/search/skills.md) (8 skills)
-
-## skill-creator
-
-[Tag catalog: generated/tags/skill-creator/skills.md](generated/tags/skill-creator/skills.md) (0 skills)
-
-## strategy
-
-[Tag catalog: generated/tags/strategy/skills.md](generated/tags/strategy/skills.md) (6 skills)
-
-## summarize
-
-[Tag catalog: generated/tags/summarize/skills.md](generated/tags/summarize/skills.md) (3 skills)
-
-## system-design
-
-[Tag catalog: generated/tags/system-design/skills.md](generated/tags/system-design/skills.md) (0 skills)
-
-## tdd
-
-[Tag catalog: generated/tags/tdd/skills.md](generated/tags/tdd/skills.md) (0 skills)
-
-## testing
-
-[Tag catalog: generated/tags/testing/skills.md](generated/tags/testing/skills.md) (32 skills)
-
-## transcript
-
-[Tag catalog: generated/tags/transcript/skills.md](generated/tags/transcript/skills.md) (3 skills)
-
-## workflow
-
-[Tag catalog: generated/tags/workflow/skills.md](generated/tags/workflow/skills.md) (0 skills)
-
-## xlsx
-
-[Tag catalog: generated/tags/xlsx/skills.md](generated/tags/xlsx/skills.md) (2 skills)
+# Personal AI Assistant
+
+## How to find skills
+1. Find relevant tag below
+2. Read tag catalog
+3. Load skill file
+
+## Tags
+
+- **account-research**: 2 skills — `generated/tags/account-research/skills.md`
+- **analysis**: 39 skills — `generated/tags/analysis/skills.md`
+- **architecture**: 11 skills — `generated/tags/architecture/skills.md`
+- **brainstorm**: 1 skills — `generated/tags/brainstorm/skills.md`
+- **brainstorming**: 1 skills — `generated/tags/brainstorming/skills.md`
+- **calendar**: 4 skills — `generated/tags/calendar/skills.md`
+- **code**: 50 skills — `generated/tags/code/skills.md`
+- **code-review**: 1 skills — `generated/tags/code-review/skills.md`
+- **competitive-intelligence**: 1 skills — `generated/tags/competitive-intelligence/skills.md`
+- **debug**: 9 skills — `generated/tags/debug/skills.md`
+- **debugging**: 8 skills — `generated/tags/debugging/skills.md`
+- **documentation**: 12 skills — `generated/tags/documentation/skills.md`
+- **email**: 15 skills — `generated/tags/email/skills.md`
+- **extract**: 3 skills — `generated/tags/extract/skills.md`
+- **knowledge**: 8 skills — `generated/tags/knowledge/skills.md`
+- **notes**: 7 skills — `generated/tags/notes/skills.md`
+- **pdf**: 8 skills — `generated/tags/pdf/skills.md`
+- **personal**: 1 skills — `generated/tags/personal/skills.md`
+- **planning**: 15 skills — `generated/tags/planning/skills.md`
+- **productivity**: 4 skills — `generated/tags/productivity/skills.md`
+- **refactor**: 3 skills — `generated/tags/refactor/skills.md`
+- **research**: 24 skills — `generated/tags/research/skills.md`
+- **review**: 30 skills — `generated/tags/review/skills.md`
+- **search**: 8 skills — `generated/tags/search/skills.md`
+- **strategy**: 6 skills — `generated/tags/strategy/skills.md`
+- **summarize**: 3 skills — `generated/tags/summarize/skills.md`
+- **testing**: 32 skills — `generated/tags/testing/skills.md`
+- **transcript**: 3 skills — `generated/tags/transcript/skills.md`
+- **xlsx**: 2 skills — `generated/tags/xlsx/skills.md`

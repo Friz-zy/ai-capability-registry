@@ -1,12 +1,12 @@
-# Tag: contact-level
+# contact-level
 
-Skills with tag `contact-level`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## contact-research
+## Skills
 
+### contact-research
 Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/contact-research`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/contact-research/SKILL.md`
-- **Tags**: `contact`, `contact-level`, `contact-research`, `data`, `email`, `lead`, `level`, `look`, `partner`, `person`, `question`, `research`, `room`, `triggers`, `warm`, `who`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/contact-research/SKILL.md`

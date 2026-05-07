@@ -1,12 +1,12 @@
-# Tag: communicate
+# communicate
 
-Skills with tag `communicate`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## incident-response
+## Skills
 
+### incident-response
 Run an incident response workflow — triage, communicate, and write postmortem. Trigger with "we have an incident", "production is down", an alert that needs severity assessment, a status update mid-incident, or when writing a blameless postmortem after resolution.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/engineering/skills/incident-response`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/engineering/skills/incident-response/SKILL.md`
-- **Tags**: `alert`, `assessment`, `blameless`, `communicate`, `down`, `engineering`, `have`, `incident`, `incident-response`, `mid`, `mid-incident`, `needs`, `postmortem`, `production`, `resolution`, `response`, `severity`, `status`, `triage`, `trigger`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/engineering/skills/incident-response/SKILL.md`

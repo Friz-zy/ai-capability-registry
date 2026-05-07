@@ -1,12 +1,12 @@
-# Tag: x-research
+# x-research
 
-Skills with tag `x-research`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## x-research
+## Skills
 
+### x-research
 >
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/x-research/skills/x-research`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/x-research/skills/x-research/SKILL.md`
-- **Tags**: `research`, `x-research`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/x-research/skills/x-research/SKILL.md`

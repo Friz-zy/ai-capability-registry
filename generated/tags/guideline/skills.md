@@ -1,12 +1,12 @@
-# Tag: guideline
+# guideline
 
-Skills with tag `guideline`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## guideline-generation
+## Skills
 
+### guideline-generation
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation/SKILL.md`
-- **Tags**: `brand`, `brand-voice`, `generation`, `guideline`, `guideline-generation`, `partner`, `voice`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation/SKILL.md`

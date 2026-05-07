@@ -1,12 +1,12 @@
-# Tag: content-creation
+# content-creation
 
-Skills with tag `content-creation`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## content-creation
+## Skills
 
+### content-creation
 Draft marketing content across channels — blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/marketing/skills/content-creation`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/marketing/skills/content-creation/SKILL.md`
-- **Tags**: `blog`, `calls`, `case`, `channel`, `channels`, `content`, `content-creation`, `copy`, `creation`, `draft`, `email`, `formatting`, `headline`, `landing`, `marketing`, `media`, `newsletters`, `optimized`, `options`, `pages`, `posts`, `press`, `releases`, `seo`, `seo-optimized`, `social`, `studies`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/marketing/skills/content-creation/SKILL.md`

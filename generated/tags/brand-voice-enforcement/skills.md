@@ -1,12 +1,12 @@
-# Tag: brand-voice-enforcement
+# brand-voice-enforcement
 
-Skills with tag `brand-voice-enforcement`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## brand-voice-enforcement
+## Skills
 
+### brand-voice-enforcement
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement/SKILL.md`
-- **Tags**: `brand`, `brand-voice`, `brand-voice-enforcement`, `enforcement`, `partner`, `voice`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement/SKILL.md`

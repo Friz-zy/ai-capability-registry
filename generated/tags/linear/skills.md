@@ -1,12 +1,12 @@
-# Tag: linear
+# linear
 
-Skills with tag `linear`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## linear
+## Skills
 
+### linear
 Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.curated/linear`
-- **Skill file**: `external/openai-skills/skills/.curated/linear/SKILL.md`
-- **Tags**: `create`, `curated`, `issues`, `linear`, `manage`, `projects`, `team`, `tickets`, `updates`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/linear/SKILL.md`

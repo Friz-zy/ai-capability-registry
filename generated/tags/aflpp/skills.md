@@ -1,12 +1,12 @@
-# Tag: aflpp
+# aflpp
 
-Skills with tag `aflpp`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## aflpp
+## Skills
 
+### aflpp
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp`
-- **Skill file**: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp/SKILL.md`
-- **Tags**: `aflpp`, `handbook`, `testing`, `testing-handbook`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp/SKILL.md`

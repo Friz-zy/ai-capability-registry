@@ -1,21 +1,17 @@
-# Tag: cowork-management
+# cowork-management
 
-Skills with tag `cowork-management`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## cowork-plugin-customizer
+## Skills
 
+### cowork-plugin-customizer
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/cowork-plugin-customizer`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/cowork-plugin-customizer/SKILL.md`
-- **Tags**: `cowork`, `cowork-customizer`, `cowork-management`, `customizer`, `management`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/cowork-plugin-customizer/SKILL.md`
 
-## create-cowork-plugin
-
+### create-cowork-plugin
 >
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/create-cowork-plugin`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/create-cowork-plugin/SKILL.md`
-- **Tags**: `cowork`, `cowork-management`, `create`, `create-cowork`, `management`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/create-cowork-plugin/SKILL.md`

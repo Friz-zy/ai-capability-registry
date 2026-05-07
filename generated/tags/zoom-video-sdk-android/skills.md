@@ -1,12 +1,12 @@
-# Tag: zoom-video-sdk-android
+# zoom-video-sdk-android
 
-Skills with tag `zoom-video-sdk-android`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-video-sdk-android
+## Skills
 
+### zoom-video-sdk-android
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android/SKILL.md`
-- **Tags**: `android`, `partner`, `sdk`, `video`, `video-sdk`, `zoom`, `zoom-video-sdk-android`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android/SKILL.md`

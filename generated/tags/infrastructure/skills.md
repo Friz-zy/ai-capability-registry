@@ -1,21 +1,17 @@
-# Tag: infrastructure
+# infrastructure
 
-Skills with tag `infrastructure`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## cloudflare-deploy
+## Skills
 
+### cloudflare-deploy
 Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.
 
-- **Source**: `openai-skills` (trusted)
-- **Path**: `external/openai-skills/skills/.curated/cloudflare-deploy`
-- **Skill file**: `external/openai-skills/skills/.curated/cloudflare-deploy/SKILL.md`
-- **Tags**: `applications`, `asks`, `cloudflare`, `cloudflare-deploy`, `curated`, `deploy`, `host`, `infrastructure`, `pages`, `platform`, `project`, `publish`, `services`, `set`, `workers`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/cloudflare-deploy/SKILL.md`
 
-## openai-cloudflare-deploy
-
+### openai-cloudflare-deploy
 Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/openai-cloudflare-deploy/skills/openai-cloudflare-deploy`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/openai-cloudflare-deploy/skills/openai-cloudflare-deploy/SKILL.md`
-- **Tags**: `applications`, `cloudflare`, `cloudflare-deploy`, `deploy`, `infrastructure`, `pages`, `platform`, `workers`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/openai-cloudflare-deploy/skills/openai-cloudflare-deploy/SKILL.md`

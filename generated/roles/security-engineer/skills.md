@@ -1,81 +1,22 @@
-# Role: Security Engineer
+# Security Engineer
 
-Profile: `security-engineer`
+## How to find skills
+1. Find relevant tag below
+2. Read tag catalog
+3. Load skill file
 
-Delegates to tag catalogs for categories: `security`
+## Tags
 
-## afl
-
-[Tag catalog: generated/tags/afl/skills.md](generated/tags/afl/skills.md) (0 skills)
-
-## appsec
-
-[Tag catalog: generated/tags/appsec/skills.md](generated/tags/appsec/skills.md) (1 skills)
-
-## audit
-
-[Tag catalog: generated/tags/audit/skills.md](generated/tags/audit/skills.md) (16 skills)
-
-## burp
-
-[Tag catalog: generated/tags/burp/skills.md](generated/tags/burp/skills.md) (1 skills)
-
-## codeql
-
-[Tag catalog: generated/tags/codeql/skills.md](generated/tags/codeql/skills.md) (2 skills)
-
-## crypto
-
-[Tag catalog: generated/tags/crypto/skills.md](generated/tags/crypto/skills.md) (3 skills)
-
-## cve
-
-[Tag catalog: generated/tags/cve/skills.md](generated/tags/cve/skills.md) (0 skills)
-
-## fuzzing
-
-[Tag catalog: generated/tags/fuzzing/skills.md](generated/tags/fuzzing/skills.md) (5 skills)
-
-## ghidra
-
-[Tag catalog: generated/tags/ghidra/skills.md](generated/tags/ghidra/skills.md) (1 skills)
-
-## malware
-
-[Tag catalog: generated/tags/malware/skills.md](generated/tags/malware/skills.md) (0 skills)
-
-## pentest
-
-[Tag catalog: generated/tags/pentest/skills.md](generated/tags/pentest/skills.md) (0 skills)
-
-## sarif
-
-[Tag catalog: generated/tags/sarif/skills.md](generated/tags/sarif/skills.md) (1 skills)
-
-## security
-
-[Tag catalog: generated/tags/security/skills.md](generated/tags/security/skills.md) (26 skills)
-
-## semgrep
-
-[Tag catalog: generated/tags/semgrep/skills.md](generated/tags/semgrep/skills.md) (4 skills)
-
-## static-analysis
-
-[Tag catalog: generated/tags/static-analysis/skills.md](generated/tags/static-analysis/skills.md) (3 skills)
-
-## supply-chain
-
-[Tag catalog: generated/tags/supply-chain/skills.md](generated/tags/supply-chain/skills.md) (0 skills)
-
-## threat-model
-
-[Tag catalog: generated/tags/threat-model/skills.md](generated/tags/threat-model/skills.md) (0 skills)
-
-## vulnerability
-
-[Tag catalog: generated/tags/vulnerability/skills.md](generated/tags/vulnerability/skills.md) (8 skills)
-
-## yara
-
-[Tag catalog: generated/tags/yara/skills.md](generated/tags/yara/skills.md) (1 skills)
+- **appsec**: 1 skills — `generated/tags/appsec/skills.md`
+- **audit**: 16 skills — `generated/tags/audit/skills.md`
+- **burp**: 1 skills — `generated/tags/burp/skills.md`
+- **codeql**: 2 skills — `generated/tags/codeql/skills.md`
+- **crypto**: 3 skills — `generated/tags/crypto/skills.md`
+- **fuzzing**: 5 skills — `generated/tags/fuzzing/skills.md`
+- **ghidra**: 1 skills — `generated/tags/ghidra/skills.md`
+- **sarif**: 1 skills — `generated/tags/sarif/skills.md`
+- **security**: 26 skills — `generated/tags/security/skills.md`
+- **semgrep**: 4 skills — `generated/tags/semgrep/skills.md`
+- **static-analysis**: 3 skills — `generated/tags/static-analysis/skills.md`
+- **vulnerability**: 8 skills — `generated/tags/vulnerability/skills.md`
+- **yara**: 1 skills — `generated/tags/yara/skills.md`

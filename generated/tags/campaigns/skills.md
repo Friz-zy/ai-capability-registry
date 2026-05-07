@@ -1,21 +1,17 @@
-# Tag: campaigns
+# campaigns
 
-Skills with tag `campaigns`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## build-zoom-contact-center-app
+## Skills
 
+### build-zoom-contact-center-app
 Reference skill for Zoom Contact Center. Use after routing to a contact-center workflow when implementing app, web, or native integrations; engagement context and state handling; campaigns; callbacks; or version-drift troubleshooting.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/SKILL.md`
-- **Tags**: `app`, `build`, `build-zoom-contact-center-app`, `callbacks`, `campaigns`, `center`, `contact`, `contact-center`, `context`, `drift`, `engagement`, `handling`, `implementing`, `integrations`, `native`, `partner`, `routing`, `state`, `troubleshooting`, `version`, `version-drift`, `web`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/SKILL.md`
 
-## mutation-testing
-
+### mutation-testing
 Configures mewt or muton mutation testing campaigns — scopes targets, tunes timeouts, and optimizes long-running runs. Use when the user mentions mewt, muton, mutation testing, or wants to configure or optimize a mutation testing campaign.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing`
-- **Skill file**: `external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing/SKILL.md`
-- **Tags**: `campaign`, `campaigns`, `configure`, `configures`, `long`, `long-running`, `mentions`, `mewt`, `mutation`, `mutation-testing`, `muton`, `optimize`, `optimizes`, `running`, `runs`, `scopes`, `targets`, `testing`, `timeouts`, `tunes`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: mewt
+# mewt
 
-Skills with tag `mewt`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## mutation-testing
+## Skills
 
+### mutation-testing
 Configures mewt or muton mutation testing campaigns — scopes targets, tunes timeouts, and optimizes long-running runs. Use when the user mentions mewt, muton, mutation testing, or wants to configure or optimize a mutation testing campaign.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing`
-- **Skill file**: `external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing/SKILL.md`
-- **Tags**: `campaign`, `campaigns`, `configure`, `configures`, `long`, `long-running`, `mentions`, `mewt`, `mutation`, `mutation-testing`, `muton`, `optimize`, `optimizes`, `running`, `runs`, `scopes`, `targets`, `testing`, `timeouts`, `tunes`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing/SKILL.md`

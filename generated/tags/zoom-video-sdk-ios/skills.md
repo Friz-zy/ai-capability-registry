@@ -1,12 +1,12 @@
-# Tag: zoom-video-sdk-ios
+# zoom-video-sdk-ios
 
-Skills with tag `zoom-video-sdk-ios`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-video-sdk-ios
+## Skills
 
+### zoom-video-sdk-ios
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios/SKILL.md`
-- **Tags**: `ios`, `partner`, `sdk`, `video`, `video-sdk`, `zoom`, `zoom-video-sdk-ios`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios/SKILL.md`

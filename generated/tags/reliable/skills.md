@@ -1,12 +1,12 @@
-# Tag: reliable
+# reliable
 
-Skills with tag `reliable`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## openai-develop-web-game
+## Skills
 
+### openai-develop-web-game
 Use when the agent is building or iterating on a web game (HTML/JS) and needs a reliable
 
-- **Source**: `trailofbits-skills-curated` (trusted)
-- **Path**: `external/trailofbits-skills-curated/plugins/openai-develop-web-game/skills/openai-develop-web-game`
-- **Skill file**: `external/trailofbits-skills-curated/plugins/openai-develop-web-game/skills/openai-develop-web-game/SKILL.md`
-- **Tags**: `building`, `develop`, `develop-web-game`, `game`, `html`, `iterating`, `needs`, `reliable`, `web`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/openai-develop-web-game/skills/openai-develop-web-game/SKILL.md`

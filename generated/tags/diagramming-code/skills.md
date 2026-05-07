@@ -1,12 +1,12 @@
-# Tag: diagramming-code
+# diagramming-code
 
-Skills with tag `diagramming-code`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## diagramming-code
+## Skills
 
+### diagramming-code
 >
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/trailmark/skills/diagramming-code`
-- **Skill file**: `external/trailofbits-skills/plugins/trailmark/skills/diagramming-code/SKILL.md`
-- **Tags**: `code`, `diagramming`, `diagramming-code`, `trailmark`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/trailmark/skills/diagramming-code/SKILL.md`

@@ -1,12 +1,12 @@
-# Tag: webview
+# webview
 
-Skills with tag `webview`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## virtual-agent/android
+## Skills
 
+### virtual-agent/android
 Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, native URL handling, support_handoff relay, and lifecycle-safe embedding.
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android/SKILL.md`
-- **Tags**: `android`, `bridge`, `callbacks`, `embedding`, `handling`, `handoff`, `integration`, `java`, `kotlin`, `lifecycle`, `lifecycle-safe`, `native`, `partner`, `relay`, `safe`, `support`, `support-handoff`, `url`, `virtual`, `webview`, `zoom`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android/SKILL.md`

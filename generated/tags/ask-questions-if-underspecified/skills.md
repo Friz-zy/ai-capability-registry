@@ -1,21 +1,17 @@
-# Tag: ask-questions-if-underspecified
+# ask-questions-if-underspecified
 
-Skills with tag `ask-questions-if-underspecified`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## ask-questions-if-underspecified
+## Skills
 
+### ask-questions-if-underspecified
 Clarify requirements before implementing. Use when serious doubts arise.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified`
-- **Skill file**: `external/trailofbits-skills/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified/SKILL.md`
-- **Tags**: `arise`, `ask`, `ask-questions-if-underspecified`, `clarify`, `doubts`, `implementing`, `questions`, `requirements`, `serious`, `underspecified`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified/SKILL.md`
 
-## let-fate-decide
-
+### let-fate-decide
 Draws 4 Tarot cards to inject entropy into planning when prompts are vague, ambiguous, or casually delegated. Interprets the spread to guide next steps. Use when the user says 'let fate decide', 'YOLO', 'whatever', 'idk', or other nonchalant phrases, makes Yu-Gi-Oh references, or when you are about to arbitrarily pick between multiple reasonable approaches. Prefer over ask-questions-if-underspecified when the user's tone is casual or playful rather than precision-seeking.
 
-- **Source**: `trailofbits-skills` (trusted)
-- **Path**: `external/trailofbits-skills/plugins/let-fate-decide/skills/let-fate-decide`
-- **Skill file**: `external/trailofbits-skills/plugins/let-fate-decide/skills/let-fate-decide/SKILL.md`
-- **Tags**: `ambiguous`, `approaches`, `arbitrarily`, `ask`, `ask-questions-if-underspecified`, `between`, `cards`, `casual`, `casually`, `decide`, `delegated`, `draws`, `entropy`, `fate`, `idk`, `inject`, `interprets`, `let`, `let-fate-decide`, `makes`, `multiple`, `next`, `nonchalant`, `other`, `over`, `phrases`, `pick`, `planning`, `playful`, `precision`, `precision-seeking`, `prefer`, `prompts`, `questions`, `rather`, `reasonable`, `says`, `seeking`, `spread`, `tarot`, `than`, `tone`, `underspecified`, `vague`, `whatever`, `yolo`, `yu-gi-oh`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/let-fate-decide/skills/let-fate-decide/SKILL.md`

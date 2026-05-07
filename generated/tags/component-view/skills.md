@@ -1,12 +1,12 @@
-# Tag: component-view
+# component-view
 
-Skills with tag `component-view`:
+## Navigation
+Read skill files below to understand capabilities.
+Load skill file when task matches.
 
-## zoom-meeting-sdk-web-component-view
+## Skills
 
+### zoom-meeting-sdk-web-component-view
 |
 
-- **Source**: `anthropic-knowledge-work-plugins` (trusted)
-- **Path**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view`
-- **Skill file**: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view/SKILL.md`
-- **Tags**: `component`, `component-view`, `meeting`, `meeting-sdk`, `partner`, `sdk`, `view`, `web`, `zoom`, `zoom-meeting-sdk-web-component-view`
+File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view/SKILL.md`
