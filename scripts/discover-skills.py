@@ -334,6 +334,68 @@ def cleanup_generated() -> None:
             item.unlink()
 
 
+def generate_skill_catalog_md(
+    skills: list[SkillRecord],
+    tag_categories: dict[str, list[str]],
+) -> str:
+    """Generate human-readable skill catalog grouped by category."""
+    by_category: dict[str, list[SkillRecord]] = defaultdict(list)
+    uncategorized: list[SkillRecord] = []
+
+    for skill in skills:
+        matched = False
+        for cat, tags in tag_categories.items():
+            if any(t in skill.tags for t in tags):
+                by_category[cat].append(skill)
+                matched = True
+                break
+        if not matched:
+            uncategorized.append(skill)
+
+    lines = [
+        "# Skill Catalog",
+        "",
+        f"Total: {len(skills)} skills across {len(tag_categories)} categories",
+        "",
+    ]
+
+    for category in sorted(by_category.keys()):
+        cat_skills = sorted(by_category[category], key=lambda s: s.name)
+        lines.extend([
+            f"## {category.replace('_', ' ').title()}",
+            "",
+        ])
+        for skill in cat_skills:
+            tags_str = ", ".join(f"`{t}`" for t in skill.tags[:5])
+            lines.extend([
+                f"### {skill.name}",
+                f"{skill.description or 'No description.'}",
+                "",
+                f"**Tags:** {tags_str}",
+                f"**Source:** {skill.source_id}",
+                "",
+                f"File: `{skill.rel_file}`",
+                "",
+            ])
+
+    if uncategorized:
+        lines.extend([
+            "## Other",
+            "",
+        ])
+        for skill in sorted(uncategorized, key=lambda s: s.name):
+            lines.extend([
+                f"### {skill.name}",
+                f"{skill.description or 'No description.'}",
+                "",
+                f"**Tags:** {', '.join(skill.tags[:5])}",
+                f"**Source:** {skill.source_id}",
+                "",
+            ])
+
+    return "\n".join(lines)
+
+
 def main() -> int:
     registry = load_all()
     cleanup_generated()
@@ -368,6 +430,12 @@ def main() -> int:
         tag_to_category,
     )
     write_text(GENERATED_DIR / "skills.md", root_skills_content)
+
+    # Generate human-readable skill catalog at root level
+    catalog_path = ROOT / "skill-catalog.md"
+    catalog_content = generate_skill_catalog_md(skills, tag_categories)
+    write_text(catalog_path, catalog_content)
+    print(f"Generated skill catalog: {catalog_path}")
 
     print("Generated skill maps:")
     print(f"  - {GENERATED_DIR / 'skills.md'}")
