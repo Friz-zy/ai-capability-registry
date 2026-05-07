@@ -1,7 +1,7 @@
 # cobrowse-sdk
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### zoom-cobrowse-sdk
 Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing.

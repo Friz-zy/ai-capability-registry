@@ -1,7 +1,7 @@
 # data-context-extractor
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### data-context-extractor
 >

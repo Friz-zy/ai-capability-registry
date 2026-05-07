@@ -1,7 +1,7 @@
 # windows
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### video-sdk/windows
 Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, screen sharing, recording, and real-time communication

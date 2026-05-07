@@ -1,7 +1,7 @@
 # prds
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### notion-spec-to-implementation
 Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.

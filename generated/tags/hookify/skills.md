@@ -1,7 +1,7 @@
 # hookify
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### writing-hookify-rules
 This skill should be used when the user asks to "create a hookify rule", "write a hook rule", "configure hookify", "add a hookify rule", or needs guidance on hookify rule syntax and patterns.

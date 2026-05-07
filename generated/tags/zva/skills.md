@@ -1,7 +1,7 @@
 # zva
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### contact-center/android
 Zoom Contact Center SDK for Android. Use for native Android chat/video/ZVA/scheduled callback integrations, campaign mode, service lifecycle, and rejoin handling.

@@ -1,7 +1,7 @@
 # reorg
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### org-planning
 Headcount planning, org design, and team structure optimization. Trigger with "org planning", "headcount plan", "team structure", "reorg", "who should we hire next", or when the user is thinking about team size, reporting structure, or organizational design.

@@ -1,7 +1,7 @@
 # ownership
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-security-ownership-map
 Analyze git repositories to build a security ownership topology (people-to-file), compute

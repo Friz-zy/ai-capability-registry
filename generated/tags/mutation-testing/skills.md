@@ -1,7 +1,7 @@
 # mutation-testing
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### mutation-testing
 Configures mewt or muton mutation testing campaigns — scopes targets, tunes timeouts, and optimizes long-running runs. Use when the user mentions mewt, muton, mutation testing, or wants to configure or optimize a mutation testing campaign.

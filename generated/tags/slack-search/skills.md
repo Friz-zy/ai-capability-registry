@@ -1,7 +1,7 @@
 # slack-search
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### slack-search
 Guidance for effectively searching Slack to find messages, files, channels, and people

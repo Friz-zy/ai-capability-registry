@@ -1,7 +1,7 @@
 # notion
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### notion-knowledge-capture
 Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.

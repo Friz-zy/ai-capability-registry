@@ -1,7 +1,7 @@
 # yeet
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-yeet
 Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request

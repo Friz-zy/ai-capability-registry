@@ -1,7 +1,7 @@
 # contact-center
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### build-zoom-contact-center-app
 Reference skill for Zoom Contact Center. Use after routing to a contact-center workflow when implementing app, web, or native integrations; engagement context and state handling; campaigns; callbacks; or version-drift troubleshooting.

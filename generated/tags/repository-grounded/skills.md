@@ -1,7 +1,7 @@
 # repository-grounded
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-security-threat-model
 Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities,

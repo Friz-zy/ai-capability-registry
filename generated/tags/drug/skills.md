@@ -1,7 +1,7 @@
 # drug
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### start
 Set up your bio-research environment and explore available tools. Use when first getting oriented with the plugin, checking which literature, drug-discovery, or visualization MCP servers are connected, or surveying available analysis skills before starting a new project.

@@ -1,7 +1,7 @@
 # postmessage
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### contact-center/web
 Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handling, app-context integrations, and Smart Embed postMessage workflows.

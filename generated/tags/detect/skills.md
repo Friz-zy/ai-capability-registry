@@ -1,7 +1,7 @@
 # detect
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### m5-onboard
 End-to-end onboarding for a freshly-plugged-in M5Stack ESP32 device (Cardputer, Cardputer-Adv, Core, CoreS3, Stick) — detect on USB, flash UIFlow 2.0 firmware, and install the Claude Buddy MicroPython app bundle. Use whenever the user plugs in or wants to flash/provision/reset an M5Stack or ESP32 board, or says "m5-onboard go".

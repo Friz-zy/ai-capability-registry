@@ -1,7 +1,7 @@
 # develop
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-develop-web-game
 Use when the agent is building or iterating on a web game (HTML/JS) and needs a reliable

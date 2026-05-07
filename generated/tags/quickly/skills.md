@@ -1,7 +1,7 @@
 # quickly
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### debug-zoom-integration
 Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflows are failing and you need to isolate the layer before proposing a fix.

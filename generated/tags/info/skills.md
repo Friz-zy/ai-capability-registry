@@ -1,7 +1,7 @@
 # info
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### notion-research-documentation
 Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.

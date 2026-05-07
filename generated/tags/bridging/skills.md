@@ -1,7 +1,7 @@
 # bridging
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### contact-center/ios
 Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrations, app lifecycle bridging, rejoin flow, and callback handling.

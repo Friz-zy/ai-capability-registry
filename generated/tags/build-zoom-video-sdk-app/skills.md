@@ -1,7 +1,7 @@
 # build-zoom-video-sdk-app
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### build-zoom-video-sdk-app
 Reference skill for Zoom Video SDK. Use after routing to a custom-session workflow when the user needs full control over the video experience rather than an actual Zoom meeting.

@@ -1,7 +1,7 @@
 # slack-messaging
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### slack-messaging
 Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax

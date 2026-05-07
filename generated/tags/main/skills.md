@@ -1,7 +1,7 @@
 # main
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### zoom-apps-sdk
 Reference skill for Zoom Apps SDK. Use after routing to an in-client app workflow when building web apps that run inside Zoom meetings, webinars, the main client, or Zoom Phone.

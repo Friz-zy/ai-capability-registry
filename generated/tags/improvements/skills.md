@@ -1,7 +1,7 @@
 # improvements
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-security-best-practices
 Perform language and framework specific security best-practice reviews and suggest improvements.

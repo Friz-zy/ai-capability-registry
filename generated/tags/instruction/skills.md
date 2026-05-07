@@ -1,7 +1,7 @@
 # instruction
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### migrate-to-codex
 Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files.

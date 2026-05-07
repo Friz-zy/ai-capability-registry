@@ -1,7 +1,7 @@
 # spreadsheet
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-spreadsheet
 Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`,

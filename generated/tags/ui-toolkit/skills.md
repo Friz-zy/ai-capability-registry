@@ -1,7 +1,7 @@
 # ui-toolkit
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### ui-toolkit/web
 Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when you want prebuilt React UI instead of building a fully custom Video SDK interface.

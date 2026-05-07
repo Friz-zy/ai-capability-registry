@@ -1,7 +1,7 @@
 # terminal
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-playwright
 Use when the task requires automating a real browser from the terminal (navigation, form

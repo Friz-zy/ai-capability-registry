@@ -1,7 +1,7 @@
 # os-level
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### screenshot
 Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.

@@ -1,7 +1,7 @@
 # subscriptions
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### setup-zoom-webhooks
 Reference skill for Zoom webhooks. Use after routing to an event-driven workflow when implementing subscriptions, signature verification, delivery handling, retries, or event-type selection.

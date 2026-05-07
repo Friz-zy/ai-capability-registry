@@ -1,7 +1,7 @@
 # objective-c
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### virtual-agent/ios
 Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, message handlers, support_handoff relay, and URL routing policies.

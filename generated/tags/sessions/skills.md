@@ -1,7 +1,7 @@
 # sessions
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### video-sdk/web
 Zoom Video SDK for Web - JavaScript/TypeScript integration for browser-based video sessions, real-time communication, screen sharing, recording, and live transcription

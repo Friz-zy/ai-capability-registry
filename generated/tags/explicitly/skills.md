@@ -1,7 +1,7 @@
 # explicitly
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-screenshot
 Use when the user explicitly asks for a desktop or system screenshot (full screen, specific

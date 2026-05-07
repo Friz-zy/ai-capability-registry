@@ -1,7 +1,7 @@
 # zoom-video-sdk-unity
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### zoom-video-sdk-unity
 |

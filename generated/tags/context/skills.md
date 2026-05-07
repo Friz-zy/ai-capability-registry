@@ -1,7 +1,7 @@
 # context
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### audit-context-building
 Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding.

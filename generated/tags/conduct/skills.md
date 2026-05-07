@@ -1,7 +1,7 @@
 # conduct
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### user-research
 Plan, conduct, and synthesize user research. Trigger with "user research plan", "interview guide", "usability test", "survey design", "research questions", or when the user needs help with any aspect of understanding their users through research.

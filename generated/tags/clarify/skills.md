@@ -1,7 +1,7 @@
 # clarify
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### ask-questions-if-underspecified
 Clarify requirements before implementing. Use when serious doubts arise.

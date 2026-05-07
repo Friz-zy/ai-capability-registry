@@ -1,7 +1,7 @@
 # especially
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-doc
 Use when the task involves reading, creating, or editing `.docx` documents, especially when

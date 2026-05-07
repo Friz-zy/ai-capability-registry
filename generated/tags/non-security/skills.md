@@ -1,7 +1,7 @@
 # non-security
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### security-best-practices
 Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.

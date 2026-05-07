@@ -1,7 +1,7 @@
 # raw
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### meeting-sdk/linux
 Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video access, transcription, recording, and AI integration for server-side automation

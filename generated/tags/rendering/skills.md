@@ -1,7 +1,7 @@
 # rendering
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-pdf
 Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout

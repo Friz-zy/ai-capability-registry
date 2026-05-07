@@ -1,7 +1,7 @@
 # fast
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### playwright-interactive
 Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.

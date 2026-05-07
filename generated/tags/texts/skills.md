@@ -1,7 +1,7 @@
 # texts
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### configure
 Check iMessage channel setup and review access policy. Use when the user asks to configure iMessage, asks "how do I set this up" or "who can reach me," or wants to know why texts aren't reaching the assistant.

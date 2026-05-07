@@ -1,7 +1,7 @@
 # choose
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### choose-zoom-approach
 Choose the right Zoom architecture for a use case. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Zoom MCP, Phone, Contact Center, or a hybrid approach.

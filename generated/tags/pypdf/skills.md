@@ -1,7 +1,7 @@
 # pypdf
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### pdf
 Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.

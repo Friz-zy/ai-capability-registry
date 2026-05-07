@@ -1,7 +1,7 @@
 # programmatically
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### build-zoom-bot
 Build a Zoom meeting bot, recorder, or real-time media workflow. Use when joining meetings programmatically, processing live media or transcripts, or combining Meeting SDK, RTMS, and backend services.

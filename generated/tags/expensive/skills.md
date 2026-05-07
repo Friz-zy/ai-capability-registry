@@ -1,7 +1,7 @@
 # expensive
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### session-report
 Generate an explorable HTML report of Claude Code session usage (tokens, cache, subagents, skills, expensive prompts) from ~/.claude/projects transcripts.

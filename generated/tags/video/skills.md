@@ -1,7 +1,7 @@
 # video
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### build-zoom-meeting-app
 Build or embed a Zoom meeting flow. Use when implementing Meeting SDK joins, web or mobile meeting embeds, meeting lifecycle flows, or when deciding between Meeting SDK and Video SDK.

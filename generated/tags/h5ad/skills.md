@@ -1,7 +1,7 @@
 # h5ad
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### single-cell-rna-qc
 Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based filtering and comprehensive visualizations. Use when users request QC analysis, filtering low-quality cells, assessing data quality, or following scverse/scanpy best practices for single-cell analysis.

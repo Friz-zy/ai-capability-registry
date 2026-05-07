@@ -1,7 +1,7 @@
 # refresh
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### setup-zoom-oauth
 Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes, handling token refresh, or debugging auth failures.

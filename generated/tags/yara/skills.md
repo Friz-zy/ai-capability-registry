@@ -1,7 +1,7 @@
 # yara
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### yara-rule-authoring
 >

@@ -188,7 +188,7 @@ def generate_tag_skills_md(tag: str, skills: list[SkillRecord]) -> str:
         f"# {tag}",
         "",
         "## Skills",
-        "Load skill file when task matches.",
+        "Load skill and **use it** when task matches.",
         "",
     ]
 

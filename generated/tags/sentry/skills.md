@@ -1,7 +1,7 @@
 # sentry
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### openai-sentry
 Use when the user asks to inspect Sentry issues or events, summarize recent production errors,

@@ -1,7 +1,7 @@
 # zoom-mcp
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### setup-zoom-mcp
 Decide when Zoom MCP is the right fit and produce a safe setup plan for Claude. Use when planning AI workflows over Zoom data, deciding between MCP and REST, or defining a hybrid MCP architecture.

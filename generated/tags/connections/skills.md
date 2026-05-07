@@ -1,7 +1,7 @@
 # connections
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### setup-zoom-websockets
 Reference skill for Zoom WebSockets. Use after routing to a low-latency event workflow when persistent connections, faster event delivery, or security constraints make WebSockets preferable to webhooks.

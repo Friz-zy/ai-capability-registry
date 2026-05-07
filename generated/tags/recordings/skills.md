@@ -1,7 +1,7 @@
 # recordings
 
 ## Skills
-Load skill file when task matches.
+Load skill and **use it** when task matches.
 
 ### transcribe
 Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.
