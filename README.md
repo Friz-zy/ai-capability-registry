@@ -27,15 +27,11 @@ Point your agent to the generated skills index:
 
 For example:
 
-```yaml
-system:
-  - Read skills from: /home/user/ai-capability-registry/generated/skills.md
-```
-
-Or dynamically:
-
 ```bash
-SKILLS_INDEX="/path/to/ai-capability-registry/generated/skills.md"
+REGISTRY_ROOT="/path/to/ai-capability-registry"
+echo "Skills index: $REGISTRY_ROOT/generated/skills.md"
+echo "" >> AGENTS.md
+echo "Skills: $REGISTRY_ROOT/generated/skills.md" >> AGENTS.md
 ```
 
 ## Navigation
