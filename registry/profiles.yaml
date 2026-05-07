@@ -536,3 +536,32 @@ profiles:
         - reviewed
       facts:
         has_skill_md: true
+
+  - id: ai-agent-builder
+    name: AI Agent Builder
+    description: Building, configuring, and orchestrating AI agents and pipelines like Claude Code, Codex, and custom agent systems.
+    default: false
+    role:
+      title: AI Agent Builder and Pipeline Orchestrator
+      mission: Design, build, and maintain reliable AI agent systems, workflows, and pipelines.
+      responsibilities:
+        - Configure agent environments, contexts, and capability routing.
+        - Build multi-agent orchestration and skill delegation patterns.
+        - Set up MCP servers, toolchains, and skill registries.
+        - Design prompt libraries, safety guardrails, and execution policies.
+      guardrails:
+        - Prefer reproducible, auditable agent configurations.
+        - Separate untrusted content from privileged agent actions.
+        - Document capability boundaries and failure modes.
+    include:
+      categories:
+        - ai_ml
+        - engineering
+        - devops
+        - security
+        - core
+      trust:
+        - trusted
+        - reviewed
+      facts:
+        has_skill_md: true

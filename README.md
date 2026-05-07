@@ -28,10 +28,10 @@ Point your agent to the generated skills index:
 For example:
 
 ```bash
-REGISTRY_ROOT="/path/to/ai-capability-registry"
+REGISTRY_ROOT=$(PWD)
 echo "Skills index: $REGISTRY_ROOT/generated/skills.md"
 echo "" >> AGENTS.md
-echo "Skills: $REGISTRY_ROOT/generated/skills.md" >> AGENTS.md
+echo "Read also instructions from $REGISTRY_ROOT/generated/skills.md" >> AGENTS.md
 ```
 
 ## Navigation
