@@ -4,8 +4,7 @@ Generates skill maps organized by tags and roles.
 
 Output structure:
   generated/
-  ├── skills.md              # Root registry with navigation instructions
-  ├── agents.md.template    # Registry root path for relative resolution
+  ├── skills.md              # Root registry with navigation
   ├── roles/
   │   └── <role-id>/skills.md
   └── tags/
@@ -41,7 +40,6 @@ STOPWORDS = {
 
 
 def rel(path: Path) -> str:
-    """Relative path from registry root."""
     return path.relative_to(ROOT).as_posix()
 
 
@@ -190,7 +188,6 @@ def discover_skills(registry: dict[str, Any]) -> tuple[list[SkillRecord], dict[s
 
 
 def generate_tag_skills_md(tag: str, skills: list[SkillRecord]) -> str:
-    """Tag catalog with relative paths."""
     if not skills:
         return f"# {tag}\n\nNo skills found.\n"
     
@@ -219,7 +216,6 @@ def generate_role_skills_md(
     tag_categories: dict[str, list[str]],
     skills_by_tag: dict[str, list[SkillRecord]],
 ) -> str:
-    """Role catalog delegating to tags."""
     profile_id = profile["id"]
     role_title = profile.get("role", {}).get("title") or profile["name"]
     categories = profile.get("include", {}).get("categories", [])
@@ -246,7 +242,6 @@ def generate_root_skills_md(
     skills_by_tag: dict[str, list[SkillRecord]],
     tag_to_category: dict[str, str],
 ) -> str:
-    """Root skills.md with relative paths."""
     lines = [
         "# AI Capability Registry",
         "",
@@ -276,19 +271,6 @@ def generate_root_skills_md(
     ])
 
     return "\n".join(lines)
-
-
-def generate_agents_template(registry_root: str, root_skills_path: str) -> str:
-    """Minimal agents template with registry root."""
-    return f"""# Agent Bootstrap
-
-Registry root: {registry_root}
-
-Read this file to navigate:
-{root_skills_path}
-
-All paths in skills.md are relative to the registry root.
-"""
 
 
 def cleanup_generated() -> None:
@@ -337,15 +319,8 @@ def main() -> int:
     )
     write_text(GENERATED_DIR / "skills.md", root_skills_content)
 
-    # Generate agents.md.template
-    registry_root = str(ROOT)
-    root_skills_rel = rel(GENERATED_DIR / "skills.md")
-    agents_content = generate_agents_template(registry_root, root_skills_rel)
-    write_text(GENERATED_DIR / "agents.md.template", agents_content)
-
     print("Generated skill maps:")
     print(f"  - generated/skills.md")
-    print(f"  - generated/agents.md.template")
     print(f"  - {len(registry['profiles'])} role catalogs")
     print(f"  - {len(skills_by_tag)} tag catalogs")
 

@@ -11,7 +11,6 @@ This repository turns AI-agent capability sprawl into a reproducible GitOps-styl
 - 22 role-based profiles
 - 370+ skills organized into tag catalogs
 - Cascading skill map: Roles → Tags → Skills
-- Agent bootstrap template for dynamic capability routing
 
 ## Quick Start
 
@@ -26,7 +25,7 @@ cd ai-capability-registry
 ```
 external/      Pinned upstream sources (trusted only)
 registry/      Source metadata, trust levels, tag categories, profiles, policies
-generated/     Generated skill maps (roles/, tags/, skills.md, agents.md.template)
+generated/     Generated skill maps (roles/, tags/, skills.md)
 ```
 
 ## How Agents Use This Registry
@@ -34,23 +33,43 @@ generated/     Generated skill maps (roles/, tags/, skills.md, agents.md.templat
 The registry uses a cascading navigation model:
 
 ```
-generated/agents.md.template
-  → generated/skills.md           (root index - all roles)
+generated/skills.md           (root index - all roles)
   → generated/roles/<role>/skills.md  (role catalog - delegates to tags)
   → generated/tags/<tag>/skills.md    (tag catalog - lists skills with paths)
   → external/<source>/<path>/SKILL.md (actual skill file)
 ```
 
-Agents read `generated/agents.md.template` to understand how to navigate the registry, then dynamically load only the skills relevant to their current task.
+All paths are relative to the registry root. Agents resolve paths by joining the registry root path with the relative path.
+
+## Adding to Your Agent
+
+Point your agent to the root skills index:
+
+```
+<path-to-registry>/generated/skills.md
+```
+
+For example, in your agent config:
+
+```yaml
+system:
+  - Read skills from: /path/to/ai-capability-registry/generated/skills.md
+```
+
+Or in code:
+
+```python
+registry_root = "/path/to/ai-capability-registry"
+skills_index = f"{registry_root}/generated/skills.md"
+```
 
 ## Generated Output
 
 | Path | Purpose |
 | --- | --- |
 | `generated/skills.md` | Root index listing all roles |
-| `generated/agents.md.template` | Bootstrap template for agents with navigation instructions |
 | `generated/roles/<id>/skills.md` | Role catalog delegating to tag catalogs |
-| `generated/tags/<tag>/skills.md` | Tag catalog listing skills with full paths |
+| `generated/tags/<tag>/skills.md` | Tag catalog listing skills with relative paths |
 
 ## Trust Levels
 
@@ -97,35 +116,17 @@ All sources use pinned commits verified in CI.
 | `scripts/validate-registry.py` | Validates registry YAML structure and policies |
 | `scripts/discover-skills.py` | Generates cascading skill maps by roles and tags |
 
-### update-external.py
-
-This script ensures external/ submodules always match the skills.yaml configuration:
-
-1. **Reads** `registry/skills.yaml` to get all enabled sources with pinned commits
-2. **Adds** new submodules if they don't exist
-3. **Removes** old submodules if they're no longer in config or not trusted/reviewed
-4. **Updates** all submodules to the correct pinned commit
-5. **Verifies** all submodules are at the correct commit after sync
-
-Run this script independently to synchronize submodules:
-
-```bash
-./scripts/update-external.py
-```
-
 ## Skill Resolution Example
 
 ```
 Task: Review Terraform configuration for AWS security
 
-1. Read generated/agents.md.template
-2. Navigate to generated/skills.md
-3. Select role: devops-platform-engineer
-4. Read generated/roles/devops-platform-engineer/skills.md
-5. Find relevant tag: terraform, security, cloud, aws
-6. Read generated/tags/terraform/skills.md
-7. Read generated/tags/security/skills.md
-8. Access specific skill files in external/
+1. Read generated/skills.md
+2. Select role: devops-platform-engineer
+3. Read generated/roles/devops-platform-engineer/skills.md
+4. Find relevant tag: terraform, security
+5. Read generated/tags/terraform/skills.md
+6. Load skill file from external/
 ```
 
 ## Philosophy
