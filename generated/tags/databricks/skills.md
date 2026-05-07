@@ -1,9 +1,0 @@
-# databricks
-
-## Skills
-Load skill and **use it** when task matches.
-
-### sql-queries
-Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations.
-
-File: `../external/anthropic-knowledge-work-plugins/data/skills/sql-queries/SKILL.md`

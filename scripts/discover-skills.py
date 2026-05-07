@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Generates skill maps organized by tags and roles.
-All paths are relative to generated/ directory.
+Generates absolute paths for portability across machines.
 """
 
 from __future__ import annotations
@@ -33,9 +33,14 @@ STOPWORDS = {
 }
 
 
-def rel_from_generated(path: Path) -> str:
-    """Relative path from generated/ directory to any file in repo."""
-    return os.path.relpath(path, GENERATED_DIR)
+def abs_path(path: Path) -> str:
+    """Absolute path."""
+    return str(path.absolute())
+
+
+def rel_from_root(path: Path) -> str:
+    """Relative path from registry root."""
+    return path.relative_to(ROOT).as_posix()
 
 
 def should_skip(path: Path) -> bool:
@@ -114,14 +119,15 @@ class SkillRecord:
         self.name = name
         self.description = description
         self.tags = tags
-        self.rel_file = rel_from_generated(skill_file)
+        self.abs_file = abs_path(skill_file)
+        self.rel_file = rel_from_root(skill_file)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "name": self.name,
             "description": self.description,
             "tags": self.tags,
-            "skill_file": self.rel_file,
+            "skill_file": self.abs_file,
             "source": self.source_id,
             "trust": self.source_trust,
         }
@@ -197,7 +203,7 @@ def generate_tag_skills_md(tag: str, skills: list[SkillRecord]) -> str:
             f"### {skill.name}",
             f"{skill.description or 'No description.'}",
             "",
-            f"File: `{skill.rel_file}`",
+            f"File: `{skill.abs_file}`",
             "",
         ])
 
@@ -224,8 +230,8 @@ def generate_role_skills_md(
 
     for tag in sorted(tags_with_skills):
         count = len(skills_by_tag.get(tag, []))
-        tag_path = f"tags/{tag}/skills.md"
-        lines.append(f"- **{tag}**: {count} skills — `{tag_path}`")
+        tag_abs = abs_path(GENERATED_DIR / "tags" / tag / "skills.md")
+        lines.append(f"- **{tag}**: {count} skills — `{tag_abs}`")
 
     return "\n".join(lines)
 
@@ -236,10 +242,14 @@ def generate_root_skills_md(
     skills_by_tag: dict[str, list[SkillRecord]],
     tag_to_category: dict[str, str],
 ) -> str:
+    root_abs = abs_path(GENERATED_DIR / "skills.md")
+    
     lines = [
         "# AI Capability Registry",
         "",
-        "All paths below are relative to this file's directory.",
+        "All paths below are absolute.",
+        "",
+        f"Skills index: {root_abs}",
         "",
         "## Navigation",
         "1. Select role below",
@@ -259,8 +269,8 @@ def generate_root_skills_md(
     for profile in profiles:
         profile_id = profile["id"]
         role_title = profile.get("role", {}).get("title") or profile["name"]
-        role_path = f"roles/{profile_id}/skills.md"
-        lines.append(f"- **{role_title}**: `{role_path}`")
+        role_abs = abs_path(GENERATED_DIR / "roles" / profile_id / "skills.md")
+        lines.append(f"- **{role_title}**: `{role_abs}`")
 
     lines.extend([
         "",
@@ -321,9 +331,11 @@ def main() -> int:
     write_text(GENERATED_DIR / "skills.md", root_skills_content)
 
     print("Generated skill maps:")
-    print(f"  - generated/skills.md")
+    print(f"  - {GENERATED_DIR / 'skills.md'}")
     print(f"  - {len(registry['profiles'])} role catalogs")
     print(f"  - {len(skills_by_tag)} tag catalogs")
+    print(f"\nAdd this to your agent config:")
+    print(f"  {abs_path(GENERATED_DIR / 'skills.md')}")
 
     return 0
 

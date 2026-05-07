@@ -1,9 +1,0 @@
-# journal-entry
-
-## Skills
-Load skill and **use it** when task matches.
-
-### journal-entry
-Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review.
-
-File: `../external/anthropic-knowledge-work-plugins/finance/skills/journal-entry/SKILL.md`
