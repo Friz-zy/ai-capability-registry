@@ -1,4 +1,3 @@
-
 # External capability sources are intentionally pinned as submodules when added.
 # MVP starts registry-first; run scripts/update-submodules.sh after adding sources.
 [submodule "external/anthropic-skills"]
@@ -22,21 +21,3 @@
 [submodule "external/trailofbits-skills-curated"]
 	path = external/trailofbits-skills-curated
 	url = https://github.com/trailofbits/skills-curated
-[submodule "external/superpowers"]
-	path = external/superpowers
-	url = https://github.com/obra/superpowers
-[submodule "external/everyinc-compound-engineering-plugin"]
-	path = external/everyinc-compound-engineering-plugin
-	url = https://github.com/EveryInc/compound-engineering-plugin
-[submodule "external/coreyhaines-marketingskills"]
-	path = external/coreyhaines-marketingskills
-	url = https://github.com/coreyhaines31/marketingskills
-[submodule "external/ghostsecurity-skills"]
-	path = external/ghostsecurity-skills
-	url = https://github.com/ghostsecurity/skills
-[submodule "external/indexes/awesome-claude-skills"]
-	path = external/indexes/awesome-claude-skills
-	url = https://github.com/ComposioHQ/awesome-claude-skills
-[submodule "external/indexes/alirezarezvani-claude-skills"]
-	path = external/indexes/alirezarezvani-claude-skills
-	url = https://github.com/alirezarezvani/claude-skills

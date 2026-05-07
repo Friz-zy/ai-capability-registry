@@ -5,9 +5,13 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 cd "${ROOT_DIR}"
 
-git submodule update --init --recursive
+# Sync external submodules with registry config (add/remove/update to match skills.yaml)
+./scripts/update-external.py
+
+# Validate registry
 ./scripts/validate-registry.py
-./scripts/discover-capabilities.py
-./scripts/generate-readme.py
+
+# Generate skill maps
+./scripts/discover-skills.py
 
 echo "Bootstrap complete"

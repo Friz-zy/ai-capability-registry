@@ -1,0 +1,21 @@
+# Tag: candidates
+
+Skills with tag `candidates`:
+
+## interview-prep
+
+Create structured interview plans with competency-based questions and scorecards. Trigger with "interview plan for", "interview questions for", "how should we interview", "scorecard for", or when the user is preparing to interview candidates.
+
+- **Source**: `anthropic-knowledge-work-plugins` (trusted)
+- **Path**: `external/anthropic-knowledge-work-plugins/human-resources/skills/interview-prep`
+- **Skill file**: `external/anthropic-knowledge-work-plugins/human-resources/skills/interview-prep/SKILL.md`
+- **Tags**: `candidates`, `competency`, `create`, `human`, `interview`, `interview-prep`, `plan`, `plans`, `prep`, `preparing`, `questions`, `scorecard`, `scorecards`, `structured`, `trigger`
+
+## recruiting-pipeline
+
+Track and manage recruiting pipeline stages. Trigger with "recruiting update", "candidate pipeline", "how many candidates", "hiring status", or when the user discusses sourcing, screening, interviewing, or extending offers.
+
+- **Source**: `anthropic-knowledge-work-plugins` (trusted)
+- **Path**: `external/anthropic-knowledge-work-plugins/human-resources/skills/recruiting-pipeline`
+- **Skill file**: `external/anthropic-knowledge-work-plugins/human-resources/skills/recruiting-pipeline/SKILL.md`
+- **Tags**: `candidate`, `candidates`, `discusses`, `extending`, `hiring`, `human`, `interviewing`, `manage`, `many`, `offers`, `pipeline`, `recruiting`, `recruiting-pipeline`, `screening`, `sourcing`, `stages`, `status`, `track`, `trigger`

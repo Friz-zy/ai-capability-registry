@@ -1,0 +1,12 @@
+# Tag: takeover
+
+Skills with tag `takeover`:
+
+## supply-chain-risk-auditor
+
+Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements.
+
+- **Source**: `trailofbits-skills` (trusted)
+- **Path**: `external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor`
+- **Skill file**: `external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md`
+- **Tags**: `assessing`, `attack`, `auditor`, `chain`, `dependencies`, `dependency`, `engagements`, `evaluating`, `exploitation`, `health`, `heightened`, `identifies`, `risk`, `scoping`, `security`, `supply`, `supply-chain-risk-auditor`, `surface`, `takeover`

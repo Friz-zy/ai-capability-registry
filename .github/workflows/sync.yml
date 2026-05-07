@@ -1,0 +1,64 @@
+name: Sync Registry
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'registry/skills.yaml'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sync external submodules
+        run: ./scripts/update-external.py
+      - name: Generate skill maps
+        run: ./scripts/discover-skills.py
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "ci: sync external submodules and regenerate skill maps
+
+            
+Triggered by: registry/skills.yaml changes"
+            git push
+          fi
+
+  verify:
+    runs-on: ubuntu-latest
+    needs: sync
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify clean state
+        run: |
+          ./scripts/update-external.py
+          ./scripts/discover-skills.py
+          if [ -n "$(git diff)" ]; then
+            echo "ERROR: Bootstrap produces non-deterministic output"
+            git diff --stat
+            exit 1
+          fi
+          echo "✓ Bootstrap produces clean state"
