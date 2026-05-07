@@ -2,9 +2,17 @@ name: Validate Registry
 
 on:
   pull_request:
+    paths:
+      - 'registry/skills.yaml'
+      - 'scripts/**'
+      - 'external/**'
   push:
     branches:
       - main
+    paths:
+      - 'registry/skills.yaml'
+      - 'scripts/**'
+      - 'external/**'
 
 jobs:
   validate:
