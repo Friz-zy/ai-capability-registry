@@ -1,4 +1,42 @@
 skills:
+  - id: kilo-marketplace-skills
+    name: Kilo Marketplace Skills
+    description: Skills from the Kilo Marketplace repository.
+    source:
+      type: git
+      repo: https://github.com/Kilo-Org/kilo-marketplace
+      subdir: skills
+      external_path: external/kilo-marketplace-skills
+    category:
+      - official
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: official_vendor
+    activation:
+      keywords:
+        - kilo
+        - skill
+    compatibility:
+      - kilo-code
+      - claude-code
+      - codex-cli
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: ad621d7688758894b84b68f175a50aad00c3300e
+      pinned: true
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
   - id: anthropic-skills
     name: Anthropic Skills
     description: Official Anthropic skill catalog for Claude workflows.

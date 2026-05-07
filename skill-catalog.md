@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Total: 370 skills across 23 categories
+Total: 421 skills across 23 categories
 
 ## Ai Ml
 
@@ -19,6 +19,14 @@ Create, repair, validate, preview, and package Codex-compatible animated pets an
 **Source:** openai-skills
 
 File: `external/openai-skills/skills/.curated/hatch-pet/SKILL.md`
+
+### mcp-builder
+>-
+
+**Tags:** `builder`, `mcp`, `mcp-builder`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/mcp-builder/SKILL.md`
 
 ### migrate-to-codex
 Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files.
@@ -126,6 +134,14 @@ Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video acce
 
 File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux/SKILL.md`
 
+### migrating-dbt-project-across-platforms
+Use when migrating a dbt project from one data platform or data warehouse to another (e.g., Snowflake to Databricks, Databricks to Snowflake) using dbt Fusion's real-time compilation to identify and fix SQL dialect differences.
+
+**Tags:** `another`, `compilation`, `data`, `databricks`, `dbt`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt-migration/skills/migrating-dbt-project-across-platforms/SKILL.md`
+
 ### modern-python
 Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black.
 
@@ -192,6 +208,14 @@ Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with "audit a
 
 File: `external/anthropic-knowledge-work-plugins/design/skills/accessibility-review/SKILL.md`
 
+### adding-dbt-unit-test
+Creates unit test YAML definitions that mock upstream model inputs and validate expected outputs. Use when adding unit tests for a dbt model or practicing test-driven development (TDD) in dbt.
+
+**Tags:** `adding`, `adding-dbt-unit-test`, `creates`, `dbt`, `definitions`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/skills/adding-dbt-unit-test/SKILL.md`
+
 ### address-sanitizer
 >
 
@@ -216,6 +240,14 @@ This skill should be used when the user asks to "create an agent", "add an agent
 
 File: `external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/agent-development/SKILL.md`
 
+### agent-md-refactor
+>-
+
+**Tags:** `md-refactor`, `refactor`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/agent-md-refactor/SKILL.md`
+
 ### agentic-actions-auditor
 Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations.
 
@@ -231,6 +263,22 @@ Creating algorithmic art using p5.js with seeded randomness and interactive para
 **Source:** anthropic-skills
 
 File: `external/anthropic-skills/skills/algorithmic-art/SKILL.md`
+
+### angular-testing
+>-
+
+**Tags:** `angular`, `angular-testing`, `testing`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/angular-testing/SKILL.md`
+
+### answering-natural-language-questions-with-dbt
+Writes and executes SQL queries against the data warehouse using dbt's Semantic Layer or ad-hoc SQL to answer business questions. Use when a user asks about analytics, metrics, KPIs, or data (e.g., "What were total sales last quarter?", "Show me top customers by revenue"). NOT for validating, testing, or building dbt models during development.
+
+**Tags:** `ad-hoc`, `against`, `analytics`, `answer`, `answering`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/skills/answering-natural-language-questions-with-dbt/SKILL.md`
 
 ### architecture
 Create or evaluate an architecture decision record (ADR). Use when choosing between technologies (e.g., Kafka vs SQS), documenting a design decision with trade-offs and consequences, reviewing a system design proposal, or designing a new component from requirements and constraints.
@@ -432,6 +480,14 @@ Set up the Telegram channel — save the bot token and review access policy. Use
 
 File: `external/anthropic-claude-plugins-official/external_plugins/telegram/skills/configure/SKILL.md`
 
+### configuring-dbt-mcp-server
+Generates MCP server configuration JSON, resolves authentication setup, and validates server connectivity for dbt. Use when setting up, configuring, or troubleshooting the dbt MCP server for AI tools like Kilo, Cursor, VS Code, or Claude Desktop.
+
+**Tags:** `authentication`, `code`, `configuration`, `configuring`, `configuring-dbt-mcp-server`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/skills/configuring-dbt-mcp-server/SKILL.md`
+
 ### constant-time-analysis
 Detects timing side-channel vulnerabilities in cryptographic code. Use when implementing or reviewing crypto code, encountering division on secrets, secret-dependent branches, or constant-time programming questions in C, C++, Go, Rust, Swift, Java, Kotlin, C#, PHP, JavaScript, TypeScript, Python, or Ruby.
 
@@ -583,6 +639,14 @@ This skill should be used when the user asks to "demonstrate skills", "show skil
 **Source:** anthropic-claude-plugins-official
 
 File: `external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-skill/SKILL.md`
+
+### fetching-dbt-docs
+Retrieves and searches dbt documentation pages in LLM-friendly markdown format. Use when fetching dbt documentation, looking up dbt features, or answering questions about dbt Cloud, dbt Core, or the dbt Semantic Layer.
+
+**Tags:** `answering`, `cloud`, `core`, `dbt`, `docs`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/skills/fetching-dbt-docs/SKILL.md`
 
 ### figma
 Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.
@@ -1200,6 +1264,14 @@ Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YEL
 
 File: `external/anthropic-knowledge-work-plugins/legal/skills/triage-nda/SKILL.md`
 
+### using-dbt-for-analytics-engineering
+Builds and modifies dbt models, writes SQL transformations using ref() and source(), creates tests, and validates results with dbt show. Use when doing any dbt work - building or modifying models, debugging errors, exploring unfamiliar data sources, writing tests, or evaluating impact of changes.
+
+**Tags:** `analytics`, `building`, `builds`, `changes`, `creates`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/skills/using-dbt-for-analytics-engineering/SKILL.md`
+
 ### ux-copy
 Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with "write copy for", "what should this button say?", "review this error message", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text.
 
@@ -1239,6 +1311,14 @@ Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/pdf-viewer/skills/view-pdf/SKILL.md`
+
+### webapp-testing
+>-
+
+**Tags:** `testing`, `webapp`, `webapp-testing`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/webapp-testing/SKILL.md`
 
 ### webapp-testing
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
@@ -1332,6 +1412,14 @@ Answer data questions -- from quick lookups to full analyses. Use when looking u
 
 File: `external/anthropic-knowledge-work-plugins/data/skills/analyze/SKILL.md`
 
+### building-dbt-semantic-layer
+Use when creating or modifying dbt Semantic Layer components — semantic models, metrics, dimensions, entities, measures, or time spines. Covers MetricFlow configuration, metric types (simple, derived, cumulative, ratio, conversion), and validation for both latest and legacy YAML specs.
+
+**Tags:** `both`, `building`, `building-dbt-semantic-layer`, `components`, `configuration`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/skills/building-dbt-semantic-layer/SKILL.md`
+
 ### comp-analysis
 Analyze compensation — benchmarking, band placement, and equity modeling. Trigger with "what should we pay a [role]", "is this offer competitive", "model this equity grant", or when uploading comp data to find outliers and retention risks.
 
@@ -1363,6 +1451,14 @@ File: `external/anthropic-knowledge-work-plugins/partner-built/common-room/skill
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/data/skills/data-context-extractor/SKILL.md`
+
+### dbt-migration
+Skills for migrating dbt projects - moving from dbt Core to the Fusion engine or across data platforms. Use when migrating dbt projects between platforms or to dbt Fusion.
+
+**Tags:** `between`, `core`, `data`, `dbt`, `dbt-migration`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt-migration/SKILL.md`
 
 ### legal-response
 Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas.
@@ -1520,6 +1616,22 @@ Search across all connected sources in one query. Trigger with "find that doc ab
 
 File: `external/anthropic-knowledge-work-plugins/enterprise-search/skills/search/SKILL.md`
 
+### vercel-composition-patterns
+>-
+
+**Tags:** `composition`, `vercel`, `vercel-composition`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/vercel-composition-patterns/SKILL.md`
+
+### vercel-deploy
+>-
+
+**Tags:** `deploy`, `vercel`, `vercel-deploy`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/vercel-deploy/SKILL.md`
+
 ### vercel-deploy
 Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
 
@@ -1561,6 +1673,14 @@ Package an escalation for engineering, product, or leadership with full context.
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/customer-support/skills/customer-escalation/SKILL.md`
+
+### dbt
+Skills for analytics engineering with dbt - building models, writing tests, querying the semantic layer, troubleshooting jobs, and more. Use when doing any dbt analytics engineering work.
+
+**Tags:** `analytics`, `building`, `dbt`, `doing`, `engineering`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/SKILL.md`
 
 ### deploy-checklist
 Pre-deployment verification checklist. Use when about to ship a release, deploying a change with database migrations or feature flags, verifying CI status and approvals before going to production, or documenting rollback triggers ahead of time.
@@ -1650,6 +1770,14 @@ Token integration and implementation analyzer based on Trail of Bits' token inte
 
 File: `external/trailofbits-skills/plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md`
 
+### troubleshooting-dbt-job-errors
+Diagnoses dbt Cloud/platform job failures by analyzing run logs, querying the Admin API, reviewing git history, and investigating data issues. Use when a dbt Cloud/platform job fails and you need to diagnose the root cause, especially when error messages are unclear or when intermittent failures occur. Do not use for local dbt development errors.
+
+**Tags:** `admin`, `analyzing`, `api`, `cause`, `cloud`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/dbt/skills/troubleshooting-dbt-job-errors/SKILL.md`
+
 ### xlsx
 Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \"the xlsx in my downloads\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.
 
@@ -1725,6 +1853,14 @@ Prepare for a sales call with account context, attendee research, and suggested 
 File: `external/anthropic-knowledge-work-plugins/sales/skills/call-prep/SKILL.md`
 
 ### canvas-design
+>-
+
+**Tags:** `canvas`, `canvas-design`, `design`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/canvas-design/SKILL.md`
+
+### canvas-design
 Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.
 
 **Tags:** `art`, `artists`, `asks`, `avoid`, `beautiful`
@@ -1787,6 +1923,22 @@ Create a new blank Figma file. Use when the user wants to create a new Figma des
 **Source:** openai-skills
 
 File: `external/openai-skills/skills/.curated/figma-create-new-file/SKILL.md`
+
+### figma-implement-design
+>-
+
+**Tags:** `design`, `figma`, `figma-implement-design`, `implement`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/figma-implement-design/SKILL.md`
+
+### frontend-design
+>-
+
+**Tags:** `design`, `frontend`, `frontend-design`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/frontend-design/SKILL.md`
 
 ### last30days
 Researches a topic from the last 30 days on Reddit, X, and the web. Surfaces real community discussions with engagement metrics and synthesizes findings into actionable insights. Use when the user wants to know what people are saying about a topic right now.
@@ -1876,6 +2028,14 @@ Plan, conduct, and synthesize user research. Trigger with "user research plan", 
 
 File: `external/anthropic-knowledge-work-plugins/design/skills/user-research/SKILL.md`
 
+### vercel-react-best-practices
+>-
+
+**Tags:** `practices`, `react`, `vercel`, `vercel-react-practices`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/vercel-react-best-practices/SKILL.md`
+
 ### virtual-agent/web
 Zoom Virtual Agent SDK for web embeds. Use for campaign or entry ID chat launch, event-driven controls, user context updates, and CSP-safe deployment.
 
@@ -1891,6 +2051,14 @@ Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts 
 **Source:** anthropic-skills
 
 File: `external/anthropic-skills/skills/web-artifacts-builder/SKILL.md`
+
+### web-design-guidelines
+>-
+
+**Tags:** `design`, `guidelines`, `web`, `web-design-guidelines`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/web-design-guidelines/SKILL.md`
 
 ### zoom-apps-sdk
 Reference skill for Zoom Apps SDK. Use after routing to an in-client app workflow when building web apps that run inside Zoom meetings, webinars, the main client, or Zoom Phone.
@@ -1951,6 +2119,14 @@ Prepare and route a document for e-signature — run a pre-signature checklist, 
 File: `external/anthropic-knowledge-work-plugins/legal/skills/signature-request/SKILL.md`
 
 ## Marketing
+
+### competitive-ads-extractor
+>-
+
+**Tags:** `ads`, `competitive`, `competitive-ads-extractor`, `extractor`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/competitive-ads-extractor/SKILL.md`
 
 ### content-creation
 Draft marketing content across channels — blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action.
@@ -2138,6 +2314,14 @@ Research competitors and generate a positioning and messaging comparison with co
 
 File: `external/anthropic-knowledge-work-plugins/marketing/skills/competitive-brief/SKILL.md`
 
+### content-research-writer
+>-
+
+**Tags:** `content`, `content-research-writer`, `research`, `writer`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/content-research-writer/SKILL.md`
+
 ### customer-research
 Multi-source research on a customer question or topic with source attribution. Use when a customer asks something you need to look up, investigating whether a bug has been reported before, checking what was previously told to a specific account, or gathering background before drafting a response.
 
@@ -2169,6 +2353,14 @@ Combines search results from multiple sources into coherent, deduplicated answer
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis/SKILL.md`
+
+### lead-research-assistant
+>-
+
+**Tags:** `lead`, `lead-research`, `research`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/lead-research-assistant/SKILL.md`
 
 ### meeting-briefing
 Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed.
@@ -2644,6 +2836,72 @@ Manage Telegram channel access — approve pairings, edit allowlists, set DM/gro
 **Tags:** access, allowed, allowlists, approve, asks
 **Source:** anthropic-claude-plugins-official
 
+### add-remote-skill
+This skill should be used when the user wants to add one or more skills from GitHub repositories to the kilo-marketplace. It handles parsing GitHub URLs, cloning skill directories, and updating SKILL.md frontmatter with source metadata.
+
+**Tags:** cloning, directories, frontmatter, github, handles
+**Source:** kilo-marketplace-skills
+
+### angular-component
+>-
+
+**Tags:** angular, angular-component, component
+**Source:** kilo-marketplace-skills
+
+### angular-di
+>-
+
+**Tags:** angular, angular-di
+**Source:** kilo-marketplace-skills
+
+### angular-directives
+>-
+
+**Tags:** angular, angular-directives, directives
+**Source:** kilo-marketplace-skills
+
+### angular-forms
+>-
+
+**Tags:** angular, angular-forms, forms
+**Source:** kilo-marketplace-skills
+
+### angular-http
+>-
+
+**Tags:** angular, angular-http, http
+**Source:** kilo-marketplace-skills
+
+### angular-routing
+>-
+
+**Tags:** angular, angular-routing, routing
+**Source:** kilo-marketplace-skills
+
+### angular-signals
+>-
+
+**Tags:** angular, angular-signals, signals
+**Source:** kilo-marketplace-skills
+
+### angular-ssr
+>-
+
+**Tags:** angular, angular-ssr, ssr
+**Source:** kilo-marketplace-skills
+
+### angular-tooling
+>-
+
+**Tags:** angular, angular-tooling, tooling
+**Source:** kilo-marketplace-skills
+
+### artifacts-builder
+>-
+
+**Tags:** artifacts, artifacts-builder, builder
+**Source:** kilo-marketplace-skills
+
 ### ask-questions-if-underspecified
 Clarify requirements before implementing. Use when serious doubts arise.
 
@@ -2680,6 +2938,12 @@ Iterate on the Cardputer-Adv MicroPython app bundle (Claude Buddy, Snake, Hello)
 **Tags:** adv, already, app, buddy, bundle
 **Source:** anthropic-claude-plugins-official
 
+### changelog-generator
+>-
+
+**Tags:** changelog, changelog-generator, generator
+**Source:** kilo-marketplace-skills
+
 ### cowork-plugin-customizer
 >
 
@@ -2692,11 +2956,23 @@ Iterate on the Cardputer-Adv MicroPython app bundle (Claude Buddy, Snake, Hello)
 **Tags:** cowork, cowork-management, create, create-cowork, management
 **Source:** anthropic-knowledge-work-plugins
 
+### create-pull-request
+>-
+
+**Tags:** create, create-pull-request, pull, request
+**Source:** kilo-marketplace-skills
+
 ### docx
 Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.
 
 **Tags:** asks, changes, coding, comments, content
 **Source:** anthropic-skills
+
+### domain-name-brainstormer
+>-
+
+**Tags:** brainstormer, domain, domain-brainstormer
+**Source:** kilo-marketplace-skills
 
 ### draft-offer
 Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp package (base, equity, signing bonus), writing the offer letter text itself, or prepping negotiation guidance for the hiring manager.
@@ -2710,6 +2986,12 @@ An example user-invoked skill that demonstrates frontmatter options and the skil
 **Tags:** command, demonstrates, frontmatter, invoked, layout
 **Source:** anthropic-claude-plugins-official
 
+### file-organizer
+>-
+
+**Tags:** organizer
+**Source:** kilo-marketplace-skills
+
 ### git-cleanup
 Safely analyzes and cleans up local git branches and worktrees by categorizing them as merged, squash-merged, superseded, or active work.
 
@@ -2722,11 +3004,29 @@ Safely analyzes and cleans up local git branches and worktrees by categorizing t
 **Tags:** evolution, graph, graph-evolution, trailmark
 **Source:** trailofbits-skills
 
+### grill-me
+>-
+
+**Tags:** grill, grill-me
+**Source:** kilo-marketplace-skills
+
 ### humanizer
 |
 
 **Tags:** humanizer
 **Source:** trailofbits-skills-curated
+
+### image-enhancer
+>-
+
+**Tags:** enhancer, image, image-enhancer
+**Source:** kilo-marketplace-skills
+
+### internal-comms
+>-
+
+**Tags:** comms, internal, internal-comms
+**Source:** kilo-marketplace-skills
 
 ### interview-prep
 Create structured interview plans with competency-based questions and scorecards. Trigger with "interview plan for", "interview questions for", "how should we interview", "scorecard for", or when the user is preparing to interview candidates.
@@ -2739,6 +3039,12 @@ Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`)
 
 **Tags:** asks, bundled, clean, create, curated
 **Source:** openai-skills
+
+### langsmith-fetch
+>-
+
+**Tags:** fetch, langsmith, langsmith-fetch
+**Source:** kilo-marketplace-skills
 
 ### linear
 Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.
@@ -2757,6 +3063,18 @@ No description.
 
 **Tags:** math, math-olympiad, olympiad
 **Source:** anthropic-claude-plugins-official
+
+### meeting-insights-analyzer
+>-
+
+**Tags:** analyzer, insights, meeting, meeting-insights-analyzer
+**Source:** kilo-marketplace-skills
+
+### migrating-dbt-core-to-fusion
+Classifies dbt-core to Fusion migration errors into actionable categories (auto-fixable, guided fixes, needs input, blocked). Use when a user needs help triaging migration errors to understand what they can fix vs what requires Fusion engine updates.
+
+**Tags:** actionable, auto, auto-fixable, blocked, can
+**Source:** kilo-marketplace-skills
 
 ### onboarding
 Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, building the pre-start task list (accounts, equipment, buddy), scheduling Day 1 and Week 1, or setting 30/60/90-day goals for a new team member.
@@ -2800,6 +3118,12 @@ Find and explain company policies in plain language. Trigger with "what's our PT
 **Tags:** another, benefits, can, company, country
 **Source:** anthropic-knowledge-work-plugins
 
+### running-dbt-commands
+Formats and executes dbt CLI commands, selects the correct dbt executable, and structures command parameters. Use when running models, tests, builds, compiles, or show queries via dbt CLI. Use when unsure which dbt executable to use or how to format command parameters.
+
+**Tags:** builds, cli, command, commands, compiles
+**Source:** kilo-marketplace-skills
+
 ### screenshot
 Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.
 
@@ -2818,6 +3142,12 @@ Reference skill for Zoom webhooks. Use after routing to an event-driven workflow
 **Tags:** delivery, driven, event, event-driven, handling
 **Source:** anthropic-knowledge-work-plugins
 
+### skill-creator
+>-
+
+**Tags:** creator
+**Source:** kilo-marketplace-skills
+
 ### skill-extractor
 >-
 
@@ -2830,11 +3160,29 @@ Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub rep
 **Tags:** another, asks, codex, codex-home, curated
 **Source:** openai-skills
 
+### skill-share
+>-
+
+**Tags:** share
+**Source:** kilo-marketplace-skills
+
+### slack-gif-creator
+>-
+
+**Tags:** creator, gif, slack, slack-gif-creator
+**Source:** kilo-marketplace-skills
+
 ### slack-messaging
 Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax
 
 **Tags:** composing, effective, formatted, guidance, messages
 **Source:** anthropic-knowledge-work-plugins
+
+### theme-factory
+>-
+
+**Tags:** factory, theme, theme-factory
+**Source:** kilo-marketplace-skills
 
 ### video-sdk/windows
 Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, screen sharing, recording, and real-time communication
@@ -2859,6 +3207,12 @@ Use only when the user explicitly asks to stage, commit, push, and open a GitHub
 
 **Tags:** asks, cli, commit, curated, explicitly
 **Source:** openai-skills
+
+### youtube-downloader
+>-
+
+**Tags:** downloader, youtube, youtube-downloader
+**Source:** kilo-marketplace-skills
 
 ### zoom-meeting-sdk-electron
 |

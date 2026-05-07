@@ -21,3 +21,6 @@
 [submodule "external/trailofbits-skills-curated"]
 	path = external/trailofbits-skills-curated
 	url = https://github.com/trailofbits/skills-curated
+[submodule "external/kilo-marketplace-skills"]
+	path = external/kilo-marketplace-skills
+	url = https://github.com/Kilo-Org/kilo-marketplace
