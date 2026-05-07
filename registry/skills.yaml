@@ -30,8 +30,8 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: d211d437443a7b2496a3dad9575e7dddd724c585
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: high
@@ -70,8 +70,8 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: d6947b6f35ada84a029349c76e9e44b1d35fb71e
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: high
@@ -112,8 +112,8 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 9789ea78ad66e395a9c709146cacecdc14ce2abf
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: high
@@ -152,8 +152,8 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 4c4058ebf44f6734e62c70ab4a81246d4d093fc8
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: high
@@ -173,7 +173,7 @@ skills:
       - core
       - standard
     trust:
-      level: candidate
+      level: trusted
       curated: true
       reviewed: true
       reason: portable_standard
@@ -193,8 +193,8 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 2d3e01f590f68bee2cb76a3200823e93b2cc9eaa
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: medium
@@ -234,8 +234,8 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: a56045e9ae00b3506cacefea0f672aab0a1a6e3c
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: high
@@ -274,55 +274,14 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 022fa0948818c9f2f738a428f4546cc65c427767
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: high
       arbitrary_exec: review_required
       reviewed: true
     enabled: true
-
-  - id: trailofbits-skills-internal
-    name: Trail of Bits Internal Skills
-    description: Private Trail of Bits internal skill marketplace for approved internal security workflows.
-    source:
-      type: git
-      repo: https://github.com/trailofbits/skills-internal
-      subdir: .
-      external_path: external/trailofbits-skills-internal
-      visibility: private
-    category:
-      - security
-      - internal
-      - marketplace
-    trust:
-      level: trusted
-      curated: true
-      reviewed: true
-      reason: reputable_security_vendor_private_approved_marketplace
-    activation:
-      keywords:
-        - internal security workflow
-        - audit
-        - trail of bits
-    compatibility:
-      - claude-code
-      - kilo-code
-    artifacts:
-      prompt: SKILL.md
-      examples: examples/
-      scripts: scripts/
-    version:
-      tag: null
-      commit: null
-      pinned: false
-    security_score:
-      signed_releases: unknown
-      maintainer_reputation: high
-      arbitrary_exec: review_required
-      reviewed: true
-    enabled: false
 
   - id: superpowers
     name: Superpowers
@@ -356,15 +315,15 @@ skills:
       examples: examples/
       scripts: scripts/
     version:
-      tag: null
-      commit: null
-      pinned: false
+      tag: v5.1.0
+      commit: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: medium
       arbitrary_exec: review_required
       reviewed: true
-    enabled: true
+    enabled: false
 
   - id: everyinc-compound-engineering-plugin
     name: Every Inc Compound Engineering Plugin
@@ -399,14 +358,14 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 0bb53dfad0a502d39727d2392c5038ff2a0d99ae
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: medium
       arbitrary_exec: review_required
       reviewed: true
-    enabled: true
+    enabled: false
 
   - id: coreyhaines-marketingskills
     name: Corey Haines Marketing Skills
@@ -440,14 +399,14 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 906c2fb28e471c5b1d149d4159ec5ddb40b7c364
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: medium
       arbitrary_exec: review_required
       reviewed: true
-    enabled: true
+    enabled: false
 
   - id: ghostsecurity-skills
     name: Ghost Security Skills
@@ -482,14 +441,14 @@ skills:
       scripts: scripts/
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 3c1875a3286dbbebf890872875266b3eccd9e264
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: medium
       arbitrary_exec: review_required
       reviewed: true
-    enabled: true
+    enabled: false
 
   - id: awesome-claude-skills
     name: Awesome Claude Skills
@@ -521,8 +480,8 @@ skills:
       scripts: null
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: f2b5e29bc315f04c8e09591ba275f4c4f7d4b8fe
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: unknown
@@ -562,8 +521,8 @@ skills:
       scripts: null
     version:
       tag: null
-      commit: null
-      pinned: false
+      commit: 7d493fed97e4d57553630e1a2432c1c02bf5b2b3
+      pinned: true
     security_score:
       signed_releases: unknown
       maintainer_reputation: unknown

@@ -168,6 +168,8 @@ def load_all() -> dict[str, Any]:
         "mcp_servers": load_registry("mcp").get("mcp_servers", []),
         "agents": load_registry("agents").get("agents", []),
         "workflows": load_registry("workflows").get("workflows", []),
+        "profiles": load_registry("profiles").get("profiles", []),
+        "tag_categories": load_registry("tag-categories").get("tag_categories", {}),
         "policies": load_registry("policies"),
     }
 

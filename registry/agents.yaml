@@ -5,56 +5,58 @@ agents:
     config_paths:
       global: ~/.claude
       project: .claude
-    adapter: adapters/claude-code
-    generated_config: generated/agent-configs/claude-code.md
+    install_script: generated/install-scripts/claude-code.sh
+    install_plan: generated/install-plans/manifests/claude-code
     supports:
       - skills
+      - plugins
       - mcp
       - project_instructions
-    install_strategy: symlink_generated_skills
+    install_strategy: repo_local_active_cache
 
   - id: kilo-code
     name: Kilo Code
-    description: Agent CLI/editor workflow that can load project commands, agents, skills, and registry references.
+    description: Agent CLI/editor workflow that can load skills through skills.paths and remote MCP config.
     config_paths:
       global: ~/.config/kilo
       project: .kilo
-    adapter: adapters/kilo-code
-    generated_config: generated/agent-configs/kilo-code.json
+    install_script: generated/install-scripts/kilo-code.sh
+    install_plan: generated/install-plans/manifests/kilo-code
     supports:
       - skills
       - mcp
       - project_instructions
       - custom_agents
-    install_strategy: reference_generated_registry
+    install_strategy: repo_local_active_cache
 
   - id: codex-cli
     name: Codex CLI
-    description: OpenAI coding agent workflow using prompt/bootstrap and skill references.
+    description: OpenAI coding agent workflow using skills and bootstrap references.
     config_paths:
       global: ~/.codex
       project: .codex
-    adapter: adapters/codex-cli
-    generated_config: generated/agent-configs/codex-cli.md
+    install_script: generated/install-scripts/codex-cli.sh
+    install_plan: generated/install-plans/manifests/codex-cli
     supports:
       - skills
       - mcp
       - bootstrap_prompt
-    install_strategy: bootstrap_prompt
+    install_strategy: repo_local_active_cache
 
   - id: cursor
     name: Cursor
-    description: IDE agent workflow using rules, docs, and external tool configuration.
+    description: IDE agent workflow using rules, docs, plugins, and external tool configuration.
     config_paths:
       global: ~/.cursor
       project: .cursor
-    adapter: adapters/cursor
-    generated_config: generated/agent-configs/cursor.md
+    install_script: generated/install-scripts/cursor.sh
+    install_plan: generated/install-plans/manifests/cursor
     supports:
       - project_rules
+      - plugins
       - mcp
       - docs
-    install_strategy: reference_generated_docs
+    install_strategy: repo_local_active_cache
 
   - id: aider
     name: Aider
@@ -62,25 +64,27 @@ agents:
     config_paths:
       global: ~/.aider.conf.yml
       project: .aider.conf.yml
-    adapter: adapters/aider
-    generated_config: generated/agent-configs/aider.md
+    install_script: generated/install-scripts/aider.sh
+    install_plan: generated/install-plans/manifests/aider
     supports:
       - repo_context
       - bootstrap_prompt
-    install_strategy: bootstrap_prompt
+    install_strategy: repo_local_active_cache
 
   - id: opencode
     name: OpenCode
-    description: Terminal coding agent using local config and project instructions.
+    description: Terminal coding agent using local config, plugins, and skill paths.
     config_paths:
       global: ~/.config/opencode
       project: opencode.json
-    adapter: adapters/opencode
-    generated_config: generated/agent-configs/opencode.md
+    install_script: generated/install-scripts/opencode.sh
+    install_plan: generated/install-plans/manifests/opencode
     supports:
+      - skills
+      - plugins
       - project_instructions
       - mcp
-    install_strategy: reference_generated_docs
+    install_strategy: repo_local_active_cache
 
   - id: amazon-kiro
     name: Amazon Kiro
@@ -88,10 +92,10 @@ agents:
     config_paths:
       global: ~/.kiro
       project: .kiro
-    adapter: adapters/amazon-kiro
-    generated_config: generated/agent-configs/amazon-kiro.md
+    install_script: generated/install-scripts/amazon-kiro.sh
+    install_plan: generated/install-plans/manifests/amazon-kiro
     supports:
       - specs
       - steering
       - mcp
-    install_strategy: reference_generated_docs
+    install_strategy: repo_local_active_cache

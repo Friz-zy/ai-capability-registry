@@ -8,7 +8,8 @@ from registry_lib import RegistryError, load_all
 
 REQUIRED_SKILL_FIELDS = {"id", "name", "source", "category", "trust", "compatibility", "enabled"}
 REQUIRED_MCP_FIELDS = {"id", "name", "source", "security", "transport", "compatibility", "trust", "runtime", "default_mode", "enabled"}
-REQUIRED_AGENT_FIELDS = {"id", "name", "adapter", "generated_config", "supports", "install_strategy"}
+REQUIRED_AGENT_FIELDS = {"id", "name", "install_script", "install_plan", "supports", "install_strategy"}
+REQUIRED_PROFILE_FIELDS = {"id", "name", "include"}
 ALLOWED_SOURCE_TYPES = {"git", "docker", "hosted_https", "hosted_https_oauth", "hosted_or_docker"}
 
 
@@ -72,6 +73,19 @@ def validate_agents(agents: list[dict], errors: list[str]) -> None:
         require(not missing, f"agent {agent_id}: missing fields {sorted(missing)}", errors)
 
 
+def validate_profiles(profiles: list[dict], trust_levels: set[str], categories: set[str], errors: list[str]) -> None:
+    unique_ids("profiles", profiles, errors)
+    for profile in profiles:
+        profile_id = profile.get("id", "<unknown>")
+        missing = REQUIRED_PROFILE_FIELDS - set(profile)
+        require(not missing, f"profile {profile_id}: missing fields {sorted(missing)}", errors)
+        include = profile.get("include", {})
+        for trust in include.get("trust", []):
+            require(trust in trust_levels, f"profile {profile_id}: unknown trust level {trust}", errors)
+        for category in include.get("categories", []):
+            require(category in categories, f"profile {profile_id}: unknown category {category}", errors)
+
+
 def main() -> int:
     try:
         registry = load_all()
@@ -82,9 +96,11 @@ def main() -> int:
     errors: list[str] = []
     policies = registry["policies"]
     trust_levels = set(policies.get("trust_levels", {}))
+    categories = set(registry.get("tag_categories", {}))
     agent_ids = {agent.get("id") for agent in registry["agents"]}
 
     validate_agents(registry["agents"], errors)
+    validate_profiles(registry["profiles"], trust_levels, categories, errors)
     validate_skills(registry["skills"], trust_levels, agent_ids, errors)
     validate_mcp(registry["mcp_servers"], trust_levels, agent_ids, policies, errors)
 
@@ -98,7 +114,8 @@ def main() -> int:
         f"{len(registry['skills'])} skills, "
         f"{len(registry['mcp_servers'])} MCP servers, "
         f"{len(registry['agents'])} agents, "
-        f"{len(registry['workflows'])} workflows"
+        f"{len(registry['workflows'])} workflows, "
+        f"{len(registry['profiles'])} profiles"
     )
     return 0
 

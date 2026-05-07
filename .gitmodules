@@ -1,3 +1,42 @@
 
 # External capability sources are intentionally pinned as submodules when added.
 # MVP starts registry-first; run scripts/update-submodules.sh after adding sources.
+[submodule "external/anthropic-skills"]
+	path = external/anthropic-skills
+	url = https://github.com/anthropics/skills
+[submodule "external/anthropic-claude-plugins-official"]
+	path = external/anthropic-claude-plugins-official
+	url = https://github.com/anthropics/claude-plugins-official
+[submodule "external/anthropic-knowledge-work-plugins"]
+	path = external/anthropic-knowledge-work-plugins
+	url = https://github.com/anthropics/knowledge-work-plugins
+[submodule "external/openai-skills"]
+	path = external/openai-skills
+	url = https://github.com/openai/skills
+[submodule "external/agentskills-spec"]
+	path = external/agentskills-spec
+	url = https://github.com/agentskills/agentskills
+[submodule "external/trailofbits-skills"]
+	path = external/trailofbits-skills
+	url = https://github.com/trailofbits/skills
+[submodule "external/trailofbits-skills-curated"]
+	path = external/trailofbits-skills-curated
+	url = https://github.com/trailofbits/skills-curated
+[submodule "external/superpowers"]
+	path = external/superpowers
+	url = https://github.com/obra/superpowers
+[submodule "external/everyinc-compound-engineering-plugin"]
+	path = external/everyinc-compound-engineering-plugin
+	url = https://github.com/EveryInc/compound-engineering-plugin
+[submodule "external/coreyhaines-marketingskills"]
+	path = external/coreyhaines-marketingskills
+	url = https://github.com/coreyhaines31/marketingskills
+[submodule "external/ghostsecurity-skills"]
+	path = external/ghostsecurity-skills
+	url = https://github.com/ghostsecurity/skills
+[submodule "external/indexes/awesome-claude-skills"]
+	path = external/indexes/awesome-claude-skills
+	url = https://github.com/ComposioHQ/awesome-claude-skills
+[submodule "external/indexes/alirezarezvani-claude-skills"]
+	path = external/indexes/alirezarezvani-claude-skills
+	url = https://github.com/alirezarezvani/claude-skills

@@ -166,6 +166,35 @@ mcp_servers:
     default_mode: search_extract_only
     enabled: true
 
+  - id: context7
+    name: Context7 MCP
+    description: Trusted hosted MCP for retrieving current library documentation and code examples.
+    source:
+      type: hosted_https
+      hosted_url: https://mcp.context7.com/mcp
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: true
+      data_risk: third_party_documentation_prompt_injection
+      permission_default: docs_lookup_only
+    transport:
+      type: streamable_http
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - cursor
+    capabilities:
+      - library_documentation
+      - code_examples
+      - api_reference
+      - framework_guidance
+    trust: trusted
+    runtime: hosted_https
+    default_mode: docs_lookup_only
+    enabled: true
+
   - id: firecrawl
     name: Firecrawl MCP
     description: Firecrawl MCP for search, scrape, and structured extraction, with browser/session tools disabled by default.

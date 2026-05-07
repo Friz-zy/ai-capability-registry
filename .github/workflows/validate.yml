@@ -20,9 +20,7 @@ jobs:
         run: ./scripts/validate-registry.py
       - name: Generate artifacts
         run: |
-          ./scripts/generate-index.py
-          ./scripts/generate-agent-configs.py
-          ./scripts/link-artifacts.py
+          ./scripts/discover-capabilities.py
           ./scripts/generate-readme.py
       - name: Check generated files are committed
         run: git diff --exit-code

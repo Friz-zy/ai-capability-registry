@@ -7,9 +7,7 @@ cd "${ROOT_DIR}"
 
 git submodule update --init --recursive
 ./scripts/validate-registry.py
-./scripts/generate-index.py
-./scripts/generate-agent-configs.py
-./scripts/link-artifacts.py
+./scripts/discover-capabilities.py
 ./scripts/generate-readme.py
 
 echo "Bootstrap complete"

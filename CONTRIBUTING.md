@@ -8,7 +8,7 @@ This registry is security-first. New capabilities are indexed before they are en
 2. Pin upstream sources with a tag and commit when possible.
 3. Set conservative defaults: read-only, disabled, or manual enablement.
 4. Run `./scripts/validate-registry.py`.
-5. Run `./scripts/generate-index.py` and `./scripts/generate-readme.py`.
+5. Run `./scripts/bootstrap.sh` to regenerate catalogs, inventory, install plans, install scripts, and README.
 6. Review generated files before submitting changes.
 
 ## Capability Rules
