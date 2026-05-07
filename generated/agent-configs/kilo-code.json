@@ -1,0 +1,37 @@
+{
+  "compatible_mcp_servers": [
+    "github",
+    "sentry",
+    "linear",
+    "notion",
+    "posthog",
+    "tavily",
+    "firecrawl",
+    "docker-mcp-gateway"
+  ],
+  "compatible_skills": [
+    "anthropic-skills",
+    "anthropic-claude-plugins-official",
+    "anthropic-knowledge-work-plugins",
+    "openai-skills",
+    "agentskills-spec",
+    "trailofbits-skills",
+    "trailofbits-skills-curated",
+    "trailofbits-skills-internal",
+    "superpowers",
+    "everyinc-compound-engineering-plugin",
+    "coreyhaines-marketingskills",
+    "ghostsecurity-skills",
+    "awesome-claude-skills",
+    "alirezarezvani-claude-skills"
+  ],
+  "mcp_catalog": "~/.ai-capability-registry/generated/mcp-catalog.md",
+  "policy": {
+    "default_enablement": "manual_review",
+    "deny_arbitrary_local_execution": true,
+    "prefer_read_only": true
+  },
+  "registry": "~/.ai-capability-registry/generated",
+  "skills_registry": "~/.ai-capability-registry/generated/skills.md",
+  "workflows": "~/.ai-capability-registry/generated/workflows.md"
+}

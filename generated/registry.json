@@ -1,0 +1,1259 @@
+{
+  "agents": [
+    {
+      "adapter": "adapters/claude-code",
+      "config_paths": {
+        "global": "~/.claude",
+        "project": ".claude"
+      },
+      "description": "Anthropic coding agent with skill/plugin support.",
+      "generated_config": "generated/agent-configs/claude-code.md",
+      "id": "claude-code",
+      "install_strategy": "symlink_generated_skills",
+      "name": "Claude Code",
+      "supports": [
+        "skills",
+        "mcp",
+        "project_instructions"
+      ]
+    },
+    {
+      "adapter": "adapters/kilo-code",
+      "config_paths": {
+        "global": "~/.config/kilo",
+        "project": ".kilo"
+      },
+      "description": "Agent CLI/editor workflow that can load project commands, agents, skills, and registry references.",
+      "generated_config": "generated/agent-configs/kilo-code.json",
+      "id": "kilo-code",
+      "install_strategy": "reference_generated_registry",
+      "name": "Kilo Code",
+      "supports": [
+        "skills",
+        "mcp",
+        "project_instructions",
+        "custom_agents"
+      ]
+    },
+    {
+      "adapter": "adapters/codex-cli",
+      "config_paths": {
+        "global": "~/.codex",
+        "project": ".codex"
+      },
+      "description": "OpenAI coding agent workflow using prompt/bootstrap and skill references.",
+      "generated_config": "generated/agent-configs/codex-cli.md",
+      "id": "codex-cli",
+      "install_strategy": "bootstrap_prompt",
+      "name": "Codex CLI",
+      "supports": [
+        "skills",
+        "mcp",
+        "bootstrap_prompt"
+      ]
+    },
+    {
+      "adapter": "adapters/cursor",
+      "config_paths": {
+        "global": "~/.cursor",
+        "project": ".cursor"
+      },
+      "description": "IDE agent workflow using rules, docs, and external tool configuration.",
+      "generated_config": "generated/agent-configs/cursor.md",
+      "id": "cursor",
+      "install_strategy": "reference_generated_docs",
+      "name": "Cursor",
+      "supports": [
+        "project_rules",
+        "mcp",
+        "docs"
+      ]
+    },
+    {
+      "adapter": "adapters/aider",
+      "config_paths": {
+        "global": "~/.aider.conf.yml",
+        "project": ".aider.conf.yml"
+      },
+      "description": "CLI pair-programming agent that can consume repository instructions and generated context.",
+      "generated_config": "generated/agent-configs/aider.md",
+      "id": "aider",
+      "install_strategy": "bootstrap_prompt",
+      "name": "Aider",
+      "supports": [
+        "repo_context",
+        "bootstrap_prompt"
+      ]
+    },
+    {
+      "adapter": "adapters/opencode",
+      "config_paths": {
+        "global": "~/.config/opencode",
+        "project": "opencode.json"
+      },
+      "description": "Terminal coding agent using local config and project instructions.",
+      "generated_config": "generated/agent-configs/opencode.md",
+      "id": "opencode",
+      "install_strategy": "reference_generated_docs",
+      "name": "OpenCode",
+      "supports": [
+        "project_instructions",
+        "mcp"
+      ]
+    },
+    {
+      "adapter": "adapters/amazon-kiro",
+      "config_paths": {
+        "global": "~/.kiro",
+        "project": ".kiro"
+      },
+      "description": "Spec-driven development agent integration target.",
+      "generated_config": "generated/agent-configs/amazon-kiro.md",
+      "id": "amazon-kiro",
+      "install_strategy": "reference_generated_docs",
+      "name": "Amazon Kiro",
+      "supports": [
+        "specs",
+        "steering",
+        "mcp"
+      ]
+    }
+  ],
+  "mcp_servers": [
+    {
+      "capabilities": [
+        "repositories",
+        "pull_requests",
+        "issues",
+        "actions",
+        "security_findings"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code",
+        "cursor"
+      ],
+      "default_mode": "read_only",
+      "description": "Official GitHub MCP server for repositories, issues, pull requests, Actions, and security findings.",
+      "enabled": true,
+      "id": "github",
+      "name": "GitHub MCP",
+      "runtime": "hosted_or_docker",
+      "security": {
+        "data_risk": "repository_data",
+        "local_code_execution": false,
+        "permission_default": "read_only",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "hosted_url": "https://api.githubcopilot.com/mcp/",
+        "image": "ghcr.io/github/github-mcp-server",
+        "repo": "https://github.com/github/github-mcp-server",
+        "type": "hosted_or_docker"
+      },
+      "transport": {
+        "type": "streamable_http_or_stdio"
+      },
+      "trust": "trusted"
+    },
+    {
+      "capabilities": [
+        "issues",
+        "projects",
+        "error_analysis"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code"
+      ],
+      "default_mode": "read_only",
+      "description": "Official hosted MCP for Sentry issues, errors, projects, and incident analysis.",
+      "enabled": true,
+      "id": "sentry",
+      "name": "Sentry MCP",
+      "runtime": "hosted_https_oauth",
+      "security": {
+        "data_risk": "production_error_data",
+        "local_code_execution": false,
+        "permission_default": "read_only",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "hosted_url": "https://mcp.sentry.dev/mcp",
+        "type": "hosted_https_oauth"
+      },
+      "transport": {
+        "type": "streamable_http"
+      },
+      "trust": "trusted"
+    },
+    {
+      "capabilities": [
+        "issues",
+        "projects",
+        "comments"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code"
+      ],
+      "default_mode": "ask_before_write",
+      "description": "Official Linear remote MCP for issues, projects, comments, and planning workflows.",
+      "enabled": true,
+      "id": "linear",
+      "name": "Linear MCP",
+      "runtime": "hosted_https_oauth",
+      "security": {
+        "data_risk": "product_planning_data",
+        "local_code_execution": false,
+        "permission_default": "ask_before_write",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "hosted_url": "https://mcp.linear.app/sse",
+        "type": "hosted_https_oauth"
+      },
+      "transport": {
+        "type": "sse"
+      },
+      "trust": "trusted"
+    },
+    {
+      "capabilities": [
+        "pages",
+        "databases",
+        "comments"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code"
+      ],
+      "default_mode": "restricted_workspace",
+      "description": "Official Notion MCP integration controlled by workspace permissions.",
+      "enabled": true,
+      "id": "notion",
+      "name": "Notion MCP",
+      "runtime": "hosted_https_oauth",
+      "security": {
+        "data_risk": "private_workspace_data",
+        "local_code_execution": false,
+        "permission_default": "restricted_workspace",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "hosted_url": "https://mcp.notion.com/mcp",
+        "type": "hosted_https_oauth"
+      },
+      "transport": {
+        "type": "streamable_http"
+      },
+      "trust": "trusted"
+    },
+    {
+      "capabilities": [
+        "analytics",
+        "feature_flags",
+        "product_insights"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code"
+      ],
+      "default_mode": "read_only",
+      "description": "Official PostHog MCP for product analytics and operational insight workflows.",
+      "enabled": true,
+      "id": "posthog",
+      "name": "PostHog MCP",
+      "runtime": "hosted_https",
+      "security": {
+        "data_risk": "analytics_user_data",
+        "local_code_execution": false,
+        "permission_default": "read_only",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "hosted_url": "https://mcp.posthog.com/mcp",
+        "type": "hosted_https"
+      },
+      "transport": {
+        "type": "streamable_http"
+      },
+      "trust": "trusted"
+    },
+    {
+      "capabilities": [
+        "search",
+        "extract",
+        "research"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code"
+      ],
+      "default_mode": "search_extract_only",
+      "description": "Official Tavily MCP for search and extraction research workflows.",
+      "enabled": true,
+      "id": "tavily",
+      "name": "Tavily MCP",
+      "runtime": "hosted_https_oauth",
+      "security": {
+        "data_risk": "web_prompt_injection",
+        "local_code_execution": false,
+        "permission_default": "search_extract_only",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "hosted_url": "https://mcp.tavily.com/mcp",
+        "type": "hosted_https_oauth"
+      },
+      "transport": {
+        "type": "streamable_http"
+      },
+      "trust": "trusted"
+    },
+    {
+      "capabilities": [
+        "search",
+        "scrape",
+        "extract"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code"
+      ],
+      "default_mode": "scrape_extract_only",
+      "description": "Firecrawl MCP for search, scrape, and structured extraction, with browser/session tools disabled by default.",
+      "enabled": false,
+      "id": "firecrawl",
+      "name": "Firecrawl MCP",
+      "runtime": "hosted_https",
+      "security": {
+        "data_risk": "web_prompt_injection",
+        "disabled_by_default": [
+          "browser_session_tools",
+          "unrestricted_crawl"
+        ],
+        "local_code_execution": false,
+        "permission_default": "scrape_extract_only",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "hosted_url": "https://mcp.firecrawl.dev/mcp",
+        "type": "hosted_https"
+      },
+      "transport": {
+        "type": "streamable_http"
+      },
+      "trust": "reviewed"
+    },
+    {
+      "capabilities": [
+        "runtime_isolation",
+        "server_catalog",
+        "secrets_routing"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code",
+        "cursor"
+      ],
+      "default_mode": "allowlisted_images_only",
+      "description": "Docker-managed runtime layer for orchestrating allowlisted MCP servers with container isolation.",
+      "enabled": true,
+      "id": "docker-mcp-gateway",
+      "name": "Docker MCP Gateway",
+      "runtime": "docker",
+      "security": {
+        "data_risk": "depends_on_configured_server",
+        "deny": [
+          "privileged_containers",
+          "host_network",
+          "unrestricted_mounts"
+        ],
+        "local_code_execution": "isolated_container_only",
+        "permission_default": "allowlisted_images_only",
+        "reviewed": true,
+        "sandboxed": true
+      },
+      "source": {
+        "docs": "https://docs.docker.com/reference/cli/docker/mcp/",
+        "image": "docker/mcp-gateway",
+        "type": "docker"
+      },
+      "transport": {
+        "type": "stdio_or_streamable_http"
+      },
+      "trust": "trusted_runtime_layer"
+    }
+  ],
+  "policies": {
+    "promotion_policy": {
+      "default_state": "index_only",
+      "promote_to_reviewed_requires": [
+        "maintainer_check",
+        "license_check",
+        "source_review",
+        "scripts_review",
+        "pinned_commit"
+      ],
+      "promote_to_trusted_requires": [
+        "official_vendor_or_security_vendor",
+        "stable_execution_model",
+        "documented_permissions",
+        "reproducible_install"
+      ]
+    },
+    "security_policy": {
+      "allow": [
+        "docker",
+        "hosted_https",
+        "hosted_https_oauth"
+      ],
+      "deny": [
+        "curl_pipe_sh",
+        "npm_global_exec",
+        "python_remote_exec",
+        "arbitrary_shell_mcp",
+        "unrestricted_filesystem_mcp",
+        "unrestricted_browser_exec",
+        "local_database_mcp"
+      ],
+      "require": [
+        "pinned_versions",
+        "license_check",
+        "manual_review",
+        "read_only_default"
+      ]
+    },
+    "trust_levels": {
+      "candidate": {
+        "allowed_actions": [
+          "index_only"
+        ],
+        "description": "Useful discovery source that is not trusted for direct installation."
+      },
+      "denied": {
+        "allowed_actions": [],
+        "description": "Unsafe execution model, unknown maintainer, or known risky behavior."
+      },
+      "reviewed": {
+        "allowed_actions": [
+          "index",
+          "install",
+          "enable_manually"
+        ],
+        "description": "Manually reviewed source from a known maintainer or curated marketplace."
+      },
+      "trusted": {
+        "allowed_actions": [
+          "index",
+          "install",
+          "enable_by_default"
+        ],
+        "description": "Official vendor or reputable security-reviewed source."
+      },
+      "trusted_runtime_layer": {
+        "allowed_actions": [
+          "index",
+          "install",
+          "route_allowlisted_only"
+        ],
+        "description": "Infrastructure layer used to isolate allowlisted capabilities."
+      }
+    }
+  },
+  "skills": [
+    {
+      "activation": {
+        "keywords": [
+          "claude",
+          "skill",
+          "official"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "core",
+        "official"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code",
+        "codex-cli"
+      ],
+      "description": "Official Anthropic skill catalog for Claude workflows.",
+      "enabled": true,
+      "id": "anthropic-skills",
+      "name": "Anthropic Skills",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "high",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/anthropic-skills",
+        "repo": "https://github.com/anthropics/skills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "trusted",
+        "reason": "official_vendor",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "claude plugin",
+          "official plugin",
+          "approved marketplace"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "core",
+        "official",
+        "marketplace"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code"
+      ],
+      "description": "Anthropic official Claude plugin marketplace for approved Claude workflows.",
+      "enabled": true,
+      "id": "anthropic-claude-plugins-official",
+      "name": "Anthropic Claude Plugins Official",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "high",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/anthropic-claude-plugins-official",
+        "repo": "https://github.com/anthropics/claude-plugins-official",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "trusted",
+        "reason": "official_vendor_approved_marketplace",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "knowledge work",
+          "document workflow",
+          "research workflow",
+          "official plugin"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "research",
+        "productivity",
+        "official",
+        "marketplace"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code"
+      ],
+      "description": "Anthropic official knowledge-work plugin marketplace for document, research, and productivity workflows.",
+      "enabled": true,
+      "id": "anthropic-knowledge-work-plugins",
+      "name": "Anthropic Knowledge Work Plugins",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "high",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/anthropic-knowledge-work-plugins",
+        "repo": "https://github.com/anthropics/knowledge-work-plugins",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "trusted",
+        "reason": "official_vendor_approved_marketplace",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "codex",
+          "openai",
+          "skill"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "core",
+        "official"
+      ],
+      "compatibility": [
+        "codex-cli",
+        "kilo-code",
+        "claude-code"
+      ],
+      "description": "Official OpenAI skills catalog for Codex and portable agent workflows.",
+      "enabled": true,
+      "id": "openai-skills",
+      "name": "OpenAI Skills",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "high",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/openai-skills",
+        "repo": "https://github.com/openai/skills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "trusted",
+        "reason": "official_vendor",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "portable skills",
+          "skill specification",
+          "adapter"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "core",
+        "standard"
+      ],
+      "compatibility": [
+        "claude-code",
+        "codex-cli",
+        "kilo-code",
+        "cursor"
+      ],
+      "description": "Portable skill format used as an intermediate representation for agent adapters.",
+      "enabled": true,
+      "id": "agentskills-spec",
+      "name": "Agent Skills Specification",
+      "security_score": {
+        "arbitrary_exec": false,
+        "maintainer_reputation": "medium",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/agentskills-spec",
+        "repo": "https://github.com/agentskills/agentskills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "candidate",
+        "reason": "portable_standard",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "audit",
+          "vulnerability",
+          "security review",
+          "fuzzing"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "security",
+        "audit"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code",
+        "codex-cli"
+      ],
+      "description": "Security research, vulnerability detection, and audit workflows from Trail of Bits.",
+      "enabled": true,
+      "id": "trailofbits-skills",
+      "name": "Trail of Bits Skills",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "high",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/trailofbits-skills",
+        "repo": "https://github.com/trailofbits/skills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "trusted",
+        "reason": "reputable_security_vendor",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "curated",
+          "plugin marketplace",
+          "security workflow"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "security",
+        "curated",
+        "marketplace"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code"
+      ],
+      "description": "Community-vetted Claude Code plugin marketplace curated by Trail of Bits.",
+      "enabled": true,
+      "id": "trailofbits-skills-curated",
+      "name": "Trail of Bits Curated Skills",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "high",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/trailofbits-skills-curated",
+        "repo": "https://github.com/trailofbits/skills-curated",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "trusted",
+        "reason": "explicit_security_review",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "internal security workflow",
+          "audit",
+          "trail of bits"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "security",
+        "internal",
+        "marketplace"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code"
+      ],
+      "description": "Private Trail of Bits internal skill marketplace for approved internal security workflows.",
+      "enabled": false,
+      "id": "trailofbits-skills-internal",
+      "name": "Trail of Bits Internal Skills",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "high",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/trailofbits-skills-internal",
+        "repo": "https://github.com/trailofbits/skills-internal",
+        "subdir": ".",
+        "type": "git",
+        "visibility": "private"
+      },
+      "trust": {
+        "curated": true,
+        "level": "trusted",
+        "reason": "reputable_security_vendor_private_approved_marketplace",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "workflow",
+          "tdd",
+          "orchestration",
+          "review"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "core",
+        "workflow",
+        "orchestration"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code",
+        "codex-cli"
+      ],
+      "description": "Workflow framework for advanced agent behaviors, TDD, and multi-skill orchestration.",
+      "enabled": true,
+      "id": "superpowers",
+      "name": "Superpowers",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "medium",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/superpowers",
+        "repo": "https://github.com/obra/superpowers",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": false,
+        "level": "candidate",
+        "reason": "approved_by_trailofbits_curated_marketplace",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "production engineering",
+          "multi-agent review",
+          "engineering workflow"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "backend",
+        "workflow",
+        "review",
+        "marketplace"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code",
+        "codex-cli"
+      ],
+      "description": "Approved marketplace source for production engineering workflows and multi-agent review.",
+      "enabled": true,
+      "id": "everyinc-compound-engineering-plugin",
+      "name": "Every Inc Compound Engineering Plugin",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "medium",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/everyinc-compound-engineering-plugin",
+        "repo": "https://github.com/EveryInc/compound-engineering-plugin",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "candidate",
+        "reason": "approved_marketplace_production_engineering",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "marketing",
+          "growth",
+          "positioning",
+          "copywriting"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "founder",
+        "marketing",
+        "marketplace"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code"
+      ],
+      "description": "Approved marketplace source for marketing-focused skills and growth workflows.",
+      "enabled": true,
+      "id": "coreyhaines-marketingskills",
+      "name": "Corey Haines Marketing Skills",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "medium",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/coreyhaines-marketingskills",
+        "repo": "https://github.com/coreyhaines31/marketingskills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "candidate",
+        "reason": "approved_marketplace_marketing_workflows",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "application security",
+          "appsec",
+          "security testing",
+          "vulnerability"
+        ]
+      },
+      "artifacts": {
+        "examples": "examples/",
+        "prompt": "SKILL.md",
+        "scripts": "scripts/"
+      },
+      "category": [
+        "security",
+        "appsec",
+        "marketplace"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code",
+        "codex-cli"
+      ],
+      "description": "Approved marketplace source for application security testing skills.",
+      "enabled": true,
+      "id": "ghostsecurity-skills",
+      "name": "Ghost Security Skills",
+      "security_score": {
+        "arbitrary_exec": "review_required",
+        "maintainer_reputation": "medium",
+        "reviewed": true,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/ghostsecurity-skills",
+        "repo": "https://github.com/ghostsecurity/skills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": true,
+        "level": "candidate",
+        "reason": "approved_marketplace_application_security_testing",
+        "reviewed": true
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "discovery",
+          "awesome list",
+          "candidate skills"
+        ]
+      },
+      "artifacts": {
+        "examples": null,
+        "prompt": "README.md",
+        "scripts": null
+      },
+      "category": [
+        "research",
+        "discovery"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code"
+      ],
+      "description": "Discovery index for Claude skill candidates. Not installed directly.",
+      "enabled": false,
+      "id": "awesome-claude-skills",
+      "name": "Awesome Claude Skills",
+      "security_score": {
+        "arbitrary_exec": "unknown",
+        "maintainer_reputation": "unknown",
+        "reviewed": false,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/indexes/awesome-claude-skills",
+        "repo": "https://github.com/ComposioHQ/awesome-claude-skills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": false,
+        "level": "candidate",
+        "reason": "discovery_only_not_direct_install",
+        "reviewed": false
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    },
+    {
+      "activation": {
+        "keywords": [
+          "product",
+          "founder",
+          "compliance",
+          "marketing"
+        ]
+      },
+      "artifacts": {
+        "examples": null,
+        "prompt": "README.md",
+        "scripts": null
+      },
+      "category": [
+        "research",
+        "productivity",
+        "candidate"
+      ],
+      "compatibility": [
+        "claude-code",
+        "kilo-code"
+      ],
+      "description": "Broad community multi-domain skill catalog for engineering, marketing, product, and compliance workflows.",
+      "enabled": false,
+      "id": "alirezarezvani-claude-skills",
+      "name": "alirezarezvani Claude Skills",
+      "security_score": {
+        "arbitrary_exec": "unknown",
+        "maintainer_reputation": "unknown",
+        "reviewed": false,
+        "signed_releases": "unknown"
+      },
+      "source": {
+        "external_path": "external/indexes/alirezarezvani-claude-skills",
+        "repo": "https://github.com/alirezarezvani/claude-skills",
+        "subdir": ".",
+        "type": "git"
+      },
+      "trust": {
+        "curated": false,
+        "level": "candidate",
+        "reason": "broad_catalog_requires_manual_review",
+        "reviewed": false
+      },
+      "version": {
+        "commit": null,
+        "pinned": false,
+        "tag": null
+      }
+    }
+  ],
+  "workflows": [
+    {
+      "category": [
+        "security",
+        "governance"
+      ],
+      "description": "Review, pin, index, generate, and manually promote a new skill or MCP server.",
+      "id": "secure-capability-onboarding",
+      "name": "Secure Capability Onboarding",
+      "required_policies": [
+        "manual_review",
+        "pinned_versions",
+        "license_check"
+      ],
+      "steps": [
+        "identify_source_owner",
+        "verify_execution_model",
+        "check_license",
+        "review_scripts_and_hooks",
+        "pin_tag_and_commit",
+        "add_registry_entry",
+        "run_validation",
+        "generate_artifacts",
+        "enable_manually_if_reviewed"
+      ]
+    },
+    {
+      "category": [
+        "integration",
+        "adapters"
+      ],
+      "description": "Generate agent-specific config references from registry metadata.",
+      "id": "agent-bootstrap",
+      "name": "Agent Bootstrap",
+      "required_policies": [
+        "read_only_default"
+      ],
+      "steps": [
+        "validate_registry",
+        "generate_indexes",
+        "generate_agent_configs",
+        "link_artifacts"
+      ]
+    },
+    {
+      "category": [
+        "security",
+        "mcp"
+      ],
+      "description": "Review MCP server permissions, transport, runtime, and data exposure before enablement.",
+      "id": "mcp-risk-review",
+      "name": "MCP Risk Review",
+      "required_policies": [
+        "manual_review",
+        "read_only_default"
+      ],
+      "steps": [
+        "verify_hosted_or_docker_runtime",
+        "verify_no_unrestricted_local_execution",
+        "classify_data_risk",
+        "require_read_only_or_ask_before_write",
+        "document_required_secrets"
+      ]
+    }
+  ]
+}
