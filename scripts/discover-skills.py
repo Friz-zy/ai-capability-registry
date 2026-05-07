@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
 """
 Generates skill maps organized by tags and roles.
-
-Output structure:
-  generated/
-  ├── skills.md              # Root registry with navigation
-  ├── roles/
-  │   └── <role-id>/skills.md
-  └── tags/
-      └── <tag>/skills.md
+All paths are relative to generated/ directory.
 """
 
 from __future__ import annotations
 
+import os
 import re
 import shutil
 from collections import defaultdict
@@ -39,8 +33,9 @@ STOPWORDS = {
 }
 
 
-def rel(path: Path) -> str:
-    return path.relative_to(ROOT).as_posix()
+def rel_from_generated(path: Path) -> str:
+    """Relative path from generated/ directory to any file in repo."""
+    return os.path.relpath(path, GENERATED_DIR)
 
 
 def should_skip(path: Path) -> bool:
@@ -119,15 +114,13 @@ class SkillRecord:
         self.name = name
         self.description = description
         self.tags = tags
-        self.rel_dir = rel(skill_dir)
-        self.rel_file = rel(skill_file)
+        self.rel_file = rel_from_generated(skill_file)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "name": self.name,
             "description": self.description,
             "tags": self.tags,
-            "path": self.rel_dir,
             "skill_file": self.rel_file,
             "source": self.source_id,
             "trust": self.source_trust,
@@ -231,7 +224,8 @@ def generate_role_skills_md(
 
     for tag in sorted(tags_with_skills):
         count = len(skills_by_tag.get(tag, []))
-        lines.append(f"- **{tag}**: {count} skills")
+        tag_path = f"tags/{tag}/skills.md"
+        lines.append(f"- **{tag}**: {count} skills — `{tag_path}`")
 
     return "\n".join(lines)
 
@@ -246,7 +240,7 @@ def generate_root_skills_md(
         "# AI Capability Registry",
         "",
         "## Navigation",
-        "1. Find relevant role below",
+        "1. Select role below",
         "2. Open role's skills.md",
         "3. Find relevant tag",
         "4. Open tag catalog",
@@ -259,7 +253,8 @@ def generate_root_skills_md(
     for profile in profiles:
         profile_id = profile["id"]
         role_title = profile.get("role", {}).get("title") or profile["name"]
-        lines.append(f"- **{role_title}**")
+        role_path = f"roles/{profile_id}/skills.md"
+        lines.append(f"- **{role_title}**: `{role_path}`")
 
     lines.extend([
         "",

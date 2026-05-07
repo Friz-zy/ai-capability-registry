@@ -6,9 +6,9 @@ Load skill file when task matches.
 ### burpsuite-project-parser
 Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy history or site map data, or analyzing HTTP traffic captured in a Burp project.
 
-File: `external/trailofbits-skills/plugins/burpsuite-project-parser/skills/burpsuite-project-parser/SKILL.md`
+File: `../external/trailofbits-skills/plugins/burpsuite-project-parser/skills/burpsuite-project-parser/SKILL.md`
 
 ### web-artifacts-builder
 Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
 
-File: `external/anthropic-skills/skills/web-artifacts-builder/SKILL.md`
+File: `../external/anthropic-skills/skills/web-artifacts-builder/SKILL.md`

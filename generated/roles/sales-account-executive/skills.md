@@ -2,29 +2,29 @@
 
 ## Tags
 
-- **account**: 5 skills
-- **account-research**: 2 skills
-- **analysis**: 39 skills
-- **brand**: 8 skills
-- **brand-review**: 1 skills
-- **call-prep**: 2 skills
-- **campaign**: 7 skills
-- **campaign-plan**: 1 skills
-- **competitive-intelligence**: 1 skills
-- **documentation**: 12 skills
-- **draft-outreach**: 1 skills
-- **email-sequence**: 1 skills
-- **extract**: 3 skills
-- **knowledge**: 8 skills
-- **marketing**: 9 skills
-- **outreach**: 3 skills
-- **pdf**: 8 skills
-- **pipeline**: 7 skills
-- **pipeline-review**: 1 skills
-- **research**: 24 skills
-- **sales**: 12 skills
-- **search**: 8 skills
-- **seo**: 3 skills
-- **summarize**: 3 skills
-- **transcript**: 3 skills
-- **xlsx**: 2 skills
+- **account**: 5 skills — `tags/account/skills.md`
+- **account-research**: 2 skills — `tags/account-research/skills.md`
+- **analysis**: 39 skills — `tags/analysis/skills.md`
+- **brand**: 8 skills — `tags/brand/skills.md`
+- **brand-review**: 1 skills — `tags/brand-review/skills.md`
+- **call-prep**: 2 skills — `tags/call-prep/skills.md`
+- **campaign**: 7 skills — `tags/campaign/skills.md`
+- **campaign-plan**: 1 skills — `tags/campaign-plan/skills.md`
+- **competitive-intelligence**: 1 skills — `tags/competitive-intelligence/skills.md`
+- **documentation**: 12 skills — `tags/documentation/skills.md`
+- **draft-outreach**: 1 skills — `tags/draft-outreach/skills.md`
+- **email-sequence**: 1 skills — `tags/email-sequence/skills.md`
+- **extract**: 3 skills — `tags/extract/skills.md`
+- **knowledge**: 8 skills — `tags/knowledge/skills.md`
+- **marketing**: 9 skills — `tags/marketing/skills.md`
+- **outreach**: 3 skills — `tags/outreach/skills.md`
+- **pdf**: 8 skills — `tags/pdf/skills.md`
+- **pipeline**: 7 skills — `tags/pipeline/skills.md`
+- **pipeline-review**: 1 skills — `tags/pipeline-review/skills.md`
+- **research**: 24 skills — `tags/research/skills.md`
+- **sales**: 12 skills — `tags/sales/skills.md`
+- **search**: 8 skills — `tags/search/skills.md`
+- **seo**: 3 skills — `tags/seo/skills.md`
+- **summarize**: 3 skills — `tags/summarize/skills.md`
+- **transcript**: 3 skills — `tags/transcript/skills.md`
+- **xlsx**: 2 skills — `tags/xlsx/skills.md`

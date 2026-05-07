@@ -2,70 +2,70 @@
 
 ## Tags
 
-- **accessibility**: 6 skills
-- **actions**: 6 skills
-- **api**: 18 skills
-- **appsec**: 1 skills
-- **architecture**: 11 skills
-- **aspnet**: 1 skills
-- **audit**: 16 skills
-- **backend**: 1 skills
-- **burp**: 1 skills
-- **canvas**: 4 skills
-- **capacity**: 2 skills
-- **chatgpt**: 1 skills
-- **cloud**: 3 skills
-- **cloudflare**: 2 skills
-- **code**: 50 skills
-- **code-review**: 1 skills
-- **codeql**: 2 skills
-- **crypto**: 3 skills
-- **css**: 3 skills
-- **database**: 2 skills
-- **debug**: 9 skills
-- **deploy**: 8 skills
-- **deployment**: 8 skills
-- **design**: 31 skills
-- **devcontainer**: 1 skills
-- **docker**: 1 skills
-- **engineering**: 13 skills
-- **figma**: 9 skills
-- **frontend**: 4 skills
-- **fuzzing**: 5 skills
-- **ghidra**: 1 skills
-- **html**: 10 skills
-- **imagegen**: 2 skills
-- **implementation**: 8 skills
-- **incident**: 3 skills
-- **infrastructure**: 2 skills
-- **java**: 2 skills
-- **llm**: 1 skills
-- **mcp**: 24 skills
-- **model**: 14 skills
-- **monitoring**: 1 skills
-- **netlify**: 2 skills
-- **node**: 4 skills
-- **operations**: 10 skills
-- **prompt**: 7 skills
-- **python**: 11 skills
-- **react**: 6 skills
-- **refactor**: 3 skills
-- **render**: 2 skills
-- **ruby**: 1 skills
-- **sarif**: 1 skills
-- **security**: 26 skills
-- **semgrep**: 4 skills
-- **sentry**: 2 skills
-- **server**: 10 skills
-- **service**: 4 skills
-- **speech**: 2 skills
-- **sql**: 3 skills
-- **static-analysis**: 3 skills
-- **tech-debt**: 1 skills
-- **testing**: 32 skills
-- **typescript**: 4 skills
-- **vercel**: 1 skills
-- **vulnerability**: 8 skills
-- **web**: 25 skills
-- **webapp**: 1 skills
-- **yara**: 1 skills
+- **accessibility**: 6 skills — `tags/accessibility/skills.md`
+- **actions**: 6 skills — `tags/actions/skills.md`
+- **api**: 18 skills — `tags/api/skills.md`
+- **appsec**: 1 skills — `tags/appsec/skills.md`
+- **architecture**: 11 skills — `tags/architecture/skills.md`
+- **aspnet**: 1 skills — `tags/aspnet/skills.md`
+- **audit**: 16 skills — `tags/audit/skills.md`
+- **backend**: 1 skills — `tags/backend/skills.md`
+- **burp**: 1 skills — `tags/burp/skills.md`
+- **canvas**: 4 skills — `tags/canvas/skills.md`
+- **capacity**: 2 skills — `tags/capacity/skills.md`
+- **chatgpt**: 1 skills — `tags/chatgpt/skills.md`
+- **cloud**: 3 skills — `tags/cloud/skills.md`
+- **cloudflare**: 2 skills — `tags/cloudflare/skills.md`
+- **code**: 50 skills — `tags/code/skills.md`
+- **code-review**: 1 skills — `tags/code-review/skills.md`
+- **codeql**: 2 skills — `tags/codeql/skills.md`
+- **crypto**: 3 skills — `tags/crypto/skills.md`
+- **css**: 3 skills — `tags/css/skills.md`
+- **database**: 2 skills — `tags/database/skills.md`
+- **debug**: 9 skills — `tags/debug/skills.md`
+- **deploy**: 8 skills — `tags/deploy/skills.md`
+- **deployment**: 8 skills — `tags/deployment/skills.md`
+- **design**: 31 skills — `tags/design/skills.md`
+- **devcontainer**: 1 skills — `tags/devcontainer/skills.md`
+- **docker**: 1 skills — `tags/docker/skills.md`
+- **engineering**: 13 skills — `tags/engineering/skills.md`
+- **figma**: 9 skills — `tags/figma/skills.md`
+- **frontend**: 4 skills — `tags/frontend/skills.md`
+- **fuzzing**: 5 skills — `tags/fuzzing/skills.md`
+- **ghidra**: 1 skills — `tags/ghidra/skills.md`
+- **html**: 10 skills — `tags/html/skills.md`
+- **imagegen**: 2 skills — `tags/imagegen/skills.md`
+- **implementation**: 8 skills — `tags/implementation/skills.md`
+- **incident**: 3 skills — `tags/incident/skills.md`
+- **infrastructure**: 2 skills — `tags/infrastructure/skills.md`
+- **java**: 2 skills — `tags/java/skills.md`
+- **llm**: 1 skills — `tags/llm/skills.md`
+- **mcp**: 24 skills — `tags/mcp/skills.md`
+- **model**: 14 skills — `tags/model/skills.md`
+- **monitoring**: 1 skills — `tags/monitoring/skills.md`
+- **netlify**: 2 skills — `tags/netlify/skills.md`
+- **node**: 4 skills — `tags/node/skills.md`
+- **operations**: 10 skills — `tags/operations/skills.md`
+- **prompt**: 7 skills — `tags/prompt/skills.md`
+- **python**: 11 skills — `tags/python/skills.md`
+- **react**: 6 skills — `tags/react/skills.md`
+- **refactor**: 3 skills — `tags/refactor/skills.md`
+- **render**: 2 skills — `tags/render/skills.md`
+- **ruby**: 1 skills — `tags/ruby/skills.md`
+- **sarif**: 1 skills — `tags/sarif/skills.md`
+- **security**: 26 skills — `tags/security/skills.md`
+- **semgrep**: 4 skills — `tags/semgrep/skills.md`
+- **sentry**: 2 skills — `tags/sentry/skills.md`
+- **server**: 10 skills — `tags/server/skills.md`
+- **service**: 4 skills — `tags/service/skills.md`
+- **speech**: 2 skills — `tags/speech/skills.md`
+- **sql**: 3 skills — `tags/sql/skills.md`
+- **static-analysis**: 3 skills — `tags/static-analysis/skills.md`
+- **tech-debt**: 1 skills — `tags/tech-debt/skills.md`
+- **testing**: 32 skills — `tags/testing/skills.md`
+- **typescript**: 4 skills — `tags/typescript/skills.md`
+- **vercel**: 1 skills — `tags/vercel/skills.md`
+- **vulnerability**: 8 skills — `tags/vulnerability/skills.md`
+- **web**: 25 skills — `tags/web/skills.md`
+- **webapp**: 1 skills — `tags/webapp/skills.md`
+- **yara**: 1 skills — `tags/yara/skills.md`

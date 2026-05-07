@@ -2,46 +2,46 @@
 
 ## Tags
 
-- **accessibility**: 6 skills
-- **account-research**: 2 skills
-- **analysis**: 39 skills
-- **brand**: 8 skills
-- **brand-review**: 1 skills
-- **canvas**: 4 skills
-- **competitive-intelligence**: 1 skills
-- **customer**: 10 skills
-- **customer-support**: 5 skills
-- **dashboard**: 4 skills
-- **data**: 33 skills
-- **data-visualization**: 1 skills
-- **design**: 31 skills
-- **design-critique**: 1 skills
-- **design-handoff**: 1 skills
-- **documentation**: 12 skills
-- **extract**: 3 skills
-- **figma**: 9 skills
-- **kb-article**: 1 skills
-- **knowledge**: 8 skills
-- **metrics**: 7 skills
-- **metrics-review**: 1 skills
-- **pdf**: 8 skills
-- **planning**: 15 skills
-- **product**: 15 skills
-- **product-brainstorming**: 1 skills
-- **product-management**: 8 skills
-- **research**: 24 skills
-- **research-synthesis**: 1 skills
-- **roadmap**: 2 skills
-- **search**: 8 skills
-- **sprint**: 1 skills
-- **sprint-planning**: 1 skills
-- **sql**: 3 skills
-- **statistical**: 1 skills
-- **strategy**: 6 skills
-- **summarize**: 3 skills
-- **support**: 13 skills
-- **transcript**: 3 skills
-- **validate-data**: 1 skills
-- **visualization**: 3 skills
-- **weekly-prep-brief**: 1 skills
-- **xlsx**: 2 skills
+- **accessibility**: 6 skills — `tags/accessibility/skills.md`
+- **account-research**: 2 skills — `tags/account-research/skills.md`
+- **analysis**: 39 skills — `tags/analysis/skills.md`
+- **brand**: 8 skills — `tags/brand/skills.md`
+- **brand-review**: 1 skills — `tags/brand-review/skills.md`
+- **canvas**: 4 skills — `tags/canvas/skills.md`
+- **competitive-intelligence**: 1 skills — `tags/competitive-intelligence/skills.md`
+- **customer**: 10 skills — `tags/customer/skills.md`
+- **customer-support**: 5 skills — `tags/customer-support/skills.md`
+- **dashboard**: 4 skills — `tags/dashboard/skills.md`
+- **data**: 33 skills — `tags/data/skills.md`
+- **data-visualization**: 1 skills — `tags/data-visualization/skills.md`
+- **design**: 31 skills — `tags/design/skills.md`
+- **design-critique**: 1 skills — `tags/design-critique/skills.md`
+- **design-handoff**: 1 skills — `tags/design-handoff/skills.md`
+- **documentation**: 12 skills — `tags/documentation/skills.md`
+- **extract**: 3 skills — `tags/extract/skills.md`
+- **figma**: 9 skills — `tags/figma/skills.md`
+- **kb-article**: 1 skills — `tags/kb-article/skills.md`
+- **knowledge**: 8 skills — `tags/knowledge/skills.md`
+- **metrics**: 7 skills — `tags/metrics/skills.md`
+- **metrics-review**: 1 skills — `tags/metrics-review/skills.md`
+- **pdf**: 8 skills — `tags/pdf/skills.md`
+- **planning**: 15 skills — `tags/planning/skills.md`
+- **product**: 15 skills — `tags/product/skills.md`
+- **product-brainstorming**: 1 skills — `tags/product-brainstorming/skills.md`
+- **product-management**: 8 skills — `tags/product-management/skills.md`
+- **research**: 24 skills — `tags/research/skills.md`
+- **research-synthesis**: 1 skills — `tags/research-synthesis/skills.md`
+- **roadmap**: 2 skills — `tags/roadmap/skills.md`
+- **search**: 8 skills — `tags/search/skills.md`
+- **sprint**: 1 skills — `tags/sprint/skills.md`
+- **sprint-planning**: 1 skills — `tags/sprint-planning/skills.md`
+- **sql**: 3 skills — `tags/sql/skills.md`
+- **statistical**: 1 skills — `tags/statistical/skills.md`
+- **strategy**: 6 skills — `tags/strategy/skills.md`
+- **summarize**: 3 skills — `tags/summarize/skills.md`
+- **support**: 13 skills — `tags/support/skills.md`
+- **transcript**: 3 skills — `tags/transcript/skills.md`
+- **validate-data**: 1 skills — `tags/validate-data/skills.md`
+- **visualization**: 3 skills — `tags/visualization/skills.md`
+- **weekly-prep-brief**: 1 skills — `tags/weekly-prep-brief/skills.md`
+- **xlsx**: 2 skills — `tags/xlsx/skills.md`

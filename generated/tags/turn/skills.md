@@ -6,14 +6,14 @@ Load skill file when task matches.
 ### notion-spec-to-implementation
 Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.
 
-File: `external/openai-skills/skills/.curated/notion-spec-to-implementation/SKILL.md`
+File: `../external/openai-skills/skills/.curated/notion-spec-to-implementation/SKILL.md`
 
 ### plan-zoom-integration
 Turn a Zoom integration idea into an implementation plan with architecture, auth, and delivery milestones. Use when you need a practical build plan, phased delivery sequence, risk list, and next-step recommendation.
 
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-integration/SKILL.md`
+File: `../external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-integration/SKILL.md`
 
 ### synthesize-research
 Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations.
 
-File: `external/anthropic-knowledge-work-plugins/product-management/skills/synthesize-research/SKILL.md`
+File: `../external/anthropic-knowledge-work-plugins/product-management/skills/synthesize-research/SKILL.md`

@@ -2,24 +2,24 @@
 
 ## Tags
 
-- **account-research**: 2 skills
-- **analysis**: 39 skills
-- **capacity-plan**: 1 skills
-- **change-request**: 1 skills
-- **competitive-intelligence**: 1 skills
-- **customer**: 10 skills
-- **customer-support**: 5 skills
-- **documentation**: 12 skills
-- **extract**: 3 skills
-- **kb-article**: 1 skills
-- **knowledge**: 8 skills
-- **operations**: 10 skills
-- **pdf**: 8 skills
-- **research**: 24 skills
-- **search**: 8 skills
-- **summarize**: 3 skills
-- **support**: 13 skills
-- **transcript**: 3 skills
-- **vendor-review**: 1 skills
-- **weekly-prep-brief**: 1 skills
-- **xlsx**: 2 skills
+- **account-research**: 2 skills — `tags/account-research/skills.md`
+- **analysis**: 39 skills — `tags/analysis/skills.md`
+- **capacity-plan**: 1 skills — `tags/capacity-plan/skills.md`
+- **change-request**: 1 skills — `tags/change-request/skills.md`
+- **competitive-intelligence**: 1 skills — `tags/competitive-intelligence/skills.md`
+- **customer**: 10 skills — `tags/customer/skills.md`
+- **customer-support**: 5 skills — `tags/customer-support/skills.md`
+- **documentation**: 12 skills — `tags/documentation/skills.md`
+- **extract**: 3 skills — `tags/extract/skills.md`
+- **kb-article**: 1 skills — `tags/kb-article/skills.md`
+- **knowledge**: 8 skills — `tags/knowledge/skills.md`
+- **operations**: 10 skills — `tags/operations/skills.md`
+- **pdf**: 8 skills — `tags/pdf/skills.md`
+- **research**: 24 skills — `tags/research/skills.md`
+- **search**: 8 skills — `tags/search/skills.md`
+- **summarize**: 3 skills — `tags/summarize/skills.md`
+- **support**: 13 skills — `tags/support/skills.md`
+- **transcript**: 3 skills — `tags/transcript/skills.md`
+- **vendor-review**: 1 skills — `tags/vendor-review/skills.md`
+- **weekly-prep-brief**: 1 skills — `tags/weekly-prep-brief/skills.md`
+- **xlsx**: 2 skills — `tags/xlsx/skills.md`

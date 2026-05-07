@@ -2,46 +2,46 @@
 
 ## Tags
 
-- **actions**: 6 skills
-- **api**: 18 skills
-- **appsec**: 1 skills
-- **aspnet**: 1 skills
-- **audit**: 16 skills
-- **backend**: 1 skills
-- **burp**: 1 skills
-- **cloud**: 3 skills
-- **cloudflare**: 2 skills
-- **codeql**: 2 skills
-- **crypto**: 3 skills
-- **dashboard**: 4 skills
-- **data**: 33 skills
-- **data-visualization**: 1 skills
-- **database**: 2 skills
-- **deploy**: 8 skills
-- **deployment**: 8 skills
-- **devcontainer**: 1 skills
-- **docker**: 1 skills
-- **fuzzing**: 5 skills
-- **ghidra**: 1 skills
-- **infrastructure**: 2 skills
-- **java**: 2 skills
-- **metrics**: 7 skills
-- **netlify**: 2 skills
-- **node**: 4 skills
-- **python**: 11 skills
-- **render**: 2 skills
-- **ruby**: 1 skills
-- **sarif**: 1 skills
-- **security**: 26 skills
-- **semgrep**: 4 skills
-- **server**: 10 skills
-- **service**: 4 skills
-- **sql**: 3 skills
-- **static-analysis**: 3 skills
-- **statistical**: 1 skills
-- **typescript**: 4 skills
-- **validate-data**: 1 skills
-- **vercel**: 1 skills
-- **visualization**: 3 skills
-- **vulnerability**: 8 skills
-- **yara**: 1 skills
+- **actions**: 6 skills — `tags/actions/skills.md`
+- **api**: 18 skills — `tags/api/skills.md`
+- **appsec**: 1 skills — `tags/appsec/skills.md`
+- **aspnet**: 1 skills — `tags/aspnet/skills.md`
+- **audit**: 16 skills — `tags/audit/skills.md`
+- **backend**: 1 skills — `tags/backend/skills.md`
+- **burp**: 1 skills — `tags/burp/skills.md`
+- **cloud**: 3 skills — `tags/cloud/skills.md`
+- **cloudflare**: 2 skills — `tags/cloudflare/skills.md`
+- **codeql**: 2 skills — `tags/codeql/skills.md`
+- **crypto**: 3 skills — `tags/crypto/skills.md`
+- **dashboard**: 4 skills — `tags/dashboard/skills.md`
+- **data**: 33 skills — `tags/data/skills.md`
+- **data-visualization**: 1 skills — `tags/data-visualization/skills.md`
+- **database**: 2 skills — `tags/database/skills.md`
+- **deploy**: 8 skills — `tags/deploy/skills.md`
+- **deployment**: 8 skills — `tags/deployment/skills.md`
+- **devcontainer**: 1 skills — `tags/devcontainer/skills.md`
+- **docker**: 1 skills — `tags/docker/skills.md`
+- **fuzzing**: 5 skills — `tags/fuzzing/skills.md`
+- **ghidra**: 1 skills — `tags/ghidra/skills.md`
+- **infrastructure**: 2 skills — `tags/infrastructure/skills.md`
+- **java**: 2 skills — `tags/java/skills.md`
+- **metrics**: 7 skills — `tags/metrics/skills.md`
+- **netlify**: 2 skills — `tags/netlify/skills.md`
+- **node**: 4 skills — `tags/node/skills.md`
+- **python**: 11 skills — `tags/python/skills.md`
+- **render**: 2 skills — `tags/render/skills.md`
+- **ruby**: 1 skills — `tags/ruby/skills.md`
+- **sarif**: 1 skills — `tags/sarif/skills.md`
+- **security**: 26 skills — `tags/security/skills.md`
+- **semgrep**: 4 skills — `tags/semgrep/skills.md`
+- **server**: 10 skills — `tags/server/skills.md`
+- **service**: 4 skills — `tags/service/skills.md`
+- **sql**: 3 skills — `tags/sql/skills.md`
+- **static-analysis**: 3 skills — `tags/static-analysis/skills.md`
+- **statistical**: 1 skills — `tags/statistical/skills.md`
+- **typescript**: 4 skills — `tags/typescript/skills.md`
+- **validate-data**: 1 skills — `tags/validate-data/skills.md`
+- **vercel**: 1 skills — `tags/vercel/skills.md`
+- **visualization**: 3 skills — `tags/visualization/skills.md`
+- **vulnerability**: 8 skills — `tags/vulnerability/skills.md`
+- **yara**: 1 skills — `tags/yara/skills.md`

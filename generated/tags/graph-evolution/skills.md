@@ -6,4 +6,4 @@ Load skill file when task matches.
 ### graph-evolution
 >
 
-File: `external/trailofbits-skills/plugins/trailmark/skills/graph-evolution/SKILL.md`
+File: `../external/trailofbits-skills/plugins/trailmark/skills/graph-evolution/SKILL.md`

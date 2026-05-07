@@ -6,9 +6,9 @@ Load skill file when task matches.
 ### doc-coauthoring
 Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.
 
-File: `external/anthropic-skills/skills/doc-coauthoring/SKILL.md`
+File: `../external/anthropic-skills/skills/doc-coauthoring/SKILL.md`
 
 ### yara-rule-authoring
 >
 
-File: `external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md`
+File: `../external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md`

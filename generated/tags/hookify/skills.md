@@ -6,4 +6,4 @@ Load skill file when task matches.
 ### writing-hookify-rules
 This skill should be used when the user asks to "create a hookify rule", "write a hook rule", "configure hookify", "add a hookify rule", or needs guidance on hookify rule syntax and patterns.
 
-File: `external/anthropic-claude-plugins-official/plugins/hookify/skills/writing-rules/SKILL.md`
+File: `../external/anthropic-claude-plugins-official/plugins/hookify/skills/writing-rules/SKILL.md`

@@ -2,43 +2,43 @@
 
 ## Tags
 
-- **accessibility**: 6 skills
-- **api**: 18 skills
-- **architecture**: 11 skills
-- **aspnet**: 1 skills
-- **backend**: 1 skills
-- **brainstorm**: 1 skills
-- **brainstorming**: 1 skills
-- **canvas**: 4 skills
-- **code**: 50 skills
-- **code-review**: 1 skills
-- **css**: 3 skills
-- **database**: 2 skills
-- **debug**: 9 skills
-- **debugging**: 8 skills
-- **design**: 31 skills
-- **documentation**: 12 skills
-- **figma**: 9 skills
-- **frontend**: 4 skills
-- **html**: 10 skills
-- **java**: 2 skills
-- **node**: 4 skills
-- **planning**: 15 skills
-- **playwright**: 4 skills
-- **python**: 11 skills
-- **quality**: 11 skills
-- **react**: 6 skills
-- **refactor**: 3 skills
-- **review**: 30 skills
-- **ruby**: 1 skills
-- **server**: 10 skills
-- **service**: 4 skills
-- **sql**: 3 skills
-- **strategy**: 6 skills
-- **test**: 10 skills
-- **testing**: 32 skills
-- **testing-strategy**: 1 skills
-- **typescript**: 4 skills
-- **web**: 25 skills
-- **webapp**: 1 skills
-- **webapp-testing**: 1 skills
+- **accessibility**: 6 skills — `tags/accessibility/skills.md`
+- **api**: 18 skills — `tags/api/skills.md`
+- **architecture**: 11 skills — `tags/architecture/skills.md`
+- **aspnet**: 1 skills — `tags/aspnet/skills.md`
+- **backend**: 1 skills — `tags/backend/skills.md`
+- **brainstorm**: 1 skills — `tags/brainstorm/skills.md`
+- **brainstorming**: 1 skills — `tags/brainstorming/skills.md`
+- **canvas**: 4 skills — `tags/canvas/skills.md`
+- **code**: 50 skills — `tags/code/skills.md`
+- **code-review**: 1 skills — `tags/code-review/skills.md`
+- **css**: 3 skills — `tags/css/skills.md`
+- **database**: 2 skills — `tags/database/skills.md`
+- **debug**: 9 skills — `tags/debug/skills.md`
+- **debugging**: 8 skills — `tags/debugging/skills.md`
+- **design**: 31 skills — `tags/design/skills.md`
+- **documentation**: 12 skills — `tags/documentation/skills.md`
+- **figma**: 9 skills — `tags/figma/skills.md`
+- **frontend**: 4 skills — `tags/frontend/skills.md`
+- **html**: 10 skills — `tags/html/skills.md`
+- **java**: 2 skills — `tags/java/skills.md`
+- **node**: 4 skills — `tags/node/skills.md`
+- **planning**: 15 skills — `tags/planning/skills.md`
+- **playwright**: 4 skills — `tags/playwright/skills.md`
+- **python**: 11 skills — `tags/python/skills.md`
+- **quality**: 11 skills — `tags/quality/skills.md`
+- **react**: 6 skills — `tags/react/skills.md`
+- **refactor**: 3 skills — `tags/refactor/skills.md`
+- **review**: 30 skills — `tags/review/skills.md`
+- **ruby**: 1 skills — `tags/ruby/skills.md`
+- **server**: 10 skills — `tags/server/skills.md`
+- **service**: 4 skills — `tags/service/skills.md`
+- **sql**: 3 skills — `tags/sql/skills.md`
+- **strategy**: 6 skills — `tags/strategy/skills.md`
+- **test**: 10 skills — `tags/test/skills.md`
+- **testing**: 32 skills — `tags/testing/skills.md`
+- **testing-strategy**: 1 skills — `tags/testing-strategy/skills.md`
+- **typescript**: 4 skills — `tags/typescript/skills.md`
+- **web**: 25 skills — `tags/web/skills.md`
+- **webapp**: 1 skills — `tags/webapp/skills.md`
+- **webapp-testing**: 1 skills — `tags/webapp-testing/skills.md`
