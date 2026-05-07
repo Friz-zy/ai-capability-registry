@@ -236,6 +236,29 @@ def generate_role_skills_md(
     return "\n".join(lines)
 
 
+def build_role_to_categories(profiles: list[dict[str, Any]]) -> dict[str, list[str]]:
+    """Build role-to-categories mapping from profiles registry."""
+    result = {}
+    for profile in profiles:
+        role_title = profile.get("role", {}).get("title") or profile["name"]
+        categories = profile.get("include", {}).get("categories", [])
+        if categories:
+            result[role_title] = categories
+    return result
+
+
+def build_tag_category_display(tag_categories: dict[str, list[str]]) -> dict[str, str]:
+    """Build human-readable tag category descriptions from registry."""
+    # Use category name as description
+    return {cat: cat.replace("_", " ").title() for cat in tag_categories.keys()}
+
+
+def build_quick_reference_tags(tag_categories: dict[str, list[str]]) -> list[tuple[str, list[str]]]:
+    """Build quick reference from first 10 categories as task->tags mapping."""
+    items = list(tag_categories.items())[:10]
+    return [(name.title().replace("_", " "), tags) for name, tags in items]
+
+
 def generate_root_skills_md(
     profiles: list[dict[str, Any]],
     tag_categories: dict[str, list[str]],
@@ -243,34 +266,50 @@ def generate_root_skills_md(
     tag_to_category: dict[str, str],
 ) -> str:
     root_abs = abs_path(GENERATED_DIR / "skills.md")
-    
+    tags_abs = abs_path(GENERATED_DIR / "tags")
+    roles_abs = abs_path(GENERATED_DIR / "roles")
+
+    # Build dynamic data from registry
+    role_to_categories = build_role_to_categories(profiles)
+    tag_category_display = build_tag_category_display(tag_categories)
+    quick_reference_tags = build_quick_reference_tags(tag_categories)
+
     lines = [
         "# AI Capability Registry",
         "",
-        "All paths below are absolute.",
+        "## Skill Resolution Protocol",
         "",
-        f"Skills index: {root_abs}",
+        "When a task is received, perform these steps BEFORE starting work:",
         "",
-        "## Navigation",
-        "1. Select role below",
-        "2. Open role's skills.md",
-        "3. Find relevant tag",
-        "4. Open tag catalog",
-        "5. Load skill file",
+        "1. **Analyze request** — extract keywords from user request",
+        "2. **Choose entry point** — select a Role below OR browse Tags directly",
+        "3. **Match categories** — each role shows its categories",
+        "4. **Load skills** — read SKILL.md files from matched tags",
+        "5. **Apply guidance** — follow skill instructions, adapt to project conventions",
         "",
-        "## Usage",
-        "Read skill file content. Apply skill guidance when task matches.",
-        "Do not load skills preemptively — use only when relevant to current task.",
+        "### Roles (category groupings)",
         "",
-        "## Roles",
+        f"Browse all roles: `{roles_abs}/`\nBrowse all tags: `{tags_abs}/`",
         "",
     ]
 
-    for profile in profiles:
-        profile_id = profile["id"]
-        role_title = profile.get("role", {}).get("title") or profile["name"]
-        role_abs = abs_path(GENERATED_DIR / "roles" / profile_id / "skills.md")
-        lines.append(f"- **{role_title}**: `{role_abs}`")
+    for role, cats in sorted(role_to_categories.items()):
+        tag_list = ", ".join(f"`{c}`" for c in cats if c in tag_categories)
+        lines.append(f"- **{role}** → {tag_list}")
+
+    lines.extend([
+        "",
+        "### Quick Reference (task → tags)",
+        "",
+        "| Task | Tags to Check |",
+        "|------|---------------|",
+    ])
+
+    for task, tags in quick_reference_tags:
+        available = [t for t in tags if t in skills_by_tag]
+        if available:
+            tag_links = ", ".join(f"`{t}`" for t in available)
+            lines.append(f"| {task} | {tag_links} |")
 
     lines.extend([
         "",
