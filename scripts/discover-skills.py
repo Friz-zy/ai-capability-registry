@@ -239,6 +239,8 @@ def generate_root_skills_md(
     lines = [
         "# AI Capability Registry",
         "",
+        "All paths below are relative to this file's directory.",
+        "",
         "## Navigation",
         "1. Select role below",
         "2. Open role's skills.md",
