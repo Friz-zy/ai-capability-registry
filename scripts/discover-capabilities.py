@@ -357,7 +357,25 @@ def write_install_scripts(registry: dict[str, Any]) -> None:
         script = INSTALL_SCRIPTS_DIR / f"{agent['id']}.sh"
         write_text(script, "\n".join(["#!/usr/bin/env bash", "set -euo pipefail", "ROOT_DIR=\"$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../..\" && pwd)\"", f"exec \"${{ROOT_DIR}}/scripts/install-agent.py\" {agent['id']} \"$@\""]))
         script.chmod(0o755)
-    write_text(INSTALL_SCRIPTS_DIR / "README.md", "# Install Scripts\n\nRun `<agent>.sh --profile <profile>` to populate `generated/active/` and `generated/configs/` after pin verification.")
+    write_text(
+        INSTALL_SCRIPTS_DIR / "README.md",
+        "\n".join(
+            [
+                "# Install Scripts",
+                "",
+                "Run `<agent>.sh --profile <profile>` to populate `generated/active/` and `generated/configs/` after pin verification.",
+                "",
+                "Multiple profiles are supported:",
+                "",
+                "```bash",
+                "generated/install-scripts/kilo-code.sh --profile personal-assistant software-engineer",
+                "generated/install-scripts/kilo-code.sh --profile personal-assistant --profile data-analyst",
+                "generated/install-scripts/kilo-code.sh --profile personal-assistant,software-engineer",
+                "generated/install-scripts/kilo-code.sh --all-profiles",
+                "```",
+            ]
+        ),
+    )
 
 
 def catalog_markdown(registry: dict[str, Any], capabilities: list[dict[str, Any]]) -> str:

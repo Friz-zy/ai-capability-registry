@@ -24,8 +24,8 @@ def run_git_head(path: Path) -> str:
     return result.stdout.strip()
 
 
-def verify_pins() -> None:
-    pins = load_json(GENERATED / "install-bundle.json")["source_pins"]
+def verify_pins(bundle: dict[str, Any]) -> None:
+    pins = bundle["source_pins"]
     errors: list[str] = []
     for pin in pins:
         if not pin.get("enabled"):
@@ -76,8 +76,7 @@ def write_json(path: Path, data: Any, dry_run: bool) -> None:
     path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def install_payload(agent_id: str, profile: str, dry_run: bool) -> dict[str, Any]:
-    bundle = load_json(GENERATED / "install-bundle.json")
+def install_payload(bundle: dict[str, Any], agent_id: str, profile: str, dry_run: bool) -> dict[str, Any]:
     try:
         manifest = bundle["profiles"][profile]["agents"][agent_id]["manifest"]
     except KeyError as exc:
@@ -90,31 +89,73 @@ def install_payload(agent_id: str, profile: str, dry_run: bool) -> dict[str, Any
     return manifest
 
 
+def requested_profiles(bundle: dict[str, Any], raw_profiles: list[list[str]] | None, all_profiles: bool) -> list[str]:
+    available = bundle["profiles"]
+    if all_profiles:
+        return sorted(available)
+
+    profiles: list[str] = []
+    for group in raw_profiles or []:
+        for value in group:
+            profiles.extend(item.strip() for item in value.split(",") if item.strip())
+
+    if not profiles:
+        profiles = [
+            profile_id
+            for profile_id, profile_bundle in available.items()
+            if profile_bundle.get("profile", {}).get("default")
+        ]
+        if not profiles:
+            profiles = [next(iter(available))]
+
+    unknown = [profile for profile in profiles if profile not in available]
+    if unknown:
+        known = ", ".join(sorted(available))
+        raise SystemExit(f"Unknown profile(s): {', '.join(unknown)}\nKnown profiles: {known}")
+    return list(dict.fromkeys(profiles))
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Install a generated profile into the repo-local active cache.")
+    parser = argparse.ArgumentParser(description="Install generated profiles into the repo-local active cache.")
     parser.add_argument("agent_id")
-    parser.add_argument("--profile", default="core")
+    parser.add_argument(
+        "--profile",
+        dest="profiles",
+        action="append",
+        nargs="+",
+        help="Profile(s) to install. May be repeated, space-separated, or comma-separated.",
+    )
+    parser.add_argument("--all-profiles", action="store_true", help="Install every generated profile for this agent.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--skip-pin-check", action="store_true", help="Do not use except for local debugging.")
     args = parser.parse_args()
 
-    if not args.skip_pin_check:
-        verify_pins()
-    manifest = install_payload(args.agent_id, args.profile, args.dry_run)
     bundle = load_json(GENERATED / "install-bundle.json")
-    config = bundle["profiles"][args.profile]["agents"][args.agent_id]["config"]
-    role_instruction = bundle["profiles"][args.profile]["role_instruction"]
-    write_json(CONFIG_ROOT / args.agent_id / f"{args.profile}.json", config, args.dry_run)
-    if args.dry_run:
-        print(f"DRY-RUN write {CONFIG_ROOT / args.agent_id / (args.profile + '.md')}")
-    else:
-        role_path = CONFIG_ROOT / args.agent_id / f"{args.profile}.md"
-        role_path.parent.mkdir(parents=True, exist_ok=True)
-        role_path.write_text(role_instruction.rstrip() + "\n", encoding="utf-8")
+    profiles = requested_profiles(bundle, args.profiles, args.all_profiles)
 
-    print(f"Installed {len(manifest.get('capabilities', []))} capabilities for {args.agent_id} profile {args.profile}")
-    print(f"Active cache: {manifest['active_root']}")
-    print(f"Config snippet: {CONFIG_ROOT / args.agent_id / (args.profile + '.json')}")
+    if not args.skip_pin_check:
+        verify_pins(bundle)
+
+    total = 0
+    for profile in profiles:
+        manifest = install_payload(bundle, args.agent_id, profile, args.dry_run)
+        config = bundle["profiles"][profile]["agents"][args.agent_id]["config"]
+        role_instruction = bundle["profiles"][profile]["role_instruction"]
+        write_json(CONFIG_ROOT / args.agent_id / f"{profile}.json", config, args.dry_run)
+        role_path = CONFIG_ROOT / args.agent_id / f"{profile}.md"
+        if args.dry_run:
+            print(f"DRY-RUN write {role_path}")
+        else:
+            role_path.parent.mkdir(parents=True, exist_ok=True)
+            role_path.write_text(role_instruction.rstrip() + "\n", encoding="utf-8")
+
+        count = len(manifest.get("capabilities", []))
+        total += count
+        print(f"Installed {count} capabilities for {args.agent_id} profile {profile}")
+        print(f"Active cache: {manifest['active_root']}")
+        print(f"Config snippet: {CONFIG_ROOT / args.agent_id / (profile + '.json')}")
+
+    print(f"Installed {len(profiles)} profile(s), {total} total capabilities for {args.agent_id}")
     return 0
 
 
