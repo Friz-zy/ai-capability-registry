@@ -1,17 +1,14 @@
 # order
 
-## Navigation
-Read skill files below to understand capabilities.
-Load skill file when task matches.
-
 ## Skills
+Load skill file when task matches.
 
 ### figma-generate-library
 Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/figma-generate-library/SKILL.md`
+File: `external/openai-skills/skills/.curated/figma-generate-library/SKILL.md`
 
 ### signature-request
 Prepare and route a document for e-signature — run a pre-signature checklist, configure signing order, and send for execution. Use when a contract is finalized and ready to sign, when verifying entity names, exhibits, and signature blocks before sending, or when setting up an envelope with sequential or parallel signers.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/legal/skills/signature-request/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/legal/skills/signature-request/SKILL.md`

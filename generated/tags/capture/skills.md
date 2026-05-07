@@ -1,27 +1,24 @@
 # capture
 
-## Navigation
-Read skill files below to understand capabilities.
-Load skill file when task matches.
-
 ## Skills
+Load skill file when task matches.
 
 ### notion-knowledge-capture
 Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/notion-knowledge-capture/SKILL.md`
+File: `external/openai-skills/skills/.curated/notion-knowledge-capture/SKILL.md`
 
 ### screenshot
 Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/screenshot/SKILL.md`
+File: `external/openai-skills/skills/.curated/screenshot/SKILL.md`
 
 ### video-sdk/linux
 Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux/SKILL.md`
 
 ### video-sdk/windows
 Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, screen sharing, recording, and real-time communication
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows/SKILL.md`

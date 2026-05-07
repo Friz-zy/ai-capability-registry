@@ -1,12 +1,9 @@
 # supply
 
-## Navigation
-Read skill files below to understand capabilities.
-Load skill file when task matches.
-
 ## Skills
+Load skill file when task matches.
 
 ### supply-chain-risk-auditor
 Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md`
+File: `external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md`

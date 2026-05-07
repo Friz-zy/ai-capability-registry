@@ -1,9 +1,8 @@
 # Agent Bootstrap
 
-Read this file to find available capabilities:
+Registry root: /vscode/workspace/GITHUB/ai-capability-registry
 
-```
-/vscode/workspace/GITHUB/ai-capability-registry/generated/skills.md
-```
+Read this file to navigate:
+generated/skills.md
 
-Follow the navigation instructions in that file.
+All paths in skills.md are relative to the registry root.

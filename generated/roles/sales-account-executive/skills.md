@@ -1,35 +1,30 @@
 # Sales Account Executive
 
-## How to find skills
-1. Find relevant tag below
-2. Read tag catalog
-3. Load skill file
-
 ## Tags
 
-- **account**: 5 skills — `generated/tags/account/skills.md`
-- **account-research**: 2 skills — `generated/tags/account-research/skills.md`
-- **analysis**: 39 skills — `generated/tags/analysis/skills.md`
-- **brand**: 8 skills — `generated/tags/brand/skills.md`
-- **brand-review**: 1 skills — `generated/tags/brand-review/skills.md`
-- **call-prep**: 2 skills — `generated/tags/call-prep/skills.md`
-- **campaign**: 7 skills — `generated/tags/campaign/skills.md`
-- **campaign-plan**: 1 skills — `generated/tags/campaign-plan/skills.md`
-- **competitive-intelligence**: 1 skills — `generated/tags/competitive-intelligence/skills.md`
-- **documentation**: 12 skills — `generated/tags/documentation/skills.md`
-- **draft-outreach**: 1 skills — `generated/tags/draft-outreach/skills.md`
-- **email-sequence**: 1 skills — `generated/tags/email-sequence/skills.md`
-- **extract**: 3 skills — `generated/tags/extract/skills.md`
-- **knowledge**: 8 skills — `generated/tags/knowledge/skills.md`
-- **marketing**: 9 skills — `generated/tags/marketing/skills.md`
-- **outreach**: 3 skills — `generated/tags/outreach/skills.md`
-- **pdf**: 8 skills — `generated/tags/pdf/skills.md`
-- **pipeline**: 7 skills — `generated/tags/pipeline/skills.md`
-- **pipeline-review**: 1 skills — `generated/tags/pipeline-review/skills.md`
-- **research**: 24 skills — `generated/tags/research/skills.md`
-- **sales**: 12 skills — `generated/tags/sales/skills.md`
-- **search**: 8 skills — `generated/tags/search/skills.md`
-- **seo**: 3 skills — `generated/tags/seo/skills.md`
-- **summarize**: 3 skills — `generated/tags/summarize/skills.md`
-- **transcript**: 3 skills — `generated/tags/transcript/skills.md`
-- **xlsx**: 2 skills — `generated/tags/xlsx/skills.md`
+- **account**: 5 skills
+- **account-research**: 2 skills
+- **analysis**: 39 skills
+- **brand**: 8 skills
+- **brand-review**: 1 skills
+- **call-prep**: 2 skills
+- **campaign**: 7 skills
+- **campaign-plan**: 1 skills
+- **competitive-intelligence**: 1 skills
+- **documentation**: 12 skills
+- **draft-outreach**: 1 skills
+- **email-sequence**: 1 skills
+- **extract**: 3 skills
+- **knowledge**: 8 skills
+- **marketing**: 9 skills
+- **outreach**: 3 skills
+- **pdf**: 8 skills
+- **pipeline**: 7 skills
+- **pipeline-review**: 1 skills
+- **research**: 24 skills
+- **sales**: 12 skills
+- **search**: 8 skills
+- **seo**: 3 skills
+- **summarize**: 3 skills
+- **transcript**: 3 skills
+- **xlsx**: 2 skills

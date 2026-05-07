@@ -1,12 +1,9 @@
 # voices
 
-## Navigation
-Read skill files below to understand capabilities.
-Load skill file when task matches.
-
 ## Skills
+Load skill file when task matches.
 
 ### speech
 Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/openai-skills/skills/.curated/speech/SKILL.md`
+File: `external/openai-skills/skills/.curated/speech/SKILL.md`

@@ -1,82 +1,79 @@
 # testing-handbook
 
-## Navigation
-Read skill files below to understand capabilities.
-Load skill file when task matches.
-
 ## Skills
+Load skill file when task matches.
 
 ### address-sanitizer
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md`
 
 ### aflpp
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp/SKILL.md`
 
 ### atheris
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris/SKILL.md`
 
 ### cargo-fuzz
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md`
 
 ### constant-time-testing
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md`
 
 ### coverage-analysis
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md`
 
 ### fuzzing-dictionary
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md`
 
 ### fuzzing-obstacles
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md`
 
 ### harness-writing
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing/SKILL.md`
 
 ### libafl
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl/SKILL.md`
 
 ### libfuzzer
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md`
 
 ### ossfuzz
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md`
 
 ### ruzzy
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md`
 
 ### testing-handbook-generator
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md`
 
 ### wycheproof
 >
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof/SKILL.md`
+File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof/SKILL.md`

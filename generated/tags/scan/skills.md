@@ -1,22 +1,19 @@
 # scan
 
-## Navigation
-Read skill files below to understand capabilities.
-Load skill file when task matches.
-
 ## Skills
+Load skill file when task matches.
 
 ### brief
 Generate contextual briefings for legal work — daily summary, topic research, or incident response. Use when starting your day and need a scan of legal-relevant items across email, calendar, and contracts, when researching a specific legal question across internal sources, or when a developing situation (data breach, litigation threat, regulatory inquiry) needs rapid context.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/legal/skills/brief/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/legal/skills/brief/SKILL.md`
 
 ### scv-scan
 Audits Solidity codebases for smart contract vulnerabilities using a four-phase workflow (cheatsheet loading, codebase sweep, deep validation, reporting) covering 36 vulnerability classes. Use when auditing Solidity contracts for security issues, performing smart contract vulnerability scans, or reviewing Solidity code for common exploit patterns.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/trailofbits-skills-curated/plugins/scv-scan/skills/scv-scan/SKILL.md`
+File: `external/trailofbits-skills-curated/plugins/scv-scan/skills/scv-scan/SKILL.md`
 
 ### update
 Sync tasks and refresh memory from your current activity. Use when pulling new assignments from your project tracker into TASKS.md, triaging stale or overdue tasks, filling memory gaps for unknown people or projects, or running a comprehensive scan to catch todos buried in chat and email.
 
-File: `/vscode/workspace/GITHUB/ai-capability-registry/external/anthropic-knowledge-work-plugins/productivity/skills/update/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/productivity/skills/update/SKILL.md`

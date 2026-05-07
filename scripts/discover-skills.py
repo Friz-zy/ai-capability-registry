@@ -5,13 +5,11 @@ Generates skill maps organized by tags and roles.
 Output structure:
   generated/
   ├── skills.md              # Root registry with navigation instructions
-  ├── agents.md.template    # Minimal bootstrap: just path to skills.md
+  ├── agents.md.template    # Registry root path for relative resolution
   ├── roles/
-  │   ├── <role-id>/
-  │   │   └── skills.md     # Role catalog with tag delegation
+  │   └── <role-id>/skills.md
   └── tags/
-      ├── <tag>/
-      │   └── skills.md     # Tag catalog with skill listings
+      └── <tag>/skills.md
 """
 
 from __future__ import annotations
@@ -43,11 +41,8 @@ STOPWORDS = {
 
 
 def rel(path: Path) -> str:
+    """Relative path from registry root."""
     return path.relative_to(ROOT).as_posix()
-
-
-def abs_path(path: Path) -> str:
-    return str(path.absolute())
 
 
 def should_skip(path: Path) -> bool:
@@ -93,7 +88,6 @@ def extract_tags(*values: Any) -> list[str]:
 
 
 def build_tag_to_categories(tag_categories: dict[str, list[str]]) -> dict[str, str]:
-    """Map individual tags to their category."""
     tag_to_category: dict[str, str] = {}
     for category, tags in tag_categories.items():
         for tag in tags:
@@ -102,7 +96,6 @@ def build_tag_to_categories(tag_categories: dict[str, list[str]]) -> dict[str, s
 
 
 def get_tags_for_categories(categories: list[str], tag_categories: dict[str, list[str]]) -> list[str]:
-    """Get all tags for a list of categories."""
     tags: set[str] = set()
     for cat in categories:
         if cat in tag_categories:
@@ -128,27 +121,22 @@ class SkillRecord:
         self.name = name
         self.description = description
         self.tags = tags
-        self.full_path = rel(skill_dir)
-        self.skill_file_rel = rel(skill_file)
-        self.full_abs_path = abs_path(skill_dir)
-        self.skill_file_abs = abs_path(skill_file)
+        self.rel_dir = rel(skill_dir)
+        self.rel_file = rel(skill_file)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "name": self.name,
             "description": self.description,
             "tags": self.tags,
-            "path": self.full_path,
-            "skill_file": self.skill_file_rel,
+            "path": self.rel_dir,
+            "skill_file": self.rel_file,
             "source": self.source_id,
             "trust": self.source_trust,
         }
 
 
-def discover_skills(
-    registry: dict[str, Any],
-) -> tuple[list[SkillRecord], dict[str, list[SkillRecord]]]:
-    """Discover all skills from trusted/reviewed sources only."""
+def discover_skills(registry: dict[str, Any]) -> tuple[list[SkillRecord], dict[str, list[SkillRecord]]]:
     allowed_trust = {"trusted", "reviewed"}
     skills: list[SkillRecord] = []
     skills_by_tag: dict[str, list[SkillRecord]] = defaultdict(list)
@@ -202,18 +190,15 @@ def discover_skills(
 
 
 def generate_tag_skills_md(tag: str, skills: list[SkillRecord]) -> str:
-    """Generate skills.md for a single tag - minimal, actionable."""
+    """Tag catalog with relative paths."""
     if not skills:
-        return f"# Tag: {tag}\n\nNo skills found.\n"
+        return f"# {tag}\n\nNo skills found.\n"
     
     lines = [
         f"# {tag}",
         "",
-        "## Navigation",
-        "Read skill files below to understand capabilities.",
-        "Load skill file when task matches.",
-        "",
         "## Skills",
+        "Load skill file when task matches.",
         "",
     ]
 
@@ -222,7 +207,7 @@ def generate_tag_skills_md(tag: str, skills: list[SkillRecord]) -> str:
             f"### {skill.name}",
             f"{skill.description or 'No description.'}",
             "",
-            f"File: `{skill.skill_file_abs}`",
+            f"File: `{skill.rel_file}`",
             "",
         ])
 
@@ -234,22 +219,15 @@ def generate_role_skills_md(
     tag_categories: dict[str, list[str]],
     skills_by_tag: dict[str, list[SkillRecord]],
 ) -> str:
-    """Generate skills.md for a role - minimal, delegates to tags."""
+    """Role catalog delegating to tags."""
     profile_id = profile["id"]
     role_title = profile.get("role", {}).get("title") or profile["name"]
     categories = profile.get("include", {}).get("categories", [])
     category_tags = get_tags_for_categories(categories, tag_categories)
-    
-    # Get tags that have skills
     tags_with_skills = {tag for tag in category_tags if skills_by_tag.get(tag)}
     
     lines = [
         f"# {role_title}",
-        "",
-        "## How to find skills",
-        "1. Find relevant tag below",
-        "2. Read tag catalog",
-        "3. Load skill file",
         "",
         "## Tags",
         "",
@@ -257,8 +235,7 @@ def generate_role_skills_md(
 
     for tag in sorted(tags_with_skills):
         count = len(skills_by_tag.get(tag, []))
-        tag_path = f"generated/tags/{tag}/skills.md"
-        lines.append(f"- **{tag}**: {count} skills — `{tag_path}`")
+        lines.append(f"- **{tag}**: {count} skills")
 
     return "\n".join(lines)
 
@@ -269,19 +246,16 @@ def generate_root_skills_md(
     skills_by_tag: dict[str, list[SkillRecord]],
     tag_to_category: dict[str, str],
 ) -> str:
-    """Generate root skills.md with navigation instructions."""
+    """Root skills.md with relative paths."""
     lines = [
         "# AI Capability Registry",
         "",
         "## Navigation",
-        "",
-        "```",
-        "1. Select role below based on your task",
+        "1. Find relevant role below",
         "2. Open role's skills.md",
         "3. Find relevant tag",
         "4. Open tag catalog",
         "5. Load skill file",
-        "```",
         "",
         "## Roles",
         "",
@@ -290,38 +264,34 @@ def generate_root_skills_md(
     for profile in profiles:
         profile_id = profile["id"]
         role_title = profile.get("role", {}).get("title") or profile["name"]
-        role_path = f"generated/roles/{profile_id}/skills.md"
-        lines.append(f"- **{role_title}**: `{role_path}`")
+        lines.append(f"- **{role_title}**")
 
     lines.extend([
         "",
         "## Policy",
-        "",
-        "- Use only **trusted** or **reviewed** sources",
-        "- Prefer Docker/hosted MCP servers",
-        "- Never execute untrusted local scripts",
+        "- Use **trusted** or **reviewed** sources only",
+        "- Prefer Docker/hosted MCP",
+        "- Never execute untrusted scripts",
         "",
     ])
 
     return "\n".join(lines)
 
 
-def generate_agents_template(root_skills_path: str) -> str:
-    """Generate minimal agents.md.template - just path to skills.md."""
+def generate_agents_template(registry_root: str, root_skills_path: str) -> str:
+    """Minimal agents template with registry root."""
     return f"""# Agent Bootstrap
 
-Read this file to find available capabilities:
+Registry root: {registry_root}
 
-```
+Read this file to navigate:
 {root_skills_path}
-```
 
-Follow the navigation instructions in that file.
+All paths in skills.md are relative to the registry root.
 """
 
 
 def cleanup_generated() -> None:
-    """Clean generated directory."""
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     for item in GENERATED_DIR.iterdir():
         if item.name == ".gitkeep":
@@ -367,14 +337,15 @@ def main() -> int:
     )
     write_text(GENERATED_DIR / "skills.md", root_skills_content)
 
-    # Generate agents.md.template with absolute path
-    skills_abs_path = abs_path(GENERATED_DIR / "skills.md")
-    agents_content = generate_agents_template(skills_abs_path)
+    # Generate agents.md.template
+    registry_root = str(ROOT)
+    root_skills_rel = rel(GENERATED_DIR / "skills.md")
+    agents_content = generate_agents_template(registry_root, root_skills_rel)
     write_text(GENERATED_DIR / "agents.md.template", agents_content)
 
     print("Generated skill maps:")
-    print(f"  - generated/skills.md (root index)")
-    print(f"  - generated/agents.md.template (minimal bootstrap)")
+    print(f"  - generated/skills.md")
+    print(f"  - generated/agents.md.template")
     print(f"  - {len(registry['profiles'])} role catalogs")
     print(f"  - {len(skills_by_tag)} tag catalogs")
 
