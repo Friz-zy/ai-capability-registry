@@ -36,8 +36,7 @@ jobs:
           else
             git commit -m "ci: sync external submodules and regenerate skill maps
 
-            
-Triggered by: registry/skills.yaml changes"
+            Triggered by: registry/skills.yaml changes"
             git push
           fi
 
