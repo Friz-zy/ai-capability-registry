@@ -1,1 +1,1 @@
-Read instructions from ./generated/skills.md
+Read instructions from ./skills/skills.md

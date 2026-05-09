@@ -1,0 +1,314 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "trailofbits-skills-curated"
+skills:
+  - id: "external/trailofbits-skills-curated/plugins/ffuf-web-fuzzing/skills/ffuf-web-fuzzing"
+    exists: true
+    enabled: true
+    name: "ffuf-web-fuzzing"
+    description: "Expert guidance for ffuf web fuzzing during authorized penetration testing. Covers directory discovery, subdomain enumeration, parameter fuzzing, authenticated fuzzing with raw requests, auto-calibration, and result analysis. Use when running ffuf scans, analyzing ffuf output, or building fuzzing strategies for web targets."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/ffuf-web-fuzzing/skills/ffuf-web-fuzzing"
+    skill_file: "external/trailofbits-skills-curated/plugins/ffuf-web-fuzzing/skills/ffuf-web-fuzzing/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "security"
+      - "web"
+  - id: "external/trailofbits-skills-curated/plugins/ghidra-headless/skills/ghidra-headless"
+    exists: true
+    enabled: true
+    name: "ghidra-headless"
+    description: "Reverse engineers binaries using Ghidra's headless analyzer. Use when decompiling executables, extracting functions, strings, symbols, or analyzing call graphs from compiled binaries without the Ghidra GUI."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/ghidra-headless/skills/ghidra-headless"
+    skill_file: "external/trailofbits-skills-curated/plugins/ghidra-headless/skills/ghidra-headless/SKILL.md"
+    keywords:
+      - "binary"
+      - "ghidra"
+      - "security"
+  - id: "external/trailofbits-skills-curated/plugins/humanizer/skills/humanizer"
+    exists: true
+    enabled: true
+    name: "humanizer"
+    description: "Remove signs of AI-generated writing from text. Use when editing or reviewing\ntext to make it sound more natural and human-written. Based on Wikipedia's\ncomprehensive \"Signs of AI writing\" guide. Detects and fixes patterns including:\ninflated symbolism, promotional language, superficial -ing analyses, vague\nattributions, em dash overuse, rule of three, AI vocabulary words, negative\nparallelisms, and excessive conjunctive phrases. 30c5c8d (Update humanizer plugin to upstream v2.2.0)"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/humanizer/skills/humanizer"
+    skill_file: "external/trailofbits-skills-curated/plugins/humanizer/skills/humanizer/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills-curated/plugins/last30days/skills/last30days"
+    exists: true
+    enabled: true
+    name: "last30days"
+    description: "Researches a topic from the last 30 days on Reddit, X, and the web. Surfaces real community discussions with engagement metrics and synthesizes findings into actionable insights. Use when the user wants to know what people are saying about a topic right now."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/last30days/skills/last30days"
+    skill_file: "external/trailofbits-skills-curated/plugins/last30days/skills/last30days/SKILL.md"
+    keywords:
+      - "research"
+      - "security"
+  - id: "external/trailofbits-skills-curated/plugins/openai-cloudflare-deploy/skills/openai-cloudflare-deploy"
+    exists: true
+    enabled: true
+    name: "openai-cloudflare-deploy"
+    description: "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-cloudflare-deploy/skills/openai-cloudflare-deploy"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-cloudflare-deploy/skills/openai-cloudflare-deploy/SKILL.md"
+    keywords:
+      - "cloudflare"
+      - "deployment"
+  - id: "external/trailofbits-skills-curated/plugins/openai-develop-web-game/skills/openai-develop-web-game"
+    exists: true
+    enabled: true
+    name: "openai-develop-web-game"
+    description: "'Use when the agent is building or iterating on a web game (HTML/JS) and needs a reliable"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-develop-web-game/skills/openai-develop-web-game"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-develop-web-game/skills/openai-develop-web-game/SKILL.md"
+    keywords:
+      - "development"
+      - "frontend"
+      - "web"
+  - id: "external/trailofbits-skills-curated/plugins/openai-doc/skills/openai-doc"
+    exists: true
+    enabled: true
+    name: "openai-doc"
+    description: "Use when the task involves reading, creating, or editing `.docx` documents, especially when"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-doc/skills/openai-doc"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-doc/skills/openai-doc/SKILL.md"
+    keywords:
+      - "ai"
+      - "documents"
+      - "docx"
+  - id: "external/trailofbits-skills-curated/plugins/openai-gh-address-comments/skills/openai-gh-address-comments"
+    exists: true
+    enabled: true
+    name: "openai-gh-address-comments"
+    description: "Help address review/issue comments on the open GitHub PR for the current branch using gh"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-gh-address-comments/skills/openai-gh-address-comments"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-gh-address-comments/skills/openai-gh-address-comments/SKILL.md"
+    keywords:
+      - "git"
+      - "github"
+      - "review"
+  - id: "external/trailofbits-skills-curated/plugins/openai-gh-fix-ci/skills/openai-gh-fix-ci"
+    exists: true
+    enabled: true
+    name: "openai-gh-fix-ci"
+    description: "Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions;"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-gh-fix-ci/skills/openai-gh-fix-ci"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-gh-fix-ci/skills/openai-gh-fix-ci/SKILL.md"
+    keywords:
+      - "debugging"
+      - "git"
+      - "github"
+  - id: "external/trailofbits-skills-curated/plugins/openai-jupyter-notebook/skills/openai-jupyter-notebook"
+    exists: true
+    enabled: true
+    name: "openai-jupyter-notebook"
+    description: "Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments,"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-jupyter-notebook/skills/openai-jupyter-notebook"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-jupyter-notebook/skills/openai-jupyter-notebook/SKILL.md"
+    keywords:
+      - "data"
+      - "development"
+      - "jupyter"
+      - "python"
+  - id: "external/trailofbits-skills-curated/plugins/openai-netlify-deploy/skills/openai-netlify-deploy"
+    exists: true
+    enabled: true
+    name: "openai-netlify-deploy"
+    description: "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-netlify-deploy/skills/openai-netlify-deploy"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-netlify-deploy/skills/openai-netlify-deploy/SKILL.md"
+    keywords:
+      - "deployment"
+      - "netlify"
+  - id: "external/trailofbits-skills-curated/plugins/openai-pdf/skills/openai-pdf"
+    exists: true
+    enabled: true
+    name: "openai-pdf"
+    description: "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-pdf/skills/openai-pdf"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-pdf/skills/openai-pdf/SKILL.md"
+    keywords:
+      - "ai"
+      - "documents"
+      - "pdf"
+  - id: "external/trailofbits-skills-curated/plugins/openai-playwright/skills/openai-playwright"
+    exists: true
+    enabled: true
+    name: "openai-playwright"
+    description: "Use when the task requires automating a real browser from the terminal (navigation, form"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-playwright/skills/openai-playwright"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-playwright/skills/openai-playwright/SKILL.md"
+    keywords:
+      - "automation"
+      - "playwright"
+      - "testing"
+      - "web"
+  - id: "external/trailofbits-skills-curated/plugins/openai-screenshot/skills/openai-screenshot"
+    exists: true
+    enabled: true
+    name: "openai-screenshot"
+    description: "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-screenshot/skills/openai-screenshot"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-screenshot/skills/openai-screenshot/SKILL.md"
+    keywords:
+      - "automation"
+      - "screenshot"
+      - "windows"
+  - id: "external/trailofbits-skills-curated/plugins/openai-security-best-practices/skills/openai-security-best-practices"
+    exists: true
+    enabled: true
+    name: "openai-security-best-practices"
+    description: "Perform language and framework specific security best-practice reviews and suggest improvements."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-security-best-practices/skills/openai-security-best-practices"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-security-best-practices/skills/openai-security-best-practices/SKILL.md"
+    keywords:
+      - "code-review"
+      - "development"
+      - "security"
+  - id: "external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map"
+    exists: true
+    enabled: true
+    name: "openai-security-ownership-map"
+    description: "'Analyze git repositories to build a security ownership topology (people-to-file), compute"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-security-ownership-map/skills/openai-security-ownership-map/SKILL.md"
+    keywords:
+      - "analysis"
+      - "code-review"
+      - "git"
+      - "security"
+  - id: "external/trailofbits-skills-curated/plugins/openai-security-threat-model/skills/openai-security-threat-model"
+    exists: true
+    enabled: true
+    name: "openai-security-threat-model"
+    description: "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities,"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-security-threat-model/skills/openai-security-threat-model"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-security-threat-model/skills/openai-security-threat-model/SKILL.md"
+    keywords:
+      - "analysis"
+      - "security"
+      - "threat-model"
+  - id: "external/trailofbits-skills-curated/plugins/openai-sentry/skills/openai-sentry"
+    exists: true
+    enabled: true
+    name: "openai-sentry"
+    description: "Use when the user asks to inspect Sentry issues or events, summarize recent production errors,"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-sentry/skills/openai-sentry"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-sentry/skills/openai-sentry/SKILL.md"
+    keywords:
+      - "debugging"
+      - "sentry"
+  - id: "external/trailofbits-skills-curated/plugins/openai-spreadsheet/skills/openai-spreadsheet"
+    exists: true
+    enabled: true
+    name: "openai-spreadsheet"
+    description: "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`,"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-spreadsheet/skills/openai-spreadsheet"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-spreadsheet/skills/openai-spreadsheet/SKILL.md"
+    keywords:
+      - "data"
+      - "xlsx"
+  - id: "external/trailofbits-skills-curated/plugins/openai-yeet/skills/openai-yeet"
+    exists: true
+    enabled: true
+    name: "openai-yeet"
+    description: "Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request"
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/openai-yeet/skills/openai-yeet"
+    skill_file: "external/trailofbits-skills-curated/plugins/openai-yeet/skills/openai-yeet/SKILL.md"
+    keywords:
+      - "automation"
+      - "git"
+      - "workflow"
+  - id: "external/trailofbits-skills-curated/plugins/planning-with-files/skills/planning-with-files"
+    exists: true
+    enabled: true
+    name: "planning-with-files"
+    description: "Implements file-based planning for complex multi-step tasks. Creates task_plan.md, findings.md, and progress.md as persistent working memory. Use when starting tasks requiring >5 tool calls, multi-phase projects, research, or any work where losing track of goals and progress would be costly."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/planning-with-files/skills/planning-with-files"
+    skill_file: "external/trailofbits-skills-curated/plugins/planning-with-files/skills/planning-with-files/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills-curated/plugins/react-pdf/skills/react-pdf"
+    exists: true
+    enabled: true
+    name: "react-pdf"
+    description: "No description."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/react-pdf/skills/react-pdf"
+    skill_file: "external/trailofbits-skills-curated/plugins/react-pdf/skills/react-pdf/SKILL.md"
+    keywords:
+      - "frontend"
+      - "pdf"
+      - "react"
+  - id: "external/trailofbits-skills-curated/plugins/scv-scan/skills/scv-scan"
+    exists: true
+    enabled: true
+    name: "scv-scan"
+    description: "Audits Solidity codebases for smart contract vulnerabilities using a four-phase workflow (cheatsheet loading, codebase sweep, deep validation, reporting) covering 36 vulnerability classes. Use when auditing Solidity contracts for security issues, performing smart contract vulnerability scans, or reviewing Solidity code for common exploit patterns."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/scv-scan/skills/scv-scan"
+    skill_file: "external/trailofbits-skills-curated/plugins/scv-scan/skills/scv-scan/SKILL.md"
+    keywords:
+      - "audit"
+      - "security"
+      - "smart-contracts"
+      - "solidity"
+  - id: "external/trailofbits-skills-curated/plugins/security-awareness/skills/security-awareness"
+    exists: true
+    enabled: true
+    name: "security-awareness"
+    description: "Teaches agents to recognize and avoid security threats during normal activity. Covers phishing detection, credential protection, domain verification, and social engineering defense. Use when building or operating agents that access email, credential vaults, web browsers, or sensitive data."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/security-awareness/skills/security-awareness"
+    skill_file: "external/trailofbits-skills-curated/plugins/security-awareness/skills/security-awareness/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills-curated/plugins/skill-extractor/skills/skill-extractor"
+    exists: true
+    enabled: true
+    name: "skill-extractor"
+    description: "Extracts reusable skills from work sessions. Use when: (1) a non-obvious problem was solved worth preserving, (2) a pattern was discovered that would help future sessions, (3) a workaround or debugging technique needs documentation. Manual invocation only via /skill-extractor command - no automatic triggers or hooks."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/skill-extractor/skills/skill-extractor"
+    skill_file: "external/trailofbits-skills-curated/plugins/skill-extractor/skills/skill-extractor/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills-curated/plugins/wooyun-legacy/skills/wooyun-legacy"
+    exists: true
+    enabled: true
+    name: "wooyun-legacy"
+    description: "Provides web vulnerability testing methodology distilled from 88,636 real-world cases from the WooYun vulnerability database (2010-2016). Use when performing penetration testing, security audits, code reviews for security flaws, or vulnerability research. Covers SQL injection, XSS, command execution, file upload, path traversal, unauthorized access, information disclosure, and business logic flaws."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/wooyun-legacy/skills/wooyun-legacy"
+    skill_file: "external/trailofbits-skills-curated/plugins/wooyun-legacy/skills/wooyun-legacy/SKILL.md"
+    keywords:
+      - "security"
+  - id: "external/trailofbits-skills-curated/plugins/x-research/skills/x-research"
+    exists: true
+    enabled: true
+    name: "x-research"
+    description: "Searches X/Twitter for real-time perspectives, dev discussions, product feedback, breaking news, and expert opinions using the X API v2. Provides search with engagement sorting, user profiles, thread fetching, watchlists, and result caching. Use when: (1) user says \"x research\", \"search x for\", \"search twitter for\", \"what are people saying about\", \"what's twitter saying\", \"check x for\", \"x search\", (2) user needs recent X discourse on a topic (library releases, API changes, product launches, industry events), (3) user wants to find what devs/experts/community thinks about a topic. NOT for: posting tweets or account management."
+    source: "trailofbits-skills-curated"
+    path: "external/trailofbits-skills-curated/plugins/x-research/skills/x-research"
+    skill_file: "external/trailofbits-skills-curated/plugins/x-research/skills/x-research/SKILL.md"
+    keywords:
+      - "marketing"
+      - "research"

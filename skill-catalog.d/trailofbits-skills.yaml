@@ -1,0 +1,888 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "trailofbits-skills"
+skills:
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer"
+    exists: true
+    enabled: true
+    name: "address-sanitizer"
+    description: "AddressSanitizer detects memory errors during fuzzing. Use when fuzzing C/C++ code to find buffer overflows and use-after-free bugs."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md"
+    keywords:
+      - "cpp"
+      - "fuzzing"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp"
+    exists: true
+    enabled: true
+    name: "aflpp"
+    description: "AFL++ is a fork of AFL with better fuzzing performance and advanced features. Use for multi-core fuzzing of C/C++ projects."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/aflpp/SKILL.md"
+    keywords:
+      - "afl"
+      - "fuzzing"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/agentic-actions-auditor/skills/agentic-actions-auditor"
+    exists: true
+    enabled: true
+    name: "agentic-actions-auditor"
+    description: "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/agentic-actions-auditor/skills/agentic-actions-auditor"
+    skill_file: "external/trailofbits-skills/plugins/agentic-actions-auditor/skills/agentic-actions-auditor/SKILL.md"
+    keywords:
+      - "ai"
+      - "audit"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner"
+    exists: true
+    enabled: true
+    name: "algorand-vulnerability-scanner"
+    description: "Scans Algorand smart contracts for 11 common vulnerabilities including rekeying attacks, unchecked transaction fees, missing field validations, and access control issues. Use when auditing Algorand projects (TEAL/PyTeal)."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner/SKILL.md"
+    keywords:
+      - "algorand"
+      - "blockchain"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified"
+    exists: true
+    enabled: true
+    name: "ask-questions-if-underspecified"
+    description: "Clarify requirements before implementing. Use when serious doubts arise."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified"
+    skill_file: "external/trailofbits-skills/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified/SKILL.md"
+    keywords:
+      - "ai"
+      - "research"
+      - "workflow"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris"
+    exists: true
+    enabled: true
+    name: "atheris"
+    description: "Atheris is a coverage-guided Python fuzzer based on libFuzzer. Use for fuzzing pure Python code and Python C extensions."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/atheris/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "python"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/audit-augmentation"
+    exists: true
+    enabled: true
+    name: "audit-augmentation"
+    description: "Augments Trailmark code graphs with external audit findings from SARIF static analysis results and weAudit annotation files. Maps findings to graph nodes by file and line overlap, creates severity-based subgraphs, and enables cross-referencing findings with pre-analysis data (blast radius, taint, etc.). Use when projecting SARIF results onto a code graph, overlaying weAudit annotations, cross-referencing Semgrep or CodeQL findings with call graph data, or visualizing audit findings in the context of code structure."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/audit-augmentation"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/audit-augmentation/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills/plugins/audit-context-building/skills/audit-context-building"
+    exists: true
+    enabled: true
+    name: "audit-context-building"
+    description: "Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/audit-context-building/skills/audit-context-building"
+    skill_file: "external/trailofbits-skills/plugins/audit-context-building/skills/audit-context-building/SKILL.md"
+    keywords:
+      - "analysis"
+      - "audit"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/audit-prep-assistant"
+    exists: true
+    enabled: true
+    name: "audit-prep-assistant"
+    description: "Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and generates documentation (flowcharts, user stories, inline comments)."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/audit-prep-assistant"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/audit-prep-assistant/SKILL.md"
+    keywords:
+      - "audit"
+      - "planning"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/burpsuite-project-parser/skills/burpsuite-project-parser"
+    exists: true
+    enabled: true
+    name: "burpsuite-project-parser"
+    description: "Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy history or site map data, or analyzing HTTP traffic captured in a Burp project."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/burpsuite-project-parser/skills/burpsuite-project-parser"
+    skill_file: "external/trailofbits-skills/plugins/burpsuite-project-parser/skills/burpsuite-project-parser/SKILL.md"
+    keywords:
+      - "burp"
+      - "security"
+      - "web"
+  - id: "external/trailofbits-skills/plugins/c-review/skills/c-review"
+    exists: true
+    enabled: true
+    name: "c-review"
+    description: "Performs comprehensive C/C++ security review for memory corruption, integer overflows, race conditions, and platform-specific vulnerabilities. Use when auditing native C/C++ applications, reviewing daemons or services for memory safety, or hunting integer overflow / use-after-free / race conditions in userspace code."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/c-review/skills/c-review"
+    skill_file: "external/trailofbits-skills/plugins/c-review/skills/c-review/SKILL.md"
+    keywords:
+      - "cpp"
+      - "review"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner"
+    exists: true
+    enabled: true
+    name: "cairo-vulnerability-scanner"
+    description: "Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion problems, and signature replay. Use when auditing StarkNet projects."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner/SKILL.md"
+    keywords:
+      - "blockchain"
+      - "cairo"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz"
+    exists: true
+    enabled: true
+    name: "cargo-fuzz"
+    description: "cargo-fuzz is the de facto fuzzing tool for Rust projects using Cargo. Use for fuzzing Rust code with libFuzzer backend."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "rust"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting"
+    exists: true
+    enabled: true
+    name: "claude-in-chrome-troubleshooting"
+    description: "Diagnose and fix Claude in Chrome MCP extension connectivity issues. Use when mcp__claude-in-chrome__* tools fail, return \"Browser extension is not connected\", or behave erratically."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting"
+    skill_file: "external/trailofbits-skills/plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting/SKILL.md"
+    keywords:
+      - "ai"
+      - "debugging"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/code-maturity-assessor"
+    exists: true
+    enabled: true
+    name: "code-maturity-assessor"
+    description: "Systematic code maturity assessment using Trail of Bits' 9-category framework. Analyzes codebase for arithmetic safety, auditing practices, access controls, complexity, decentralization, documentation, MEV risks, low-level code, and testing. Produces professional scorecard with evidence-based ratings and actionable recommendations."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/code-maturity-assessor"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/code-maturity-assessor/SKILL.md"
+    keywords:
+      - "analysis"
+      - "audit"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/static-analysis/skills/codeql"
+    exists: true
+    enabled: true
+    name: "codeql"
+    description: "Scans a codebase for security vulnerabilities using CodeQL's interprocedural data flow and taint tracking analysis. Triggers on \"run codeql\", \"codeql scan\", \"codeql analysis\", \"build codeql database\", or \"find vulnerabilities with codeql\". Supports \"run all\" (security-and-quality + security-experimental suites) and \"important only\" (high-precision security findings) scan modes. Also handles creating data extension models and processing CodeQL SARIF output."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/static-analysis/skills/codeql"
+    skill_file: "external/trailofbits-skills/plugins/static-analysis/skills/codeql/SKILL.md"
+    keywords:
+      - "codeql"
+      - "security"
+      - "static-analysis"
+  - id: "external/trailofbits-skills/plugins/constant-time-analysis/skills/constant-time-analysis"
+    exists: true
+    enabled: true
+    name: "constant-time-analysis"
+    description: "Detects timing side-channel vulnerabilities in cryptographic code. Use when implementing or reviewing crypto code, encountering division on secrets, secret-dependent branches, or constant-time programming questions in C, C++, Go, Rust, Swift, Java, Kotlin, C#, PHP, JavaScript, TypeScript, Python, or Ruby."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/constant-time-analysis/skills/constant-time-analysis"
+    skill_file: "external/trailofbits-skills/plugins/constant-time-analysis/skills/constant-time-analysis/SKILL.md"
+    keywords:
+      - "analysis"
+      - "cryptography"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing"
+    exists: true
+    enabled: true
+    name: "constant-time-testing"
+    description: "Constant-time testing detects timing side channels in cryptographic code. Use when auditing crypto implementations for timing vulnerabilities."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md"
+    keywords:
+      - "cryptography"
+      - "security"
+      - "testing"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner"
+    exists: true
+    enabled: true
+    name: "cosmos-vulnerability-scanner"
+    description: "Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabilities — chain halts, fund loss, state divergence. 25 core + 16 IBC + 10 EVM + 3 CosmWasm patterns. Use when auditing custom x/ modules, reviewing IBC integrations, or assessing pre-launch chain security. Updated for SDK v0.53.x."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner/SKILL.md"
+    keywords:
+      - "blockchain"
+      - "cosmos"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis"
+    exists: true
+    enabled: true
+    name: "coverage-analysis"
+    description: "Coverage analysis measures code exercised during fuzzing. Use when assessing harness effectiveness or identifying fuzzing blockers."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md"
+    keywords:
+      - "security"
+      - "testing"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/crypto-protocol-diagram"
+    exists: true
+    enabled: true
+    name: "crypto-protocol-diagram"
+    description: "Extracts protocol message flow from source code, RFCs, academic papers, pseudocode, informal prose, ProVerif (.pv), or Tamarin (.spthy) models and generates Mermaid sequenceDiagrams with cryptographic annotations. Use when diagramming a crypto protocol, visualizing a handshake or key exchange flow, extracting message flow from a spec or RFC, diagramming a ProVerif or Tamarin model, or drawing sequence diagrams for TLS, Noise, Signal, X3DH, Double Ratchet, FROST, DH, or ECDH protocols."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/crypto-protocol-diagram"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/crypto-protocol-diagram/SKILL.md"
+    keywords:
+      - "architecture"
+      - "cryptography"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/debug-buttercup/skills/debug-buttercup"
+    exists: true
+    enabled: true
+    name: "debug-buttercup"
+    description: "Debugs the Buttercup CRS (Cyber Reasoning System) running on Kubernetes. Use when diagnosing pod crashes, restart loops, Redis failures, resource pressure, disk saturation, DinD issues, or any service misbehavior in the crs namespace. Covers triage, log analysis, queue inspection, and common failure patterns for: redis, fuzzer-bot, coverage-bot, seed-gen, patcher, build-bot, scheduler, task-server, task-downloader, program-model, litellm, dind, tracer-bot, merger-bot, competition-api, pov-reproducer, scratch-cleaner, registry-cache, image-preloader, ui."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/debug-buttercup/skills/debug-buttercup"
+    skill_file: "external/trailofbits-skills/plugins/debug-buttercup/skills/debug-buttercup/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills/plugins/workflow-skill-design/skills/designing-workflow-skills"
+    exists: true
+    enabled: true
+    name: "designing-workflow-skills"
+    description: "Guides the design and structuring of workflow-based Claude Code skills with multi-step phases, decision trees, subagent delegation, and progressive disclosure. Use when creating skills that involve sequential pipelines, routing patterns, safety gates, task tracking, phased execution, or any multi-step workflow. Also applies when reviewing or refactoring existing workflow skills for quality."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/workflow-skill-design/skills/designing-workflow-skills"
+    skill_file: "external/trailofbits-skills/plugins/workflow-skill-design/skills/designing-workflow-skills/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills/plugins/devcontainer-setup/skills/devcontainer-setup"
+    exists: true
+    enabled: true
+    name: "devcontainer-setup"
+    description: "Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persistent volumes. Use when adding devcontainer support to a project, setting up isolated development environments, or configuring sandboxed Claude Code workspaces."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/devcontainer-setup/skills/devcontainer-setup"
+    skill_file: "external/trailofbits-skills/plugins/devcontainer-setup/skills/devcontainer-setup/SKILL.md"
+    keywords:
+      - "configuration"
+      - "devcontainer"
+      - "development"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/diagramming-code"
+    exists: true
+    enabled: true
+    name: "diagramming-code"
+    description: "Generates Mermaid diagrams from Trailmark code graphs. Produces call graphs, class hierarchies, module dependency maps, containment diagrams, complexity heatmaps, and attack surface data flow visualizations. Use when visualizing code architecture, drawing call graphs, generating class diagrams, creating dependency maps, producing complexity heatmaps, or visualizing data flow and attack surface paths as Mermaid diagrams."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/diagramming-code"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/diagramming-code/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills/plugins/differential-review/skills/differential-review"
+    exists: true
+    enabled: true
+    name: "differential-review"
+    description: "Performs security-focused differential review of code changes (PRs, commits, diffs). Adapts analysis depth to codebase size, uses git history for context, calculates blast radius, checks test coverage, and generates comprehensive markdown reports. Automatically detects and prevents security regressions."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/differential-review/skills/differential-review"
+    skill_file: "external/trailofbits-skills/plugins/differential-review/skills/differential-review/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills/plugins/dimensional-analysis/skills/dimensional-analysis"
+    exists: true
+    enabled: true
+    name: "dimensional-analysis"
+    description: "Annotates codebases with dimensional analysis comments documenting units, dimensions, and decimal scaling. Use when someone asks to annotate units in a codebase, perform a dimensional analysis, or find vulnerabilities in a DeFi protocol, offchain code, or other blockchain-related codebase with arithmetic. Prevents dimensional mismatches and catches formula bugs early."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/dimensional-analysis/skills/dimensional-analysis"
+    skill_file: "external/trailofbits-skills/plugins/dimensional-analysis/skills/dimensional-analysis/SKILL.md"
+    keywords:
+      - "analysis"
+      - "blockchain"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/dwarf-expert/skills/dwarf-expert"
+    exists: true
+    enabled: true
+    name: "dwarf-expert"
+    description: "Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5). Triggers when understanding DWARF information, interacting with DWARF files, answering DWARF-related questions, or working with code that parses DWARF data."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/dwarf-expert/skills/dwarf-expert"
+    skill_file: "external/trailofbits-skills/plugins/dwarf-expert/skills/dwarf-expert/SKILL.md"
+    keywords:
+      - "binary"
+      - "debugging"
+      - "dwarf"
+      - "ghidra"
+  - id: "external/trailofbits-skills/plugins/entry-point-analyzer/skills/entry-point-analyzer"
+    exists: true
+    enabled: true
+    name: "entry-point-analyzer"
+    description: "Analyzes smart contract codebases to identify state-changing entry points for security auditing. Detects externally callable functions that modify state, categorizes them by access level (public, admin, role-restricted, contract-only), and generates structured audit reports. Excludes view/pure/read-only functions. Use when auditing smart contracts (Solidity, Vyper, Solana/Rust, Move, TON, CosmWasm) or when asked to find entry points, audit flows, external functions, access control patterns, or privileged operations."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/entry-point-analyzer/skills/entry-point-analyzer"
+    skill_file: "external/trailofbits-skills/plugins/entry-point-analyzer/skills/entry-point-analyzer/SKILL.md"
+    keywords:
+      - "analysis"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/firebase-apk-scanner/skills/firebase-apk-scanner"
+    exists: true
+    enabled: true
+    name: "firebase-apk-scanner"
+    description: "Scans Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions. Use when analyzing APK files for Firebase vulnerabilities, performing mobile app security audits, or testing Firebase endpoint security. For authorized security research only."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/firebase-apk-scanner/skills/firebase-apk-scanner"
+    skill_file: "external/trailofbits-skills/plugins/firebase-apk-scanner/skills/firebase-apk-scanner/SKILL.md"
+    keywords:
+      - "android"
+      - "firebase"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/fp-check/skills/fp-check"
+    exists: true
+    enabled: true
+    name: "fp-check"
+    description: "Systematically verifies suspected security bugs to eliminate false positives. Produces TRUE POSITIVE or FALSE POSITIVE verdicts with documented evidence for each bug."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/fp-check/skills/fp-check"
+    skill_file: "external/trailofbits-skills/plugins/fp-check/skills/fp-check/SKILL.md"
+    keywords:
+      - "security"
+      - "validation"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary"
+    exists: true
+    enabled: true
+    name: "fuzzing-dictionary"
+    description: "Fuzzing dictionaries guide fuzzers with domain-specific tokens. Use when fuzzing parsers, protocols, or format-specific code."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles"
+    exists: true
+    enabled: true
+    name: "fuzzing-obstacles"
+    description: "Techniques for patching code to overcome fuzzing obstacles. Use when checksums, global state, or other barriers block fuzzer progress."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/genotoxic"
+    exists: true
+    enabled: true
+    name: "genotoxic"
+    description: "Graph-informed mutation testing triage. Parses codebases with Trailmark, runs mutation testing and necessist, then uses survived mutants, unnecessary test statements, and call graph data to identify false positives, missing test coverage, and fuzzing targets. Use when triaging survived mutants, analyzing mutation testing results, identifying test gaps, finding fuzzing targets from weak tests, running mutation frameworks (including circomvent and cairo-mutants), or using necessist."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/genotoxic"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/genotoxic/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/.codex/skills/gh-cli"
+    exists: true
+    enabled: true
+    name: "gh-cli"
+    description: "Enforces authenticated gh CLI workflows over unauthenticated curl/WebFetch patterns. Use when working with GitHub URLs, API access, pull requests, or issues."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/.codex/skills/gh-cli"
+    skill_file: "external/trailofbits-skills/.codex/skills/gh-cli/SKILL.md"
+    keywords:
+      - "command"
+      - "git"
+      - "github"
+      - "workflow"
+  - id: "external/trailofbits-skills/plugins/git-cleanup/skills/git-cleanup"
+    exists: true
+    enabled: true
+    name: "git-cleanup"
+    description: "Safely analyzes and cleans up local git branches and worktrees by categorizing them as merged, squash-merged, superseded, or active work."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/git-cleanup/skills/git-cleanup"
+    skill_file: "external/trailofbits-skills/plugins/git-cleanup/skills/git-cleanup/SKILL.md"
+    keywords:
+      - "git"
+      - "tech-debt"
+      - "workflow"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/graph-evolution"
+    exists: true
+    enabled: true
+    name: "graph-evolution"
+    description: "Compares Trailmark code graphs at two source code snapshots (git commits, tags, or directories) to surface security-relevant structural changes. Detects new attack paths, complexity shifts, blast radius growth, taint propagation changes, and privilege boundary modifications that text diffs miss. Use when comparing code between commits or tags, analyzing structural evolution, detecting attack surface growth, reviewing what changed between audit snapshots, or finding security-relevant changes that text diffs miss."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/graph-evolution"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/graph-evolution/SKILL.md"
+    keywords:
+      - "analysis"
+      - "binary"
+      - "security"
+      - "trailmark"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/guidelines-advisor"
+    exists: true
+    enabled: true
+    name: "guidelines-advisor"
+    description: "Smart contract development advisor based on Trail of Bits' best practices. Analyzes codebase to generate documentation/specifications, review architecture, check upgradeability patterns, assess implementation quality, identify pitfalls, review dependencies, and evaluate testing. Provides actionable recommendations."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/guidelines-advisor"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/guidelines-advisor/SKILL.md"
+    keywords:
+      - "documentation"
+      - "review"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing"
+    exists: true
+    enabled: true
+    name: "harness-writing"
+    description: "Techniques for writing effective fuzzing harnesses across languages. Use when creating new fuzz targets or improving existing harness code."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/harness-writing/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults"
+    exists: true
+    enabled: true
+    name: "insecure-defaults"
+    description: "Detects fail-open insecure defaults (hardcoded secrets, weak auth, permissive security) that allow apps to run insecurely in production. Use when auditing security, reviewing config management, or analyzing environment variable handling."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults"
+    skill_file: "external/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults/SKILL.md"
+    keywords:
+      - "configuration"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/culture-index/skills/interpreting-culture-index"
+    exists: true
+    enabled: true
+    name: "interpreting-culture-index"
+    description: "Interprets Culture Index (CI) surveys, behavioral profiles, and personality assessment data. Supports individual profile interpretation, team composition analysis (gas/brake/glue), burnout detection, profile comparison, hiring profiles, manager coaching, interview transcript analysis for trait prediction, candidate debrief, onboarding planning, and conflict mediation. Accepts extracted JSON or PDF input via OpenCV extraction script."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/culture-index/skills/interpreting-culture-index"
+    skill_file: "external/trailofbits-skills/plugins/culture-index/skills/interpreting-culture-index/SKILL.md"
+    keywords:
+      - "analysis"
+      - "hr"
+      - "people"
+      - "recruiting"
+  - id: "external/trailofbits-skills/plugins/let-fate-decide/skills/let-fate-decide"
+    exists: true
+    enabled: true
+    name: "let-fate-decide"
+    description: "Draws 4 Tarot cards to inject entropy into planning when prompts are vague, ambiguous, or casually delegated. Interprets the spread to guide next steps. Use when the user says 'let fate decide', 'YOLO', 'whatever', 'idk', or other nonchalant phrases, makes Yu-Gi-Oh references, or when you are about to arbitrarily pick between multiple reasonable approaches. Prefer over ask-questions-if-underspecified when the user's tone is casual or playful rather than precision-seeking."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/let-fate-decide/skills/let-fate-decide"
+    skill_file: "external/trailofbits-skills/plugins/let-fate-decide/skills/let-fate-decide/SKILL.md"
+    keywords:
+      - "automation"
+      - "planning"
+      - "productivity"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl"
+    exists: true
+    enabled: true
+    name: "libafl"
+    description: "LibAFL is a modular fuzzing library for building custom fuzzers. Use for advanced fuzzing needs, custom mutators, or non-standard fuzzing targets."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/libafl/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "rust"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer"
+    exists: true
+    enabled: true
+    name: "libfuzzer"
+    description: "Coverage-guided fuzzer built into LLVM for C/C++ projects. Use for fuzzing C/C++ code that can be compiled with Clang."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/mermaid-to-proverif"
+    exists: true
+    enabled: true
+    name: "mermaid-to-proverif"
+    description: "Translates Mermaid sequenceDiagrams describing cryptographic protocols into ProVerif formal verification models (.pv files). Use when generating a ProVerif model, formally verifying a protocol, converting a Mermaid diagram to ProVerif, verifying protocol security properties (secrecy, authentication, forward secrecy), checking for replay attacks, or producing a .pv file from a sequence diagram."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/mermaid-to-proverif"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/mermaid-to-proverif/SKILL.md"
+    keywords:
+      - "cryptography"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/modern-python/skills/modern-python"
+    exists: true
+    enabled: true
+    name: "modern-python"
+    description: "Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/modern-python/skills/modern-python"
+    skill_file: "external/trailofbits-skills/plugins/modern-python/skills/modern-python/SKILL.md"
+    keywords:
+      - "devcontainer"
+      - "development"
+      - "engineering"
+      - "python"
+  - id: "external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing"
+    exists: true
+    enabled: true
+    name: "mutation-testing"
+    description: "Configures mewt or muton mutation testing campaigns — scopes targets, tunes timeouts, and optimizes long-running runs. Use when the user mentions mewt, muton, mutation testing, or wants to configure or optimize a mutation testing campaign."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing"
+    skill_file: "external/trailofbits-skills/plugins/mutation-testing/skills/mutation-testing/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "security"
+      - "testing"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz"
+    exists: true
+    enabled: true
+    name: "ossfuzz"
+    description: "OSS-Fuzz provides free continuous fuzzing for open source projects. Use when setting up continuous fuzzing infrastructure or enrolling projects."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "integration"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing"
+    exists: true
+    enabled: true
+    name: "property-based-testing"
+    description: "Provides guidance for property-based testing across multiple languages and smart contracts. Use when writing tests, reviewing code with serialization/validation/parsing patterns, designing features, or when property-based testing would provide stronger coverage than example-based tests."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing"
+    skill_file: "external/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/SKILL.md"
+    keywords:
+      - "security"
+      - "testing"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy"
+    exists: true
+    enabled: true
+    name: "ruzzy"
+    description: "Ruzzy is a coverage-guided Ruby fuzzer by Trail of Bits. Use for fuzzing pure Ruby code and Ruby C extensions."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md"
+    keywords:
+      - "fuzzing"
+      - "rust"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing"
+    exists: true
+    enabled: true
+    name: "sarif-parsing"
+    description: "Parses and processes SARIF files from static analysis tools like CodeQL, Semgrep, or other scanners. Triggers on \"parse sarif\", \"read scan results\", \"aggregate findings\", \"deduplicate alerts\", or \"process sarif output\". Handles filtering, deduplication, format conversion, and CI/CD integration of SARIF data. Does NOT run scans — use the Semgrep or CodeQL skills for that."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing"
+    skill_file: "external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing/SKILL.md"
+    keywords:
+      - "sarif"
+      - "security"
+      - "static-analysis"
+  - id: "external/trailofbits-skills/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer"
+    exists: true
+    enabled: true
+    name: "seatbelt-sandboxer"
+    description: "Generates minimal macOS Seatbelt sandbox configurations. Use when sandboxing, isolating, or restricting macOS applications with allowlist-based profiles."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer"
+    skill_file: "external/trailofbits-skills/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer/SKILL.md"
+    keywords:
+      - "macos"
+      - "seatbelt"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/second-opinion/skills/second-opinion"
+    exists: true
+    enabled: true
+    name: "second-opinion"
+    description: "Runs external LLM code reviews (OpenAI Codex or Google Gemini CLI) on uncommitted changes, branch diffs, or specific commits. Use when the user asks for a second opinion, external review, codex review, gemini review, or mentions /second-opinion."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/second-opinion/skills/second-opinion"
+    skill_file: "external/trailofbits-skills/plugins/second-opinion/skills/second-opinion/SKILL.md"
+    keywords:
+      - "ai"
+      - "analysis"
+      - "code-review"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/secure-workflow-guide"
+    exists: true
+    enabled: true
+    name: "secure-workflow-guide"
+    description: "Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks special features (upgradeability/ERC conformance/token integration), generates visual security diagrams, helps document security properties for fuzzing/verification, and reviews manual security areas."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/secure-workflow-guide"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/secure-workflow-guide/SKILL.md"
+    keywords:
+      - "review"
+      - "security"
+      - "smart-contracts"
+      - "workflow"
+  - id: "external/trailofbits-skills/plugins/static-analysis/skills/semgrep"
+    exists: true
+    enabled: true
+    name: "semgrep"
+    description: "Run Semgrep static analysis scan on a codebase using parallel subagents. Supports two scan modes — \"run all\" (full ruleset coverage) and \"important only\" (high-confidence security vulnerabilities). Automatically detects and uses Semgrep Pro for cross-file taint analysis when available. Use when asked to scan code for vulnerabilities, run a security audit with Semgrep, find bugs, or perform static analysis. Spawns parallel workers for multi-language codebases."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/static-analysis/skills/semgrep"
+    skill_file: "external/trailofbits-skills/plugins/static-analysis/skills/semgrep/SKILL.md"
+    keywords:
+      - "security"
+      - "semgrep"
+      - "static-analysis"
+  - id: "external/trailofbits-skills/plugins/semgrep-rule-creator/skills/semgrep-rule-creator"
+    exists: true
+    enabled: true
+    name: "semgrep-rule-creator"
+    description: "Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/semgrep-rule-creator/skills/semgrep-rule-creator"
+    skill_file: "external/trailofbits-skills/plugins/semgrep-rule-creator/skills/semgrep-rule-creator/SKILL.md"
+    keywords:
+      - "automation"
+      - "security"
+      - "semgrep"
+      - "static-analysis"
+  - id: "external/trailofbits-skills/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator"
+    exists: true
+    enabled: true
+    name: "semgrep-rule-variant-creator"
+    description: "Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages. Takes an existing rule and target languages as input, produces independent rule+test directories for each language."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator"
+    skill_file: "external/trailofbits-skills/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator/SKILL.md"
+    keywords:
+      - "automation"
+      - "security"
+      - "semgrep"
+      - "static-analysis"
+  - id: "external/trailofbits-skills/plugins/sharp-edges/skills/sharp-edges"
+    exists: true
+    enabled: true
+    name: "sharp-edges"
+    description: "Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes. Use when reviewing API designs, configuration schemas, cryptographic library ergonomics, or evaluating whether code follows 'secure by default' and 'pit of success' principles. Triggers: footgun, misuse-resistant, secure defaults, API usability, dangerous configuration."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/sharp-edges/skills/sharp-edges"
+    skill_file: "external/trailofbits-skills/plugins/sharp-edges/skills/sharp-edges/SKILL.md"
+    keywords:
+      - "rest-api"
+      - "review"
+      - "security"
+  - id: "external/trailofbits-skills/plugins/skill-improver/skills/skill-improver"
+    exists: true
+    enabled: true
+    name: "skill-improver"
+    description: "Iteratively reviews and fixes Claude Code skill quality issues until they meet standards. Runs automated fix-review cycles using the skill-reviewer agent. Use to fix skill quality issues, improve skill descriptions, run automated skill review loops, or iteratively refine a skill. Triggers on 'fix my skill', 'improve skill quality', 'skill improvement loop'. NOT for one-time reviews—use /skill-reviewer directly."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/skill-improver/skills/skill-improver"
+    skill_file: "external/trailofbits-skills/plugins/skill-improver/skills/skill-improver/SKILL.md"
+    keywords:
+      - "ai"
+      - "optimization"
+      - "skill-creator"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/solana-vulnerability-scanner"
+    exists: true
+    enabled: true
+    name: "solana-vulnerability-scanner"
+    description: "Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/solana-vulnerability-scanner"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/solana-vulnerability-scanner/SKILL.md"
+    keywords:
+      - "blockchain"
+      - "security"
+      - "smart-contracts"
+      - "solana"
+  - id: "external/trailofbits-skills/plugins/spec-to-code-compliance/skills/spec-to-code-compliance"
+    exists: true
+    enabled: true
+    name: "spec-to-code-compliance"
+    description: "Verifies code implements exactly what documentation specifies for blockchain audits. Use when comparing code against whitepapers, finding gaps between specs and implementation, or performing compliance checks for protocol implementations."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/spec-to-code-compliance/skills/spec-to-code-compliance"
+    skill_file: "external/trailofbits-skills/plugins/spec-to-code-compliance/skills/spec-to-code-compliance/SKILL.md"
+    keywords:
+      - "compliance"
+      - "security"
+      - "spec"
+      - "validation"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner"
+    exists: true
+    enabled: true
+    name: "substrate-vulnerability-scanner"
+    description: "Scans Substrate/Polkadot pallets for 7 critical vulnerabilities including arithmetic overflow, panic DoS, incorrect weights, and bad origin checks. Use when auditing Substrate runtimes or FRAME pallets."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner/SKILL.md"
+    keywords:
+      - "blockchain"
+      - "security"
+      - "smart-contracts"
+      - "substrate"
+  - id: "external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor"
+    exists: true
+    enabled: true
+    name: "supply-chain-risk-auditor"
+    description: "Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor"
+    skill_file: "external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md"
+    keywords:
+      - "audit"
+      - "risk"
+      - "security"
+      - "supply-chain"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator"
+    exists: true
+    enabled: true
+    name: "testing-handbook-generator"
+    description: "Meta-skill that analyzes the Trail of Bits Testing Handbook (appsec.guide) and generates Claude Code skills for security testing tools and techniques. Use when creating new skills based on handbook content."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md"
+    keywords:
+      - "documentation"
+      - "security"
+      - "testing"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/token-integration-analyzer"
+    exists: true
+    enabled: true
+    name: "token-integration-analyzer"
+    description: "Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, assesses contract composition and owner privileges, performs on-chain scarcity analysis, and evaluates how protocols handle non-standard tokens. Context-aware for both token implementations and token integrations."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/token-integration-analyzer"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md"
+    keywords:
+      - "blockchain"
+      - "security"
+      - "smart-contracts"
+  - id: "external/trailofbits-skills/plugins/building-secure-contracts/skills/ton-vulnerability-scanner"
+    exists: true
+    enabled: true
+    name: "ton-vulnerability-scanner"
+    description: "Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks. Use when auditing FunC contracts."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/building-secure-contracts/skills/ton-vulnerability-scanner"
+    skill_file: "external/trailofbits-skills/plugins/building-secure-contracts/skills/ton-vulnerability-scanner/SKILL.md"
+    keywords:
+      - "blockchain"
+      - "security"
+      - "smart-contracts"
+      - "ton"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/trailmark"
+    exists: true
+    enabled: true
+    name: "trailmark"
+    description: "Builds and queries multi-language source code graphs for security analysis. Includes pre-analysis passes for blast radius, taint propagation, privilege boundaries, and entry point enumeration. Use when analyzing call paths, mapping attack surface, finding complexity hotspots, enumerating entry points, tracing taint propagation, measuring blast radius, or building a code graph for audit prioritization. Prefer `trailmark.parse.detect_languages()` or `--language auto` when the target language is unknown or polyglot."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/trailmark"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/trailmark/SKILL.md"
+    keywords:
+      - "analysis"
+      - "binary"
+      - "security"
+      - "trailmark"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/trailmark-structural"
+    exists: true
+    enabled: true
+    name: "trailmark-structural"
+    description: "Runs full Trailmark structural analysis on Trailmark 0.2.x by building a graph, running `preanalysis()`, and reporting hotspots, taint, blast radius, privilege boundaries, and attack surface. Use when vivisect needs detailed structural data for a target. Triggers: structural analysis, blast radius, taint analysis, complexity hotspots."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/trailmark-structural"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/trailmark-structural/SKILL.md"
+    keywords:
+      - "analysis"
+      - "binary"
+      - "security"
+      - "trailmark"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/trailmark-summary"
+    exists: true
+    enabled: true
+    name: "trailmark-summary"
+    description: "Runs a Trailmark summary analysis on a codebase. Returns auto-detected languages, entry point count, and dependency list. Use when vivisect or galvanize needs a quick structural overview. Triggers: trailmark summary, code summary, structural overview."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/trailmark-summary"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/trailmark-summary/SKILL.md"
+    keywords:
+      - "analysis"
+      - "binary"
+      - "security"
+      - "summarization"
+  - id: "external/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis"
+    exists: true
+    enabled: true
+    name: "variant-analysis"
+    description: "Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing systematic code audits after finding an initial issue."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis"
+    skill_file: "external/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis/SKILL.md"
+    keywords:
+      - "security"
+      - "static-analysis"
+  - id: "external/trailofbits-skills/plugins/trailmark/skills/vector-forge"
+    exists: true
+    enabled: true
+    name: "vector-forge"
+    description: "Mutation-driven test vector generation. Finds implementations of a cryptographic algorithm or protocol, runs mutation testing to identify escaped mutants, then generates new test vectors that deliberately exercise the uncovered code paths. Compares before/after mutation kill rates to prove vector effectiveness. Use when generating cryptographic test vectors, measuring Wycheproof coverage gaps, finding escaped mutants via mutation testing, creating cross-implementation test suites, or improving test vector coverage for crypto primitives."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/trailmark/skills/vector-forge"
+    skill_file: "external/trailofbits-skills/plugins/trailmark/skills/vector-forge/SKILL.md"
+    keywords:
+      - "cryptography"
+      - "fuzzing"
+      - "security"
+      - "testing"
+  - id: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof"
+    exists: true
+    enabled: true
+    name: "wycheproof"
+    description: "Wycheproof provides test vectors for validating cryptographic implementations. Use when testing crypto code for known attacks and edge cases."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof"
+    skill_file: "external/trailofbits-skills/plugins/testing-handbook-skills/skills/wycheproof/SKILL.md"
+    keywords: []
+  - id: "external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring"
+    exists: true
+    enabled: true
+    name: "yara-rule-authoring"
+    description: "Guides authoring of high-quality YARA-X detection rules for malware identification. Use when writing, reviewing, or optimizing YARA rules. Covers naming conventions, string selection, performance optimization, migration from legacy YARA, and false positive reduction. Triggers on: YARA, YARA-X, malware detection, threat hunting, IOC, signature, crx module, dex module."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring"
+    skill_file: "external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md"
+    keywords:
+      - "malware"
+      - "security"
+      - "yara"
+  - id: "external/trailofbits-skills/plugins/zeroize-audit/skills/zeroize-audit"
+    exists: true
+    enabled: true
+    name: "zeroize-audit"
+    description: "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. Use for auditing C/C++/Rust code handling secrets, keys, passwords, or other sensitive data."
+    source: "trailofbits-skills"
+    path: "external/trailofbits-skills/plugins/zeroize-audit/skills/zeroize-audit"
+    skill_file: "external/trailofbits-skills/plugins/zeroize-audit/skills/zeroize-audit/SKILL.md"
+    keywords:
+      - "cryptography"
+      - "rust"
+      - "security"

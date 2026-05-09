@@ -16,7 +16,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_DIR = ROOT / "registry"
-GENERATED_DIR = ROOT / "generated"
+SKILLS_DIR = ROOT / "skills"
 
 
 class RegistryError(Exception):
@@ -48,9 +48,12 @@ def _scalar(value: str) -> Any:
         return []
     if value == "{}":
         return {}
-    if (value.startswith('"') and value.endswith('"')) or (
-        value.startswith("'") and value.endswith("'")
-    ):
+    if value.startswith('"') and value.endswith('"'):
+        try:
+            return json.loads(value)
+        except json.JSONDecodeError:
+            return value[1:-1]
+    if value.startswith("'") and value.endswith("'"):
         return value[1:-1]
     if re.fullmatch(r"-?\d+", value):
         return int(value)
@@ -169,7 +172,8 @@ def load_all() -> dict[str, Any]:
         "agents": load_registry("agents").get("agents", []),
         "workflows": load_registry("workflows").get("workflows", []),
         "profiles": load_registry("profiles").get("profiles", []),
-        "tag_categories": load_registry("tag-categories").get("tag_categories", {}),
+        "tasks": load_registry("tasks").get("tasks", []),
+        "keyword_categories": load_registry("keyword-categories").get("keyword_categories", {}),
         "policies": load_registry("policies"),
     }
 

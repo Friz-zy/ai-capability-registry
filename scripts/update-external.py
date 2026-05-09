@@ -5,8 +5,8 @@ Synchronizes external/ submodules with registry/skills.yaml configuration.
 Actions:
 1. Reads skills.yaml to get all enabled sources with pinned commits
 2. Adds new submodules if they don't exist
-3. Removes old submodules if they're no longer in config or not trusted/reviewed
-4. Updates all submodules to the correct pinned commit
+3. Removes old submodules if they're no longer declared or no longer trusted/reviewed
+4. Updates enabled submodules to the correct pinned commit
 5. Cleans up empty indexes/ directory if no longer needed
 6. Verifies all submodules are at correct commit after sync
 """
@@ -131,18 +131,25 @@ def sync_submodules(registry: dict[str, Any]) -> dict[str, dict[str, Any]]:
     """
     allowed_trust = {"trusted", "reviewed"}
     
-    # Get sources that should exist
+    # Get trusted/reviewed sources declared in registry. Disabled sources are kept
+    # if already present so they can be inspected or manually re-enabled without
+    # making CI delete optional local source caches.
+    declared_paths: set[str] = set()
+
+    # Get enabled sources that should be present and pinned.
     should_exist: dict[str, dict[str, Any]] = {}
     for item in registry["skills"]:
         trust_level = item.get("trust", {}).get("level", "unknown")
         if trust_level not in allowed_trust:
             continue
-        if not item.get("enabled"):
-            continue
-        
+
         source = item.get("source", {})
         external_path = source.get("external_path")
         if not external_path:
+            continue
+
+        declared_paths.add(external_path)
+        if not item.get("enabled"):
             continue
         
         commit = item.get("version", {}).get("commit")
@@ -161,7 +168,7 @@ def sync_submodules(registry: dict[str, Any]) -> dict[str, dict[str, Any]]:
     
     # Determine what to add, remove, and update
     to_add = set(should_exist.keys()) - set(current_gitmodules.keys())
-    to_remove = set(current_gitmodules.keys()) - set(should_exist.keys())
+    to_remove = set(current_gitmodules.keys()) - declared_paths
     to_update = set(should_exist.keys()) & set(current_gitmodules.keys())
     
     # Handle removals first

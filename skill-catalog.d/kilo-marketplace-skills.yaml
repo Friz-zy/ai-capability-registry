@@ -1,0 +1,666 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "kilo-marketplace-skills"
+skills:
+  - id: "external/kilo-marketplace-skills/.kilocode/skills/add-remote-skill"
+    exists: true
+    enabled: true
+    name: "add-remote-skill"
+    description: "This skill should be used when the user wants to add one or more skills from GitHub repositories to the kilo-marketplace. It handles parsing GitHub URLs, cloning skill directories, and updating SKILL.md frontmatter with source metadata."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/.kilocode/skills/add-remote-skill"
+    skill_file: "external/kilo-marketplace-skills/.kilocode/skills/add-remote-skill/SKILL.md"
+    keywords:
+      - "integration"
+      - "skill-creator"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/adding-dbt-unit-test"
+    exists: true
+    enabled: false
+    name: "adding-dbt-unit-test"
+    description: "Creates unit test YAML definitions that mock upstream model inputs and validate expected outputs. Use when adding unit tests for a dbt model or practicing test-driven development (TDD) in dbt."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/adding-dbt-unit-test"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/adding-dbt-unit-test/SKILL.md"
+    keywords:
+      - "analytics"
+      - "dbt"
+      - "sql"
+      - "testing"
+  - id: "external/kilo-marketplace-skills/skills/agent-md-refactor"
+    exists: true
+    enabled: true
+    name: "agent-md-refactor"
+    description: "Refactor bloated AGENTS.md, CLAUDE.md, or similar agent instruction files to follow progressive disclosure principles. Splits monolithic files into organized, linked documentation."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/agent-md-refactor"
+    skill_file: "external/kilo-marketplace-skills/skills/agent-md-refactor/SKILL.md"
+    keywords:
+      - "agent"
+      - "ai"
+      - "development"
+      - "documentation"
+      - "refactor"
+  - id: "external/kilo-marketplace-skills/skills/angular-component"
+    exists: true
+    enabled: true
+    name: "angular-component"
+    description: "Create modern Angular standalone components following v20+ best practices. Use for building UI components with signal-based inputs/outputs, OnPush change detection, host bindings, content projection, and lifecycle hooks. Triggers on component creation, refactoring class-based inputs to signals, adding host bindings, or implementing accessible interactive components."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-component"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-component/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+      - "ui"
+  - id: "external/kilo-marketplace-skills/skills/angular-di"
+    exists: true
+    enabled: true
+    name: "angular-di"
+    description: "Implement dependency injection in Angular v20+ using inject(), injection tokens, and provider configuration. Use for service architecture, providing dependencies at different levels, creating injectable tokens, and managing singleton vs scoped services. Triggers on service creation, configuring providers, using injection tokens, or understanding DI hierarchy."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-di"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-di/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/angular-directives"
+    exists: true
+    enabled: true
+    name: "angular-directives"
+    description: "Create custom directives in Angular v20+ for DOM manipulation and behavior extension. Use for attribute directives that modify element behavior/appearance, structural directives for portals/overlays, and host directives for composition. Triggers on creating reusable DOM behaviors, extending element functionality, or composing behaviors across components. Note - use native @if/@for/@switch for control flow, not custom structural directives."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-directives"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-directives/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/angular-forms"
+    exists: true
+    enabled: true
+    name: "angular-forms"
+    description: "Build signal-based forms in Angular v21+ using the new Signal Forms API. Use for form creation with automatic two-way binding, schema-based validation, field state management, and dynamic forms. Triggers on form implementation, adding validation, creating multi-step forms, or building forms with conditional fields. Signal Forms are experimental but recommended for new Angular projects. Don't use for template-driven forms without signals or third-party form libraries like Formly or ngx-formly."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-forms"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-forms/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/angular-http"
+    exists: true
+    enabled: true
+    name: "angular-http"
+    description: "Implement HTTP data fetching in Angular v20+ using resource(), httpResource(), and HttpClient. Use for API calls, data loading with signals, request/response handling, and interceptors. Triggers on data fetching, API integration, loading states, error handling, or converting Observable-based HTTP to signal-based patterns."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-http"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-http/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+      - "rest-api"
+  - id: "external/kilo-marketplace-skills/skills/angular-routing"
+    exists: true
+    enabled: true
+    name: "angular-routing"
+    description: "Implement routing in Angular v20+ applications with lazy loading, functional guards, resolvers, and route parameters. Use for navigation setup, protected routes, route-based data loading, and nested routing. Triggers on route configuration, adding authentication guards, implementing lazy loading, or reading route parameters with signals."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-routing"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-routing/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/angular-signals"
+    exists: true
+    enabled: true
+    name: "angular-signals"
+    description: "Implement signal-based reactive state management in Angular v20+. Use for creating reactive state with signal(), derived state with computed(), dependent state with linkedSignal(), and side effects with effect(). Triggers on state management questions, converting from BehaviorSubject/Observable patterns to signals, or implementing reactive data flows."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-signals"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-signals/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/angular-ssr"
+    exists: true
+    enabled: true
+    name: "angular-ssr"
+    description: "Implement server-side rendering and hydration in Angular v20+ using @angular/ssr. Use for SSR setup, hydration strategies, prerendering static pages, and handling browser-only APIs. Triggers on SSR configuration, fixing hydration mismatches, prerendering routes, or making code SSR-compatible."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-ssr"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-ssr/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/angular-testing"
+    exists: true
+    enabled: true
+    name: "angular-testing"
+    description: "Write unit and integration tests for Angular v20+ applications using Vitest or Jasmine with TestBed and modern testing patterns. Use for testing components with signals, OnPush change detection, services with inject(), and HTTP interactions. Triggers on test creation, testing signal-based components, mocking dependencies, or setting up test infrastructure. Don't use for E2E testing with Cypress or Playwright, or for testing non-Angular JavaScript/TypeScript code."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-testing"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-testing/SKILL.md"
+    keywords:
+      - "angular"
+      - "development"
+      - "testing"
+  - id: "external/kilo-marketplace-skills/skills/angular-tooling"
+    exists: true
+    enabled: true
+    name: "angular-tooling"
+    description: "Use Angular CLI and development tools effectively in Angular v20+ projects. Use for project setup, code generation, building, testing, and configuration. Triggers on creating new projects, generating components/services/modules, configuring builds, running tests, or optimizing production builds. Don't use for Nx workspace commands, custom Webpack configurations, or non-Angular CLI build systems like Vite standalone or esbuild direct usage."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/angular-tooling"
+    skill_file: "external/kilo-marketplace-skills/skills/angular-tooling/SKILL.md"
+    keywords:
+      - "angular"
+      - "devcontainer"
+      - "development"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/answering-natural-language-questions-with-dbt"
+    exists: true
+    enabled: false
+    name: "answering-natural-language-questions-with-dbt"
+    description: "Writes and executes SQL queries against the data warehouse using dbt's Semantic Layer or ad-hoc SQL to answer business questions. Use when a user asks about analytics, metrics, KPIs, or data (e.g., \"What were total sales last quarter?\", \"Show me top customers by revenue\"). NOT for validating, testing, or building dbt models during development."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/answering-natural-language-questions-with-dbt"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/answering-natural-language-questions-with-dbt/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+      - "dbt"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/artifacts-builder"
+    exists: true
+    enabled: true
+    name: "artifacts-builder"
+    description: "Suite of tools for creating elaborate, multi-component HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/artifacts-builder"
+    skill_file: "external/kilo-marketplace-skills/skills/artifacts-builder/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/building-dbt-semantic-layer"
+    exists: true
+    enabled: false
+    name: "building-dbt-semantic-layer"
+    description: "Use when creating or modifying dbt Semantic Layer components — semantic models, metrics, dimensions, entities, measures, or time spines. Covers MetricFlow configuration, metric types (simple, derived, cumulative, ratio, conversion), and validation for both latest and legacy YAML specs."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/building-dbt-semantic-layer"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/building-dbt-semantic-layer/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+      - "dbt"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/canvas-design"
+    exists: true
+    enabled: true
+    name: "canvas-design"
+    description: "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/canvas-design"
+    skill_file: "external/kilo-marketplace-skills/skills/canvas-design/SKILL.md"
+    keywords:
+      - "ai"
+      - "creative"
+      - "creative-media"
+      - "design"
+      - "frontend"
+      - "media"
+  - id: "external/kilo-marketplace-skills/skills/changelog-generator"
+    exists: true
+    enabled: true
+    name: "changelog-generator"
+    description: "Automatically creates user-facing changelogs from git commits by analyzing commit history, categorizing changes, and transforming technical commits into clear, customer-friendly release notes. Turns hours of manual changelog writing into minutes of automated generation."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/changelog-generator"
+    skill_file: "external/kilo-marketplace-skills/skills/changelog-generator/SKILL.md"
+    keywords:
+      - "development"
+  - id: "external/kilo-marketplace-skills/skills/competitive-ads-extractor"
+    exists: true
+    enabled: true
+    name: "competitive-ads-extractor"
+    description: "Extracts and analyzes competitors' ads from ad libraries (Facebook, LinkedIn, etc.) to understand what messaging, problems, and creative approaches are working. Helps inspire and improve your own ad campaigns."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/competitive-ads-extractor"
+    skill_file: "external/kilo-marketplace-skills/skills/competitive-ads-extractor/SKILL.md"
+    keywords:
+      - "ads"
+      - "business"
+      - "business-marketing"
+      - "competitive-intelligence"
+      - "marketing"
+      - "research"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/configuring-dbt-mcp-server"
+    exists: true
+    enabled: false
+    name: "configuring-dbt-mcp-server"
+    description: "Generates MCP server configuration JSON, resolves authentication setup, and validates server connectivity for dbt. Use when setting up, configuring, or troubleshooting the dbt MCP server for AI tools like Kilo, Cursor, VS Code, or Claude Desktop."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/configuring-dbt-mcp-server"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/configuring-dbt-mcp-server/SKILL.md"
+    keywords:
+      - "configuration"
+      - "dbt"
+      - "mcp"
+  - id: "external/kilo-marketplace-skills/skills/content-research-writer"
+    exists: true
+    enabled: true
+    name: "content-research-writer"
+    description: "Assists in writing high-quality content by conducting research, adding citations, improving hooks, iterating on outlines, and providing real-time feedback on each section. Transforms your writing process from solo effort to collaborative partnership."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/content-research-writer"
+    skill_file: "external/kilo-marketplace-skills/skills/content-research-writer/SKILL.md"
+    keywords:
+      - "communication"
+      - "communication-writing"
+      - "content"
+      - "marketing"
+      - "research"
+      - "writing"
+  - id: "external/kilo-marketplace-skills/skills/create-pull-request"
+    exists: true
+    enabled: false
+    name: "create-pull-request"
+    description: "Create a GitHub pull request following project conventions. Use when the user asks to create a PR, submit changes for review, or open a pull request. Handles commit analysis, branch management, and PR creation using the gh CLI tool."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/create-pull-request"
+    skill_file: "external/kilo-marketplace-skills/skills/create-pull-request/SKILL.md"
+    keywords:
+      - "development"
+      - "git"
+      - "github"
+      - "workflow"
+  - id: "external/kilo-marketplace-skills/skills/dbt"
+    exists: true
+    enabled: true
+    name: "dbt"
+    description: "Skills for analytics engineering with dbt - building models, writing tests, querying the semantic layer, troubleshooting jobs, and more. Use when doing any dbt analytics engineering work."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+      - "dbt"
+      - "development"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/dbt-migration"
+    exists: true
+    enabled: true
+    name: "dbt-migration"
+    description: "Skills for migrating dbt projects - moving from dbt Core to the Fusion engine or across data platforms. Use when migrating dbt projects between platforms or to dbt Fusion."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt-migration"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt-migration/SKILL.md"
+    keywords:
+      - "data"
+      - "dbt"
+      - "development"
+      - "migration"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/domain-name-brainstormer"
+    exists: true
+    enabled: true
+    name: "domain-name-brainstormer"
+    description: "Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/domain-name-brainstormer"
+    skill_file: "external/kilo-marketplace-skills/skills/domain-name-brainstormer/SKILL.md"
+    keywords:
+      - "brainstorming"
+      - "business"
+      - "business-marketing"
+      - "marketing"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/fetching-dbt-docs"
+    exists: true
+    enabled: false
+    name: "fetching-dbt-docs"
+    description: "Retrieves and searches dbt documentation pages in LLM-friendly markdown format. Use when fetching dbt documentation, looking up dbt features, or answering questions about dbt Cloud, dbt Core, or the dbt Semantic Layer."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/fetching-dbt-docs"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/fetching-dbt-docs/SKILL.md"
+    keywords:
+      - "analytics"
+      - "dbt"
+      - "documentation"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/figma-implement-design"
+    exists: true
+    enabled: false
+    name: "figma-implement-design"
+    description: "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/figma-implement-design"
+    skill_file: "external/kilo-marketplace-skills/skills/figma-implement-design/SKILL.md"
+    keywords:
+      - "design"
+      - "development"
+      - "figma"
+      - "frontend"
+  - id: "external/kilo-marketplace-skills/skills/file-organizer"
+    exists: true
+    enabled: true
+    name: "file-organizer"
+    description: "Intelligently organizes your files and folders across your computer by understanding context, finding duplicates, suggesting better structures, and automating cleanup tasks. Reduces cognitive load and keeps your digital workspace tidy without manual effort."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/file-organizer"
+    skill_file: "external/kilo-marketplace-skills/skills/file-organizer/SKILL.md"
+    keywords:
+      - "organization"
+      - "productivity"
+      - "productivity-organization"
+  - id: "external/kilo-marketplace-skills/skills/frontend-design"
+    exists: true
+    enabled: true
+    name: "frontend-design"
+    description: "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/frontend-design"
+    skill_file: "external/kilo-marketplace-skills/skills/frontend-design/SKILL.md"
+    keywords:
+      - "design"
+      - "development"
+      - "frontend"
+      - "ui"
+  - id: "external/kilo-marketplace-skills/skills/grill-me"
+    exists: true
+    enabled: true
+    name: "grill-me"
+    description: "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions \"grill me\"."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/grill-me"
+    skill_file: "external/kilo-marketplace-skills/skills/grill-me/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "interviewing"
+      - "research"
+      - "testing"
+  - id: "external/kilo-marketplace-skills/skills/image-enhancer"
+    exists: true
+    enabled: true
+    name: "image-enhancer"
+    description: "Improves the quality of images, especially screenshots, by enhancing resolution, sharpness, and clarity. Perfect for preparing images for presentations, documentation, or social media posts."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/image-enhancer"
+    skill_file: "external/kilo-marketplace-skills/skills/image-enhancer/SKILL.md"
+    keywords:
+      - "ai"
+      - "creative"
+      - "creative-media"
+      - "imagegen"
+      - "media"
+  - id: "external/kilo-marketplace-skills/skills/internal-comms"
+    exists: true
+    enabled: true
+    name: "internal-comms"
+    description: "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. The agent should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.)."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/internal-comms"
+    skill_file: "external/kilo-marketplace-skills/skills/internal-comms/SKILL.md"
+    keywords:
+      - "business"
+      - "business-marketing"
+      - "communication"
+      - "content"
+      - "marketing"
+  - id: "external/kilo-marketplace-skills/skills/langsmith-fetch"
+    exists: true
+    enabled: true
+    name: "langsmith-fetch"
+    description: "Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use when debugging agent behavior, investigating errors, analyzing tool calls, checking memory operations, or examining agent performance. Automatically fetches recent traces and analyzes execution patterns. Requires langsmith-fetch CLI installed."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/langsmith-fetch"
+    skill_file: "external/kilo-marketplace-skills/skills/langsmith-fetch/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "langsmith"
+      - "sentry"
+  - id: "external/kilo-marketplace-skills/skills/lead-research-assistant"
+    exists: true
+    enabled: true
+    name: "lead-research-assistant"
+    description: "Identifies high-quality leads for your product or service by analyzing your business, searching for target companies, and providing actionable contact strategies. Perfect for sales, business development, and marketing professionals."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/lead-research-assistant"
+    skill_file: "external/kilo-marketplace-skills/skills/lead-research-assistant/SKILL.md"
+    keywords:
+      - "business"
+      - "business-marketing"
+      - "crm"
+      - "lead-generation"
+      - "marketing"
+      - "research"
+      - "sales"
+  - id: "external/kilo-marketplace-skills/skills/mcp-builder"
+    exists: true
+    enabled: false
+    name: "mcp-builder"
+    description: "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK)."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/mcp-builder"
+    skill_file: "external/kilo-marketplace-skills/skills/mcp-builder/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "mcp"
+  - id: "external/kilo-marketplace-skills/skills/meeting-insights-analyzer"
+    exists: true
+    enabled: true
+    name: "meeting-insights-analyzer"
+    description: "Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insights, and actionable feedback. Identifies when you avoid conflict, use filler words, dominate conversations, or miss opportunities to listen. Perfect for professionals seeking to improve their communication and leadership skills."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/meeting-insights-analyzer"
+    skill_file: "external/kilo-marketplace-skills/skills/meeting-insights-analyzer/SKILL.md"
+    keywords:
+      - "ai"
+      - "analytics"
+      - "communication"
+      - "communication-writing"
+      - "meeting"
+      - "transcribe"
+  - id: "external/kilo-marketplace-skills/skills/dbt-migration/skills/migrating-dbt-core-to-fusion"
+    exists: true
+    enabled: false
+    name: "migrating-dbt-core-to-fusion"
+    description: "Classifies dbt-core to Fusion migration errors into actionable categories (auto-fixable, guided fixes, needs input, blocked). Use when a user needs help triaging migration errors to understand what they can fix vs what requires Fusion engine updates."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt-migration/skills/migrating-dbt-core-to-fusion"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt-migration/skills/migrating-dbt-core-to-fusion/SKILL.md"
+    keywords:
+      - "analytics"
+      - "dbt"
+      - "migration"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/dbt-migration/skills/migrating-dbt-project-across-platforms"
+    exists: true
+    enabled: false
+    name: "migrating-dbt-project-across-platforms"
+    description: "Use when migrating a dbt project from one data platform or data warehouse to another (e.g., Snowflake to Databricks, Databricks to Snowflake) using dbt Fusion's real-time compilation to identify and fix SQL dialect differences."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt-migration/skills/migrating-dbt-project-across-platforms"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt-migration/skills/migrating-dbt-project-across-platforms/SKILL.md"
+    keywords:
+      - "analytics"
+      - "dbt"
+      - "migration"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/running-dbt-commands"
+    exists: true
+    enabled: false
+    name: "running-dbt-commands"
+    description: "Formats and executes dbt CLI commands, selects the correct dbt executable, and structures command parameters. Use when running models, tests, builds, compiles, or show queries via dbt CLI. Use when unsure which dbt executable to use or how to format command parameters."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/running-dbt-commands"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/running-dbt-commands/SKILL.md"
+    keywords:
+      - "analytics"
+      - "command"
+      - "dbt"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/skill-creator"
+    exists: true
+    enabled: true
+    name: "skill-creator"
+    description: "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Kilo's capabilities with specialized knowledge, workflows, or tool integrations."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/skill-creator"
+    skill_file: "external/kilo-marketplace-skills/skills/skill-creator/SKILL.md"
+    keywords:
+      - "development"
+  - id: "external/kilo-marketplace-skills/skills/skill-share"
+    exists: true
+    enabled: true
+    name: "skill-share"
+    description: "A skill that creates new agent skills and automatically shares them on Slack using Rube for seamless team collaboration and skill discovery."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/skill-share"
+    skill_file: "external/kilo-marketplace-skills/skills/skill-share/SKILL.md"
+    keywords:
+      - "development"
+      - "integration"
+      - "skill-creator"
+  - id: "external/kilo-marketplace-skills/skills/slack-gif-creator"
+    exists: true
+    enabled: true
+    name: "slack-gif-creator"
+    description: "Toolkit for creating animated GIFs optimized for Slack, with validators for size constraints and composable animation primitives. This skill applies when users request animated GIFs or emoji animations for Slack from descriptions like \"make me a GIF for Slack of X doing Y\"."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/slack-gif-creator"
+    skill_file: "external/kilo-marketplace-skills/skills/slack-gif-creator/SKILL.md"
+    keywords:
+      - "ai"
+      - "creative"
+      - "creative-media"
+      - "media"
+      - "slack"
+  - id: "external/kilo-marketplace-skills/skills/theme-factory"
+    exists: true
+    enabled: true
+    name: "theme-factory"
+    description: "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/theme-factory"
+    skill_file: "external/kilo-marketplace-skills/skills/theme-factory/SKILL.md"
+    keywords:
+      - "ai"
+      - "creative"
+      - "creative-media"
+      - "design"
+      - "media"
+      - "theme"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/troubleshooting-dbt-job-errors"
+    exists: true
+    enabled: false
+    name: "troubleshooting-dbt-job-errors"
+    description: "Diagnoses dbt Cloud/platform job failures by analyzing run logs, querying the Admin API, reviewing git history, and investigating data issues. Use when a dbt Cloud/platform job fails and you need to diagnose the root cause, especially when error messages are unclear or when intermittent failures occur. Do not use for local dbt development errors."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/troubleshooting-dbt-job-errors"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/troubleshooting-dbt-job-errors/SKILL.md"
+    keywords:
+      - "analytics"
+      - "dbt"
+      - "debugging"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/dbt/skills/using-dbt-for-analytics-engineering"
+    exists: true
+    enabled: false
+    name: "using-dbt-for-analytics-engineering"
+    description: "Builds and modifies dbt models, writes SQL transformations using ref() and source(), creates tests, and validates results with dbt show. Use when doing any dbt work - building or modifying models, debugging errors, exploring unfamiliar data sources, writing tests, or evaluating impact of changes."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/dbt/skills/using-dbt-for-analytics-engineering"
+    skill_file: "external/kilo-marketplace-skills/skills/dbt/skills/using-dbt-for-analytics-engineering/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+      - "dbt"
+      - "sql"
+  - id: "external/kilo-marketplace-skills/skills/vercel-composition-patterns"
+    exists: true
+    enabled: true
+    name: "vercel-composition-patterns"
+    description: "React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/vercel-composition-patterns"
+    skill_file: "external/kilo-marketplace-skills/skills/vercel-composition-patterns/SKILL.md"
+    keywords:
+      - "deployment"
+      - "development"
+      - "frontend"
+      - "vercel"
+  - id: "external/kilo-marketplace-skills/skills/vercel-deploy"
+    exists: true
+    enabled: false
+    name: "vercel-deploy"
+    description: "Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions such as \"Deploy my app\", \"Deploy this to production\", \"Create a preview deployment\", \"Deploy and give me the link\", or \"Push this live\". No authentication required - returns preview URL and claimable deployment link."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/vercel-deploy"
+    skill_file: "external/kilo-marketplace-skills/skills/vercel-deploy/SKILL.md"
+    keywords:
+      - "deployment"
+      - "development"
+      - "frontend"
+      - "vercel"
+  - id: "external/kilo-marketplace-skills/skills/vercel-react-best-practices"
+    exists: true
+    enabled: true
+    name: "vercel-react-best-practices"
+    description: "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/vercel-react-best-practices"
+    skill_file: "external/kilo-marketplace-skills/skills/vercel-react-best-practices/SKILL.md"
+    keywords:
+      - "development"
+      - "frontend"
+      - "react"
+      - "vercel"
+  - id: "external/kilo-marketplace-skills/skills/web-design-guidelines"
+    exists: true
+    enabled: true
+    name: "web-design-guidelines"
+    description: "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\"."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/web-design-guidelines"
+    skill_file: "external/kilo-marketplace-skills/skills/web-design-guidelines/SKILL.md"
+    keywords:
+      - "development"
+  - id: "external/kilo-marketplace-skills/skills/webapp-testing"
+    exists: true
+    enabled: true
+    name: "webapp-testing"
+    description: "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/webapp-testing"
+    skill_file: "external/kilo-marketplace-skills/skills/webapp-testing/SKILL.md"
+    keywords:
+      - "automation"
+      - "development"
+      - "playwright"
+      - "testing"
+      - "web"
+  - id: "external/kilo-marketplace-skills/skills/youtube-downloader"
+    exists: true
+    enabled: true
+    name: "youtube-downloader"
+    description: "Download YouTube videos with customizable quality and format options. Use this skill when the user asks to download, save, or grab YouTube videos. Supports various quality settings (best, 1080p, 720p, 480p, 360p), multiple formats (mp4, webm, mkv), and audio-only downloads as MP3."
+    source: "kilo-marketplace-skills"
+    path: "external/kilo-marketplace-skills/skills/youtube-downloader"
+    skill_file: "external/kilo-marketplace-skills/skills/youtube-downloader/SKILL.md"
+    keywords:
+      - "creative"
+      - "creative-media"
+      - "media"
+      - "youtube"

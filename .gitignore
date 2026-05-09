@@ -4,4 +4,3 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
-generated/

@@ -11,7 +11,7 @@ cd "${ROOT_DIR}"
 # Validate registry
 ./scripts/validate-registry.py
 
-# Generate skill maps
+# Sync skill catalog chunks and generate the combined skills tree
 ./scripts/discover-skills.py
 
 echo "Bootstrap complete"

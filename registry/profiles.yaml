@@ -75,7 +75,8 @@ profiles:
         - devops
         - sre
         - security
-        - ai_ml
+        - ai
+        - ml
       trust:
         - trusted
         - reviewed
@@ -189,19 +190,20 @@ profiles:
 
   - id: mobile-engineer
     name: Mobile Engineer
-    description: Mobile SDKs, native platforms, React Native, app UX, and mobile integration workflows.
+    description: Mobile and desktop SDKs, native platforms, React Native, Electron, app UX, and cross-platform workflows.
     default: false
     role:
-      title: Mobile Engineer
-      mission: Build and review mobile app functionality across native and cross-platform stacks.
+      title: Mobile and Desktop Engineer
+      mission: Build and review app functionality across mobile and desktop native and cross-platform stacks.
       responsibilities:
-        - Consider platform conventions, SDK constraints, and mobile UX.
+        - Consider platform conventions, SDK constraints, and mobile/desktop UX.
         - Validate permissions, offline behavior, and release constraints.
       guardrails:
-        - Do not assume web patterns apply directly to mobile.
+        - Do not assume web patterns apply directly to mobile or desktop.
     include:
       categories:
         - mobile
+        - desktop
         - frontend
         - qa
       trust:
@@ -347,7 +349,8 @@ profiles:
         - Do not route untrusted content into privileged tools without filtering.
     include:
       categories:
-        - ai_ml
+        - ai
+        - ml
         - engineering
         - security
         - research
@@ -555,7 +558,8 @@ profiles:
         - Document capability boundaries and failure modes.
     include:
       categories:
-        - ai_ml
+        - ai
+        - ml
         - engineering
         - devops
         - security

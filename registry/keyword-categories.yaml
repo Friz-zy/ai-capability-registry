@@ -1,0 +1,402 @@
+keyword_categories:
+
+  # ── Cross-cutting / meta ─────────────────────────────────────────
+  core:
+    - access
+    - automation
+    - changelog
+    - configuration
+    - debugging
+    - documentation
+    - example
+    - file-management
+    - integration
+    - management
+    - migration
+    - optimization
+    - planning
+    - reporting
+    - requirements
+    - review
+    - summarization
+    - validation
+    - workflow
+    - writing
+    - math
+    - analysis
+    - brainstorming
+
+  # ── AI platforms & tooling ───────────────────────────────────────
+  ai:
+    - ai
+    - agent
+    - chatgpt
+    - claude-api
+    - claude-code
+    - codex
+    - langsmith
+    - mcp
+    - mcpb
+    - openai
+    - skill-creator
+
+  # ── Developer / IDE tooling ──────────────────────────────────────
+  developer_tools:
+    - command
+    - devcontainer
+    - development
+    - git
+    - github
+    - hook
+    - jupyter
+    - linear
+    - playwright
+    - plugin
+    - sentry
+    - session-report
+    - dbt
+
+  # ── Software engineering practices ───────────────────────────────
+  engineering:
+    - engineering
+    - architecture
+    - system-design
+    - code-review
+    - tech-debt
+    - refactor
+    - incident
+    - runbook
+    - status-report
+    - python
+    - cpp
+    - rust
+    - communication
+
+  # ── Backend / APIs ───────────────────────────────────────────────
+  backend:
+    - aspnet
+    - dotnet
+    - sdk
+    - webhooks
+    - oauth
+    - rest-api
+
+  # ── Frontend / Web UI ────────────────────────────────────────────
+  frontend:
+    - frontend
+    - angular
+    - react
+    - web
+    - ui
+    - html
+
+  # ── Mobile (iOS / Android / Cross-platform) ─────────────────────
+  mobile:
+    - android
+    - ios
+    - react-native
+    - flutter
+
+  # ── Desktop (native & cross-platform) ────────────────────────────
+  desktop:
+    - electron
+    - macos
+    - windows
+    - linux
+    - unreal
+    - unity
+
+  # ── Zoom SDK ecosystem ───────────────────────────────────────────
+  zoom:
+    - zoom
+    - meeting-sdk
+    - video-sdk
+    - contact-center
+    - virtual-agent
+    - apps-sdk
+    - cobrowse
+    - rtms
+    - rivet-sdk
+    - probe-sdk
+    - ui-toolkit
+    - whiteboard
+    - websockets
+    - phone
+    - bot
+    - video
+
+  # ── QA / Testing ─────────────────────────────────────────────────
+  qa:
+    - testing
+    - testing-strategy
+    - data-validation
+    - fuzzing
+    - afl
+    - atheris
+    - cargo-fuzz
+    - libafl
+    - libfuzzer
+    - ossfuzz
+    - ruzzy
+    - wycheproof
+    - coverage
+
+  # ── Security & AppSec ────────────────────────────────────────────
+  security:
+    - security
+    - threat-model
+    - static-analysis
+    - codeql
+    - semgrep
+    - sarif
+    - address-sanitizer
+    - burp
+    - ghidra
+    - dwarf
+    - ffuf
+    - malware
+    - yara
+    - cryptography
+    - proverif
+    - seatbelt
+    - firebase
+    - trailmark
+    - slither
+    - supply-chain
+    - binary
+    - pentest
+
+  # ── DevOps / Deployment ──────────────────────────────────────────
+  devops:
+    - deployment
+    - cloudflare
+    - netlify
+    - render
+    - vercel
+    - ci
+
+  # ── SRE / Reliability ────────────────────────────────────────────
+  sre:
+    - incident
+    - runbook
+    - status-report
+    - sentry
+    - langsmith
+
+  # ── Data engineering & analytics ─────────────────────────────────
+  data:
+    - data
+    - dbt
+    - sql
+    - dashboard
+    - visualization
+    - statistics
+    - forecast
+    - metrics
+    - analytics
+
+  # ── ML / Bioinformatics ──────────────────────────────────────────
+  ml:
+    - ml
+    - scvi
+    - scanpy
+    - nextflow
+    - allotrope
+
+  # ── Product management ───────────────────────────────────────────
+  product:
+    - product
+    - roadmap
+    - sprint
+    - spec
+    - user-research
+    - competitive-intelligence
+    - stakeholder
+
+  # ── Design ───────────────────────────────────────────────────────
+  design:
+    - design
+    - ux
+    - accessibility
+    - figma
+    - design-system
+    - theme
+    - brand
+    - creative-media
+
+  # ── Knowledge & Research ─────────────────────────────────────────
+  research:
+    - research
+    - search
+    - knowledge
+    - enterprise-search
+    - account-research
+    - bio-research
+
+  # ── Sales & CRM ──────────────────────────────────────────────────
+  sales:
+    - sales
+    - call-prep
+    - outreach
+    - pipeline
+    - lead-generation
+    - apollo
+    - common-room
+    - crm
+
+  # ── Marketing ────────────────────────────────────────────────────
+  marketing:
+    - marketing
+    - campaign
+    - content
+    - seo
+    - ads
+    - social-media
+
+  # ── Customer success & Support ───────────────────────────────────
+  customer_success:
+    - customer-support
+    - ticket-triage
+
+  # ── Finance & Accounting ─────────────────────────────────────────
+  finance:
+    - finance
+    - journal-entry
+    - reconciliation
+    - variance-analysis
+    - audit
+    - sox
+    - compliance
+    - accounting
+
+  # ── Legal ────────────────────────────────────────────────────────
+  legal:
+    - legal
+    - contract
+    - nda
+    - signature-request
+    - risk
+    - policy
+
+  # ── People / HR ──────────────────────────────────────────────────
+  people:
+    - hr
+    - compensation
+    - interviewing
+    - onboarding
+    - org-planning
+    - performance-review
+    - recruiting
+    - offer
+    - people
+
+  # ── Operations ───────────────────────────────────────────────────
+  operations:
+    - operations
+    - capacity
+    - change-management
+    - process
+    - vendor
+    - task-management
+    - source-management
+
+
+  # ── Founder / Cross-functional exec ─────────────────────────────
+  founder:
+    - product
+    - marketing
+    - sales
+    - finance
+    - hr
+    - brand
+    - metrics
+    - forecast
+    - lead-generation
+
+  # ── Personal productivity ────────────────────────────────────────
+  personal_assistant:
+    - productivity
+    - memory
+
+  # ── Documents & Office ───────────────────────────────────────────
+  documents:
+    - documents
+    - pdf
+    - docx
+    - pptx
+    - xlsx
+    - csv
+    - signature-request
+
+  # ── Collaboration platforms ──────────────────────────────────────
+  collaboration_tools:
+    - slack
+    - discord
+    - telegram
+    - imessage
+    - notion
+    - zoom
+    - meeting
+    - email
+    - common-room
+
+  # ── External integrations (by platform name) ─────────────────────
+  integrations:
+    - mcp
+    - mcpb
+    - oauth
+    - webhooks
+    - rest-api
+    - sdk
+    - zoom
+    - figma
+    - notion
+    - linear
+    - sentry
+    - slack
+    - apollo
+    - common-room
+    - discord
+    - telegram
+    - imessage
+    - github
+    - dbt
+    - langsmith
+    - openai
+    - claude-api
+    - cloudflare
+    - netlify
+    - render
+    - vercel
+    - crm
+
+  # ── Creative & Media production ──────────────────────────────────
+  creative_media:
+    - imagegen
+    - screenshot
+    - speech
+    - transcribe
+    - youtube
+    - interactive
+    - media
+
+  # ── Blockchain & Smart contracts ─────────────────────────────────
+  blockchain:
+    - blockchain
+    - solidity
+    - algorand
+    - cairo
+    - cosmos
+    - solana
+    - substrate
+    - ton
+    - smart-contracts
+
+  # ── IoT / Embedded hardware ──────────────────────────────────────
+  hardware:
+    - esp32
+    - cardputer
+    - m5stack
+    - micropython
+    - iot
+    - firmware

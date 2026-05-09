@@ -1,0 +1,282 @@
+tasks:
+  - id: plan-feature
+    name: Plan a Feature or Spec
+    description: Define requirements, architecture, rollout, and acceptance criteria before implementation.
+    categories:
+      - product
+      - engineering
+      - design
+      - core
+    keywords:
+      - requirements
+      - planning
+      - spec
+      - architecture
+      - roadmap
+      - user-research
+
+  - id: implement-code
+    name: Implement or Refactor Code
+    description: Build, modify, refactor, and document application code.
+    categories:
+      - engineering
+      - backend
+      - frontend
+      - qa
+    keywords:
+      - development
+      - refactor
+      - debugging
+      - documentation
+      - testing
+
+  - id: review-code
+    name: Review Code or PR
+    description: Review diffs, pull requests, architecture changes, and implementation quality.
+    categories:
+      - engineering
+      - security
+      - qa
+    keywords:
+      - code-review
+      - review
+      - static-analysis
+      - testing
+      - threat-model
+
+  - id: debug-incident
+    name: Debug an Issue or Incident
+    description: Investigate failures, production incidents, regressions, and runtime anomalies.
+    categories:
+      - core
+      - engineering
+      - sre
+      - devops
+    keywords:
+      - debugging
+      - incident
+      - sentry
+      - langsmith
+      - runbook
+      - status-report
+
+  - id: test-validate
+    name: Test and Validate
+    description: Design test strategy, generate tests, validate data, and measure coverage.
+    categories:
+      - qa
+      - core
+    keywords:
+      - testing
+      - testing-strategy
+      - data-validation
+      - coverage
+      - fuzzing
+      - validation
+
+  - id: security-audit
+    name: Security Audit or Threat Model
+    description: Analyze security posture, threat model designs, and run static-analysis workflows.
+    categories:
+      - security
+      - engineering
+    keywords:
+      - threat-model
+      - static-analysis
+      - codeql
+      - semgrep
+      - sarif
+      - cryptography
+      - supply-chain
+
+  - id: build-frontend
+    name: Build Frontend or UI
+    description: Create, review, test, and polish frontend interfaces and design systems.
+    categories:
+      - frontend
+      - design
+      - qa
+    keywords:
+      - frontend
+      - react
+      - angular
+      - web
+      - ui
+      - html
+      - accessibility
+      - design-system
+
+  - id: build-backend
+    name: Build Backend or Integration
+    description: Build APIs, SDK integrations, OAuth flows, webhooks, and backend services.
+    categories:
+      - backend
+      - integrations
+      - developer_tools
+    keywords:
+      - rest-api
+      - oauth
+      - webhooks
+      - sdk
+      - aspnet
+      - dotnet
+
+  - id: deploy-release
+    name: Deploy or Release
+    description: Prepare deployments, CI, release checks, and operational rollout guidance.
+    categories:
+      - devops
+      - sre
+      - core
+    keywords:
+      - deployment
+      - ci
+      - cloudflare
+      - netlify
+      - render
+      - vercel
+      - changelog
+
+  - id: analyze-data
+    name: Analyze Data or Metrics
+    description: Query, validate, visualize, forecast, and summarize analytical data.
+    categories:
+      - data
+      - research
+    keywords:
+      - data
+      - sql
+      - dashboard
+      - visualization
+      - statistics
+      - metrics
+      - forecast
+      - analytics
+
+  - id: research-brief
+    name: Research and Brief
+    description: Search sources, synthesize knowledge, and prepare concise research outputs.
+    categories:
+      - research
+      - documents
+      - core
+    keywords:
+      - research
+      - search
+      - knowledge
+      - enterprise-search
+      - summarization
+      - pdf
+
+  - id: automate-agent
+    name: Build Agent Automation
+    description: Create skills, agents, MCP integrations, hooks, and plugin-like automation.
+    categories:
+      - ai
+      - developer_tools
+      - integrations
+      - core
+    keywords:
+      - agent
+      - skill-creator
+      - mcp
+      - claude-code
+      - codex
+      - hook
+      - plugin
+      - automation
+
+  - id: write-documents
+    name: Write Docs or Documents
+    description: Produce documentation, changelogs, summaries, office documents, and written content.
+    categories:
+      - documents
+      - core
+      - marketing
+    keywords:
+      - documentation
+      - writing
+      - summarization
+      - changelog
+      - docx
+      - pdf
+      - pptx
+      - content
+
+  - id: manage-project
+    name: Manage Product or Project
+    description: Manage roadmap, sprint planning, stakeholder updates, and project operations.
+    categories:
+      - product
+      - operations
+      - core
+    keywords:
+      - planning
+      - roadmap
+      - sprint
+      - spec
+      - task-management
+      - stakeholder
+
+  - id: customer-sales
+    name: Support Customers or Sales
+    description: Research accounts, prepare customer interactions, triage support, and manage outreach.
+    categories:
+      - customer_success
+      - sales
+      - marketing
+      - research
+    keywords:
+      - customer-support
+      - ticket-triage
+      - account-research
+      - call-prep
+      - outreach
+      - pipeline
+      - lead-generation
+
+  - id: finance-legal
+    name: Finance, Compliance, or Legal
+    description: Handle finance operations, audits, contracts, policies, and legal risk review.
+    categories:
+      - finance
+      - legal
+      - operations
+    keywords:
+      - finance
+      - audit
+      - compliance
+      - contract
+      - nda
+      - risk
+      - policy
+
+  - id: people-ops
+    name: People Operations
+    description: Support recruiting, interviews, onboarding, performance review, and org planning.
+    categories:
+      - people
+      - operations
+    keywords:
+      - recruiting
+      - interviewing
+      - onboarding
+      - performance-review
+      - compensation
+      - org-planning
+
+  - id: personal-productivity
+    name: Personal Productivity
+    description: Manage personal memory, tasks, communication, meetings, and productivity workflows.
+    categories:
+      - personal_assistant
+      - collaboration_tools
+      - operations
+    keywords:
+      - productivity
+      - memory
+      - task-management
+      - slack
+      - notion
+      - email
+      - meeting

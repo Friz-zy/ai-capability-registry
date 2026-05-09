@@ -5,14 +5,11 @@ agents:
     config_paths:
       global: ~/.claude
       project: .claude
-    install_script: generated/install-scripts/claude-code.sh
-    install_plan: generated/install-plans/manifests/claude-code
     supports:
       - skills
       - plugins
       - mcp
       - project_instructions
-    install_strategy: repo_local_active_cache
 
   - id: kilo-code
     name: Kilo Code
@@ -20,14 +17,11 @@ agents:
     config_paths:
       global: ~/.config/kilo
       project: .kilo
-    install_script: generated/install-scripts/kilo-code.sh
-    install_plan: generated/install-plans/manifests/kilo-code
     supports:
       - skills
       - mcp
       - project_instructions
       - custom_agents
-    install_strategy: repo_local_active_cache
 
   - id: codex-cli
     name: Codex CLI
@@ -35,13 +29,10 @@ agents:
     config_paths:
       global: ~/.codex
       project: .codex
-    install_script: generated/install-scripts/codex-cli.sh
-    install_plan: generated/install-plans/manifests/codex-cli
     supports:
       - skills
       - mcp
       - bootstrap_prompt
-    install_strategy: repo_local_active_cache
 
   - id: cursor
     name: Cursor
@@ -49,14 +40,11 @@ agents:
     config_paths:
       global: ~/.cursor
       project: .cursor
-    install_script: generated/install-scripts/cursor.sh
-    install_plan: generated/install-plans/manifests/cursor
     supports:
       - project_rules
       - plugins
       - mcp
       - docs
-    install_strategy: repo_local_active_cache
 
   - id: aider
     name: Aider
@@ -64,12 +52,9 @@ agents:
     config_paths:
       global: ~/.aider.conf.yml
       project: .aider.conf.yml
-    install_script: generated/install-scripts/aider.sh
-    install_plan: generated/install-plans/manifests/aider
     supports:
       - repo_context
       - bootstrap_prompt
-    install_strategy: repo_local_active_cache
 
   - id: opencode
     name: OpenCode
@@ -77,14 +62,11 @@ agents:
     config_paths:
       global: ~/.config/opencode
       project: opencode.json
-    install_script: generated/install-scripts/opencode.sh
-    install_plan: generated/install-plans/manifests/opencode
     supports:
       - skills
       - plugins
       - project_instructions
       - mcp
-    install_strategy: repo_local_active_cache
 
   - id: amazon-kiro
     name: Amazon Kiro
@@ -92,10 +74,7 @@ agents:
     config_paths:
       global: ~/.kiro
       project: .kiro
-    install_script: generated/install-scripts/amazon-kiro.sh
-    install_plan: generated/install-plans/manifests/amazon-kiro
     supports:
       - specs
       - steering
       - mcp
-    install_strategy: repo_local_active_cache

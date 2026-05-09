@@ -1,16 +1,27 @@
 name: Validate Registry
 
+permissions:
+  contents: write
+
 on:
   pull_request:
     paths:
-      - 'registry/skills.yaml'
+      - '.github/workflows/validate.yml'
+      - 'registry/**'
+      - 'skill-catalog.d/**'
+      - 'skill-catalog.md'
+      - 'skills/**'
       - 'scripts/**'
       - 'external/**'
   push:
     branches:
       - main
     paths:
-      - 'registry/skills.yaml'
+      - '.github/workflows/validate.yml'
+      - 'registry/**'
+      - 'skill-catalog.d/**'
+      - 'skill-catalog.md'
+      - 'skills/**'
       - 'scripts/**'
       - 'external/**'
 
@@ -40,25 +51,30 @@ jobs:
           python-version: '3.12'
       - name: Sync external submodules
         run: ./scripts/update-external.py
-      - name: Generate skill maps
+      - name: Generate skill catalog chunks and skills tree
         run: ./scripts/discover-skills.py
-      - name: Check for changes
+      - name: Check for generated changes
         id: changes
         run: |
-          git diff --quiet && git diff --cached --quiet || true
-          if git diff --exit-code; then
-            echo "changed=false" >> $GITHUB_OUTPUT
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "diff=$(git diff)" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
-      - name: Commit and push changes
-        if: steps.changes.outputs.changed == 'true'
+      - name: Fail pull request when generated files are out of sync
+        if: github.event_name == 'pull_request' && steps.changes.outputs.changed == 'true'
+        run: |
+          echo "Generated catalog chunks/files are out of sync. Run ./scripts/discover-skills.py and commit the result."
+          git diff
+          exit 1
+      - name: Commit and push generated changes
+        if: github.event_name == 'push' && steps.changes.outputs.changed == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add -A
-          git commit -m "ci: sync external submodules and regenerate skill maps"
+          git commit -m "ci: sync skill catalog chunks and skills tree"
           git push
 
   bootstrap-check:
@@ -76,8 +92,9 @@ jobs:
         run: |
           ./scripts/update-external.py
           ./scripts/discover-skills.py
-          if [ -n "$(git diff)" ]; then
+          if [ -n "$(git status --porcelain)" ]; then
             echo "ERROR: Bootstrap produces non-deterministic output"
+            git status --short
             git diff
             exit 1
           fi

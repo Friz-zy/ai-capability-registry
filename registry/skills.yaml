@@ -115,7 +115,7 @@ skills:
       maintainer_reputation: high
       arbitrary_exec: review_required
       reviewed: true
-    enabled: true
+    enabled: false
 
   - id: anthropic-knowledge-work-plugins
     name: Anthropic Knowledge Work Plugins

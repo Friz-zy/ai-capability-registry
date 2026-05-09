@@ -44,9 +44,10 @@ CI automatically syncs when `registry/skills.yaml` is modified.
 Agents discover capabilities via cascading skill maps:
 
 ```
-generated/agents.md.template → generated/skills.md (root)
-→ generated/roles/<role>/skills.md (delegates to tags)
-→ generated/tags/<tag>/skills.md (skill listings)
+skills/skills.md (root)
+→ skills/roles/<role>/skills.md (role catalogs and symlinks)
+→ skills/tasks/<task>/skills.md (task catalogs and symlinks)
+→ skills/keywords/<keyword>/skills.md (keyword catalogs and symlinks)
 → external/<source>/<path>/SKILL.md (actual skill)
 ```
 

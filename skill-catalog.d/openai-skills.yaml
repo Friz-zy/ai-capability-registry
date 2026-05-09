@@ -1,0 +1,519 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "openai-skills"
+skills:
+  - id: "external/openai-skills/skills/.curated/aspnet-core"
+    exists: true
+    enabled: true
+    name: "aspnet-core"
+    description: "Build, review, refactor, or architect ASP.NET Core web applications using current official guidance for .NET web development. Use when working on Blazor Web Apps, Razor Pages, MVC, Minimal APIs, controller-based Web APIs, SignalR, gRPC, middleware, dependency injection, configuration, authentication, authorization, testing, performance, deployment, or ASP.NET Core upgrades."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/aspnet-core"
+    skill_file: "external/openai-skills/skills/.curated/aspnet-core/SKILL.md"
+    keywords:
+      - "aspnet"
+      - "development"
+      - "dotnet"
+      - "engineering"
+  - id: "external/openai-skills/skills/.curated/chatgpt-apps"
+    exists: true
+    enabled: true
+    name: "chatgpt-apps"
+    description: "Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs MCP tools before generating code."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/chatgpt-apps"
+    skill_file: "external/openai-skills/skills/.curated/chatgpt-apps/SKILL.md"
+    keywords:
+      - "ai"
+      - "chatgpt"
+      - "development"
+      - "integration"
+  - id: "external/openai-skills/skills/.curated/cli-creator"
+    exists: true
+    enabled: true
+    name: "cli-creator"
+    description: "Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin tool, or a local script. Use when the user wants Codex to create a command-line tool that can run from any repo, expose composable read/write commands, return stable JSON, manage auth, and pair with a companion skill."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/cli-creator"
+    skill_file: "external/openai-skills/skills/.curated/cli-creator/SKILL.md"
+    keywords:
+      - "command"
+      - "development"
+      - "integration"
+      - "rest-api"
+  - id: "external/openai-skills/skills/.curated/cloudflare-deploy"
+    exists: true
+    enabled: false
+    name: "cloudflare-deploy"
+    description: "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/cloudflare-deploy"
+    skill_file: "external/openai-skills/skills/.curated/cloudflare-deploy/SKILL.md"
+    keywords:
+      - "cloudflare"
+      - "deployment"
+  - id: "external/openai-skills/skills/.curated/figma"
+    exists: true
+    enabled: false
+    name: "figma"
+    description: "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma"
+    skill_file: "external/openai-skills/skills/.curated/figma/SKILL.md"
+    keywords:
+      - "design"
+      - "figma"
+      - "integration"
+      - "rest-api"
+  - id: "external/openai-skills/skills/.curated/figma-code-connect-components"
+    exists: true
+    enabled: false
+    name: "figma-code-connect-components"
+    description: "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma-code-connect-components"
+    skill_file: "external/openai-skills/skills/.curated/figma-code-connect-components/SKILL.md"
+    keywords:
+      - "design"
+      - "design-system"
+      - "development"
+      - "figma"
+  - id: "external/openai-skills/skills/.curated/figma-create-design-system-rules"
+    exists: true
+    enabled: false
+    name: "figma-create-design-system-rules"
+    description: "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma-create-design-system-rules"
+    skill_file: "external/openai-skills/skills/.curated/figma-create-design-system-rules/SKILL.md"
+    keywords:
+      - "automation"
+      - "design-system"
+      - "documentation"
+      - "figma"
+  - id: "external/openai-skills/skills/.curated/figma-create-new-file"
+    exists: true
+    enabled: false
+    name: "figma-create-new-file"
+    description: "Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed. Usage — /figma-create-new-file [editorType] [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)"
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma-create-new-file"
+    skill_file: "external/openai-skills/skills/.curated/figma-create-new-file/SKILL.md"
+    keywords:
+      - "creative-media"
+      - "design"
+      - "figma"
+  - id: "external/openai-skills/skills/.curated/figma-generate-design"
+    exists: true
+    enabled: false
+    name: "figma-generate-design"
+    description: "Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to build or update a full page, screen, or view in Figma from code or a description. Discovers design system components, variables, and styles via search_design_system, imports them, and assembles screens incrementally section-by-section using design system tokens instead of hardcoded values."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma-generate-design"
+    skill_file: "external/openai-skills/skills/.curated/figma-generate-design/SKILL.md"
+    keywords:
+      - "ai"
+      - "design"
+      - "figma"
+      - "imagegen"
+  - id: "external/openai-skills/skills/.curated/figma-generate-library"
+    exists: true
+    enabled: false
+    name: "figma-generate-library"
+    description: "Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma-generate-library"
+    skill_file: "external/openai-skills/skills/.curated/figma-generate-library/SKILL.md"
+    keywords:
+      - "design-system"
+      - "figma"
+  - id: "external/openai-skills/skills/.curated/figma-implement-design"
+    exists: true
+    enabled: false
+    name: "figma-implement-design"
+    description: "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma-implement-design"
+    skill_file: "external/openai-skills/skills/.curated/figma-implement-design/SKILL.md"
+    keywords:
+      - "design"
+      - "figma"
+      - "frontend"
+  - id: "external/openai-skills/skills/.curated/figma-use"
+    exists: true
+    enabled: false
+    name: "figma-use"
+    description: "**MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context — e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/figma-use"
+    skill_file: "external/openai-skills/skills/.curated/figma-use/SKILL.md"
+    keywords:
+      - "design"
+      - "figma"
+      - "integration"
+      - "mcp"
+  - id: "external/openai-skills/skills/.curated/gh-address-comments"
+    exists: true
+    enabled: true
+    name: "gh-address-comments"
+    description: "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/gh-address-comments"
+    skill_file: "external/openai-skills/skills/.curated/gh-address-comments/SKILL.md"
+    keywords:
+      - "git"
+      - "github"
+      - "review"
+  - id: "external/openai-skills/skills/.curated/gh-fix-ci"
+    exists: true
+    enabled: true
+    name: "gh-fix-ci"
+    description: "Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/gh-fix-ci"
+    skill_file: "external/openai-skills/skills/.curated/gh-fix-ci/SKILL.md"
+    keywords:
+      - "debugging"
+      - "git"
+      - "github"
+  - id: "external/openai-skills/skills/.curated/hatch-pet"
+    exists: true
+    enabled: true
+    name: "hatch-pet"
+    description: "Create, repair, validate, preview, and package Codex-compatible animated pets and pet spritesheets from character art, screenshots, generated images, or visual references. Use when a user wants to hatch a Codex pet, create a custom animated pet, or build a built-in pet asset with an 8x9 atlas, transparent unused cells, row-by-row animation prompts, QA contact sheets, preview videos, and pet.json packaging. This skill composes the installed $imagegen system skill for visual generation and uses bundled scripts for deterministic spritesheet assembly."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/hatch-pet"
+    skill_file: "external/openai-skills/skills/.curated/hatch-pet/SKILL.md"
+    keywords:
+      - "ai"
+      - "creative-media"
+      - "imagegen"
+  - id: "external/openai-skills/skills/.system/imagegen"
+    exists: true
+    enabled: true
+    name: "imagegen"
+    description: "Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better handled by editing existing SVG/vector/code-native assets, extending an established icon or logo system, or building the visual directly in HTML/CSS/canvas."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.system/imagegen"
+    skill_file: "external/openai-skills/skills/.system/imagegen/SKILL.md"
+    keywords:
+      - "ai"
+      - "design"
+      - "imagegen"
+  - id: "external/openai-skills/skills/.curated/jupyter-notebook"
+    exists: true
+    enabled: true
+    name: "jupyter-notebook"
+    description: "Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/jupyter-notebook"
+    skill_file: "external/openai-skills/skills/.curated/jupyter-notebook/SKILL.md"
+    keywords:
+      - "data"
+      - "development"
+      - "jupyter"
+      - "python"
+  - id: "external/openai-skills/skills/.curated/linear"
+    exists: true
+    enabled: false
+    name: "linear"
+    description: "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/linear"
+    skill_file: "external/openai-skills/skills/.curated/linear/SKILL.md"
+    keywords:
+      - "development"
+      - "linear"
+      - "planning"
+      - "ticket-triage"
+  - id: "external/openai-skills/skills/.curated/migrate-to-codex"
+    exists: true
+    enabled: true
+    name: "migrate-to-codex"
+    description: "Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/migrate-to-codex"
+    skill_file: "external/openai-skills/skills/.curated/migrate-to-codex/SKILL.md"
+    keywords:
+      - "ai"
+      - "configuration"
+      - "migration"
+      - "openai"
+  - id: "external/openai-skills/skills/.curated/netlify-deploy"
+    exists: true
+    enabled: false
+    name: "netlify-deploy"
+    description: "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/netlify-deploy"
+    skill_file: "external/openai-skills/skills/.curated/netlify-deploy/SKILL.md"
+    keywords:
+      - "deployment"
+      - "netlify"
+  - id: "external/openai-skills/skills/.curated/notion-knowledge-capture"
+    exists: true
+    enabled: false
+    name: "notion-knowledge-capture"
+    description: "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/notion-knowledge-capture"
+    skill_file: "external/openai-skills/skills/.curated/notion-knowledge-capture/SKILL.md"
+    keywords:
+      - "knowledge"
+      - "notion"
+      - "productivity"
+  - id: "external/openai-skills/skills/.curated/notion-meeting-intelligence"
+    exists: true
+    enabled: false
+    name: "notion-meeting-intelligence"
+    description: "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/notion-meeting-intelligence"
+    skill_file: "external/openai-skills/skills/.curated/notion-meeting-intelligence/SKILL.md"
+    keywords:
+      - "ai"
+      - "meeting"
+      - "notion"
+      - "productivity"
+  - id: "external/openai-skills/skills/.curated/notion-research-documentation"
+    exists: true
+    enabled: false
+    name: "notion-research-documentation"
+    description: "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/notion-research-documentation"
+    skill_file: "external/openai-skills/skills/.curated/notion-research-documentation/SKILL.md"
+    keywords:
+      - "documentation"
+      - "notion"
+      - "research"
+  - id: "external/openai-skills/skills/.curated/notion-spec-to-implementation"
+    exists: true
+    enabled: false
+    name: "notion-spec-to-implementation"
+    description: "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/notion-spec-to-implementation"
+    skill_file: "external/openai-skills/skills/.curated/notion-spec-to-implementation/SKILL.md"
+    keywords:
+      - "development"
+      - "notion"
+      - "product"
+      - "spec"
+  - id: "external/openai-skills/skills/.curated/openai-docs"
+    exists: true
+    enabled: true
+    name: "openai-docs"
+    description: "Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade and prompt-upgrade guidance; prioritize OpenAI docs MCP tools, use bundled references only as helper context, and restrict any fallback browsing to official OpenAI domains."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/openai-docs"
+    skill_file: "external/openai-skills/skills/.curated/openai-docs/SKILL.md"
+    keywords:
+      - "ai"
+      - "documentation"
+      - "openai"
+      - "rest-api"
+  - id: "external/openai-skills/skills/.curated/pdf"
+    exists: true
+    enabled: true
+    name: "pdf"
+    description: "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/pdf"
+    skill_file: "external/openai-skills/skills/.curated/pdf/SKILL.md"
+    keywords:
+      - "ai"
+      - "documents"
+      - "pdf"
+  - id: "external/openai-skills/skills/.curated/playwright"
+    exists: true
+    enabled: true
+    name: "playwright"
+    description: "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/playwright"
+    skill_file: "external/openai-skills/skills/.curated/playwright/SKILL.md"
+    keywords:
+      - "automation"
+      - "playwright"
+      - "testing"
+      - "web"
+  - id: "external/openai-skills/skills/.curated/playwright-interactive"
+    exists: true
+    enabled: true
+    name: "playwright-interactive"
+    description: "Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/playwright-interactive"
+    skill_file: "external/openai-skills/skills/.curated/playwright-interactive/SKILL.md"
+    keywords:
+      - "development"
+      - "playwright"
+      - "testing"
+  - id: "external/openai-skills/skills/.system/plugin-creator"
+    exists: true
+    enabled: true
+    name: "plugin-creator"
+    description: "Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, and baseline placeholders you can edit before publishing or testing. Use when Codex needs to create a new local plugin, add optional plugin structure, or generate or update repo-root `.agents/plugins/marketplace.json` entries for plugin ordering and availability metadata."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.system/plugin-creator"
+    skill_file: "external/openai-skills/skills/.system/plugin-creator/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "plugin"
+  - id: "external/openai-skills/skills/.curated/render-deploy"
+    exists: true
+    enabled: true
+    name: "render-deploy"
+    description: "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/render-deploy"
+    skill_file: "external/openai-skills/skills/.curated/render-deploy/SKILL.md"
+    keywords:
+      - "deployment"
+      - "render"
+  - id: "external/openai-skills/skills/.curated/screenshot"
+    exists: true
+    enabled: true
+    name: "screenshot"
+    description: "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/screenshot"
+    skill_file: "external/openai-skills/skills/.curated/screenshot/SKILL.md"
+    keywords:
+      - "automation"
+      - "screenshot"
+      - "windows"
+  - id: "external/openai-skills/skills/.curated/security-best-practices"
+    exists: true
+    enabled: true
+    name: "security-best-practices"
+    description: "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/security-best-practices"
+    skill_file: "external/openai-skills/skills/.curated/security-best-practices/SKILL.md"
+    keywords:
+      - "code-review"
+      - "development"
+      - "security"
+  - id: "external/openai-skills/skills/.curated/security-ownership-map"
+    exists: true
+    enabled: true
+    name: "security-ownership-map"
+    description: "Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/security-ownership-map"
+    skill_file: "external/openai-skills/skills/.curated/security-ownership-map/SKILL.md"
+    keywords:
+      - "analysis"
+      - "code-review"
+      - "git"
+      - "security"
+  - id: "external/openai-skills/skills/.curated/security-threat-model"
+    exists: true
+    enabled: true
+    name: "security-threat-model"
+    description: "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/security-threat-model"
+    skill_file: "external/openai-skills/skills/.curated/security-threat-model/SKILL.md"
+    keywords:
+      - "analysis"
+      - "security"
+      - "threat-model"
+  - id: "external/openai-skills/skills/.curated/sentry"
+    exists: true
+    enabled: false
+    name: "sentry"
+    description: "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/sentry"
+    skill_file: "external/openai-skills/skills/.curated/sentry/SKILL.md"
+    keywords:
+      - "debugging"
+      - "sentry"
+  - id: "external/openai-skills/skills/.system/skill-creator"
+    exists: true
+    enabled: true
+    name: "skill-creator"
+    description: "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.system/skill-creator"
+    skill_file: "external/openai-skills/skills/.system/skill-creator/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "skill-creator"
+  - id: "external/openai-skills/skills/.system/skill-installer"
+    exists: true
+    enabled: true
+    name: "skill-installer"
+    description: "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos)."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.system/skill-installer"
+    skill_file: "external/openai-skills/skills/.system/skill-installer/SKILL.md"
+    keywords:
+      - "ai"
+      - "configuration"
+      - "skill-creator"
+  - id: "external/openai-skills/skills/.curated/speech"
+    exists: true
+    enabled: true
+    name: "speech"
+    description: "Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/speech"
+    skill_file: "external/openai-skills/skills/.curated/speech/SKILL.md"
+    keywords:
+      - "ai"
+      - "speech"
+  - id: "external/openai-skills/skills/.curated/transcribe"
+    exists: true
+    enabled: true
+    name: "transcribe"
+    description: "Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/transcribe"
+    skill_file: "external/openai-skills/skills/.curated/transcribe/SKILL.md"
+    keywords:
+      - "ai"
+      - "speech"
+      - "transcribe"
+  - id: "external/openai-skills/skills/.curated/vercel-deploy"
+    exists: true
+    enabled: true
+    name: "vercel-deploy"
+    description: "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\"."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/vercel-deploy"
+    skill_file: "external/openai-skills/skills/.curated/vercel-deploy/SKILL.md"
+    keywords:
+      - "deployment"
+      - "vercel"
+  - id: "external/openai-skills/skills/.curated/winui-app"
+    exists: true
+    enabled: true
+    name: "winui-app"
+    description: "Bootstrap, develop, and design modern WinUI 3 desktop applications with C# and the Windows App SDK using official Microsoft guidance, WinUI Gallery patterns, Windows App SDK samples, and CommunityToolkit components. Use when creating a brand new app, preparing a machine for WinUI, reviewing, refactoring, planning, troubleshooting, environment-checking, or setting up WinUI 3 XAML, controls, navigation, windowing, theming, accessibility, responsiveness, performance, deployment, or related Windows app design and development work."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/winui-app"
+    skill_file: "external/openai-skills/skills/.curated/winui-app/SKILL.md"
+    keywords:
+      - "development"
+      - "ui"
+      - "windows"
+  - id: "external/openai-skills/skills/.curated/yeet"
+    exists: true
+    enabled: false
+    name: "yeet"
+    description: "Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`)."
+    source: "openai-skills"
+    path: "external/openai-skills/skills/.curated/yeet"
+    skill_file: "external/openai-skills/skills/.curated/yeet/SKILL.md"
+    keywords:
+      - "automation"
+      - "git"
+      - "workflow"

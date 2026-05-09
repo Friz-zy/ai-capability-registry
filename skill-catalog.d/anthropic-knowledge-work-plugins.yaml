@@ -1,0 +1,2282 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "anthropic-knowledge-work-plugins"
+skills:
+  - id: "external/anthropic-knowledge-work-plugins/design/skills/accessibility-review"
+    exists: true
+    enabled: true
+    name: "accessibility-review"
+    description: "Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with \"audit accessibility\", \"check a11y\", \"is this accessible?\", or when reviewing a design for color contrast, keyboard navigation, touch target size, or screen reader behavior before handoff."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/design/skills/accessibility-review"
+    skill_file: "external/anthropic-knowledge-work-plugins/design/skills/accessibility-review/SKILL.md"
+    keywords:
+      - "accessibility"
+      - "audit"
+      - "design"
+      - "review"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/account-research"
+    exists: true
+    enabled: false
+    name: "account-research"
+    description: "Research a company using Common Room data. Triggers on 'research [company]', 'tell me about [domain]', 'pull up signals for [account]', 'what's going on with [company]', or any account-level question."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/account-research"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/account-research/SKILL.md"
+    keywords:
+      - "account-research"
+      - "common-room"
+      - "research"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/account-research"
+    exists: true
+    enabled: true
+    name: "account-research"
+    description: "Research a company or person and get actionable sales intel. Works standalone with web search, supercharged when you connect enrichment tools or your CRM. Trigger with \"research [company]\", \"look up [person]\", \"intel on [prospect]\", \"who is [name] at [company]\", or \"tell me about [company]\"."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/account-research"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/account-research/SKILL.md"
+    keywords:
+      - "account-research"
+      - "crm"
+      - "research"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/analyze"
+    exists: true
+    enabled: true
+    name: "analyze"
+    description: "Answer data questions -- from quick lookups to full analyses. Use when looking up a single metric, investigating what's driving a trend or drop, comparing segments over time, or preparing a formal data report for stakeholders."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/analyze"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/analyze/SKILL.md"
+    keywords:
+      - "analysis"
+      - "analytics"
+      - "data"
+      - "metrics"
+      - "reporting"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/architecture"
+    exists: true
+    enabled: true
+    name: "architecture"
+    description: "Create or evaluate an architecture decision record (ADR). Use when choosing between technologies (e.g., Kafka vs SQS), documenting a design decision with trade-offs and consequences, reviewing a system design proposal, or designing a new component from requirements and constraints."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/architecture"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/architecture/SKILL.md"
+    keywords:
+      - "architecture"
+      - "design"
+      - "engineering"
+      - "planning"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/audit-support"
+    exists: true
+    enabled: true
+    name: "audit-support"
+    description: "Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when generating testing workpapers, selecting audit samples, classifying control deficiencies, or preparing for internal or external audits."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/audit-support"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/audit-support/SKILL.md"
+    keywords:
+      - "audit"
+      - "compliance"
+      - "finance"
+      - "sox"
+      - "testing"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/brand-review"
+    exists: true
+    enabled: true
+    name: "brand-review"
+    description: "Review content against your brand voice, style guide, and messaging pillars, flagging deviations by severity with specific before/after fixes. Use when checking a draft before it ships, when auditing copy for voice consistency and terminology, or when screening for unsubstantiated claims, missing disclaimers, and other legal flags."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/brand-review"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/brand-review/SKILL.md"
+    keywords:
+      - "brand"
+      - "content"
+      - "marketing"
+      - "review"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement"
+    exists: true
+    enabled: true
+    name: "brand-voice-enforcement"
+    description: "This skill applies brand guidelines to content creation. It should be used when the user asks to \"write an email\", \"draft a proposal\", \"create a pitch deck\", \"write a LinkedIn post\", \"draft a presentation\", \"write a Slack message\", \"draft sales content\", or any content creation request where brand voice should be applied. Also triggers on \"on-brand\", \"brand voice\", \"enforce voice\", \"apply brand guidelines\", \"brand-aligned content\", \"write in our voice\", \"use our brand tone\", \"make this sound like us\", \"rewrite this in our tone\", or \"this doesn't sound on-brand\". Not for generating guidelines from scratch (use guideline-generation) or discovering brand materials (use discover-brand)."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement/SKILL.md"
+    keywords:
+      - "brand"
+      - "content"
+      - "marketing"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/brief"
+    exists: true
+    enabled: true
+    name: "brief"
+    description: "Generate contextual briefings for legal work — daily summary, topic research, or incident response. Use when starting your day and need a scan of legal-relevant items across email, calendar, and contracts, when researching a specific legal question across internal sources, or when a developing situation (data breach, litigation threat, regulatory inquiry) needs rapid context."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/brief"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/brief/SKILL.md"
+    keywords:
+      - "documents"
+      - "legal"
+      - "research"
+      - "summarization"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/build-dashboard"
+    exists: true
+    enabled: true
+    name: "build-dashboard"
+    description: "Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an executive overview with KPI cards, turning query results into a shareable self-contained report, building a team monitoring snapshot, or needing multiple charts with filters in one browser-openable file."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/build-dashboard"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/build-dashboard/SKILL.md"
+    keywords:
+      - "analytics"
+      - "dashboard"
+      - "data"
+      - "frontend"
+      - "visualization"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-bot"
+    exists: true
+    enabled: false
+    name: "build-zoom-bot"
+    description: "Build a Zoom meeting bot, recorder, or real-time media workflow. Use when joining meetings programmatically, processing live media or transcripts, or combining Meeting SDK, RTMS, and backend services."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-bot"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-bot/SKILL.md"
+    keywords:
+      - "bot"
+      - "development"
+      - "integration"
+      - "media"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center"
+    exists: true
+    enabled: false
+    name: "build-zoom-contact-center-app"
+    description: "Reference skill for Zoom Contact Center. Use after routing to a contact-center workflow when implementing app, web, or native integrations; engagement context and state handling; campaigns; callbacks; or version-drift troubleshooting."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/SKILL.md"
+    keywords:
+      - "contact-center"
+      - "development"
+      - "integration"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-meeting-app"
+    exists: true
+    enabled: false
+    name: "build-zoom-meeting-app"
+    description: "Build or embed a Zoom meeting flow. Use when implementing Meeting SDK joins, web or mobile meeting embeds, meeting lifecycle flows, or when deciding between Meeting SDK and Video SDK."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-meeting-app"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-meeting-app/SKILL.md"
+    keywords:
+      - "development"
+      - "integration"
+      - "meeting"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk"
+    exists: true
+    enabled: false
+    name: "build-zoom-meeting-sdk-app"
+    description: "Reference skill for Zoom Meeting SDK. Use after routing to a meeting-embed workflow when implementing real Zoom meeting joins, platform-specific SDK behavior, auth and join flows, waiting room issues, or meeting bot patterns."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/SKILL.md"
+    keywords:
+      - "development"
+      - "meeting"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/phone"
+    exists: true
+    enabled: false
+    name: "build-zoom-phone-integration"
+    description: "Reference skill for Zoom Phone. Use after routing to a phone workflow when implementing OAuth, Phone APIs, webhooks, Smart Embed events, URI schemes, CRM or CTI dialers, or call handling automation."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/phone"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/phone/SKILL.md"
+    keywords:
+      - "development"
+      - "integration"
+      - "phone"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rest-api"
+    exists: true
+    enabled: false
+    name: "build-zoom-rest-api-app"
+    description: "Reference skill for Zoom REST API. Use after choosing an API-based workflow when you need endpoint selection, resource-management patterns, OAuth requirements, rate-limit awareness, or API error debugging."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rest-api"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rest-api/SKILL.md"
+    keywords:
+      - "development"
+      - "integration"
+      - "rest-api"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/team-chat"
+    exists: true
+    enabled: false
+    name: "build-zoom-team-chat-app"
+    description: "Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/team-chat"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/team-chat/SKILL.md"
+    keywords:
+      - "communication"
+      - "development"
+      - "integration"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk"
+    exists: true
+    enabled: false
+    name: "build-zoom-video-sdk-app"
+    description: "Reference skill for Zoom Video SDK. Use after routing to a custom-session workflow when the user needs full control over the video experience rather than an actual Zoom meeting."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/SKILL.md"
+    keywords:
+      - "development"
+      - "sdk"
+      - "video"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent"
+    exists: true
+    enabled: false
+    name: "build-zoom-virtual-agent"
+    description: "Reference skill for Zoom Virtual Agent. Use after routing to a virtual-agent workflow when implementing web embeds, Android or iOS wrapper integrations, knowledge-base sync, lifecycle handling, or troubleshooting."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/SKILL.md"
+    keywords:
+      - "ai"
+      - "integration"
+      - "virtual-agent"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/call-prep"
+    exists: true
+    enabled: false
+    name: "call-prep"
+    description: "Prepare for a customer or prospect call using Common Room signals. Triggers on 'prep me for my call with [company]', 'prepare for a meeting with [company]', 'what should I know before talking to [company]', or any call preparation request."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/call-prep"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/call-prep/SKILL.md"
+    keywords:
+      - "common-room"
+      - "crm"
+      - "planning"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/call-prep"
+    exists: true
+    enabled: true
+    name: "call-prep"
+    description: "Prepare for a sales call with account context, attendee research, and suggested agenda. Works standalone with user input and web research, supercharged when you connect your CRM, email, chat, or transcripts. Trigger with \"prep me for my call with [company]\", \"I'm meeting with [company] prep me\", \"call prep [company]\", or \"get me ready for [meeting]\"."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/call-prep"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/call-prep/SKILL.md"
+    keywords:
+      - "call-prep"
+      - "crm"
+      - "planning"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/call-summary"
+    exists: true
+    enabled: true
+    name: "call-summary"
+    description: "Process call notes or a transcript — extract action items, draft follow-up email, generate internal summary. Use when pasting rough notes or a transcript after a discovery, demo, or negotiation call, drafting a customer follow-up, logging the activity for your CRM, or capturing objections and next steps for your team."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/call-summary"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/call-summary/SKILL.md"
+    keywords:
+      - "crm"
+      - "email"
+      - "sales"
+      - "transcribe"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/campaign-plan"
+    exists: true
+    enabled: true
+    name: "campaign-plan"
+    description: "Generate a full campaign brief with objectives, audience, messaging, channel strategy, content calendar, and success metrics. Use when planning a product launch, lead-gen push, or awareness campaign, when you need a week-by-week content calendar with dependencies, or when translating a marketing goal into a structured, executable plan."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/campaign-plan"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/campaign-plan/SKILL.md"
+    keywords:
+      - "campaign"
+      - "marketing"
+      - "planning"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/capacity-plan"
+    exists: true
+    enabled: true
+    name: "capacity-plan"
+    description: "Plan resource capacity — workload analysis and utilization forecasting. Use when heading into quarterly planning, the team feels overallocated and you need the numbers, deciding whether to hire or deprioritize, or stress-testing whether upcoming projects fit the people you have."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/capacity-plan"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/capacity-plan/SKILL.md"
+    keywords:
+      - "capacity"
+      - "operations"
+      - "planning"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/change-request"
+    exists: true
+    enabled: true
+    name: "change-request"
+    description: "Create a change management request with impact analysis and rollback plan. Use when proposing a system or process change that needs approval, preparing a change record for CAB review, documenting risk and rollback steps before a deployment, or planning stakeholder communications for a rollout."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/change-request"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/change-request/SKILL.md"
+    keywords:
+      - "change-management"
+      - "operations"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/choose-zoom-approach"
+    exists: true
+    enabled: false
+    name: "choose-zoom-approach"
+    description: "Choose the right Zoom architecture for a use case. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Zoom MCP, Phone, Contact Center, or a hybrid approach."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/choose-zoom-approach"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/choose-zoom-approach/SKILL.md"
+    keywords:
+      - "architecture"
+      - "planning"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/close-management"
+    exists: true
+    enabled: true
+    name: "close-management"
+    description: "Manage the month-end close process with task sequencing, dependencies, and status tracking. Use when planning the close calendar, tracking close progress, identifying blockers, or sequencing close activities by day."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/close-management"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/close-management/SKILL.md"
+    keywords:
+      - "finance"
+      - "management"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/code-review"
+    exists: true
+    enabled: true
+    name: "code-review"
+    description: "Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, \"review this before I merge\", \"is this code safe?\", or when checking a change for N+1 queries, injection risks, missing edge cases, or error handling gaps."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/code-review"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/code-review/SKILL.md"
+    keywords:
+      - "code-review"
+      - "engineering"
+      - "security"
+      - "testing"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/comp-analysis"
+    exists: true
+    enabled: true
+    name: "comp-analysis"
+    description: "Analyze compensation — benchmarking, band placement, and equity modeling. Trigger with \"what should we pay a [role]\", \"is this offer competitive\", \"model this equity grant\", or when uploading comp data to find outliers and retention risks."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/comp-analysis"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/comp-analysis/SKILL.md"
+    keywords:
+      - "analysis"
+      - "compensation"
+      - "hr"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/competitive-brief"
+    exists: true
+    enabled: true
+    name: "competitive-brief"
+    description: "Research competitors and generate a positioning and messaging comparison with content gaps, opportunities, and threats. Use when building sales battlecards, when finding positioning gaps and messaging angles competitors haven't claimed, or when a competitor makes a move and you need to assess the impact."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/competitive-brief"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/competitive-brief/SKILL.md"
+    keywords:
+      - "analysis"
+      - "competitive-intelligence"
+      - "marketing"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/competitive-brief"
+    exists: true
+    enabled: true
+    name: "competitive-brief"
+    description: "Create a competitive analysis brief for one or more competitors or a feature area. Use when informing product strategy or feature prioritization, building sales battle cards, prepping board or investor materials, or deciding where to differentiate vs. achieve parity."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/competitive-brief"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/competitive-brief/SKILL.md"
+    keywords:
+      - "analysis"
+      - "competitive-intelligence"
+      - "planning"
+      - "product"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/competitive-intelligence"
+    exists: true
+    enabled: true
+    name: "competitive-intelligence"
+    description: "Research your competitors and build an interactive battlecard. Outputs an HTML artifact with clickable competitor cards and a comparison matrix. Trigger with \"competitive intel\", \"research competitors\", \"how do we compare to [competitor]\", \"battlecard for [competitor]\", or \"what's new with [competitor]\"."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/competitive-intelligence"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/competitive-intelligence/SKILL.md"
+    keywords:
+      - "competitive-intelligence"
+      - "research"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/compliance-check"
+    exists: true
+    enabled: true
+    name: "compliance-check"
+    description: "Run a compliance check on a proposed action, product feature, or business initiative, surfacing applicable regulations, required approvals, and risk areas. Use when launching a feature that touches personal data, when marketing or product proposes something with regulatory implications, or when you need to know which approvals and jurisdictional requirements apply before proceeding."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/compliance-check"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/compliance-check/SKILL.md"
+    keywords:
+      - "compliance"
+      - "legal"
+      - "risk"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/compliance-tracking"
+    exists: true
+    enabled: true
+    name: "compliance-tracking"
+    description: "Track compliance requirements and audit readiness. Trigger with \"compliance\", \"audit prep\", \"SOC 2\", \"ISO 27001\", \"GDPR\", \"regulatory requirement\", or when the user needs help tracking, preparing for, or documenting compliance activities."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/compliance-tracking"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/compliance-tracking/SKILL.md"
+    keywords:
+      - "audit"
+      - "compliance"
+      - "management"
+      - "operations"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/compose-outreach"
+    exists: true
+    enabled: false
+    name: "compose-outreach"
+    description: "Generate personalized outreach messages using Common Room signals. Triggers on 'draft outreach to [person]', 'write an email to [name]', 'compose a message for [contact]', or any outreach drafting request."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/compose-outreach"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/compose-outreach/SKILL.md"
+    keywords:
+      - "common-room"
+      - "email"
+      - "outreach"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android"
+    exists: true
+    enabled: false
+    name: "contact-center/android"
+    description: "Zoom Contact Center SDK for Android. Use for native Android chat/video/ZVA/scheduled callback integrations, campaign mode, service lifecycle, and rejoin handling."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android/SKILL.md"
+    keywords:
+      - "android"
+      - "contact-center"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios"
+    exists: true
+    enabled: false
+    name: "contact-center/ios"
+    description: "Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrations, app lifecycle bridging, rejoin flow, and callback handling."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios/SKILL.md"
+    keywords:
+      - "contact-center"
+      - "ios"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web"
+    exists: true
+    enabled: false
+    name: "contact-center/web"
+    description: "Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handling, app-context integrations, and Smart Embed postMessage workflows."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web/SKILL.md"
+    keywords:
+      - "contact-center"
+      - "sdk"
+      - "web"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/contact-research"
+    exists: true
+    enabled: false
+    name: "contact-research"
+    description: "Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/contact-research"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/contact-research/SKILL.md"
+    keywords:
+      - "common-room"
+      - "research"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/content-creation"
+    exists: true
+    enabled: true
+    name: "content-creation"
+    description: "Draft marketing content across channels — blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/content-creation"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/content-creation/SKILL.md"
+    keywords:
+      - "brand"
+      - "content"
+      - "marketing"
+      - "writing"
+  - id: "external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/cowork-plugin-customizer"
+    exists: true
+    enabled: true
+    name: "cowork-plugin-customizer"
+    description: "Customize a Claude Code plugin for a specific organization's tools and workflows. Use when: customize plugin, set up plugin, configure plugin, tailor plugin, adjust plugin settings, customize plugin connectors, customize plugin skill, tweak plugin, modify plugin configuration."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/cowork-plugin-customizer"
+    skill_file: "external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/cowork-plugin-customizer/SKILL.md"
+    keywords:
+      - "configuration"
+      - "integration"
+      - "management"
+      - "plugin"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/create-an-asset"
+    exists: true
+    enabled: true
+    name: "create-an-asset"
+    description: "Generate tailored sales assets (landing pages, decks, one-pagers, workflow demos) from your deal context. Describe your prospect, audience, and goal — get a polished, branded asset ready to share with customers."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/create-an-asset"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/create-an-asset/SKILL.md"
+    keywords:
+      - "creative-media"
+      - "design"
+      - "pptx"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/create-cowork-plugin"
+    exists: true
+    enabled: true
+    name: "create-cowork-plugin"
+    description: "Guide users through creating a new plugin from scratch in a cowork session. Use when users want to create a plugin, build a plugin, make a new plugin, develop a plugin, scaffold a plugin, start a plugin from scratch, or design a plugin. This skill requires Cowork mode with access to the outputs directory for delivering the final .plugin file."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/create-cowork-plugin"
+    skill_file: "external/anthropic-knowledge-work-plugins/cowork-plugin-management/skills/create-cowork-plugin/SKILL.md"
+    keywords:
+      - "development"
+      - "integration"
+      - "management"
+      - "plugin"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/create-viz"
+    exists: true
+    enabled: true
+    name: "create-viz"
+    description: "Create publication-quality visualizations with Python. Use when turning query results or a DataFrame into a chart, selecting the right chart type for a trend or comparison, generating a plot for a report or presentation, or needing an interactive chart with hover and zoom."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/create-viz"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/create-viz/SKILL.md"
+    keywords:
+      - "data"
+      - "python"
+      - "visualization"
+  - id: "external/anthropic-knowledge-work-plugins/customer-support/skills/customer-escalation"
+    exists: true
+    enabled: true
+    name: "customer-escalation"
+    description: "Package an escalation for engineering, product, or leadership with full context. Use when a bug needs engineering attention beyond normal support, multiple customers report the same issue, a customer is threatening to churn, or an issue has sat unresolved past its SLA."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/customer-support/skills/customer-escalation"
+    skill_file: "external/anthropic-knowledge-work-plugins/customer-support/skills/customer-escalation/SKILL.md"
+    keywords:
+      - "customer-support"
+      - "ticket-triage"
+      - "workflow"
+  - id: "external/anthropic-knowledge-work-plugins/customer-support/skills/customer-research"
+    exists: true
+    enabled: true
+    name: "customer-research"
+    description: "Multi-source research on a customer question or topic with source attribution. Use when a customer asks something you need to look up, investigating whether a bug has been reported before, checking what was previously told to a specific account, or gathering background before drafting a response."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/customer-support/skills/customer-research"
+    skill_file: "external/anthropic-knowledge-work-plugins/customer-support/skills/customer-research/SKILL.md"
+    keywords:
+      - "customer-support"
+      - "knowledge"
+      - "research"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/daily-briefing"
+    exists: true
+    enabled: true
+    name: "daily-briefing"
+    description: "Start your day with a prioritized sales briefing. Works standalone when you tell me your meetings and priorities, supercharged when you connect your calendar, CRM, and email. Trigger with \"morning briefing\", \"daily brief\", \"what's on my plate today\", \"prep my day\", or \"start my day\"."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/daily-briefing"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/daily-briefing/SKILL.md"
+    keywords:
+      - "crm"
+      - "reporting"
+      - "sales"
+      - "summarization"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/data-context-extractor"
+    exists: true
+    enabled: true
+    name: "data-context-extractor"
+    description: "Generate or improve a company-specific data analysis skill by extracting tribal knowledge from analysts.\n\nBOOTSTRAP MODE - Triggers: \"Create a data context skill\", \"Set up data analysis for our warehouse\", \"Help me create a skill for our database\", \"Generate a data skill for [company]\" → Discovers schemas, asks key questions, generates initial skill with reference files\n\nITERATION MODE - Triggers: \"Add context about [domain]\", \"The skill needs more info about [topic]\", \"Update the data skill with [metrics/tables/terminology]\", \"Improve the [domain] reference\" → Loads existing skill, asks targeted questions, appends/updates reference files\n\nUse when data analysts want Claude to understand their company's specific data warehouse, terminology, metrics definitions, and common query patterns."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/data-context-extractor"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/data-context-extractor/SKILL.md"
+    keywords: []
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/data-visualization"
+    exists: true
+    enabled: true
+    name: "data-visualization"
+    description: "Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when building charts, choosing the right chart type for a dataset, creating publication-quality figures, or applying design principles like accessibility and color theory."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/data-visualization"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/data-visualization/SKILL.md"
+    keywords:
+      - "data"
+      - "python"
+      - "visualization"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/debug"
+    exists: true
+    enabled: true
+    name: "debug"
+    description: "Structured debugging session — reproduce, isolate, diagnose, and fix. Trigger with an error message or stack trace, \"this works in staging but not prod\", \"something broke after the deploy\", or when behavior diverges from expected and the cause isn't obvious."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/debug"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/debug/SKILL.md"
+    keywords:
+      - "debugging"
+      - "engineering"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom"
+    exists: true
+    enabled: false
+    name: "debug-zoom"
+    description: "Debug a broken Zoom integration by isolating the failure point and routing into the right Zoom references. Use when auth, API, webhook, SDK, or MCP behavior is failing and you need a ranked hypothesis list plus verification steps."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom/SKILL.md"
+    keywords:
+      - "debugging"
+      - "integration"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom-integration"
+    exists: true
+    enabled: false
+    name: "debug-zoom-integration"
+    description: "Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflows are failing and you need to isolate the layer before proposing a fix."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom-integration"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom-integration/SKILL.md"
+    keywords:
+      - "debugging"
+      - "integration"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/deploy-checklist"
+    exists: true
+    enabled: true
+    name: "deploy-checklist"
+    description: "Pre-deployment verification checklist. Use when about to ship a release, deploying a change with database migrations or feature flags, verifying CI status and approvals before going to production, or documenting rollback triggers ahead of time."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/deploy-checklist"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/deploy-checklist/SKILL.md"
+    keywords:
+      - "deployment"
+      - "documentation"
+      - "engineering"
+  - id: "external/anthropic-knowledge-work-plugins/design/skills/design-critique"
+    exists: true
+    enabled: true
+    name: "design-critique"
+    description: "Get structured design feedback on usability, hierarchy, and consistency. Trigger with \"review this design\", \"critique this mockup\", \"what do you think of this screen?\", or when sharing a Figma link or screenshot for feedback at any stage from exploration to final polish."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/design/skills/design-critique"
+    skill_file: "external/anthropic-knowledge-work-plugins/design/skills/design-critique/SKILL.md"
+    keywords:
+      - "design"
+      - "review"
+      - "ux"
+  - id: "external/anthropic-knowledge-work-plugins/design/skills/design-handoff"
+    exists: true
+    enabled: true
+    name: "design-handoff"
+    description: "Generate developer handoff specs from a design. Use when a design is ready for engineering and needs a spec sheet covering layout, design tokens, component props, interaction states, responsive breakpoints, edge cases, and animation details."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/design/skills/design-handoff"
+    skill_file: "external/anthropic-knowledge-work-plugins/design/skills/design-handoff/SKILL.md"
+    keywords:
+      - "design"
+      - "frontend"
+      - "spec"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/design-mcp-workflow"
+    exists: true
+    enabled: false
+    name: "design-mcp-workflow"
+    description: "Design a Zoom MCP workflow for Claude. Use when deciding whether Zoom MCP fits a task, when planning tool-based AI workflows, or when separating MCP responsibilities from REST API responsibilities."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/design-mcp-workflow"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/design-mcp-workflow/SKILL.md"
+    keywords:
+      - "design"
+      - "mcp"
+      - "workflow"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/design/skills/design-system"
+    exists: true
+    enabled: true
+    name: "design-system"
+    description: "Audit, document, or extend your design system. Use when checking for naming inconsistencies or hardcoded values across components, writing documentation for a component's variants, states, and accessibility notes, or designing a new pattern that fits the existing system."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/design/skills/design-system"
+    skill_file: "external/anthropic-knowledge-work-plugins/design/skills/design-system/SKILL.md"
+    keywords:
+      - "design"
+      - "design-system"
+      - "documentation"
+  - id: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/digest"
+    exists: true
+    enabled: false
+    name: "digest"
+    description: "Generate a daily or weekly digest of activity across all connected sources. Use when catching up after time away, starting the day and wanting a summary of mentions and action items, or reviewing a week's decisions and document updates grouped by project."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/digest"
+    skill_file: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/digest/SKILL.md"
+    keywords:
+      - "enterprise-search"
+      - "knowledge"
+      - "search"
+      - "summarization"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand"
+    exists: true
+    enabled: true
+    name: "discover-brand"
+    description: "This skill orchestrates autonomous discovery of brand materials across enterprise platforms (Notion, Confluence, Google Drive, Box, SharePoint, Figma, Gong, Granola, Slack). It should be used when the user asks to \"discover brand materials\", \"find brand documents\", \"search for brand guidelines\", \"audit brand content\", \"what brand materials do we have\", \"find our style guide\", \"where are our brand docs\", \"do we have a style guide\", \"discover brand voice\", \"brand content audit\", or \"find brand assets\"."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand/SKILL.md"
+    keywords:
+      - "brand"
+      - "marketing"
+      - "user-research"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/documentation"
+    exists: true
+    enabled: true
+    name: "documentation"
+    description: "Write and maintain technical documentation. Trigger with \"write docs for\", \"document this\", \"create a README\", \"write a runbook\", \"onboarding guide\", or when the user needs help with any form of technical writing — API docs, architecture docs, or operational runbooks."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/documentation"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/documentation/SKILL.md"
+    keywords:
+      - "documentation"
+      - "engineering"
+      - "runbook"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/draft-content"
+    exists: true
+    enabled: true
+    name: "draft-content"
+    description: "Draft blog posts, social media, email newsletters, landing pages, press releases, and case studies with channel-specific formatting and SEO recommendations. Use when writing any marketing content, when you need headline or subject line options, or when adapting a message for a specific platform, audience, and brand voice."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/draft-content"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/draft-content/SKILL.md"
+    keywords:
+      - "brand"
+      - "content"
+      - "marketing"
+      - "writing"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/draft-offer"
+    exists: true
+    enabled: true
+    name: "draft-offer"
+    description: "Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp package (base, equity, signing bonus), writing the offer letter text itself, or prepping negotiation guidance for the hiring manager."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/draft-offer"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/draft-offer/SKILL.md"
+    keywords:
+      - "compensation"
+      - "hr"
+      - "offer"
+      - "recruiting"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/draft-outreach"
+    exists: true
+    enabled: true
+    name: "draft-outreach"
+    description: "Research a prospect then draft personalized outreach. Uses web research by default, supercharged with enrichment and CRM. Trigger with \"draft outreach to [person/company]\", \"write cold email to [prospect]\", \"reach out to [name]\"."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/draft-outreach"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/draft-outreach/SKILL.md"
+    keywords:
+      - "crm"
+      - "email"
+      - "outreach"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/customer-support/skills/draft-response"
+    exists: true
+    enabled: true
+    name: "draft-response"
+    description: "Draft a professional customer-facing response tailored to the situation and relationship. Use when answering a product question, responding to an escalation or outage, delivering bad news like a delay or won't-fix, declining a feature request, or replying to a billing issue."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/customer-support/skills/draft-response"
+    skill_file: "external/anthropic-knowledge-work-plugins/customer-support/skills/draft-response/SKILL.md"
+    keywords:
+      - "communication"
+      - "customer-support"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/email-sequence"
+    exists: true
+    enabled: true
+    name: "email-sequence"
+    description: "Design and draft multi-email sequences with full copy, timing, branching logic, exit conditions, and performance benchmarks. Use when building onboarding, lead nurture, re-engagement, win-back, or product launch flows, when you need a complete drip campaign with A/B test suggestions, or when mapping a sequence end-to-end with a flow diagram."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/email-sequence"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/email-sequence/SKILL.md"
+    keywords:
+      - "automation"
+      - "campaign"
+      - "email"
+      - "marketing"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/enrich-lead"
+    exists: true
+    enabled: false
+    name: "enrich-lead"
+    description: "Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/enrich-lead"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/enrich-lead/SKILL.md"
+    keywords:
+      - "apollo"
+      - "crm"
+      - "lead-generation"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/explore-data"
+    exists: true
+    enabled: true
+    name: "explore-data"
+    description: "Profile and explore a dataset to understand its shape, quality, and patterns. Use when encountering a new table or file, checking null rates and column distributions, spotting data quality issues like duplicates or suspicious values, or deciding which dimensions and metrics to analyze."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/explore-data"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/explore-data/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/financial-statements"
+    exists: true
+    enabled: true
+    name: "financial-statements"
+    description: "Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, closing the books and need to flag material variances, comparing actuals to budget, building a financial summary for leadership review, or looking up GAAP presentation requirements and period-end adjustments."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/financial-statements"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/financial-statements/SKILL.md"
+    keywords:
+      - "finance"
+      - "reporting"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/forecast"
+    exists: true
+    enabled: true
+    name: "forecast"
+    description: "Generate a weighted sales forecast with best/likely/worst scenarios, commit vs. upside breakdown, and gap analysis. Use when preparing a quarterly forecast call, assessing gap-to-quota from a pipeline CSV, deciding which deals to commit vs. call upside, or checking pipeline coverage against your number."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/forecast"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/forecast/SKILL.md"
+    keywords:
+      - "crm"
+      - "forecast"
+      - "pipeline"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation"
+    exists: true
+    enabled: true
+    name: "guideline-generation"
+    description: "This skill generates, creates, or builds brand voice guidelines from source materials. It should be used when the user asks to \"generate brand guidelines\", \"create a style guide\", \"extract brand voice\", \"create guidelines from calls\", \"consolidate brand materials\", \"analyze my sales calls for brand voice\", \"build a brand playbook from documents\", \"synthesize a voice and tone guide\", or uploads brand documents, transcripts, or meeting recordings for brand analysis. Also triggers when the user has a discovery report and wants to convert it into actionable guidelines."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation/SKILL.md"
+    keywords:
+      - "brand"
+      - "content"
+      - "documentation"
+      - "marketing"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/incident-response"
+    exists: true
+    enabled: true
+    name: "incident-response"
+    description: "Run an incident response workflow — triage, communicate, and write postmortem. Trigger with \"we have an incident\", \"production is down\", an alert that needs severity assessment, a status update mid-incident, or when writing a blameless postmortem after resolution."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/incident-response"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/incident-response/SKILL.md"
+    keywords:
+      - "engineering"
+      - "incident"
+      - "operations"
+      - "ticket-triage"
+  - id: "external/anthropic-knowledge-work-plugins/bio-research/skills/instrument-data-to-allotrope"
+    exists: true
+    enabled: true
+    name: "instrument-data-to-allotrope"
+    description: "Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) JSON format or flattened 2D CSV. Use this skill when scientists need to standardize instrument data for LIMS systems, data lakes, or downstream analysis. Supports auto-detection of instrument types. Outputs include full ASM JSON, flattened CSV for easy import, and exportable Python code for data engineers. Common triggers include converting instrument files, standardizing lab data, preparing data for upload to LIMS/ELN systems, or generating parser code for production pipelines."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/bio-research/skills/instrument-data-to-allotrope"
+    skill_file: "external/anthropic-knowledge-work-plugins/bio-research/skills/instrument-data-to-allotrope/SKILL.md"
+    keywords:
+      - "bio-research"
+      - "data"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/interview-prep"
+    exists: true
+    enabled: true
+    name: "interview-prep"
+    description: "Create structured interview plans with competency-based questions and scorecards. Trigger with \"interview plan for\", \"interview questions for\", \"how should we interview\", \"scorecard for\", or when the user is preparing to interview candidates."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/interview-prep"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/interview-prep/SKILL.md"
+    keywords:
+      - "hr"
+      - "interviewing"
+      - "recruiting"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/journal-entry"
+    exists: true
+    enabled: true
+    name: "journal-entry"
+    description: "Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/journal-entry"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/journal-entry/SKILL.md"
+    keywords:
+      - "finance"
+      - "journal-entry"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/journal-entry-prep"
+    exists: true
+    enabled: true
+    name: "journal-entry-prep"
+    description: "Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/journal-entry-prep"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/journal-entry-prep/SKILL.md"
+    keywords:
+      - "finance"
+      - "journal-entry"
+  - id: "external/anthropic-knowledge-work-plugins/customer-support/skills/kb-article"
+    exists: true
+    enabled: true
+    name: "kb-article"
+    description: "Draft a knowledge base article from a resolved issue or common question. Use when a ticket resolution is worth documenting for self-service, the same question keeps coming up, a workaround needs to be published, or a known issue should be communicated to customers."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/customer-support/skills/kb-article"
+    skill_file: "external/anthropic-knowledge-work-plugins/customer-support/skills/kb-article/SKILL.md"
+    keywords:
+      - "customer-support"
+      - "documentation"
+      - "knowledge"
+  - id: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis"
+    exists: true
+    enabled: false
+    name: "knowledge-synthesis"
+    description: "Combines search results from multiple sources into coherent, deduplicated answers with source attribution. Handles confidence scoring based on freshness and authority, and summarizes large result sets effectively."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis"
+    skill_file: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis/SKILL.md"
+    keywords:
+      - "enterprise-search"
+      - "knowledge"
+      - "search"
+      - "summarization"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/legal-response"
+    exists: true
+    enabled: true
+    name: "legal-response"
+    description: "Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/legal-response"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/legal-response/SKILL.md"
+    keywords:
+      - "communication"
+      - "legal"
+      - "risk"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/legal-risk-assessment"
+    exists: true
+    enabled: true
+    name: "legal-risk-assessment"
+    description: "Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating contract risk, assessing deal exposure, classifying issues by severity, or determining whether a matter needs senior counsel or outside legal review."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/legal-risk-assessment"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/legal-risk-assessment/SKILL.md"
+    keywords:
+      - "analysis"
+      - "compliance"
+      - "legal"
+      - "risk"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/meeting-briefing"
+    exists: true
+    enabled: true
+    name: "meeting-briefing"
+    description: "Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/meeting-briefing"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/meeting-briefing/SKILL.md"
+    keywords:
+      - "legal"
+      - "meeting"
+      - "planning"
+      - "summarization"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux"
+    exists: true
+    enabled: false
+    name: "meeting-sdk/linux"
+    description: "Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video access, transcription, recording, and AI integration for server-side automation"
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux/SKILL.md"
+    keywords:
+      - "linux"
+      - "meeting"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/productivity/skills/memory-management"
+    exists: true
+    enabled: true
+    name: "memory-management"
+    description: "Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/productivity/skills/memory-management"
+    skill_file: "external/anthropic-knowledge-work-plugins/productivity/skills/memory-management/SKILL.md"
+    keywords:
+      - "knowledge"
+      - "memory"
+      - "productivity"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/metrics-review"
+    exists: true
+    enabled: true
+    name: "metrics-review"
+    description: "Review and analyze product metrics with trend analysis and actionable insights. Use when running a weekly, monthly, or quarterly metrics review, investigating a sudden spike or drop, comparing performance against targets, or turning raw numbers into a scorecard with recommended actions."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/metrics-review"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/metrics-review/SKILL.md"
+    keywords:
+      - "analytics"
+      - "metrics"
+      - "product"
+      - "review"
+  - id: "external/anthropic-knowledge-work-plugins/bio-research/skills/nextflow-development"
+    exists: true
+    enabled: true
+    name: "nextflow-development"
+    description: "Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when analyzing RNA-seq, WGS/WES, or ATAC-seq data—either local FASTQs or public datasets from GEO/SRA. Triggers on nf-core, Nextflow, FASTQ analysis, variant calling, gene expression, differential expression, GEO reanalysis, GSE/GSM/SRR accessions, or samplesheet creation."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/bio-research/skills/nextflow-development"
+    skill_file: "external/anthropic-knowledge-work-plugins/bio-research/skills/nextflow-development/SKILL.md"
+    keywords:
+      - "bio-research"
+      - "nextflow"
+      - "pipeline"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/onboarding"
+    exists: true
+    enabled: true
+    name: "onboarding"
+    description: "Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, building the pre-start task list (accounts, equipment, buddy), scheduling Day 1 and Week 1, or setting 30/60/90-day goals for a new team member."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/onboarding"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/onboarding/SKILL.md"
+    keywords:
+      - "hr"
+      - "onboarding"
+      - "recruiting"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/org-planning"
+    exists: true
+    enabled: true
+    name: "org-planning"
+    description: "Headcount planning, org design, and team structure optimization. Trigger with \"org planning\", \"headcount plan\", \"team structure\", \"reorg\", \"who should we hire next\", or when the user is thinking about team size, reporting structure, or organizational design."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/org-planning"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/org-planning/SKILL.md"
+    keywords:
+      - "hr"
+      - "org-planning"
+      - "planning"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/people-report"
+    exists: true
+    enabled: true
+    name: "people-report"
+    description: "Generate headcount, attrition, diversity, or org health reports. Use when pulling a headcount snapshot for leadership, analyzing turnover trends by team, preparing diversity representation metrics, or assessing span of control and flight risk across the org."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/people-report"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/people-report/SKILL.md"
+    keywords:
+      - "analytics"
+      - "hr"
+      - "people"
+      - "reporting"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/performance-report"
+    exists: true
+    enabled: true
+    name: "performance-report"
+    description: "Build a marketing performance report with key metrics, trend analysis, wins and misses, and prioritized optimization recommendations. Use when wrapping a campaign, when preparing weekly, monthly, or quarterly channel summaries for stakeholders, or when you need data translated into an executive summary with next-period priorities."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/performance-report"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/performance-report/SKILL.md"
+    keywords:
+      - "analytics"
+      - "campaign"
+      - "marketing"
+      - "reporting"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/performance-review"
+    exists: true
+    enabled: true
+    name: "performance-review"
+    description: "Structure a performance review with self-assessment, manager template, and calibration prep. Use when review season kicks off and you need a self-assessment template, writing a manager review for a direct report, prepping rating distributions and promotion cases for calibration, or turning vague feedback into specific behavioral examples."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/performance-review"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/performance-review/SKILL.md"
+    keywords:
+      - "hr"
+      - "performance-review"
+      - "review"
+  - id: "external/anthropic-knowledge-work-plugins/sales/skills/pipeline-review"
+    exists: true
+    enabled: true
+    name: "pipeline-review"
+    description: "Analyze pipeline health — prioritize deals, flag risks, get a weekly action plan. Use when running a weekly pipeline review, deciding which deals to focus on this week, spotting stale or stuck opportunities, auditing for hygiene issues like bad close dates, or identifying single-threaded deals."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/sales/skills/pipeline-review"
+    skill_file: "external/anthropic-knowledge-work-plugins/sales/skills/pipeline-review/SKILL.md"
+    keywords:
+      - "crm"
+      - "management"
+      - "pipeline"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-integration"
+    exists: true
+    enabled: false
+    name: "plan-zoom-integration"
+    description: "Turn a Zoom integration idea into an implementation plan with architecture, auth, and delivery milestones. Use when you need a practical build plan, phased delivery sequence, risk list, and next-step recommendation."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-integration"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-integration/SKILL.md"
+    keywords:
+      - "architecture"
+      - "integration"
+      - "planning"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-product"
+    exists: true
+    enabled: false
+    name: "plan-zoom-product"
+    description: "Choose the right Zoom building surface for a use case and explain the tradeoffs clearly. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Phone, Contact Center, or MCP for a specific product idea or integration goal."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-product"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-product/SKILL.md"
+    keywords:
+      - "architecture"
+      - "planning"
+      - "product"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup"
+    exists: true
+    enabled: true
+    name: "policy-lookup"
+    description: "Find and explain company policies in plain language. Trigger with \"what's our PTO policy\", \"can I work remotely from another country\", \"how do expenses work\", or any plain-language question about benefits, travel, leave, or handbook rules."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup/SKILL.md"
+    keywords:
+      - "hr"
+      - "knowledge"
+      - "policy"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/probe-sdk"
+    exists: true
+    enabled: false
+    name: "probe-sdk"
+    description: "Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing browser compatibility, media permissions, audio or video diagnostics, and network readiness before users join."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/probe-sdk"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/probe-sdk/SKILL.md"
+    keywords:
+      - "debugging"
+      - "media"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/process-doc"
+    exists: true
+    enabled: true
+    name: "process-doc"
+    description: "Document a business process — flowcharts, RACI, and SOPs. Use when formalizing a process that lives in someone's head, building a RACI to clarify who owns what, writing an SOP for a handoff or audit, or capturing the exceptions and edge cases of how work actually gets done."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/process-doc"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/process-doc/SKILL.md"
+    keywords:
+      - "documentation"
+      - "operations"
+      - "process"
+      - "workflow"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/process-optimization"
+    exists: true
+    enabled: true
+    name: "process-optimization"
+    description: "Analyze and improve business processes. Trigger with \"this process is slow\", \"how can we improve\", \"streamline this workflow\", \"too many steps\", \"bottleneck\", or when the user describes an inefficient process they want to fix."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/process-optimization"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/process-optimization/SKILL.md"
+    keywords:
+      - "operations"
+      - "optimization"
+      - "process"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/product-brainstorming"
+    exists: true
+    enabled: true
+    name: "product-brainstorming"
+    description: "Brainstorm product ideas, explore problem spaces, and challenge assumptions as a thinking partner. Use when exploring a new opportunity, generating solutions to a product problem, stress-testing an idea, or when a PM needs to think out loud with a sharp sparring partner before converging on a direction."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/product-brainstorming"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/product-brainstorming/SKILL.md"
+    keywords:
+      - "brainstorming"
+      - "planning"
+      - "product"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/prospect"
+    exists: true
+    enabled: false
+    name: "prospect"
+    description: "Full ICP-to-leads pipeline. Describe your ideal customer in plain English and get a ranked table of enriched decision-maker leads with emails and phone numbers."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/prospect"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/prospect/SKILL.md"
+    keywords:
+      - "apollo"
+      - "crm"
+      - "lead-generation"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/prospect"
+    exists: true
+    enabled: false
+    name: "prospect"
+    description: "Build targeted account or contact lists using Common Room's Prospector. Triggers on 'find companies that match [criteria]', 'build a prospect list', 'find contacts at [type of company]', 'show me companies hiring [role]', or any list-building request."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/prospect"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/prospect/SKILL.md"
+    keywords:
+      - "common-room"
+      - "crm"
+      - "lead-generation"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/reconciliation"
+    exists: true
+    enabled: true
+    name: "reconciliation"
+    description: "Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/reconciliation"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/reconciliation/SKILL.md"
+    keywords:
+      - "audit"
+      - "finance"
+      - "reconciliation"
+  - id: "external/anthropic-knowledge-work-plugins/human-resources/skills/recruiting-pipeline"
+    exists: true
+    enabled: true
+    name: "recruiting-pipeline"
+    description: "Track and manage recruiting pipeline stages. Trigger with \"recruiting update\", \"candidate pipeline\", \"how many candidates\", \"hiring status\", or when the user discusses sourcing, screening, interviewing, or extending offers."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/human-resources/skills/recruiting-pipeline"
+    skill_file: "external/anthropic-knowledge-work-plugins/human-resources/skills/recruiting-pipeline/SKILL.md"
+    keywords:
+      - "hr"
+      - "pipeline"
+      - "recruiting"
+  - id: "external/anthropic-knowledge-work-plugins/design/skills/research-synthesis"
+    exists: true
+    enabled: true
+    name: "research-synthesis"
+    description: "Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey results, usability test notes, support tickets, or NPS responses that need to be distilled into patterns, user segments, and prioritized next steps."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/design/skills/research-synthesis"
+    skill_file: "external/anthropic-knowledge-work-plugins/design/skills/research-synthesis/SKILL.md"
+    keywords:
+      - "analysis"
+      - "design"
+      - "research"
+      - "summarization"
+      - "ux"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/review-contract"
+    exists: true
+    enabled: true
+    name: "review-contract"
+    description: "Review a contract against your organization's negotiation playbook — flag deviations, generate redlines, provide business impact analysis. Use when reviewing vendor or customer agreements, when you need clause-by-clause analysis against standard positions, or when preparing a negotiation strategy with prioritized redlines and fallback positions."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/review-contract"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/review-contract/SKILL.md"
+    keywords:
+      - "compliance"
+      - "contract"
+      - "legal"
+      - "review"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/risk-assessment"
+    exists: true
+    enabled: true
+    name: "risk-assessment"
+    description: "Identify, assess, and mitigate operational risks. Trigger with \"what are the risks\", \"risk assessment\", \"risk register\", \"what could go wrong\", or when the user is evaluating risks associated with a project, vendor, process, or decision."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/risk-assessment"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/risk-assessment/SKILL.md"
+    keywords:
+      - "analysis"
+      - "compliance"
+      - "operations"
+      - "risk"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rivet-sdk"
+    exists: true
+    enabled: false
+    name: "rivet-sdk"
+    description: "Reference skill for Zoom Rivet SDK. Use after routing to a Rivet-based server workflow when implementing auth handling, webhook consumers, API wrappers, multi-module composition, or Lambda receiver patterns."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rivet-sdk"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rivet-sdk/SKILL.md"
+    keywords:
+      - "development"
+      - "integration"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/roadmap-update"
+    exists: true
+    enabled: true
+    name: "roadmap-update"
+    description: "Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deciding what moves to make room, shifting priorities after new information comes in, moving timelines due to a dependency slip, or building a Now/Next/Later view from scratch."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/roadmap-update"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/roadmap-update/SKILL.md"
+    keywords:
+      - "management"
+      - "planning"
+      - "product"
+      - "roadmap"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/runbook"
+    exists: true
+    enabled: true
+    name: "runbook"
+    description: "Create or update an operational runbook for a recurring task or procedure. Use when documenting a task that on-call or ops needs to run repeatably, turning tribal knowledge into exact step-by-step commands, adding troubleshooting and rollback steps to an existing procedure, or writing escalation paths for when things go wrong."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/runbook"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/runbook/SKILL.md"
+    keywords:
+      - "documentation"
+      - "operations"
+      - "runbook"
+  - id: "external/anthropic-knowledge-work-plugins/bio-research/skills/scientific-problem-selection"
+    exists: true
+    enabled: true
+    name: "scientific-problem-selection"
+    description: "This skill should be used when scientists need help with research problem selection, project ideation, troubleshooting stuck projects, or strategic scientific decisions. Use this skill when users ask to pitch a new research idea, work through a project problem, evaluate project risks, plan research strategy, navigate decision trees, or get help choosing what scientific problem to work on. Typical requests include \"I have an idea for a project\", \"I'm stuck on my research\", \"help me evaluate this project\", \"what should I work on\", or \"I need strategic advice about my research\"."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/bio-research/skills/scientific-problem-selection"
+    skill_file: "external/anthropic-knowledge-work-plugins/bio-research/skills/scientific-problem-selection/SKILL.md"
+    keywords:
+      - "bio-research"
+      - "brainstorming"
+      - "planning"
+      - "research"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/scribe"
+    exists: true
+    enabled: false
+    name: "scribe"
+    description: "Reference skill for Zoom AI Services Scribe. Use after routing to a transcription workflow when handling uploaded or stored media, Build-platform JWT auth, fast mode transcription, batch jobs, or transcript pipeline design."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/scribe"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/scribe/SKILL.md"
+    keywords:
+      - "media"
+      - "transcribe"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/bio-research/skills/scvi-tools"
+    exists: true
+    enabled: true
+    name: "scvi-tools"
+    description: "Deep learning for single-cell analysis using scvi-tools. This skill should be used when users need (1) data integration and batch correction with scVI/scANVI, (2) ATAC-seq analysis with PeakVI, (3) CITE-seq multi-modal analysis with totalVI, (4) multiome RNA+ATAC analysis with MultiVI, (5) spatial transcriptomics deconvolution with DestVI, (6) label transfer and reference mapping with scANVI/scArches, (7) RNA velocity with veloVI, or (8) any deep learning-based single-cell method. Triggers include mentions of scVI, scANVI, totalVI, PeakVI, MultiVI, DestVI, veloVI, sysVI, scArches, variational autoencoder, VAE, batch correction, data integration, multi-modal, CITE-seq, multiome, reference mapping, latent space."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/bio-research/skills/scvi-tools"
+    skill_file: "external/anthropic-knowledge-work-plugins/bio-research/skills/scvi-tools/SKILL.md"
+    keywords:
+      - "analysis"
+      - "bio-research"
+  - id: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/search"
+    exists: true
+    enabled: false
+    name: "search"
+    description: "Search across all connected sources in one query. Trigger with \"find that doc about...\", \"what did we decide on...\", \"where was the conversation about...\", or when looking for a decision, document, or discussion that could live in chat, email, cloud storage, or a project tracker."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/search"
+    skill_file: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/search/SKILL.md"
+    keywords:
+      - "enterprise-search"
+      - "knowledge"
+      - "search"
+  - id: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/search-strategy"
+    exists: true
+    enabled: false
+    name: "search-strategy"
+    description: "Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per source, translates queries into source-specific syntax, ranks results by relevance, and handles ambiguity and fallback strategies."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/search-strategy"
+    skill_file: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/search-strategy/SKILL.md"
+    keywords:
+      - "enterprise-search"
+      - "planning"
+      - "search"
+  - id: "external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit"
+    exists: true
+    enabled: true
+    name: "seo-audit"
+    description: "Run a comprehensive SEO audit — keyword research, on-page analysis, content gaps, technical checks, and competitor comparison. Use when assessing a site's SEO health, when finding keyword opportunities and content gaps competitors own, or when you need a prioritized action plan split into quick wins and strategic investments."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit"
+    skill_file: "external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit/SKILL.md"
+    keywords:
+      - "audit"
+      - "content"
+      - "marketing"
+      - "seo"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/sequence-load"
+    exists: true
+    enabled: false
+    name: "sequence-load"
+    description: "Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/sequence-load"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/apollo/skills/sequence-load/SKILL.md"
+    keywords:
+      - "apollo"
+      - "automation"
+      - "outreach"
+      - "sales"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-mcp"
+    exists: true
+    enabled: false
+    name: "setup-zoom-mcp"
+    description: "Decide when Zoom MCP is the right fit and produce a safe setup plan for Claude. Use when planning AI workflows over Zoom data, deciding between MCP and REST, or defining a hybrid MCP architecture."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-mcp"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-mcp/SKILL.md"
+    keywords:
+      - "configuration"
+      - "integration"
+      - "mcp"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-oauth"
+    exists: true
+    enabled: false
+    name: "setup-zoom-oauth"
+    description: "Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes, handling token refresh, or debugging auth failures."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-oauth"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-oauth/SKILL.md"
+    keywords:
+      - "configuration"
+      - "oauth"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/webhooks"
+    exists: true
+    enabled: false
+    name: "setup-zoom-webhooks"
+    description: "Reference skill for Zoom webhooks. Use after routing to an event-driven workflow when implementing subscriptions, signature verification, delivery handling, retries, or event-type selection."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/webhooks"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/webhooks/SKILL.md"
+    keywords:
+      - "integration"
+      - "webhooks"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/websockets"
+    exists: true
+    enabled: false
+    name: "setup-zoom-websockets"
+    description: "Reference skill for Zoom WebSockets. Use after routing to a low-latency event workflow when persistent connections, faster event delivery, or security constraints make WebSockets preferable to webhooks."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/websockets"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/websockets/SKILL.md"
+    keywords:
+      - "integration"
+      - "websockets"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/signature-request"
+    exists: true
+    enabled: true
+    name: "signature-request"
+    description: "Prepare and route a document for e-signature — run a pre-signature checklist, configure signing order, and send for execution. Use when a contract is finalized and ready to sign, when verifying entity names, exhibits, and signature blocks before sending, or when setting up an envelope with sequential or parallel signers."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/signature-request"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/signature-request/SKILL.md"
+    keywords:
+      - "contract"
+      - "legal"
+      - "signature-request"
+      - "workflow"
+  - id: "external/anthropic-knowledge-work-plugins/bio-research/skills/single-cell-rna-qc"
+    exists: true
+    enabled: true
+    name: "single-cell-rna-qc"
+    description: "Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based filtering and comprehensive visualizations. Use when users request QC analysis, filtering low-quality cells, assessing data quality, or following scverse/scanpy best practices for single-cell analysis."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/bio-research/skills/single-cell-rna-qc"
+    skill_file: "external/anthropic-knowledge-work-plugins/bio-research/skills/single-cell-rna-qc/SKILL.md"
+    keywords:
+      - "bio-research"
+      - "testing"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-messaging"
+    exists: true
+    enabled: false
+    name: "slack-messaging"
+    description: "Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax"
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-messaging"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-messaging/SKILL.md"
+    keywords:
+      - "communication"
+      - "integration"
+      - "slack"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search"
+    exists: true
+    enabled: false
+    name: "slack-search"
+    description: "Guidance for effectively searching Slack to find messages, files, channels, and people"
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search/SKILL.md"
+    keywords:
+      - "communication"
+      - "search"
+      - "slack"
+  - id: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/source-management"
+    exists: true
+    enabled: false
+    name: "source-management"
+    description: "Manages connected MCP sources for enterprise search. Detects available sources, guides users to connect new ones, handles source priority ordering, and manages rate limiting awareness."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/source-management"
+    skill_file: "external/anthropic-knowledge-work-plugins/enterprise-search/skills/source-management/SKILL.md"
+    keywords:
+      - "enterprise-search"
+      - "management"
+      - "search"
+      - "source-management"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/sox-testing"
+    exists: true
+    enabled: true
+    name: "sox-testing"
+    description: "Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/sox-testing"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/sox-testing/SKILL.md"
+    keywords:
+      - "audit"
+      - "compliance"
+      - "finance"
+      - "sox"
+      - "testing"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/sprint-planning"
+    exists: true
+    enabled: true
+    name: "sprint-planning"
+    description: "Plan a sprint — scope work, estimate capacity, set goals, and draft a sprint plan. Use when kicking off a new sprint, sizing a backlog against team availability (accounting for PTO and meetings), deciding what's P0 vs. stretch, or handling carryover from the last sprint."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/sprint-planning"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/sprint-planning/SKILL.md"
+    keywords:
+      - "planning"
+      - "product"
+      - "sprint"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/sql-queries"
+    exists: true
+    enabled: true
+    name: "sql-queries"
+    description: "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/sql-queries"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/sql-queries/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+      - "sql"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/stakeholder-update"
+    exists: true
+    enabled: true
+    name: "stakeholder-update"
+    description: "Generate a stakeholder update tailored to audience and cadence. Use when writing a weekly or monthly status for leadership, announcing a launch, escalating a risk or blocker, or translating the same progress into exec-brief, engineering-detail, or customer-facing versions."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/stakeholder-update"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/stakeholder-update/SKILL.md"
+    keywords:
+      - "communication"
+      - "product"
+      - "reporting"
+      - "stakeholder"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/standup"
+    exists: true
+    enabled: true
+    name: "standup"
+    description: "Generate a standup update from recent activity. Use when preparing for daily standup, summarizing yesterday's commits and PRs and ticket moves, formatting work into yesterday/today/blockers, or structuring a few rough notes into a shareable update."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/standup"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/standup/SKILL.md"
+    keywords:
+      - "engineering"
+      - "reporting"
+      - "sprint"
+  - id: "external/anthropic-knowledge-work-plugins/bio-research/skills/start"
+    exists: true
+    enabled: true
+    name: "start"
+    description: "Set up your bio-research environment and explore available tools. Use when first getting oriented with the plugin, checking which literature, drug-discovery, or visualization MCP servers are connected, or surveying available analysis skills before starting a new project."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/bio-research/skills/start"
+    skill_file: "external/anthropic-knowledge-work-plugins/bio-research/skills/start/SKILL.md"
+    keywords:
+      - "bio-research"
+      - "configuration"
+      - "onboarding"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/start"
+    exists: true
+    enabled: false
+    name: "start"
+    description: "Start here for any Zoom integration or app idea. Use when you need to choose the right Zoom surface, shape the architecture, or route into the correct implementation skill without reading the whole Zoom doc set first."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/start"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/start/SKILL.md"
+    keywords:
+      - "architecture"
+      - "configuration"
+      - "onboarding"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/productivity/skills/start"
+    exists: true
+    enabled: true
+    name: "start"
+    description: "Initialize the productivity system and open the dashboard. Use when setting up the plugin for the first time, bootstrapping working memory from your existing task list, or decoding the shorthand (nicknames, acronyms, project codenames) you use in your todos."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/productivity/skills/start"
+    skill_file: "external/anthropic-knowledge-work-plugins/productivity/skills/start/SKILL.md"
+    keywords:
+      - "configuration"
+      - "onboarding"
+      - "productivity"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/statistical-analysis"
+    exists: true
+    enabled: true
+    name: "statistical-analysis"
+    description: "Apply statistical methods including descriptive stats, trend analysis, outlier detection, and hypothesis testing. Use when analyzing distributions, testing for significance, detecting anomalies, computing correlations, or interpreting statistical results."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/statistical-analysis"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/statistical-analysis/SKILL.md"
+    keywords:
+      - "analysis"
+      - "analytics"
+      - "data"
+      - "statistics"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/status-report"
+    exists: true
+    enabled: true
+    name: "status-report"
+    description: "Generate a status report with KPIs, risks, and action items. Use when writing a weekly or monthly update for leadership, summarizing project health with green/yellow/red status, surfacing risks and decisions that need stakeholder attention, or turning a pile of project tracker activity into a readable narrative."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/status-report"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/status-report/SKILL.md"
+    keywords:
+      - "management"
+      - "operations"
+      - "reporting"
+      - "status-report"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/synthesize-research"
+    exists: true
+    enabled: true
+    name: "synthesize-research"
+    description: "Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/synthesize-research"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/synthesize-research/SKILL.md"
+    keywords:
+      - "analysis"
+      - "product"
+      - "research"
+      - "summarization"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/system-design"
+    exists: true
+    enabled: true
+    name: "system-design"
+    description: "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the user needs help with API design, data modeling, or service boundaries."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/system-design"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/system-design/SKILL.md"
+    keywords:
+      - "architecture"
+      - "design"
+      - "engineering"
+      - "system-design"
+  - id: "external/anthropic-knowledge-work-plugins/productivity/skills/task-management"
+    exists: true
+    enabled: true
+    name: "task-management"
+    description: "Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/complete tasks, or needs help tracking commitments."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/productivity/skills/task-management"
+    skill_file: "external/anthropic-knowledge-work-plugins/productivity/skills/task-management/SKILL.md"
+    keywords:
+      - "management"
+      - "productivity"
+      - "task-management"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/tech-debt"
+    exists: true
+    enabled: true
+    name: "tech-debt"
+    description: "Identify, categorize, and prioritize technical debt. Trigger with \"tech debt\", \"technical debt audit\", \"what should we refactor\", \"code health\", or when the user asks about code quality, refactoring priorities, or maintenance backlog."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/tech-debt"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/tech-debt/SKILL.md"
+    keywords:
+      - "engineering"
+      - "refactor"
+      - "tech-debt"
+  - id: "external/anthropic-knowledge-work-plugins/engineering/skills/testing-strategy"
+    exists: true
+    enabled: true
+    name: "testing-strategy"
+    description: "Design test strategies and test plans. Trigger with \"how should we test\", \"test strategy for\", \"write tests for\", \"test plan\", \"what tests do we need\", or when the user needs help with testing approaches, coverage, or test architecture."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/engineering/skills/testing-strategy"
+    skill_file: "external/anthropic-knowledge-work-plugins/engineering/skills/testing-strategy/SKILL.md"
+    keywords:
+      - "engineering"
+      - "testing"
+  - id: "external/anthropic-knowledge-work-plugins/customer-support/skills/ticket-triage"
+    exists: true
+    enabled: true
+    name: "ticket-triage"
+    description: "Triage and prioritize a support ticket or customer issue. Use when a new ticket comes in and needs categorization, assigning P1-P4 priority, deciding which team should handle it, or checking whether it's a duplicate or known issue before routing."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/customer-support/skills/ticket-triage"
+    skill_file: "external/anthropic-knowledge-work-plugins/customer-support/skills/ticket-triage/SKILL.md"
+    keywords:
+      - "customer-support"
+      - "ticket-triage"
+      - "workflow"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/triage-nda"
+    exists: true
+    enabled: true
+    name: "triage-nda"
+    description: "Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YELLOW (counsel review), or RED (full legal review). Use when a new NDA arrives from sales or business development, when screening for embedded non-solicits, non-competes, or missing carveouts, or when deciding whether an NDA can be signed under standard delegation."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/triage-nda"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/triage-nda/SKILL.md"
+    keywords:
+      - "contract"
+      - "legal"
+      - "nda"
+      - "ticket-triage"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/ui-toolkit"
+    exists: true
+    enabled: false
+    name: "ui-toolkit/web"
+    description: "Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when you want prebuilt React UI instead of building a fully custom Video SDK interface."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/ui-toolkit"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/ui-toolkit/SKILL.md"
+    keywords:
+      - "integration"
+      - "react"
+      - "ui"
+      - "web"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/productivity/skills/update"
+    exists: true
+    enabled: true
+    name: "update"
+    description: "Sync tasks and refresh memory from your current activity. Use when pulling new assignments from your project tracker into TASKS.md, triaging stale or overdue tasks, filling memory gaps for unknown people or projects, or running a comprehensive scan to catch todos buried in chat and email."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/productivity/skills/update"
+    skill_file: "external/anthropic-knowledge-work-plugins/productivity/skills/update/SKILL.md"
+    keywords:
+      - "memory"
+      - "productivity"
+      - "reporting"
+      - "status-report"
+  - id: "external/anthropic-knowledge-work-plugins/design/skills/user-research"
+    exists: true
+    enabled: true
+    name: "user-research"
+    description: "Plan, conduct, and synthesize user research. Trigger with \"user research plan\", \"interview guide\", \"usability test\", \"survey design\", \"research questions\", or when the user needs help with any aspect of understanding their users through research."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/design/skills/user-research"
+    skill_file: "external/anthropic-knowledge-work-plugins/design/skills/user-research/SKILL.md"
+    keywords:
+      - "design"
+      - "research"
+      - "user-research"
+      - "ux"
+  - id: "external/anthropic-knowledge-work-plugins/design/skills/ux-copy"
+    exists: true
+    enabled: true
+    name: "ux-copy"
+    description: "Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with \"write copy for\", \"what should this button say?\", \"review this error message\", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/design/skills/ux-copy"
+    skill_file: "external/anthropic-knowledge-work-plugins/design/skills/ux-copy/SKILL.md"
+    keywords:
+      - "content"
+      - "design"
+      - "ux"
+      - "writing"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/validate-data"
+    exists: true
+    enabled: true
+    name: "validate-data"
+    description: "QA an analysis before sharing -- methodology, accuracy, and bias checks. Use when reviewing an analysis before a stakeholder presentation, spot-checking calculations and aggregation logic, verifying a SQL query's results look right, or assessing whether conclusions are actually supported by the data."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/validate-data"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/validate-data/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+      - "testing"
+      - "validation"
+  - id: "external/anthropic-knowledge-work-plugins/finance/skills/variance-analysis"
+    exists: true
+    enabled: true
+    name: "variance-analysis"
+    description: "Decompose financial variances into drivers with narrative explanations and waterfall analysis. Use when analyzing budget vs. actual, period-over-period changes, revenue or expense variances, or preparing variance commentary for leadership."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/finance/skills/variance-analysis"
+    skill_file: "external/anthropic-knowledge-work-plugins/finance/skills/variance-analysis/SKILL.md"
+    keywords:
+      - "analysis"
+      - "finance"
+      - "reporting"
+  - id: "external/anthropic-knowledge-work-plugins/legal/skills/vendor-check"
+    exists: true
+    enabled: true
+    name: "vendor-check"
+    description: "Check the status of existing agreements with a vendor across all connected systems — CLM, CRM, email, and document storage — with gap analysis and upcoming deadlines. Use when onboarding or renewing a vendor, when you need a consolidated view of what's signed and what's missing (MSA, DPA, SOW), or when checking for approaching expirations and surviving obligations."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/legal/skills/vendor-check"
+    skill_file: "external/anthropic-knowledge-work-plugins/legal/skills/vendor-check/SKILL.md"
+    keywords:
+      - "compliance"
+      - "contract"
+      - "legal"
+      - "vendor"
+  - id: "external/anthropic-knowledge-work-plugins/operations/skills/vendor-review"
+    exists: true
+    enabled: true
+    name: "vendor-review"
+    description: "Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, deciding whether to renew or replace a contract, comparing two vendors side-by-side, or building a TCO breakdown and negotiation points before procurement sign-off."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/operations/skills/vendor-review"
+    skill_file: "external/anthropic-knowledge-work-plugins/operations/skills/vendor-review/SKILL.md"
+    keywords:
+      - "analysis"
+      - "management"
+      - "operations"
+      - "vendor"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux"
+    exists: true
+    enabled: false
+    name: "video-sdk/linux"
+    description: "Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support"
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux/SKILL.md"
+    keywords:
+      - "linux"
+      - "sdk"
+      - "video"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web"
+    exists: true
+    enabled: false
+    name: "video-sdk/web"
+    description: "Zoom Video SDK for Web - JavaScript/TypeScript integration for browser-based video sessions, real-time communication, screen sharing, recording, and live transcription"
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web/SKILL.md"
+    keywords:
+      - "sdk"
+      - "video"
+      - "web"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows"
+    exists: true
+    enabled: false
+    name: "video-sdk/windows"
+    description: "Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, screen sharing, recording, and real-time communication"
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows/SKILL.md"
+    keywords:
+      - "sdk"
+      - "video"
+      - "windows"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/pdf-viewer/skills/view-pdf"
+    exists: true
+    enabled: true
+    name: "view-pdf"
+    description: "Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate, highlight, stamp, fill form fields, place signature/initials, or review markup together. Not for summarization or text extraction (use native Read instead)."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/pdf-viewer/skills/view-pdf"
+    skill_file: "external/anthropic-knowledge-work-plugins/pdf-viewer/skills/view-pdf/SKILL.md"
+    keywords:
+      - "documents"
+      - "pdf"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android"
+    exists: true
+    enabled: false
+    name: "virtual-agent/android"
+    description: "Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, native URL handling, support_handoff relay, and lifecycle-safe embedding."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android/SKILL.md"
+    keywords:
+      - "android"
+      - "sdk"
+      - "virtual-agent"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios"
+    exists: true
+    enabled: false
+    name: "virtual-agent/ios"
+    description: "Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, message handlers, support_handoff relay, and URL routing policies."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios/SKILL.md"
+    keywords:
+      - "ios"
+      - "sdk"
+      - "virtual-agent"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web"
+    exists: true
+    enabled: false
+    name: "virtual-agent/web"
+    description: "Zoom Virtual Agent SDK for web embeds. Use for campaign or entry ID chat launch, event-driven controls, user context updates, and CSP-safe deployment."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web/SKILL.md"
+    keywords:
+      - "sdk"
+      - "virtual-agent"
+      - "web"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/weekly-prep-brief"
+    exists: true
+    enabled: false
+    name: "weekly-prep-brief"
+    description: "Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on 'weekly prep brief', 'prepare my week', 'what calls do I have this week', 'Monday prep', or any weekly planning request."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/weekly-prep-brief"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/common-room/skills/weekly-prep-brief/SKILL.md"
+    keywords:
+      - "common-room"
+      - "planning"
+      - "sales"
+      - "summarization"
+  - id: "external/anthropic-knowledge-work-plugins/data/skills/write-query"
+    exists: true
+    enabled: true
+    name: "write-query"
+    description: "Write optimized SQL for your dialect with best practices. Use when translating a natural-language data need into SQL, building a multi-CTE query with joins and aggregations, optimizing a query against a large partitioned table, or getting dialect-specific syntax for Snowflake, BigQuery, Postgres, etc."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/data/skills/write-query"
+    skill_file: "external/anthropic-knowledge-work-plugins/data/skills/write-query/SKILL.md"
+    keywords:
+      - "analytics"
+      - "data"
+      - "sql"
+  - id: "external/anthropic-knowledge-work-plugins/product-management/skills/write-spec"
+    exists: true
+    enabled: true
+    name: "write-spec"
+    description: "Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague idea or user request into a structured document, scoping a feature with goals and non-goals, defining success metrics and acceptance criteria, or breaking a big ask into a phased spec."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/product-management/skills/write-spec"
+    skill_file: "external/anthropic-knowledge-work-plugins/product-management/skills/write-spec/SKILL.md"
+    keywords:
+      - "development"
+      - "product"
+      - "requirements"
+      - "spec"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-apps-sdk"
+    exists: true
+    enabled: false
+    name: "zoom-apps-sdk"
+    description: "Reference skill for Zoom Apps SDK. Use after routing to an in-client app workflow when building web apps that run inside Zoom meetings, webinars, the main client, or Zoom Phone."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-apps-sdk"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-apps-sdk/SKILL.md"
+    keywords:
+      - "integration"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk"
+    exists: true
+    enabled: false
+    name: "zoom-cobrowse-sdk"
+    description: "Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk/SKILL.md"
+    keywords:
+      - "cobrowse"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/general"
+    exists: true
+    enabled: false
+    name: "zoom-general"
+    description: "Cross-product Zoom reference skill. Use after the workflow is clear when you need shared platform guidance, app-model comparisons, authentication context, scopes, marketplace considerations, or API-vs-MCP routing."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/general"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/general/SKILL.md"
+    keywords:
+      - "architecture"
+      - "integration"
+      - "rest-api"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp"
+    exists: true
+    enabled: false
+    name: "zoom-mcp"
+    description: "Guidance for the bundled Zoom MCP connectors. Use after routing to an MCP workflow when planning or troubleshooting tool-based access to meetings, recordings, meeting assets, or transcripts. Route Zoom Docs requests to the dedicated Docs MCP server and Whiteboard-specific requests to `zoom-mcp/whiteboard`."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp/SKILL.md"
+    keywords:
+      - "ai"
+      - "integration"
+      - "mcp"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp/whiteboard"
+    exists: true
+    enabled: false
+    name: "zoom-mcp/whiteboard"
+    description: "Guidance for the bundled Zoom Whiteboard MCP connector. Use for Whiteboard MCP auth,\nendpoints, ID mapping, and tool workflows such as list_whiteboards and get_a_whiteboard.\nPrefer this skill when the request is specifically about Whiteboard MCP rather than general Zoom MCP."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp/whiteboard"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp/whiteboard/SKILL.md"
+    keywords:
+      - "integration"
+      - "mcp"
+      - "whiteboard"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-android"
+    description: "Zoom Meeting SDK for Android native apps. Use when embedding Zoom meetings in Android with\ndefault/custom UI, PKCE + SDK auth, join/start flows, and Meeting SDK API integration."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android/SKILL.md"
+    keywords:
+      - "android"
+      - "meeting"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-electron"
+    description: "Zoom Meeting SDK for Electron desktop applications. Use when embedding Zoom meetings in an Electron app\nwith the Node addon wrapper, JWT auth, join/start flows, settings controllers, and raw data integration."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron/SKILL.md"
+    keywords:
+      - "electron"
+      - "meeting"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-ios"
+    description: "Zoom Meeting SDK for iOS native apps. Use when embedding Zoom meetings in iOS with\ndefault/custom UI, PKCE + SDK auth, host start with ZAK, and mobile lifecycle handling."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios/SKILL.md"
+    keywords:
+      - "ios"
+      - "meeting"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-macos"
+    description: "Zoom Meeting SDK for macOS native apps. Use when embedding Zoom meetings in macOS with\ndefault/custom UI, PKCE + SDK auth, host start/join flows, and desktop meeting feature controllers."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos/SKILL.md"
+    keywords:
+      - "macos"
+      - "meeting"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-react-native"
+    description: "Zoom Meeting SDK for React Native. Use when embedding Zoom meetings in React Native iOS/Android apps with @zoom/meetingsdk-react-native, JWT auth, join/start flows, platform setup, and native bridge troubleshooting."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native/SKILL.md"
+    keywords:
+      - "meeting"
+      - "react-native"
+      - "sdk"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-unreal"
+    description: "Zoom Meeting SDK for Unreal Engine wrapper integrations. Use when building Unreal projects that\nembed Zoom meetings with C++ and Blueprint wrappers, including wrapper-to-SDK mapping concerns."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal/SKILL.md"
+    keywords:
+      - "meeting"
+      - "sdk"
+      - "unreal"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-web"
+    description: "Zoom Meeting SDK for Web - Embed Zoom meeting capabilities into web applications. Two integration\noptions: Client View (full-page, familiar Zoom UI) and Component View (embeddable, Promise-based API).\nIncludes SharedArrayBuffer setup for HD video, gallery view, and virtual backgrounds."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/SKILL.md"
+    keywords:
+      - "meeting"
+      - "sdk"
+      - "web"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-web-client-view"
+    description: "Zoom Meeting SDK Web - Client View. Full-page Zoom meeting experience with the familiar Zoom interface.\nUses ZoomMtg global singleton with callback-based API. Ideal for quick integration with minimal\ncustomization. Provides the same UI as Zoom Web Client."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view/SKILL.md"
+    keywords:
+      - "meeting"
+      - "meeting-sdk"
+      - "sdk"
+      - "web"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-web-component-view"
+    description: "Zoom Meeting SDK Web - Component View. Embeddable Zoom meeting components with Promise-based API\nfor flexible integration. Ideal for React/Vue/Angular apps and custom layouts. Uses ZoomMtgEmbedded\nwith async/await patterns and embeddable UI containers."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view/SKILL.md"
+    keywords:
+      - "meeting"
+      - "meeting-sdk"
+      - "sdk"
+      - "web"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows"
+    exists: true
+    enabled: false
+    name: "zoom-meeting-sdk-windows"
+    description: "Zoom Meeting SDK for Windows - Native C++ SDK for embedding Zoom meetings into Windows desktop\napplications. Supports custom UI architecture with raw video/audio data, headless bots, and deep\nintegration with meeting features. Includes SDK architecture patterns and Windows message loop handling."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows/SKILL.md"
+    keywords:
+      - "meeting"
+      - "sdk"
+      - "windows"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/oauth"
+    exists: true
+    enabled: false
+    name: "zoom-oauth"
+    description: "Reference skill for Zoom authentication. Use after routing to an auth workflow when choosing app credentials, grant types, scopes, token refresh behavior, or debugging Zoom OAuth failures."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/oauth"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/oauth/SKILL.md"
+    keywords:
+      - "configuration"
+      - "oauth"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rtms"
+    exists: true
+    enabled: false
+    name: "zoom-rtms"
+    description: "Reference skill for Zoom RTMS. Use after routing to a live-media workflow when processing real-time audio, video, chat, transcripts, screen share, or contact-center voice streams."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rtms"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/rtms/SKILL.md"
+    keywords:
+      - "media"
+      - "rtms"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android"
+    exists: true
+    enabled: false
+    name: "zoom-video-sdk-android"
+    description: "Zoom Video SDK for Android native apps. Use when building custom Android video experiences\nwith full UI control, session tokens, raw media options, and event-driven participant state."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android/SKILL.md"
+    keywords:
+      - "android"
+      - "sdk"
+      - "video"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter"
+    exists: true
+    enabled: false
+    name: "zoom-video-sdk-flutter"
+    description: "Zoom Video SDK for Flutter. Use when building custom video session apps in Flutter with\nflutter_zoom_videosdk, event-driven architecture, session lifecycle handling, and mobile\nplatform integration patterns."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter/SKILL.md"
+    keywords:
+      - "flutter"
+      - "sdk"
+      - "video"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios"
+    exists: true
+    enabled: false
+    name: "zoom-video-sdk-ios"
+    description: "Zoom Video SDK for iOS native apps. Use when building custom iOS video sessions with\nfull UI control, token-based session auth, and event-driven media/participant flows."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios/SKILL.md"
+    keywords:
+      - "ios"
+      - "sdk"
+      - "video"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos"
+    exists: true
+    enabled: false
+    name: "zoom-video-sdk-macos"
+    description: "Zoom Video SDK for macOS native desktop apps. Use when building custom macOS video sessions\nwith native UI control, tokenized join, and desktop-oriented media/device workflows."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos/SKILL.md"
+    keywords:
+      - "macos"
+      - "sdk"
+      - "video"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native"
+    exists: true
+    enabled: false
+    name: "zoom-video-sdk-react-native"
+    description: "Zoom Video SDK for React Native. Use when building custom mobile video session experiences\nwith @zoom/react-native-videosdk, event listeners, helper-based APIs, and backend JWT token flows."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native/SKILL.md"
+    keywords:
+      - "react-native"
+      - "sdk"
+      - "video"
+      - "zoom"
+  - id: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity"
+    exists: true
+    enabled: false
+    name: "zoom-video-sdk-unity"
+    description: "Zoom Video SDK for Unity wrapper integrations. Use when building custom Unity-based\nvideo session experiences and mapping Unity scene/UI state to Video SDK events."
+    source: "anthropic-knowledge-work-plugins"
+    path: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity"
+    skill_file: "external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity/SKILL.md"
+    keywords:
+      - "sdk"
+      - "unity"
+      - "video"
+      - "zoom"

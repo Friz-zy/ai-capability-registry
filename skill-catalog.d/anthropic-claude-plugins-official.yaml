@@ -1,0 +1,363 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "anthropic-claude-plugins-official"
+skills:
+  - id: "external/anthropic-claude-plugins-official/external_plugins/discord/skills/access"
+    exists: false
+    enabled: false
+    name: "access"
+    description: "Manage Discord channel access — approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the Discord channel."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/external_plugins/discord/skills/access"
+    skill_file: "external/anthropic-claude-plugins-official/external_plugins/discord/skills/access/SKILL.md"
+    keywords:
+      - "access"
+      - "ai"
+      - "discord"
+      - "management"
+      - "mcp"
+  - id: "external/anthropic-claude-plugins-official/external_plugins/imessage/skills/access"
+    exists: false
+    enabled: false
+    name: "access"
+    description: "Manage iMessage channel access — approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the iMessage channel."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/external_plugins/imessage/skills/access"
+    skill_file: "external/anthropic-claude-plugins-official/external_plugins/imessage/skills/access/SKILL.md"
+    keywords:
+      - "access"
+      - "ai"
+      - "imessage"
+      - "management"
+      - "mcp"
+  - id: "external/anthropic-claude-plugins-official/external_plugins/telegram/skills/access"
+    exists: false
+    enabled: false
+    name: "access"
+    description: "Manage Telegram channel access — approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the Telegram channel."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/external_plugins/telegram/skills/access"
+    skill_file: "external/anthropic-claude-plugins-official/external_plugins/telegram/skills/access/SKILL.md"
+    keywords:
+      - "access"
+      - "ai"
+      - "management"
+      - "mcp"
+      - "telegram"
+  - id: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/agent-development"
+    exists: false
+    enabled: false
+    name: "agent-development"
+    description: "This skill should be used when the user asks to \"create an agent\", \"add an agent\", \"write a subagent\", \"agent frontmatter\", \"when to use description\", \"agent examples\", \"agent tools\", \"agent colors\", \"autonomous agent\", or needs guidance on agent structure, system prompts, triggering conditions, or agent development best practices for Claude Code plugins."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/agent-development"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/agent-development/SKILL.md"
+    keywords:
+      - "agent"
+      - "ai"
+      - "claude-code"
+      - "development"
+      - "plugin"
+  - id: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcp-app"
+    exists: false
+    enabled: false
+    name: "build-mcp-app"
+    description: "This skill should be used when the user wants to build an \"MCP app\", add \"interactive UI\" or \"widgets\" to an MCP server, \"render components in chat\", build \"MCP UI resources\", make a tool that shows a \"form\", \"picker\", \"dashboard\" or \"confirmation dialog\" inline in the conversation, or mentions \"apps SDK\" in the context of MCP. Use AFTER the build-mcp-server skill has settled the deployment model, or when the user already knows they want UI widgets."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcp-app"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcp-app/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "mcp"
+      - "ui"
+  - id: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcp-server"
+    exists: false
+    enabled: false
+    name: "build-mcp-server"
+    description: "This skill should be used when the user asks to \"build an MCP server\", \"create an MCP\", \"make an MCP integration\", \"wrap an API for Claude\", \"expose tools to Claude\", \"make an MCP app\", or discusses building something with the Model Context Protocol. It is the entry point for MCP server development — it interrogates the user about their use case, determines the right deployment model (remote HTTP, MCPB, local stdio), picks a tool-design pattern, and hands off to specialized skills."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcp-server"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcp-server/SKILL.md"
+    keywords:
+      - "ai"
+      - "development"
+      - "integration"
+      - "mcp"
+  - id: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcpb"
+    exists: false
+    enabled: false
+    name: "build-mcpb"
+    description: "This skill should be used when the user wants to \"package an MCP server\", \"bundle an MCP\", \"make an MCPB\", \"ship a local MCP server\", \"distribute a local MCP\", discusses \".mcpb files\", mentions bundling a Node or Python runtime with their MCP server, or needs an MCP server that interacts with the local filesystem, desktop apps, or OS and must be installable without the user having Node/Python set up."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcpb"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/mcp-server-dev/skills/build-mcpb/SKILL.md"
+    keywords:
+      - "ai"
+      - "deployment"
+      - "mcp"
+      - "mcpb"
+  - id: "external/anthropic-claude-plugins-official/plugins/cwc-makers/skills/cardputer-buddy"
+    exists: false
+    enabled: false
+    name: "cardputer-buddy"
+    description: "Iterate on the Cardputer-Adv MicroPython app bundle (Claude Buddy, Snake, Hello) after the device is already provisioned via m5-onboard. Use when the user wants to add a new app, push a single changed .py without re-flashing, watch device serial logs, or run a one-shot REPL command. Trigger on \"add an app\", \"push to the cardputer\", \"tail the device\", \"run on the device\", or follow-up work after /maker-setup."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/cwc-makers/skills/cardputer-buddy"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/cwc-makers/skills/cardputer-buddy/SKILL.md"
+    keywords:
+      - "development"
+      - "esp32"
+      - "micropython"
+  - id: "external/anthropic-claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender"
+    exists: false
+    enabled: false
+    name: "claude-automation-recommender"
+    description: "Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugins, MCP servers). Use when user asks for automation recommendations, wants to optimize their Claude Code setup, mentions improving Claude Code workflows, asks how to first set up Claude Code for a project, or wants to know what Claude Code features they should use."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender/SKILL.md"
+    keywords:
+      - "ai"
+      - "automation"
+      - "claude-code"
+      - "configuration"
+      - "optimization"
+  - id: "external/anthropic-claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver"
+    exists: false
+    enabled: false
+    name: "claude-md-improver"
+    description: "Audit and improve CLAUDE.md files in repositories. Use when user asks to check, audit, update, improve, or fix CLAUDE.md files. Scans for all CLAUDE.md files, evaluates quality against templates, outputs quality report, then makes targeted updates. Also use when the user mentions \"CLAUDE.md maintenance\" or \"project memory optimization\"."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/SKILL.md"
+    keywords:
+      - "ai"
+      - "audit"
+      - "claude-code"
+      - "documentation"
+      - "tech-debt"
+  - id: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/command-development"
+    exists: false
+    enabled: false
+    name: "command-development"
+    description: "This skill should be used when the user asks to \"create a slash command\", \"add a command\", \"write a custom command\", \"define command arguments\", \"use command frontmatter\", \"organize commands\", \"create command with file references\", \"interactive command\", \"use AskUserQuestion in command\", or needs guidance on slash command structure, YAML frontmatter fields, dynamic arguments, bash execution in commands, user interaction patterns, or command development best practices for Claude Code."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/command-development"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/command-development/SKILL.md"
+    keywords:
+      - "ai"
+      - "claude-code"
+      - "command"
+      - "development"
+      - "plugin"
+  - id: "external/anthropic-claude-plugins-official/external_plugins/discord/skills/configure"
+    exists: false
+    enabled: false
+    name: "configure"
+    description: "Set up the Discord channel — save the bot token and review access policy. Use when the user pastes a Discord bot token, asks to configure Discord, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/external_plugins/discord/skills/configure"
+    skill_file: "external/anthropic-claude-plugins-official/external_plugins/discord/skills/configure/SKILL.md"
+    keywords:
+      - "ai"
+      - "configuration"
+      - "discord"
+      - "mcp"
+  - id: "external/anthropic-claude-plugins-official/external_plugins/imessage/skills/configure"
+    exists: false
+    enabled: false
+    name: "configure"
+    description: "Check iMessage channel setup and review access policy. Use when the user asks to configure iMessage, asks \"how do I set this up\" or \"who can reach me,\" or wants to know why texts aren't reaching the assistant."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/external_plugins/imessage/skills/configure"
+    skill_file: "external/anthropic-claude-plugins-official/external_plugins/imessage/skills/configure/SKILL.md"
+    keywords:
+      - "ai"
+      - "configuration"
+      - "imessage"
+      - "mcp"
+  - id: "external/anthropic-claude-plugins-official/external_plugins/telegram/skills/configure"
+    exists: false
+    enabled: false
+    name: "configure"
+    description: "Set up the Telegram channel — save the bot token and review access policy. Use when the user pastes a Telegram bot token, asks to configure Telegram, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/external_plugins/telegram/skills/configure"
+    skill_file: "external/anthropic-claude-plugins-official/external_plugins/telegram/skills/configure/SKILL.md"
+    keywords:
+      - "ai"
+      - "configuration"
+      - "mcp"
+      - "telegram"
+  - id: "external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-command"
+    exists: false
+    enabled: false
+    name: "example-command"
+    description: "An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL.md layout"
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-command"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-command/SKILL.md"
+    keywords:
+      - "ai"
+      - "claude-code"
+      - "command"
+      - "example"
+      - "plugin"
+  - id: "external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-skill"
+    exists: false
+    enabled: false
+    name: "example-skill"
+    description: "This skill should be used when the user asks to \"demonstrate skills\", \"show skill format\", \"create a skill template\", or discusses skill development patterns. Provides a reference template for creating Claude Code plugin skills."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-skill"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/example-plugin/skills/example-skill/SKILL.md"
+    keywords:
+      - "ai"
+      - "claude-code"
+      - "example"
+      - "plugin"
+      - "skill-creator"
+  - id: "external/anthropic-claude-plugins-official/plugins/frontend-design/skills/frontend-design"
+    exists: false
+    enabled: false
+    name: "frontend-design"
+    description: "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/frontend-design/skills/frontend-design"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/frontend-design/skills/frontend-design/SKILL.md"
+    keywords:
+      - "design"
+      - "development"
+      - "frontend"
+      - "ui"
+  - id: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/hook-development"
+    exists: false
+    enabled: false
+    name: "hook-development"
+    description: "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up event-driven automation\", \"block dangerous commands\", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on advanced prompt-based hooks API."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/hook-development"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/hook-development/SKILL.md"
+    keywords:
+      - "ai"
+      - "automation"
+      - "claude-code"
+      - "hook"
+      - "plugin"
+  - id: "external/anthropic-claude-plugins-official/plugins/cwc-makers/skills/m5-onboard"
+    exists: false
+    enabled: false
+    name: "m5-onboard"
+    description: "End-to-end onboarding for a freshly-plugged-in M5Stack ESP32 device (Cardputer, Cardputer-Adv, Core, CoreS3, Stick) — detect on USB, flash UIFlow 2.0 firmware, and install the Claude Buddy MicroPython app bundle. Use whenever the user plugs in or wants to flash/provision/reset an M5Stack or ESP32 board, or says \"m5-onboard go\"."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/cwc-makers/skills/m5-onboard"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/cwc-makers/skills/m5-onboard/SKILL.md"
+    keywords:
+      - "configuration"
+      - "esp32"
+  - id: "external/anthropic-claude-plugins-official/plugins/math-olympiad/skills/math-olympiad"
+    exists: false
+    enabled: false
+    name: "math-olympiad"
+    description: "No description."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/math-olympiad/skills/math-olympiad"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/math-olympiad/skills/math-olympiad/SKILL.md"
+    keywords:
+      - "math"
+  - id: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/mcp-integration"
+    exists: false
+    enabled: false
+    name: "mcp-integration"
+    description: "This skill should be used when the user asks to \"add MCP server\", \"integrate MCP\", \"configure MCP in plugin\", \"use .mcp.json\", \"set up Model Context Protocol\", \"connect external service\", mentions \"${CLAUDE_PLUGIN_ROOT} with MCP\", or discusses MCP server types (SSE, stdio, HTTP, WebSocket). Provides comprehensive guidance for integrating Model Context Protocol servers into Claude Code plugins for external tool and service integration."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/mcp-integration"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/mcp-integration/SKILL.md"
+    keywords:
+      - "ai"
+      - "claude-code"
+      - "integration"
+      - "mcp"
+      - "plugin"
+  - id: "external/anthropic-claude-plugins-official/plugins/playground/skills/playground"
+    exists: false
+    enabled: false
+    name: "playground"
+    description: "Creates interactive HTML playgrounds — self-contained single-file explorers that let users configure something visually through controls, see a live preview, and copy out a prompt. Use when the user asks to make a playground, explorer, or interactive tool for a topic."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/playground/skills/playground"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/playground/skills/playground/SKILL.md"
+    keywords:
+      - "ai"
+      - "frontend"
+      - "interactive"
+  - id: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/plugin-settings"
+    exists: false
+    enabled: false
+    name: "plugin-settings"
+    description: "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-project plugin settings\", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/plugin-settings"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/plugin-settings/SKILL.md"
+    keywords:
+      - "ai"
+      - "claude-code"
+      - "configuration"
+      - "plugin"
+  - id: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/plugin-structure"
+    exists: false
+    enabled: false
+    name: "plugin-structure"
+    description: "This skill should be used when the user asks to \"create a plugin\", \"scaffold a plugin\", \"understand plugin structure\", \"organize plugin components\", \"set up plugin.json\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"add commands/agents/skills/hooks\", \"configure auto-discovery\", or needs guidance on plugin directory layout, manifest configuration, component organization, file naming conventions, or Claude Code plugin architecture best practices."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/plugin-structure"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/plugin-structure/SKILL.md"
+    keywords:
+      - "ai"
+      - "claude-code"
+      - "development"
+      - "plugin"
+  - id: "external/anthropic-claude-plugins-official/plugins/session-report/skills/session-report"
+    exists: false
+    enabled: false
+    name: "session-report"
+    description: "Generate an explorable HTML report of Claude Code session usage (tokens, cache, subagents, skills, expensive prompts) from ~/.claude/projects transcripts."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/session-report/skills/session-report"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/session-report/skills/session-report/SKILL.md"
+    keywords:
+      - "ai"
+      - "analytics"
+      - "claude-code"
+      - "reporting"
+      - "session-report"
+  - id: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/skill-development"
+    exists: false
+    enabled: false
+    name: "skill-development"
+    description: "This skill should be used when the user wants to \"create a skill\", \"add a skill to plugin\", \"write a new skill\", \"improve skill description\", \"organize skill content\", or needs guidance on skill structure, progressive disclosure, or skill development best practices for Claude Code plugins."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/skill-development"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/plugin-dev/skills/skill-development/SKILL.md"
+    keywords:
+      - "ai"
+      - "claude-code"
+      - "development"
+      - "plugin"
+      - "skill-creator"
+  - id: "external/anthropic-claude-plugins-official/plugins/hookify/skills/writing-rules"
+    exists: false
+    enabled: false
+    name: "writing-hookify-rules"
+    description: "This skill should be used when the user asks to \"create a hookify rule\", \"write a hook rule\", \"configure hookify\", \"add a hookify rule\", or needs guidance on hookify rule syntax and patterns."
+    source: "anthropic-claude-plugins-official"
+    path: "external/anthropic-claude-plugins-official/plugins/hookify/skills/writing-rules"
+    skill_file: "external/anthropic-claude-plugins-official/plugins/hookify/skills/writing-rules/SKILL.md"
+    keywords:
+      - "ai"
+      - "automation"
+      - "claude-code"
+      - "hook"
