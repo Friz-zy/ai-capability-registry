@@ -1,9 +1,0 @@
-# yara
-
-## Skills
-Load skill and **use it** when task matches.
-
-### yara-rule-authoring
-Guides authoring of high-quality YARA-X detection rules for malware identification. Use when writing, reviewing, or optimizing YARA rules. Covers naming conventions, string selection, performance optimization, migration from legacy YARA, and false positive reduction. Triggers on: YARA, YARA-X, malware detection, threat hunting, IOC, signature, crx module, dex module.
-
-File: `external/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md`

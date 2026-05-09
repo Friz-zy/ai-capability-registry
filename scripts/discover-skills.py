@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generates skill maps and symlink collections organized by keywords and roles.
+Generates skill routing catalogs and symlink packs organized by keywords, roles, and tasks.
 Generates absolute paths for portability across machines.
 """
 
@@ -20,6 +20,8 @@ from registry_lib import ROOT, SKILLS_DIR, load_all, load_yaml, write_text
 
 IGNORED_PARTS = {".git", "tests", "fixtures", "template", "node_modules", "__pycache__"}
 SKILL_CATALOG_DIR = ROOT / "skill-catalog.d"
+SKILLS_CATALOG_DIR = SKILLS_DIR / "catalog"
+SKILLS_PACKS_DIR = SKILLS_DIR / "packs"
 LEGACY_OUTPUT_DIRS = (ROOT / "generated", ROOT / "collections")
 STOPWORDS = {
     "about", "across", "action", "add", "after", "agent", "agents", "all", "also", "always",
@@ -681,12 +683,14 @@ def write_skills_readme() -> None:
 This directory is generated from `registry/*.yaml` and `skill-catalog.d/*.yaml`. Do not edit generated indexes or symlinks manually.
 
 - `skills.md` is the root routing index.
-- `keywords/<keyword>/` contains a keyword catalog and symlinks for enabled skills matching a keyword from `registry/keyword-categories.yaml`.
-- `roles/<profile-id>/` contains a role catalog and symlinks for enabled skills matching a role from `registry/profiles.yaml`.
-- `tasks/<task-id>/` contains a task catalog and symlinks for enabled skills matching task keywords from `registry/tasks.yaml`.
-- `all/` contains every existing enabled skill once.
+- `catalog/` contains routing-only `skills.md` indexes for selecting relevant skills.
+- `catalog/tasks/<task-id>/skills.md` contains task keywords from `registry/tasks.yaml`.
+- `catalog/roles/<profile-id>/skills.md` contains role keywords from `registry/profiles.yaml`.
+- `catalog/keywords/<keyword>/skills.md` contains skill descriptions and source `SKILL.md` paths.
+- `packs/` contains symlink packs for direct inclusion in agent configs.
+- `packs/all/` contains every existing enabled skill once.
 
-Each entry is a symlink to the original skill directory under `external/`, named as `<repo-name>-<skill-name>`.
+Each `packs/` entry is a symlink to the original skill directory under `external/`, named as `<repo-name>-<skill-name>`.
 To change membership, edit `enabled` or `keywords` in provider chunks under `skill-catalog.d/`, or role/keyword definitions under `registry/`, then run:
 
 ```bash
@@ -702,10 +706,15 @@ def generate_collections(
     profiles: list[dict[str, Any]],
     tasks: list[dict[str, Any]],
 ) -> None:
-    (SKILLS_DIR / "keywords").mkdir(parents=True, exist_ok=True)
-    (SKILLS_DIR / "roles").mkdir(parents=True, exist_ok=True)
-    (SKILLS_DIR / "tasks").mkdir(parents=True, exist_ok=True)
-    (SKILLS_DIR / "all").mkdir(parents=True, exist_ok=True)
+    packs_keywords_dir = SKILLS_PACKS_DIR / "keywords"
+    packs_roles_dir = SKILLS_PACKS_DIR / "roles"
+    packs_tasks_dir = SKILLS_PACKS_DIR / "tasks"
+    packs_all_dir = SKILLS_PACKS_DIR / "all"
+
+    packs_keywords_dir.mkdir(parents=True, exist_ok=True)
+    packs_roles_dir.mkdir(parents=True, exist_ok=True)
+    packs_tasks_dir.mkdir(parents=True, exist_ok=True)
+    packs_all_dir.mkdir(parents=True, exist_ok=True)
 
     keyword_count = 0
     role_count = 0
@@ -713,7 +722,7 @@ def generate_collections(
 
     for keyword in registry_keywords(keyword_categories):
         keyword_count += write_collection_links(
-            SKILLS_DIR / "keywords" / keyword,
+            packs_keywords_dir / keyword,
             skills_matching_keywords(skills, [keyword]),
         )
 
@@ -721,21 +730,21 @@ def generate_collections(
         categories = profile.get("include", {}).get("categories", [])
         role_keywords = get_keywords_for_categories(categories, keyword_categories)
         role_count += write_collection_links(
-            SKILLS_DIR / "roles" / profile["id"],
+            packs_roles_dir / profile["id"],
             skills_matching_keywords(skills, role_keywords),
         )
 
     for task in sorted(tasks, key=lambda t: t["id"]):
         task_count += write_collection_links(
-            SKILLS_DIR / "tasks" / task["id"],
+            packs_tasks_dir / task["id"],
             skills_matching_keywords(skills, task_keywords(task, keyword_categories)),
         )
 
-    all_count = write_collection_links(SKILLS_DIR / "all", skills)
+    all_count = write_collection_links(packs_all_dir, skills)
     write_skills_readme()
 
     print(
-        "Generated skills directory: "
+        "Generated skill packs: "
         f"{len(registry_keywords(keyword_categories))} keyword dirs / {keyword_count} links, "
         f"{len(profiles)} role dirs / {role_count} links, "
         f"{len(tasks)} task dirs / {task_count} links, "
@@ -833,7 +842,7 @@ def generate_keyword_skills_md(keyword: str, skills: list[SkillRecord]) -> str:
         f"# {keyword}",
         "",
         "## Skills",
-        "Load skill and **use it** when task matches.",
+        "Select only the most relevant skills by description, then read only those `SKILL.md` files.",
         "",
     ]
 
@@ -864,12 +873,13 @@ def generate_role_skills_md(
         f"# {role_title}",
         "",
         "## Keywords",
+        "Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.",
         "",
     ]
 
     for keyword in sorted(keywords_with_skills):
         count = len(skills_by_keyword.get(keyword, []))
-        keyword_path = f"skills/keywords/{keyword}/skills.md"
+        keyword_path = f"skills/catalog/keywords/{keyword}/skills.md"
         lines.append(f"- **{keyword}**: {count} skills — `{keyword_path}`")
 
     return "\n".join(lines)
@@ -898,11 +908,16 @@ def generate_task_skills_md(
         "",
     ]
     lines.extend(f"- `{category}`" for category in categories)
-    lines.extend(["", "## Keywords", ""])
+    lines.extend([
+        "",
+        "## Keywords",
+        "Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.",
+        "",
+    ])
 
     for keyword in keywords:
         count = len(skills_by_keyword.get(keyword, []))
-        lines.append(f"- **{keyword}**: {count} skills — `skills/keywords/{keyword}/skills.md`")
+        lines.append(f"- **{keyword}**: {count} skills — `skills/catalog/keywords/{keyword}/skills.md`")
 
     return "\n".join(lines)
 
@@ -931,28 +946,27 @@ def generate_root_skills_md(
     skills_by_keyword: dict[str, list[SkillRecord]],
     keyword_to_category: dict[str, str],
 ) -> str:
-    # Build dynamic data from registry
-    role_to_categories = build_role_to_categories(profiles)
-    keyword_category_display = build_keyword_category_display(keyword_categories)
-
     lines = [
         "# AI Capability Registry",
         "",
         "## Skill Resolution Protocol",
         "",
-        "When a task is received, perform these steps BEFORE starting work:",
+        "Before starting work, resolve skills with progressive disclosure:",
         "",
-        "1. **Analyze request** — extract keywords from user request",
-        "2. **Choose entry point** — select a Task, Role, or Keyword below",
-        "3. **Match categories** — each task/role shows its categories and keywords",
-        "4. **Load skills** — read SKILL.md files from matched keywords",
-        "5. **Apply guidance** — follow skill instructions, adapt to project conventions",
+        "1. **Extract intent** — identify action, domain, stack/tool, artifact, and constraints from the user request.",
+        "2. **Route by task first** — match the request to one Task below; select a second Task only for clearly mixed workflows.",
+        "3. **Use role as context** — select at most one Role only when the user asks from that role perspective or it disambiguates the task.",
+        "4. **Read selected indexes only** — open only the matched `skills/catalog/tasks/<task-id>/skills.md` and optional `skills/catalog/roles/<role-id>/skills.md`.",
+        "5. **Choose keywords** — select 1-3 most specific keywords from those indexes; prefer exact stack/tool keywords over broad category keywords.",
+        "6. **Read keyword catalogs** — open only selected `skills/catalog/keywords/<keyword>/skills.md` files.",
+        "7. **Load skills** — choose 1-3 best matching skill descriptions per keyword, then read only those `SKILL.md` files.",
+        "8. **Apply guidance** — follow loaded skill instructions and adapt them to project conventions.",
         "",
-        "### Entry Points",
+        "### Routing Scope",
         "",
-        "Browse all tasks: `skills/tasks/`",
-        "Browse all roles: `skills/roles/`",
-        "Browse all keywords: `skills/keywords/`",
+        "Use `skills/catalog/` only for skill selection.",
+        "Use `skills/packs/` only when configuring agents with preselected skill directories.",
+        "Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution.",
         "",
         "### Roles (category groupings)",
         "",
@@ -962,7 +976,7 @@ def generate_root_skills_md(
         role = profile.get("role", {}).get("title") or profile["name"]
         cats = profile.get("include", {}).get("categories", [])
         keyword_list = ", ".join(f"`{c}`" for c in cats if c in keyword_categories)
-        lines.append(f"- **{role}**: `skills/roles/{profile['id']}/skills.md` → {keyword_list}")
+        lines.append(f"- **{role}**: `skills/catalog/roles/{profile['id']}/skills.md` -> {keyword_list}")
 
     lines.extend([
         "",
@@ -974,7 +988,7 @@ def generate_root_skills_md(
         available = [keyword for keyword in task_keywords(task, keyword_categories) if keyword in skills_by_keyword]
         if available:
             keyword_links = ", ".join(f"`{keyword}`" for keyword in available)
-            lines.append(f"- **{task['name']}**: `skills/tasks/{task['id']}/skills.md` → {keyword_links}")
+            lines.append(f"- **{task['name']}**: `skills/catalog/tasks/{task['id']}/skills.md` -> {keyword_links}")
 
     lines.extend([
         "",
@@ -1102,30 +1116,30 @@ def main() -> int:
         f"enabled {len(skills)} skills across {len(skills_by_keyword)} keywords"
     )
 
-    # Generate keyword catalogs
-    keywords_dir = SKILLS_DIR / "keywords"
+    # Generate keyword routing catalogs
+    keywords_dir = SKILLS_CATALOG_DIR / "keywords"
     for keyword in registry_keywords(keyword_categories):
         keyword_skills = skills_by_keyword.get(keyword, [])
         keyword_dir = keywords_dir / keyword
         content = generate_keyword_skills_md(keyword, keyword_skills)
         write_text(keyword_dir / "skills.md", content)
 
-    # Generate role catalogs
-    roles_dir = SKILLS_DIR / "roles"
+    # Generate role routing catalogs
+    roles_dir = SKILLS_CATALOG_DIR / "roles"
     for profile in registry["profiles"]:
         profile_id = profile["id"]
         role_dir = roles_dir / profile_id
         content = generate_role_skills_md(profile, keyword_categories, skills_by_keyword)
         write_text(role_dir / "skills.md", content)
 
-    # Generate task catalogs
-    tasks_dir = SKILLS_DIR / "tasks"
+    # Generate task routing catalogs
+    tasks_dir = SKILLS_CATALOG_DIR / "tasks"
     for task in registry["tasks"]:
         task_dir = tasks_dir / task["id"]
         content = generate_task_skills_md(task, keyword_categories, skills_by_keyword)
         write_text(task_dir / "skills.md", content)
 
-    # Generate symlink collections inside the same skills tree.
+    # Generate symlink packs for direct inclusion in agent configs.
     generate_collections(skills, keyword_categories, registry["profiles"], registry["tasks"])
 
     # Generate root skills.md

@@ -1,0 +1,29 @@
+# Personal AI Assistant
+
+## Keywords
+Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
+
+- **account-research**: 1 skills — `skills/catalog/keywords/account-research/skills.md`
+- **analysis**: 27 skills — `skills/catalog/keywords/analysis/skills.md`
+- **automation**: 10 skills — `skills/catalog/keywords/automation/skills.md`
+- **bio-research**: 6 skills — `skills/catalog/keywords/bio-research/skills.md`
+- **brainstorming**: 3 skills — `skills/catalog/keywords/brainstorming/skills.md`
+- **configuration**: 7 skills — `skills/catalog/keywords/configuration/skills.md`
+- **debugging**: 6 skills — `skills/catalog/keywords/debugging/skills.md`
+- **documentation**: 12 skills — `skills/catalog/keywords/documentation/skills.md`
+- **integration**: 8 skills — `skills/catalog/keywords/integration/skills.md`
+- **knowledge**: 4 skills — `skills/catalog/keywords/knowledge/skills.md`
+- **management**: 9 skills — `skills/catalog/keywords/management/skills.md`
+- **memory**: 2 skills — `skills/catalog/keywords/memory/skills.md`
+- **migration**: 2 skills — `skills/catalog/keywords/migration/skills.md`
+- **optimization**: 3 skills — `skills/catalog/keywords/optimization/skills.md`
+- **planning**: 13 skills — `skills/catalog/keywords/planning/skills.md`
+- **productivity**: 6 skills — `skills/catalog/keywords/productivity/skills.md`
+- **reporting**: 10 skills — `skills/catalog/keywords/reporting/skills.md`
+- **requirements**: 1 skills — `skills/catalog/keywords/requirements/skills.md`
+- **research**: 15 skills — `skills/catalog/keywords/research/skills.md`
+- **review**: 12 skills — `skills/catalog/keywords/review/skills.md`
+- **summarization**: 6 skills — `skills/catalog/keywords/summarization/skills.md`
+- **validation**: 3 skills — `skills/catalog/keywords/validation/skills.md`
+- **workflow**: 9 skills — `skills/catalog/keywords/workflow/skills.md`
+- **writing**: 5 skills — `skills/catalog/keywords/writing/skills.md`

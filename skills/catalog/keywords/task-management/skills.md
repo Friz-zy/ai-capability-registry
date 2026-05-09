@@ -1,0 +1,9 @@
+# task-management
+
+## Skills
+Select only the most relevant skills by description, then read only those `SKILL.md` files.
+
+### task-management
+Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/complete tasks, or needs help tracking commitments.
+
+File: `external/anthropic-knowledge-work-plugins/productivity/skills/task-management/SKILL.md`

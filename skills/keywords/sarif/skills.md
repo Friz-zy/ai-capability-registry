@@ -1,9 +1,0 @@
-# sarif
-
-## Skills
-Load skill and **use it** when task matches.
-
-### sarif-parsing
-Parses and processes SARIF files from static analysis tools like CodeQL, Semgrep, or other scanners. Triggers on "parse sarif", "read scan results", "aggregate findings", "deduplicate alerts", or "process sarif output". Handles filtering, deduplication, format conversion, and CI/CD integration of SARIF data. Does NOT run scans — use the Semgrep or CodeQL skills for that.
-
-File: `external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing/SKILL.md`

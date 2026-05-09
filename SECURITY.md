@@ -41,15 +41,17 @@ CI automatically syncs when `registry/skills.yaml` is modified.
 
 ## Capability Discovery
 
-Agents discover capabilities via cascading skill maps:
+Agents discover capabilities via routing catalogs with progressive disclosure:
 
 ```
 skills/skills.md (root)
-→ skills/roles/<role>/skills.md (role catalogs and symlinks)
-→ skills/tasks/<task>/skills.md (task catalogs and symlinks)
-→ skills/keywords/<keyword>/skills.md (keyword catalogs and symlinks)
-→ external/<source>/<path>/SKILL.md (actual skill)
+-> skills/catalog/tasks/<task>/skills.md (task routing catalog)
+-> skills/catalog/roles/<role>/skills.md (optional role routing catalog)
+-> skills/catalog/keywords/<keyword>/skills.md (keyword catalog with skill descriptions)
+-> external/<source>/<path>/SKILL.md (actual skill)
 ```
+
+`skills/packs/` contains symlink packs for direct inclusion in agent configs and is not used for runtime skill selection.
 
 ## Reporting Issues
 

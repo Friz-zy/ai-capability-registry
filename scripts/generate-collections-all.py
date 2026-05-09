@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate skills/all directly from enabled provider catalog chunks."""
+"""Generate skills/packs/all directly from enabled provider catalog chunks."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from registry_lib import load_yaml  # noqa: E402
 
 CATALOG_DIR = ROOT / "skill-catalog.d"
-ALL_DIR = ROOT / "skills" / "all"
+ALL_DIR = ROOT / "skills" / "packs" / "all"
 
 
 def reset_all_dir() -> None:

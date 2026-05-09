@@ -9,7 +9,7 @@ This registry is security-first. New capabilities are indexed before they are en
 3. Set `enabled: true` only for reviewed sources; use `enabled: false` for candidate
 4. Run `./scripts/bootstrap.sh` to sync submodules and regenerate skill maps
 5. CI will auto-commit the generated changes if `registry/skills.yaml` is modified
-6. Review the generated `skills/skills.md` and `skills/roles/` catalogs
+6. Review the generated `skills/skills.md` and `skills/catalog/` catalogs
 
 ## Adding New Sources
 
@@ -43,10 +43,11 @@ This registry is security-first. New capabilities are indexed before they are en
 
 The following are auto-generated and should NOT be edited manually:
 
-- `skills/skills.md` - Root index with all roles and tasks
-- `skills/roles/<id>/skills.md` - Role catalogs and symlinks
-- `skills/tasks/<id>/skills.md` - Task catalogs and symlinks
-- `skills/keywords/<keyword>/skills.md` - Keyword catalogs and symlinks
+- `skills/skills.md` - Root routing index with all roles and tasks
+- `skills/catalog/roles/<id>/skills.md` - Role routing catalogs
+- `skills/catalog/tasks/<id>/skills.md` - Task routing catalogs
+- `skills/catalog/keywords/<keyword>/skills.md` - Keyword catalogs with skill descriptions
+- `skills/packs/` - Symlink packs for direct agent config inclusion
 
 ## Skill Resolution Chain
 

@@ -2,7 +2,7 @@
 
 Curated AI skills, MCP servers, workflows, and agent integrations for secure multi-agent development.
 
-This repository turns AI-agent capability sprawl into a reproducible GitOps-style registry. It downloads upstream sources as pinned submodules, inventories every discovered skill, and generates a cascading skill map organized by roles and keywords for dynamic agent capability routing.
+This repository turns AI-agent capability sprawl into a reproducible GitOps-style registry. It downloads upstream sources as pinned submodules, inventories every discovered skill, and generates routing catalogs plus symlink packs organized by roles, tasks, and keywords.
 
 ## Setup
 
@@ -16,7 +16,7 @@ The bootstrap script will:
 1. Sync external submodules to correct commits
 2. Validate registry configuration
 3. Sync provider chunks under `skill-catalog.d/` with discovered skills
-4. Generate the combined `skills/` routing indexes and symlink directories from `skill-catalog.d/`
+4. Generate the combined `skills/` routing catalogs and symlink packs from `skill-catalog.d/`
 
 ## How Agents Use This Registry
 
@@ -28,13 +28,13 @@ Agents can consume skills in either of two ways:
 <path-to-registry>/skills/skills.md
 ```
 
-2. Attach a whole generated skill directory:
+2. Attach a whole generated skill pack:
 
 ```
-<path-to-registry>/skills/roles/<role-id>/
-<path-to-registry>/skills/tasks/<task-id>/
-<path-to-registry>/skills/keywords/<keyword>/
-<path-to-registry>/skills/all/
+<path-to-registry>/skills/packs/roles/<role-id>/
+<path-to-registry>/skills/packs/tasks/<task-id>/
+<path-to-registry>/skills/packs/keywords/<keyword>/
+<path-to-registry>/skills/packs/all/
 ```
 
 For example:
@@ -42,23 +42,23 @@ For example:
 ```bash
 REGISTRY_ROOT="path to your skills registry"
 echo "Skills index: $REGISTRY_ROOT/skills/skills.md"
-echo "Frontend role skills: $REGISTRY_ROOT/skills/roles/frontend-engineer"
+echo "Frontend role pack: $REGISTRY_ROOT/skills/packs/roles/frontend-engineer"
 echo "" >> AGENTS.md
 echo "Read also instructions from $REGISTRY_ROOT/skills/skills.md" >> AGENTS.md
 ```
 
 ## Navigation
 
-Skill entries inside `skills/roles/`, `skills/tasks/`, `skills/keywords/`, and `skills/all/` are symlinks back to skill directories under `external/`.
+Skill routing catalogs live under `skills/catalog/`. Skill entries inside `skills/packs/` are symlinks back to skill directories under `external/`.
 
 ```
-skill-catalog.d/<provider>.yaml       (source of truth for enabled/disabled skills)
-  → skills/skills.md               (root index - all roles)
-    → skills/roles/<role>/skills.md    (role catalog plus matching skill symlinks)
-    → skills/tasks/<task>/skills.md    (task catalog plus matching skill symlinks)
-    → skills/keywords/<keyword>/skills.md  (keyword catalog plus matching skill symlinks)
-    → <absolute-path>/SKILL.md          (actual skill file)
-  → skills/all/                         (all enabled skills once)
+skill-catalog.d/<provider>.yaml                 (source of truth for enabled/disabled skills)
+  -> skills/skills.md                            (root routing index)
+    -> skills/catalog/tasks/<task>/skills.md     (task routing catalog)
+    -> skills/catalog/roles/<role>/skills.md     (optional role routing catalog)
+    -> skills/catalog/keywords/<keyword>/skills.md  (keyword catalog with skill descriptions)
+    -> external/<source>/<path>/SKILL.md         (actual skill file)
+  -> skills/packs/                               (symlink packs for direct config inclusion)
 ```
 
 ## Skill Catalog and Generated Structure
@@ -84,20 +84,16 @@ Generated outputs:
 
 ```
 skills/
-├── skills.md              # Root index (point your agent here)
-├── all/                   # Every existing enabled skill once, as symlinks
-├── roles/                 # Role catalogs and symlinks from registry/profiles.yaml
-│   └── <role-id>/
-│       ├── skills.md
-│       └── <source>-<skill> -> external/...
-├── tasks/                 # Task catalogs and symlinks from registry/tasks.yaml
-│   └── <task-id>/
-│       ├── skills.md
-│       └── <source>-<skill> -> external/...
-└── keywords/              # Keyword catalogs and symlinks from registry/keyword-categories.yaml
-    └── <keyword>/
-        ├── skills.md
-        └── <source>-<skill> -> external/...
+├── skills.md                    # Root routing index (point your agent here)
+├── catalog/                     # Routing-only indexes for progressive disclosure
+│   ├── roles/<role-id>/skills.md
+│   ├── tasks/<task-id>/skills.md
+│   └── keywords/<keyword>/skills.md
+└── packs/                       # Symlink packs for direct agent config inclusion
+    ├── all/                     # Every existing enabled skill once
+    ├── roles/<role-id>/
+    ├── tasks/<task-id>/
+    └── keywords/<keyword>/
 ```
 
 `skill-catalog.md` is generated as a human-readable view of `skill-catalog.d/`; do not edit it directly.
@@ -129,7 +125,7 @@ skills/
 | `scripts/update-external.py` | Sync external/ submodules with skills.yaml config |
 | `scripts/validate-registry.py` | Validate registry YAML structure and policies |
 | `scripts/discover-skills.py` | Sync `skill-catalog.d/`, generate `skills/`, and generate `skill-catalog.md` |
-| `scripts/generate-collections-all.py` | Regenerate `skills/all` from enabled entries in `skill-catalog.d/` |
+| `scripts/generate-collections-all.py` | Regenerate `skills/packs/all` from enabled entries in `skill-catalog.d/` |
 
 ## Regenerate Skills Tree
 
