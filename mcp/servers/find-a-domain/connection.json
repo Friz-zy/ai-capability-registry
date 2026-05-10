@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "find-a-domain": {
+      "type": "streamable_http",
+      "url": "https://api.findadomain.dev/mcp"
+    }
+  }
+}

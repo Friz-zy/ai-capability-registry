@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "openzeppelin-stylus-contracts": {
+      "type": "streamable_http",
+      "url": "https://mcp.openzeppelin.com/contracts/stylus/mcp"
+    }
+  }
+}

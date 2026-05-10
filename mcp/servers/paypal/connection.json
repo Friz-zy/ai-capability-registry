@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "paypal": {
+      "type": "sse",
+      "url": "https://mcp.paypal.com/sse"
+    }
+  }
+}

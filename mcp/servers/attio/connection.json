@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "attio": {
+      "type": "streamable_http",
+      "url": "https://mcp.attio.com/mcp"
+    }
+  }
+}

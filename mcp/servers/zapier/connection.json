@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "zapier": {
+      "type": "streamable_http",
+      "url": "https://mcp.zapier.com/api/mcp/mcp"
+    }
+  }
+}

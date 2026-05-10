@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hive-intelligence": {
+      "type": "streamable_http",
+      "url": "https://hiveintelligence.xyz/mcp"
+    }
+  }
+}

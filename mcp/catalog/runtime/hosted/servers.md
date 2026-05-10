@@ -1,0 +1,93 @@
+# Hosted MCP Servers
+
+- **AWS Knowledge** (`aws-knowledge`) — `hosted_https`, `trusted`: Software Development MCP server by AWS.
+- **Asana** (`asana`) — `hosted_https`, `trusted`: Project Management MCP server by Asana.
+- **Astro Docs** (`astro-docs`) — `hosted_https`, `trusted`: Documentation MCP server by Astro.
+- **Attio** (`attio`) — `hosted_https`, `trusted`: CRM MCP server by Attio.
+- **BGPT** (`bgpt`) — `hosted_https`, `trusted`: Scientific Research MCP server by BGPT.
+- **Canva** (`canva`) — `hosted_https`, `trusted`: Design MCP server by Canva.
+- **Carbon Voice** (`carbon-voice`) — `hosted_https`, `trusted`: Productivity MCP server by Carbon Voice.
+- **Cloudflare Docs** (`cloudflare-docs`) — `hosted_https`, `trusted`: Documentation MCP server by Cloudflare.
+- **Cloudflare Observability** (`cloudflare-observability`) — `hosted_https`, `trusted`: Observability MCP server by Cloudflare.
+- **Cloudflare Workers** (`cloudflare-workers`) — `hosted_https`, `trusted`: Software Development MCP server by Cloudflare.
+- **Cloudinary** (`cloudinary`) — `hosted_https`, `trusted`: Asset Management MCP server by Cloudinary.
+- **Context Awesome** (`context-awesome`) — `hosted_https`, `trusted`: Specialised Dataset MCP server by Context Awesome.
+- **Context7 MCP** (`context7`) — `hosted_https`, `trusted`: Trusted hosted MCP for retrieving current library documentation and code examples.
+- **Cortex** (`cortex`) — `hosted_https`, `trusted`: Internal Developer Portal MCP server by Cortex.
+- **CustomGPT.ai** (`customgpt.ai`) — `hosted_https`, `trusted`: RAG-as-a-service MCP server by CustomGPT.ai.
+- **DeepWiki** (`deepwiki`) — `hosted_https`, `trusted`: RAG-as-a-Service MCP server by Devin.
+- **Dialer** (`dialer`) — `hosted_https`, `trusted`: Outbound Phone Calls MCP server by Dialer.
+- **Dodo Payments** (`dodo-payments`) — `hosted_https`, `trusted`: Payments MCP server by Dodo Payments.
+- **EAN-Search.org** (`ean-search.org`) — `hosted_https`, `trusted`: Product Data MCP server by EAN-Search.org.
+- **Egnyte** (`egnyte`) — `hosted_https`, `trusted`: Document Management MCP server by Egnyte.
+- **Ferryhopper** (`ferryhopper`) — `hosted_https`, `trusted`: Other MCP server by Ferryhopper.
+- **Find-A-Domain** (`find-a-domain`) — `hosted_https`, `trusted`: Productivity MCP server by Find-A-Domain.
+- **Firefly** (`firefly`) — `hosted_https`, `trusted`: Productivity MCP server by Firefly.
+- **GitMCP** (`gitmcp`) — `hosted_https`, `trusted`: Software Development MCP server by GitMCP.
+- **Globalping** (`globalping`) — `hosted_https`, `trusted`: Software Development MCP server by Globalping.
+- **Google Big Query** (`google-big-query`) — `hosted_https`, `trusted`: Data Analysis MCP server by Google.
+- **Grafbase** (`grafbase`) — `hosted_https`, `trusted`: Software Development MCP server by Grafbase.
+- **Hive Intelligence** (`hive-intelligence`) — `hosted_https`, `trusted`: Crypto MCP server by Hive Intelligence.
+- **HubSpot** (`hubspot`) — `hosted_https`, `trusted`: CRM MCP server by HubSpot.
+- **Hugging Face** (`hugging-face`) — `hosted_https`, `trusted`: Software Development MCP server by Hugging Face.
+- **Indeed** (`indeed`) — `hosted_https`, `trusted`: Job Board MCP server by Indeed.
+- **Instant** (`instant`) — `hosted_https`, `trusted`: Software Development MCP server by Instant.
+- **Intercom** (`intercom`) — `hosted_https`, `trusted`: Customer Support MCP server by Intercom.
+- **Invidio** (`invidio`) — `hosted_https`, `trusted`: Video Platform MCP server by Invidio.
+- **Jam** (`jam`) — `hosted_https`, `trusted`: Software Development MCP server by Jam.dev.
+- **Javadocs** (`javadocs`) — `hosted_https`, `trusted`: Software Development MCP server by Javadocs.dev.
+- **Kollektiv** (`kollektiv`) — `hosted_https`, `trusted`: Documentation MCP server by Kollektiv.
+- **LLM Text** (`llm-text`) — `hosted_https`, `trusted`: Data Analysis MCP server by LLM Text.
+- **Linear MCP** (`linear`) — `hosted_https_oauth`, `trusted`: Official Linear remote MCP for issues, projects, comments, and planning workflows.
+- **Listenetic** (`listenetic`) — `hosted_https`, `trusted`: Productivity MCP server by Listenetic.
+- **LiveScore MCP** (`livescore-mcp`) — `hosted_https`, `trusted`: Sports MCP server by LiveScore MCP.
+- **Malware Patrol** (`malware-patrol`) — `hosted_https`, `trusted`: Threat Intelligence MCP server by Malware Patrol.
+- **Manifold** (`manifold`) — `hosted_https`, `trusted`: Forecasting MCP server by Manifold.
+- **Mercado Libre** (`mercado-libre`) — `hosted_https`, `trusted`: E-Commerce MCP server by Mercado Libre MCP Server.
+- **Mercado Pago** (`mercado-pago`) — `hosted_https`, `trusted`: Payments MCP server by Mercado Pago MCP Server.
+- **Metro MCP** (`metro-mcp`) — `hosted_https`, `trusted`: Transit MCP server by Anurag.
+- **MorningStar** (`morningstar`) — `hosted_https`, `trusted`: Data Analysis MCP server by MorningStar.
+- **Needle** (`needle`) — `hosted_https`, `trusted`: RAG-as-a-service MCP server by Needle.
+- **Netlify** (`netlify`) — `hosted_https`, `trusted`: Software Development MCP server by Netlify.
+- **Notion MCP** (`notion`) — `hosted_https_oauth`, `trusted`: Official Notion MCP integration controlled by workspace permissions.
+- **Octagon** (`octagon`) — `hosted_https`, `trusted`: Market Intelligence MCP server by Octagon.
+- **OneContext** (`onecontext`) — `hosted_https`, `trusted`: RAG-as-a-Service MCP server by OneContext.
+- **OpenMesh** (`openmesh`) — `hosted_https`, `trusted`: Service Discovery MCP server by OpenMesh.
+- **OpenZeppelin Cairo Contracts** (`openzeppelin-cairo-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **OpenZeppelin Solidity Contracts** (`openzeppelin-solidity-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **OpenZeppelin Stellar Contracts** (`openzeppelin-stellar-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **OpenZeppelin Stylus Contracts** (`openzeppelin-stylus-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **PayPal** (`paypal`) — `hosted_https`, `trusted`: Payments MCP server by PayPal.
+- **Peek.com** (`peek.com`) — `hosted_https`, `trusted`: Other MCP server by Peek.com.
+- **Plaid** (`plaid`) — `hosted_https`, `trusted`: Payments MCP server by Plaid.
+- **Polar Signals** (`polar-signals`) — `hosted_https`, `trusted`: Software Development MCP server by Polar Signals.
+- **Port IO** (`port-io`) — `hosted_https`, `trusted`: Internal Developer Portal MCP server by Port IO.
+- **PostHog MCP** (`posthog`) — `hosted_https`, `trusted`: Official PostHog MCP for product analytics and operational insight workflows.
+- **Prisma Postgres** (`prisma-postgres`) — `hosted_https`, `trusted`: Database MCP server by Prisma Postgres.
+- **Ramp** (`ramp`) — `hosted_https`, `trusted`: Payments MCP server by Ramp.
+- **Remote MCP** (`remote-mcp`) — `hosted_https`, `trusted`: MCP Directory MCP server by Remote MCP.
+- **Rube** (`rube`) — `hosted_https`, `trusted`: Other MCP server by Composio.
+- **Scorecard** (`scorecard`) — `hosted_https`, `trusted`: AI Evaluation MCP server by Scorecard.
+- **SearchAPI** (`searchapi`) — `hosted_https`, `trusted`: Search MCP server by SearchAPI.
+- **Semgrep** (`semgrep`) — `hosted_https`, `trusted`: Software Development MCP server by Semgrep.
+- **Sentry MCP** (`sentry`) — `hosted_https_oauth`, `trusted`: Official hosted MCP for Sentry issues, errors, projects, and incident analysis.
+- **Short.io** (`short.io`) — `hosted_https`, `trusted`: Link shortener MCP server by Short.io.
+- **Simplescraper** (`simplescraper`) — `hosted_https`, `trusted`: Web Scraping MCP server by Simplescraper.
+- **Square** (`square`) — `hosted_https`, `trusted`: Payments MCP server by Square.
+- **Stack Overflow** (`stack-overflow`) — `hosted_https`, `trusted`: Software Development MCP server by StackOverflow.
+- **Stytch** (`stytch`) — `hosted_https`, `trusted`: Authentication MCP server by Stytch.
+- **SubwayInfo NYC** (`subwayinfo-nyc`) — `hosted_https`, `trusted`: Other MCP server by SubwayInfo NYC.
+- **Supabase** (`supabase`) — `hosted_https`, `trusted`: Database MCP server by Supabase.
+- **Tavily MCP** (`tavily`) — `hosted_https_oauth`, `trusted`: Official Tavily MCP for search and extraction research workflows.
+- **Telnyx** (`telnyx`) — `hosted_https`, `trusted`: Communication MCP server by Telnyx.
+- **Turkish Airlines** (`turkish-airlines`) — `hosted_https`, `trusted`: Airlines MCP server by Turkish Technology.
+- **TweetSave** (`tweetsave`) — `hosted_https`, `trusted`: Social Media MCP server by TweetSave.
+- **Vercel** (`vercel`) — `hosted_https`, `trusted`: Software Development MCP server by Vercel.
+- **VibeMarketing** (`vibemarketing`) — `hosted_https`, `trusted`: Social Media MCP server by VibeMarketing.
+- **WebZum** (`webzum`) — `hosted_https`, `trusted`: Website Hosting MCP server by WebZum.
+- **Wix** (`wix`) — `hosted_https`, `trusted`: CMS MCP server by Wix.
+- **Zapier** (`zapier`) — `hosted_https`, `trusted`: Automation MCP server by Zapier.
+- **monday.com** (`monday.com`) — `hosted_https`, `trusted`: Productivity MCP server by monday MCP.
+- **mypromind.com** (`mypromind.com`) — `hosted_https`, `trusted`: Learning MCP server by mypromind MCP.
+- **xbird** (`xbird`) — `hosted_https`, `trusted`: Social Media MCP server by xbird.
+- **zip1.io** (`zip1.io`) — `hosted_https`, `trusted`: Link shortener MCP server by zip1.io.

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "egnyte": {
+      "type": "sse",
+      "url": "https://mcp-server.egnyte.com/sse"
+    }
+  }
+}

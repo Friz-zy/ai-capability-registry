@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "scorecard": {
+      "type": "sse",
+      "url": "https://scorecard-mcp.dare-d5b.workers.dev/sse"
+    }
+  }
+}

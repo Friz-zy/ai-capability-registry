@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "context-awesome": {
+      "type": "streamable_http",
+      "url": "https://www.context-awesome.com/api/mcp"
+    }
+  }
+}

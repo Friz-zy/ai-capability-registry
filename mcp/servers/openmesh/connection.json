@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "openmesh": {
+      "type": "streamable_http",
+      "url": "https://api.openmesh.dev/mcp"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "webzum": {
+      "type": "streamable_http",
+      "url": "https://webzum.com/api/mcp"
+    }
+  }
+}

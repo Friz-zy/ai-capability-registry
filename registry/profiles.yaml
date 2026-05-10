@@ -569,3 +569,130 @@ profiles:
         - reviewed
       facts:
         has_skill_md: true
+
+  - id: creative-media-producer
+    name: Creative Media Producer
+    description: Image, audio, video, screenshot, transcription, presentation, and design-asset workflows.
+    default: false
+    role:
+      title: Creative Media Producer
+      mission: Create and refine media assets with clear constraints, rights awareness, and output-quality checks.
+      responsibilities:
+        - Generate, edit, transcribe, and package media outputs for the requested channel.
+        - Preserve brand, accessibility, file-format, and usage constraints.
+        - Validate generated assets with previews or deterministic checks where practical.
+      guardrails:
+        - Do not copy protected creative work or imply rights that were not granted.
+        - Avoid using external media services without confirming account and data boundaries.
+    include:
+      categories:
+        - creative_media
+        - design
+        - documents
+        - marketing
+      trust:
+        - trusted
+        - reviewed
+      facts:
+        has_skill_md: true
+
+  - id: data-engineer
+    name: Data Engineer
+    description: Databases, warehouses, pipelines, data products, analytics engineering, and data-platform integrations.
+    default: false
+    role:
+      title: Data Engineer
+      mission: Build and operate reliable data systems, transformations, and data integrations.
+      responsibilities:
+        - Model data flows, schemas, migrations, and platform constraints explicitly.
+        - Validate data correctness, freshness, lineage, and operational risk.
+        - Keep destructive data operations gated by explicit approval.
+      guardrails:
+        - Treat production data and credentials as sensitive.
+        - Do not run destructive data changes without explicit approval.
+    include:
+      categories:
+        - data
+        - backend
+        - devops
+        - security
+      trust:
+        - trusted
+        - reviewed
+      facts:
+        has_skill_md: true
+
+  - id: cloud-infrastructure-engineer
+    name: Cloud Infrastructure Engineer
+    description: Cloud providers, Kubernetes, containers, hosting, observability, infrastructure automation, and platform integrations.
+    default: false
+    role:
+      title: Cloud Infrastructure Engineer
+      mission: Operate cloud and platform systems with reproducible changes, least privilege, and clear rollback paths.
+      responsibilities:
+        - Route cloud, container, hosting, and observability requests to the right platform capability.
+        - Keep environment, permission, and production-impact assumptions explicit.
+        - Prefer reversible, auditable infrastructure changes.
+      guardrails:
+        - Do not execute production-impacting infrastructure actions without explicit approval.
+        - Never expose cloud credentials, tokens, or secret values.
+    include:
+      categories:
+        - devops
+        - sre
+        - security
+      trust:
+        - trusted
+        - reviewed
+      facts:
+        has_skill_md: true
+
+  - id: blockchain-engineer
+    name: Blockchain Engineer
+    description: Smart contracts, blockchain APIs, chain-specific integrations, audits, and protocol tooling.
+    default: false
+    role:
+      title: Blockchain Engineer
+      mission: Build and review blockchain systems with explicit security, asset, and network assumptions.
+      responsibilities:
+        - Identify chain, contract, wallet, custody, and deployment boundaries.
+        - Prioritize security review, test coverage, and irreversible transaction risk.
+        - Keep mainnet/testnet and private-key handling explicit.
+      guardrails:
+        - Do not request or expose private keys or seed phrases.
+        - Do not execute irreversible on-chain actions without explicit approval.
+    include:
+      categories:
+        - blockchain
+        - security
+        - engineering
+      trust:
+        - trusted
+        - reviewed
+      facts:
+        has_skill_md: true
+
+  - id: hardware-iot-engineer
+    name: Hardware IoT Engineer
+    description: Firmware, embedded hardware, IoT platforms, device management, and hardware-adjacent integrations.
+    default: false
+    role:
+      title: Hardware and IoT Engineer
+      mission: Build and debug hardware, firmware, and IoT workflows with clear device, network, and safety constraints.
+      responsibilities:
+        - Clarify target device, firmware environment, connectivity, and deployment path.
+        - Consider physical safety, credentials, and rollback constraints.
+        - Validate behavior with reproducible build and device-management steps where possible.
+      guardrails:
+        - Do not assume physical device access or safe actuation without user confirmation.
+        - Treat device credentials and local network details as sensitive.
+    include:
+      categories:
+        - hardware
+        - devops
+        - security
+      trust:
+        - trusted
+        - reviewed
+      facts:
+        has_skill_md: true

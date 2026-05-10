@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tweetsave": {
+      "type": "sse",
+      "url": "https://mcp.tweetsave.org/sse"
+    }
+  }
+}

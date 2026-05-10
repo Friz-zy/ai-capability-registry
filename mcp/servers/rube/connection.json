@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rube": {
+      "type": "streamable_http",
+      "url": "https://rube.app/mcp"
+    }
+  }
+}

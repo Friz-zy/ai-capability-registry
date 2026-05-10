@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "amazon-neptune": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/amazon-neptune-mcp-server"
+      ]
+    }
+  }
+}

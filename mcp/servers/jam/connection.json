@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "jam": {
+      "type": "streamable_http",
+      "url": "https://mcp.jam.dev/mcp"
+    }
+  }
+}

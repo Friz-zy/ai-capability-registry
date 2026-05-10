@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "octagon": {
+      "type": "streamable_http",
+      "url": "https://mcp.octagonagents.com/mcp"
+    }
+  }
+}

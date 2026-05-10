@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "google-big-query": {
+      "type": "streamable_http",
+      "url": "https://bigquery.googleapis.com/mcp"
+    }
+  }
+}

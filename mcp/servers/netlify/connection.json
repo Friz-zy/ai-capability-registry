@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "netlify": {
+      "type": "streamable_http",
+      "url": "https://netlify-mcp.netlify.app/mcp"
+    }
+  }
+}

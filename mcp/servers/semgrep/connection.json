@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "semgrep": {
+      "type": "sse",
+      "url": "https://mcp.semgrep.ai/sse"
+    }
+  }
+}

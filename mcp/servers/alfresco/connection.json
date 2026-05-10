@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "alfresco": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "angelborroy/alfresco-mcp-server"
+      ]
+    }
+  }
+}

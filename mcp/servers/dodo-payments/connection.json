@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dodo-payments": {
+      "type": "sse",
+      "url": "https://mcp.dodopayments.com/sse"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aks": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/aks",
+        "--transport=stdio",
+        "--access-level={{aks.access_level}}",
+        "--allow-namespaces={{aks.allow_namespaces}}",
+        "--additional-tools={{aks.additional_tools}}"
+      ]
+    }
+  }
+}

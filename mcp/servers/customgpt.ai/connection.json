@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "customgpt.ai": {
+      "type": "streamable_http",
+      "url": "https://mcp.customgpt.ai"
+    }
+  }
+}

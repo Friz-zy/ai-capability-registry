@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "instant": {
+      "type": "streamable_http",
+      "url": "https://mcp.instantdb.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# development MCP Servers
+
+- **AWS Knowledge** (`aws-knowledge`) — `hosted_https`, `trusted`: Software Development MCP server by AWS.
+- **Cloudflare Workers** (`cloudflare-workers`) — `hosted_https`, `trusted`: Software Development MCP server by Cloudflare.
+- **Cortex** (`cortex`) — `hosted_https`, `trusted`: Internal Developer Portal MCP server by Cortex.
+- **GitMCP** (`gitmcp`) — `hosted_https`, `trusted`: Software Development MCP server by GitMCP.
+- **Globalping** (`globalping`) — `hosted_https`, `trusted`: Software Development MCP server by Globalping.
+- **Grafbase** (`grafbase`) — `hosted_https`, `trusted`: Software Development MCP server by Grafbase.
+- **Hugging Face** (`hugging-face`) — `hosted_https`, `trusted`: Software Development MCP server by Hugging Face.
+- **Instant** (`instant`) — `hosted_https`, `trusted`: Software Development MCP server by Instant.
+- **Jam** (`jam`) — `hosted_https`, `trusted`: Software Development MCP server by Jam.dev.
+- **Javadocs** (`javadocs`) — `hosted_https`, `trusted`: Software Development MCP server by Javadocs.dev.
+- **Netlify** (`netlify`) — `hosted_https`, `trusted`: Software Development MCP server by Netlify.
+- **OpenZeppelin Cairo Contracts** (`openzeppelin-cairo-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **OpenZeppelin Solidity Contracts** (`openzeppelin-solidity-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **OpenZeppelin Stellar Contracts** (`openzeppelin-stellar-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **OpenZeppelin Stylus Contracts** (`openzeppelin-stylus-contracts`) — `hosted_https`, `trusted`: Software Development MCP server by OpenZeppelin.
+- **Polar Signals** (`polar-signals`) — `hosted_https`, `trusted`: Software Development MCP server by Polar Signals.
+- **Port IO** (`port-io`) — `hosted_https`, `trusted`: Internal Developer Portal MCP server by Port IO.
+- **Semgrep** (`semgrep`) — `hosted_https`, `trusted`: Software Development MCP server by Semgrep.
+- **Stack Overflow** (`stack-overflow`) — `hosted_https`, `trusted`: Software Development MCP server by StackOverflow.
+- **Vercel** (`vercel`) — `hosted_https`, `trusted`: Software Development MCP server by Vercel.

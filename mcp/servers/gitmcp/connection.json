@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gitmcp": {
+      "type": "streamable_http",
+      "url": "https://gitmcp.io/docs"
+    }
+  }
+}

@@ -16,6 +16,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_DIR = ROOT / "registry"
+MCP_CATALOG_DIR = ROOT / "mcp-catalog.d"
 SKILLS_DIR = ROOT / "skills"
 
 
@@ -110,7 +111,7 @@ def load_yaml(path: Path) -> Any:
                     child, index = parse_block(index, indent + 2)
                     items.append(child)
                     continue
-                if ":" in rest:
+                if re.match(r"^[A-Za-z0-9_.-]+:(?:\s+|$)", rest):
                     key, value = _split_key_value(rest)
                     item: dict[str, Any] = {key: _scalar(value) if value is not None else None}
                     if value is None:
@@ -165,10 +166,41 @@ def load_registry(name: str) -> dict[str, Any]:
     return data
 
 
+def _catalog_files(path: Path) -> list[Path]:
+    if not path.exists():
+        return []
+    return sorted({*path.glob("*.yaml"), *path.glob("*.yml")})
+
+
+def load_mcp_catalog() -> list[dict[str, Any]]:
+    if not MCP_CATALOG_DIR.exists():
+        raise RegistryError(f"Missing MCP catalog directory: {MCP_CATALOG_DIR}")
+
+    servers: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for path in _catalog_files(MCP_CATALOG_DIR):
+        data = load_yaml(path)
+        if not isinstance(data, dict):
+            raise RegistryError(f"MCP catalog file must contain a mapping: {path}")
+        chunk = data.get("mcp_servers", [])
+        if not isinstance(chunk, list):
+            raise RegistryError(f"MCP catalog file must contain mcp_servers list: {path}")
+        for item in chunk:
+            if not isinstance(item, dict):
+                raise RegistryError(f"MCP catalog entries must be mappings: {path}")
+            entry_id = item.get("id")
+            if isinstance(entry_id, str) and entry_id:
+                if entry_id in seen:
+                    raise RegistryError(f"Duplicate MCP catalog entry {entry_id} in {path}")
+                seen.add(entry_id)
+            servers.append(item)
+    return servers
+
+
 def load_all() -> dict[str, Any]:
     return {
         "skills": load_registry("skills").get("skills", []),
-        "mcp_servers": load_registry("mcp").get("mcp_servers", []),
+        "mcp_servers": load_mcp_catalog(),
         "agents": load_registry("agents").get("agents", []),
         "workflows": load_registry("workflows").get("workflows", []),
         "profiles": load_registry("profiles").get("profiles", []),

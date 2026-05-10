@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "intercom": {
+      "type": "sse",
+      "url": "https://mcp.intercom.com/sse"
+    }
+  }
+}

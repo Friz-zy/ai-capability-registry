@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "port-io": {
+      "type": "streamable_http",
+      "url": "https://mcp.port.io/v1"
+    }
+  }
+}

@@ -280,3 +280,96 @@ tasks:
       - notion
       - email
       - meeting
+
+  - id: create-media
+    name: Create or Edit Media
+    description: Generate, edit, transcribe, capture, and package visual, audio, video, and document-adjacent media assets.
+    categories:
+      - creative_media
+      - design
+    keywords:
+      - creative-media
+      - media
+      - imagegen
+      - screenshot
+      - speech
+      - transcribe
+      - youtube
+
+  - id: manage-data-systems
+    name: Manage Data Systems
+    description: Work with databases, warehouses, data products, semantic layers, and data-platform integrations.
+    categories:
+      - data
+      - backend
+      - devops
+    keywords:
+      - data
+      - sql
+      - dbt
+      - analytics
+      - data-validation
+      - dashboard
+
+  - id: manage-cloud-infra
+    name: Manage Cloud Infrastructure
+    description: Operate cloud platforms, deployment targets, containers, observability, and infrastructure workflows.
+    categories:
+      - devops
+      - sre
+      - security
+    keywords:
+      - deployment
+      - ci
+      - cloudflare
+      - netlify
+      - render
+      - vercel
+      - incident
+
+  - id: build-blockchain
+    name: Build Blockchain or Smart Contracts
+    description: Build, review, and integrate blockchain applications, smart contracts, and chain-specific tooling.
+    categories:
+      - blockchain
+      - security
+      - engineering
+    keywords:
+      - blockchain
+      - smart-contracts
+      - solidity
+      - cairo
+      - solana
+      - threat-model
+
+  - id: build-hardware-iot
+    name: Build Hardware or IoT
+    description: Build, debug, and integrate firmware, embedded hardware, IoT devices, and device-management workflows.
+    categories:
+      - hardware
+      - devops
+      - security
+    keywords:
+      - iot
+      - firmware
+      - esp32
+      - m5stack
+      - micropython
+      - integration
+
+  - id: build-mobile-desktop
+    name: Build Mobile or Desktop App
+    description: Build and review native or cross-platform mobile and desktop apps, SDKs, platform UX, and releases.
+    categories:
+      - mobile
+      - desktop
+      - frontend
+      - qa
+    keywords:
+      - android
+      - ios
+      - react-native
+      - flutter
+      - electron
+      - windows
+      - testing

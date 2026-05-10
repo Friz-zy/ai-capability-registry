@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "short.io": {
+      "type": "streamable_http",
+      "url": "https://ai-assistant.short.io/mcp"
+    }
+  }
+}

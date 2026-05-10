@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "llm-text": {
+      "type": "sse",
+      "url": "https://mcp.llmtxt.dev/sse"
+    }
+  }
+}

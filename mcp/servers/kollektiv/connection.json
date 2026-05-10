@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "kollektiv": {
+      "type": "sse",
+      "url": "https://mcp.thekollektiv.ai/sse"
+    }
+  }
+}

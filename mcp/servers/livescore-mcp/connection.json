@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "livescore-mcp": {
+      "type": "sse",
+      "url": "https://livescoremcp.com/sse"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "simplescraper": {
+      "type": "streamable_http",
+      "url": "https://mcp.simplescraper.io/mcp"
+    }
+  }
+}

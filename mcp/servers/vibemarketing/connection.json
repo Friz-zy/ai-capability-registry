@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vibemarketing": {
+      "type": "streamable_http",
+      "url": "https://vibemarketing.ninja/mcp"
+    }
+  }
+}

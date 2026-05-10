@@ -1,0 +1,2778 @@
+source: manual
+mcp_servers:
+  - id: asana
+    exists: true
+    enabled: true
+    name: Asana
+    description: Project Management MCP server by Asana.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.asana.com/sse
+      authentication: OAuth2.1
+      category: Project Management
+      maintainer: Asana
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - asana
+      - project-management
+      - task-management
+      - management
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Asana only when the task directly involves Project Management.
+      references:
+        - https://mcp.asana.com/sse
+  - id: attio
+    exists: true
+    enabled: true
+    name: Attio
+    description: CRM MCP server by Attio.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.attio.com/mcp
+      authentication: OAuth2.1
+      category: CRM
+      maintainer: Attio
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - attio
+      - crm
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Attio only when the task directly involves CRM.
+      references:
+        - https://mcp.attio.com/mcp
+  - id: aws-knowledge
+    exists: true
+    enabled: true
+    name: AWS Knowledge
+    description: Software Development MCP server by AWS.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://knowledge-mcp.global.api.aws
+      authentication: Open
+      category: Software Development
+      maintainer: AWS
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - knowledge-mcp
+      - aws
+      - knowledge
+      - aws-knowledge
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use AWS Knowledge only when the task directly involves Software Development.
+      references:
+        - https://knowledge-mcp.global.api.aws
+  - id: bgpt
+    exists: true
+    enabled: true
+    name: BGPT
+    description: Scientific Research MCP server by BGPT.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://bgpt.pro/mcp/sse
+      authentication: Open / API Key
+      category: Scientific Research
+      maintainer: BGPT
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - bgpt
+      - research
+      - search
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use BGPT only when the task directly involves Scientific Research.
+      references:
+        - https://bgpt.pro/mcp/sse
+  - id: canva
+    exists: true
+    enabled: true
+    name: Canva
+    description: Design MCP server by Canva.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.canva.com/mcp
+      authentication: OAuth2.1
+      category: Design
+      maintainer: Canva
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - canva
+      - design
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Canva only when the task directly involves Design.
+      references:
+        - https://mcp.canva.com/mcp
+  - id: carbon-voice
+    exists: true
+    enabled: true
+    name: Carbon Voice
+    description: Productivity MCP server by Carbon Voice.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.carbonvoice.app
+      authentication: OAuth2.1
+      category: Productivity
+      maintainer: Carbon Voice
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - carbon
+      - voice
+      - carbon-voice
+      - productivity
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Carbon Voice only when the task directly involves Productivity.
+      references:
+        - https://mcp.carbonvoice.app
+  - id: cloudflare-workers
+    exists: true
+    enabled: true
+    name: Cloudflare Workers
+    description: Software Development MCP server by Cloudflare.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://bindings.mcp.cloudflare.com/sse
+      authentication: OAuth2.1
+      category: Software Development
+      maintainer: Cloudflare
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - cloudflare
+      - bindings
+      - workers
+      - cloudflare-workers
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Cloudflare Workers only when the task directly involves Software Development.
+      references:
+        - https://bindings.mcp.cloudflare.com/sse
+  - id: cloudflare-observability
+    exists: true
+    enabled: true
+    name: Cloudflare Observability
+    description: Observability MCP server by Cloudflare.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://observability.mcp.cloudflare.com/sse
+      authentication: OAuth2.1
+      category: Observability
+      maintainer: Cloudflare
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - cloudflare
+      - observability
+      - cloudflare-observability
+      - incident
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Cloudflare Observability only when the task directly involves Observability.
+      references:
+        - https://observability.mcp.cloudflare.com/sse
+  - id: cloudinary
+    exists: true
+    enabled: true
+    name: Cloudinary
+    description: Asset Management MCP server by Cloudinary.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://asset-management.mcp.cloudinary.com/sse
+      authentication: OAuth2.1
+      category: Asset Management
+      maintainer: Cloudinary
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - cloudinary
+      - asset-management
+      - media
+      - management
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Cloudinary only when the task directly involves Asset Management.
+      references:
+        - https://asset-management.mcp.cloudinary.com/sse
+  - id: cortex
+    exists: true
+    enabled: true
+    name: Cortex
+    description: Internal Developer Portal MCP server by Cortex.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.cortex.io/mcp
+      authentication: API Key
+      category: Internal Developer Portal
+      maintainer: Cortex
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - cortex
+      - developer-portal
+      - development
+      - portal
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Cortex only when the task directly involves Internal Developer Portal.
+      references:
+        - https://mcp.cortex.io/mcp
+  - id: dialer
+    exists: true
+    enabled: true
+    name: Dialer
+    description: Outbound Phone Calls MCP server by Dialer.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://getdialer.app/sse
+      authentication: OAuth2.1
+      category: Outbound Phone Calls
+      maintainer: Dialer
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - dialer
+      - phone
+      - communication
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Dialer only when the task directly involves Outbound Phone Calls.
+      references:
+        - https://getdialer.app/sse
+  - id: ean-search.org
+    exists: true
+    enabled: true
+    name: EAN-Search.org
+    description: Product Data MCP server by EAN-Search.org.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://www.ean-search.org/mcp
+      authentication: OAuth2.1
+      category: Product Data
+      maintainer: EAN-Search.org
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - ean-search
+      - ean
+      - product
+      - data
+      - search
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use EAN-Search.org only when the task directly involves Product Data.
+      references:
+        - https://www.ean-search.org/mcp
+  - id: egnyte
+    exists: true
+    enabled: true
+    name: Egnyte
+    description: Document Management MCP server by Egnyte.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp-server.egnyte.com/sse
+      authentication: OAuth2.1
+      category: Document Management
+      maintainer: Egnyte
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - egnyte
+      - mcp-server
+      - documents
+      - management
+      - document
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Egnyte only when the task directly involves Document Management.
+      references:
+        - https://mcp-server.egnyte.com/sse
+  - id: firefly
+    exists: true
+    enabled: true
+    name: Firefly
+    description: Productivity MCP server by Firefly.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.fireflies.ai/mcp
+      authentication: OAuth2.1
+      category: Productivity
+      maintainer: Firefly
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - fireflies
+      - firefly
+      - productivity
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Firefly only when the task directly involves Productivity.
+      references:
+        - https://api.fireflies.ai/mcp
+  - id: find-a-domain
+    exists: true
+    enabled: true
+    name: Find-A-Domain
+    description: Productivity MCP server by Find-A-Domain.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.findadomain.dev/mcp
+      authentication: Open
+      category: Productivity
+      maintainer: Find-A-Domain
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - findadomain
+      - find
+      - domain
+      - find-domain
+      - productivity
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Find-A-Domain only when the task directly involves Productivity.
+      references:
+        - https://api.findadomain.dev/mcp
+  - id: globalping
+    exists: true
+    enabled: true
+    name: Globalping
+    description: Software Development MCP server by Globalping.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.globalping.dev/sse
+      authentication: OAuth2.1
+      category: Software Development
+      maintainer: Globalping
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - globalping
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Globalping only when the task directly involves Software Development.
+      references:
+        - https://mcp.globalping.dev/sse
+  - id: grafbase
+    exists: true
+    enabled: true
+    name: Grafbase
+    description: Software Development MCP server by Grafbase.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.grafbase.com/mcp
+      authentication: OAuth 2.1
+      category: Software Development
+      maintainer: Grafbase
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - grafbase
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Grafbase only when the task directly involves Software Development.
+      references:
+        - https://api.grafbase.com/mcp
+  - id: hive-intelligence
+    exists: true
+    enabled: true
+    name: Hive Intelligence
+    description: Crypto MCP server by Hive Intelligence.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://hiveintelligence.xyz/mcp
+      authentication: OAuth 2.1
+      category: Crypto
+      maintainer: Hive Intelligence
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - hiveintelligence
+      - hive
+      - blockchain
+      - finance
+      - crypto
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Hive Intelligence only when the task directly involves Crypto.
+      references:
+        - https://hiveintelligence.xyz/mcp
+  - id: instant
+    exists: true
+    enabled: true
+    name: Instant
+    description: Software Development MCP server by Instant.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.instantdb.com/mcp
+      authentication: OAuth
+      category: Software Development
+      maintainer: Instant
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - instantdb
+      - instant
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Instant only when the task directly involves Software Development.
+      references:
+        - https://mcp.instantdb.com/mcp
+  - id: intercom
+    exists: true
+    enabled: true
+    name: Intercom
+    description: Customer Support MCP server by Intercom.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.intercom.com/sse
+      authentication: OAuth2.1
+      category: Customer Support
+      maintainer: Intercom
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - intercom
+      - customer-support
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Intercom only when the task directly involves Customer Support.
+      references:
+        - https://mcp.intercom.com/sse
+  - id: indeed
+    exists: true
+    enabled: true
+    name: Indeed
+    description: Job Board MCP server by Indeed.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.indeed.com/claude/mcp
+      authentication: OAuth2.1
+      category: Job Board
+      maintainer: Indeed
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - indeed
+      - recruiting
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Indeed only when the task directly involves Job Board.
+      references:
+        - https://mcp.indeed.com/claude/mcp
+  - id: invidio
+    exists: true
+    enabled: true
+    name: Invidio
+    description: Video Platform MCP server by Invidio.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.invideo.io/sse
+      authentication: OAuth2.1
+      category: Video Platform
+      maintainer: Invidio
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - invideo
+      - invidio
+      - video
+      - media
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Invidio only when the task directly involves Video Platform.
+      references:
+        - https://mcp.invideo.io/sse
+  - id: jam
+    exists: true
+    enabled: true
+    name: Jam
+    description: Software Development MCP server by Jam.dev.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.jam.dev/mcp
+      authentication: OAuth2.1
+      category: Software Development
+      maintainer: Jam.dev
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - jam
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Jam only when the task directly involves Software Development.
+      references:
+        - https://mcp.jam.dev/mcp
+  - id: kollektiv
+    exists: true
+    enabled: true
+    name: Kollektiv
+    description: Documentation MCP server by Kollektiv.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.thekollektiv.ai/sse
+      authentication: Oauth2.1
+      category: Documentation
+      maintainer: Kollektiv
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - thekollektiv
+      - kollektiv
+      - documentation
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Kollektiv only when the task directly involves Documentation.
+      references:
+        - https://mcp.thekollektiv.ai/sse
+  - id: livescore-mcp
+    exists: true
+    enabled: true
+    name: LiveScore MCP
+    description: Sports MCP server by LiveScore MCP.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://livescoremcp.com/sse
+      authentication: Open
+      category: Sports
+      maintainer: LiveScore MCP
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - livescoremcp
+      - livescore
+      - sports
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use LiveScore MCP only when the task directly involves Sports.
+      references:
+        - https://livescoremcp.com/sse
+  - id: listenetic
+    exists: true
+    enabled: true
+    name: Listenetic
+    description: Productivity MCP server by Listenetic.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.listenetic.com/v1/mcp
+      authentication: OAuth2.1
+      category: Productivity
+      maintainer: Listenetic
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - listenetic
+      - productivity
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Listenetic only when the task directly involves Productivity.
+      references:
+        - https://mcp.listenetic.com/v1/mcp
+  - id: malware-patrol
+    exists: true
+    enabled: true
+    name: Malware Patrol
+    description: Threat Intelligence MCP server by Malware Patrol.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.malwarepatrol.net/v1
+      authentication: API Key
+      category: Threat Intelligence
+      maintainer: Malware Patrol
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - malwarepatrol
+      - malware
+      - patrol
+      - malware-patrol
+      - threat-intelligence
+      - security
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Malware Patrol only when the task directly involves Threat Intelligence.
+      references:
+        - https://mcp.malwarepatrol.net/v1
+  - id: metro-mcp
+    exists: true
+    enabled: true
+    name: Metro MCP
+    description: Transit MCP server by Anurag.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://metro-mcp.anuragd.me/sse
+      authentication: OAuth2.1
+      category: Transit
+      maintainer: Anurag
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - anuragd
+      - metro-mcp
+      - metro
+      - anurag
+      - transit
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Metro MCP only when the task directly involves Transit.
+      references:
+        - https://metro-mcp.anuragd.me/sse
+  - id: morningstar
+    exists: true
+    enabled: true
+    name: MorningStar
+    description: Data Analysis MCP server by MorningStar.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.morningstar.com/mcp
+      authentication: OAuth2.1
+      category: Data Analysis
+      maintainer: MorningStar
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - morningstar
+      - data
+      - analysis
+      - analytics
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use MorningStar only when the task directly involves Data Analysis.
+      references:
+        - https://mcp.morningstar.com/mcp
+  - id: monday.com
+    exists: true
+    enabled: true
+    name: monday.com
+    description: Productivity MCP server by monday MCP.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.monday.com/sse
+      authentication: OAuth2.1
+      category: Productivity
+      maintainer: monday MCP
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - monday
+      - productivity
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use monday.com only when the task directly involves Productivity.
+      references:
+        - https://mcp.monday.com/sse
+  - id: mypromind.com
+    exists: true
+    enabled: true
+    name: mypromind.com
+    description: Learning MCP server by mypromind MCP.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://www.mypromind.com/interface/mcp
+      authentication: OAuth2.1
+      category: Learning
+      maintainer: mypromind MCP
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - mypromind
+      - knowledge
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use mypromind.com only when the task directly involves Learning.
+      references:
+        - https://www.mypromind.com/interface/mcp
+  - id: netlify
+    exists: true
+    enabled: true
+    name: Netlify
+    description: Software Development MCP server by Netlify.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://netlify-mcp.netlify.app/mcp
+      authentication: OAuth2.1
+      category: Software Development
+      maintainer: Netlify
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - netlify-mcp
+      - netlify
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Netlify only when the task directly involves Software Development.
+      references:
+        - https://netlify-mcp.netlify.app/mcp
+  - id: octagon
+    exists: true
+    enabled: true
+    name: Octagon
+    description: Market Intelligence MCP server by Octagon.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.octagonagents.com/mcp
+      authentication: OAuth2.1
+      category: Market Intelligence
+      maintainer: Octagon
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - octagonagents
+      - octagon
+      - competitive-intelligence
+      - marketing
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Octagon only when the task directly involves Market Intelligence.
+      references:
+        - https://mcp.octagonagents.com/mcp
+  - id: onecontext
+    exists: true
+    enabled: true
+    name: OneContext
+    description: RAG-as-a-Service MCP server by OneContext.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://rag-mcp-2.whatsmcp.workers.dev/sse
+      authentication: OAuth2.1
+      category: RAG-as-a-Service
+      maintainer: OneContext
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - workers
+      - rag-mcp-2
+      - whatsmcp
+      - onecontext
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use OneContext only when the task directly involves RAG-as-a-Service.
+      references:
+        - https://rag-mcp-2.whatsmcp.workers.dev/sse
+  - id: paypal
+    exists: true
+    enabled: true
+    name: PayPal
+    description: Payments MCP server by PayPal.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.paypal.com/sse
+      authentication: OAuth2.1
+      category: Payments
+      maintainer: PayPal
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - paypal
+      - payments
+      - finance
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use PayPal only when the task directly involves Payments.
+      references:
+        - https://mcp.paypal.com/sse
+  - id: peek.com
+    exists: true
+    enabled: true
+    name: Peek.com
+    description: Other MCP server by Peek.com.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.peek.com
+      authentication: Open
+      category: Other
+      maintainer: Peek.com
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - peek
+      - mcp
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Peek.com only when the task directly involves Other.
+      references:
+        - https://mcp.peek.com
+  - id: plaid
+    exists: true
+    enabled: true
+    name: Plaid
+    description: Payments MCP server by Plaid.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.dashboard.plaid.com/mcp/sse
+      authentication: OAuth2.1 restricted
+      category: Payments
+      maintainer: Plaid
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - plaid
+      - dashboard
+      - payments
+      - finance
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Plaid only when the task directly involves Payments.
+      references:
+        - https://api.dashboard.plaid.com/mcp/sse
+  - id: prisma-postgres
+    exists: true
+    enabled: true
+    name: Prisma Postgres
+    description: Database MCP server by Prisma Postgres.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.prisma.io/mcp
+      authentication: OAuth2.1
+      category: Database
+      maintainer: Prisma Postgres
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - prisma
+      - postgres
+      - prisma-postgres
+      - sql
+      - database
+      - data
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Prisma Postgres only when the task directly involves Database.
+      references:
+        - https://mcp.prisma.io/mcp
+  - id: port-io
+    exists: true
+    enabled: true
+    name: Port IO
+    description: Internal Developer Portal MCP server by Port IO.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.port.io/v1
+      authentication: OAuth2.1
+      category: Internal Developer Portal
+      maintainer: Port IO
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - port
+      - developer-portal
+      - development
+      - portal
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Port IO only when the task directly involves Internal Developer Portal.
+      references:
+        - https://mcp.port.io/v1
+  - id: ramp
+    exists: true
+    enabled: true
+    name: Ramp
+    description: Payments MCP server by Ramp.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://ramp-mcp-remote.ramp.com/mcp
+      authentication: OAuth2.1
+      category: Payments
+      maintainer: Ramp
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - ramp
+      - ramp-mcp-remote
+      - payments
+      - finance
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Ramp only when the task directly involves Payments.
+      references:
+        - https://ramp-mcp-remote.ramp.com/mcp
+  - id: rube
+    exists: true
+    enabled: true
+    name: Rube
+    description: Other MCP server by Composio.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://rube.app/mcp
+      authentication: Oauth2.1
+      category: Other
+      maintainer: Composio
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - rube
+      - composio
+      - mcp
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Rube only when the task directly involves Other.
+      references:
+        - https://rube.app/mcp
+  - id: scorecard
+    exists: true
+    enabled: true
+    name: Scorecard
+    description: AI Evaluation MCP server by Scorecard.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://scorecard-mcp.dare-d5b.workers.dev/sse
+      authentication: OAuth2.1
+      category: AI Evaluation
+      maintainer: Scorecard
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - workers
+      - scorecard-mcp
+      - dare-d5b
+      - scorecard
+      - validation
+      - ai
+      - analytics
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Scorecard only when the task directly involves AI Evaluation.
+      references:
+        - https://scorecard-mcp.dare-d5b.workers.dev/sse
+  - id: stack-overflow
+    exists: true
+    enabled: true
+    name: Stack Overflow
+    description: Software Development MCP server by StackOverflow.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.stackoverflow.com
+      authentication: OAuth2.1
+      category: Software Development
+      maintainer: StackOverflow
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - stackoverflow
+      - stack
+      - overflow
+      - stack-overflow
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Stack Overflow only when the task directly involves Software Development.
+      references:
+        - https://mcp.stackoverflow.com
+  - id: stytch
+    exists: true
+    enabled: true
+    name: Stytch
+    description: Authentication MCP server by Stytch.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.stytch.dev/mcp
+      authentication: OAuth2.1
+      category: Authentication
+      maintainer: Stytch
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - stytch
+      - oauth
+      - security
+      - authentication
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Stytch only when the task directly involves Authentication.
+      references:
+        - https://mcp.stytch.dev/mcp
+  - id: supabase
+    exists: true
+    enabled: true
+    name: Supabase
+    description: Database MCP server by Supabase.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.supabase.com/mcp
+      authentication: OAuth2.1
+      category: Database
+      maintainer: Supabase
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - supabase
+      - sql
+      - database
+      - data
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Supabase only when the task directly involves Database.
+      references:
+        - https://mcp.supabase.com/mcp
+  - id: square
+    exists: true
+    enabled: true
+    name: Square
+    description: Payments MCP server by Square.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.squareup.com/sse
+      authentication: OAuth2.1
+      category: Payments
+      maintainer: Square
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - squareup
+      - square
+      - payments
+      - finance
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Square only when the task directly involves Payments.
+      references:
+        - https://mcp.squareup.com/sse
+  - id: turkish-airlines
+    exists: true
+    enabled: true
+    name: Turkish Airlines
+    description: Airlines MCP server by Turkish Technology.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.turkishtechlab.com/mcp
+      authentication: OAuth2.1
+      category: Airlines
+      maintainer: Turkish Technology
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - turkishtechlab
+      - turkish
+      - airlines
+      - turkish-airlines
+      - technology
+      - travel
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Turkish Airlines only when the task directly involves Airlines.
+      references:
+        - https://mcp.turkishtechlab.com/mcp
+  - id: tweetsave
+    exists: true
+    enabled: true
+    name: TweetSave
+    description: Social Media MCP server by TweetSave.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.tweetsave.org/sse
+      authentication: Open
+      category: Social Media
+      maintainer: TweetSave
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - tweetsave
+      - social-media
+      - media
+      - social
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use TweetSave only when the task directly involves Social Media.
+      references:
+        - https://mcp.tweetsave.org/sse
+  - id: xbird
+    exists: true
+    enabled: true
+    name: xbird
+    description: Social Media MCP server by xbird.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://xbirdapi.up.railway.app/mcp
+      authentication: API Key
+      category: Social Media
+      maintainer: xbird
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - xbirdapi
+      - xbird
+      - social-media
+      - media
+      - social
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use xbird only when the task directly involves Social Media.
+      references:
+        - https://xbirdapi.up.railway.app/mcp
+  - id: vercel
+    exists: true
+    enabled: true
+    name: Vercel
+    description: Software Development MCP server by Vercel.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.vercel.com/
+      authentication: OAuth2.1
+      category: Software Development
+      maintainer: Vercel
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - vercel
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Vercel only when the task directly involves Software Development.
+      references:
+        - https://mcp.vercel.com/
+  - id: vibemarketing
+    exists: true
+    enabled: true
+    name: VibeMarketing
+    description: Social Media MCP server by VibeMarketing.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://vibemarketing.ninja/mcp
+      authentication: OAuth2.1
+      category: Social Media
+      maintainer: VibeMarketing
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - vibemarketing
+      - social-media
+      - media
+      - social
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use VibeMarketing only when the task directly involves Social Media.
+      references:
+        - https://vibemarketing.ninja/mcp
+  - id: wix
+    exists: true
+    enabled: true
+    name: Wix
+    description: CMS MCP server by Wix.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.wix.com/sse
+      authentication: OAuth2.1
+      category: CMS
+      maintainer: Wix
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - wix
+      - cms
+      - content
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Wix only when the task directly involves CMS.
+      references:
+        - https://mcp.wix.com/sse
+  - id: webzum
+    exists: true
+    enabled: true
+    name: WebZum
+    description: Website Hosting MCP server by WebZum.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://webzum.com/api/mcp
+      authentication: Open
+      category: Website Hosting
+      maintainer: WebZum
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - webzum
+      - hosting
+      - deployment
+      - web
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use WebZum only when the task directly involves Website Hosting.
+      references:
+        - https://webzum.com/api/mcp
+  - id: simplescraper
+    exists: true
+    enabled: true
+    name: Simplescraper
+    description: Web Scraping MCP server by Simplescraper.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.simplescraper.io/mcp
+      authentication: OAuth2.1
+      category: Web Scraping
+      maintainer: Simplescraper
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - simplescraper
+      - web-scraping
+      - extract
+      - web
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Simplescraper only when the task directly involves Web Scraping.
+      references:
+        - https://mcp.simplescraper.io/mcp
+  - id: cloudflare-docs
+    exists: true
+    enabled: true
+    name: Cloudflare Docs
+    description: Documentation MCP server by Cloudflare.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://docs.mcp.cloudflare.com/sse
+      authentication: Open
+      category: Documentation
+      maintainer: Cloudflare
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - cloudflare
+      - documentation
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Cloudflare Docs only when the task directly involves Documentation.
+      references:
+        - https://docs.mcp.cloudflare.com/sse
+  - id: astro-docs
+    exists: true
+    enabled: true
+    name: Astro Docs
+    description: Documentation MCP server by Astro.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.docs.astro.build/mcp
+      authentication: Open
+      category: Documentation
+      maintainer: Astro
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - astro
+      - documentation
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Astro Docs only when the task directly involves Documentation.
+      references:
+        - https://mcp.docs.astro.build/mcp
+  - id: context-awesome
+    exists: true
+    enabled: true
+    name: Context Awesome
+    description: Specialised Dataset MCP server by Context Awesome.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://www.context-awesome.com/api/mcp
+      authentication: Open
+      category: Specialised Dataset
+      maintainer: Context Awesome
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - context-awesome
+      - awesome
+      - dataset
+      - data
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Context Awesome only when the task directly involves Specialised Dataset.
+      references:
+        - https://www.context-awesome.com/api/mcp
+  - id: deepwiki
+    exists: true
+    enabled: true
+    name: DeepWiki
+    description: RAG-as-a-Service MCP server by Devin.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.deepwiki.com/sse
+      authentication: Open
+      category: RAG-as-a-Service
+      maintainer: Devin
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - deepwiki
+      - devin
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use DeepWiki only when the task directly involves RAG-as-a-Service.
+      references:
+        - https://mcp.deepwiki.com/sse
+  - id: hugging-face
+    exists: true
+    enabled: true
+    name: Hugging Face
+    description: Software Development MCP server by Hugging Face.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://hf.co/mcp
+      authentication: Open
+      category: Software Development
+      maintainer: Hugging Face
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - hugging
+      - face
+      - hugging-face
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Hugging Face only when the task directly involves Software Development.
+      references:
+        - https://hf.co/mcp
+  - id: semgrep
+    exists: true
+    enabled: true
+    name: Semgrep
+    description: Software Development MCP server by Semgrep.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.semgrep.ai/sse
+      authentication: Open
+      category: Software Development
+      maintainer: Semgrep
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - semgrep
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Semgrep only when the task directly involves Software Development.
+      references:
+        - https://mcp.semgrep.ai/sse
+  - id: remote-mcp
+    exists: true
+    enabled: true
+    name: Remote MCP
+    description: MCP Directory MCP server by Remote MCP.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.remote-mcp.com
+      authentication: Open
+      category: MCP Directory
+      maintainer: Remote MCP
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - remote-mcp
+      - directory
+      - mcp
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Remote MCP only when the task directly involves MCP Directory.
+      references:
+        - https://mcp.remote-mcp.com
+  - id: openmesh
+    exists: true
+    enabled: true
+    name: OpenMesh
+    description: Service Discovery MCP server by OpenMesh.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.openmesh.dev/mcp
+      authentication: Open
+      category: Service Discovery
+      maintainer: OpenMesh
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - openmesh
+      - service-discovery
+      - discovery
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use OpenMesh only when the task directly involves Service Discovery.
+      references:
+        - https://api.openmesh.dev/mcp
+  - id: openzeppelin-cairo-contracts
+    exists: true
+    enabled: true
+    name: OpenZeppelin Cairo Contracts
+    description: Software Development MCP server by OpenZeppelin.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.openzeppelin.com/contracts/cairo/mcp
+      authentication: Open
+      category: Software Development
+      maintainer: OpenZeppelin
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - openzeppelin
+      - cairo
+      - contracts
+      - openzeppelin-cairo-contracts
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use OpenZeppelin Cairo Contracts only when the task directly involves Software Development.
+      references:
+        - https://mcp.openzeppelin.com/contracts/cairo/mcp
+  - id: openzeppelin-solidity-contracts
+    exists: true
+    enabled: true
+    name: OpenZeppelin Solidity Contracts
+    description: Software Development MCP server by OpenZeppelin.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.openzeppelin.com/contracts/solidity/mcp
+      authentication: Open
+      category: Software Development
+      maintainer: OpenZeppelin
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - openzeppelin
+      - solidity
+      - contracts
+      - openzeppelin-solidity-contracts
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use OpenZeppelin Solidity Contracts only when the task directly involves Software Development.
+      references:
+        - https://mcp.openzeppelin.com/contracts/solidity/mcp
+  - id: openzeppelin-stellar-contracts
+    exists: true
+    enabled: true
+    name: OpenZeppelin Stellar Contracts
+    description: Software Development MCP server by OpenZeppelin.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.openzeppelin.com/contracts/stellar/mcp
+      authentication: Open
+      category: Software Development
+      maintainer: OpenZeppelin
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - openzeppelin
+      - stellar
+      - contracts
+      - openzeppelin-stellar-contracts
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use OpenZeppelin Stellar Contracts only when the task directly involves Software Development.
+      references:
+        - https://mcp.openzeppelin.com/contracts/stellar/mcp
+  - id: openzeppelin-stylus-contracts
+    exists: true
+    enabled: true
+    name: OpenZeppelin Stylus Contracts
+    description: Software Development MCP server by OpenZeppelin.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.openzeppelin.com/contracts/stylus/mcp
+      authentication: Open
+      category: Software Development
+      maintainer: OpenZeppelin
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - openzeppelin
+      - stylus
+      - contracts
+      - openzeppelin-stylus-contracts
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use OpenZeppelin Stylus Contracts only when the task directly involves Software Development.
+      references:
+        - https://mcp.openzeppelin.com/contracts/stylus/mcp
+  - id: llm-text
+    exists: true
+    enabled: true
+    name: LLM Text
+    description: Data Analysis MCP server by LLM Text.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.llmtxt.dev/sse
+      authentication: Open
+      category: Data Analysis
+      maintainer: LLM Text
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - llmtxt
+      - llm
+      - text
+      - llm-text
+      - data
+      - analysis
+      - analytics
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use LLM Text only when the task directly involves Data Analysis.
+      references:
+        - https://mcp.llmtxt.dev/sse
+  - id: gitmcp
+    exists: true
+    enabled: true
+    name: GitMCP
+    description: Software Development MCP server by GitMCP.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://gitmcp.io/docs
+      authentication: Open
+      category: Software Development
+      maintainer: GitMCP
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - gitmcp
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use GitMCP only when the task directly involves Software Development.
+      references:
+        - https://gitmcp.io/docs
+  - id: google-big-query
+    exists: true
+    enabled: true
+    name: Google Big Query
+    description: Data Analysis MCP server by Google.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://bigquery.googleapis.com/mcp
+      authentication: API Key
+      category: Data Analysis
+      maintainer: Google
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - googleapis
+      - bigquery
+      - google
+      - big
+      - query
+      - google-big-query
+      - data
+      - analysis
+      - analytics
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Google Big Query only when the task directly involves Data Analysis.
+      references:
+        - https://bigquery.googleapis.com/mcp
+  - id: hubspot
+    exists: true
+    enabled: true
+    name: HubSpot
+    description: CRM MCP server by HubSpot.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://app.hubspot.com/mcp/v1/http
+      authentication: API Key
+      category: CRM
+      maintainer: HubSpot
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - hubspot
+      - crm
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use HubSpot only when the task directly involves CRM.
+      references:
+        - https://app.hubspot.com/mcp/v1/http
+  - id: needle
+    exists: true
+    enabled: true
+    name: Needle
+    description: RAG-as-a-service MCP server by Needle.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.needle-ai.com/mcp
+      authentication: API Key
+      category: RAG-as-a-service
+      maintainer: Needle
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - needle-ai
+      - needle
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Needle only when the task directly involves RAG-as-a-service.
+      references:
+        - https://mcp.needle-ai.com/mcp
+  - id: zapier
+    exists: true
+    enabled: true
+    name: Zapier
+    description: Automation MCP server by Zapier.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.zapier.com/api/mcp/mcp
+      authentication: API Key
+      category: Automation
+      maintainer: Zapier
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - zapier
+      - automation
+      - workflow
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Zapier only when the task directly involves Automation.
+      references:
+        - https://mcp.zapier.com/api/mcp/mcp
+  - id: mercado-libre
+    exists: true
+    enabled: true
+    name: Mercado Libre
+    description: E-Commerce MCP server by Mercado Libre MCP Server.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.mercadolibre.com/mcp
+      authentication: API Key
+      category: E-Commerce
+      maintainer: Mercado Libre MCP Server
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - mercadolibre
+      - mercado
+      - libre
+      - mercado-libre
+      - e-commerce
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Mercado Libre only when the task directly involves E-Commerce.
+      references:
+        - https://mcp.mercadolibre.com/mcp
+  - id: mercado-pago
+    exists: true
+    enabled: true
+    name: Mercado Pago
+    description: Payments MCP server by Mercado Pago MCP Server.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.mercadopago.com/mcp
+      authentication: API Key
+      category: Payments
+      maintainer: Mercado Pago MCP Server
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - mercadopago
+      - mercado
+      - pago
+      - mercado-pago
+      - payments
+      - finance
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Mercado Pago only when the task directly involves Payments.
+      references:
+        - https://mcp.mercadopago.com/mcp
+  - id: searchapi
+    exists: true
+    enabled: true
+    name: SearchAPI
+    description: Search MCP server by SearchAPI.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://www.searchapi.io/mcp
+      authentication: API Key
+      category: Search
+      maintainer: SearchAPI
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - searchapi
+      - search
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use SearchAPI only when the task directly involves Search.
+      references:
+        - https://www.searchapi.io/mcp
+  - id: short.io
+    exists: true
+    enabled: true
+    name: Short.io
+    description: Link shortener MCP server by Short.io.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://ai-assistant.short.io/mcp
+      authentication: API Key
+      category: Link shortener
+      maintainer: Short.io
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - short
+      - ai-assistant
+      - links
+      - link
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Short.io only when the task directly involves Link shortener.
+      references:
+        - https://ai-assistant.short.io/mcp
+  - id: zip1.io
+    exists: true
+    enabled: true
+    name: zip1.io
+    description: Link shortener MCP server by zip1.io.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://zip1.io/mcp
+      authentication: Open
+      category: Link shortener
+      maintainer: zip1.io
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - zip1
+      - links
+      - link
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use zip1.io only when the task directly involves Link shortener.
+      references:
+        - https://zip1.io/mcp
+  - id: telnyx
+    exists: true
+    enabled: true
+    name: Telnyx
+    description: Communication MCP server by Telnyx.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.telnyx.com/v2/mcp
+      authentication: API Key
+      category: Communication
+      maintainer: Telnyx
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - telnyx
+      - communication
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Telnyx only when the task directly involves Communication.
+      references:
+        - https://api.telnyx.com/v2/mcp
+  - id: dodo-payments
+    exists: true
+    enabled: true
+    name: Dodo Payments
+    description: Payments MCP server by Dodo Payments.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.dodopayments.com/sse
+      authentication: API Key
+      category: Payments
+      maintainer: Dodo Payments
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: sse
+    keywords:
+      - dodopayments
+      - dodo
+      - payments
+      - dodo-payments
+      - finance
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Dodo Payments only when the task directly involves Payments.
+      references:
+        - https://mcp.dodopayments.com/sse
+  - id: polar-signals
+    exists: true
+    enabled: true
+    name: Polar Signals
+    description: Software Development MCP server by Polar Signals.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.polarsignals.com/api/mcp/
+      authentication: API Key
+      category: Software Development
+      maintainer: Polar Signals
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - polarsignals
+      - polar
+      - signals
+      - polar-signals
+      - development
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Polar Signals only when the task directly involves Software Development.
+      references:
+        - https://api.polarsignals.com/api/mcp/
+  - id: manifold
+    exists: true
+    enabled: true
+    name: Manifold
+    description: Forecasting MCP server by Manifold.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://api.manifold.markets/v0/mcp
+      authentication: Open
+      category: Forecasting
+      maintainer: Manifold
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - manifold
+      - forecast
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Manifold only when the task directly involves Forecasting.
+      references:
+        - https://api.manifold.markets/v0/mcp
+  - id: javadocs
+    exists: true
+    enabled: true
+    name: Javadocs
+    description: Software Development MCP server by Javadocs.dev.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://www.javadocs.dev/mcp
+      authentication: Open
+      category: Software Development
+      maintainer: Javadocs.dev
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - javadocs
+      - development
+      - documentation
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Javadocs only when the task directly involves Software Development.
+      references:
+        - https://www.javadocs.dev/mcp
+  - id: customgpt.ai
+    exists: true
+    enabled: true
+    name: CustomGPT.ai
+    description: RAG-as-a-service MCP server by CustomGPT.ai.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.customgpt.ai
+      authentication: API
+      category: RAG-as-a-service
+      maintainer: CustomGPT.ai
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - customgpt
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use CustomGPT.ai only when the task directly involves RAG-as-a-service.
+      references:
+        - https://mcp.customgpt.ai
+  - id: ferryhopper
+    exists: true
+    enabled: true
+    name: Ferryhopper
+    description: Other MCP server by Ferryhopper.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://mcp.ferryhopper.com/mcp
+      authentication: Open
+      category: Other
+      maintainer: Ferryhopper
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - ferryhopper
+      - mcp
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use Ferryhopper only when the task directly involves Other.
+      references:
+        - https://mcp.ferryhopper.com/mcp
+  - id: subwayinfo-nyc
+    exists: true
+    enabled: true
+    name: SubwayInfo NYC
+    description: Other MCP server by SubwayInfo NYC.
+    source:
+      type: hosted_https
+      provider: manual
+      hosted_url: https://subwayinfo.nyc/mcp
+      authentication: Open
+      category: Other
+      maintainer: SubwayInfo NYC
+    security:
+      local_code_execution: false
+      sandboxed: true
+      reviewed: false
+      data_risk: third_party_service_data
+      permission_default: ask_before_write
+    transport:
+      type: streamable_http
+    keywords:
+      - subwayinfo
+      - nyc
+      - subwayinfo-nyc
+      - mcp
+    trust: trusted
+    runtime: hosted_https
+    default_mode: ask_before_write
+    skill:
+      when_to_use:
+        - Use SubwayInfo NYC only when the task directly involves Other.
+      references:
+        - https://subwayinfo.nyc/mcp

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mercado-pago": {
+      "type": "streamable_http",
+      "url": "https://mcp.mercadopago.com/mcp"
+    }
+  }
+}

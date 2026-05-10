@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ean-search.org": {
+      "type": "streamable_http",
+      "url": "https://www.ean-search.org/mcp"
+    }
+  }
+}

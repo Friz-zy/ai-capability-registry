@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cloudflare-workers": {
+      "type": "sse",
+      "url": "https://bindings.mcp.cloudflare.com/sse"
+    }
+  }
+}

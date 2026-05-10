@@ -1,0 +1,34 @@
+mcp_sources:
+  - id: official-mcp-registry
+    name: Official MCP Registry
+    description: Official community-driven MCP server registry API.
+    source_type: rest_api
+    url: https://registry.modelcontextprotocol.io/v0/servers
+    trust: candidate
+    enabled: true
+    import_policy:
+      allow:
+        - hosted_https
+        - docker_oci
+      deny:
+        - npm
+        - pypi
+        - nuget
+        - direct_python
+        - direct_node
+
+  - id: docker-mcp-registry
+    name: Docker MCP Registry
+    description: Docker curated MCP catalog with containerized server metadata.
+    source_type: github_yaml
+    repo: https://github.com/docker/mcp-registry
+    catalog_path: servers
+    catalog_pattern: "*.yaml"
+    trust: reviewed
+    enabled: true
+    import_policy:
+      allow:
+        - docker_oci
+      deny:
+        - unsafe_docker_flags
+        - host_escape_mounts

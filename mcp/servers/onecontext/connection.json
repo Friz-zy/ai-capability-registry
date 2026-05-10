@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "onecontext": {
+      "type": "sse",
+      "url": "https://rag-mcp-2.whatsmcp.workers.dev/sse"
+    }
+  }
+}

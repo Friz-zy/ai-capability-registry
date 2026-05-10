@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "invidio": {
+      "type": "sse",
+      "url": "https://mcp.invideo.io/sse"
+    }
+  }
+}

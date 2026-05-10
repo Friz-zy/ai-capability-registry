@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "listenetic": {
+      "type": "streamable_http",
+      "url": "https://mcp.listenetic.com/v1/mcp"
+    }
+  }
+}

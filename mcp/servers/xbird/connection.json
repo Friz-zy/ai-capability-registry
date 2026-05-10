@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "xbird": {
+      "type": "streamable_http",
+      "url": "https://xbirdapi.up.railway.app/mcp"
+    }
+  }
+}

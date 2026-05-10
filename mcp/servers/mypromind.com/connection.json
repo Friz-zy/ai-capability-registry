@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mypromind.com": {
+      "type": "streamable_http",
+      "url": "https://www.mypromind.com/interface/mcp"
+    }
+  }
+}

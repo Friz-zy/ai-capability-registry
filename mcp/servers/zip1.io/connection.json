@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "zip1.io": {
+      "type": "streamable_http",
+      "url": "https://zip1.io/mcp"
+    }
+  }
+}

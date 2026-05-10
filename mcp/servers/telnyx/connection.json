@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "telnyx": {
+      "type": "streamable_http",
+      "url": "https://api.telnyx.com/v2/mcp"
+    }
+  }
+}

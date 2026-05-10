@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hubspot": {
+      "type": "streamable_http",
+      "url": "https://app.hubspot.com/mcp/v1/http"
+    }
+  }
+}

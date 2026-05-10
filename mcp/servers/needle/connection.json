@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "needle": {
+      "type": "streamable_http",
+      "url": "https://mcp.needle-ai.com/mcp"
+    }
+  }
+}

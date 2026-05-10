@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "javadocs": {
+      "type": "streamable_http",
+      "url": "https://www.javadocs.dev/mcp"
+    }
+  }
+}

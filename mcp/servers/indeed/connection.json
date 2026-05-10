@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "indeed": {
+      "type": "streamable_http",
+      "url": "https://mcp.indeed.com/claude/mcp"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mercado-libre": {
+      "type": "streamable_http",
+      "url": "https://mcp.mercadolibre.com/mcp"
+    }
+  }
+}

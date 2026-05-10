@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "carbon-voice": {
+      "type": "streamable_http",
+      "url": "https://mcp.carbonvoice.app"
+    }
+  }
+}

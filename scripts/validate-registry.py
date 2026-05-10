@@ -7,7 +7,8 @@ from registry_lib import RegistryError, load_all
 
 
 REQUIRED_SKILL_FIELDS = {"id", "name", "source", "category", "trust", "compatibility", "enabled"}
-REQUIRED_MCP_FIELDS = {"id", "name", "source", "security", "transport", "compatibility", "trust", "runtime", "default_mode", "enabled"}
+REQUIRED_MCP_FIELDS = {"id", "name", "source", "security", "transport", "trust", "runtime", "default_mode", "enabled"}
+DOCKER_DENY_ARGS = {"--privileged", "--network=host", "--pid=host", "--ipc=host"}
 REQUIRED_AGENT_FIELDS = {"id", "name", "supports"}
 REQUIRED_PROFILE_FIELDS = {"id", "name", "include"}
 REQUIRED_TASK_FIELDS = {"id", "name", "description", "categories", "keywords"}
@@ -49,7 +50,14 @@ def validate_skills(skills: list[dict], trust_levels: set[str], agents: set[str]
             print(f"WARN skill {skill_id}: enabled but not pinned yet", file=sys.stderr)
 
 
-def validate_mcp(servers: list[dict], trust_levels: set[str], agents: set[str], policy: dict, errors: list[str]) -> None:
+def validate_mcp(
+    servers: list[dict],
+    trust_levels: set[str],
+    agents: set[str],
+    policy: dict,
+    allowed_keywords: set[str],
+    errors: list[str],
+) -> None:
     unique_ids("mcp_servers", servers, errors)
     allowed_runtimes = set(policy.get("security_policy", {}).get("allow", [])) | {"hosted_or_docker", "docker"}
     for server in servers:
@@ -62,8 +70,31 @@ def validate_mcp(servers: list[dict], trust_levels: set[str], agents: set[str], 
         require(server.get("security", {}).get("local_code_execution") is not True, f"mcp {server_id}: unrestricted local execution is forbidden", errors)
         for agent in server.get("compatibility", []):
             require(agent in agents, f"mcp {server_id}: unknown compatible agent {agent}", errors)
-        if server.get("trust") == "reviewed":
-            require(server.get("enabled") is False, f"mcp {server_id}: reviewed MCP should be manually enabled", errors)
+        keywords = server.get("keywords", [])
+        require(isinstance(keywords, list), f"mcp {server_id}: keywords must be a list", errors)
+        for keyword in keywords if isinstance(keywords, list) else []:
+            require(isinstance(keyword, str) and bool(keyword), f"mcp {server_id}: invalid keyword {keyword}", errors)
+            require(keyword in allowed_keywords, f"mcp {server_id}: unknown keyword {keyword}", errors)
+        skill = server.get("skill")
+        if skill is not None:
+            require(isinstance(skill, dict), f"mcp {server_id}: skill must be a mapping", errors)
+            if isinstance(skill, dict):
+                for key in ("when_to_use", "instructions", "references", "docker"):
+                    if key in skill:
+                        require(
+                            isinstance(skill[key], list) and all(isinstance(item, str) for item in skill[key]),
+                            f"mcp {server_id}: skill.{key} must be a list of strings",
+                            errors,
+                        )
+        if server.get("trust") == "candidate":
+            require(server.get("enabled") is False, f"mcp {server_id}: candidate MCP should be manually enabled", errors)
+        docker = server.get("source", {}).get("docker", {})
+        if isinstance(docker, dict) and docker:
+            command = docker.get("command")
+            args = docker.get("args", [])
+            require(command == "docker", f"mcp {server_id}: docker runtime must use command=docker", errors)
+            require(isinstance(args, list) and len(args) >= 2 and args[:2] == ["run", "--rm"], f"mcp {server_id}: docker args must start with run --rm", errors)
+            require(not (set(str(arg) for arg in args) & DOCKER_DENY_ARGS), f"mcp {server_id}: docker args include forbidden host escape flags", errors)
 
 
 def validate_agents(agents: list[dict], errors: list[str]) -> None:
@@ -112,13 +143,14 @@ def main() -> int:
     policies = registry["policies"]
     trust_levels = set(policies.get("trust_levels", {}))
     categories = set(registry.get("keyword_categories", {}))
+    allowed_keywords = {keyword for values in registry["keyword_categories"].values() for keyword in values}
     agent_ids = {agent.get("id") for agent in registry["agents"]}
 
     validate_agents(registry["agents"], errors)
     validate_profiles(registry["profiles"], trust_levels, categories, errors)
     validate_tasks(registry["tasks"], registry["keyword_categories"], errors)
     validate_skills(registry["skills"], trust_levels, agent_ids, errors)
-    validate_mcp(registry["mcp_servers"], trust_levels, agent_ids, policies, errors)
+    validate_mcp(registry["mcp_servers"], trust_levels, agent_ids, policies, allowed_keywords, errors)
 
     if errors:
         for error in errors:

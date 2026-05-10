@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "stack-overflow": {
+      "type": "streamable_http",
+      "url": "https://mcp.stackoverflow.com"
+    }
+  }
+}

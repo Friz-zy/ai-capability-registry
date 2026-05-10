@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "square": {
+      "type": "sse",
+      "url": "https://mcp.squareup.com/sse"
+    }
+  }
+}

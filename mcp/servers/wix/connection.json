@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "wix": {
+      "type": "sse",
+      "url": "https://mcp.wix.com/sse"
+    }
+  }
+}

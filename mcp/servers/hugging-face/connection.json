@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hugging-face": {
+      "type": "streamable_http",
+      "url": "https://hf.co/mcp"
+    }
+  }
+}

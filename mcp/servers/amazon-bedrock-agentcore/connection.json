@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "amazon-bedrock-agentcore": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/amazon-bedrock-agentcore-mcp-server"
+      ]
+    }
+  }
+}

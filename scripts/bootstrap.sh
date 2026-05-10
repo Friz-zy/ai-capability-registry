@@ -14,4 +14,7 @@ cd "${ROOT_DIR}"
 # Sync skill catalog chunks and generate the combined skills tree
 ./scripts/discover-skills.py
 
+# Generate MCP routing indexes from mcp-catalog.d/
+./scripts/generate-mcp.py
+
 echo "Bootstrap complete"

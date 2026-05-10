@@ -17,6 +17,7 @@ The bootstrap script will:
 2. Validate registry configuration
 3. Sync provider chunks under `skill-catalog.d/` with discovered skills
 4. Generate the combined `skills/` routing catalogs and symlink packs from `skill-catalog.d/`
+5. Generate MCP routing catalogs from `mcp-catalog.d/`
 
 ## How Agents Use This Registry
 
@@ -49,7 +50,7 @@ echo "Read also instructions from $REGISTRY_ROOT/skills/skills.md" >> AGENTS.md
 
 ## Navigation
 
-Skill routing catalogs live under `skills/catalog/`. Skill entries inside `skills/packs/` are symlinks back to skill directories under `external/`.
+Skill routing catalogs live under `skills/catalog/`. Skill entries inside `skills/packs/` are symlinks back to skill directories under `external/`. MCP routing catalogs live under `mcp/` and are generated from `mcp-catalog.d/*.yml`.
 
 ```
 skill-catalog.d/<provider>.yaml                 (source of truth for enabled/disabled skills)
@@ -59,6 +60,15 @@ skill-catalog.d/<provider>.yaml                 (source of truth for enabled/dis
     -> skills/catalog/keywords/<keyword>/skills.md  (keyword catalog with skill descriptions)
     -> external/<source>/<path>/SKILL.md         (actual skill file)
   -> skills/packs/                               (symlink packs for direct config inclusion)
+
+mcp-catalog.d/<source>.yml           (source of truth for MCP servers)
+  -> mcp/mcp.md                                  (root MCP routing index)
+  -> mcp/catalog/tasks/<task>/servers.md         (task routing catalog)
+  -> mcp/catalog/roles/<role>/servers.md         (optional role routing catalog)
+  -> mcp/catalog/runtime/<runtime>/servers.md    (runtime routing catalogs)
+  -> mcp/catalog/keywords/<keyword>/servers.md   (keyword routing catalogs)
+  -> mcp/servers/<server>/SKILL.md               (generated MCP usage wrapper)
+  -> mcp/servers/<server>/connection.json        (generated MCP connection config)
 ```
 
 ## Skill Catalog and Generated Structure
@@ -98,6 +108,43 @@ skills/
 
 `skill-catalog.md` is generated as a human-readable view of `skill-catalog.d/`; do not edit it directly.
 
+## MCP Catalog
+
+`mcp-catalog.d/*.yml` files are the editable source of truth for MCP servers. `registry/mcp.yaml` has been intentionally removed so MCP entries can be split by source, just like skill provider chunks.
+
+The manual chunk is:
+
+```
+mcp-catalog.d/manual.yml
+```
+
+Keep `manual.yml` only for curated entries that are not discoverable from configured upstream sources. Auto-discovered sources should write source-specific chunks such as `official-mcp-registry.yml` or `docker-mcp-registry.yml`; imported entries must remain `enabled: false` until reviewed.
+
+Allowed MCP runtimes:
+
+- public HTTPS endpoints using Streamable HTTP or SSE;
+- Docker/OCI images launched only through `docker run --rm`.
+
+Denied MCP runtimes:
+
+- direct `node`, `npx`, `python`, `pip`, or `uvx`;
+- `curl | sh`;
+- Docker host escape modes such as `--privileged`, `--network=host`, or unrestricted host mounts.
+
+Generate MCP indexes with:
+
+```bash
+./scripts/generate-mcp.py
+```
+
+Optionally discover candidates from configured upstream sources with:
+
+```bash
+./scripts/discover-mcp.py
+```
+
+`mcp-catalog.md` is generated as a human-readable view of `mcp-catalog.d/`; do not edit it directly.
+
 ## Trust Levels
 
 - `trusted`: Official vendor or reputable security-reviewed source. Used by default.
@@ -125,11 +172,13 @@ skills/
 | `scripts/update-external.py` | Sync external/ submodules with skills.yaml config |
 | `scripts/validate-registry.py` | Validate registry YAML structure and policies |
 | `scripts/discover-skills.py` | Sync `skill-catalog.d/`, generate `skills/`, and generate `skill-catalog.md` |
+| `scripts/discover-mcp.py` | Import disabled candidate MCP entries from allowed upstream registries into `mcp-catalog.d/` |
+| `scripts/generate-mcp.py` | Generate `mcp/` routing indexes, MCP skill wrappers, and `mcp-catalog.md` from `mcp-catalog.d/` |
 | `scripts/generate-collections-all.py` | Regenerate `skills/packs/all` from enabled entries in `skill-catalog.d/` |
 
 ## Regenerate Skills Tree
 
-If you modify `registry/skills.yaml`, `skill-catalog.d/`, keyword categories, tasks, profiles, or update submodules:
+If you modify `registry/skills.yaml`, `skill-catalog.d/`, `mcp-catalog.d/`, keyword categories, tasks, profiles, or update submodules:
 
 ```bash
 ./scripts/bootstrap.sh

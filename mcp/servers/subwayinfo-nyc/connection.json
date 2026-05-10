@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "subwayinfo-nyc": {
+      "type": "streamable_http",
+      "url": "https://subwayinfo.nyc/mcp"
+    }
+  }
+}

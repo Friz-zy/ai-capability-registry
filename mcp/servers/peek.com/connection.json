@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "peek.com": {
+      "type": "streamable_http",
+      "url": "https://mcp.peek.com"
+    }
+  }
+}
