@@ -1,8 +1,21 @@
 # AI Capability Registry
 
-Curated AI skills, MCP servers, workflows, and agent integrations for secure multi-agent development.
+AI Capability Registry is an experiment in dynamic capability routing for AI agents: load the right skills, MCP servers, workflows, and integration instructions only when the current task needs them.
 
-This repository turns AI-agent capability sprawl into a reproducible GitOps-style registry. It downloads upstream sources as pinned submodules, inventories every discovered skill, and generates routing catalogs plus symlink packs organized by roles, tasks, and keywords.
+Instead of stuffing every agent with a huge static prompt, a random pile of tools, or every available MCP server, this repository treats agent capabilities as versioned infrastructure. An agent can resolve the user's request by task, role, and keywords, then progressively load only the relevant skill instructions or MCP connection guidance.
+
+This is not the theoretical optimum for every setup. A carefully hand-tuned agent with the smallest possible set of skills and MCP servers for one specific task will usually be simpler, faster, and easier to reason about. The registry is meant for the more common middle ground: teams and users who run many agents across many tasks and need something better than enabling a broad list of skills and MCP servers for every agent "just in case". Many agent tools make that broad attachment path easy; this project explores a more explicit routing layer between fully minimal per-agent configuration and everything-enabled-by-default capability sprawl.
+
+The goal is to make AI-agent capability management more modular, reproducible, and reviewable:
+
+- discover and curate skills, MCP servers, workflows, and agent integrations from upstream sources;
+- organize capabilities by tasks, roles, and keywords for runtime routing;
+- keep enabled capabilities explicit in Git rather than hidden in local agent state;
+- separate trusted, reviewed, and candidate capabilities;
+- prefer safer MCP runtimes such as hosted endpoints or constrained Docker containers;
+- let multi-agent setups share the same capability registry instead of duplicating prompt/tool configuration.
+
+This repository turns AI-agent capability sprawl into a reproducible GitOps-style registry. It downloads upstream sources as pinned submodules, inventories every discovered skill and MCP entry, and generates routing catalogs plus symlink packs organized by roles, tasks, and keywords.
 
 ## Setup
 
