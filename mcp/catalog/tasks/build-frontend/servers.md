@@ -13,6 +13,7 @@ Select 1-3 keywords from this list that directly match the current request. Pref
 
 - **astro**: 1 server(s) — `mcp/catalog/keywords/astro/servers.md`
 - **canva**: 1 server(s) — `mcp/catalog/keywords/canva/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **design**: 1 server(s) — `mcp/catalog/keywords/design/servers.md`
 - **scorecard**: 1 server(s) — `mcp/catalog/keywords/scorecard/servers.md`
 - **scorecard-mcp**: 1 server(s) — `mcp/catalog/keywords/scorecard-mcp/servers.md`

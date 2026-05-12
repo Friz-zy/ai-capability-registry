@@ -32,6 +32,7 @@ Select 1-3 keywords from this list that directly match the current request. Pref
 - **communication**: 2 server(s) — `mcp/catalog/keywords/communication/servers.md`
 - **composio**: 1 server(s) — `mcp/catalog/keywords/composio/servers.md`
 - **context-awesome**: 1 server(s) — `mcp/catalog/keywords/context-awesome/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **cortex**: 1 server(s) — `mcp/catalog/keywords/cortex/servers.md`
 - **crm**: 2 server(s) — `mcp/catalog/keywords/crm/servers.md`
 - **customgpt**: 1 server(s) — `mcp/catalog/keywords/customgpt/servers.md`

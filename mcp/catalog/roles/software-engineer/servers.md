@@ -8,6 +8,7 @@ Select only keywords that directly match the current request. Prefer exact servi
 - **automation**: 1 server(s) — `mcp/catalog/keywords/automation/servers.md`
 - **bindings**: 1 server(s) — `mcp/catalog/keywords/bindings/servers.md`
 - **communication**: 2 server(s) — `mcp/catalog/keywords/communication/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **development**: 20 server(s) — `mcp/catalog/keywords/development/servers.md`
 - **documentation**: 6 server(s) — `mcp/catalog/keywords/documentation/servers.md`
 - **error-analysis**: 1 server(s) — `mcp/catalog/keywords/error-analysis/servers.md`

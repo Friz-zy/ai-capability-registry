@@ -18,6 +18,7 @@ Select 1-3 keywords from this list that directly match the current request. Pref
 - **canva**: 1 server(s) — `mcp/catalog/keywords/canva/servers.md`
 - **communication**: 2 server(s) — `mcp/catalog/keywords/communication/servers.md`
 - **competitive-intelligence**: 1 server(s) — `mcp/catalog/keywords/competitive-intelligence/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **design**: 1 server(s) — `mcp/catalog/keywords/design/servers.md`
 - **development**: 20 server(s) — `mcp/catalog/keywords/development/servers.md`
 - **documentation**: 6 server(s) — `mcp/catalog/keywords/documentation/servers.md`

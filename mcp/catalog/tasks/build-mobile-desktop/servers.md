@@ -13,6 +13,7 @@ Build and review native or cross-platform mobile and desktop apps, SDKs, platfor
 Select 1-3 keywords from this list that directly match the current request. Prefer exact service/platform keywords when present.
 
 - **astro**: 1 server(s) — `mcp/catalog/keywords/astro/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **scorecard**: 1 server(s) — `mcp/catalog/keywords/scorecard/servers.md`
 - **scorecard-mcp**: 1 server(s) — `mcp/catalog/keywords/scorecard-mcp/servers.md`
 - **validation**: 1 server(s) — `mcp/catalog/keywords/validation/servers.md`

@@ -14,6 +14,7 @@ Select 1-3 keywords from this list that directly match the current request. Pref
 - **analysis**: 3 server(s) — `mcp/catalog/keywords/analysis/servers.md`
 - **authentication**: 1 server(s) — `mcp/catalog/keywords/authentication/servers.md`
 - **bindings**: 1 server(s) — `mcp/catalog/keywords/bindings/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **development**: 20 server(s) — `mcp/catalog/keywords/development/servers.md`
 - **error-analysis**: 1 server(s) — `mcp/catalog/keywords/error-analysis/servers.md`
 - **incident**: 2 server(s) — `mcp/catalog/keywords/incident/servers.md`

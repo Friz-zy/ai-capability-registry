@@ -14,6 +14,7 @@ tasks:
       - architecture
       - roadmap
       - user-research
+      - context7
 
   - id: implement-code
     name: Implement or Refactor Code
@@ -29,6 +30,7 @@ tasks:
       - debugging
       - documentation
       - testing
+      - context7
 
   - id: review-code
     name: Review Code or PR
@@ -43,6 +45,7 @@ tasks:
       - static-analysis
       - testing
       - threat-model
+      - context7
 
   - id: debug-incident
     name: Debug an Issue or Incident
@@ -59,6 +62,7 @@ tasks:
       - langsmith
       - runbook
       - status-report
+      - context7
 
   - id: test-validate
     name: Test and Validate
@@ -105,6 +109,7 @@ tasks:
       - html
       - accessibility
       - design-system
+      - context7
 
   - id: build-backend
     name: Build Backend or Integration
@@ -120,6 +125,7 @@ tasks:
       - sdk
       - aspnet
       - dotnet
+      - context7
 
   - id: deploy-release
     name: Deploy or Release
@@ -373,3 +379,4 @@ tasks:
       - electron
       - windows
       - testing
+      - context7

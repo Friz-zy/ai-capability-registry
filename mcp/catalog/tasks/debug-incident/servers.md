@@ -25,6 +25,7 @@ Select 1-3 keywords from this list that directly match the current request. Pref
 - **cloudflare-observability**: 1 server(s) — `mcp/catalog/keywords/cloudflare-observability/servers.md`
 - **cloudflare-workers**: 1 server(s) — `mcp/catalog/keywords/cloudflare-workers/servers.md`
 - **communication**: 2 server(s) — `mcp/catalog/keywords/communication/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **deployment**: 1 server(s) — `mcp/catalog/keywords/deployment/servers.md`
 - **development**: 20 server(s) — `mcp/catalog/keywords/development/servers.md`
 - **documentation**: 6 server(s) — `mcp/catalog/keywords/documentation/servers.md`

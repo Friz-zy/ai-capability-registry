@@ -72,6 +72,7 @@ keyword_categories:
     - claude-api
     - claude-code
     - codex
+    - context7
     - customgpt
     - cyclingcoachai
     - dockai
@@ -136,6 +137,7 @@ keyword_categories:
     - coderide
     - codeweaver
     - codex
+    - context7
     - command
     - dbt
     - devcontainer
@@ -204,6 +206,7 @@ keyword_categories:
     - ast-grep
     - bindings
     - code-review
+    - context7
     - cpp
     - debug
     - debugging

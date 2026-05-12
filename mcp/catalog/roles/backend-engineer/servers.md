@@ -3,6 +3,7 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact service/platform keywords when present.
 
+- **actions**: 1 server(s) — `mcp/catalog/keywords/actions/servers.md`
 - **aks**: 1 server(s) — `mcp/catalog/keywords/aks/servers.md`
 - **amazon**: 3 server(s) — `mcp/catalog/keywords/amazon/servers.md`
 - **amazon-neptune**: 1 server(s) — `mcp/catalog/keywords/amazon-neptune/servers.md`
@@ -16,6 +17,8 @@ Select only keywords that directly match the current request. Prefer exact servi
 - **cloudflare**: 3 server(s) — `mcp/catalog/keywords/cloudflare/servers.md`
 - **cloudflare-observability**: 1 server(s) — `mcp/catalog/keywords/cloudflare-observability/servers.md`
 - **cloudflare-workers**: 1 server(s) — `mcp/catalog/keywords/cloudflare-workers/servers.md`
+- **code-examples**: 1 server(s) — `mcp/catalog/keywords/code-examples/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **cypher**: 1 server(s) — `mcp/catalog/keywords/cypher/servers.md`
 - **dashboard**: 1 server(s) — `mcp/catalog/keywords/dashboard/servers.md`
 - **data**: 7 server(s) — `mcp/catalog/keywords/data/servers.md`
@@ -23,11 +26,19 @@ Select only keywords that directly match the current request. Prefer exact servi
 - **databases**: 1 server(s) — `mcp/catalog/keywords/databases/servers.md`
 - **dataset**: 1 server(s) — `mcp/catalog/keywords/dataset/servers.md`
 - **deployment**: 1 server(s) — `mcp/catalog/keywords/deployment/servers.md`
+- **developer-portal**: 2 server(s) — `mcp/catalog/keywords/developer-portal/servers.md`
+- **development**: 20 server(s) — `mcp/catalog/keywords/development/servers.md`
 - **forecast**: 1 server(s) — `mcp/catalog/keywords/forecast/servers.md`
+- **git**: 1 server(s) — `mcp/catalog/keywords/git/servers.md`
+- **github**: 1 server(s) — `mcp/catalog/keywords/github/servers.md`
 - **google-big-query**: 1 server(s) — `mcp/catalog/keywords/google-big-query/servers.md`
 - **hosting**: 1 server(s) — `mcp/catalog/keywords/hosting/servers.md`
 - **instantdb**: 1 server(s) — `mcp/catalog/keywords/instantdb/servers.md`
+- **issues**: 3 server(s) — `mcp/catalog/keywords/issues/servers.md`
+- **javadocs**: 1 server(s) — `mcp/catalog/keywords/javadocs/servers.md`
 - **kubernetes**: 1 server(s) — `mcp/catalog/keywords/kubernetes/servers.md`
+- **library-documentation**: 1 server(s) — `mcp/catalog/keywords/library-documentation/servers.md`
+- **linear**: 1 server(s) — `mcp/catalog/keywords/linear/servers.md`
 - **malware**: 1 server(s) — `mcp/catalog/keywords/malware/servers.md`
 - **malware-patrol**: 1 server(s) — `mcp/catalog/keywords/malware-patrol/servers.md`
 - **malwarepatrol**: 1 server(s) — `mcp/catalog/keywords/malwarepatrol/servers.md`
@@ -36,13 +47,19 @@ Select only keywords that directly match the current request. Prefer exact servi
 - **netlify**: 1 server(s) — `mcp/catalog/keywords/netlify/servers.md`
 - **netlify-mcp**: 1 server(s) — `mcp/catalog/keywords/netlify-mcp/servers.md`
 - **oauth**: 1 server(s) — `mcp/catalog/keywords/oauth/servers.md`
+- **portal**: 2 server(s) — `mcp/catalog/keywords/portal/servers.md`
 - **postgres**: 1 server(s) — `mcp/catalog/keywords/postgres/servers.md`
 - **prisma**: 1 server(s) — `mcp/catalog/keywords/prisma/servers.md`
 - **prisma-postgres**: 1 server(s) — `mcp/catalog/keywords/prisma-postgres/servers.md`
+- **pull-requests**: 1 server(s) — `mcp/catalog/keywords/pull-requests/servers.md`
 - **query**: 1 server(s) — `mcp/catalog/keywords/query/servers.md`
+- **repositories**: 1 server(s) — `mcp/catalog/keywords/repositories/servers.md`
 - **security**: 3 server(s) — `mcp/catalog/keywords/security/servers.md`
 - **semgrep**: 1 server(s) — `mcp/catalog/keywords/semgrep/servers.md`
+- **sentry**: 1 server(s) — `mcp/catalog/keywords/sentry/servers.md`
 - **sql**: 2 server(s) — `mcp/catalog/keywords/sql/servers.md`
+- **stack-overflow**: 1 server(s) — `mcp/catalog/keywords/stack-overflow/servers.md`
+- **stackoverflow**: 1 server(s) — `mcp/catalog/keywords/stackoverflow/servers.md`
 - **stytch**: 1 server(s) — `mcp/catalog/keywords/stytch/servers.md`
 - **supabase**: 1 server(s) — `mcp/catalog/keywords/supabase/servers.md`
 - **threat-intelligence**: 1 server(s) — `mcp/catalog/keywords/threat-intelligence/servers.md`

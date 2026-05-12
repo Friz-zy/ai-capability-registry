@@ -157,6 +157,7 @@ profiles:
         - data
         - devops
         - security
+        - developer_tools
       trust:
         - trusted
         - reviewed
@@ -182,6 +183,7 @@ profiles:
         - frontend
         - design
         - qa
+        - developer_tools
       trust:
         - trusted
         - reviewed
@@ -206,6 +208,7 @@ profiles:
         - desktop
         - frontend
         - qa
+        - developer_tools
       trust:
         - trusted
         - reviewed
@@ -231,6 +234,7 @@ profiles:
         - core
         - frontend
         - backend
+        - developer_tools
       trust:
         - trusted
         - reviewed

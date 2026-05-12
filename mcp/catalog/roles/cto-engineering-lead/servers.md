@@ -22,6 +22,7 @@ Select only keywords that directly match the current request. Prefer exact servi
 - **cloudflare**: 3 server(s) — `mcp/catalog/keywords/cloudflare/servers.md`
 - **cloudflare-observability**: 1 server(s) — `mcp/catalog/keywords/cloudflare-observability/servers.md`
 - **cloudflare-workers**: 1 server(s) — `mcp/catalog/keywords/cloudflare-workers/servers.md`
+- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **customgpt**: 1 server(s) — `mcp/catalog/keywords/customgpt/servers.md`
 - **deployment**: 1 server(s) — `mcp/catalog/keywords/deployment/servers.md`
 - **development**: 20 server(s) — `mcp/catalog/keywords/development/servers.md`
