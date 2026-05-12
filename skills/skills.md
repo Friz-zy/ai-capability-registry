@@ -26,10 +26,10 @@ Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution
 - **CTO and Engineering Lead**: `skills/catalog/roles/cto-engineering-lead/skills.md` -> `engineering`, `backend`, `frontend`, `devops`, `sre`, `security`, `ai`, `ml`
 - **Product Manager**: `skills/catalog/roles/product-manager/skills.md` -> `product`, `research`, `design`, `data`, `customer_success`
 - **Software Engineer**: `skills/catalog/roles/software-engineer/skills.md` -> `core`, `engineering`, `backend`, `frontend`, `qa`
-- **Backend Engineer**: `skills/catalog/roles/backend-engineer/skills.md` -> `backend`, `data`, `devops`, `security`
-- **Frontend Engineer**: `skills/catalog/roles/frontend-engineer/skills.md` -> `frontend`, `design`, `qa`
-- **Mobile and Desktop Engineer**: `skills/catalog/roles/mobile-engineer/skills.md` -> `mobile`, `desktop`, `frontend`, `qa`
-- **QA Engineer**: `skills/catalog/roles/qa-engineer/skills.md` -> `qa`, `core`, `frontend`, `backend`
+- **Backend Engineer**: `skills/catalog/roles/backend-engineer/skills.md` -> `backend`, `data`, `devops`, `security`, `developer_tools`
+- **Frontend Engineer**: `skills/catalog/roles/frontend-engineer/skills.md` -> `frontend`, `design`, `qa`, `developer_tools`
+- **Mobile and Desktop Engineer**: `skills/catalog/roles/mobile-engineer/skills.md` -> `mobile`, `desktop`, `frontend`, `qa`, `developer_tools`
+- **QA Engineer**: `skills/catalog/roles/qa-engineer/skills.md` -> `qa`, `core`, `frontend`, `backend`, `developer_tools`
 - **Security Engineer**: `skills/catalog/roles/security-engineer/skills.md` -> `security`
 - **DevOps and Platform Engineer**: `skills/catalog/roles/devops-platform-engineer/skills.md` -> `devops`, `sre`, `security`
 - **SRE Incident Manager**: `skills/catalog/roles/sre-incident-manager/skills.md` -> `sre`, `devops`, `data`
@@ -44,6 +44,11 @@ Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution
 - **People Operations and Recruiting Partner**: `skills/catalog/roles/people-ops-recruiting/skills.md` -> `people`
 - **Operations Manager**: `skills/catalog/roles/operations-manager/skills.md` -> `operations`, `research`, `customer_success`
 - **AI Agent Builder and Pipeline Orchestrator**: `skills/catalog/roles/ai-agent-builder/skills.md` -> `ai`, `ml`, `engineering`, `devops`, `security`, `core`
+- **Creative Media Producer**: `skills/catalog/roles/creative-media-producer/skills.md` -> `creative_media`, `design`, `documents`, `marketing`
+- **Data Engineer**: `skills/catalog/roles/data-engineer/skills.md` -> `data`, `backend`, `devops`, `security`
+- **Cloud Infrastructure Engineer**: `skills/catalog/roles/cloud-infrastructure-engineer/skills.md` -> `devops`, `sre`, `security`
+- **Blockchain Engineer**: `skills/catalog/roles/blockchain-engineer/skills.md` -> `blockchain`, `security`, `engineering`
+- **Hardware and IoT Engineer**: `skills/catalog/roles/hardware-iot-engineer/skills.md` -> `hardware`, `devops`, `security`
 
 ### Tasks (workflow entry points)
 
@@ -65,6 +70,12 @@ Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution
 - **Finance, Compliance, or Legal**: `skills/catalog/tasks/finance-legal/skills.md` -> `audit`, `compliance`, `contract`, `finance`, `nda`, `policy`, `risk`
 - **People Operations**: `skills/catalog/tasks/people-ops/skills.md` -> `compensation`, `interviewing`, `onboarding`, `org-planning`, `performance-review`, `recruiting`
 - **Personal Productivity**: `skills/catalog/tasks/personal-productivity/skills.md` -> `email`, `meeting`, `memory`, `productivity`, `slack`, `task-management`
+- **Create or Edit Media**: `skills/catalog/tasks/create-media/skills.md` -> `creative-media`, `imagegen`, `media`, `screenshot`, `speech`, `transcribe`, `youtube`
+- **Manage Data Systems**: `skills/catalog/tasks/manage-data-systems/skills.md` -> `analytics`, `dashboard`, `data`, `dbt`, `sql`
+- **Manage Cloud Infrastructure**: `skills/catalog/tasks/manage-cloud-infra/skills.md` -> `cloudflare`, `deployment`, `incident`, `netlify`, `render`, `vercel`
+- **Build Blockchain or Smart Contracts**: `skills/catalog/tasks/build-blockchain/skills.md` -> `blockchain`, `cairo`, `smart-contracts`, `solana`, `solidity`, `threat-model`
+- **Build Hardware or IoT**: `skills/catalog/tasks/build-hardware-iot/skills.md` -> `integration`
+- **Build Mobile or Desktop App**: `skills/catalog/tasks/build-mobile-desktop/skills.md` -> `android`, `testing`, `windows`
 
 ## Policy
 - Use **trusted** or **reviewed** sources only

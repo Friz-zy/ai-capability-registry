@@ -6,6 +6,8 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **ads**: 1 skills — `skills/catalog/keywords/ads/skills.md`
 - **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
 - **brand**: 7 skills — `skills/catalog/keywords/brand/skills.md`
+- **business**: 4 skills — `skills/catalog/keywords/business/skills.md`
+- **business-marketing**: 4 skills — `skills/catalog/keywords/business-marketing/skills.md`
 - **call-prep**: 1 skills — `skills/catalog/keywords/call-prep/skills.md`
 - **campaign**: 3 skills — `skills/catalog/keywords/campaign/skills.md`
 - **compensation**: 2 skills — `skills/catalog/keywords/compensation/skills.md`
@@ -28,6 +30,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **people**: 2 skills — `skills/catalog/keywords/people/skills.md`
 - **performance-review**: 1 skills — `skills/catalog/keywords/performance-review/skills.md`
 - **pipeline**: 4 skills — `skills/catalog/keywords/pipeline/skills.md`
+- **planning**: 13 skills — `skills/catalog/keywords/planning/skills.md`
 - **product**: 8 skills — `skills/catalog/keywords/product/skills.md`
 - **reconciliation**: 1 skills — `skills/catalog/keywords/reconciliation/skills.md`
 - **recruiting**: 5 skills — `skills/catalog/keywords/recruiting/skills.md`

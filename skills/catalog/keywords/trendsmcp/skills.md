@@ -1,0 +1,3 @@
+# trendsmcp
+
+No skills found.

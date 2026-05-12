@@ -1,0 +1,50 @@
+# Blockchain Engineer
+
+## Keywords
+Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
+
+- **algorand**: 1 skills — `skills/catalog/keywords/algorand/skills.md`
+- **analysis**: 27 skills — `skills/catalog/keywords/analysis/skills.md`
+- **architecture**: 3 skills — `skills/catalog/keywords/architecture/skills.md`
+- **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
+- **binary**: 6 skills — `skills/catalog/keywords/binary/skills.md`
+- **blockchain**: 8 skills — `skills/catalog/keywords/blockchain/skills.md`
+- **burp**: 1 skills — `skills/catalog/keywords/burp/skills.md`
+- **cairo**: 1 skills — `skills/catalog/keywords/cairo/skills.md`
+- **code-review**: 6 skills — `skills/catalog/keywords/code-review/skills.md`
+- **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
+- **compliance**: 9 skills — `skills/catalog/keywords/compliance/skills.md`
+- **cosmos**: 1 skills — `skills/catalog/keywords/cosmos/skills.md`
+- **cpp**: 2 skills — `skills/catalog/keywords/cpp/skills.md`
+- **cryptography**: 6 skills — `skills/catalog/keywords/cryptography/skills.md`
+- **debugging**: 6 skills — `skills/catalog/keywords/debugging/skills.md`
+- **development**: 45 skills — `skills/catalog/keywords/development/skills.md`
+- **dwarf**: 1 skills — `skills/catalog/keywords/dwarf/skills.md`
+- **engineering**: 12 skills — `skills/catalog/keywords/engineering/skills.md`
+- **firebase**: 1 skills — `skills/catalog/keywords/firebase/skills.md`
+- **ghidra**: 2 skills — `skills/catalog/keywords/ghidra/skills.md`
+- **incident**: 1 skills — `skills/catalog/keywords/incident/skills.md`
+- **malware**: 1 skills — `skills/catalog/keywords/malware/skills.md`
+- **policy**: 1 skills — `skills/catalog/keywords/policy/skills.md`
+- **python**: 6 skills — `skills/catalog/keywords/python/skills.md`
+- **refactor**: 2 skills — `skills/catalog/keywords/refactor/skills.md`
+- **risk**: 5 skills — `skills/catalog/keywords/risk/skills.md`
+- **runbook**: 2 skills — `skills/catalog/keywords/runbook/skills.md`
+- **rust**: 4 skills — `skills/catalog/keywords/rust/skills.md`
+- **sarif**: 1 skills — `skills/catalog/keywords/sarif/skills.md`
+- **seatbelt**: 1 skills — `skills/catalog/keywords/seatbelt/skills.md`
+- **security**: 68 skills — `skills/catalog/keywords/security/skills.md`
+- **semgrep**: 3 skills — `skills/catalog/keywords/semgrep/skills.md`
+- **smart-contracts**: 16 skills — `skills/catalog/keywords/smart-contracts/skills.md`
+- **solana**: 1 skills — `skills/catalog/keywords/solana/skills.md`
+- **solidity**: 1 skills — `skills/catalog/keywords/solidity/skills.md`
+- **static-analysis**: 6 skills — `skills/catalog/keywords/static-analysis/skills.md`
+- **status-report**: 2 skills — `skills/catalog/keywords/status-report/skills.md`
+- **substrate**: 1 skills — `skills/catalog/keywords/substrate/skills.md`
+- **supply-chain**: 1 skills — `skills/catalog/keywords/supply-chain/skills.md`
+- **system-design**: 1 skills — `skills/catalog/keywords/system-design/skills.md`
+- **tech-debt**: 2 skills — `skills/catalog/keywords/tech-debt/skills.md`
+- **threat-model**: 2 skills — `skills/catalog/keywords/threat-model/skills.md`
+- **ton**: 1 skills — `skills/catalog/keywords/ton/skills.md`
+- **trailmark**: 3 skills — `skills/catalog/keywords/trailmark/skills.md`
+- **yara**: 1 skills — `skills/catalog/keywords/yara/skills.md`

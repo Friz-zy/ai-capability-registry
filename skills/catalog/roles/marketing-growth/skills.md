@@ -6,6 +6,8 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **ads**: 1 skills — `skills/catalog/keywords/ads/skills.md`
 - **analytics**: 12 skills — `skills/catalog/keywords/analytics/skills.md`
 - **brand**: 7 skills — `skills/catalog/keywords/brand/skills.md`
+- **business**: 4 skills — `skills/catalog/keywords/business/skills.md`
+- **business-marketing**: 4 skills — `skills/catalog/keywords/business-marketing/skills.md`
 - **campaign**: 3 skills — `skills/catalog/keywords/campaign/skills.md`
 - **content**: 10 skills — `skills/catalog/keywords/content/skills.md`
 - **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`

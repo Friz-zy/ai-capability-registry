@@ -127,16 +127,6 @@ Generate or edit raster images when the task benefits from AI-created bitmap vis
 
 File: `external/openai-skills/skills/.system/imagegen/SKILL.md`
 
-### internal-comms
-A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).
-
-**Enabled:** `true`
-**ID:** `external/anthropic-skills/skills/internal-comms`
-**Keywords:** `ai`, `communication`, `content`
-**Source:** anthropic-skills
-
-File: `external/anthropic-skills/skills/internal-comms/SKILL.md`
-
 ### langsmith-fetch
 Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use when debugging agent behavior, investigating errors, analyzing tool calls, checking memory operations, or examining agent performance. Automatically fetches recent traces and analyzes execution patterns. Requires langsmith-fetch CLI installed.
 
@@ -156,16 +146,6 @@ Guide for creating high-quality MCP (Model Context Protocol) servers that enable
 **Source:** kilo-marketplace-skills
 
 File: `external/kilo-marketplace-skills/skills/mcp-builder/SKILL.md`
-
-### meeting-insights-analyzer
-Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insights, and actionable feedback. Identifies when you avoid conflict, use filler words, dominate conversations, or miss opportunities to listen. Perfect for professionals seeking to improve their communication and leadership skills.
-
-**Enabled:** `true`
-**ID:** `external/kilo-marketplace-skills/skills/meeting-insights-analyzer`
-**Keywords:** `ai`, `analytics`, `communication`, `communication-writing`, `meeting`, `transcribe`
-**Source:** kilo-marketplace-skills
-
-File: `external/kilo-marketplace-skills/skills/meeting-insights-analyzer/SKILL.md`
 
 ### notion-meeting-intelligence
 Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.
@@ -336,298 +316,6 @@ Use this skill any time a spreadsheet file is the primary input or output. This 
 **Source:** anthropic-skills
 
 File: `external/anthropic-skills/skills/xlsx/SKILL.md`
-
-## Backend
-
-### contact-center/android
-Zoom Contact Center SDK for Android. Use for native Android chat/video/ZVA/scheduled callback integrations, campaign mode, service lifecycle, and rejoin handling.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android`
-**Keywords:** `android`, `contact-center`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android/SKILL.md`
-
-### contact-center/ios
-Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrations, app lifecycle bridging, rejoin flow, and callback handling.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios`
-**Keywords:** `contact-center`, `ios`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios/SKILL.md`
-
-### contact-center/web
-Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handling, app-context integrations, and Smart Embed postMessage workflows.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web`
-**Keywords:** `contact-center`, `sdk`, `web`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web/SKILL.md`
-
-### meeting-sdk/linux
-Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video access, transcription, recording, and AI integration for server-side automation
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux`
-**Keywords:** `linux`, `meeting`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux/SKILL.md`
-
-### video-sdk/linux
-Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux`
-**Keywords:** `linux`, `sdk`, `video`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux/SKILL.md`
-
-### video-sdk/web
-Zoom Video SDK for Web - JavaScript/TypeScript integration for browser-based video sessions, real-time communication, screen sharing, recording, and live transcription
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web`
-**Keywords:** `sdk`, `video`, `web`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web/SKILL.md`
-
-### video-sdk/windows
-Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, screen sharing, recording, and real-time communication
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows`
-**Keywords:** `sdk`, `video`, `windows`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows/SKILL.md`
-
-### virtual-agent/android
-Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, native URL handling, support_handoff relay, and lifecycle-safe embedding.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android`
-**Keywords:** `android`, `sdk`, `virtual-agent`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android/SKILL.md`
-
-### virtual-agent/ios
-Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, message handlers, support_handoff relay, and URL routing policies.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios`
-**Keywords:** `ios`, `sdk`, `virtual-agent`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios/SKILL.md`
-
-### virtual-agent/web
-Zoom Virtual Agent SDK for web embeds. Use for campaign or entry ID chat launch, event-driven controls, user context updates, and CSP-safe deployment.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web`
-**Keywords:** `sdk`, `virtual-agent`, `web`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web/SKILL.md`
-
-### zoom-cobrowse-sdk
-Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk`
-**Keywords:** `cobrowse`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk/SKILL.md`
-
-### zoom-meeting-sdk-android
-Zoom Meeting SDK for Android native apps. Use when embedding Zoom meetings in Android with
-default/custom UI, PKCE + SDK auth, join/start flows, and Meeting SDK API integration.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android`
-**Keywords:** `android`, `meeting`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android/SKILL.md`
-
-### zoom-meeting-sdk-electron
-Zoom Meeting SDK for Electron desktop applications. Use when embedding Zoom meetings in an Electron app
-with the Node addon wrapper, JWT auth, join/start flows, settings controllers, and raw data integration.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron`
-**Keywords:** `electron`, `meeting`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron/SKILL.md`
-
-### zoom-meeting-sdk-ios
-Zoom Meeting SDK for iOS native apps. Use when embedding Zoom meetings in iOS with
-default/custom UI, PKCE + SDK auth, host start with ZAK, and mobile lifecycle handling.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios`
-**Keywords:** `ios`, `meeting`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios/SKILL.md`
-
-### zoom-meeting-sdk-macos
-Zoom Meeting SDK for macOS native apps. Use when embedding Zoom meetings in macOS with
-default/custom UI, PKCE + SDK auth, host start/join flows, and desktop meeting feature controllers.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos`
-**Keywords:** `macos`, `meeting`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos/SKILL.md`
-
-### zoom-meeting-sdk-react-native
-Zoom Meeting SDK for React Native. Use when embedding Zoom meetings in React Native iOS/Android apps with @zoom/meetingsdk-react-native, JWT auth, join/start flows, platform setup, and native bridge troubleshooting.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native`
-**Keywords:** `meeting`, `react-native`, `sdk`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native/SKILL.md`
-
-### zoom-meeting-sdk-unreal
-Zoom Meeting SDK for Unreal Engine wrapper integrations. Use when building Unreal projects that
-embed Zoom meetings with C++ and Blueprint wrappers, including wrapper-to-SDK mapping concerns.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal`
-**Keywords:** `meeting`, `sdk`, `unreal`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal/SKILL.md`
-
-### zoom-meeting-sdk-web
-Zoom Meeting SDK for Web - Embed Zoom meeting capabilities into web applications. Two integration
-options: Client View (full-page, familiar Zoom UI) and Component View (embeddable, Promise-based API).
-Includes SharedArrayBuffer setup for HD video, gallery view, and virtual backgrounds.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web`
-**Keywords:** `meeting`, `sdk`, `web`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/SKILL.md`
-
-### zoom-meeting-sdk-web-client-view
-Zoom Meeting SDK Web - Client View. Full-page Zoom meeting experience with the familiar Zoom interface.
-Uses ZoomMtg global singleton with callback-based API. Ideal for quick integration with minimal
-customization. Provides the same UI as Zoom Web Client.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view`
-**Keywords:** `meeting`, `meeting-sdk`, `sdk`, `web`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view/SKILL.md`
-
-### zoom-meeting-sdk-web-component-view
-Zoom Meeting SDK Web - Component View. Embeddable Zoom meeting components with Promise-based API
-for flexible integration. Ideal for React/Vue/Angular apps and custom layouts. Uses ZoomMtgEmbedded
-with async/await patterns and embeddable UI containers.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view`
-**Keywords:** `meeting`, `meeting-sdk`, `sdk`, `web`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view/SKILL.md`
-
-### zoom-meeting-sdk-windows
-Zoom Meeting SDK for Windows - Native C++ SDK for embedding Zoom meetings into Windows desktop
-applications. Supports custom UI architecture with raw video/audio data, headless bots, and deep
-integration with meeting features. Includes SDK architecture patterns and Windows message loop handling.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows`
-**Keywords:** `meeting`, `sdk`, `windows`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows/SKILL.md`
-
-### zoom-video-sdk-android
-Zoom Video SDK for Android native apps. Use when building custom Android video experiences
-with full UI control, session tokens, raw media options, and event-driven participant state.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android`
-**Keywords:** `android`, `sdk`, `video`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android/SKILL.md`
-
-### zoom-video-sdk-flutter
-Zoom Video SDK for Flutter. Use when building custom video session apps in Flutter with
-flutter_zoom_videosdk, event-driven architecture, session lifecycle handling, and mobile
-platform integration patterns.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter`
-**Keywords:** `flutter`, `sdk`, `video`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter/SKILL.md`
-
-### zoom-video-sdk-ios
-Zoom Video SDK for iOS native apps. Use when building custom iOS video sessions with
-full UI control, token-based session auth, and event-driven media/participant flows.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios`
-**Keywords:** `ios`, `sdk`, `video`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios/SKILL.md`
-
-### zoom-video-sdk-macos
-Zoom Video SDK for macOS native desktop apps. Use when building custom macOS video sessions
-with native UI control, tokenized join, and desktop-oriented media/device workflows.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos`
-**Keywords:** `macos`, `sdk`, `video`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos/SKILL.md`
-
-### zoom-video-sdk-react-native
-Zoom Video SDK for React Native. Use when building custom mobile video session experiences
-with @zoom/react-native-videosdk, event listeners, helper-based APIs, and backend JWT token flows.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native`
-**Keywords:** `react-native`, `sdk`, `video`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native/SKILL.md`
-
-### zoom-video-sdk-unity
-Zoom Video SDK for Unity wrapper integrations. Use when building custom Unity-based
-video session experiences and mapping Unity scene/UI state to Video SDK events.
-
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity`
-**Keywords:** `sdk`, `unity`, `video`, `zoom`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity/SKILL.md`
 
 ## Core
 
@@ -1201,6 +889,16 @@ Draft blog posts, social media, email newsletters, landing pages, press releases
 
 File: `external/anthropic-knowledge-work-plugins/marketing/skills/draft-content/SKILL.md`
 
+### draft-response
+Draft a professional customer-facing response tailored to the situation and relationship. Use when answering a product question, responding to an escalation or outage, delivering bad news like a delay or won't-fix, declining a feature request, or replying to a billing issue.
+
+**Enabled:** `true`
+**ID:** `external/anthropic-knowledge-work-plugins/customer-support/skills/draft-response`
+**Keywords:** `communication`, `customer-support`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/customer-support/skills/draft-response/SKILL.md`
+
 ### dwarf-expert
 Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5). Triggers when understanding DWARF information, interacting with DWARF files, answering DWARF-related questions, or working with code that parses DWARF data.
 
@@ -1270,6 +968,16 @@ File: `external/openai-skills/skills/.curated/figma-create-design-system-rules/S
 **Source:** openai-skills
 
 File: `external/openai-skills/skills/.curated/figma-use/SKILL.md`
+
+### file-organizer
+Intelligently organizes your files and folders across your computer by understanding context, finding duplicates, suggesting better structures, and automating cleanup tasks. Reduces cognitive load and keeps your digital workspace tidy without manual effort.
+
+**Enabled:** `true`
+**ID:** `external/kilo-marketplace-skills/skills/file-organizer`
+**Keywords:** `organization`, `productivity`, `productivity-organization`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/file-organizer/SKILL.md`
 
 ### financial-statements
 Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, closing the books and need to flag material variances, comparing actuals to budget, building a financial summary for leadership review, or looking up GAAP presentation requirements and period-end adjustments.
@@ -1371,6 +1079,26 @@ Detects fail-open insecure defaults (hardcoded secrets, weak auth, permissive se
 
 File: `external/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults/SKILL.md`
 
+### internal-comms
+A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).
+
+**Enabled:** `true`
+**ID:** `external/anthropic-skills/skills/internal-comms`
+**Keywords:** `ai`, `communication`, `content`
+**Source:** anthropic-skills
+
+File: `external/anthropic-skills/skills/internal-comms/SKILL.md`
+
+### internal-comms
+A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. The agent should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).
+
+**Enabled:** `true`
+**ID:** `external/kilo-marketplace-skills/skills/internal-comms`
+**Keywords:** `business`, `business-marketing`, `communication`, `content`, `marketing`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/internal-comms/SKILL.md`
+
 ### interpreting-culture-index
 Interprets Culture Index (CI) surveys, behavioral profiles, and personality assessment data. Supports individual profile interpretation, team composition analysis (gas/brake/glue), burnout detection, profile comparison, hiring profiles, manager coaching, interview transcript analysis for trait prediction, candidate debrief, onboarding planning, and conflict mediation. Accepts extracted JSON or PDF input via OpenCV extraction script.
 
@@ -1400,6 +1128,16 @@ Combines search results from multiple sources into coherent, deduplicated answer
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis/SKILL.md`
+
+### legal-response
+Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas.
+
+**Enabled:** `true`
+**ID:** `external/anthropic-knowledge-work-plugins/legal/skills/legal-response`
+**Keywords:** `communication`, `legal`, `risk`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/legal/skills/legal-response/SKILL.md`
 
 ### legal-risk-assessment
 Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating contract risk, assessing deal exposure, classifying issues by severity, or determining whether a matter needs senior counsel or outside legal review.
@@ -1450,6 +1188,16 @@ Prepare structured briefings for meetings with legal relevance and track resulti
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/legal/skills/meeting-briefing/SKILL.md`
+
+### meeting-insights-analyzer
+Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insights, and actionable feedback. Identifies when you avoid conflict, use filler words, dominate conversations, or miss opportunities to listen. Perfect for professionals seeking to improve their communication and leadership skills.
+
+**Enabled:** `true`
+**ID:** `external/kilo-marketplace-skills/skills/meeting-insights-analyzer`
+**Keywords:** `ai`, `analytics`, `communication`, `communication-writing`, `meeting`, `transcribe`
+**Source:** kilo-marketplace-skills
+
+File: `external/kilo-marketplace-skills/skills/meeting-insights-analyzer/SKILL.md`
 
 ### metrics-review
 Review and analyze product metrics with trend analysis and actionable insights. Use when running a weekly, monthly, or quarterly metrics review, investigating a sudden spike or drop, comparing performance against targets, or turning raw numbers into a scorecard with recommended actions.
@@ -2010,6 +1758,16 @@ Guidance for composing well-formatted, effective Slack messages using mrkdwn syn
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-messaging/SKILL.md`
+
+### slack-search
+Guidance for effectively searching Slack to find messages, files, channels, and people
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search`
+**Keywords:** `communication`, `search`, `slack`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search/SKILL.md`
 
 ### source-management
 Manages connected MCP sources for enterprise search. Detects available sources, guides users to connect new ones, handles source priority ordering, and manages rate limiting awareness.
@@ -2653,6 +2411,46 @@ Automatically creates user-facing changelogs from git commits by analyzing commi
 
 File: `external/kilo-marketplace-skills/skills/changelog-generator/SKILL.md`
 
+### code-review
+Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, "review this before I merge", "is this code safe?", or when checking a change for N+1 queries, injection risks, missing edge cases, or error handling gaps.
+
+**Enabled:** `true`
+**ID:** `external/anthropic-knowledge-work-plugins/engineering/skills/code-review`
+**Keywords:** `code-review`, `engineering`, `security`, `testing`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/engineering/skills/code-review/SKILL.md`
+
+### contact-center/android
+Zoom Contact Center SDK for Android. Use for native Android chat/video/ZVA/scheduled callback integrations, campaign mode, service lifecycle, and rejoin handling.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android`
+**Keywords:** `android`, `contact-center`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android/SKILL.md`
+
+### contact-center/ios
+Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrations, app lifecycle bridging, rejoin flow, and callback handling.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios`
+**Keywords:** `contact-center`, `ios`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios/SKILL.md`
+
+### contact-center/web
+Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handling, app-context integrations, and Smart Embed postMessage workflows.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web`
+**Keywords:** `contact-center`, `sdk`, `web`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web/SKILL.md`
+
 ### dbt
 Skills for analytics engineering with dbt - building models, writing tests, querying the semantic layer, troubleshooting jobs, and more. Use when doing any dbt analytics engineering work.
 
@@ -2712,6 +2510,16 @@ Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`)
 **Source:** openai-skills
 
 File: `external/openai-skills/skills/.curated/jupyter-notebook/SKILL.md`
+
+### meeting-sdk/linux
+Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video access, transcription, recording, and AI integration for server-side automation
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux`
+**Keywords:** `linux`, `meeting`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux/SKILL.md`
 
 ### modern-python
 Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black.
@@ -2843,6 +2651,66 @@ React and Next.js performance optimization guidelines from Vercel Engineering. T
 
 File: `external/kilo-marketplace-skills/skills/vercel-react-best-practices/SKILL.md`
 
+### video-sdk/linux
+Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux`
+**Keywords:** `linux`, `sdk`, `video`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux/SKILL.md`
+
+### video-sdk/web
+Zoom Video SDK for Web - JavaScript/TypeScript integration for browser-based video sessions, real-time communication, screen sharing, recording, and live transcription
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web`
+**Keywords:** `sdk`, `video`, `web`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web/SKILL.md`
+
+### video-sdk/windows
+Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, screen sharing, recording, and real-time communication
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows`
+**Keywords:** `sdk`, `video`, `windows`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows/SKILL.md`
+
+### virtual-agent/android
+Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, native URL handling, support_handoff relay, and lifecycle-safe embedding.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android`
+**Keywords:** `android`, `sdk`, `virtual-agent`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android/SKILL.md`
+
+### virtual-agent/ios
+Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, message handlers, support_handoff relay, and URL routing policies.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios`
+**Keywords:** `ios`, `sdk`, `virtual-agent`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios/SKILL.md`
+
+### virtual-agent/web
+Zoom Virtual Agent SDK for web embeds. Use for campaign or entry ID chat launch, event-driven controls, user context updates, and CSP-safe deployment.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web`
+**Keywords:** `sdk`, `virtual-agent`, `web`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web/SKILL.md`
+
 ### web-design-guidelines
 Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
 
@@ -2862,6 +2730,196 @@ Bootstrap, develop, and design modern WinUI 3 desktop applications with C# and t
 **Source:** openai-skills
 
 File: `external/openai-skills/skills/.curated/winui-app/SKILL.md`
+
+### zoom-cobrowse-sdk
+Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk`
+**Keywords:** `cobrowse`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk/SKILL.md`
+
+### zoom-meeting-sdk-android
+Zoom Meeting SDK for Android native apps. Use when embedding Zoom meetings in Android with
+default/custom UI, PKCE + SDK auth, join/start flows, and Meeting SDK API integration.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android`
+**Keywords:** `android`, `meeting`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android/SKILL.md`
+
+### zoom-meeting-sdk-electron
+Zoom Meeting SDK for Electron desktop applications. Use when embedding Zoom meetings in an Electron app
+with the Node addon wrapper, JWT auth, join/start flows, settings controllers, and raw data integration.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron`
+**Keywords:** `electron`, `meeting`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron/SKILL.md`
+
+### zoom-meeting-sdk-ios
+Zoom Meeting SDK for iOS native apps. Use when embedding Zoom meetings in iOS with
+default/custom UI, PKCE + SDK auth, host start with ZAK, and mobile lifecycle handling.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios`
+**Keywords:** `ios`, `meeting`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios/SKILL.md`
+
+### zoom-meeting-sdk-macos
+Zoom Meeting SDK for macOS native apps. Use when embedding Zoom meetings in macOS with
+default/custom UI, PKCE + SDK auth, host start/join flows, and desktop meeting feature controllers.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos`
+**Keywords:** `macos`, `meeting`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos/SKILL.md`
+
+### zoom-meeting-sdk-react-native
+Zoom Meeting SDK for React Native. Use when embedding Zoom meetings in React Native iOS/Android apps with @zoom/meetingsdk-react-native, JWT auth, join/start flows, platform setup, and native bridge troubleshooting.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native`
+**Keywords:** `meeting`, `react-native`, `sdk`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native/SKILL.md`
+
+### zoom-meeting-sdk-unreal
+Zoom Meeting SDK for Unreal Engine wrapper integrations. Use when building Unreal projects that
+embed Zoom meetings with C++ and Blueprint wrappers, including wrapper-to-SDK mapping concerns.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal`
+**Keywords:** `meeting`, `sdk`, `unreal`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal/SKILL.md`
+
+### zoom-meeting-sdk-web
+Zoom Meeting SDK for Web - Embed Zoom meeting capabilities into web applications. Two integration
+options: Client View (full-page, familiar Zoom UI) and Component View (embeddable, Promise-based API).
+Includes SharedArrayBuffer setup for HD video, gallery view, and virtual backgrounds.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web`
+**Keywords:** `meeting`, `sdk`, `web`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/SKILL.md`
+
+### zoom-meeting-sdk-web-client-view
+Zoom Meeting SDK Web - Client View. Full-page Zoom meeting experience with the familiar Zoom interface.
+Uses ZoomMtg global singleton with callback-based API. Ideal for quick integration with minimal
+customization. Provides the same UI as Zoom Web Client.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view`
+**Keywords:** `meeting`, `meeting-sdk`, `sdk`, `web`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view/SKILL.md`
+
+### zoom-meeting-sdk-web-component-view
+Zoom Meeting SDK Web - Component View. Embeddable Zoom meeting components with Promise-based API
+for flexible integration. Ideal for React/Vue/Angular apps and custom layouts. Uses ZoomMtgEmbedded
+with async/await patterns and embeddable UI containers.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view`
+**Keywords:** `meeting`, `meeting-sdk`, `sdk`, `web`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view/SKILL.md`
+
+### zoom-meeting-sdk-windows
+Zoom Meeting SDK for Windows - Native C++ SDK for embedding Zoom meetings into Windows desktop
+applications. Supports custom UI architecture with raw video/audio data, headless bots, and deep
+integration with meeting features. Includes SDK architecture patterns and Windows message loop handling.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows`
+**Keywords:** `meeting`, `sdk`, `windows`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows/SKILL.md`
+
+### zoom-video-sdk-android
+Zoom Video SDK for Android native apps. Use when building custom Android video experiences
+with full UI control, session tokens, raw media options, and event-driven participant state.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android`
+**Keywords:** `android`, `sdk`, `video`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android/SKILL.md`
+
+### zoom-video-sdk-flutter
+Zoom Video SDK for Flutter. Use when building custom video session apps in Flutter with
+flutter_zoom_videosdk, event-driven architecture, session lifecycle handling, and mobile
+platform integration patterns.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter`
+**Keywords:** `flutter`, `sdk`, `video`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter/SKILL.md`
+
+### zoom-video-sdk-ios
+Zoom Video SDK for iOS native apps. Use when building custom iOS video sessions with
+full UI control, token-based session auth, and event-driven media/participant flows.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios`
+**Keywords:** `ios`, `sdk`, `video`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios/SKILL.md`
+
+### zoom-video-sdk-macos
+Zoom Video SDK for macOS native desktop apps. Use when building custom macOS video sessions
+with native UI control, tokenized join, and desktop-oriented media/device workflows.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos`
+**Keywords:** `macos`, `sdk`, `video`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos/SKILL.md`
+
+### zoom-video-sdk-react-native
+Zoom Video SDK for React Native. Use when building custom mobile video session experiences
+with @zoom/react-native-videosdk, event listeners, helper-based APIs, and backend JWT token flows.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native`
+**Keywords:** `react-native`, `sdk`, `video`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native/SKILL.md`
+
+### zoom-video-sdk-unity
+Zoom Video SDK for Unity wrapper integrations. Use when building custom Unity-based
+video session experiences and mapping Unity scene/UI state to Video SDK events.
+
+**Enabled:** `false`
+**ID:** `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity`
+**Keywords:** `sdk`, `unity`, `video`, `zoom`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity/SKILL.md`
 
 ## Devops
 
@@ -2969,15 +3027,15 @@ cargo-fuzz is the de facto fuzzing tool for Rust projects using Cargo. Use for f
 
 File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md`
 
-### code-review
-Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, "review this before I merge", "is this code safe?", or when checking a change for N+1 queries, injection risks, missing edge cases, or error handling gaps.
+### codeql
+Scans a codebase for security vulnerabilities using CodeQL's interprocedural data flow and taint tracking analysis. Triggers on "run codeql", "codeql scan", "codeql analysis", "build codeql database", or "find vulnerabilities with codeql". Supports "run all" (security-and-quality + security-experimental suites) and "important only" (high-precision security findings) scan modes. Also handles creating data extension models and processing CodeQL SARIF output.
 
 **Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/engineering/skills/code-review`
-**Keywords:** `code-review`, `engineering`, `security`, `testing`
-**Source:** anthropic-knowledge-work-plugins
+**ID:** `external/trailofbits-skills/plugins/static-analysis/skills/codeql`
+**Keywords:** `codeql`, `security`, `static-analysis`
+**Source:** trailofbits-skills
 
-File: `external/anthropic-knowledge-work-plugins/engineering/skills/code-review/SKILL.md`
+File: `external/trailofbits-skills/plugins/static-analysis/skills/codeql/SKILL.md`
 
 ### create-viz
 Create publication-quality visualizations with Python. Use when turning query results or a DataFrame into a chart, selecting the right chart type for a trend or comparison, generating a plot for a report or presentation, or needing an interactive chart with hover and zoom.
@@ -3009,16 +3067,6 @@ Create effective data visualizations with Python (matplotlib, seaborn, plotly). 
 
 File: `external/anthropic-knowledge-work-plugins/data/skills/data-visualization/SKILL.md`
 
-### draft-response
-Draft a professional customer-facing response tailored to the situation and relationship. Use when answering a product question, responding to an escalation or outage, delivering bad news like a delay or won't-fix, declining a feature request, or replying to a billing issue.
-
-**Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/customer-support/skills/draft-response`
-**Keywords:** `communication`, `customer-support`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/customer-support/skills/draft-response/SKILL.md`
-
 ### incident-response
 Run an incident response workflow — triage, communicate, and write postmortem. Trigger with "we have an incident", "production is down", an alert that needs severity assessment, a status update mid-incident, or when writing a blameless postmortem after resolution.
 
@@ -3028,26 +3076,6 @@ Run an incident response workflow — triage, communicate, and write postmortem.
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/engineering/skills/incident-response/SKILL.md`
-
-### internal-comms
-A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. The agent should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).
-
-**Enabled:** `true`
-**ID:** `external/kilo-marketplace-skills/skills/internal-comms`
-**Keywords:** `business`, `business-marketing`, `communication`, `content`, `marketing`
-**Source:** kilo-marketplace-skills
-
-File: `external/kilo-marketplace-skills/skills/internal-comms/SKILL.md`
-
-### legal-response
-Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas.
-
-**Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/legal/skills/legal-response`
-**Keywords:** `communication`, `legal`, `risk`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/legal/skills/legal-response/SKILL.md`
 
 ### libafl
 LibAFL is a modular fuzzing library for building custom fuzzers. Use for advanced fuzzing needs, custom mutators, or non-standard fuzzing targets.
@@ -3069,15 +3097,25 @@ Ruzzy is a coverage-guided Ruby fuzzer by Trail of Bits. Use for fuzzing pure Ru
 
 File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ruzzy/SKILL.md`
 
-### slack-search
-Guidance for effectively searching Slack to find messages, files, channels, and people
+### sarif-parsing
+Parses and processes SARIF files from static analysis tools like CodeQL, Semgrep, or other scanners. Triggers on "parse sarif", "read scan results", "aggregate findings", "deduplicate alerts", or "process sarif output". Handles filtering, deduplication, format conversion, and CI/CD integration of SARIF data. Does NOT run scans — use the Semgrep or CodeQL skills for that.
 
-**Enabled:** `false`
-**ID:** `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search`
-**Keywords:** `communication`, `search`, `slack`
-**Source:** anthropic-knowledge-work-plugins
+**Enabled:** `true`
+**ID:** `external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing`
+**Keywords:** `sarif`, `security`, `static-analysis`
+**Source:** trailofbits-skills
 
-File: `external/anthropic-knowledge-work-plugins/partner-built/slack/skills/slack-search/SKILL.md`
+File: `external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing/SKILL.md`
+
+### semgrep
+Run Semgrep static analysis scan on a codebase using parallel subagents. Supports two scan modes — "run all" (full ruleset coverage) and "important only" (high-confidence security vulnerabilities). Automatically detects and uses Semgrep Pro for cross-file taint analysis when available. Use when asked to scan code for vulnerabilities, run a security audit with Semgrep, find bugs, or perform static analysis. Spawns parallel workers for multi-language codebases.
+
+**Enabled:** `true`
+**ID:** `external/trailofbits-skills/plugins/static-analysis/skills/semgrep`
+**Keywords:** `security`, `semgrep`, `static-analysis`
+**Source:** trailofbits-skills
+
+File: `external/trailofbits-skills/plugins/static-analysis/skills/semgrep/SKILL.md`
 
 ### system-design
 Design systems, services, and architectures. Trigger with "design a system for", "how should we architect", "system design for", "what's the right architecture for", or when the user needs help with API design, data modeling, or service boundaries.
@@ -3109,6 +3147,16 @@ Design test strategies and test plans. Trigger with "how should we test", "test 
 
 File: `external/anthropic-knowledge-work-plugins/engineering/skills/testing-strategy/SKILL.md`
 
+### variant-analysis
+Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing systematic code audits after finding an initial issue.
+
+**Enabled:** `true`
+**ID:** `external/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis`
+**Keywords:** `security`, `static-analysis`
+**Source:** trailofbits-skills
+
+File: `external/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis/SKILL.md`
+
 ### zeroize-audit
 Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. Use for auditing C/C++/Rust code handling secrets, keys, passwords, or other sensitive data.
 
@@ -3120,16 +3168,6 @@ Detects missing zeroization of sensitive data in source code and identifies zero
 File: `external/trailofbits-skills/plugins/zeroize-audit/skills/zeroize-audit/SKILL.md`
 
 ## Finance
-
-### compliance-check
-Run a compliance check on a proposed action, product feature, or business initiative, surfacing applicable regulations, required approvals, and risk areas. Use when launching a feature that touches personal data, when marketing or product proposes something with regulatory implications, or when you need to know which approvals and jurisdictional requirements apply before proceeding.
-
-**Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/legal/skills/compliance-check`
-**Keywords:** `compliance`, `legal`, `risk`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/legal/skills/compliance-check/SKILL.md`
 
 ### journal-entry
 Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review.
@@ -3150,26 +3188,6 @@ Prepare journal entries with proper debits, credits, and supporting documentatio
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/finance/skills/journal-entry-prep/SKILL.md`
-
-### reconciliation
-Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items.
-
-**Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/finance/skills/reconciliation`
-**Keywords:** `audit`, `finance`, `reconciliation`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/finance/skills/reconciliation/SKILL.md`
-
-### vendor-check
-Check the status of existing agreements with a vendor across all connected systems — CLM, CRM, email, and document storage — with gap analysis and upcoming deadlines. Use when onboarding or renewing a vendor, when you need a consolidated view of what's signed and what's missing (MSA, DPA, SOW), or when checking for approaching expirations and surviving obligations.
-
-**Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/legal/skills/vendor-check`
-**Keywords:** `compliance`, `contract`, `legal`, `vendor`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/legal/skills/vendor-check/SKILL.md`
 
 ## Frontend
 
@@ -3232,18 +3250,6 @@ No description.
 **Source:** trailofbits-skills-curated
 
 File: `external/trailofbits-skills-curated/plugins/react-pdf/skills/react-pdf/SKILL.md`
-
-## Marketing
-
-### seo-audit
-Run a comprehensive SEO audit — keyword research, on-page analysis, content gaps, technical checks, and competitor comparison. Use when assessing a site's SEO health, when finding keyword opportunities and content gaps competitors own, or when you need a prioritized action plan split into quick wins and strategic investments.
-
-**Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit`
-**Keywords:** `audit`, `content`, `marketing`, `seo`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit/SKILL.md`
 
 ## Ml
 
@@ -3312,18 +3318,6 @@ Generate an onboarding checklist and first-week plan for a new hire. Use when so
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/human-resources/skills/onboarding/SKILL.md`
-
-## Personal Assistant
-
-### file-organizer
-Intelligently organizes your files and folders across your computer by understanding context, finding duplicates, suggesting better structures, and automating cleanup tasks. Reduces cognitive load and keeps your digital workspace tidy without manual effort.
-
-**Enabled:** `true`
-**ID:** `external/kilo-marketplace-skills/skills/file-organizer`
-**Keywords:** `organization`, `productivity`, `productivity-organization`
-**Source:** kilo-marketplace-skills
-
-File: `external/kilo-marketplace-skills/skills/file-organizer/SKILL.md`
 
 ## Product
 
@@ -3571,16 +3565,6 @@ Capture conversations and decisions into structured Notion pages; use when turni
 
 File: `external/openai-skills/skills/.curated/notion-knowledge-capture/SKILL.md`
 
-### policy-lookup
-Find and explain company policies in plain language. Trigger with "what's our PTO policy", "can I work remotely from another country", "how do expenses work", or any plain-language question about benefits, travel, leave, or handbook rules.
-
-**Enabled:** `true`
-**ID:** `external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup`
-**Keywords:** `hr`, `knowledge`, `policy`
-**Source:** anthropic-knowledge-work-plugins
-
-File: `external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup/SKILL.md`
-
 ### search
 Search across all connected sources in one query. Trigger with "find that doc about...", "what did we decide on...", "where was the conversation about...", or when looking for a decision, document, or discussion that could live in chat, email, cloud storage, or a project tracker.
 
@@ -3695,15 +3679,15 @@ Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities including fe
 
 File: `external/trailofbits-skills/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner/SKILL.md`
 
-### codeql
-Scans a codebase for security vulnerabilities using CodeQL's interprocedural data flow and taint tracking analysis. Triggers on "run codeql", "codeql scan", "codeql analysis", "build codeql database", or "find vulnerabilities with codeql". Supports "run all" (security-and-quality + security-experimental suites) and "important only" (high-precision security findings) scan modes. Also handles creating data extension models and processing CodeQL SARIF output.
+### compliance-check
+Run a compliance check on a proposed action, product feature, or business initiative, surfacing applicable regulations, required approvals, and risk areas. Use when launching a feature that touches personal data, when marketing or product proposes something with regulatory implications, or when you need to know which approvals and jurisdictional requirements apply before proceeding.
 
 **Enabled:** `true`
-**ID:** `external/trailofbits-skills/plugins/static-analysis/skills/codeql`
-**Keywords:** `codeql`, `security`, `static-analysis`
-**Source:** trailofbits-skills
+**ID:** `external/anthropic-knowledge-work-plugins/legal/skills/compliance-check`
+**Keywords:** `compliance`, `legal`, `risk`
+**Source:** anthropic-knowledge-work-plugins
 
-File: `external/trailofbits-skills/plugins/static-analysis/skills/codeql/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/legal/skills/compliance-check/SKILL.md`
 
 ### cosmos-vulnerability-scanner
 Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabilities — chain halts, fund loss, state divergence. 25 core + 16 IBC + 10 EVM + 3 CosmWasm patterns. Use when auditing custom x/ modules, reviewing IBC integrations, or assessing pre-launch chain security. Updated for SDK v0.53.x.
@@ -3745,15 +3729,25 @@ Translates Mermaid sequenceDiagrams describing cryptographic protocols into ProV
 
 File: `external/trailofbits-skills/plugins/trailmark/skills/mermaid-to-proverif/SKILL.md`
 
-### sarif-parsing
-Parses and processes SARIF files from static analysis tools like CodeQL, Semgrep, or other scanners. Triggers on "parse sarif", "read scan results", "aggregate findings", "deduplicate alerts", or "process sarif output". Handles filtering, deduplication, format conversion, and CI/CD integration of SARIF data. Does NOT run scans — use the Semgrep or CodeQL skills for that.
+### policy-lookup
+Find and explain company policies in plain language. Trigger with "what's our PTO policy", "can I work remotely from another country", "how do expenses work", or any plain-language question about benefits, travel, leave, or handbook rules.
 
 **Enabled:** `true`
-**ID:** `external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing`
-**Keywords:** `sarif`, `security`, `static-analysis`
-**Source:** trailofbits-skills
+**ID:** `external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup`
+**Keywords:** `hr`, `knowledge`, `policy`
+**Source:** anthropic-knowledge-work-plugins
 
-File: `external/trailofbits-skills/plugins/static-analysis/skills/sarif-parsing/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/human-resources/skills/policy-lookup/SKILL.md`
+
+### reconciliation
+Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items.
+
+**Enabled:** `true`
+**ID:** `external/anthropic-knowledge-work-plugins/finance/skills/reconciliation`
+**Keywords:** `audit`, `finance`, `reconciliation`
+**Source:** anthropic-knowledge-work-plugins
+
+File: `external/anthropic-knowledge-work-plugins/finance/skills/reconciliation/SKILL.md`
 
 ### scv-scan
 Audits Solidity codebases for smart contract vulnerabilities using a four-phase workflow (cheatsheet loading, codebase sweep, deep validation, reporting) covering 36 vulnerability classes. Use when auditing Solidity contracts for security issues, performing smart contract vulnerability scans, or reviewing Solidity code for common exploit patterns.
@@ -3765,15 +3759,15 @@ Audits Solidity codebases for smart contract vulnerabilities using a four-phase 
 
 File: `external/trailofbits-skills-curated/plugins/scv-scan/skills/scv-scan/SKILL.md`
 
-### semgrep
-Run Semgrep static analysis scan on a codebase using parallel subagents. Supports two scan modes — "run all" (full ruleset coverage) and "important only" (high-confidence security vulnerabilities). Automatically detects and uses Semgrep Pro for cross-file taint analysis when available. Use when asked to scan code for vulnerabilities, run a security audit with Semgrep, find bugs, or perform static analysis. Spawns parallel workers for multi-language codebases.
+### seo-audit
+Run a comprehensive SEO audit — keyword research, on-page analysis, content gaps, technical checks, and competitor comparison. Use when assessing a site's SEO health, when finding keyword opportunities and content gaps competitors own, or when you need a prioritized action plan split into quick wins and strategic investments.
 
 **Enabled:** `true`
-**ID:** `external/trailofbits-skills/plugins/static-analysis/skills/semgrep`
-**Keywords:** `security`, `semgrep`, `static-analysis`
-**Source:** trailofbits-skills
+**ID:** `external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit`
+**Keywords:** `audit`, `content`, `marketing`, `seo`
+**Source:** anthropic-knowledge-work-plugins
 
-File: `external/trailofbits-skills/plugins/static-analysis/skills/semgrep/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/marketing/skills/seo-audit/SKILL.md`
 
 ### solana-vulnerability-scanner
 Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs.
@@ -3825,15 +3819,15 @@ Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities incl
 
 File: `external/trailofbits-skills/plugins/building-secure-contracts/skills/ton-vulnerability-scanner/SKILL.md`
 
-### variant-analysis
-Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing systematic code audits after finding an initial issue.
+### vendor-check
+Check the status of existing agreements with a vendor across all connected systems — CLM, CRM, email, and document storage — with gap analysis and upcoming deadlines. Use when onboarding or renewing a vendor, when you need a consolidated view of what's signed and what's missing (MSA, DPA, SOW), or when checking for approaching expirations and surviving obligations.
 
 **Enabled:** `true`
-**ID:** `external/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis`
-**Keywords:** `security`, `static-analysis`
-**Source:** trailofbits-skills
+**ID:** `external/anthropic-knowledge-work-plugins/legal/skills/vendor-check`
+**Keywords:** `compliance`, `contract`, `legal`, `vendor`
+**Source:** anthropic-knowledge-work-plugins
 
-File: `external/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis/SKILL.md`
+File: `external/anthropic-knowledge-work-plugins/legal/skills/vendor-check/SKILL.md`
 
 ### wooyun-legacy
 Provides web vulnerability testing methodology distilled from 88,636 real-world cases from the WooYun vulnerability database (2010-2016). Use when performing penetration testing, security audits, code reviews for security flaws, or vulnerability research. Covers SQL injection, XSS, command execution, file upload, path traversal, unauthorized access, information disclosure, and business logic flaws.

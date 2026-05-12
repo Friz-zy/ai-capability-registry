@@ -10,9 +10,11 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
 - **data**: 16 skills — `skills/catalog/keywords/data/skills.md`
 - **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
+- **documentation**: 12 skills — `skills/catalog/keywords/documentation/skills.md`
 - **forecast**: 1 skills — `skills/catalog/keywords/forecast/skills.md`
 - **knowledge**: 4 skills — `skills/catalog/keywords/knowledge/skills.md`
 - **metrics**: 2 skills — `skills/catalog/keywords/metrics/skills.md`
+- **planning**: 13 skills — `skills/catalog/keywords/planning/skills.md`
 - **product**: 8 skills — `skills/catalog/keywords/product/skills.md`
 - **research**: 15 skills — `skills/catalog/keywords/research/skills.md`
 - **roadmap**: 1 skills — `skills/catalog/keywords/roadmap/skills.md`
