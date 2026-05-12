@@ -315,6 +315,9 @@ def main() -> int:
 
     write_text(MCP_DIR / "mcp.md", render("mcp.md", {"roles": root_roles(registry["profiles"], registry["keyword_categories"], by_keyword), "tasks": root_tasks(registry["tasks"], registry["keyword_categories"], by_keyword), "runtime_catalogs": runtime_catalogs(by_runtime)}))
 
+    for runtime_file in ["common.md", "web.md", "docker.md"]:
+        shutil.copy2(TEMPLATES_DIR / runtime_file, MCP_DIR / runtime_file)
+
     for bucket in ["hosted", "docker", "other"]:
         write_server_list(MCP_DIR / "catalog" / "runtime" / bucket / "servers.md", f"{bucket.title()} MCP Servers", by_runtime.get(bucket, []))
     for profile in registry["profiles"]:
