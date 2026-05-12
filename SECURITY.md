@@ -43,6 +43,8 @@ CI automatically syncs when `registry/skills.yaml` is modified.
 
 Agents discover capabilities via routing catalogs with progressive disclosure:
 
+### Skills
+
 ```
 skills/skills.md (root)
 -> skills/catalog/tasks/<task>/skills.md (task routing catalog)
@@ -51,7 +53,21 @@ skills/skills.md (root)
 -> external/<source>/<path>/SKILL.md (actual skill)
 ```
 
+### MCP
+
+```
+mcp/mcp.md (root with resolution protocol)
+-> mcp/web.md | mcp/docker.md | mcp/common.md (runtime connector guides)
+-> mcp/catalog/tasks/<task>/servers.md (task routing catalog)
+-> mcp/catalog/roles/<role>/servers.md (optional role routing catalog)
+-> mcp/catalog/runtime/<runtime>/servers.md (runtime routing catalog)
+-> mcp/catalog/keywords/<keyword>/servers.md (keyword routing catalog)
+-> mcp/servers/<server>/SKILL.md (generated MCP usage wrapper)
+```
+
 `skills/packs/` contains symlink packs for direct inclusion in agent configs and is not used for runtime skill selection.
+
+MCP connectors (`mcp/web.md`, `mcp/docker.md`, `mcp/common.md`) describe transport modes and diagnostics. They are generated alongside routing catalogs from `templates/mcp/` and should not be edited directly.
 
 ## Reporting Issues
 

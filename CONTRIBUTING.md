@@ -43,15 +43,36 @@ This registry is security-first. New capabilities are indexed before they are en
 
 The following are auto-generated and should NOT be edited manually:
 
-- `skills/skills.md` - Root routing index with all roles and tasks
-- `skills/catalog/roles/<id>/skills.md` - Role routing catalogs
-- `skills/catalog/tasks/<id>/skills.md` - Task routing catalogs
-- `skills/catalog/keywords/<keyword>/skills.md` - Keyword catalogs with skill descriptions
-- `skills/packs/` - Symlink packs for direct agent config inclusion
+- `skill-catalog.md` — Human-readable view of `skill-catalog.d/`
+- `skills/skills.md` — Root routing index with all roles and tasks
+- `skills/catalog/roles/<id>/skills.md` — Role routing catalogs
+- `skills/catalog/tasks/<id>/skills.md` — Task routing catalogs
+- `skills/catalog/keywords/<keyword>/skills.md` — Keyword catalogs with skill descriptions
+- `skills/packs/` — Symlink packs for direct agent config inclusion
+- `mcp-catalog.md` — Human-readable view of `mcp-catalog.d/`
+- `mcp/mcp.md` — Root MCP routing index with resolution protocol, roles, and tasks
+- `mcp/web.md` — HTTPS/SSE MCP connector guide
+- `mcp/docker.md` — Docker MCP connector guide
+- `mcp/common.md` — General MCP concepts and diagnostics
+- `mcp/catalog/roles/<id>/servers.md` — Role MCP routing catalogs
+- `mcp/catalog/tasks/<id>/servers.md` — Task MCP routing catalogs
+- `mcp/catalog/runtime/<runtime>/servers.md` — Runtime MCP routing catalogs
+- `mcp/catalog/keywords/<keyword>/servers.md` — Keyword MCP routing catalogs
+- `mcp/servers/<server>/SKILL.md` — Generated MCP usage wrapper
+- `mcp/servers/<server>/connection.json` — Generated MCP connection config
 
-## Skill Resolution Chain
+## Resolution Chains
+
+### Skills
 
 ```
 registry/skills.yaml → update-external.py (sync submodules) 
 → discover-skills.py (generate maps) → skills/skills.md → agents use cascades
+```
+
+### MCP
+
+```
+mcp-catalog.d/*.yml → generate-mcp.py (generate indexes)
+→ mcp/mcp.md → mcp/web.md | mcp/docker.md → mcp/servers/<server>/SKILL.md
 ```

@@ -62,7 +62,10 @@ skill-catalog.d/<provider>.yaml                 (source of truth for enabled/dis
   -> skills/packs/                               (symlink packs for direct config inclusion)
 
 mcp-catalog.d/<source>.yml           (source of truth for MCP servers)
-  -> mcp/mcp.md                                  (root MCP routing index)
+  -> mcp/mcp.md                                  (root MCP routing index with resolution protocol)
+  -> mcp/web.md                                  (HTTPS/SSE MCP connector guide)
+  -> mcp/docker.md                               (Docker MCP connector guide)
+  -> mcp/common.md                               (general MCP concepts and diagnostics)
   -> mcp/catalog/tasks/<task>/servers.md         (task routing catalog)
   -> mcp/catalog/roles/<role>/servers.md         (optional role routing catalog)
   -> mcp/catalog/runtime/<runtime>/servers.md    (runtime routing catalogs)
