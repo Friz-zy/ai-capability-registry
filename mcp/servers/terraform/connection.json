@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "terraform": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "hashicorp/terraform-mcp-server"
+      ]
+    }
+  }
+}

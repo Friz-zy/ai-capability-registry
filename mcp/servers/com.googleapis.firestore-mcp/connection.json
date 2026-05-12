@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.firestore-mcp": {
+      "type": "streamable_http",
+      "url": "https://firestore.googleapis.com/mcp"
+    }
+  }
+}

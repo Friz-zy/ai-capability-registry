@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "awslabs-memcached": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/memcached-mcp-server"
+      ]
+    }
+  }
+}

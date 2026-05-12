@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.stitch-mcp": {
+      "type": "streamable_http",
+      "url": "https://stitch.googleapis.com/mcp"
+    }
+  }
+}

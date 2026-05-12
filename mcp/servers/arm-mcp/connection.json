@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "arm-mcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "armlimited/arm-mcp:2.0.0"
+      ]
+    }
+  }
+}

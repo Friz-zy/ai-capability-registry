@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "dockerhub": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "HUB_PAT_TOKEN",
+        "mcp/dockerhub",
+        "--transport=stdio",
+        "--username={{dockerhub.username}}"
+      ]
+    }
+  }
+}

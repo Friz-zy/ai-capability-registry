@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "apollo-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "ghcr.io/apollographql/apollo-mcp-server"
+      ]
+    }
+  }
+}

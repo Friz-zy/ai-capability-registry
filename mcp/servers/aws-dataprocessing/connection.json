@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "aws-dataprocessing": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/aws-dataprocessing-mcp-server"
+      ]
+    }
+  }
+}

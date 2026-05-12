@@ -1,6 +1,7 @@
 # Hosted MCP Servers
 
 - **AWS Knowledge** (`aws-knowledge`) — `hosted_https`, `trusted`: Software Development MCP server by AWS.
+- **Android Management API** (`com.googleapis.androidmanagement-mcp`) — `hosted_https`, `trusted`: Remote enterprise management of Android devices and apps
 - **Asana** (`asana`) — `hosted_https`, `trusted`: Project Management MCP server by Asana.
 - **Astro Docs** (`astro-docs`) — `hosted_https`, `trusted`: Documentation MCP server by Astro.
 - **Attio** (`attio`) — `hosted_https`, `trusted`: CRM MCP server by Attio.
@@ -21,11 +22,13 @@
 - **EAN-Search.org** (`ean-search.org`) — `hosted_https`, `trusted`: Product Data MCP server by EAN-Search.org.
 - **Egnyte** (`egnyte`) — `hosted_https`, `trusted`: Document Management MCP server by Egnyte.
 - **Ferryhopper** (`ferryhopper`) — `hosted_https`, `trusted`: Other MCP server by Ferryhopper.
+- **Figma MCP Server** (`com.figma.mcp-mcp`) — `hosted_https`, `trusted`: The Figma MCP server brings Figma design context directly into your AI workflow.
 - **Find-A-Domain** (`find-a-domain`) — `hosted_https`, `trusted`: Productivity MCP server by Find-A-Domain.
 - **Firefly** (`firefly`) — `hosted_https`, `trusted`: Productivity MCP server by Firefly.
 - **GitMCP** (`gitmcp`) — `hosted_https`, `trusted`: Software Development MCP server by GitMCP.
 - **Globalping** (`globalping`) — `hosted_https`, `trusted`: Software Development MCP server by Globalping.
 - **Google Big Query** (`google-big-query`) — `hosted_https`, `trusted`: Data Analysis MCP server by Google.
+- **Google Cloud Run** (`com.googleapis.run-mcp`) — `hosted_https`, `trusted`: Deploy applications to Cloud Run
 - **Grafbase** (`grafbase`) — `hosted_https`, `trusted`: Software Development MCP server by Grafbase.
 - **Hive Intelligence** (`hive-intelligence`) — `hosted_https`, `trusted`: Crypto MCP server by Hive Intelligence.
 - **HubSpot** (`hubspot`) — `hosted_https`, `trusted`: CRM MCP server by HubSpot.
@@ -87,6 +90,22 @@
 - **WebZum** (`webzum`) — `hosted_https`, `trusted`: Website Hosting MCP server by WebZum.
 - **Wix** (`wix`) — `hosted_https`, `trusted`: CMS MCP server by Wix.
 - **Zapier** (`zapier`) — `hosted_https`, `trusted`: Automation MCP server by Zapier.
+- **atlassian-mcp-server** (`com.atlassian-atlassian-mcp-server`) — `hosted_https`, `trusted`: Atlassian Rovo MCP Server
+- **mcp** (`com.cloudflare.mcp-mcp`) — `hosted_https`, `trusted`: Cloudflare MCP servers
+- **mcp** (`com.gitlab-mcp`) — `hosted_https`, `trusted`: Official GitLab MCP Server
+- **mcp** (`com.googleapis.bigtableadmin-mcp`) — `hosted_https`, `trusted`: Interact with your Google Bigtable resources using natural language commands.
+- **mcp** (`com.googleapis.composer-mcp`) — `hosted_https`, `trusted`: Interact with your Google Cloud Composer resources using natural language commands.
+- **mcp** (`com.googleapis.compute-mcp`) — `hosted_https`, `trusted`: Provides capabilities that let LLM agents perform a range of infrastructure management tasks.
+- **mcp** (`com.googleapis.container-mcp`) — `hosted_https`, `trusted`: Provides read access to your GKE and Kubernetes resources.
+- **mcp** (`com.googleapis.datastream-mcp`) — `hosted_https`, `trusted`: Interact with your Google Cloud Datastream resources using natural language commands.
+- **mcp** (`com.googleapis.design-mcp`) — `hosted_https`, `trusted`: Provides UX capabilities to enhance the design output and understanding of AI systems.
+- **mcp** (`com.googleapis.developerknowledge-mcp`) — `hosted_https`, `trusted`: Provides access to Google's public developer documentation.
+- **mcp** (`com.googleapis.firestore-mcp`) — `hosted_https`, `trusted`: Interact with your Google Cloud Firestore resources using natural language commands.
+- **mcp** (`com.googleapis.mapstools-mcp`) — `hosted_https`, `trusted`: Ground your AI applications with trusted geospatial data from Google Maps.
+- **mcp** (`com.googleapis.memorystore-mcp`) — `hosted_https`, `trusted`: Provides tools to manage Memorystore for Valkey instances and backups.
+- **mcp** (`com.googleapis.monitoring-mcp`) — `hosted_https`, `trusted`: Gain visibility into the performance, availability, and health of your apps and infrastructure.
+- **mcp** (`com.googleapis.sqladmin-mcp`) — `hosted_https`, `trusted`: Create, manage, and query your Google Cloud SQL resources.
+- **mcp** (`com.googleapis.stitch-mcp`) — `hosted_https`, `trusted`: Interact with the Stitch API using natural language commands.
 - **monday.com** (`monday.com`) — `hosted_https`, `trusted`: Productivity MCP server by monday MCP.
 - **mypromind.com** (`mypromind.com`) — `hosted_https`, `trusted`: Learning MCP server by mypromind MCP.
 - **xbird** (`xbird`) — `hosted_https`, `trusted`: Social Media MCP server by xbird.

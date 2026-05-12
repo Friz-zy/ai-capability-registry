@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "chroma": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "CHROMA_API_KEY",
+        "mcp/chroma"
+      ]
+    }
+  }
+}

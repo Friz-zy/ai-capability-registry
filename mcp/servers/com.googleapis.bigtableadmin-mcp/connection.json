@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.bigtableadmin-mcp": {
+      "type": "streamable_http",
+      "url": "https://bigtableadmin.googleapis.com/mcp"
+    }
+  }
+}

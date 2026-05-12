@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "awslabs-ccapi": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "mcp/ccapi-mcp-server"
+      ]
+    }
+  }
+}

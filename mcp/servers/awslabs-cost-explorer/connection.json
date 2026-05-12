@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "awslabs-cost-explorer": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "-e",
+        "AWS_SESSION_TOKEN",
+        "mcp/cost-explorer-mcp-server"
+      ]
+    }
+  }
+}

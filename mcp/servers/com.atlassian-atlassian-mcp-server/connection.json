@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.atlassian-atlassian-mcp-server": {
+      "type": "streamable_http",
+      "url": "https://mcp.atlassian.com/v1/mcp"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "astra-db": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "ASTRA_DB_APPLICATION_TOKEN",
+        "mcp/astra-db"
+      ]
+    }
+  }
+}

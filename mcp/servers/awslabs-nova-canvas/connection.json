@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "awslabs-nova-canvas": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "-e",
+        "AWS_SESSION_TOKEN",
+        "mcp/nova-canvas-mcp-server"
+      ]
+    }
+  }
+}

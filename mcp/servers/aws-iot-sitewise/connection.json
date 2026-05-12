@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "aws-iot-sitewise": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/aws-iot-sitewise-mcp-server"
+      ]
+    }
+  }
+}

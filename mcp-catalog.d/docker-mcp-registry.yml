@@ -278,7 +278,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/amazon-neptune-mcp-server`.
   - id: amazon-qbusiness-anonymous
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon Q Business
     description: AI assistant for ingested content with anonymous access.
     source:
@@ -390,7 +390,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: APIFY_TOKEN.'
   - id: apollo-mcp-server
     exists: true
-    enabled: false
+    enabled: true
     name: Apollo
     description: Enable graph-based API orchestration with AI
     source:
@@ -431,7 +431,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i ghcr.io/apollographql/apollo-mcp-server`.
   - id: arm-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: Arm
     description: Provides AI assistants with specialized tools for Arm architecture development, migration, optimization, and profiling. Includes knowledge base search, code migration analysis, container architecture inspection, Arm Performix workload profiling, and assembly performance analysis.
     source:
@@ -573,7 +573,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/ast-grep`.
   - id: astra-db
     exists: true
-    enabled: false
+    enabled: true
     name: Astra DB
     description: No description.
     source:
@@ -621,7 +621,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: ASTRA_DB_APPLICATION_TOKEN.'
   - id: atlan
     exists: true
-    enabled: false
+    enabled: true
     name: Atlan
     description: MCP server for interacting with Atlan services including asset search, updates, and lineage traversal for comprehensive data governance and discovery.
     source:
@@ -824,7 +824,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AUDIENSE_CLIENT_SECRET, TWITTER_BEARER_TOKEN.'
   - id: aws-api
     exists: true
-    enabled: false
+    enabled: true
     name: AWS API
     description: Comprehensive AWS API support with command validation and access to all services.
     source:
@@ -878,7 +878,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: aws-appsync
     exists: true
-    enabled: false
+    enabled: true
     name: AWS AppSync
     description: Manage applications powered by AWS AppSync.
     source:
@@ -930,7 +930,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: aws-bedrock-custom-model-import
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Bedrock Custom Model Import
     description: Manage custom models in Bedrock.
     source:
@@ -982,7 +982,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: aws-bedrock-data-automation
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Bedrock Data Automation
     description: Analyze documents, images, videos, and audio.
     source:
@@ -1029,7 +1029,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-bedrock-data-automation-mcp-server`.
   - id: aws-cdk-mcp-server
     exists: true
-    enabled: false
+    enabled: true
     name: AWS CDK
     description: AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag.
     source:
@@ -1076,7 +1076,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-cdk-mcp-server`.
   - id: aws-core-mcp-server
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Core
     description: Starting point for using the awslabs MCP servers.
     source:
@@ -1119,7 +1119,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-core-mcp-server`.
   - id: aws-dataprocessing
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Data Processing
     description: Data processing and transformation services.
     source:
@@ -1164,7 +1164,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-dataprocessing-mcp-server`.
   - id: aws-diagram
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Diagram
     description: Seamlessly create diagrams using the Python diagrams package DSL. This server allows you to generate AWS diagrams, sequence diagrams, flow diagrams, and class diagrams using Python code.
     source:
@@ -1210,7 +1210,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-diagram`.
   - id: aws-documentation
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Documentation
     description: Tools to access AWS documentation, search for content, and get recommendations.
     source:
@@ -1255,7 +1255,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-documentation`.
   - id: aws-healthomics
     exists: true
-    enabled: false
+    enabled: true
     name: AWS HealthOmics
     description: Generate, run, debug lifescience workflows.
     source:
@@ -1301,7 +1301,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-healthomics-mcp-server`.
   - id: aws-iot-sitewise
     exists: true
-    enabled: false
+    enabled: true
     name: AWS IoT SiteWise
     description: Industrial IoT asset management.
     source:
@@ -1398,7 +1398,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY.'
   - id: aws-location
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon Location Service
     description: Place search, geocoding, and route optimization.
     source:
@@ -1453,7 +1453,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: aws-msk
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon MSK
     description: Managed Kafka cluster operations.
     source:
@@ -1508,7 +1508,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: aws-pricing
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Pricing
     description: AWS service pricing and cost estimates.
     source:
@@ -1561,7 +1561,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: aws-terraform
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Terraform
     description: Terraform on AWS best practices, infrastructure as code patterns, and security compliance with Checkov
     source:
@@ -1607,7 +1607,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/aws-terraform`.
   - id: awslabs-billing-cost-management
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Billing and Cost Management
     description: Billing and cost management.
     source:
@@ -1652,7 +1652,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/billing-cost-management-mcp-server`.
   - id: awslabs-ccapi
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Cloud Control API
     description: Direct resource management with security scanning.
     source:
@@ -1705,7 +1705,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY.'
   - id: awslabs-cfn
     exists: true
-    enabled: false
+    enabled: true
     name: AWS CloudFormation
     description: CloudFormation resource management via Cloud Control API.
     source:
@@ -1759,7 +1759,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: awslabs-cloudtrail
     exists: true
-    enabled: false
+    enabled: true
     name: AWS CloudTrail
     description: AWS CloudTrail audit logging and monitoring.
     source:
@@ -1804,7 +1804,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/cloudtrail-mcp-server`.
   - id: awslabs-cloudwatch
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon CloudWatch
     description: Metrics, alarms, and logs analysis.
     source:
@@ -1850,7 +1850,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/cloudwatch-mcp-server`.
   - id: awslabs-cloudwatch-appsignals
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon CloudWatch Application Signals
     description: Application performance monitoring and insights.
     source:
@@ -1898,7 +1898,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/cloudwatch-appsignals-mcp-server`.
   - id: awslabs-cost-explorer
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Cost Explorer
     description: Detailed cost analysis and reporting.
     source:
@@ -1953,7 +1953,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: awslabs-dynamodb
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon DynamoDB
     description: Complete DynamoDB operations and table management.
     source:
@@ -1999,7 +1999,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/dynamodb-mcp-server`.
   - id: awslabs-elasticache
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon ElastiCache
     description: ElastiCache control plane operations.
     source:
@@ -2046,7 +2046,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/elasticache-mcp-server`.
   - id: awslabs-iam
     exists: true
-    enabled: false
+    enabled: true
     name: AWS IAM
     description: IAM user, role, group, and policy management.
     source:
@@ -2099,7 +2099,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY.'
   - id: awslabs-memcached
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon ElastiCache for Memcached
     description: High-speed caching with Memcached.
     source:
@@ -2144,7 +2144,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/memcached-mcp-server`.
   - id: awslabs-nova-canvas
     exists: true
-    enabled: false
+    enabled: true
     name: AWS Labs Nova Canvas
     description: AI image generation using Amazon Nova Canvas.
     source:
@@ -2199,7 +2199,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: awslabs-redshift
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon Redshift
     description: Data warehouse operations and queries.
     source:
@@ -2245,7 +2245,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/redshift-mcp-server`.
   - id: awslabs-s3-tables
     exists: true
-    enabled: false
+    enabled: true
     name: AWS S3 Tables
     description: Manage S3 Tables for analytics.
     source:
@@ -2298,7 +2298,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.'
   - id: awslabs-timestream-for-influxdb
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon Timestream for InfluxDB
     description: Time-series database operations.
     source:
@@ -2345,7 +2345,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/timestream-for-influxdb-mcp-server`.
   - id: awslabs-valkey
     exists: true
-    enabled: false
+    enabled: true
     name: Amazon ElastiCache/MemoryDB for Valkey
     description: Advanced data structures with Valkey.
     source:
@@ -2391,7 +2391,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/valkey-mcp-server`.
   - id: azure
     exists: true
-    enabled: false
+    enabled: true
     name: Azure
     description: No description.
     source:
@@ -2627,7 +2627,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: BRAVE_API_KEY.'
   - id: browserbase
     exists: true
-    enabled: false
+    enabled: true
     name: Browserbase
     description: Allow LLMs to control a browser with Browserbase and Stagehand for AI-powered web automation, intelligent data extraction, and screenshot capture.
     source:
@@ -2876,7 +2876,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: CHARMHEALTH_API_KEY, CHARMHEALTH_REFRESH_TOKEN.'
   - id: chroma
     exists: true
-    enabled: false
+    enabled: true
     name: Chroma
     description: No description.
     source:
@@ -3019,7 +3019,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: CLICKHOUSE_PASSWORD.'
   - id: cloud-run-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: Cloud Run
     description: MCP server to deploy apps to Cloud Run
     source:
@@ -3633,7 +3633,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: DEVHUB_API_KEY, DEVHUB_API_SECRET.'
   - id: dockerhub
     exists: true
-    enabled: false
+    enabled: true
     name: Docker Hub
     description: Docker Hub official MCP server
     source:
@@ -4009,7 +4009,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/effect-mcp`.
   - id: elasticsearch
     exists: true
-    enabled: false
+    enabled: true
     name: Elasticsearch
     description: Interact with your Elasticsearch indices through natural language conversations.
     source:
@@ -4582,7 +4582,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/gemini-api-docs-mcp`.
   - id: genai-toolbox
     exists: true
-    enabled: false
+    enabled: true
     name: GenAI Toolbox for Databases
     description: Open source MCP server for databases that simplifies AI agent access to database resources. Handles connection pooling, authentication, and observability with OpenTelemetry support. Supports PostgreSQL, MySQL, BigQuery, Cloud SQL, Spanner, and more. Enables natural language queries and context-aware code generation based on live database schemas.
     source:
@@ -4782,7 +4782,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: GITHUB_API_KEY.'
   - id: github-official
     exists: true
-    enabled: false
+    enabled: true
     name: GitHub Official
     description: Official GitHub MCP Server, by GitHub. Provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities for developers and tools.
     source:
@@ -5137,7 +5137,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: GOOGLE_MAPS_API_KEY.'
   - id: grafana
     exists: true
-    enabled: false
+    enabled: true
     name: Grafana
     description: No description.
     source:
@@ -6534,7 +6534,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/markdownify`.
   - id: markitdown
     exists: true
-    enabled: false
+    enabled: true
     name: Markitdown
     description: A lightweight MCP server for calling MarkItDown.
     source:
@@ -7333,7 +7333,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: NEEDLE_API_KEY.'
   - id: neo4j
     exists: true
-    enabled: false
+    enabled: true
     name: Neo4j
     description: Official MCP server for Neo4j. Interact with Neo4j using Cypher graph queries.
     source:
@@ -8718,7 +8718,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: PICA_SECRET.'
   - id: pinecone
     exists: true
-    enabled: false
+    enabled: true
     name: Pinecone Assistant
     description: No description.
     source:
@@ -8766,7 +8766,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: PINECONE_API_KEY.'
   - id: playwright
     exists: true
-    enabled: false
+    enabled: true
     name: Playwright
     description: No description.
     source:
@@ -9370,7 +9370,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: RAZORPAY_KEY_SECRET.'
   - id: redis
     exists: true
-    enabled: false
+    enabled: true
     name: Redis
     description: Access to Redis database operations.
     source:
@@ -9420,7 +9420,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: REDIS_PWD.'
   - id: redis-cloud
     exists: true
-    enabled: false
+    enabled: true
     name: Redis Cloud
     description: MCP Server for Redis Cloud's API, allowing you to manage your Redis Cloud resources using natural language.
     source:
@@ -10584,7 +10584,7 @@ mcp_servers:
         - 'Confirm required environment variables before launch: STACKHAWK_API_KEY.'
   - id: stripe
     exists: true
-    enabled: false
+    enabled: true
     name: Stripe
     description: Interact with Stripe services over the Stripe API.
     source:
@@ -10969,7 +10969,7 @@ mcp_servers:
         - Launch through Docker stdio with `docker run --rm -i mcp/temporal`.
   - id: terraform
     exists: true
-    enabled: false
+    enabled: true
     name: Hashicorp Terraform
     description: No description.
     source:

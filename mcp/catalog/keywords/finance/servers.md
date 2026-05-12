@@ -7,3 +7,4 @@
 - **Plaid** (`plaid`) — `hosted_https`, `trusted`: Payments MCP server by Plaid.
 - **Ramp** (`ramp`) — `hosted_https`, `trusted`: Payments MCP server by Ramp.
 - **Square** (`square`) — `hosted_https`, `trusted`: Payments MCP server by Square.
+- **Stripe** (`stripe`) — `docker`, `reviewed`: Interact with Stripe services over the Stripe API.

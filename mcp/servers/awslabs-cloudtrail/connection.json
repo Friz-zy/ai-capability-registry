@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "awslabs-cloudtrail": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/cloudtrail-mcp-server"
+      ]
+    }
+  }
+}

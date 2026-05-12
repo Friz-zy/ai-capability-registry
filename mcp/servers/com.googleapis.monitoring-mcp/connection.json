@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.monitoring-mcp": {
+      "type": "streamable_http",
+      "url": "https://monitoring.googleapis.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "awslabs-billing-cost-management": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/billing-cost-management-mcp-server"
+      ]
+    }
+  }
+}

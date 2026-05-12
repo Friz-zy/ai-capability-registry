@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "amazon-qbusiness-anonymous": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "-e",
+        "AWS_SESSION_TOKEN",
+        "mcp/amazon-qbusiness-anonymous-mcp-server"
+      ]
+    }
+  }
+}

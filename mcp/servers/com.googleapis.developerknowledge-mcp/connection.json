@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.developerknowledge-mcp": {
+      "type": "streamable_http",
+      "url": "https://developerknowledge.googleapis.com/mcp"
+    }
+  }
+}

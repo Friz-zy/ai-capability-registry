@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.cloudflare.mcp-mcp": {
+      "type": "streamable_http",
+      "url": "https://docs.mcp.cloudflare.com/mcp"
+    }
+  }
+}

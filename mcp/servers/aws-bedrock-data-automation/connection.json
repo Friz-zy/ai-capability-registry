@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "aws-bedrock-data-automation": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/aws-bedrock-data-automation-mcp-server"
+      ]
+    }
+  }
+}

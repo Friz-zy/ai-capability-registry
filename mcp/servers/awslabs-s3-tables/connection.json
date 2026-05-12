@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "awslabs-s3-tables": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "-e",
+        "AWS_SESSION_TOKEN",
+        "mcp/s3-tables-mcp-server"
+      ]
+    }
+  }
+}

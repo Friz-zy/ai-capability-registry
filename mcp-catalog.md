@@ -3,7 +3,7 @@
 Generated human-readable view. Edit source chunks in `mcp-catalog.d/*.yml`.
 
 Total: 1075 MCP entries
-Enabled: 97; Disabled: 978
+Enabled: 169; Disabled: 906
 
 ## inference.sh
 
@@ -3970,7 +3970,7 @@ Graph database queries with Cypher and Gremlin.
 AI assistant for ingested content with anonymous access.
 
 **ID:** `amazon-qbusiness-anonymous`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `amazon`, `qbusiness`, `anonymous`, `amazon-qbusiness-anonymous`, `awslabs`, `access`, `aws`, `content`
@@ -3990,7 +3990,7 @@ Apify is the world's largest marketplace of tools for web scraping, data extract
 Enable graph-based API orchestration with AI
 
 **ID:** `apollo-mcp-server`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `apollo`, `ai`
@@ -4370,7 +4370,7 @@ Argentine oil & gas data — 40+ curated tables: production, wells, prices, inve
 Provides AI assistants with specialized tools for Arm architecture development, migration, optimization, and profiling. Includes knowledge base search, code migration analysis, container architecture inspection, Arm Performix workload profiling, and assembly performance analysis.
 
 **ID:** `arm-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `arm`, `search`, `analysis`, `architecture`, `code`, `container`, `development`, `docker`, `knowledge`, `migration`
@@ -4410,7 +4410,7 @@ ast-grep is a fast and polyglot tool for code structural search, lint, rewriting
 No description.
 
 **ID:** `astra-db`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `astra`, `database`
@@ -4450,7 +4450,7 @@ Bundle multiple URLs into one short link. QR codes, access counters, redirect lo
 MCP server for interacting with Atlan services including asset search, updates, and lineage traversal for comprehensive data governance and discovery.
 
 **ID:** `atlan`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `atlan`, `search`, `comprehensive`, `data`, `discovery`, `governance`
@@ -4510,7 +4510,7 @@ No description.
 Comprehensive AWS API support with command validation and access to all services.
 
 **ID:** `aws-api`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `awslabs`, `access`, `command`, `comprehensive`, `validation`
@@ -4520,7 +4520,7 @@ Comprehensive AWS API support with command validation and access to all services
 Manage applications powered by AWS AppSync.
 
 **ID:** `aws-appsync`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `appsync`, `aws-appsync`, `awslabs`
@@ -4530,7 +4530,7 @@ Manage applications powered by AWS AppSync.
 Manage custom models in Bedrock.
 
 **ID:** `aws-bedrock-custom-model-import`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `bedrock`, `custom`, `awslabs`
@@ -4540,7 +4540,7 @@ Manage custom models in Bedrock.
 Analyze documents, images, videos, and audio.
 
 **ID:** `aws-bedrock-data-automation`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `bedrock`, `aws-bedrock`, `automation`, `awslabs`, `audio`, `data`, `documents`
@@ -4550,7 +4550,7 @@ Analyze documents, images, videos, and audio.
 AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag.
 
 **ID:** `aws-cdk-mcp-server`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `cdk`, `aws-cdk`, `security`, `awslabs`, `code`, `compliance`, `development`
@@ -4560,7 +4560,7 @@ AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns,
 Starting point for using the awslabs MCP servers.
 
 **ID:** `aws-core-mcp-server`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `core`, `aws-core`, `awslabs`
@@ -4570,7 +4570,7 @@ Starting point for using the awslabs MCP servers.
 Data processing and transformation services.
 
 **ID:** `aws-dataprocessing`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `dataprocessing`, `aws-dataprocessing`, `processing`, `awslabs`, `data`
@@ -4580,7 +4580,7 @@ Data processing and transformation services.
 Seamlessly create diagrams using the Python diagrams package DSL. This server allows you to generate AWS diagrams, sequence diagrams, flow diagrams, and class diagrams using Python code.
 
 **ID:** `aws-diagram`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `diagram`, `aws-diagram`, `awslabs`, `code`, `generate`, `python`
@@ -4590,7 +4590,7 @@ Seamlessly create diagrams using the Python diagrams package DSL. This server al
 Tools to access AWS documentation, search for content, and get recommendations.
 
 **ID:** `aws-documentation`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `awslabs`, `documentation`, `search`, `access`, `content`
@@ -4600,7 +4600,7 @@ Tools to access AWS documentation, search for content, and get recommendations.
 Generate, run, debug lifescience workflows.
 
 **ID:** `aws-healthomics`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `healthomics`, `aws-healthomics`, `awslabs`, `debug`, `generate`, `run`
@@ -4610,7 +4610,7 @@ Generate, run, debug lifescience workflows.
 Industrial IoT asset management.
 
 **ID:** `aws-iot-sitewise`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `iot`, `sitewise`, `aws-iot-sitewise`, `awslabs`, `management`
@@ -4640,7 +4640,7 @@ Software Development MCP server by AWS.
 Place search, geocoding, and route optimization.
 
 **ID:** `aws-location`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `location`, `aws-location`, `amazon`, `awslabs`, `search`, `optimization`
@@ -4650,7 +4650,7 @@ Place search, geocoding, and route optimization.
 Managed Kafka cluster operations.
 
 **ID:** `aws-msk`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `msk`, `aws-msk`, `amazon`, `awslabs`, `kafka`, `operations`
@@ -4660,7 +4660,7 @@ Managed Kafka cluster operations.
 AWS service pricing and cost estimates.
 
 **ID:** `aws-pricing`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `pricing`, `aws-pricing`, `awslabs`, `cost`
@@ -4670,7 +4670,7 @@ AWS service pricing and cost estimates.
 Terraform on AWS best practices, infrastructure as code patterns, and security compliance with Checkov
 
 **ID:** `aws-terraform`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `aws`, `terraform`, `aws-terraform`, `security`, `awslabs`, `code`, `compliance`
@@ -4680,7 +4680,7 @@ Terraform on AWS best practices, infrastructure as code patterns, and security c
 Billing and cost management.
 
 **ID:** `awslabs-billing-cost-management`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `billing`, `cost`, `awslabs-billing-cost`, `aws`, `management`
@@ -4690,7 +4690,7 @@ Billing and cost management.
 Direct resource management with security scanning.
 
 **ID:** `awslabs-ccapi`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `ccapi`, `awslabs-ccapi`, `security`, `aws`, `control`, `management`
@@ -4700,7 +4700,7 @@ Direct resource management with security scanning.
 CloudFormation resource management via Cloud Control API.
 
 **ID:** `awslabs-cfn`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `cfn`, `awslabs-cfn`, `aws`, `control`, `management`
@@ -4710,7 +4710,7 @@ CloudFormation resource management via Cloud Control API.
 AWS CloudTrail audit logging and monitoring.
 
 **ID:** `awslabs-cloudtrail`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `cloudtrail`, `awslabs-cloudtrail`, `aws`, `audit`, `monitoring`
@@ -4720,7 +4720,7 @@ AWS CloudTrail audit logging and monitoring.
 Metrics, alarms, and logs analysis.
 
 **ID:** `awslabs-cloudwatch`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `cloudwatch`, `awslabs-cloudwatch`, `metrics`, `amazon`, `analysis`, `aws`
@@ -4730,7 +4730,7 @@ Metrics, alarms, and logs analysis.
 Application performance monitoring and insights.
 
 **ID:** `awslabs-cloudwatch-appsignals`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `cloudwatch`, `appsignals`, `awslabs-cloudwatch-appsignals`, `amazon`, `signals`, `aws`, `insights`, `monitoring`
@@ -4740,7 +4740,7 @@ Application performance monitoring and insights.
 Detailed cost analysis and reporting.
 
 **ID:** `awslabs-cost-explorer`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `cost`, `explorer`, `awslabs-cost-explorer`, `aws`, `analysis`, `reporting`
@@ -4750,7 +4750,7 @@ Detailed cost analysis and reporting.
 Complete DynamoDB operations and table management.
 
 **ID:** `awslabs-dynamodb`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `dynamodb`, `awslabs-dynamodb`, `amazon`, `aws`, `management`, `operations`
@@ -4760,7 +4760,7 @@ Complete DynamoDB operations and table management.
 ElastiCache control plane operations.
 
 **ID:** `awslabs-elasticache`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `elasticache`, `awslabs-elasticache`, `amazon`, `aws`, `control`, `operations`, `plane`
@@ -4770,7 +4770,7 @@ ElastiCache control plane operations.
 IAM user, role, group, and policy management.
 
 **ID:** `awslabs-iam`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `iam`, `awslabs-iam`, `aws`, `management`, `policy`, `user`
@@ -4780,7 +4780,7 @@ IAM user, role, group, and policy management.
 High-speed caching with Memcached.
 
 **ID:** `awslabs-memcached`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `memcached`, `awslabs-memcached`, `amazon`, `elasticache`, `aws`
@@ -4790,7 +4790,7 @@ High-speed caching with Memcached.
 AI image generation using Amazon Nova Canvas.
 
 **ID:** `awslabs-nova-canvas`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `nova`, `canvas`, `awslabs-nova-canvas`, `aws`, `amazon`, `image`
@@ -4800,7 +4800,7 @@ AI image generation using Amazon Nova Canvas.
 Data warehouse operations and queries.
 
 **ID:** `awslabs-redshift`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `redshift`, `awslabs-redshift`, `amazon`, `aws`, `data`, `operations`
@@ -4810,7 +4810,7 @@ Data warehouse operations and queries.
 Manage S3 Tables for analytics.
 
 **ID:** `awslabs-s3-tables`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `tables`, `awslabs-tables`, `aws`, `analytics`
@@ -4820,7 +4820,7 @@ Manage S3 Tables for analytics.
 Time-series database operations.
 
 **ID:** `awslabs-timestream-for-influxdb`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `timestream`, `influxdb`, `awslabs-timestream-influxdb`, `amazon`, `database`, `aws`, `operations`
@@ -4830,7 +4830,7 @@ Time-series database operations.
 Advanced data structures with Valkey.
 
 **ID:** `awslabs-valkey`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `awslabs`, `valkey`, `awslabs-valkey`, `amazon`, `elasticache`, `aws`, `data`
@@ -4840,7 +4840,7 @@ Advanced data structures with Valkey.
 No description.
 
 **ID:** `azure`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `azure`
@@ -4950,7 +4950,7 @@ Search the Web for pages, images, news, videos, and more using the Brave Search 
 Allow LLMs to control a browser with Browserbase and Stagehand for AI-powered web automation, intelligent data extraction, and screenshot capture.
 
 **ID:** `browserbase`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `browserbase`, `extract`, `automation`, `control`, `data`, `screenshot`, `web-scraping`
@@ -5180,7 +5180,7 @@ Connect AI tools to Trilo workspaces — manage tasks, messages, pages, calendar
 No description.
 
 **ID:** `chroma`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `chroma`
@@ -5240,7 +5240,7 @@ Official ClickHouse MCP Server
 MCP server to deploy apps to Cloud Run
 
 **ID:** `cloud-run-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `run`, `deploy`
@@ -6020,9 +6020,9 @@ Manage projects, tasks, time tracking, and team collaboration through natural la
 Atlassian Rovo MCP Server
 
 **ID:** `com.atlassian-atlassian-mcp-server`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `atlassian`, `atlassian-atlassian`
 
 ## Attrove
@@ -6410,9 +6410,9 @@ Close CRM to manage your sales pipeline. Learn more at https://close.com or http
 Cloudflare MCP servers
 
 **ID:** `com.cloudflare.mcp-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `cloudflare`
 
 ## Cognethics
@@ -7120,9 +7120,9 @@ MCP server for the FFmpeg Micro video transcoding API — create, monitor, downl
 The Figma MCP server brings Figma design context directly into your AI workflow.
 
 **ID:** `com.figma.mcp-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `figma`, `design`, `workflow`
 
 ## mcp-server
@@ -7380,9 +7380,9 @@ GibsonAI MCP server: manage your databases with natural language
 Official GitLab MCP Server
 
 **ID:** `com.gitlab-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `gitlab`, `git`
 
 ## Gitsim Chat
@@ -7440,9 +7440,9 @@ Turn your ChatGPT to a super travel agent
 Remote enterprise management of Android devices and apps
 
 **ID:** `com.googleapis.androidmanagement-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `androidmanagement`, `googleapis-androidmanagement`, `android`, `management`
 
 ## mcp
@@ -7450,9 +7450,9 @@ Remote enterprise management of Android devices and apps
 Interact with your Google Bigtable resources using natural language commands.
 
 **ID:** `com.googleapis.bigtableadmin-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `bigtableadmin`, `googleapis-bigtableadmin`, `google`
 
 ## mcp
@@ -7460,9 +7460,9 @@ Interact with your Google Bigtable resources using natural language commands.
 Interact with your Google Cloud Composer resources using natural language commands.
 
 **ID:** `com.googleapis.composer-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `composer`, `googleapis-composer`, `google`
 
 ## mcp
@@ -7470,9 +7470,9 @@ Interact with your Google Cloud Composer resources using natural language comman
 Provides capabilities that let LLM agents perform a range of infrastructure management tasks.
 
 **ID:** `com.googleapis.compute-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `compute`, `googleapis-compute`, `llm`, `management`
 
 ## mcp
@@ -7480,9 +7480,9 @@ Provides capabilities that let LLM agents perform a range of infrastructure mana
 Provides read access to your GKE and Kubernetes resources.
 
 **ID:** `com.googleapis.container-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `container`, `googleapis-container`, `kubernetes`, `access`
 
 ## mcp
@@ -7490,9 +7490,9 @@ Provides read access to your GKE and Kubernetes resources.
 Interact with your Google Cloud Datastream resources using natural language commands.
 
 **ID:** `com.googleapis.datastream-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `datastream`, `googleapis-datastream`, `google`
 
 ## mcp
@@ -7500,9 +7500,9 @@ Interact with your Google Cloud Datastream resources using natural language comm
 Provides UX capabilities to enhance the design output and understanding of AI systems.
 
 **ID:** `com.googleapis.design-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `design`, `googleapis-design`
 
 ## mcp
@@ -7510,9 +7510,9 @@ Provides UX capabilities to enhance the design output and understanding of AI sy
 Provides access to Google's public developer documentation.
 
 **ID:** `com.googleapis.developerknowledge-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `developerknowledge`, `googleapis-developerknowledge`, `documentation`, `access`, `google`
 
 ## mcp
@@ -7520,9 +7520,9 @@ Provides access to Google's public developer documentation.
 Interact with your Google Cloud Firestore resources using natural language commands.
 
 **ID:** `com.googleapis.firestore-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `firestore`, `googleapis-firestore`, `google`
 
 ## mcp
@@ -7530,9 +7530,9 @@ Interact with your Google Cloud Firestore resources using natural language comma
 Ground your AI applications with trusted geospatial data from Google Maps.
 
 **ID:** `com.googleapis.mapstools-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `mapstools`, `googleapis-mapstools`, `data`, `google`, `maps`
 
 ## mcp
@@ -7540,9 +7540,9 @@ Ground your AI applications with trusted geospatial data from Google Maps.
 Provides tools to manage Memorystore for Valkey instances and backups.
 
 **ID:** `com.googleapis.memorystore-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `memorystore`, `googleapis-memorystore`, `valkey`
 
 ## mcp
@@ -7550,9 +7550,9 @@ Provides tools to manage Memorystore for Valkey instances and backups.
 Gain visibility into the performance, availability, and health of your apps and infrastructure.
 
 **ID:** `com.googleapis.monitoring-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `monitoring`, `googleapis-monitoring`, `health`
 
 ## Google Cloud Run
@@ -7560,9 +7560,9 @@ Gain visibility into the performance, availability, and health of your apps and 
 Deploy applications to Cloud Run
 
 **ID:** `com.googleapis.run-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `run`, `googleapis-run`, `google`, `deploy`
 
 ## mcp
@@ -7570,9 +7570,9 @@ Deploy applications to Cloud Run
 Create, manage, and query your Google Cloud SQL resources.
 
 **ID:** `com.googleapis.sqladmin-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `sqladmin`, `googleapis-sqladmin`, `google`, `query`, `sql`
 
 ## mcp
@@ -7580,9 +7580,9 @@ Create, manage, and query your Google Cloud SQL resources.
 Interact with the Stitch API using natural language commands.
 
 **ID:** `com.googleapis.stitch-mcp`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `hosted_https`
-**Trust:** `candidate`
+**Trust:** `trusted`
 **Keywords:** `googleapis`, `stitch`, `googleapis-stitch`
 
 ## Govbase
@@ -8250,7 +8250,7 @@ Outbound Phone Calls MCP server by Dialer.
 Docker Hub official MCP server
 
 **ID:** `dockerhub`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `dockerhub`, `docker`, `hub`
@@ -8360,7 +8360,7 @@ Document Management MCP server by Egnyte.
 Interact with your Elasticsearch indices through natural language conversations.
 
 **ID:** `elasticsearch`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `elasticsearch`, `search`
@@ -8520,7 +8520,7 @@ Provides tools to search and retrieve Google Gemini API documentation.
 Open source MCP server for databases that simplifies AI agent access to database resources. Handles connection pooling, authentication, and observability with OpenTelemetry support. Supports PostgreSQL, MySQL, BigQuery, Cloud SQL, Spanner, and more. Enables natural language queries and context-aware code generation based on live database schemas.
 
 **ID:** `genai-toolbox`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `genai`, `toolbox`, `genai-toolbox`, `sql`, `databases`, `googleapis`, `database`, `access`, `agent`, `ai-assistant`, `authentication`
@@ -8560,7 +8560,7 @@ No description.
 Official GitHub MCP Server, by GitHub. Provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities for developers and tools.
 
 **ID:** `github-official`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `github`, `automation`, `integration`
@@ -8660,7 +8660,7 @@ Complete Google Maps integration with 8 tools including geocoding, places search
 No description.
 
 **ID:** `grafana`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `grafana`, `monitoring`
@@ -9120,7 +9120,7 @@ A Model Context Protocol server for converting almost anything to Markdown.
 A lightweight MCP server for calling MarkItDown.
 
 **ID:** `markitdown`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `markitdown`, `audio`, `docx`, `html`, `pdf`, `pptx`, `productivity`, `xlsx`, `youtube`
@@ -9360,7 +9360,7 @@ Production-ready RAG service to search and retrieve data from your documents.
 Official MCP server for Neo4j. Interact with Neo4j using Cypher graph queries.
 
 **ID:** `neo4j`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `neo4j`, `cypher`
@@ -9760,7 +9760,7 @@ Provides access to Pica's integrations, actions, execution, and code generation 
 No description.
 
 **ID:** `pinecone`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `pinecone`, `database`
@@ -9780,7 +9780,7 @@ Payments MCP server by Plaid.
 No description.
 
 **ID:** `playwright`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `playwright`
@@ -9960,7 +9960,7 @@ No description.
 Access to Redis database operations.
 
 **ID:** `redis`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `redis`, `database`, `access`, `operations`
@@ -9970,7 +9970,7 @@ Access to Redis database operations.
 MCP Server for Redis Cloud's API, allowing you to manage your Redis Cloud resources using natural language.
 
 **ID:** `redis-cloud`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `redis`, `database`
@@ -10310,7 +10310,7 @@ A Model Context Protocol (MCP) server for integrating with StackHawk's security 
 Interact with Stripe services over the Stripe API.
 
 **ID:** `stripe`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `stripe`, `finance`
@@ -10440,7 +10440,7 @@ MCP support for Temporal. A comprehensive set of tools for interacting with work
 No description.
 
 **ID:** `terraform`
-**Enabled:** `false`
+**Enabled:** `true`
 **Runtime:** `docker`
 **Trust:** `reviewed`
 **Keywords:** `terraform`

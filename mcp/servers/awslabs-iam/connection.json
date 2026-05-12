@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "awslabs-iam": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "mcp/iam-mcp-server"
+      ]
+    }
+  }
+}

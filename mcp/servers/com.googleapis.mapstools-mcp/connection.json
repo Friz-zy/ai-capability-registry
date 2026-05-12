@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.mapstools-mcp": {
+      "type": "streamable_http",
+      "url": "https://mapstools.googleapis.com/mcp"
+    }
+  }
+}

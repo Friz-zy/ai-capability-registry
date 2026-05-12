@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "aws-diagram": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/aws-diagram"
+      ]
+    }
+  }
+}

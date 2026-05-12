@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "awslabs-cloudwatch": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/cloudwatch-mcp-server"
+      ]
+    }
+  }
+}

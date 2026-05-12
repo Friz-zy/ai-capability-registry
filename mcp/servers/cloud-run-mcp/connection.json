@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "cloud-run-mcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/cloud-run-mcp"
+      ]
+    }
+  }
+}

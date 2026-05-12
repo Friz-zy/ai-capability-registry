@@ -18168,7 +18168,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.atlassian-atlassian-mcp-server
     exists: true
-    enabled: false
+    enabled: true
     name: atlassian-mcp-server
     description: Atlassian Rovo MCP Server
     source:
@@ -18188,7 +18188,7 @@ mcp_servers:
     keywords:
       - atlassian
       - atlassian-atlassian
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -19472,7 +19472,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.cloudflare.mcp-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Cloudflare MCP servers
     source:
@@ -19491,7 +19491,7 @@ mcp_servers:
       type: streamable_http
     keywords:
       - cloudflare
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -21834,7 +21834,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.figma.mcp-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: Figma MCP Server
     description: The Figma MCP server brings Figma design context directly into your AI workflow.
     source:
@@ -21855,7 +21855,7 @@ mcp_servers:
       - figma
       - design
       - workflow
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -22710,7 +22710,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.gitlab-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Official GitLab MCP Server
     source:
@@ -22730,7 +22730,7 @@ mcp_servers:
     keywords:
       - gitlab
       - git
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -22906,7 +22906,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.androidmanagement-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: Android Management API
     description: Remote enterprise management of Android devices and apps
     source:
@@ -22928,7 +22928,7 @@ mcp_servers:
       - googleapis-androidmanagement
       - android
       - management
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -22939,7 +22939,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.bigtableadmin-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Interact with your Google Bigtable resources using natural language commands.
     source:
@@ -22960,7 +22960,7 @@ mcp_servers:
       - bigtableadmin
       - googleapis-bigtableadmin
       - google
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -22971,7 +22971,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.composer-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Interact with your Google Cloud Composer resources using natural language commands.
     source:
@@ -22992,7 +22992,7 @@ mcp_servers:
       - composer
       - googleapis-composer
       - google
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23003,7 +23003,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.compute-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Provides capabilities that let LLM agents perform a range of infrastructure management tasks.
     source:
@@ -23025,7 +23025,7 @@ mcp_servers:
       - googleapis-compute
       - llm
       - management
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23036,7 +23036,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.container-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Provides read access to your GKE and Kubernetes resources.
     source:
@@ -23058,7 +23058,7 @@ mcp_servers:
       - googleapis-container
       - kubernetes
       - access
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23069,7 +23069,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.datastream-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Interact with your Google Cloud Datastream resources using natural language commands.
     source:
@@ -23090,7 +23090,7 @@ mcp_servers:
       - datastream
       - googleapis-datastream
       - google
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23101,7 +23101,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.design-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Provides UX capabilities to enhance the design output and understanding of AI systems.
     source:
@@ -23121,7 +23121,7 @@ mcp_servers:
       - googleapis
       - design
       - googleapis-design
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23132,7 +23132,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.developerknowledge-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Provides access to Google's public developer documentation.
     source:
@@ -23155,7 +23155,7 @@ mcp_servers:
       - documentation
       - access
       - google
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23166,7 +23166,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.firestore-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Interact with your Google Cloud Firestore resources using natural language commands.
     source:
@@ -23187,7 +23187,7 @@ mcp_servers:
       - firestore
       - googleapis-firestore
       - google
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23198,7 +23198,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.mapstools-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Ground your AI applications with trusted geospatial data from Google Maps.
     source:
@@ -23221,7 +23221,7 @@ mcp_servers:
       - data
       - google
       - maps
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23232,7 +23232,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.memorystore-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Provides tools to manage Memorystore for Valkey instances and backups.
     source:
@@ -23253,7 +23253,7 @@ mcp_servers:
       - memorystore
       - googleapis-memorystore
       - valkey
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23264,7 +23264,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.monitoring-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Gain visibility into the performance, availability, and health of your apps and infrastructure.
     source:
@@ -23285,7 +23285,7 @@ mcp_servers:
       - monitoring
       - googleapis-monitoring
       - health
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23296,7 +23296,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.run-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: Google Cloud Run
     description: Deploy applications to Cloud Run
     source:
@@ -23318,7 +23318,7 @@ mcp_servers:
       - googleapis-run
       - google
       - deploy
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23329,7 +23329,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.sqladmin-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Create, manage, and query your Google Cloud SQL resources.
     source:
@@ -23352,7 +23352,7 @@ mcp_servers:
       - google
       - query
       - sql
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:
@@ -23363,7 +23363,7 @@ mcp_servers:
         - https://registry.modelcontextprotocol.io/v0/servers
   - id: com.googleapis.stitch-mcp
     exists: true
-    enabled: false
+    enabled: true
     name: mcp
     description: Interact with the Stitch API using natural language commands.
     source:
@@ -23383,7 +23383,7 @@ mcp_servers:
       - googleapis
       - stitch
       - googleapis-stitch
-    trust: candidate
+    trust: trusted
     runtime: hosted_https
     default_mode: manual_review
     skill:

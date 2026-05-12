@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "neo4j": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "NEO4J_PASSWORD",
+        "mcp/neo4j"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "pinecone": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "PINECONE_API_KEY",
+        "mcp/pinecone"
+      ]
+    }
+  }
+}

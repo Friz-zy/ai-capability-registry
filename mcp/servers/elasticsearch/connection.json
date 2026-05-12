@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "elasticsearch": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "ES_API_KEY",
+        "mcp/elasticsearch",
+        "stdio"
+      ]
+    }
+  }
+}

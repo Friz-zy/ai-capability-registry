@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "grafana": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "GRAFANA_API_KEY",
+        "mcp/grafana",
+        "--transport=stdio"
+      ]
+    }
+  }
+}

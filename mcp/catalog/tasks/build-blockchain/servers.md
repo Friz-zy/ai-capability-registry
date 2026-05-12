@@ -11,16 +11,22 @@ Build, review, and integrate blockchain applications, smart contracts, and chain
 ## Keywords
 Select 1-3 keywords from this list that directly match the current request. Prefer exact service/platform keywords when present.
 
-- **analysis**: 3 server(s) — `mcp/catalog/keywords/analysis/servers.md`
-- **authentication**: 1 server(s) — `mcp/catalog/keywords/authentication/servers.md`
+- **analysis**: 6 server(s) — `mcp/catalog/keywords/analysis/servers.md`
+- **architecture**: 1 server(s) — `mcp/catalog/keywords/architecture/servers.md`
+- **audit**: 1 server(s) — `mcp/catalog/keywords/audit/servers.md`
+- **authentication**: 2 server(s) — `mcp/catalog/keywords/authentication/servers.md`
+- **awslabs-iam**: 1 server(s) — `mcp/catalog/keywords/awslabs-iam/servers.md`
 - **bindings**: 1 server(s) — `mcp/catalog/keywords/bindings/servers.md`
 - **blockchain**: 1 server(s) — `mcp/catalog/keywords/blockchain/servers.md`
 - **cairo**: 1 server(s) — `mcp/catalog/keywords/cairo/servers.md`
+- **compliance**: 2 server(s) — `mcp/catalog/keywords/compliance/servers.md`
 - **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
 - **contracts**: 4 server(s) — `mcp/catalog/keywords/contracts/servers.md`
 - **crypto**: 1 server(s) — `mcp/catalog/keywords/crypto/servers.md`
-- **development**: 20 server(s) — `mcp/catalog/keywords/development/servers.md`
+- **debug**: 1 server(s) — `mcp/catalog/keywords/debug/servers.md`
+- **development**: 22 server(s) — `mcp/catalog/keywords/development/servers.md`
 - **error-analysis**: 1 server(s) — `mcp/catalog/keywords/error-analysis/servers.md`
+- **iam**: 1 server(s) — `mcp/catalog/keywords/iam/servers.md`
 - **incident**: 2 server(s) — `mcp/catalog/keywords/incident/servers.md`
 - **malware**: 1 server(s) — `mcp/catalog/keywords/malware/servers.md`
 - **malware-patrol**: 1 server(s) — `mcp/catalog/keywords/malware-patrol/servers.md`
@@ -31,7 +37,9 @@ Select 1-3 keywords from this list that directly match the current request. Pref
 - **openzeppelin-solidity-contracts**: 1 server(s) — `mcp/catalog/keywords/openzeppelin-solidity-contracts/servers.md`
 - **openzeppelin-stellar-contracts**: 1 server(s) — `mcp/catalog/keywords/openzeppelin-stellar-contracts/servers.md`
 - **openzeppelin-stylus-contracts**: 1 server(s) — `mcp/catalog/keywords/openzeppelin-stylus-contracts/servers.md`
-- **security**: 3 server(s) — `mcp/catalog/keywords/security/servers.md`
+- **policy**: 1 server(s) — `mcp/catalog/keywords/policy/servers.md`
+- **python**: 1 server(s) — `mcp/catalog/keywords/python/servers.md`
+- **security**: 6 server(s) — `mcp/catalog/keywords/security/servers.md`
 - **semgrep**: 1 server(s) — `mcp/catalog/keywords/semgrep/servers.md`
 - **solidity**: 1 server(s) — `mcp/catalog/keywords/solidity/servers.md`
 - **stellar**: 1 server(s) — `mcp/catalog/keywords/stellar/servers.md`

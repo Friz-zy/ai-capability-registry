@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "browserbase": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "BROWSERBASE_API_KEY",
+        "-e",
+        "BROWSERBASE_PROJECT_ID",
+        "-e",
+        "GEMINI_API_KEY",
+        "mcp/browserbase"
+      ]
+    }
+  }
+}

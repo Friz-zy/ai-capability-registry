@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.androidmanagement-mcp": {
+      "type": "streamable_http",
+      "url": "https://androidmanagement.googleapis.com/mcp"
+    }
+  }
+}

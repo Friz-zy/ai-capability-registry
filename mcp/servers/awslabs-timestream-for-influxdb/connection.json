@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "awslabs-timestream-for-influxdb": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/timestream-for-influxdb-mcp-server"
+      ]
+    }
+  }
+}

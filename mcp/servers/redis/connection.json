@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "redis": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "REDIS_PWD",
+        "mcp/redis"
+      ]
+    }
+  }
+}

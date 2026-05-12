@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "genai-toolbox": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/genai-toolbox",
+        "--stdio",
+        "--log-level",
+        "ERROR",
+        "--tools-file",
+        "/tmp/tools.yaml"
+      ]
+    }
+  }
+}

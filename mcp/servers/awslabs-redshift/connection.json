@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "awslabs-redshift": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/redshift-mcp-server"
+      ]
+    }
+  }
+}

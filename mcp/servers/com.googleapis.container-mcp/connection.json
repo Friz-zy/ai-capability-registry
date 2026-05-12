@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.container-mcp": {
+      "type": "streamable_http",
+      "url": "https://container.googleapis.com/mcp"
+    }
+  }
+}

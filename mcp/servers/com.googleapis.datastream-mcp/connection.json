@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "com.googleapis.datastream-mcp": {
+      "type": "streamable_http",
+      "url": "https://datastream.googleapis.com/mcp"
+    }
+  }
+}

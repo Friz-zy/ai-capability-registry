@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "aws-core-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/aws-core-mcp-server"
+      ]
+    }
+  }
+}

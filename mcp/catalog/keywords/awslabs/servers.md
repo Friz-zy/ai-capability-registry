@@ -1,5 +1,37 @@
 # awslabs MCP Servers
 
+- **AWS API** (`aws-api`) — `docker`, `reviewed`: Comprehensive AWS API support with command validation and access to all services.
+- **AWS AppSync** (`aws-appsync`) — `docker`, `reviewed`: Manage applications powered by AWS AppSync.
 - **AWS Bedrock AgentCore** (`amazon-bedrock-agentcore`) — `docker`, `reviewed`: Documentation on AgentCore platform services.
+- **AWS Bedrock Custom Model Import** (`aws-bedrock-custom-model-import`) — `docker`, `reviewed`: Manage custom models in Bedrock.
+- **AWS Bedrock Data Automation** (`aws-bedrock-data-automation`) — `docker`, `reviewed`: Analyze documents, images, videos, and audio.
+- **AWS Billing and Cost Management** (`awslabs-billing-cost-management`) — `docker`, `reviewed`: Billing and cost management.
+- **AWS CDK** (`aws-cdk-mcp-server`) — `docker`, `reviewed`: AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag.
+- **AWS Cloud Control API** (`awslabs-ccapi`) — `docker`, `reviewed`: Direct resource management with security scanning.
+- **AWS CloudFormation** (`awslabs-cfn`) — `docker`, `reviewed`: CloudFormation resource management via Cloud Control API.
+- **AWS CloudTrail** (`awslabs-cloudtrail`) — `docker`, `reviewed`: AWS CloudTrail audit logging and monitoring.
+- **AWS Core** (`aws-core-mcp-server`) — `docker`, `reviewed`: Starting point for using the awslabs MCP servers.
+- **AWS Cost Explorer** (`awslabs-cost-explorer`) — `docker`, `reviewed`: Detailed cost analysis and reporting.
+- **AWS Data Processing** (`aws-dataprocessing`) — `docker`, `reviewed`: Data processing and transformation services.
+- **AWS Diagram** (`aws-diagram`) — `docker`, `reviewed`: Seamlessly create diagrams using the Python diagrams package DSL. This server allows you to generate AWS diagrams, sequence diagrams, flow diagrams, and class diagrams using Python code.
+- **AWS Documentation** (`aws-documentation`) — `docker`, `reviewed`: Tools to access AWS documentation, search for content, and get recommendations.
+- **AWS HealthOmics** (`aws-healthomics`) — `docker`, `reviewed`: Generate, run, debug lifescience workflows.
+- **AWS IAM** (`awslabs-iam`) — `docker`, `reviewed`: IAM user, role, group, and policy management.
+- **AWS IoT SiteWise** (`aws-iot-sitewise`) — `docker`, `reviewed`: Industrial IoT asset management.
+- **AWS Labs Nova Canvas** (`awslabs-nova-canvas`) — `docker`, `reviewed`: AI image generation using Amazon Nova Canvas.
+- **AWS Pricing** (`aws-pricing`) — `docker`, `reviewed`: AWS service pricing and cost estimates.
+- **AWS S3 Tables** (`awslabs-s3-tables`) — `docker`, `reviewed`: Manage S3 Tables for analytics.
+- **AWS Terraform** (`aws-terraform`) — `docker`, `reviewed`: Terraform on AWS best practices, infrastructure as code patterns, and security compliance with Checkov
+- **Amazon CloudWatch** (`awslabs-cloudwatch`) — `docker`, `reviewed`: Metrics, alarms, and logs analysis.
+- **Amazon CloudWatch Application Signals** (`awslabs-cloudwatch-appsignals`) — `docker`, `reviewed`: Application performance monitoring and insights.
+- **Amazon DynamoDB** (`awslabs-dynamodb`) — `docker`, `reviewed`: Complete DynamoDB operations and table management.
+- **Amazon ElastiCache** (`awslabs-elasticache`) — `docker`, `reviewed`: ElastiCache control plane operations.
+- **Amazon ElastiCache for Memcached** (`awslabs-memcached`) — `docker`, `reviewed`: High-speed caching with Memcached.
+- **Amazon ElastiCache/MemoryDB for Valkey** (`awslabs-valkey`) — `docker`, `reviewed`: Advanced data structures with Valkey.
 - **Amazon Kendra Index** (`amazon-kendra-index`) — `docker`, `reviewed`: Enterprise search and RAG enhancement.
+- **Amazon Location Service** (`aws-location`) — `docker`, `reviewed`: Place search, geocoding, and route optimization.
+- **Amazon MSK** (`aws-msk`) — `docker`, `reviewed`: Managed Kafka cluster operations.
 - **Amazon Neptune** (`amazon-neptune`) — `docker`, `reviewed`: Graph database queries with Cypher and Gremlin.
+- **Amazon Q Business** (`amazon-qbusiness-anonymous`) — `docker`, `reviewed`: AI assistant for ingested content with anonymous access.
+- **Amazon Redshift** (`awslabs-redshift`) — `docker`, `reviewed`: Data warehouse operations and queries.
+- **Amazon Timestream for InfluxDB** (`awslabs-timestream-for-influxdb`) — `docker`, `reviewed`: Time-series database operations.

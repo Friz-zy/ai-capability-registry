@@ -1,0 +1,54 @@
+---
+name: "elasticsearch-mcp"
+description: "Interact with your Elasticsearch indices through natural language conversations."
+keywords:
+  - elasticsearch
+  - search
+---
+
+# Elasticsearch
+
+Interact with your Elasticsearch indices through natural language conversations.
+
+## When to use
+
+- Use Elasticsearch only when the task directly involves the relevant service, SaaS product, platform, or technology.
+
+## Connection
+
+### Docker stdio
+
+```json
+{
+  "command": "docker",
+  "args": [
+    "run",
+    "--rm",
+    "-i",
+    "-e",
+    "ES_API_KEY",
+    "mcp/elasticsearch",
+    "stdio"
+  ]
+}
+```
+
+## MCP instructions
+
+- Use the MCP tools only for the user-requested service workflow and prefer read-only operations by default.
+- Confirm the target account, workspace, project, repository, or dataset before actions that can read private data or mutate remote state.
+- This server requires authorization or environment-provided credentials; ask the user before connecting or requesting access.
+
+## Docker launch notes
+
+- Launch through Docker stdio with `docker run --rm -i -e ES_API_KEY mcp/elasticsearch stdio`.
+- Confirm required environment variables before launch: ES_API_KEY.
+
+## References
+
+- https://github.com/elastic/mcp-server-elasticsearch
+- https://github.com/docker/mcp-registry/tree/main/servers/elasticsearch
+
+## Security policy
+
+- Authentication: `Environment variables`

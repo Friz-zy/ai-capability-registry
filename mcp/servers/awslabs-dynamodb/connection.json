@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "awslabs-dynamodb": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/dynamodb-mcp-server"
+      ]
+    }
+  }
+}

@@ -1,6 +1,8 @@
 # development MCP Servers
 
+- **AWS CDK** (`aws-cdk-mcp-server`) — `docker`, `reviewed`: AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag.
 - **AWS Knowledge** (`aws-knowledge`) — `hosted_https`, `trusted`: Software Development MCP server by AWS.
+- **Arm** (`arm-mcp`) — `docker`, `reviewed`: Provides AI assistants with specialized tools for Arm architecture development, migration, optimization, and profiling. Includes knowledge base search, code migration analysis, container architecture inspection, Arm Performix workload profiling, and assembly performance analysis.
 - **Cloudflare Workers** (`cloudflare-workers`) — `hosted_https`, `trusted`: Software Development MCP server by Cloudflare.
 - **Cortex** (`cortex`) — `hosted_https`, `trusted`: Internal Developer Portal MCP server by Cortex.
 - **GitMCP** (`gitmcp`) — `hosted_https`, `trusted`: Software Development MCP server by GitMCP.

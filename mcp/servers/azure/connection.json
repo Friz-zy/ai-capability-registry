@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "azure": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcr.microsoft.com/azure-sdk/azure-mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "stripe": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "STRIPE_SECRET_KEY",
+        "mcp/stripe",
+        "--tools=all"
+      ]
+    }
+  }
+}
