@@ -49,8 +49,7 @@ Use the generated skill routing index when the agent should dynamically choose s
 Add it through `AGENTS.md` or an equivalent instruction file:
 
 ```markdown
-Read additional skill routing instructions from <path-to-registry>/skills/skills.md.
-Route by task, optional role, and 1-3 keywords; load only the selected SKILL.md files.
+Read additional skill routing instructions from <path-to-registry>/skills/skills.md
 ```
 
 For direct agent configuration, attach one generated pack instead of the whole registry when you want a narrower static setup:
@@ -74,8 +73,7 @@ Use the generated MCP routing index when the agent should choose MCP servers onl
 Add it through `AGENTS.md` or an equivalent instruction file:
 
 ```markdown
-Read MCP routing instructions from <path-to-registry>/mcp/mcp.md.
-Use MCP only when the request directly involves the target service, confirm authorization before connecting, and prefer read-only operations unless writes were requested.
+Read MCP routing instructions from <path-to-registry>/mcp/mcp.md
 ```
 
 For direct agent configuration, adapt the generated connection metadata to your agent's MCP config schema:
