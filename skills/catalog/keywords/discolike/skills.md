@@ -1,3 +1,0 @@
-# discolike
-
-No skills found.

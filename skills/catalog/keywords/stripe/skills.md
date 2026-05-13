@@ -1,3 +1,0 @@
-# stripe
-
-No skills found.

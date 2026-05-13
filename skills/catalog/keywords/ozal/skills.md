@@ -1,3 +1,0 @@
-# ozal
-
-No skills found.

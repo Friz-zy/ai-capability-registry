@@ -1,3 +1,0 @@
-# tinyfish
-
-No skills found.

@@ -1,3 +1,0 @@
-# smartbear
-
-No skills found.

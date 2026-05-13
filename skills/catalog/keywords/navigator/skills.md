@@ -1,3 +1,0 @@
-# navigator
-
-No skills found.

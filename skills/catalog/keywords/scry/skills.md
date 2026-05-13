@@ -1,3 +1,0 @@
-# scry
-
-No skills found.

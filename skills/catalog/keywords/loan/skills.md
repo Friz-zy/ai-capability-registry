@@ -1,3 +1,0 @@
-# loan
-
-No skills found.

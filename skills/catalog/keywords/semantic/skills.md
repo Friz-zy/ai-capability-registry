@@ -1,3 +1,0 @@
-# semantic
-
-No skills found.

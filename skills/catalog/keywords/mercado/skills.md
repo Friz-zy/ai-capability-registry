@@ -1,3 +1,0 @@
-# mercado
-
-No skills found.

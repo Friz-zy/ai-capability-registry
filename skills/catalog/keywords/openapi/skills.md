@@ -1,3 +1,0 @@
-# openapi
-
-No skills found.

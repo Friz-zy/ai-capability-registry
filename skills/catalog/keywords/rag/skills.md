@@ -1,3 +1,0 @@
-# rag
-
-No skills found.

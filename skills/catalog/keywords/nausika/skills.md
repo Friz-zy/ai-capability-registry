@@ -1,3 +1,0 @@
-# nausika
-
-No skills found.

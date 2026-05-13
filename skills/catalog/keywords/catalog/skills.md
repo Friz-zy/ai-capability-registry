@@ -1,3 +1,0 @@
-# catalog
-
-No skills found.

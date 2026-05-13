@@ -1,3 +1,0 @@
-# harjap
-
-No skills found.

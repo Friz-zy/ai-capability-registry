@@ -1,3 +1,0 @@
-# fibery
-
-No skills found.

@@ -1,3 +1,0 @@
-# editor
-
-No skills found.

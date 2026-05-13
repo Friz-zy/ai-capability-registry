@@ -1,3 +1,0 @@
-# plane
-
-No skills found.

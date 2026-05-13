@@ -1,3 +1,0 @@
-# zine
-
-No skills found.

@@ -1,3 +1,0 @@
-# anzenna
-
-No skills found.

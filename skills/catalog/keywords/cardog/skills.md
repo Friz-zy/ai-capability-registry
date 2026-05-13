@@ -1,3 +1,0 @@
-# cardog
-
-No skills found.

@@ -1,3 +1,0 @@
-# readypermit
-
-No skills found.

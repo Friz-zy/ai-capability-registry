@@ -1,3 +1,0 @@
-# spritecook
-
-No skills found.

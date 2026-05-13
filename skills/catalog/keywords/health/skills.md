@@ -1,3 +1,0 @@
-# health
-
-No skills found.

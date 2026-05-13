@@ -1,3 +1,0 @@
-# dock
-
-No skills found.

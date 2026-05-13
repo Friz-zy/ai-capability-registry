@@ -1,3 +1,0 @@
-# merchant
-
-No skills found.

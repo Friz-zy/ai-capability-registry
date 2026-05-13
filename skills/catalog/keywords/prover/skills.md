@@ -1,3 +1,0 @@
-# prover
-
-No skills found.

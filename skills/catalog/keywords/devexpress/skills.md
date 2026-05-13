@@ -1,3 +1,0 @@
-# devexpress
-
-No skills found.

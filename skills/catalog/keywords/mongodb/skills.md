@@ -1,3 +1,0 @@
-# mongodb
-
-No skills found.

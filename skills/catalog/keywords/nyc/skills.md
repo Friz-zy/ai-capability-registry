@@ -1,3 +1,0 @@
-# nyc
-
-No skills found.

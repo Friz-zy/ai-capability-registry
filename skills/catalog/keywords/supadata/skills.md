@@ -1,3 +1,0 @@
-# supadata
-
-No skills found.

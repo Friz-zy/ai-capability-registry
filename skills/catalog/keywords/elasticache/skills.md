@@ -1,3 +1,0 @@
-# elasticache
-
-No skills found.

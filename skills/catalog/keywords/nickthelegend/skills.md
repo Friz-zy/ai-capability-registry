@@ -1,3 +1,0 @@
-# nickthelegend
-
-No skills found.

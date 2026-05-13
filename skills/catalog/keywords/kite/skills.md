@@ -1,3 +1,0 @@
-# kite
-
-No skills found.

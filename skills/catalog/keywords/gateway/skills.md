@@ -1,3 +1,0 @@
-# gateway
-
-No skills found.

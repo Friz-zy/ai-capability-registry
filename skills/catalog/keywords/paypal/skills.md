@@ -1,3 +1,0 @@
-# paypal
-
-No skills found.

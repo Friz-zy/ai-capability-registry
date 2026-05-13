@@ -1,3 +1,0 @@
-# vectra
-
-No skills found.

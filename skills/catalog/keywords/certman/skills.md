@@ -1,3 +1,0 @@
-# certman
-
-No skills found.

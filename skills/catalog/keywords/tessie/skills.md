@@ -1,3 +1,0 @@
-# tessie
-
-No skills found.

@@ -1,3 +1,0 @@
-# bridge
-
-No skills found.

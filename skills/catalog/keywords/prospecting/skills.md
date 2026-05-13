@@ -1,3 +1,0 @@
-# prospecting
-
-No skills found.

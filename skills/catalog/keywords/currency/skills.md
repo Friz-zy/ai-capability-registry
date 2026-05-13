@@ -1,3 +1,0 @@
-# currency
-
-No skills found.

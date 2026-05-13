@@ -1,3 +1,0 @@
-# searchshop
-
-No skills found.

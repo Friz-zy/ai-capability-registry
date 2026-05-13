@@ -1,3 +1,0 @@
-# dexpaprika
-
-No skills found.

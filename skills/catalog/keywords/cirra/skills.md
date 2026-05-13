@@ -1,3 +1,0 @@
-# cirra
-
-No skills found.

@@ -1,3 +1,0 @@
-# hmda
-
-No skills found.

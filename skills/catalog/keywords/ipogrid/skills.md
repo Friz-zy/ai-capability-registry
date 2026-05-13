@@ -1,3 +1,0 @@
-# ipogrid
-
-No skills found.

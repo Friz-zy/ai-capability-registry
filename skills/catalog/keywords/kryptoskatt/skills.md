@@ -1,3 +1,0 @@
-# kryptoskatt
-
-No skills found.

@@ -1,3 +1,0 @@
-# specproof
-
-No skills found.

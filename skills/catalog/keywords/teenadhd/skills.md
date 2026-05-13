@@ -1,3 +1,0 @@
-# teenadhd
-
-No skills found.

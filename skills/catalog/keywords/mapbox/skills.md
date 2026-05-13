@@ -1,3 +1,0 @@
-# mapbox
-
-No skills found.

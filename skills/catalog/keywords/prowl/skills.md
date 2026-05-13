@@ -1,3 +1,0 @@
-# prowl
-
-No skills found.

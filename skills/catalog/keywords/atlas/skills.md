@@ -1,3 +1,0 @@
-# atlas
-
-No skills found.

@@ -1,3 +1,0 @@
-# prometheus
-
-No skills found.

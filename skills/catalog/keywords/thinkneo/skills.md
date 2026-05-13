@@ -1,3 +1,0 @@
-# thinkneo
-
-No skills found.

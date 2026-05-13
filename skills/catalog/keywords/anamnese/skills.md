@@ -1,3 +1,0 @@
-# anamnese
-
-No skills found.

@@ -1,3 +1,0 @@
-# guard
-
-No skills found.

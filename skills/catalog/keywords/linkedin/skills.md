@@ -1,3 +1,0 @@
-# linkedin
-
-No skills found.

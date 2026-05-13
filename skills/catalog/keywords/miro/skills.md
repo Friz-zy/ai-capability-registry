@@ -1,3 +1,0 @@
-# miro
-
-No skills found.

@@ -1,3 +1,0 @@
-# domoticz
-
-No skills found.

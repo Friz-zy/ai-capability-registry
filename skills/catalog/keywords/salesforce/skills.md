@@ -1,3 +1,0 @@
-# salesforce
-
-No skills found.

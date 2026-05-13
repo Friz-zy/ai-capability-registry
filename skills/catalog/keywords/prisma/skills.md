@@ -1,3 +1,0 @@
-# prisma
-
-No skills found.

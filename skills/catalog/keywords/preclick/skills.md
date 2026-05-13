@@ -1,3 +1,0 @@
-# preclick
-
-No skills found.

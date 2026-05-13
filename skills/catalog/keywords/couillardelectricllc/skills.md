@@ -1,3 +1,0 @@
-# couillardelectricllc
-
-No skills found.

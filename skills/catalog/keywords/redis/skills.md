@@ -1,3 +1,0 @@
-# redis
-
-No skills found.

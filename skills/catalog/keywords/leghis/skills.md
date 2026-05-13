@@ -1,3 +1,0 @@
-# leghis
-
-No skills found.

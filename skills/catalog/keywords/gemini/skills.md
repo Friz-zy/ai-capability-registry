@@ -1,3 +1,0 @@
-# gemini
-
-No skills found.

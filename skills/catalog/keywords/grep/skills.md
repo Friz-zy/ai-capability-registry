@@ -1,3 +1,0 @@
-# grep
-
-No skills found.

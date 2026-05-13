@@ -1,3 +1,0 @@
-# mercadopago
-
-No skills found.

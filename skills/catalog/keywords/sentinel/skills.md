@@ -1,3 +1,0 @@
-# sentinel
-
-No skills found.

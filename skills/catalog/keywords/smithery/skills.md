@@ -1,3 +1,0 @@
-# smithery
-
-No skills found.

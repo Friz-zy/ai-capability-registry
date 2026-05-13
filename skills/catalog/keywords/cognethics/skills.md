@@ -1,3 +1,0 @@
-# cognethics
-
-No skills found.

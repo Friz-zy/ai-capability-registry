@@ -1,3 +1,0 @@
-# agentra
-
-No skills found.

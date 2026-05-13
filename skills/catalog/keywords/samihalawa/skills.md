@@ -1,3 +1,0 @@
-# samihalawa
-
-No skills found.

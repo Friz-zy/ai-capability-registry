@@ -1,3 +1,0 @@
-# bielacki
-
-No skills found.

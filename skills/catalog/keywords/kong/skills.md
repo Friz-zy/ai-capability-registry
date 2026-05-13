@@ -1,3 +1,0 @@
-# kong
-
-No skills found.

@@ -1,3 +1,0 @@
-# knotrik
-
-No skills found.

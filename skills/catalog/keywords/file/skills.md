@@ -1,3 +1,0 @@
-# file
-
-No skills found.

@@ -1,3 +1,0 @@
-# gossiper
-
-No skills found.

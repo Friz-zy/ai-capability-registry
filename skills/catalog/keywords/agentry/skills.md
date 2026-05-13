@@ -1,3 +1,0 @@
-# agentry
-
-No skills found.

@@ -1,3 +1,0 @@
-# geolocateme
-
-No skills found.

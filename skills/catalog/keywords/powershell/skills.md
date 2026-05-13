@@ -1,3 +1,0 @@
-# powershell
-
-No skills found.

@@ -1,3 +1,0 @@
-# appfolio
-
-No skills found.

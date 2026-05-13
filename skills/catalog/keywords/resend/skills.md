@@ -1,3 +1,0 @@
-# resend
-
-No skills found.

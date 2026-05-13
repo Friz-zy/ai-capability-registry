@@ -1,3 +1,0 @@
-# mit
-
-No skills found.

@@ -1,3 +1,0 @@
-# pokemcp
-
-No skills found.

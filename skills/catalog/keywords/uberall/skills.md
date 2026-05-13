@@ -1,3 +1,0 @@
-# uberall
-
-No skills found.

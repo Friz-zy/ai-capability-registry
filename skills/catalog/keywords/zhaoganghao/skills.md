@@ -1,3 +1,0 @@
-# zhaoganghao
-
-No skills found.

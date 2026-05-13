@@ -1,3 +1,0 @@
-# automower
-
-No skills found.

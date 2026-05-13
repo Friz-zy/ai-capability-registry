@@ -1,3 +1,0 @@
-# stack
-
-No skills found.

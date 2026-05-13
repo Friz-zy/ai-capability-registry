@@ -1,3 +1,0 @@
-# strata
-
-No skills found.

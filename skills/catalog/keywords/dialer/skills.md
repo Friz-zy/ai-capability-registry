@@ -1,3 +1,0 @@
-# dialer
-
-No skills found.

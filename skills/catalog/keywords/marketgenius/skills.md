@@ -1,3 +1,0 @@
-# marketgenius
-
-No skills found.

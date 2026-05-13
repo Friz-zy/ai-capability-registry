@@ -1,3 +1,0 @@
-# wrike
-
-No skills found.

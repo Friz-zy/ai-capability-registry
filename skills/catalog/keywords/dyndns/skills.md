@@ -1,3 +1,0 @@
-# dyndns
-
-No skills found.

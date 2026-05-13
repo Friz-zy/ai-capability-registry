@@ -1,3 +1,0 @@
-# goveda
-
-No skills found.

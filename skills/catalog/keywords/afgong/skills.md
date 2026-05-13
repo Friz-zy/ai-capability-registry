@@ -1,3 +1,0 @@
-# afgong
-
-No skills found.

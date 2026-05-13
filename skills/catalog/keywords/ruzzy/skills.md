@@ -1,3 +1,0 @@
-# ruzzy
-
-No skills found.

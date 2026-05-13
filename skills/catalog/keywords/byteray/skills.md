@@ -1,3 +1,0 @@
-# byteray
-
-No skills found.

@@ -1,3 +1,0 @@
-# energetica
-
-No skills found.

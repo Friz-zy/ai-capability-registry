@@ -1,3 +1,0 @@
-# hostinger
-
-No skills found.

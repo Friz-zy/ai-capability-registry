@@ -1,3 +1,0 @@
-# casa
-
-No skills found.

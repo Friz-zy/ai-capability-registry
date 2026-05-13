@@ -1,3 +1,0 @@
-# amith
-
-No skills found.

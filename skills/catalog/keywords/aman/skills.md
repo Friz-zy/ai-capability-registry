@@ -1,3 +1,0 @@
-# aman
-
-No skills found.

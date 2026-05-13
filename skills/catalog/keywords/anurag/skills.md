@@ -1,3 +1,0 @@
-# anurag
-
-No skills found.

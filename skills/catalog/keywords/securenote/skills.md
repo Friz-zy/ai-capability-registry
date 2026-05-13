@@ -1,3 +1,0 @@
-# securenote
-
-No skills found.

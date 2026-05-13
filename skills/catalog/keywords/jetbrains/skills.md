@@ -1,3 +1,0 @@
-# jetbrains
-
-No skills found.

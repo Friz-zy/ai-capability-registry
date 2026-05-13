@@ -1,3 +1,0 @@
-# complianceautomator
-
-No skills found.

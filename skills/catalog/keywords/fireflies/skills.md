@@ -1,3 +1,0 @@
-# fireflies
-
-No skills found.

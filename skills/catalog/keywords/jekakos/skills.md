@@ -1,3 +1,0 @@
-# jekakos
-
-No skills found.

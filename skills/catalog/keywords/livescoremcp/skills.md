@@ -1,3 +1,0 @@
-# livescoremcp
-
-No skills found.

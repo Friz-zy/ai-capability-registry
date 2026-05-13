@@ -1,3 +1,0 @@
-# ahoy
-
-No skills found.

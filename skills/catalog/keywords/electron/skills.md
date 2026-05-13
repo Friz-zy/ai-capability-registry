@@ -1,3 +1,0 @@
-# electron
-
-No skills found.

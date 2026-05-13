@@ -1,3 +1,0 @@
-# extract
-
-No skills found.

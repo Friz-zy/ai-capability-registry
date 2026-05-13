@@ -1,3 +1,0 @@
-# egw
-
-No skills found.

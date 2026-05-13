@@ -1,3 +1,0 @@
-# httpstatus
-
-No skills found.

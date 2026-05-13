@@ -1,3 +1,0 @@
-# talent
-
-No skills found.

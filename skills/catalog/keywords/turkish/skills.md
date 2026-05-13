@@ -1,3 +1,0 @@
-# turkish
-
-No skills found.

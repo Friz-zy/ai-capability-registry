@@ -1,3 +1,0 @@
-# effect
-
-No skills found.

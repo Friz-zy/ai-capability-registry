@@ -1,3 +1,0 @@
-# hub
-
-No skills found.

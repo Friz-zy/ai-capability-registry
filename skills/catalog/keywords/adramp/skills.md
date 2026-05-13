@@ -1,3 +1,0 @@
-# adramp
-
-No skills found.

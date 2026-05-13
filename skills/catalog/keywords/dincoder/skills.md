@@ -1,3 +1,0 @@
-# dincoder
-
-No skills found.

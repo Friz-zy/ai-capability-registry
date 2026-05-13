@@ -1,3 +1,0 @@
-# affogata
-
-No skills found.

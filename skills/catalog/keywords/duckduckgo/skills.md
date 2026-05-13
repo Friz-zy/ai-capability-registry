@@ -1,3 +1,0 @@
-# duckduckgo
-
-No skills found.

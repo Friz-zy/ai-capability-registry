@@ -1,3 +1,0 @@
-# shodan
-
-No skills found.

@@ -1,3 +1,0 @@
-# mcpanalytics
-
-No skills found.

@@ -1,3 +1,0 @@
-# marketcore
-
-No skills found.

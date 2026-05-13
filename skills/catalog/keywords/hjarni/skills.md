@@ -1,3 +1,0 @@
-# hjarni
-
-No skills found.

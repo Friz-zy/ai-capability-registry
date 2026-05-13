@@ -1,3 +1,0 @@
-# minecraft
-
-No skills found.

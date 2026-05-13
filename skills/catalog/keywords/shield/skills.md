@@ -1,3 +1,0 @@
-# shield
-
-No skills found.

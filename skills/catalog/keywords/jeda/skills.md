@@ -1,3 +1,0 @@
-# jeda
-
-No skills found.

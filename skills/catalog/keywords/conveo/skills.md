@@ -1,3 +1,0 @@
-# conveo
-
-No skills found.

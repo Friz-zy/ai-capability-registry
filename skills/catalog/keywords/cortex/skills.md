@@ -1,3 +1,0 @@
-# cortex
-
-No skills found.

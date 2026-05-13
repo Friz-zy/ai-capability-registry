@@ -1,3 +1,0 @@
-# magicslide
-
-No skills found.

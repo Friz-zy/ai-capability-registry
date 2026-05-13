@@ -1,3 +1,0 @@
-# omi
-
-No skills found.

@@ -1,3 +1,0 @@
-# qwady
-
-No skills found.

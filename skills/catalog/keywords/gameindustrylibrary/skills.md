@@ -1,3 +1,0 @@
-# gameindustrylibrary
-
-No skills found.

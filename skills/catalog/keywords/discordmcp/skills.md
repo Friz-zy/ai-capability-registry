@@ -1,3 +1,0 @@
-# discordmcp
-
-No skills found.

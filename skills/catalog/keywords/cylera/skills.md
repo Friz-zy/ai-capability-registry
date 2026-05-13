@@ -1,3 +1,0 @@
-# cylera
-
-No skills found.

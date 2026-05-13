@@ -1,3 +1,0 @@
-# aamangeldi
-
-No skills found.

@@ -1,3 +1,0 @@
-# genai
-
-No skills found.

@@ -1,3 +1,0 @@
-# whiteboard
-
-No skills found.

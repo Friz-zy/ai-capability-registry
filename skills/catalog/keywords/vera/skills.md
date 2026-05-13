@@ -1,3 +1,0 @@
-# vera
-
-No skills found.

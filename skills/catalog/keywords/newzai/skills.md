@@ -1,3 +1,0 @@
-# newzai
-
-No skills found.

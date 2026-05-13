@@ -1,3 +1,0 @@
-# mercadolibre
-
-No skills found.

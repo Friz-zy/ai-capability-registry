@@ -1,3 +1,0 @@
-# cozi
-
-No skills found.

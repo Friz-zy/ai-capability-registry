@@ -1,3 +1,0 @@
-# gettreatmenthelp
-
-No skills found.

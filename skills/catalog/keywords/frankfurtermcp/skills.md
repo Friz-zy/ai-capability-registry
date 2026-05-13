@@ -1,3 +1,0 @@
-# frankfurtermcp
-
-No skills found.

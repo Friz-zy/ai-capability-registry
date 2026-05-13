@@ -1,3 +1,0 @@
-# arcadedb
-
-No skills found.

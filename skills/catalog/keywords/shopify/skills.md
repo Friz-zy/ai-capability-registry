@@ -1,3 +1,0 @@
-# shopify
-
-No skills found.

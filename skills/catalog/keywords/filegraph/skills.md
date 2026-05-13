@@ -1,3 +1,0 @@
-# filegraph
-
-No skills found.

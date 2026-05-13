@@ -1,3 +1,0 @@
-# hydrata
-
-No skills found.

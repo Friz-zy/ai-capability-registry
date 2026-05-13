@@ -1,3 +1,0 @@
-# xray
-
-No skills found.

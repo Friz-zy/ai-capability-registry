@@ -1,3 +1,0 @@
-# bizgigz
-
-No skills found.

@@ -1,3 +1,0 @@
-# dynamicendpoints
-
-No skills found.

@@ -1,3 +1,0 @@
-# clarid
-
-No skills found.

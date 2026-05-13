@@ -1,3 +1,0 @@
-# discord
-
-No skills found.

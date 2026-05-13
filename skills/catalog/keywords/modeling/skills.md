@@ -1,3 +1,0 @@
-# modeling
-
-No skills found.

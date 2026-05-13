@@ -1,3 +1,0 @@
-# line
-
-No skills found.

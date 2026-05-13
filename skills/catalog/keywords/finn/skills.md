@@ -1,3 +1,0 @@
-# finn
-
-No skills found.

@@ -1,3 +1,0 @@
-# vision
-
-No skills found.

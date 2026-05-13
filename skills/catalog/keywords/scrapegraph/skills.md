@@ -1,3 +1,0 @@
-# scrapegraph
-
-No skills found.

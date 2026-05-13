@@ -1,3 +1,0 @@
-# stackoverflow
-
-No skills found.

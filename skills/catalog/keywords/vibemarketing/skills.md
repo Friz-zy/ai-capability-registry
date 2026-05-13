@@ -1,3 +1,0 @@
-# vibemarketing
-
-No skills found.

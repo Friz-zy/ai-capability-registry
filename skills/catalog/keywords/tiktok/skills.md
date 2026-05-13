@@ -1,3 +1,0 @@
-# tiktok
-
-No skills found.

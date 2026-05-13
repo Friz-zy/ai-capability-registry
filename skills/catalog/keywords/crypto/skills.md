@@ -1,3 +1,0 @@
-# crypto
-
-No skills found.

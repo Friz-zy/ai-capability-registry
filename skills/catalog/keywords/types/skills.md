@@ -1,3 +1,0 @@
-# types
-
-No skills found.

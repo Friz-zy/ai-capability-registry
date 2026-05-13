@@ -1,3 +1,0 @@
-# icecat
-
-No skills found.

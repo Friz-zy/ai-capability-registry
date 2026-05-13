@@ -1,3 +1,0 @@
-# aibooma
-
-No skills found.

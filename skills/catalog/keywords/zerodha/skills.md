@@ -1,3 +1,0 @@
-# zerodha
-
-No skills found.

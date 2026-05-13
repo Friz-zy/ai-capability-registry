@@ -1,3 +1,0 @@
-# workers
-
-No skills found.

@@ -1,3 +1,0 @@
-# graphql
-
-No skills found.

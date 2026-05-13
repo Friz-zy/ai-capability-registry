@@ -1,3 +1,0 @@
-# google
-
-No skills found.

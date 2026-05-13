@@ -1,3 +1,0 @@
-# cpretzinger
-
-No skills found.

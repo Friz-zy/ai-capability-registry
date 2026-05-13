@@ -1,3 +1,0 @@
-# bigquery
-
-No skills found.

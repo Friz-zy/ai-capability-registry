@@ -1,3 +1,0 @@
-# gitmcp
-
-No skills found.

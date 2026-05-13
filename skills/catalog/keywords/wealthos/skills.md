@@ -1,3 +1,0 @@
-# wealthos
-
-No skills found.

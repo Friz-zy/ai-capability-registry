@@ -1,3 +1,0 @@
-# kagisearch
-
-No skills found.

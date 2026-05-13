@@ -1,3 +1,0 @@
-# browserbasehq
-
-No skills found.

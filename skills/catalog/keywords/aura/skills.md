@@ -1,3 +1,0 @@
-# aura
-
-No skills found.

@@ -1,3 +1,0 @@
-# telnyx
-
-No skills found.

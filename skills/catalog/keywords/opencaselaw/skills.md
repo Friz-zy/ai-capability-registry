@@ -1,3 +1,0 @@
-# opencaselaw
-
-No skills found.

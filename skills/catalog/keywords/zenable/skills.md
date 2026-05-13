@@ -1,3 +1,0 @@
-# zenable
-
-No skills found.

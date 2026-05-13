@@ -1,3 +1,0 @@
-# teentherapy
-
-No skills found.

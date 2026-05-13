@@ -1,3 +1,0 @@
-# factbook
-
-No skills found.

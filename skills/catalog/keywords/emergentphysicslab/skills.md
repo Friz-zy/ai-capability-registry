@@ -1,3 +1,0 @@
-# emergentphysicslab
-
-No skills found.

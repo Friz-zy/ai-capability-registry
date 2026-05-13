@@ -1,3 +1,0 @@
-# alfresco
-
-No skills found.

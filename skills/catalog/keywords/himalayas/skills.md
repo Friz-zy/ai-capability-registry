@@ -1,3 +1,0 @@
-# himalayas
-
-No skills found.

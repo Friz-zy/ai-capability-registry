@@ -1,3 +1,0 @@
-# shoumikdc
-
-No skills found.

@@ -1,3 +1,0 @@
-# monday
-
-No skills found.

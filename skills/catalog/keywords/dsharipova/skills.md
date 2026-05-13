@@ -1,3 +1,0 @@
-# dsharipova
-
-No skills found.

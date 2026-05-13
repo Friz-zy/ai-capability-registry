@@ -1,3 +1,0 @@
-# bgg
-
-No skills found.

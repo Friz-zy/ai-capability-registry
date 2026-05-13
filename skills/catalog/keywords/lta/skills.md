@@ -1,3 +1,0 @@
-# lta
-
-No skills found.

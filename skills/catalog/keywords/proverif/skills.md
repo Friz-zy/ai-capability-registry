@@ -1,3 +1,0 @@
-# proverif
-
-No skills found.

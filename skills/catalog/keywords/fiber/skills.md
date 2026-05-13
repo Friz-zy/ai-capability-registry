@@ -1,3 +1,0 @@
-# fiber
-
-No skills found.

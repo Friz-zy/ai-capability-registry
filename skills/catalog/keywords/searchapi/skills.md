@@ -1,3 +1,0 @@
-# searchapi
-
-No skills found.

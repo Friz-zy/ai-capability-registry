@@ -1,3 +1,0 @@
-# swissdeals
-
-No skills found.

@@ -1,3 +1,0 @@
-# filtrix
-
-No skills found.

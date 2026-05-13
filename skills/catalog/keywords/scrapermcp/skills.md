@@ -1,3 +1,0 @@
-# scrapermcp
-
-No skills found.

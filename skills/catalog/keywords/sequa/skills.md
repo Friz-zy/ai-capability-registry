@@ -1,3 +1,0 @@
-# sequa
-
-No skills found.

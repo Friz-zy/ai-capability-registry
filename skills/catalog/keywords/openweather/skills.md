@@ -1,3 +1,0 @@
-# openweather
-
-No skills found.

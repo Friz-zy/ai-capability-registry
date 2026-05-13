@@ -1,3 +1,0 @@
-# ezbizservices
-
-No skills found.

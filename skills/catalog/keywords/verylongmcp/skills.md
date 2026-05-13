@@ -1,3 +1,0 @@
-# verylongmcp
-
-No skills found.

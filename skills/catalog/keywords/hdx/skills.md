@@ -1,3 +1,0 @@
-# hdx
-
-No skills found.

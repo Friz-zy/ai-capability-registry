@@ -1,3 +1,0 @@
-# szge
-
-No skills found.

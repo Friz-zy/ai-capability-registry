@@ -1,3 +1,0 @@
-# kubit
-
-No skills found.

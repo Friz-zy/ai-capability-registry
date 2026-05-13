@@ -1,3 +1,0 @@
-# javadocs
-
-No skills found.

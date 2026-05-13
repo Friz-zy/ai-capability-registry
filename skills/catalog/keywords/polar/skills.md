@@ -1,3 +1,0 @@
-# polar
-
-No skills found.

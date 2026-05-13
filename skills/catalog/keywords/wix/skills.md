@@ -1,3 +1,0 @@
-# wix
-
-No skills found.

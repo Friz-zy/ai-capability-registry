@@ -1,3 +1,0 @@
-# bezal
-
-No skills found.

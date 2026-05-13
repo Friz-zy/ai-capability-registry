@@ -1,3 +1,0 @@
-# cobrowse
-
-No skills found.

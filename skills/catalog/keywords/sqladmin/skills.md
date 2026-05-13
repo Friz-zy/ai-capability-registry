@@ -1,3 +1,0 @@
-# sqladmin
-
-No skills found.

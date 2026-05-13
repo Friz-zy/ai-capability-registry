@@ -1,3 +1,0 @@
-# paichart
-
-No skills found.

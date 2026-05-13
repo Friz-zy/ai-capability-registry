@@ -1,3 +1,0 @@
-# stealthee
-
-No skills found.

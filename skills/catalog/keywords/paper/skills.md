@@ -1,3 +1,0 @@
-# paper
-
-No skills found.

@@ -1,3 +1,0 @@
-# minionszyw
-
-No skills found.

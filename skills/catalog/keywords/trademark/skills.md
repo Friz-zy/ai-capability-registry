@@ -1,3 +1,0 @@
-# trademark
-
-No skills found.

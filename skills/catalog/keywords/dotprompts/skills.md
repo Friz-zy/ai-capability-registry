@@ -1,3 +1,0 @@
-# dotprompts
-
-No skills found.

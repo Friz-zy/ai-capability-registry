@@ -1,3 +1,0 @@
-# sports
-
-No skills found.

@@ -1,3 +1,0 @@
-# coti
-
-No skills found.

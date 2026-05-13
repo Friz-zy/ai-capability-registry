@@ -1,3 +1,0 @@
-# apollo
-
-No skills found.

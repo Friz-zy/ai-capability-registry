@@ -1,3 +1,0 @@
-# sqlite
-
-No skills found.

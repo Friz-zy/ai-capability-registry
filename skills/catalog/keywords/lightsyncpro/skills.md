@@ -1,3 +1,0 @@
-# lightsyncpro
-
-No skills found.

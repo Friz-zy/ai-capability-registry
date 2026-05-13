@@ -1,3 +1,0 @@
-# promptguard
-
-No skills found.

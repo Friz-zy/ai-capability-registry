@@ -1,3 +1,0 @@
-# aistudio
-
-No skills found.

@@ -1,3 +1,0 @@
-# gitlab
-
-No skills found.

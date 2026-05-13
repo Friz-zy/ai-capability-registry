@@ -1,3 +1,0 @@
-# luminati
-
-No skills found.

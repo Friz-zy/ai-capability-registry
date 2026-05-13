@@ -1,3 +1,0 @@
-# hyperspell
-
-No skills found.

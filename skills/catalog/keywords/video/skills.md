@@ -1,3 +1,0 @@
-# video
-
-No skills found.

@@ -1,3 +1,0 @@
-# gil
-
-No skills found.

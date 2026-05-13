@@ -1,3 +1,0 @@
-# ilyagusev
-
-No skills found.

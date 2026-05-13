@@ -1,3 +1,0 @@
-# intel
-
-No skills found.

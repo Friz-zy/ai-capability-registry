@@ -1,3 +1,0 @@
-# thoughtspot
-
-No skills found.

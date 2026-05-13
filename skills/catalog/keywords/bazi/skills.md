@@ -1,3 +1,0 @@
-# bazi
-
-No skills found.

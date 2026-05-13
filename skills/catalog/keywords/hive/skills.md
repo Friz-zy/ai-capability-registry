@@ -1,3 +1,0 @@
-# hive
-
-No skills found.

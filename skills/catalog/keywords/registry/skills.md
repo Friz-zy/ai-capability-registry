@@ -1,3 +1,0 @@
-# registry
-
-No skills found.

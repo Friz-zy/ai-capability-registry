@@ -1,3 +1,0 @@
-# whatsmcp
-
-No skills found.

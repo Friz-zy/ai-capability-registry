@@ -1,3 +1,0 @@
-# veyrax
-
-No skills found.

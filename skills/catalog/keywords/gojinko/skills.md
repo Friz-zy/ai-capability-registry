@@ -1,3 +1,0 @@
-# gojinko
-
-No skills found.

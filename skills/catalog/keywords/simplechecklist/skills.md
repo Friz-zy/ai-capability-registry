@@ -1,3 +1,0 @@
-# simplechecklist
-
-No skills found.

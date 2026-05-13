@@ -1,3 +1,0 @@
-# lawyer
-
-No skills found.

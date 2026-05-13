@@ -1,3 +1,0 @@
-# mailbox
-
-No skills found.

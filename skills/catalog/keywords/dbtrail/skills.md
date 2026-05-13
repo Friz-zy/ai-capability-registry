@@ -1,3 +1,0 @@
-# dbtrail
-
-No skills found.

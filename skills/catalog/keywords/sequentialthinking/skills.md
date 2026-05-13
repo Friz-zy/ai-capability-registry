@@ -1,3 +1,0 @@
-# sequentialthinking
-
-No skills found.

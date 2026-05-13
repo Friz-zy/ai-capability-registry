@@ -1,3 +1,0 @@
-# firewalla
-
-No skills found.

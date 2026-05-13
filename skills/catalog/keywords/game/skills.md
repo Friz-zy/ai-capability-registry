@@ -1,3 +1,0 @@
-# game
-
-No skills found.

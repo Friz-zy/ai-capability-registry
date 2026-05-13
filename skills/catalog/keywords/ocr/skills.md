@@ -1,3 +1,0 @@
-# ocr
-
-No skills found.

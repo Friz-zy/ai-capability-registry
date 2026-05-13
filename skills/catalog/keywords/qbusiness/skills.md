@@ -1,3 +1,0 @@
-# qbusiness
-
-No skills found.

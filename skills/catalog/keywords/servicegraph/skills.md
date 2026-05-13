@@ -1,3 +1,0 @@
-# servicegraph
-
-No skills found.

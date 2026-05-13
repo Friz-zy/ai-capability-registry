@@ -1,3 +1,0 @@
-# pago
-
-No skills found.

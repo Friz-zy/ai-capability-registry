@@ -1,3 +1,0 @@
-# getcurrentoffer
-
-No skills found.

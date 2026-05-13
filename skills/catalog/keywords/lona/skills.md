@@ -1,3 +1,0 @@
-# lona
-
-No skills found.

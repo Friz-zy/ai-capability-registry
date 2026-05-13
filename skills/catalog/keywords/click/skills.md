@@ -1,3 +1,0 @@
-# click
-
-No skills found.

@@ -1,3 +1,0 @@
-# stackhawk
-
-No skills found.

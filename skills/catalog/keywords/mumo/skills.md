@@ -1,3 +1,0 @@
-# mumo
-
-No skills found.

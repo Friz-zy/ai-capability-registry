@@ -1,3 +1,0 @@
-# chroma
-
-No skills found.

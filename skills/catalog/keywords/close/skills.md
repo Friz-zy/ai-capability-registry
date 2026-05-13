@@ -1,3 +1,0 @@
-# close
-
-No skills found.

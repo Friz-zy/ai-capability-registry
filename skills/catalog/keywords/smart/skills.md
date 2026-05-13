@@ -1,3 +1,0 @@
-# smart
-
-No skills found.

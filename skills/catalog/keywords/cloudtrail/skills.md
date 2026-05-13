@@ -1,3 +1,0 @@
-# cloudtrail
-
-No skills found.

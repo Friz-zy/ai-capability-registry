@@ -1,3 +1,0 @@
-# mcpb
-
-No skills found.

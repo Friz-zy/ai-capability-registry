@@ -1,3 +1,0 @@
-# baselight
-
-No skills found.

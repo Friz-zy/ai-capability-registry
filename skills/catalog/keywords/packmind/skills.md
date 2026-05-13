@@ -1,3 +1,0 @@
-# packmind
-
-No skills found.

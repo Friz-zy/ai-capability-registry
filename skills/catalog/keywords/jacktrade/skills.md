@@ -1,3 +1,0 @@
-# jacktrade
-
-No skills found.

@@ -1,3 +1,0 @@
-# indianappguy
-
-No skills found.

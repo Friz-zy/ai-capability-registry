@@ -1,3 +1,0 @@
-# notion
-
-No skills found.

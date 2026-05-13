@@ -1,3 +1,0 @@
-# hatchable
-
-No skills found.

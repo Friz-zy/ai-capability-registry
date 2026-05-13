@@ -1,3 +1,0 @@
-# advocate
-
-No skills found.

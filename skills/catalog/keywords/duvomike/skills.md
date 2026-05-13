@@ -1,3 +1,0 @@
-# duvomike
-
-No skills found.

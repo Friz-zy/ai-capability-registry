@@ -1,3 +1,0 @@
-# advocatemcp
-
-No skills found.

@@ -1,3 +1,0 @@
-# pica
-
-No skills found.

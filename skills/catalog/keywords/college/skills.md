@@ -1,3 +1,0 @@
-# college
-
-No skills found.

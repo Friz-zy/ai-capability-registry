@@ -1,3 +1,0 @@
-# stuzhy
-
-No skills found.

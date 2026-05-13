@@ -1,3 +1,0 @@
-# linkup
-
-No skills found.

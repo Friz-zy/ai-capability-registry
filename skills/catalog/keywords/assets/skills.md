@@ -1,3 +1,0 @@
-# assets
-
-No skills found.

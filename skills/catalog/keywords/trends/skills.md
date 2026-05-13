@@ -1,3 +1,0 @@
-# trends
-
-No skills found.

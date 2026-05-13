@@ -1,3 +1,0 @@
-# fedlex
-
-No skills found.

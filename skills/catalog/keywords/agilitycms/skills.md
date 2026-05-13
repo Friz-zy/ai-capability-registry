@@ -1,3 +1,0 @@
-# agilitycms
-
-No skills found.

@@ -1,3 +1,0 @@
-# comprehensive
-
-No skills found.

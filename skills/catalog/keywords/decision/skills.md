@@ -1,3 +1,0 @@
-# decision
-
-No skills found.

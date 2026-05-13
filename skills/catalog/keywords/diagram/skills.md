@@ -1,3 +1,0 @@
-# diagram
-
-No skills found.

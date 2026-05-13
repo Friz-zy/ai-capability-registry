@@ -1,3 +1,0 @@
-# zen
-
-No skills found.

@@ -1,3 +1,0 @@
-# openbnb
-
-No skills found.

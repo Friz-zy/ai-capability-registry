@@ -1,3 +1,0 @@
-# databases
-
-No skills found.

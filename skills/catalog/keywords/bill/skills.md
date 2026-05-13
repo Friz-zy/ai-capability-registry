@@ -1,3 +1,0 @@
-# bill
-
-No skills found.

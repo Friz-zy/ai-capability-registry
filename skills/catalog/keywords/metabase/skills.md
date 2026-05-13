@@ -1,3 +1,0 @@
-# metabase
-
-No skills found.

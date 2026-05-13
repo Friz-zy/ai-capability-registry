@@ -1,3 +1,0 @@
-# authentication
-
-No skills found.

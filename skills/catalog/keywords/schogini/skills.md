@@ -1,3 +1,0 @@
-# schogini
-
-No skills found.

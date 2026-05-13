@@ -1,3 +1,0 @@
-# mayla
-
-No skills found.

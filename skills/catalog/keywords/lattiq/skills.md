@@ -1,3 +1,0 @@
-# lattiq
-
-No skills found.

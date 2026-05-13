@@ -1,3 +1,0 @@
-# wycheproof
-
-No skills found.

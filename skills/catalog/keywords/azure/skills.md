@@ -1,3 +1,0 @@
-# azure
-
-No skills found.

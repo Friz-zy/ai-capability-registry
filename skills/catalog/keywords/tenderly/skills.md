@@ -1,3 +1,0 @@
-# tenderly
-
-No skills found.

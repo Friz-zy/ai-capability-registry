@@ -1,3 +1,0 @@
-# imessage
-
-No skills found.

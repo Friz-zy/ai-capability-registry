@@ -1,3 +1,0 @@
-# ecosystem
-
-No skills found.

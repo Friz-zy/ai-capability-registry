@@ -1,3 +1,0 @@
-# slither
-
-No skills found.

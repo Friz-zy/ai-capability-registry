@@ -1,3 +1,0 @@
-# blackveilsecurity
-
-No skills found.

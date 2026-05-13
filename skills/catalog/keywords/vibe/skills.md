@@ -1,3 +1,0 @@
-# vibe
-
-No skills found.

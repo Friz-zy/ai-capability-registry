@@ -1,3 +1,0 @@
-# simplescraper
-
-No skills found.

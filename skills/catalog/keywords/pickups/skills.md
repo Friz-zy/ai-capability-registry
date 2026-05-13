@@ -1,3 +1,0 @@
-# pickups
-
-No skills found.

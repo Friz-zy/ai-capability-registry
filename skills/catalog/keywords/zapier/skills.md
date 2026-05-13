@@ -1,3 +1,0 @@
-# zapier
-
-No skills found.

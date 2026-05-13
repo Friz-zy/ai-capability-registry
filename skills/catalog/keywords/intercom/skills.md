@@ -1,3 +1,0 @@
-# intercom
-
-No skills found.

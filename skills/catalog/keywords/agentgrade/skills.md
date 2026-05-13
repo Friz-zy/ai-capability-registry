@@ -1,3 +1,0 @@
-# agentgrade
-
-No skills found.

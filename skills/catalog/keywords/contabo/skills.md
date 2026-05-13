@@ -1,3 +1,0 @@
-# contabo
-
-No skills found.

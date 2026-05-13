@@ -1,3 +1,0 @@
-# scite
-
-No skills found.

@@ -1,3 +1,0 @@
-# linkupplatform
-
-No skills found.

@@ -1,3 +1,0 @@
-# kaszek
-
-No skills found.

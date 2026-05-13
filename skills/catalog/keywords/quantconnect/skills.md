@@ -1,3 +1,0 @@
-# quantconnect
-
-No skills found.

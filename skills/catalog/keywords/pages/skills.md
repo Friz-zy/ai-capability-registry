@@ -1,3 +1,0 @@
-# pages
-
-No skills found.

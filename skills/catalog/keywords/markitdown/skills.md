@@ -1,3 +1,0 @@
-# markitdown
-
-No skills found.

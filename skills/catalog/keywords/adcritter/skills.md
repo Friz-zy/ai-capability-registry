@@ -1,3 +1,0 @@
-# adcritter
-
-No skills found.

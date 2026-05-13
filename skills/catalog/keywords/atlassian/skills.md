@@ -1,3 +1,0 @@
-# atlassian
-
-No skills found.

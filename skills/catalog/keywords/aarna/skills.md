@@ -1,3 +1,0 @@
-# aarna
-
-No skills found.

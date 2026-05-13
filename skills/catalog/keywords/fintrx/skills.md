@@ -1,3 +1,0 @@
-# fintrx
-
-No skills found.

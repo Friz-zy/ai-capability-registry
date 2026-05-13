@@ -1,3 +1,0 @@
-# mindmap
-
-No skills found.

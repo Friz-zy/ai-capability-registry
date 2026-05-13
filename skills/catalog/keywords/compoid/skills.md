@@ -1,3 +1,0 @@
-# compoid
-
-No skills found.

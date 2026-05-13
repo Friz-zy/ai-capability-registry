@@ -1,3 +1,0 @@
-# openmesh
-
-No skills found.

@@ -1,3 +1,0 @@
-# cinderfi
-
-No skills found.

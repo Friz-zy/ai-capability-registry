@@ -1,3 +1,0 @@
-# ffmpeg
-
-No skills found.

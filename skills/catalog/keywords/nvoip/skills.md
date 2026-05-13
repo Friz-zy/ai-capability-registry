@@ -1,3 +1,0 @@
-# nvoip
-
-No skills found.

@@ -1,3 +1,0 @@
-# open
-
-No skills found.

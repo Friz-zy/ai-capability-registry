@@ -1,3 +1,0 @@
-# cpq
-
-No skills found.

@@ -1,3 +1,0 @@
-# virtual
-
-No skills found.

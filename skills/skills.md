@@ -15,6 +15,9 @@ Before starting work, resolve skills with progressive disclosure:
 
 ### Routing Scope
 
+Paths in keyword catalogs are relative to this registry root.
+`external/` is a sibling of the root `skills/` directory at `<registry-root>/external/`; do not look for it under `skills/external/`.
+
 Use `skills/catalog/` only for skill selection.
 Use `skills/packs/` only when configuring agents with preselected skill directories.
 Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution.

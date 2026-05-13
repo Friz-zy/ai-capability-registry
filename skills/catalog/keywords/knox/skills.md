@@ -1,3 +1,0 @@
-# knox
-
-No skills found.

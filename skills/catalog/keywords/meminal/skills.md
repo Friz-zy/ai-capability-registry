@@ -1,3 +1,0 @@
-# meminal
-
-No skills found.

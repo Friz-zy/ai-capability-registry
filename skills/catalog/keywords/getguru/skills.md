@@ -1,3 +1,0 @@
-# getguru
-
-No skills found.

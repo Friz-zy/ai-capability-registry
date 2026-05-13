@@ -1,3 +1,0 @@
-# neon
-
-No skills found.

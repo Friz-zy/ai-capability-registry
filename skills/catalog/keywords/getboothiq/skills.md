@@ -1,3 +1,0 @@
-# getboothiq
-
-No skills found.

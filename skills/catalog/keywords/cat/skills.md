@@ -1,3 +1,0 @@
-# cat
-
-No skills found.

@@ -1,3 +1,0 @@
-# kwp
-
-No skills found.

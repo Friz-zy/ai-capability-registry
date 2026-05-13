@@ -1,3 +1,0 @@
-# domains
-
-No skills found.

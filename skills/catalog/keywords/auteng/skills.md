@@ -1,3 +1,0 @@
-# auteng
-
-No skills found.

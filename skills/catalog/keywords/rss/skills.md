@@ -1,3 +1,0 @@
-# rss
-
-No skills found.

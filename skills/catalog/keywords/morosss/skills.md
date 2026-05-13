@@ -1,3 +1,0 @@
-# morosss
-
-No skills found.

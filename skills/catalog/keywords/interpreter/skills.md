@@ -1,3 +1,0 @@
-# interpreter
-
-No skills found.

@@ -1,3 +1,0 @@
-# vizro
-
-No skills found.

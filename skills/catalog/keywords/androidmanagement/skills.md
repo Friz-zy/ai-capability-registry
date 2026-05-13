@@ -1,3 +1,0 @@
-# androidmanagement
-
-No skills found.

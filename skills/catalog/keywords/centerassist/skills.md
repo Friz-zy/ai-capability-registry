@@ -1,3 +1,0 @@
-# centerassist
-
-No skills found.

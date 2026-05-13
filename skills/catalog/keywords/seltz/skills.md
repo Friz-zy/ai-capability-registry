@@ -1,3 +1,0 @@
-# seltz
-
-No skills found.

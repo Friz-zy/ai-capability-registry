@@ -1,3 +1,0 @@
-# bedrock
-
-No skills found.

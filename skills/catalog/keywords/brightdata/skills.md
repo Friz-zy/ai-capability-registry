@@ -1,3 +1,0 @@
-# brightdata
-
-No skills found.

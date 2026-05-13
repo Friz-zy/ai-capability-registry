@@ -1,3 +1,0 @@
-# bzigo
-
-No skills found.

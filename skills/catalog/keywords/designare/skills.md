@@ -1,3 +1,0 @@
-# designare
-
-No skills found.

@@ -1,3 +1,0 @@
-# erd
-
-No skills found.

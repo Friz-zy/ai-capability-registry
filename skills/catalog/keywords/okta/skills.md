@@ -1,3 +1,0 @@
-# okta
-
-No skills found.

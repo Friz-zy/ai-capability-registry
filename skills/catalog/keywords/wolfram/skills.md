@@ -1,3 +1,0 @@
-# wolfram
-
-No skills found.

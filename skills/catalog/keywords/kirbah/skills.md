@@ -1,3 +1,0 @@
-# kirbah
-
-No skills found.

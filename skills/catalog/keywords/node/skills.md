@@ -1,3 +1,0 @@
-# node
-
-No skills found.

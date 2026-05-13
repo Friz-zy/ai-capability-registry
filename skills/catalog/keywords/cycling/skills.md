@@ -1,3 +1,0 @@
-# cycling
-
-No skills found.

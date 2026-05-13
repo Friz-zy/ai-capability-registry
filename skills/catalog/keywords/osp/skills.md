@@ -1,3 +1,0 @@
-# osp
-
-No skills found.

@@ -1,3 +1,0 @@
-# instantdb
-
-No skills found.

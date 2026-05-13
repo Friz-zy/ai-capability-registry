@@ -1,3 +1,0 @@
-# schemacrawler
-
-No skills found.

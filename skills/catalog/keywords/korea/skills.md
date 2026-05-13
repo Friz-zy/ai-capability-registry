@@ -1,3 +1,0 @@
-# korea
-
-No skills found.

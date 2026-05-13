@@ -1,3 +1,0 @@
-# namewhisper
-
-No skills found.

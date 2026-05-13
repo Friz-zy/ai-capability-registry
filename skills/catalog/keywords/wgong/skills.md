@@ -1,3 +1,0 @@
-# wgong
-
-No skills found.

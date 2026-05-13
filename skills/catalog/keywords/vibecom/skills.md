@@ -1,3 +1,0 @@
-# vibecom
-
-No skills found.

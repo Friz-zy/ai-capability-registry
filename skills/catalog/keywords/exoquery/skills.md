@@ -1,3 +1,0 @@
-# exoquery
-
-No skills found.

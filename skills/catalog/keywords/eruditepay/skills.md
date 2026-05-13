@@ -1,3 +1,0 @@
-# eruditepay
-
-No skills found.

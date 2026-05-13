@@ -1,3 +1,0 @@
-# swiss
-
-No skills found.

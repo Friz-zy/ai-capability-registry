@@ -1,3 +1,0 @@
-# awslabs
-
-No skills found.

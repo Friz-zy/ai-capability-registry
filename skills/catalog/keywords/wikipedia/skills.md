@@ -1,3 +1,0 @@
-# wikipedia
-
-No skills found.

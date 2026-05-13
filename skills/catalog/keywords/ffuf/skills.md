@@ -1,3 +1,0 @@
-# ffuf
-
-No skills found.

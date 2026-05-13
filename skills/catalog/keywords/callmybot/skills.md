@@ -1,3 +1,0 @@
-# callmybot
-
-No skills found.

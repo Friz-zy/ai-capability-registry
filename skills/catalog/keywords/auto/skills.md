@@ -1,3 +1,0 @@
-# auto
-
-No skills found.

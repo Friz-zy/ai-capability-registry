@@ -1,3 +1,0 @@
-# glif
-
-No skills found.

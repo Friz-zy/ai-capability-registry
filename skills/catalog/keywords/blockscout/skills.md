@@ -1,3 +1,0 @@
-# blockscout
-
-No skills found.

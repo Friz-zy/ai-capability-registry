@@ -1,3 +1,0 @@
-# cloudify
-
-No skills found.

@@ -1,3 +1,0 @@
-# geo
-
-No skills found.

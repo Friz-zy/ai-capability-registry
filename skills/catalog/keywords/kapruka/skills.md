@@ -1,3 +1,0 @@
-# kapruka
-
-No skills found.

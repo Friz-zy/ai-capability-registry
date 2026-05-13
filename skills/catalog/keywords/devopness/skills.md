@@ -1,3 +1,0 @@
-# devopness
-
-No skills found.

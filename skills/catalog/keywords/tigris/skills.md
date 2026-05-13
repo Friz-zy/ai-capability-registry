@@ -1,3 +1,0 @@
-# tigris
-
-No skills found.

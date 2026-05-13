@@ -1,3 +1,0 @@
-# kollektiv
-
-No skills found.

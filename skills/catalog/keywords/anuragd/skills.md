@@ -1,3 +1,0 @@
-# anuragd
-
-No skills found.

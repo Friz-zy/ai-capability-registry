@@ -1,3 +1,0 @@
-# mino
-
-No skills found.

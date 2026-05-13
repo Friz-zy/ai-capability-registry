@@ -1,3 +1,0 @@
-# hiveintelligence
-
-No skills found.

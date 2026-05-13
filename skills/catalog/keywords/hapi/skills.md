@@ -1,3 +1,0 @@
-# hapi
-
-No skills found.

@@ -1,3 +1,0 @@
-# lsp
-
-No skills found.

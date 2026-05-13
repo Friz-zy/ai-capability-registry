@@ -1,3 +1,0 @@
-# crabbitmq
-
-No skills found.

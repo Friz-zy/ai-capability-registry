@@ -1,3 +1,0 @@
-# insights
-
-No skills found.

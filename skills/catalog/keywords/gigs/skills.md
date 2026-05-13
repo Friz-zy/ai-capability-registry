@@ -1,3 +1,0 @@
-# gigs
-
-No skills found.

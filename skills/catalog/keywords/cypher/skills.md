@@ -1,3 +1,0 @@
-# cypher
-
-No skills found.

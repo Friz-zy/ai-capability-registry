@@ -1,3 +1,0 @@
-# meetsquad
-
-No skills found.

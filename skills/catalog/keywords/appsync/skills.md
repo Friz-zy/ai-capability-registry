@@ -1,3 +1,0 @@
-# appsync
-
-No skills found.

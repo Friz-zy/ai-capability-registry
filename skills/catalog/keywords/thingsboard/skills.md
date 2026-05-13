@@ -1,3 +1,0 @@
-# thingsboard
-
-No skills found.

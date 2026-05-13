@@ -1,3 +1,0 @@
-# anonymous
-
-No skills found.

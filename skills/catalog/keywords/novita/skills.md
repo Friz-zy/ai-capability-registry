@@ -1,3 +1,0 @@
-# novita
-
-No skills found.

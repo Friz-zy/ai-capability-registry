@@ -1,3 +1,0 @@
-# kuro
-
-No skills found.

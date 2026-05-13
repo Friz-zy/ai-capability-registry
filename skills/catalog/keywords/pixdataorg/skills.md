@@ -1,3 +1,0 @@
-# pixdataorg
-
-No skills found.

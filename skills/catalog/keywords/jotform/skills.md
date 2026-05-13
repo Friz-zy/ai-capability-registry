@@ -1,3 +1,0 @@
-# jotform
-
-No skills found.

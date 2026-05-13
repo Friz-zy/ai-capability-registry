@@ -1,3 +1,0 @@
-# ossfuzz
-
-No skills found.

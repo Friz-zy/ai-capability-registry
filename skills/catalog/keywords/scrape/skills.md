@@ -1,3 +1,0 @@
-# scrape
-
-No skills found.

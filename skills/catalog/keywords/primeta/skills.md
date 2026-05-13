@@ -1,3 +1,0 @@
-# primeta
-
-No skills found.

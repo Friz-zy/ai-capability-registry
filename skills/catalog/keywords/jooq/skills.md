@@ -1,3 +1,0 @@
-# jooq
-
-No skills found.

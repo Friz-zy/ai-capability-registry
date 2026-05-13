@@ -1,3 +1,0 @@
-# anirbanbasu
-
-No skills found.

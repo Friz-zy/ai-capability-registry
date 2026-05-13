@@ -1,3 +1,0 @@
-# selis
-
-No skills found.

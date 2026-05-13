@@ -1,3 +1,0 @@
-# discovery
-
-No skills found.

@@ -1,3 +1,0 @@
-# hackernews
-
-No skills found.

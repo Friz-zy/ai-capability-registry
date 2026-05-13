@@ -1,3 +1,0 @@
-# figma
-
-No skills found.

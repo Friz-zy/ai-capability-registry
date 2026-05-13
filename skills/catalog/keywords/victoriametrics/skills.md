@@ -1,3 +1,0 @@
-# victoriametrics
-
-No skills found.

@@ -1,3 +1,0 @@
-# lolwiki
-
-No skills found.

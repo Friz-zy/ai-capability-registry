@@ -1,3 +1,0 @@
-# pinecone
-
-No skills found.

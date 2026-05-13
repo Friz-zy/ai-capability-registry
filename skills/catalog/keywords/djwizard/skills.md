@@ -1,3 +1,0 @@
-# djwizard
-
-No skills found.

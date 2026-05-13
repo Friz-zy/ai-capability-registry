@@ -1,3 +1,0 @@
-# stumpy
-
-No skills found.

@@ -1,3 +1,0 @@
-# takodata
-
-No skills found.

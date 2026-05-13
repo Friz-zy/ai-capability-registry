@@ -1,3 +1,0 @@
-# local
-
-No skills found.

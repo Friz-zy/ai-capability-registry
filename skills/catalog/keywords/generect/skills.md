@@ -1,3 +1,0 @@
-# generect
-
-No skills found.

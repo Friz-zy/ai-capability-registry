@@ -1,3 +1,0 @@
-# technology
-
-No skills found.

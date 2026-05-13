@@ -1,3 +1,0 @@
-# civic
-
-No skills found.

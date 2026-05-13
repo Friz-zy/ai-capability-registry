@@ -1,3 +1,0 @@
-# pymcp
-
-No skills found.

@@ -1,3 +1,0 @@
-# lastminutedealshq
-
-No skills found.

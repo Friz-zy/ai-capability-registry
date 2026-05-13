@@ -1,3 +1,0 @@
-# getperspective
-
-No skills found.

@@ -1,3 +1,0 @@
-# gcp
-
-No skills found.

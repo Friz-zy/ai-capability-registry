@@ -1,3 +1,0 @@
-# hook
-
-No skills found.

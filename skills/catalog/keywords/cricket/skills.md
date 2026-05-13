@@ -1,3 +1,0 @@
-# cricket
-
-No skills found.

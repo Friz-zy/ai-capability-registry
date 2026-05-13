@@ -1,3 +1,0 @@
-# bgpt
-
-No skills found.

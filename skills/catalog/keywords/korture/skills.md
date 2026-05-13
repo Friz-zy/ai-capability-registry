@@ -1,3 +1,0 @@
-# korture
-
-No skills found.

@@ -1,3 +1,0 @@
-# mapwise
-
-No skills found.

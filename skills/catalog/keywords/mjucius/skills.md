@@ -1,3 +1,0 @@
-# mjucius
-
-No skills found.

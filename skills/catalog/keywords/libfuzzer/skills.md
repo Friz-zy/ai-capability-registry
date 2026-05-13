@@ -1,3 +1,0 @@
-# libfuzzer
-
-No skills found.

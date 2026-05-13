@@ -1,3 +1,0 @@
-# coverage
-
-No skills found.

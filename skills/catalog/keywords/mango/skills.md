@@ -1,3 +1,0 @@
-# mango
-
-No skills found.

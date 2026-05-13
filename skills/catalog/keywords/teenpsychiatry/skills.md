@@ -1,3 +1,0 @@
-# teenpsychiatry
-
-No skills found.

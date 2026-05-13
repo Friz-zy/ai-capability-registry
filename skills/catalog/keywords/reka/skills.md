@@ -1,3 +1,0 @@
-# reka
-
-No skills found.

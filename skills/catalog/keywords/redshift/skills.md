@@ -1,3 +1,0 @@
-# redshift
-
-No skills found.

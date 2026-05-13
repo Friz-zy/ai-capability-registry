@@ -1,3 +1,0 @@
-# gibsonai
-
-No skills found.

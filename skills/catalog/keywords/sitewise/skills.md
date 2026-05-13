@@ -1,3 +1,0 @@
-# sitewise
-
-No skills found.

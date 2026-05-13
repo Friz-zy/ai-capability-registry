@@ -1,3 +1,0 @@
-# agenticshelf
-
-No skills found.

@@ -1,3 +1,0 @@
-# jumpseller
-
-No skills found.

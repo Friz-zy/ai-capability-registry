@@ -1,3 +1,0 @@
-# correkt
-
-No skills found.

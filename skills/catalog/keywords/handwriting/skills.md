@@ -1,3 +1,0 @@
-# handwriting
-
-No skills found.

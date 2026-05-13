@@ -1,3 +1,0 @@
-# multiversx
-
-No skills found.

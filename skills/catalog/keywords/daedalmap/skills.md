@@ -1,3 +1,0 @@
-# daedalmap
-
-No skills found.

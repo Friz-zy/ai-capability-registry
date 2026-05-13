@@ -1,3 +1,0 @@
-# gettransformseo
-
-No skills found.

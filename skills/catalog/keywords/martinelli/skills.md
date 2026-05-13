@@ -1,3 +1,0 @@
-# martinelli
-
-No skills found.

@@ -1,3 +1,0 @@
-# extractor
-
-No skills found.

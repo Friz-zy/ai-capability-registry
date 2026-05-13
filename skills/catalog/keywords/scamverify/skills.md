@@ -1,3 +1,0 @@
-# scamverify
-
-No skills found.

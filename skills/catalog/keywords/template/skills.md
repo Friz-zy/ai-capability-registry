@@ -1,3 +1,0 @@
-# template
-
-No skills found.

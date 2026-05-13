@@ -1,3 +1,0 @@
-# jepto
-
-No skills found.

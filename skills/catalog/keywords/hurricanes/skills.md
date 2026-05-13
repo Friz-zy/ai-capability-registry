@@ -1,3 +1,0 @@
-# hurricanes
-
-No skills found.

@@ -1,3 +1,0 @@
-# tako
-
-No skills found.

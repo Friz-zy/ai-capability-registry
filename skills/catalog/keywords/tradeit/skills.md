@@ -1,3 +1,0 @@
-# tradeit
-
-No skills found.

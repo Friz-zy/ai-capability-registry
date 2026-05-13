@@ -1,3 +1,0 @@
-# collectivespend
-
-No skills found.

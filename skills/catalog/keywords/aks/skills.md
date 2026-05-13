@@ -1,3 +1,0 @@
-# aks
-
-No skills found.

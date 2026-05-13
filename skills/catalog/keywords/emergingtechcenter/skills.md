@@ -1,3 +1,0 @@
-# emergingtechcenter
-
-No skills found.

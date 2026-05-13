@@ -1,3 +1,0 @@
-# tvwizard
-
-No skills found.

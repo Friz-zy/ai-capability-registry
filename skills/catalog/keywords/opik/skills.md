@@ -1,3 +1,0 @@
-# opik
-
-No skills found.

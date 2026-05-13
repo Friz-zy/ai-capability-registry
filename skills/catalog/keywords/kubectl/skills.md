@@ -1,3 +1,0 @@
-# kubectl
-
-No skills found.

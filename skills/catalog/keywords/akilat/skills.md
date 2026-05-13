@@ -1,3 +1,0 @@
-# akilat
-
-No skills found.

@@ -1,3 +1,0 @@
-# allgoodinsp
-
-No skills found.

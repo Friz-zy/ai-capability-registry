@@ -1,3 +1,0 @@
-# hekkova
-
-No skills found.

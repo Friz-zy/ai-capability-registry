@@ -1,3 +1,0 @@
-# box
-
-No skills found.

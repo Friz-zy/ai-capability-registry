@@ -1,3 +1,0 @@
-# linux
-
-No skills found.

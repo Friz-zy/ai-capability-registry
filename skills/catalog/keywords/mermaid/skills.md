@@ -1,3 +1,0 @@
-# mermaid
-
-No skills found.

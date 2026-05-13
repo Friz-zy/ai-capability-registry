@@ -1,3 +1,0 @@
-# cookbook
-
-No skills found.

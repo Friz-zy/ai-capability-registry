@@ -1,3 +1,0 @@
-# presentations
-
-No skills found.

@@ -1,3 +1,0 @@
-# guleki
-
-No skills found.

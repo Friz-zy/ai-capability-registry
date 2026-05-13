@@ -1,3 +1,0 @@
-# where
-
-No skills found.

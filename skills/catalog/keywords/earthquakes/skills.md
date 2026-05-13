@@ -1,3 +1,0 @@
-# earthquakes
-
-No skills found.

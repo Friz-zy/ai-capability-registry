@@ -1,3 +1,0 @@
-# eztexting
-
-No skills found.

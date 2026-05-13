@@ -1,3 +1,0 @@
-# apple
-
-No skills found.

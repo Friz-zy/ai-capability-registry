@@ -1,3 +1,0 @@
-# stylus
-
-No skills found.

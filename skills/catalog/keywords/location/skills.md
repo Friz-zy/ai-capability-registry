@@ -1,3 +1,0 @@
-# location
-
-No skills found.

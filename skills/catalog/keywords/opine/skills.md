@@ -1,3 +1,0 @@
-# opine
-
-No skills found.

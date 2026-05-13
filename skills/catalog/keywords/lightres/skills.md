@@ -1,3 +1,0 @@
-# lightres
-
-No skills found.

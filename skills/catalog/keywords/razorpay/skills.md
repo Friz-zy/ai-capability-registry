@@ -1,3 +1,0 @@
-# razorpay
-
-No skills found.

@@ -1,3 +1,0 @@
-# cloudwatch
-
-No skills found.

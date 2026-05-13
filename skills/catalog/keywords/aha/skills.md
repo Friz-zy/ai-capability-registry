@@ -1,3 +1,0 @@
-# aha
-
-No skills found.

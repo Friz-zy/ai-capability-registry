@@ -1,3 +1,0 @@
-# pinkpixel
-
-No skills found.

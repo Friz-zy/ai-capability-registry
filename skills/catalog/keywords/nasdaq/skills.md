@@ -1,3 +1,0 @@
-# nasdaq
-
-No skills found.

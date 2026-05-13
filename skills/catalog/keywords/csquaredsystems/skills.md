@@ -1,3 +1,0 @@
-# csquaredsystems
-
-No skills found.

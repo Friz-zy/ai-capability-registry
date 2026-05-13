@@ -1,3 +1,0 @@
-# aidesignblueprint
-
-No skills found.

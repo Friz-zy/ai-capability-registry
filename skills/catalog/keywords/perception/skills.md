@@ -1,3 +1,0 @@
-# perception
-
-No skills found.

@@ -1,3 +1,0 @@
-# listenetic
-
-No skills found.

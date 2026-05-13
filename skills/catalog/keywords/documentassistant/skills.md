@@ -1,3 +1,0 @@
-# documentassistant
-
-No skills found.

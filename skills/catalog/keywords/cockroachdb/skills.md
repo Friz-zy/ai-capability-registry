@@ -1,3 +1,0 @@
-# cockroachdb
-
-No skills found.

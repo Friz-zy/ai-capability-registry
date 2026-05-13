@@ -1,3 +1,0 @@
-# scrapezy
-
-No skills found.

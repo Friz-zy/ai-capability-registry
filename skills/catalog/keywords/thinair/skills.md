@@ -1,3 +1,0 @@
-# thinair
-
-No skills found.

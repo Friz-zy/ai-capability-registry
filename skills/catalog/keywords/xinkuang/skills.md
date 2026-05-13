@@ -1,3 +1,0 @@
-# xinkuang
-
-No skills found.

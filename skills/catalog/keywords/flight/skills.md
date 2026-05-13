@@ -1,3 +1,0 @@
-# flight
-
-No skills found.

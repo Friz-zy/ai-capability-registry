@@ -1,3 +1,0 @@
-# coderide
-
-No skills found.

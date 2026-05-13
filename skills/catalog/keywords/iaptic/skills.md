@@ -1,3 +1,0 @@
-# iaptic
-
-No skills found.

@@ -1,3 +1,0 @@
-# stackgen
-
-No skills found.

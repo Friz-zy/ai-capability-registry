@@ -1,3 +1,0 @@
-# cookiy
-
-No skills found.

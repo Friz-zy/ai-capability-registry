@@ -1,3 +1,0 @@
-# childpsychiatry
-
-No skills found.

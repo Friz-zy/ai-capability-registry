@@ -1,3 +1,0 @@
-# anilist
-
-No skills found.

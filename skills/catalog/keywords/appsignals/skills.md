@@ -1,3 +1,0 @@
-# appsignals
-
-No skills found.

@@ -1,3 +1,0 @@
-# infobip
-
-No skills found.

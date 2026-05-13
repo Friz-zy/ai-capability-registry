@@ -1,3 +1,0 @@
-# falkordb
-
-No skills found.

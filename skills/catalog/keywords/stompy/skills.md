@@ -1,3 +1,0 @@
-# stompy
-
-No skills found.

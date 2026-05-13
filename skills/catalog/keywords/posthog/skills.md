@@ -1,3 +1,0 @@
-# posthog
-
-No skills found.

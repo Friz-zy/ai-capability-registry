@@ -1,3 +1,0 @@
-# gyazo
-
-No skills found.

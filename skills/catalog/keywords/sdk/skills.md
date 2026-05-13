@@ -1,3 +1,0 @@
-# sdk
-
-No skills found.

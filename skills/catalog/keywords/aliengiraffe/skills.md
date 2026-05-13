@@ -1,3 +1,0 @@
-# aliengiraffe
-
-No skills found.

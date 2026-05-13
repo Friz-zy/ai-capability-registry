@@ -1,3 +1,0 @@
-# dirtsignal
-
-No skills found.

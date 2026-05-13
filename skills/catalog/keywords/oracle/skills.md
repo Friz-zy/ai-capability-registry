@@ -1,3 +1,0 @@
-# oracle
-
-No skills found.

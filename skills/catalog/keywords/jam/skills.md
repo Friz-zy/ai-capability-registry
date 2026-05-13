@@ -1,3 +1,0 @@
-# jam
-
-No skills found.

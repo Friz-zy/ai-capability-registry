@@ -1,3 +1,0 @@
-# pricing
-
-No skills found.

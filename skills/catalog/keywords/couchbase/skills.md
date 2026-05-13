@@ -1,3 +1,0 @@
-# couchbase
-
-No skills found.

@@ -1,3 +1,0 @@
-# ramp
-
-No skills found.

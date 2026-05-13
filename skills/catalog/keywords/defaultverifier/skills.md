@@ -1,3 +1,0 @@
-# defaultverifier
-
-No skills found.

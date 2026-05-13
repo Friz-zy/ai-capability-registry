@@ -1,3 +1,0 @@
-# jira
-
-No skills found.

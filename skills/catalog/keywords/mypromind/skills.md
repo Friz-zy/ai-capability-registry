@@ -1,3 +1,0 @@
-# mypromind
-
-No skills found.

@@ -1,3 +1,0 @@
-# firecrawl
-
-No skills found.

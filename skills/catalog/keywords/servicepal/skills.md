@@ -1,3 +1,0 @@
-# servicepal
-
-No skills found.

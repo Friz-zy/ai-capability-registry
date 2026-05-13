@@ -1,3 +1,0 @@
-# memcached
-
-No skills found.

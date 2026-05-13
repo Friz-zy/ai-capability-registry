@@ -1,3 +1,0 @@
-# bankruptcyobserver
-
-No skills found.

@@ -1,3 +1,0 @@
-# singlestore
-
-No skills found.

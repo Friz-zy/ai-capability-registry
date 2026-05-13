@@ -1,3 +1,0 @@
-# sabermetrics
-
-No skills found.

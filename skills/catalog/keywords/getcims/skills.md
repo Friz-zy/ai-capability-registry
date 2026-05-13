@@ -1,3 +1,0 @@
-# getcims
-
-No skills found.

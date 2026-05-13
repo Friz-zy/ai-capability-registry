@@ -1,3 +1,0 @@
-# captchacc
-
-No skills found.

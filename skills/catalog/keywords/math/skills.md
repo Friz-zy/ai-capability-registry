@@ -1,3 +1,0 @@
-# math
-
-No skills found.

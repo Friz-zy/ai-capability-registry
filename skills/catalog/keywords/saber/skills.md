@@ -1,3 +1,0 @@
-# saber
-
-No skills found.

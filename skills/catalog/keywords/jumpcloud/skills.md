@@ -1,3 +1,0 @@
-# jumpcloud
-
-No skills found.

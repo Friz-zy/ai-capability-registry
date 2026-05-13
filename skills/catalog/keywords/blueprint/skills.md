@@ -1,3 +1,0 @@
-# blueprint
-
-No skills found.

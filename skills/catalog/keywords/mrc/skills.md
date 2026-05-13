@@ -1,3 +1,0 @@
-# mrc
-
-No skills found.

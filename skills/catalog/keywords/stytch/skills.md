@@ -1,3 +1,0 @@
-# stytch
-
-No skills found.

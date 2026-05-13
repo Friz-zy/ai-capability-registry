@@ -1,3 +1,0 @@
-# whatsapp
-
-No skills found.

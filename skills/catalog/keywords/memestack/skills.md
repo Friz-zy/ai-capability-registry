@@ -1,3 +1,0 @@
-# memestack
-
-No skills found.

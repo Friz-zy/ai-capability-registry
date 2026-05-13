@@ -690,6 +690,7 @@ This directory is generated from `registry/*.yaml` and `skill-catalog.d/*.yaml`.
 - `packs/` contains symlink packs for direct inclusion in agent configs.
 - `packs/all/` contains every existing enabled skill once.
 
+Skill paths are relative to the registry root. The `external/` directory is a sibling of the root `skills/` directory, not a child of it.
 Each `packs/` entry is a symlink to the original skill directory under `external/`, named as `<repo-name>-<skill-name>`.
 To change membership, edit `enabled` or `keywords` in provider chunks under `skill-catalog.d/`, or role/keyword definitions under `registry/`, then run:
 
@@ -719,11 +720,12 @@ def generate_collections(
     keyword_count = 0
     role_count = 0
     task_count = 0
+    skills_by_keyword = build_skills_by_keyword(skills, set(registry_keywords(keyword_categories)))
 
-    for keyword in registry_keywords(keyword_categories):
+    for keyword, keyword_skills in sorted(skills_by_keyword.items()):
         keyword_count += write_collection_links(
             packs_keywords_dir / keyword,
-            skills_matching_keywords(skills, [keyword]),
+            keyword_skills,
         )
 
     for profile in sorted(profiles, key=lambda p: p["id"]):
@@ -745,7 +747,7 @@ def generate_collections(
 
     print(
         "Generated skill packs: "
-        f"{len(registry_keywords(keyword_categories))} keyword dirs / {keyword_count} links, "
+        f"{len(skills_by_keyword)} keyword dirs / {keyword_count} links, "
         f"{len(profiles)} role dirs / {role_count} links, "
         f"{len(tasks)} task dirs / {task_count} links, "
         f"all / {all_count} links"
@@ -835,9 +837,6 @@ def discover_skills(registry: dict[str, Any]) -> tuple[list[SkillRecord], dict[s
 
 
 def generate_keyword_skills_md(keyword: str, skills: list[SkillRecord]) -> str:
-    if not skills:
-        return f"# {keyword}\n\nNo skills found.\n"
-    
     lines = [
         f"# {keyword}",
         "",
@@ -963,6 +962,9 @@ def generate_root_skills_md(
         "8. **Apply guidance** — follow loaded skill instructions and adapt them to project conventions.",
         "",
         "### Routing Scope",
+        "",
+        "Paths in keyword catalogs are relative to this registry root.",
+        "`external/` is a sibling of the root `skills/` directory at `<registry-root>/external/`; do not look for it under `skills/external/`.",
         "",
         "Use `skills/catalog/` only for skill selection.",
         "Use `skills/packs/` only when configuring agents with preselected skill directories.",
@@ -1118,8 +1120,7 @@ def main() -> int:
 
     # Generate keyword routing catalogs
     keywords_dir = SKILLS_CATALOG_DIR / "keywords"
-    for keyword in registry_keywords(keyword_categories):
-        keyword_skills = skills_by_keyword.get(keyword, [])
+    for keyword, keyword_skills in sorted(skills_by_keyword.items()):
         keyword_dir = keywords_dir / keyword
         content = generate_keyword_skills_md(keyword, keyword_skills)
         write_text(keyword_dir / "skills.md", content)
@@ -1162,7 +1163,7 @@ def main() -> int:
     print(f"  - {SKILLS_DIR / 'skills.md'}")
     print(f"  - {len(registry['profiles'])} role catalogs")
     print(f"  - {len(registry['tasks'])} task catalogs")
-    print(f"  - {len(registry_keywords(keyword_categories))} keyword catalogs")
+    print(f"  - {len(skills_by_keyword)} keyword catalogs")
     print(f"\nAdd this to your agent config:")
     print(f"  {abs_path(SKILLS_DIR / 'skills.md')}")
 

@@ -1,3 +1,0 @@
-# school
-
-No skills found.

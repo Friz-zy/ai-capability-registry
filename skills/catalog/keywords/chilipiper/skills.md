@@ -1,3 +1,0 @@
-# chilipiper
-
-No skills found.

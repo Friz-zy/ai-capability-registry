@@ -1,3 +1,0 @@
-# leandrogavidia
-
-No skills found.

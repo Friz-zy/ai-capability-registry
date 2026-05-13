@@ -1,3 +1,0 @@
-# pratiksha
-
-No skills found.

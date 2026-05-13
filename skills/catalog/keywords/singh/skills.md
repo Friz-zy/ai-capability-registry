@@ -1,3 +1,0 @@
-# singh
-
-No skills found.

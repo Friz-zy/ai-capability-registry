@@ -1,3 +1,0 @@
-# paperlantern
-
-No skills found.

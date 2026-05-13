@@ -1,3 +1,0 @@
-# witness
-
-No skills found.

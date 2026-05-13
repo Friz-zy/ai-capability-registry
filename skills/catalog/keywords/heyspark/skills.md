@@ -1,3 +1,0 @@
-# heyspark
-
-No skills found.

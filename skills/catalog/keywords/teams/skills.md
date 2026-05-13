@@ -1,3 +1,0 @@
-# teams
-
-No skills found.

@@ -1,3 +1,0 @@
-# cosmonote
-
-No skills found.

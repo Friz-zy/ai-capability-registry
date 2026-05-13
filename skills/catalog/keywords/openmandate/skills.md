@@ -1,3 +1,0 @@
-# openmandate
-
-No skills found.

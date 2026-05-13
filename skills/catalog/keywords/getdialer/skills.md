@@ -1,3 +1,0 @@
-# getdialer
-
-No skills found.

@@ -1,3 +1,0 @@
-# scorecard
-
-No skills found.

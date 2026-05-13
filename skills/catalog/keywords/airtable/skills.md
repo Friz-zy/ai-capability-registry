@@ -1,3 +1,0 @@
-# airtable
-
-No skills found.

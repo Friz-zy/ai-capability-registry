@@ -1,3 +1,0 @@
-# observability
-
-No skills found.

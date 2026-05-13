@@ -1,3 +1,0 @@
-# baseball
-
-No skills found.

@@ -1,3 +1,0 @@
-# oura
-
-No skills found.

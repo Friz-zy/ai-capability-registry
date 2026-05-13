@@ -1,3 +1,0 @@
-# kanoja
-
-No skills found.

@@ -1,3 +1,0 @@
-# inspektor
-
-No skills found.

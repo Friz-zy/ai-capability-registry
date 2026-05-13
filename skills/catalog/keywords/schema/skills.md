@@ -1,3 +1,0 @@
-# schema
-
-No skills found.

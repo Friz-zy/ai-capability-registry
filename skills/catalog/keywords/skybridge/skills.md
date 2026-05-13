@@ -1,3 +1,0 @@
-# skybridge
-
-No skills found.

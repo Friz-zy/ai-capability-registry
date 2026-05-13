@@ -1,3 +1,0 @@
-# reg
-
-No skills found.

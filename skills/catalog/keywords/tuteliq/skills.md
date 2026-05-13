@@ -1,3 +1,0 @@
-# tuteliq
-
-No skills found.

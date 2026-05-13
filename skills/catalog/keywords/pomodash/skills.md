@@ -1,3 +1,0 @@
-# pomodash
-
-No skills found.

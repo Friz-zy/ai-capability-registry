@@ -1,3 +1,0 @@
-# petstore
-
-No skills found.

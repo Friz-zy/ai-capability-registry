@@ -1,3 +1,0 @@
-# heroku
-
-No skills found.

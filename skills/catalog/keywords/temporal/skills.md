@@ -1,3 +1,0 @@
-# temporal
-
-No skills found.

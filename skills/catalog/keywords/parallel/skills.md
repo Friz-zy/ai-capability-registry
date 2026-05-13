@@ -1,3 +1,0 @@
-# parallel
-
-No skills found.

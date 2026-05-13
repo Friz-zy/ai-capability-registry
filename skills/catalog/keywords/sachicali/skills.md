@@ -1,3 +1,0 @@
-# sachicali
-
-No skills found.

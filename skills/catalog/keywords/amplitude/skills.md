@@ -1,3 +1,0 @@
-# amplitude
-
-No skills found.

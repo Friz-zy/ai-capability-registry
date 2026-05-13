@@ -1,3 +1,0 @@
-# ludo
-
-No skills found.

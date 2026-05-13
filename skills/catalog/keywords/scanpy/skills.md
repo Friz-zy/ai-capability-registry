@@ -1,3 +1,0 @@
-# scanpy
-
-No skills found.

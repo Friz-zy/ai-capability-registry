@@ -1,3 +1,0 @@
-# sonarqube
-
-No skills found.

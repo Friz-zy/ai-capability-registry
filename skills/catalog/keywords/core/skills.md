@@ -1,3 +1,0 @@
-# core
-
-No skills found.

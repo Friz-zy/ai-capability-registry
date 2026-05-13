@@ -1,3 +1,0 @@
-# kendra
-
-No skills found.

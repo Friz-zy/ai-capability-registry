@@ -1,3 +1,0 @@
-# zeta
-
-No skills found.

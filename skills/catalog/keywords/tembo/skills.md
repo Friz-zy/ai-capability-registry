@@ -1,3 +1,0 @@
-# tembo
-
-No skills found.

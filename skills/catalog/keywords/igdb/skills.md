@@ -1,3 +1,0 @@
-# igdb
-
-No skills found.

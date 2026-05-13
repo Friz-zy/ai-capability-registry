@@ -1,3 +1,0 @@
-# supabase
-
-No skills found.

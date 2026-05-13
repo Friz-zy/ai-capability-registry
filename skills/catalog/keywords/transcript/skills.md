@@ -1,3 +1,0 @@
-# transcript
-
-No skills found.

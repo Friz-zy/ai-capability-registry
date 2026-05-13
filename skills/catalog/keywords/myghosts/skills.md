@@ -1,3 +1,0 @@
-# myghosts
-
-No skills found.

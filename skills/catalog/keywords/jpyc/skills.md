@@ -1,3 +1,0 @@
-# jpyc
-
-No skills found.

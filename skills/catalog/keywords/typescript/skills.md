@@ -1,3 +1,0 @@
-# typescript
-
-No skills found.

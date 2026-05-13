@@ -1,3 +1,0 @@
-# deva
-
-No skills found.

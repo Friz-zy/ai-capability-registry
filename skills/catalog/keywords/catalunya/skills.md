@@ -1,3 +1,0 @@
-# catalunya
-
-No skills found.

@@ -1,3 +1,0 @@
-# bullpenstrategygroup
-
-No skills found.

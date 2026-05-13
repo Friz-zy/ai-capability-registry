@@ -1,3 +1,0 @@
-# egnyte
-
-No skills found.

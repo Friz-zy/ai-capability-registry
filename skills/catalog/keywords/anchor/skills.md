@@ -1,3 +1,0 @@
-# anchor
-
-No skills found.

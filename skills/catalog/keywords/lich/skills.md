@@ -1,3 +1,0 @@
-# lich
-
-No skills found.

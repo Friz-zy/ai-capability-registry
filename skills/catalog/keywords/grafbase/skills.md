@@ -1,3 +1,0 @@
-# grafbase
-
-No skills found.

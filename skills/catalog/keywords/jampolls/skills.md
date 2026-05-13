@@ -1,3 +1,0 @@
-# jampolls
-
-No skills found.

@@ -1,3 +1,0 @@
-# hoverfly
-
-No skills found.

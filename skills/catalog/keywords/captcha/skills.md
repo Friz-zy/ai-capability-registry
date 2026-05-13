@@ -1,3 +1,0 @@
-# captcha
-
-No skills found.

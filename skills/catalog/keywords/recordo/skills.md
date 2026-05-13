@@ -1,3 +1,0 @@
-# recordo
-
-No skills found.

@@ -1,3 +1,0 @@
-# claude
-
-No skills found.

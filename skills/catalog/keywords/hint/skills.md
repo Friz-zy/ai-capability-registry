@@ -1,3 +1,0 @@
-# hint
-
-No skills found.

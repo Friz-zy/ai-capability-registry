@@ -1,3 +1,0 @@
-# stellar
-
-No skills found.

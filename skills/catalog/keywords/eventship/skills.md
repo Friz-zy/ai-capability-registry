@@ -1,3 +1,0 @@
-# eventship
-
-No skills found.

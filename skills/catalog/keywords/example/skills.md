@@ -1,3 +1,0 @@
-# example
-
-No skills found.

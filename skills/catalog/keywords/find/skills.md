@@ -1,3 +1,0 @@
-# find
-
-No skills found.

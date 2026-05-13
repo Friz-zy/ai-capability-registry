@@ -1,3 +1,0 @@
-# rainbowgore
-
-No skills found.

@@ -1,3 +1,0 @@
-# getalai
-
-No skills found.

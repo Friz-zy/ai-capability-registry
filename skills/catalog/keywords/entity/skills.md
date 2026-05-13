@@ -1,3 +1,0 @@
-# entity
-
-No skills found.

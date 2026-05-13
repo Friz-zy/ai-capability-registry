@@ -1,3 +1,0 @@
-# webzum
-
-No skills found.

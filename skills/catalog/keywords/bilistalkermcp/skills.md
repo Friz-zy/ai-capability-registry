@@ -1,3 +1,0 @@
-# bilistalkermcp
-
-No skills found.

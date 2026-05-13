@@ -1,3 +1,0 @@
-# descope
-
-No skills found.

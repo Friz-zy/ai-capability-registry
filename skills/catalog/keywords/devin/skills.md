@@ -1,3 +1,0 @@
-# devin
-
-No skills found.

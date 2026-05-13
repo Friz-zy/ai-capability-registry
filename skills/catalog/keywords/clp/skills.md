@@ -1,3 +1,0 @@
-# clp
-
-No skills found.

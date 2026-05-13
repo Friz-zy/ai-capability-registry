@@ -1,3 +1,0 @@
-# contendeo
-
-No skills found.

@@ -1,3 +1,0 @@
-# healthomics
-
-No skills found.

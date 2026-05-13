@@ -1,3 +1,0 @@
-# guruwalk
-
-No skills found.

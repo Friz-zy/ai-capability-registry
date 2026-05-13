@@ -1,3 +1,0 @@
-# triplewhale
-
-No skills found.

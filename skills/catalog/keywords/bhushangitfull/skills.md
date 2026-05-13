@@ -1,3 +1,0 @@
-# bhushangitfull
-
-No skills found.

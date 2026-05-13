@@ -1,3 +1,0 @@
-# newsmind
-
-No skills found.

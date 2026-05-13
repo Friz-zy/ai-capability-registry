@@ -1,3 +1,0 @@
-# funding
-
-No skills found.

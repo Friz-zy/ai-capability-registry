@@ -1,3 +1,0 @@
-# jasswiki
-
-No skills found.

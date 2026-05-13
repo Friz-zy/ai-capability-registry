@@ -1,3 +1,0 @@
-# tabula
-
-No skills found.

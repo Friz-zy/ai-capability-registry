@@ -1,3 +1,0 @@
-# coach
-
-No skills found.

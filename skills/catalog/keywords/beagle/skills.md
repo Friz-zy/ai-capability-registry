@@ -1,3 +1,0 @@
-# beagle
-
-No skills found.

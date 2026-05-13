@@ -1,3 +1,0 @@
-# jinko
-
-No skills found.

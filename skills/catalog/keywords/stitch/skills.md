@@ -1,3 +1,0 @@
-# stitch
-
-No skills found.

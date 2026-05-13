@@ -1,3 +1,0 @@
-# tenant
-
-No skills found.

@@ -1,3 +1,0 @@
-# bergeramit
-
-No skills found.

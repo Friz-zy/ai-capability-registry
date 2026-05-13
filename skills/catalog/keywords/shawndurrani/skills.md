@@ -1,3 +1,0 @@
-# shawndurrani
-
-No skills found.

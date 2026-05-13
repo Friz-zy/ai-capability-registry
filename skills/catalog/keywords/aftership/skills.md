@@ -1,3 +1,0 @@
-# aftership
-
-No skills found.

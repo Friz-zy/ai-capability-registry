@@ -1,3 +1,0 @@
-# kafka
-
-No skills found.

@@ -1,3 +1,0 @@
-# spotdb
-
-No skills found.

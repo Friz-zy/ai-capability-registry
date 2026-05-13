@@ -1,3 +1,0 @@
-# bitvoya
-
-No skills found.

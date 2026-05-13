@@ -1,3 +1,0 @@
-# strava
-
-No skills found.

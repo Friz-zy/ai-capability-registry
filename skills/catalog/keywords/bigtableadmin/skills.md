@@ -1,3 +1,0 @@
-# bigtableadmin
-
-No skills found.

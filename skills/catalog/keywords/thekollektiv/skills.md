@@ -1,3 +1,0 @@
-# thekollektiv
-
-No skills found.

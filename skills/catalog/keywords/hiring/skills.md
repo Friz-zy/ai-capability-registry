@@ -1,3 +1,0 @@
-# hiring
-
-No skills found.

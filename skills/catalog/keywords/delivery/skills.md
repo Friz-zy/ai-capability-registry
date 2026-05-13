@@ -1,3 +1,0 @@
-# delivery
-
-No skills found.

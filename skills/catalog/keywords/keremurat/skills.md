@@ -1,3 +1,0 @@
-# keremurat
-
-No skills found.

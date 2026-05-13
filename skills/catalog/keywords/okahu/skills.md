@@ -1,3 +1,0 @@
-# okahu
-
-No skills found.

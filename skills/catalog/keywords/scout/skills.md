@@ -1,3 +1,0 @@
-# scout
-
-No skills found.

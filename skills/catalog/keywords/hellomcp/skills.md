@@ -1,3 +1,0 @@
-# hellomcp
-
-No skills found.

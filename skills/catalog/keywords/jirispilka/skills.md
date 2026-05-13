@@ -1,3 +1,0 @@
-# jirispilka
-
-No skills found.

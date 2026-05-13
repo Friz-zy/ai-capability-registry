@@ -1,3 +1,0 @@
-# nordax
-
-No skills found.

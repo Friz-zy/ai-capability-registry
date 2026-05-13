@@ -1,3 +1,0 @@
-# miguelgarzons
-
-No skills found.

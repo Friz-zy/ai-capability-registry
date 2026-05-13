@@ -1,3 +1,0 @@
-# turkishtechlab
-
-No skills found.

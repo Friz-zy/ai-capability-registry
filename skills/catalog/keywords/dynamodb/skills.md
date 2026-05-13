@@ -1,3 +1,0 @@
-# dynamodb
-
-No skills found.

@@ -1,3 +1,0 @@
-# dynatrace
-
-No skills found.

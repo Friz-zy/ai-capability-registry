@@ -1,3 +1,0 @@
-# xpoz
-
-No skills found.

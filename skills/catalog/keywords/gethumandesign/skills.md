@@ -1,3 +1,0 @@
-# gethumandesign
-
-No skills found.

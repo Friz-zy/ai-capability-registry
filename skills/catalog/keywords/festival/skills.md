@@ -1,3 +1,0 @@
-# festival
-
-No skills found.

@@ -1,3 +1,0 @@
-# airlines
-
-No skills found.

@@ -1,3 +1,0 @@
-# bushdrum
-
-No skills found.

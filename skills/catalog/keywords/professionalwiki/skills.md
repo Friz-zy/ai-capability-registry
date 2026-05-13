@@ -1,3 +1,0 @@
-# professionalwiki
-
-No skills found.

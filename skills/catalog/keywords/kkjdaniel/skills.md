@@ -1,3 +1,0 @@
-# kkjdaniel
-
-No skills found.

@@ -1,3 +1,0 @@
-# indeed
-
-No skills found.

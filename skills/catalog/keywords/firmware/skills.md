@@ -1,3 +1,0 @@
-# firmware
-
-No skills found.

@@ -1,3 +1,0 @@
-# xbirdapi
-
-No skills found.

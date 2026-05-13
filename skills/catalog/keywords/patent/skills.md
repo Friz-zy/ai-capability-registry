@@ -1,3 +1,0 @@
-# patent
-
-No skills found.

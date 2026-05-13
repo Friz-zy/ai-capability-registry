@@ -1,3 +1,0 @@
-# agentic
-
-No skills found.

@@ -1,3 +1,0 @@
-# xbird
-
-No skills found.

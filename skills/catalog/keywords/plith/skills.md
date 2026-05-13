@@ -1,3 +1,0 @@
-# plith
-
-No skills found.

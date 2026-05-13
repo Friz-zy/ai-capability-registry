@@ -1,3 +1,0 @@
-# fulcradynamics
-
-No skills found.

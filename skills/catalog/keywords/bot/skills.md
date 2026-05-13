@@ -1,3 +1,0 @@
-# bot
-
-No skills found.

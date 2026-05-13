@@ -1,3 +1,0 @@
-# manifold
-
-No skills found.

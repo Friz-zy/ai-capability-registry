@@ -1,3 +1,0 @@
-# mrugankpednekar
-
-No skills found.

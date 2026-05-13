@@ -1,3 +1,0 @@
-# demomagic
-
-No skills found.

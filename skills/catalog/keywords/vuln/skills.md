@@ -1,3 +1,0 @@
-# vuln
-
-No skills found.

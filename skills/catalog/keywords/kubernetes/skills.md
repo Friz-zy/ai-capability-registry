@@ -1,3 +1,0 @@
-# kubernetes
-
-No skills found.

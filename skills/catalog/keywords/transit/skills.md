@@ -1,3 +1,0 @@
-# transit
-
-No skills found.

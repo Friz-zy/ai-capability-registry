@@ -1,3 +1,0 @@
-# edubase
-
-No skills found.

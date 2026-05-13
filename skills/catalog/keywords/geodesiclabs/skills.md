@@ -1,3 +1,0 @@
-# geodesiclabs
-
-No skills found.

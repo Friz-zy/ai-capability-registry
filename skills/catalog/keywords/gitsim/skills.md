@@ -1,3 +1,0 @@
-# gitsim
-
-No skills found.

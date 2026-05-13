@@ -1,3 +1,0 @@
-# hyperbrowser
-
-No skills found.

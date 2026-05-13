@@ -1,3 +1,0 @@
-# mindset
-
-No skills found.

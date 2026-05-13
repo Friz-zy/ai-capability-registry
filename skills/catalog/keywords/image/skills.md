@@ -1,3 +1,0 @@
-# image
-
-No skills found.

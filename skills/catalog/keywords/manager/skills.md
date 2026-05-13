@@ -1,3 +1,0 @@
-# manager
-
-No skills found.

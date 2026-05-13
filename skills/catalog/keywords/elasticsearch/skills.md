@@ -1,3 +1,0 @@
-# elasticsearch
-
-No skills found.

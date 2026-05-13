@@ -1,3 +1,0 @@
-# guffeyholdings
-
-No skills found.

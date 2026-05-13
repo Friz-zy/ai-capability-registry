@@ -1,3 +1,0 @@
-# govtribe
-
-No skills found.

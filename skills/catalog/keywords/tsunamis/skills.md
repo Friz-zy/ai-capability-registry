@@ -1,3 +1,0 @@
-# tsunamis
-
-No skills found.

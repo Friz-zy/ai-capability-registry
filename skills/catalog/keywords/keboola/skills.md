@@ -1,3 +1,0 @@
-# keboola
-
-No skills found.

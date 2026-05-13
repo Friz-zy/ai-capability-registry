@@ -1,3 +1,0 @@
-# windsor
-
-No skills found.

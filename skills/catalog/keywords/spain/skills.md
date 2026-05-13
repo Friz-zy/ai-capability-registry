@@ -1,3 +1,0 @@
-# spain
-
-No skills found.

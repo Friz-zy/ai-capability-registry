@@ -1,3 +1,0 @@
-# social
-
-No skills found.

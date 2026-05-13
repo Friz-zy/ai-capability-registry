@@ -1,3 +1,0 @@
-# academia
-
-No skills found.

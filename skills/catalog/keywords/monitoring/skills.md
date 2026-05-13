@@ -1,3 +1,0 @@
-# monitoring
-
-No skills found.

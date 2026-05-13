@@ -1,3 +1,0 @@
-# obaron
-
-No skills found.

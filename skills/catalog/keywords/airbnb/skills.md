@@ -1,3 +1,0 @@
-# airbnb
-
-No skills found.
