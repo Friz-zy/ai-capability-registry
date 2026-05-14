@@ -73,6 +73,11 @@ QA an analysis before sharing -- methodology, accuracy, and bias checks. Use whe
 
 File: `external/anthropic-knowledge-work-plugins/data/skills/validate-data/SKILL.md`
 
+### vercel-react-best-practices
+React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.
+
+File: `external/vercel-agent-skills/skills/react-best-practices/SKILL.md`
+
 ### write-query
 Write optimized SQL for your dialect with best practices. Use when translating a natural-language data need into SQL, building a multi-CTE query with joins and aggregations, optimizing a query against a large partitioned table, or getting dialect-specific syntax for Snowflake, BigQuery, Postgres, etc.
 

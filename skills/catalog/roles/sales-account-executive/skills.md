@@ -15,6 +15,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
 - **knowledge**: 4 skills — `skills/catalog/keywords/knowledge/skills.md`
 - **lead-generation**: 1 skills — `skills/catalog/keywords/lead-generation/skills.md`
+- **link**: 1 skills — `skills/catalog/keywords/link/skills.md`
 - **marketing**: 17 skills — `skills/catalog/keywords/marketing/skills.md`
 - **outreach**: 1 skills — `skills/catalog/keywords/outreach/skills.md`
 - **pipeline**: 4 skills — `skills/catalog/keywords/pipeline/skills.md`

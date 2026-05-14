@@ -58,11 +58,6 @@ Use when executing implementation plans with independent tasks in the current se
 
 File: `external/superpowers-skills/skills/subagent-driven-development/SKILL.md`
 
-### using-superpowers
-Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
-
-File: `external/superpowers-skills/skills/using-superpowers/SKILL.md`
-
 ### webapp-testing
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
 

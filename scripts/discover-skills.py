@@ -948,12 +948,23 @@ def generate_root_skills_md(
     lines = [
         "# AI Capability Registry",
         "",
+        "## Skill Sources",
+        "",
+        "Skills may be available from two sources:",
+        "",
+        "- **Agent-native skills**: skills exposed by the current agent runtime through its built-in skill command or tool.",
+        "- **Registry skills**: skills indexed under this repository's `skills/` routing catalogs and loaded from referenced `SKILL.md` files.",
+        "",
+        "Use both sources as one capability pool. Prefer the agent-native skill command when the same trusted skill is already available there; otherwise use this registry's routing catalogs and read the referenced `SKILL.md` file.",
+        "",
+        "Do not assume that every registry skill is installed in the agent runtime. Do not assume that every agent-native skill is represented in this registry.",
+        "",
         "## Skill Resolution Protocol",
         "",
-        "Before starting work, resolve skills with progressive disclosure:",
+        "Before starting work, resolve skills from both agent-native skills and this registry with progressive disclosure:",
         "",
         "1. **Extract intent** — identify action, domain, stack/tool, artifact, and constraints from the user request.",
-        "2. **Route by task first** — match the request to one Task below; select a second Task only for clearly mixed workflows.",
+        "2. **Route by task first** — match the request to one Task below; select a second Task only for clearly mixed requests.",
         "3. **Use role as context** — select at most one Role only when the user asks from that role perspective or it disambiguates the task.",
         "4. **Read selected indexes only** — open only the matched `skills/catalog/tasks/<task-id>/skills.md` and optional `skills/catalog/roles/<role-id>/skills.md`.",
         "5. **Choose keywords** — select 1-3 most specific keywords from those indexes; prefer exact stack/tool keywords over broad category keywords.",
@@ -970,12 +981,6 @@ def generate_root_skills_md(
         "Use `skills/packs/` only when configuring agents with preselected skill directories.",
         "Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution.",
         "",
-        "### Default Development Methodology",
-        "",
-        "When `superpowers-skills` are available and relevant, prefer them as the default software-development workflow skills before comparable generic skills.",
-        "Use Superpowers for brainstorming before code, implementation planning, true red/green TDD, systematic debugging, subagent-driven execution, code review, and finishing development branches.",
-        "Treat those workflows as mandatory guidance for matching development tasks, while still loading only relevant `SKILL.md` files from trusted or reviewed sources.",
-        "",
         "### Roles (category groupings)",
         "",
     ]
@@ -988,7 +993,7 @@ def generate_root_skills_md(
 
     lines.extend([
         "",
-        "### Tasks (workflow entry points)",
+        "### Tasks (entry points)",
         "",
     ])
 

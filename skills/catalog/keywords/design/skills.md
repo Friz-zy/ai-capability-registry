@@ -97,3 +97,13 @@ File: `external/anthropic-knowledge-work-plugins/design/skills/user-research/SKI
 Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with "write copy for", "what should this button say?", "review this error message", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text.
 
 File: `external/anthropic-knowledge-work-plugins/design/skills/ux-copy/SKILL.md`
+
+### vercel-react-view-transitions
+Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.
+
+File: `external/vercel-agent-skills/skills/react-view-transitions/SKILL.md`
+
+### web-design-guidelines
+Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+
+File: `external/vercel-agent-skills/skills/web-design-guidelines/SKILL.md`

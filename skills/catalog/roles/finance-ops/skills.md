@@ -3,14 +3,14 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
+- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
 - **business**: 4 skills — `skills/catalog/keywords/business/skills.md`
 - **capacity**: 1 skills — `skills/catalog/keywords/capacity/skills.md`
 - **change-management**: 1 skills — `skills/catalog/keywords/change-management/skills.md`
-- **compliance**: 9 skills — `skills/catalog/keywords/compliance/skills.md`
+- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
 - **finance**: 8 skills — `skills/catalog/keywords/finance/skills.md`
 - **journal-entry**: 2 skills — `skills/catalog/keywords/journal-entry/skills.md`
-- **management**: 10 skills — `skills/catalog/keywords/management/skills.md`
+- **management**: 11 skills — `skills/catalog/keywords/management/skills.md`
 - **operations**: 10 skills — `skills/catalog/keywords/operations/skills.md`
 - **organization**: 1 skills — `skills/catalog/keywords/organization/skills.md`
 - **parallel-task**: 1 skills — `skills/catalog/keywords/parallel-task/skills.md`

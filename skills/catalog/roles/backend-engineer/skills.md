@@ -3,27 +3,30 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
+- **actions**: 1 skills — `skills/catalog/keywords/actions/skills.md`
 - **analytics**: 12 skills — `skills/catalog/keywords/analytics/skills.md`
 - **aspnet**: 1 skills — `skills/catalog/keywords/aspnet/skills.md`
-- **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
+- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
+- **authentication**: 1 skills — `skills/catalog/keywords/authentication/skills.md`
 - **binary**: 6 skills — `skills/catalog/keywords/binary/skills.md`
 - **burp**: 1 skills — `skills/catalog/keywords/burp/skills.md`
 - **ci**: 2 skills — `skills/catalog/keywords/ci/skills.md`
 - **claude-api**: 1 skills — `skills/catalog/keywords/claude-api/skills.md`
-- **claude-code**: 1 skills — `skills/catalog/keywords/claude-code/skills.md`
+- **cli**: 1 skills — `skills/catalog/keywords/cli/skills.md`
 - **cloudflare**: 1 skills — `skills/catalog/keywords/cloudflare/skills.md`
+- **code**: 2 skills — `skills/catalog/keywords/code/skills.md`
 - **code-review**: 10 skills — `skills/catalog/keywords/code-review/skills.md`
 - **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
-- **codex**: 1 skills — `skills/catalog/keywords/codex/skills.md`
 - **command**: 2 skills — `skills/catalog/keywords/command/skills.md`
-- **compliance**: 9 skills — `skills/catalog/keywords/compliance/skills.md`
+- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
 - **cryptography**: 6 skills — `skills/catalog/keywords/cryptography/skills.md`
 - **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
-- **data**: 16 skills — `skills/catalog/keywords/data/skills.md`
+- **data**: 17 skills — `skills/catalog/keywords/data/skills.md`
 - **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
-- **deployment**: 7 skills — `skills/catalog/keywords/deployment/skills.md`
+- **deploy**: 2 skills — `skills/catalog/keywords/deploy/skills.md`
+- **deployment**: 9 skills — `skills/catalog/keywords/deployment/skills.md`
 - **devcontainer**: 3 skills — `skills/catalog/keywords/devcontainer/skills.md`
-- **development**: 55 skills — `skills/catalog/keywords/development/skills.md`
+- **development**: 59 skills — `skills/catalog/keywords/development/skills.md`
 - **dotnet**: 1 skills — `skills/catalog/keywords/dotnet/skills.md`
 - **dwarf**: 1 skills — `skills/catalog/keywords/dwarf/skills.md`
 - **execute**: 3 skills — `skills/catalog/keywords/execute/skills.md`
@@ -32,11 +35,12 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **ghidra**: 2 skills — `skills/catalog/keywords/ghidra/skills.md`
 - **git**: 11 skills — `skills/catalog/keywords/git/skills.md`
 - **github**: 5 skills — `skills/catalog/keywords/github/skills.md`
+- **hosting**: 1 skills — `skills/catalog/keywords/hosting/skills.md`
 - **jupyter**: 2 skills — `skills/catalog/keywords/jupyter/skills.md`
 - **malware**: 1 skills — `skills/catalog/keywords/malware/skills.md`
 - **metrics**: 2 skills — `skills/catalog/keywords/metrics/skills.md`
 - **netlify**: 1 skills — `skills/catalog/keywords/netlify/skills.md`
-- **plugin**: 5 skills — `skills/catalog/keywords/plugin/skills.md`
+- **plugin**: 4 skills — `skills/catalog/keywords/plugin/skills.md`
 - **policy**: 1 skills — `skills/catalog/keywords/policy/skills.md`
 - **pull-requests**: 2 skills — `skills/catalog/keywords/pull-requests/skills.md`
 - **render**: 1 skills — `skills/catalog/keywords/render/skills.md`
@@ -53,6 +57,6 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **supply-chain**: 1 skills — `skills/catalog/keywords/supply-chain/skills.md`
 - **threat-model**: 2 skills — `skills/catalog/keywords/threat-model/skills.md`
 - **trailmark**: 3 skills — `skills/catalog/keywords/trailmark/skills.md`
-- **vercel**: 3 skills — `skills/catalog/keywords/vercel/skills.md`
+- **vercel**: 9 skills — `skills/catalog/keywords/vercel/skills.md`
 - **visualization**: 3 skills — `skills/catalog/keywords/visualization/skills.md`
 - **yara**: 1 skills — `skills/catalog/keywords/yara/skills.md`

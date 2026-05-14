@@ -23,6 +23,26 @@ Toolkit for styling artifacts with a theme. These artifacts can be slides, docs,
 
 File: `external/anthropic-skills/skills/theme-factory/SKILL.md`
 
+### vercel-composition-patterns
+No description.
+
+File: `external/vercel-agent-skills/skills/composition-patterns/SKILL.md`
+
+### vercel-react-native-skills
+No description.
+
+File: `external/vercel-agent-skills/skills/react-native-skills/SKILL.md`
+
+### vercel-react-view-transitions
+Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.
+
+File: `external/vercel-agent-skills/skills/react-view-transitions/SKILL.md`
+
+### web-design-guidelines
+Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+
+File: `external/vercel-agent-skills/skills/web-design-guidelines/SKILL.md`
+
 ### winui-app
 Bootstrap, develop, and design modern WinUI 3 desktop applications with C# and the Windows App SDK using official Microsoft guidance, WinUI Gallery patterns, Windows App SDK samples, and CommunityToolkit components. Use when creating a brand new app, preparing a machine for WinUI, reviewing, refactoring, planning, troubleshooting, environment-checking, or setting up WinUI 3 XAML, controls, navigation, windowing, theming, accessibility, responsiveness, performance, deployment, or related Windows app design and development work.
 

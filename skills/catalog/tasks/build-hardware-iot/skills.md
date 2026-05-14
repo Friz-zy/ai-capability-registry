@@ -11,4 +11,4 @@ Build, debug, and integrate firmware, embedded hardware, IoT devices, and device
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **integration**: 8 skills — `skills/catalog/keywords/integration/skills.md`
+- **integration**: 9 skills — `skills/catalog/keywords/integration/skills.md`

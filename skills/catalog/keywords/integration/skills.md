@@ -42,3 +42,8 @@ File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuz
 A skill that creates new agent skills and automatically shares them on Slack using Rube for seamless team collaboration and skill discovery.
 
 File: `external/kilo-marketplace-skills/skills/skill-share/SKILL.md`
+
+### vercel-react-view-transitions
+Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.
+
+File: `external/vercel-agent-skills/skills/react-view-transitions/SKILL.md`

@@ -2,8 +2,8 @@
 
 This is a generated human-readable view. Edit `enabled` and `keywords` in `skill-catalog.d/*.yaml`.
 
-Total: 406 skills across 33 categories
-Enabled: 302; Disabled: 104
+Total: 413 skills across 33 categories
+Enabled: 308; Disabled: 105
 
 ## Ai
 
@@ -2072,7 +2072,7 @@ File: `external/superpowers-skills/skills/using-git-worktrees/SKILL.md`
 ### using-superpowers
 Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
 
-**Enabled:** `true`
+**Enabled:** `false`
 **ID:** `external/superpowers-skills/skills/using-superpowers`
 **Keywords:** `agent`, `automation`, `claude-code`, `codex`, `plugin`, `skill-creator`, `workflow`
 **Source:** superpowers-skills
@@ -2119,6 +2119,46 @@ Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use wh
 
 File: `external/anthropic-knowledge-work-plugins/operations/skills/vendor-review/SKILL.md`
 
+### vercel-cli-with-tokens
+Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. "deploy to vercel", "set up vercel", "add environment variables to vercel".
+
+**Enabled:** `true`
+**ID:** `external/vercel-agent-skills/skills/vercel-cli-with-tokens`
+**Keywords:** `access`, `authentication`, `cli`, `configuration`, `deploy`, `deployment`, `management`, `vercel`
+**Source:** vercel-agent-skills
+
+File: `external/vercel-agent-skills/skills/vercel-cli-with-tokens/SKILL.md`
+
+### vercel-react-best-practices
+React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.
+
+**Enabled:** `true`
+**ID:** `external/vercel-agent-skills/skills/react-best-practices`
+**Keywords:** `code`, `data`, `development`, `frontend`, `next`, `optimization`, `pages`, `react`, `refactoring`, `review`
+**Source:** vercel-agent-skills
+
+File: `external/vercel-agent-skills/skills/react-best-practices/SKILL.md`
+
+### vercel-react-native-skills
+No description.
+
+**Enabled:** `true`
+**ID:** `external/vercel-agent-skills/skills/react-native-skills`
+**Keywords:** `android`, `configuration`, `development`, `ios`, `optimization`, `react-native`, `ui`, `vercel`
+**Source:** vercel-agent-skills
+
+File: `external/vercel-agent-skills/skills/react-native-skills/SKILL.md`
+
+### vercel-react-view-transitions
+Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.
+
+**Enabled:** `true`
+**ID:** `external/vercel-agent-skills/skills/react-view-transitions`
+**Keywords:** `design`, `development`, `frontend`, `integration`, `next`, `react`, `ui`, `vercel`, `web`
+**Source:** vercel-agent-skills
+
+File: `external/vercel-agent-skills/skills/react-view-transitions/SKILL.md`
+
 ### verification-before-completion
 Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 
@@ -2128,6 +2168,16 @@ Use when about to claim work is complete, fixed, or passing, before committing o
 **Source:** superpowers-skills
 
 File: `external/superpowers-skills/skills/verification-before-completion/SKILL.md`
+
+### web-design-guidelines
+Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+
+**Enabled:** `true`
+**ID:** `external/vercel-agent-skills/skills/web-design-guidelines`
+**Keywords:** `accessibility`, `audit`, `code`, `compliance`, `design`, `review`, `ui`, `ux`, `web`
+**Source:** vercel-agent-skills
+
+File: `external/vercel-agent-skills/skills/web-design-guidelines/SKILL.md`
 
 ### webapp-testing
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
@@ -2601,6 +2651,16 @@ Skills for analytics engineering with dbt - building models, writing tests, quer
 
 File: `external/kilo-marketplace-skills/skills/dbt/SKILL.md`
 
+### deploy-to-vercel
+Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+
+**Enabled:** `true`
+**ID:** `external/vercel-agent-skills/skills/deploy-to-vercel`
+**Keywords:** `actions`, `deploy`, `deployment`, `hosting`, `link`, `vercel`, `web`
+**Source:** vercel-agent-skills
+
+File: `external/vercel-agent-skills/skills/deploy-to-vercel/SKILL.md`
+
 ### figma-code-connect-components
 Connects Figma design components to code components using Code Connect mapping tools. Use when user says "code connect", "connect this component to code", "map this component", "link component to code", "create code connect mapping", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.
 
@@ -2770,6 +2830,16 @@ React composition patterns that scale. Use when refactoring components with bool
 **Source:** kilo-marketplace-skills
 
 File: `external/kilo-marketplace-skills/skills/vercel-composition-patterns/SKILL.md`
+
+### vercel-composition-patterns
+No description.
+
+**Enabled:** `true`
+**ID:** `external/vercel-agent-skills/skills/composition-patterns`
+**Keywords:** `architecture`, `development`, `frontend`, `react`, `refactor`, `refactoring`, `ui`, `vercel`
+**Source:** vercel-agent-skills
+
+File: `external/vercel-agent-skills/skills/composition-patterns/SKILL.md`
 
 ### vercel-deploy
 Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions such as "Deploy my app", "Deploy this to production", "Create a preview deployment", "Deploy and give me the link", or "Push this live". No authentication required - returns preview URL and claimable deployment link.

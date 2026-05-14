@@ -5,21 +5,22 @@ Select only keywords that directly match the current request. Prefer exact stack
 
 - **algorand**: 1 skills — `skills/catalog/keywords/algorand/skills.md`
 - **analysis**: 27 skills — `skills/catalog/keywords/analysis/skills.md`
-- **architecture**: 5 skills — `skills/catalog/keywords/architecture/skills.md`
-- **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
+- **architecture**: 6 skills — `skills/catalog/keywords/architecture/skills.md`
+- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
+- **authentication**: 1 skills — `skills/catalog/keywords/authentication/skills.md`
 - **binary**: 6 skills — `skills/catalog/keywords/binary/skills.md`
 - **blockchain**: 8 skills — `skills/catalog/keywords/blockchain/skills.md`
 - **burp**: 1 skills — `skills/catalog/keywords/burp/skills.md`
 - **cairo**: 1 skills — `skills/catalog/keywords/cairo/skills.md`
 - **code-review**: 10 skills — `skills/catalog/keywords/code-review/skills.md`
 - **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
-- **compliance**: 9 skills — `skills/catalog/keywords/compliance/skills.md`
+- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
 - **cosmos**: 1 skills — `skills/catalog/keywords/cosmos/skills.md`
 - **cpp**: 2 skills — `skills/catalog/keywords/cpp/skills.md`
 - **cryptography**: 6 skills — `skills/catalog/keywords/cryptography/skills.md`
 - **debug**: 1 skills — `skills/catalog/keywords/debug/skills.md`
 - **debugging**: 7 skills — `skills/catalog/keywords/debugging/skills.md`
-- **development**: 55 skills — `skills/catalog/keywords/development/skills.md`
+- **development**: 59 skills — `skills/catalog/keywords/development/skills.md`
 - **dwarf**: 1 skills — `skills/catalog/keywords/dwarf/skills.md`
 - **engineering**: 12 skills — `skills/catalog/keywords/engineering/skills.md`
 - **error-analysis**: 1 skills — `skills/catalog/keywords/error-analysis/skills.md`
@@ -29,7 +30,8 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **malware**: 1 skills — `skills/catalog/keywords/malware/skills.md`
 - **policy**: 1 skills — `skills/catalog/keywords/policy/skills.md`
 - **python**: 6 skills — `skills/catalog/keywords/python/skills.md`
-- **refactor**: 3 skills — `skills/catalog/keywords/refactor/skills.md`
+- **refactor**: 4 skills — `skills/catalog/keywords/refactor/skills.md`
+- **refactoring**: 2 skills — `skills/catalog/keywords/refactoring/skills.md`
 - **risk**: 5 skills — `skills/catalog/keywords/risk/skills.md`
 - **runbook**: 3 skills — `skills/catalog/keywords/runbook/skills.md`
 - **rust**: 4 skills — `skills/catalog/keywords/rust/skills.md`

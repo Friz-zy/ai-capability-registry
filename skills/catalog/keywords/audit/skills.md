@@ -62,3 +62,8 @@ File: `external/anthropic-knowledge-work-plugins/finance/skills/sox-testing/SKIL
 Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements.
 
 File: `external/trailofbits-skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md`
+
+### web-design-guidelines
+Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+
+File: `external/vercel-agent-skills/skills/web-design-guidelines/SKILL.md`

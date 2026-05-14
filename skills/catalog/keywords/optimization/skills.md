@@ -17,3 +17,13 @@ File: `external/anthropic-skills/skills/skill-creator/SKILL.md`
 Iteratively reviews and fixes Claude Code skill quality issues until they meet standards. Runs automated fix-review cycles using the skill-reviewer agent. Use to fix skill quality issues, improve skill descriptions, run automated skill review loops, or iteratively refine a skill. Triggers on 'fix my skill', 'improve skill quality', 'skill improvement loop'. NOT for one-time reviews—use /skill-reviewer directly.
 
 File: `external/trailofbits-skills/plugins/skill-improver/skills/skill-improver/SKILL.md`
+
+### vercel-react-best-practices
+React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.
+
+File: `external/vercel-agent-skills/skills/react-best-practices/SKILL.md`
+
+### vercel-react-native-skills
+No description.
+
+File: `external/vercel-agent-skills/skills/react-native-skills/SKILL.md`

@@ -4,7 +4,7 @@
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
 - **ads**: 1 skills — `skills/catalog/keywords/ads/skills.md`
-- **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
+- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
 - **brand**: 7 skills — `skills/catalog/keywords/brand/skills.md`
 - **business**: 4 skills — `skills/catalog/keywords/business/skills.md`
 - **business-marketing**: 4 skills — `skills/catalog/keywords/business-marketing/skills.md`
@@ -12,7 +12,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **campaign**: 3 skills — `skills/catalog/keywords/campaign/skills.md`
 - **compensation**: 2 skills — `skills/catalog/keywords/compensation/skills.md`
 - **competitive-intelligence**: 4 skills — `skills/catalog/keywords/competitive-intelligence/skills.md`
-- **compliance**: 9 skills — `skills/catalog/keywords/compliance/skills.md`
+- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
 - **content**: 10 skills — `skills/catalog/keywords/content/skills.md`
 - **crm**: 8 skills — `skills/catalog/keywords/crm/skills.md`
 - **finance**: 8 skills — `skills/catalog/keywords/finance/skills.md`

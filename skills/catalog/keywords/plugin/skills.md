@@ -18,11 +18,6 @@ Create and scaffold plugin directories for Codex with a required `.codex-plugin/
 
 File: `external/openai-skills/skills/.system/plugin-creator/SKILL.md`
 
-### using-superpowers
-Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
-
-File: `external/superpowers-skills/skills/using-superpowers/SKILL.md`
-
 ### writing-skills
 Use when creating new skills, editing existing skills, or verifying skills work before deployment
 

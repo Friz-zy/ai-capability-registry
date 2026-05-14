@@ -9,6 +9,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **customer-support**: 5 skills — `skills/catalog/keywords/customer-support/skills.md`
 - **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
 - **knowledge**: 4 skills — `skills/catalog/keywords/knowledge/skills.md`
+- **link**: 1 skills — `skills/catalog/keywords/link/skills.md`
 - **metrics**: 2 skills — `skills/catalog/keywords/metrics/skills.md`
 - **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
 - **product**: 8 skills — `skills/catalog/keywords/product/skills.md`

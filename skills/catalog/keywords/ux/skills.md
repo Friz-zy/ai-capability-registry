@@ -22,3 +22,8 @@ File: `external/anthropic-knowledge-work-plugins/design/skills/user-research/SKI
 Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with "write copy for", "what should this button say?", "review this error message", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text.
 
 File: `external/anthropic-knowledge-work-plugins/design/skills/ux-copy/SKILL.md`
+
+### web-design-guidelines
+Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+
+File: `external/vercel-agent-skills/skills/web-design-guidelines/SKILL.md`

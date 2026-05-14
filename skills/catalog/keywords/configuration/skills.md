@@ -37,3 +37,13 @@ File: `external/anthropic-knowledge-work-plugins/bio-research/skills/start/SKILL
 Initialize the productivity system and open the dashboard. Use when setting up the plugin for the first time, bootstrapping working memory from your existing task list, or decoding the shorthand (nicknames, acronyms, project codenames) you use in your todos.
 
 File: `external/anthropic-knowledge-work-plugins/productivity/skills/start/SKILL.md`
+
+### vercel-cli-with-tokens
+Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. "deploy to vercel", "set up vercel", "add environment variables to vercel".
+
+File: `external/vercel-agent-skills/skills/vercel-cli-with-tokens/SKILL.md`
+
+### vercel-react-native-skills
+No description.
+
+File: `external/vercel-agent-skills/skills/react-native-skills/SKILL.md`

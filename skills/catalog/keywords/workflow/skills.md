@@ -93,11 +93,6 @@ Use when starting feature work that needs isolation from current workspace or be
 
 File: `external/superpowers-skills/skills/using-git-worktrees/SKILL.md`
 
-### using-superpowers
-Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
-
-File: `external/superpowers-skills/skills/using-superpowers/SKILL.md`
-
 ### verification-before-completion
 Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 

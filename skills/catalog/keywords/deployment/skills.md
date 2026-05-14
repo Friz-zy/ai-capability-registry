@@ -8,6 +8,11 @@ Pre-deployment verification checklist. Use when about to ship a release, deployi
 
 File: `external/anthropic-knowledge-work-plugins/engineering/skills/deploy-checklist/SKILL.md`
 
+### deploy-to-vercel
+Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+
+File: `external/vercel-agent-skills/skills/deploy-to-vercel/SKILL.md`
+
 ### finishing-a-development-branch
 Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
 
@@ -27,6 +32,11 @@ File: `external/trailofbits-skills-curated/plugins/openai-netlify-deploy/skills/
 Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.
 
 File: `external/openai-skills/skills/.curated/render-deploy/SKILL.md`
+
+### vercel-cli-with-tokens
+Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. "deploy to vercel", "set up vercel", "add environment variables to vercel".
+
+File: `external/vercel-agent-skills/skills/vercel-cli-with-tokens/SKILL.md`
 
 ### vercel-composition-patterns
 React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes.

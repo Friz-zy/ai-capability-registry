@@ -52,3 +52,8 @@ File: `external/anthropic-knowledge-work-plugins/productivity/skills/task-manage
 Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, deciding whether to renew or replace a contract, comparing two vendors side-by-side, or building a TCO breakdown and negotiation points before procurement sign-off.
 
 File: `external/anthropic-knowledge-work-plugins/operations/skills/vendor-review/SKILL.md`
+
+### vercel-cli-with-tokens
+Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. "deploy to vercel", "set up vercel", "add environment variables to vercel".
+
+File: `external/vercel-agent-skills/skills/vercel-cli-with-tokens/SKILL.md`

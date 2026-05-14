@@ -3,19 +3,22 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
+- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
+- **authentication**: 1 skills — `skills/catalog/keywords/authentication/skills.md`
 - **binary**: 6 skills — `skills/catalog/keywords/binary/skills.md`
 - **burp**: 1 skills — `skills/catalog/keywords/burp/skills.md`
 - **ci**: 2 skills — `skills/catalog/keywords/ci/skills.md`
 - **cloudflare**: 1 skills — `skills/catalog/keywords/cloudflare/skills.md`
 - **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
-- **compliance**: 9 skills — `skills/catalog/keywords/compliance/skills.md`
+- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
 - **cryptography**: 6 skills — `skills/catalog/keywords/cryptography/skills.md`
-- **deployment**: 7 skills — `skills/catalog/keywords/deployment/skills.md`
+- **deploy**: 2 skills — `skills/catalog/keywords/deploy/skills.md`
+- **deployment**: 9 skills — `skills/catalog/keywords/deployment/skills.md`
 - **dwarf**: 1 skills — `skills/catalog/keywords/dwarf/skills.md`
 - **error-analysis**: 1 skills — `skills/catalog/keywords/error-analysis/skills.md`
 - **firebase**: 1 skills — `skills/catalog/keywords/firebase/skills.md`
 - **ghidra**: 2 skills — `skills/catalog/keywords/ghidra/skills.md`
+- **hosting**: 1 skills — `skills/catalog/keywords/hosting/skills.md`
 - **incident**: 2 skills — `skills/catalog/keywords/incident/skills.md`
 - **langsmith**: 1 skills — `skills/catalog/keywords/langsmith/skills.md`
 - **malware**: 1 skills — `skills/catalog/keywords/malware/skills.md`
@@ -34,5 +37,5 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **supply-chain**: 1 skills — `skills/catalog/keywords/supply-chain/skills.md`
 - **threat-model**: 2 skills — `skills/catalog/keywords/threat-model/skills.md`
 - **trailmark**: 3 skills — `skills/catalog/keywords/trailmark/skills.md`
-- **vercel**: 3 skills — `skills/catalog/keywords/vercel/skills.md`
+- **vercel**: 9 skills — `skills/catalog/keywords/vercel/skills.md`
 - **yara**: 1 skills — `skills/catalog/keywords/yara/skills.md`

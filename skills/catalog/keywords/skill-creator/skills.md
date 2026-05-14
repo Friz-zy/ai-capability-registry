@@ -33,11 +33,6 @@ A skill that creates new agent skills and automatically shares them on Slack usi
 
 File: `external/kilo-marketplace-skills/skills/skill-share/SKILL.md`
 
-### using-superpowers
-Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
-
-File: `external/superpowers-skills/skills/using-superpowers/SKILL.md`
-
 ### writing-skills
 Use when creating new skills, editing existing skills, or verifying skills work before deployment
 

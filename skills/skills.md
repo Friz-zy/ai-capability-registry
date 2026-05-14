@@ -1,11 +1,22 @@
 # AI Capability Registry
 
+## Skill Sources
+
+Skills may be available from two sources:
+
+- **Agent-native skills**: skills exposed by the current agent runtime through its built-in skill command or tool.
+- **Registry skills**: skills indexed under this repository's `skills/` routing catalogs and loaded from referenced `SKILL.md` files.
+
+Use both sources as one capability pool. Prefer the agent-native skill command when the same trusted skill is already available there; otherwise use this registry's routing catalogs and read the referenced `SKILL.md` file.
+
+Do not assume that every registry skill is installed in the agent runtime. Do not assume that every agent-native skill is represented in this registry.
+
 ## Skill Resolution Protocol
 
-Before starting work, resolve skills with progressive disclosure:
+Before starting work, resolve skills from both agent-native skills and this registry with progressive disclosure:
 
 1. **Extract intent** — identify action, domain, stack/tool, artifact, and constraints from the user request.
-2. **Route by task first** — match the request to one Task below; select a second Task only for clearly mixed workflows.
+2. **Route by task first** — match the request to one Task below; select a second Task only for clearly mixed requests.
 3. **Use role as context** — select at most one Role only when the user asks from that role perspective or it disambiguates the task.
 4. **Read selected indexes only** — open only the matched `skills/catalog/tasks/<task-id>/skills.md` and optional `skills/catalog/roles/<role-id>/skills.md`.
 5. **Choose keywords** — select 1-3 most specific keywords from those indexes; prefer exact stack/tool keywords over broad category keywords.
@@ -21,12 +32,6 @@ Paths in keyword catalogs are relative to this registry root.
 Use `skills/catalog/` only for skill selection.
 Use `skills/packs/` only when configuring agents with preselected skill directories.
 Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution.
-
-### Default Development Methodology
-
-When `superpowers-skills` are available and relevant, prefer them as the default software-development workflow skills before comparable generic skills.
-Use Superpowers for brainstorming before code, implementation planning, true red/green TDD, systematic debugging, subagent-driven execution, code review, and finishing development branches.
-Treat those workflows as mandatory guidance for matching development tasks, while still loading only relevant `SKILL.md` files from trusted or reviewed sources.
 
 ### Roles (category groupings)
 
@@ -59,7 +64,7 @@ Treat those workflows as mandatory guidance for matching development tasks, whil
 - **Blockchain Engineer**: `skills/catalog/roles/blockchain-engineer/skills.md` -> `blockchain`, `security`, `engineering`
 - **Hardware and IoT Engineer**: `skills/catalog/roles/hardware-iot-engineer/skills.md` -> `hardware`, `devops`, `security`
 
-### Tasks (workflow entry points)
+### Tasks (entry points)
 
 - **Plan a Feature or Spec**: `skills/catalog/tasks/plan-feature/skills.md` -> `architecture`, `planning`, `requirements`, `roadmap`, `spec`, `user-research`
 - **Implement or Refactor Code**: `skills/catalog/tasks/implement-code/skills.md` -> `debugging`, `development`, `documentation`, `refactor`, `testing`
@@ -72,7 +77,7 @@ Treat those workflows as mandatory guidance for matching development tasks, whil
 - **Deploy or Release**: `skills/catalog/tasks/deploy-release/skills.md` -> `changelog`, `ci`, `cloudflare`, `deployment`, `netlify`, `render`, `vercel`
 - **Analyze Data or Metrics**: `skills/catalog/tasks/analyze-data/skills.md` -> `analytics`, `dashboard`, `data`, `forecast`, `metrics`, `sql`, `statistics`, `visualization`
 - **Research and Brief**: `skills/catalog/tasks/research-brief/skills.md` -> `knowledge`, `pdf`, `research`, `summarization`
-- **Build Agent Automation**: `skills/catalog/tasks/automate-agent/skills.md` -> `agent`, `automation`, `claude-code`, `codex`, `mcp`, `plugin`, `skill-creator`
+- **Build Agent Automation**: `skills/catalog/tasks/automate-agent/skills.md` -> `agent`, `automation`, `mcp`, `plugin`, `skill-creator`
 - **Write Docs or Documents**: `skills/catalog/tasks/write-documents/skills.md` -> `changelog`, `content`, `documentation`, `docx`, `pdf`, `pptx`, `summarization`, `writing`
 - **Manage Product or Project**: `skills/catalog/tasks/manage-project/skills.md` -> `planning`, `roadmap`, `spec`, `sprint`, `stakeholder`, `task-management`
 - **Support Customers or Sales**: `skills/catalog/tasks/customer-sales/skills.md` -> `account-research`, `call-prep`, `customer-support`, `lead-generation`, `outreach`, `pipeline`, `ticket-triage`
@@ -84,7 +89,7 @@ Treat those workflows as mandatory guidance for matching development tasks, whil
 - **Manage Cloud Infrastructure**: `skills/catalog/tasks/manage-cloud-infra/skills.md` -> `ci`, `cloudflare`, `deployment`, `incident`, `netlify`, `render`, `vercel`
 - **Build Blockchain or Smart Contracts**: `skills/catalog/tasks/build-blockchain/skills.md` -> `blockchain`, `cairo`, `smart-contracts`, `solana`, `solidity`, `threat-model`
 - **Build Hardware or IoT**: `skills/catalog/tasks/build-hardware-iot/skills.md` -> `integration`
-- **Build Mobile or Desktop App**: `skills/catalog/tasks/build-mobile-desktop/skills.md` -> `android`, `testing`, `windows`
+- **Build Mobile or Desktop App**: `skills/catalog/tasks/build-mobile-desktop/skills.md` -> `android`, `ios`, `react-native`, `testing`, `windows`
 
 ## Policy
 - Use **trusted** or **reviewed** sources only

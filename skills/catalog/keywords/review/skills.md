@@ -78,7 +78,17 @@ Identifies error-prone APIs, dangerous configurations, and footgun designs that 
 
 File: `external/trailofbits-skills/plugins/sharp-edges/skills/sharp-edges/SKILL.md`
 
+### vercel-react-best-practices
+React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.
+
+File: `external/vercel-agent-skills/skills/react-best-practices/SKILL.md`
+
 ### verification-before-completion
 Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 
 File: `external/superpowers-skills/skills/verification-before-completion/SKILL.md`
+
+### web-design-guidelines
+Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+
+File: `external/vercel-agent-skills/skills/web-design-guidelines/SKILL.md`

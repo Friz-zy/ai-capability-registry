@@ -23,6 +23,11 @@ Design systems, services, and architectures. Trigger with "design a system for",
 
 File: `external/anthropic-knowledge-work-plugins/engineering/skills/system-design/SKILL.md`
 
+### vercel-composition-patterns
+No description.
+
+File: `external/vercel-agent-skills/skills/composition-patterns/SKILL.md`
+
 ### writing-plans
 Use when you have a spec or requirements for a multi-step task, before touching code
 

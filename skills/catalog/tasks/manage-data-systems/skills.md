@@ -13,6 +13,6 @@ Select 1-3 keywords that directly match the current request. Prefer exact stack/
 
 - **analytics**: 12 skills — `skills/catalog/keywords/analytics/skills.md`
 - **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
-- **data**: 16 skills — `skills/catalog/keywords/data/skills.md`
+- **data**: 17 skills — `skills/catalog/keywords/data/skills.md`
 - **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
 - **sql**: 4 skills — `skills/catalog/keywords/sql/skills.md`

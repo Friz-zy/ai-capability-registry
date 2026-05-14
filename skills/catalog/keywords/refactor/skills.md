@@ -17,3 +17,8 @@ File: `external/anthropic-knowledge-work-plugins/engineering/skills/tech-debt/SK
 Use when implementing any feature or bugfix, before writing implementation code
 
 File: `external/superpowers-skills/skills/test-driven-development/SKILL.md`
+
+### vercel-composition-patterns
+No description.
+
+File: `external/vercel-agent-skills/skills/composition-patterns/SKILL.md`
