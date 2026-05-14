@@ -27,3 +27,6 @@
 [submodule "external/superpowers-skills"]
 	path = external/superpowers-skills
 	url = https://github.com/obra/superpowers
+[submodule "external/vercel-agent-skills"]
+	path = external/vercel-agent-skills
+	url = https://github.com/vercel-labs/agent-skills

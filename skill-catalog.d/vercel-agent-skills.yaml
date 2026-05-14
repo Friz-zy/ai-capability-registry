@@ -1,0 +1,130 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "vercel-agent-skills"
+skills:
+  - id: "external/vercel-agent-skills/skills/deploy-to-vercel"
+    exists: true
+    enabled: true
+    name: "deploy-to-vercel"
+    description: "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\"."
+    source: "vercel-agent-skills"
+    path: "external/vercel-agent-skills/skills/deploy-to-vercel"
+    skill_file: "external/vercel-agent-skills/skills/deploy-to-vercel/SKILL.md"
+    keywords:
+      - "actions"
+      - "deploy"
+      - "deployment"
+      - "hosting"
+      - "link"
+      - "vercel"
+      - "web"
+  - id: "external/vercel-agent-skills/skills/vercel-cli-with-tokens"
+    exists: true
+    enabled: true
+    name: "vercel-cli-with-tokens"
+    description: "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\"."
+    source: "vercel-agent-skills"
+    path: "external/vercel-agent-skills/skills/vercel-cli-with-tokens"
+    skill_file: "external/vercel-agent-skills/skills/vercel-cli-with-tokens/SKILL.md"
+    keywords:
+      - "access"
+      - "authentication"
+      - "cli"
+      - "configuration"
+      - "deploy"
+      - "deployment"
+      - "management"
+      - "vercel"
+  - id: "external/vercel-agent-skills/skills/composition-patterns"
+    exists: true
+    enabled: true
+    name: "vercel-composition-patterns"
+    description: "No description."
+    source: "vercel-agent-skills"
+    path: "external/vercel-agent-skills/skills/composition-patterns"
+    skill_file: "external/vercel-agent-skills/skills/composition-patterns/SKILL.md"
+    keywords:
+      - "architecture"
+      - "development"
+      - "frontend"
+      - "react"
+      - "refactor"
+      - "refactoring"
+      - "ui"
+      - "vercel"
+  - id: "external/vercel-agent-skills/skills/react-best-practices"
+    exists: true
+    enabled: true
+    name: "vercel-react-best-practices"
+    description: "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements."
+    source: "vercel-agent-skills"
+    path: "external/vercel-agent-skills/skills/react-best-practices"
+    skill_file: "external/vercel-agent-skills/skills/react-best-practices/SKILL.md"
+    keywords:
+      - "code"
+      - "data"
+      - "development"
+      - "frontend"
+      - "next"
+      - "optimization"
+      - "pages"
+      - "react"
+      - "refactoring"
+      - "review"
+      - "vercel"
+      - "web"
+  - id: "external/vercel-agent-skills/skills/react-native-skills"
+    exists: true
+    enabled: true
+    name: "vercel-react-native-skills"
+    description: "No description."
+    source: "vercel-agent-skills"
+    path: "external/vercel-agent-skills/skills/react-native-skills"
+    skill_file: "external/vercel-agent-skills/skills/react-native-skills/SKILL.md"
+    keywords:
+      - "android"
+      - "configuration"
+      - "development"
+      - "ios"
+      - "optimization"
+      - "react-native"
+      - "ui"
+      - "vercel"
+  - id: "external/vercel-agent-skills/skills/react-view-transitions"
+    exists: true
+    enabled: true
+    name: "vercel-react-view-transitions"
+    description: "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries."
+    source: "vercel-agent-skills"
+    path: "external/vercel-agent-skills/skills/react-view-transitions"
+    skill_file: "external/vercel-agent-skills/skills/react-view-transitions/SKILL.md"
+    keywords:
+      - "design"
+      - "development"
+      - "frontend"
+      - "integration"
+      - "next"
+      - "react"
+      - "ui"
+      - "vercel"
+      - "web"
+  - id: "external/vercel-agent-skills/skills/web-design-guidelines"
+    exists: true
+    enabled: true
+    name: "web-design-guidelines"
+    description: "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\"."
+    source: "vercel-agent-skills"
+    path: "external/vercel-agent-skills/skills/web-design-guidelines"
+    skill_file: "external/vercel-agent-skills/skills/web-design-guidelines/SKILL.md"
+    keywords:
+      - "accessibility"
+      - "audit"
+      - "code"
+      - "compliance"
+      - "design"
+      - "review"
+      - "ui"
+      - "ux"
+      - "web"

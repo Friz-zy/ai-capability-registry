@@ -199,6 +199,46 @@ skills:
       reviewed: true
     enabled: true
 
+  - id: vercel-agent-skills
+    name: Vercel Agent Skills
+    description: Agent skills from Vercel Labs for portable agent workflows.
+    source:
+      type: git
+      repo: https://github.com/vercel-labs/agent-skills
+      subdir: skills
+      external_path: external/vercel-agent-skills
+    category:
+      - core
+      - official
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: official_vendor
+    activation:
+      keywords:
+        - vercel
+        - agent skills
+        - skill
+    compatibility:
+      - codex-cli
+      - kilo-code
+      - claude-code
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: b9c8ee0643d87d3c5a953d1e22382ff2ead39229
+      pinned: true
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
   - id: agentskills-spec
     name: Agent Skills Specification
     description: Portable skill format used as an intermediate representation for agent adapters.
