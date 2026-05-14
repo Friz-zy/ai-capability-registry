@@ -31,12 +31,30 @@ The bootstrap script will:
 1. Sync external submodules to correct commits
 2. Validate registry configuration
 3. Sync provider chunks under `skill-catalog.d/` with discovered skills
-4. Generate the combined `skills/` routing catalogs and symlink packs from `skill-catalog.d/`
-5. Generate MCP routing catalogs from `mcp-catalog.d/`
+4. Generate the workflow routing index from `registry/workflows.yaml`
+5. Generate the combined `skills/` routing catalogs and symlink packs from `skill-catalog.d/`
+6. Generate MCP routing catalogs from `mcp-catalog.d/`
 
 ## How Agents Use This Registry
 
 Agents can use this registry in two ways: dynamic routing at runtime or a minimal static setup derived from the registry for a specific agent, role, or task.
+
+### Workflows
+
+Use the generated workflow routing index when the agent should choose process guidance before loading concrete skills or MCP servers:
+
+```
+<path-to-registry>/workflows/workflows.md
+```
+
+Add workflow and skill routing through `AGENTS.md` or an equivalent instruction file:
+
+```markdown
+Read workflow routing instructions from <path-to-registry>/workflows/workflows.md
+Read additional skill routing instructions from <path-to-registry>/skills/skills.md
+```
+
+Workflow routing should be read before skill routing. Workflows answer how to approach a task; skills provide concrete task, tool, or domain instructions.
 
 ### Skills
 
@@ -93,6 +111,7 @@ Editable source chunks:
 | --- | --- |
 | `registry/skills.yaml` | Upstream skills discovery source configuration |
 | `registry/mcp-sources.yaml` | Upstream MCP discovery source configuration |
+| `registry/workflows.yaml` | Workflow routing source configuration |
 | `skill-catalog.d/*.yaml` | Source of truth for discovered skills |
 | `mcp-catalog.d/*.yml` | Source of truth for MCP servers |
 
@@ -105,6 +124,8 @@ Generated outputs:
 | `skills/catalog/roles/<role>/skills.md` | Skill role routing indexes |
 | `skills/catalog/keywords/<keyword>/skills.md` | Skill keyword routing indexes |
 | `skills/packs/` | Symlink packs for direct agent inclusion |
+| `workflows/workflows.md` | Root workflow routing index |
+| `workflows/<workflow>.md` | Workflow guide files referenced by the workflow index |
 | `mcp/mcp.md` | Root MCP routing index |
 | `mcp/catalog/tasks/<task>/servers.md` | MCP task routing indexes |
 | `mcp/catalog/roles/<role>/servers.md` | MCP role routing indexes |
@@ -127,7 +148,8 @@ Important MCP fields are `enabled`, `exists`, `trust`, `runtime`, `transport.typ
 
 | Command | Use |
 | --- | --- |
-| `./scripts/bootstrap.sh` | Full sync, validation, skills generation, and MCP generation |
+| `./scripts/bootstrap.sh` | Full sync, validation, workflow generation, skills generation, and MCP generation |
+| `./scripts/generate-workflows.py` | Regenerate `workflows/workflows.md` from `registry/workflows.yaml` |
 | `./scripts/discover-skills.py` | Regenerate skill catalogs and packs from `skill-catalog.d/` |
 | `./scripts/discover-mcp.py` | Import disabled candidate MCP entries from configured upstream sources |
 | `./scripts/generate-mcp.py` | Regenerate `mcp/` and `mcp-catalog.md` from `mcp-catalog.d/` |
@@ -146,4 +168,4 @@ Policy defaults:
 - Never use `curl | sh`, privileged Docker, host networking, Docker socket mounts, or unrestricted host mounts.
 - Load skills and MCP servers only when they are relevant to the current task.
 
-Trusted skill sources currently include Anthropic skills and knowledge-work plugins, OpenAI skills, the Agent Skills specification, Superpowers development methodology skills, Trail of Bits security workflows, and Kilo Marketplace skills.
+Trusted skill sources currently include Anthropic skills and knowledge-work plugins, OpenAI skills, Vercel Agent Skills, the Agent Skills specification, Superpowers development methodology skills, Trail of Bits security workflows, and Kilo Marketplace skills.

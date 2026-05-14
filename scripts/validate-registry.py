@@ -12,6 +12,7 @@ DOCKER_DENY_ARGS = {"--privileged", "--network=host", "--pid=host", "--ipc=host"
 REQUIRED_AGENT_FIELDS = {"id", "name", "supports"}
 REQUIRED_PROFILE_FIELDS = {"id", "name", "include"}
 REQUIRED_TASK_FIELDS = {"id", "name", "description", "categories", "keywords"}
+REQUIRED_WORKFLOW_FIELDS = {"id", "name", "description"}
 ALLOWED_SOURCE_TYPES = {"git", "docker", "hosted_https", "hosted_https_oauth", "hosted_or_docker"}
 
 
@@ -132,6 +133,23 @@ def validate_tasks(tasks: list[dict], keyword_categories: dict[str, list[str]], 
             require(keyword in keywords, f"task {task_id}: unknown keyword {keyword}", errors)
 
 
+def validate_workflows(workflows: list[dict], tasks: list[dict], profiles: list[dict], errors: list[str]) -> None:
+    unique_ids("workflows", workflows, errors)
+    task_ids = {task.get("id") for task in tasks}
+    profile_ids = {profile.get("id") for profile in profiles}
+    for workflow in workflows:
+        workflow_id = workflow.get("id", "<unknown>")
+        missing = REQUIRED_WORKFLOW_FIELDS - set(workflow)
+        require(not missing, f"workflow {workflow_id}: missing fields {sorted(missing)}", errors)
+        guide = workflow.get("guide")
+        if guide is not None:
+            require(isinstance(guide, str) and guide.startswith("workflows/"), f"workflow {workflow_id}: guide must be a workflows/ path", errors)
+        for task_id in workflow.get("match_tasks", []):
+            require(task_id in task_ids, f"workflow {workflow_id}: unknown match task {task_id}", errors)
+        for profile_id in workflow.get("match_roles", []):
+            require(profile_id in profile_ids, f"workflow {workflow_id}: unknown match role {profile_id}", errors)
+
+
 def main() -> int:
     try:
         registry = load_all()
@@ -149,6 +167,7 @@ def main() -> int:
     validate_agents(registry["agents"], errors)
     validate_profiles(registry["profiles"], trust_levels, categories, errors)
     validate_tasks(registry["tasks"], registry["keyword_categories"], errors)
+    validate_workflows(registry["workflows"], registry["tasks"], registry["profiles"], errors)
     validate_skills(registry["skills"], trust_levels, agent_ids, errors)
     validate_mcp(registry["mcp_servers"], trust_levels, agent_ids, policies, allowed_keywords, errors)
 

@@ -11,6 +11,9 @@ cd "${ROOT_DIR}"
 # Validate registry
 ./scripts/validate-registry.py
 
+# Generate workflow routing index
+./scripts/generate-workflows.py
+
 # Sync skill catalog chunks and generate the combined skills tree
 ./scripts/discover-skills.py
 
