@@ -1,5 +1,16 @@
 # MCP Capability Registry
 
+## MCP Sources
+
+MCP servers may be available from two sources:
+
+- **Agent-native MCP servers**: MCP servers already exposed by the current agent runtime through its built-in MCP configuration or tool layer.
+- **Registry MCP servers**: MCP servers indexed under this repository's `mcp/` routing catalogs and loaded from referenced server files and connection metadata.
+
+Use both sources as one capability pool. Prefer an already-connected agent-native MCP server when the same trusted or reviewed server is available there; otherwise use this registry's routing catalogs and follow the referenced server instructions.
+
+Do not assume that every registry MCP server is connected in the agent runtime. Do not assume that every agent-native MCP server is represented in this registry.
+
 ## MCP Resolution Protocol
 
 1. **Extract intent** - identify the target technology, service, SaaS product, data domain, action type, and sensitivity.
