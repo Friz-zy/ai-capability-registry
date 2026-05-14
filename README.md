@@ -1,5 +1,8 @@
 # AI Capability Registry
 
+> **Warning**
+> Connecting this registry through `AGENTS.md.template` makes agents read routing indexes and selected capability guides at runtime. This can use substantially more model context and tokens than a minimal static agent setup. Prefer task-, role-, keyword-, or project-specific subsets when context budget matters.
+
 AI Capability Registry is an experiment in dynamic capability routing for AI agents: load the right skills, MCP servers, workflows, and integration instructions only when the current task needs them.
 
 Instead of stuffing every agent with a huge static prompt, a random pile of tools, or every available MCP server, this repository treats agent capabilities as versioned infrastructure. An agent can resolve the user's request by task, role, and keywords, then progressively load only the relevant skill instructions or MCP connection guidance.
@@ -27,6 +30,14 @@ cd ai-capability-registry
 ./scripts/bootstrap.sh
 ```
 
+For shared use across multiple repositories, keep this registry at `~/.ai-registry`:
+
+```bash
+git clone --recurse-submodules <repo-url> ~/.ai-registry
+cd ~/.ai-registry
+./scripts/bootstrap.sh
+```
+
 The bootstrap script will:
 1. Sync external submodules to correct commits
 2. Validate registry configuration
@@ -39,6 +50,18 @@ The bootstrap script will:
 
 Agents can use this registry in two ways: dynamic routing at runtime or a minimal static setup derived from the registry for a specific agent, role, or task.
 
+### AGENTS.md Template
+
+Use `AGENTS.md.template` to connect another repository to a shared registry stored at `~/.ai-registry`:
+
+```bash
+cp ~/.ai-registry/AGENTS.md.template /path/to/project/AGENTS.md
+```
+
+The template is intentionally only a bootloader. It tells agents to read and follow `capability-routing.md`, `workflows/workflows.md`, `skills/skills.md`, and `mcp/mcp.md` from the shared registry, while allowing more specific local repository instructions to override shared guidance.
+
+If the registry is installed somewhere else, edit the paths in the copied `AGENTS.md`.
+
 ### Workflows
 
 Use the generated workflow routing index when the agent should choose process guidance before loading concrete skills or MCP servers:
@@ -47,12 +70,7 @@ Use the generated workflow routing index when the agent should choose process gu
 <path-to-registry>/workflows/workflows.md
 ```
 
-Add workflow and skill routing through `AGENTS.md` or an equivalent instruction file:
-
-```markdown
-Read workflow routing instructions from <path-to-registry>/workflows/workflows.md
-Read additional skill routing instructions from <path-to-registry>/skills/skills.md
-```
+For cross-repository use, prefer installing `AGENTS.md.template` rather than adding partial workflow-only instructions.
 
 Workflow routing should be read before skill routing. Workflows answer how to approach a task; skills provide concrete task, tool, or domain instructions.
 
@@ -64,11 +82,7 @@ Use the generated skill routing index when the agent should dynamically choose s
 <path-to-registry>/skills/skills.md
 ```
 
-Add it through `AGENTS.md` or an equivalent instruction file:
-
-```markdown
-Read additional skill routing instructions from <path-to-registry>/skills/skills.md
-```
+For dynamic routing, agents should reach this file through `AGENTS.md.template` or an equivalent bootloader that also includes `capability-routing.md`, workflows, and MCP routing.
 
 For direct agent configuration, attach one generated pack instead of the whole registry when you want a narrower static setup:
 
@@ -88,11 +102,7 @@ Use the generated MCP routing index when the agent should choose MCP servers onl
 <path-to-registry>/mcp/mcp.md
 ```
 
-Add it through `AGENTS.md` or an equivalent instruction file:
-
-```markdown
-Read MCP routing instructions from <path-to-registry>/mcp/mcp.md
-```
+For dynamic routing, agents should reach this file through `AGENTS.md.template` or an equivalent bootloader that also includes `capability-routing.md`, workflows, and skills routing.
 
 For direct agent configuration, adapt the generated connection metadata to your agent's MCP config schema:
 

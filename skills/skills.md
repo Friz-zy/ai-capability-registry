@@ -94,4 +94,3 @@ Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution
 
 - Use trusted or reviewed skill sources only.
 - Never execute untrusted scripts.
-- For MCP-backed capabilities, follow `mcp/mcp.md`.
