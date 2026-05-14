@@ -8,6 +8,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **audit**: 12 skills — `skills/catalog/keywords/audit/skills.md`
 - **binary**: 6 skills — `skills/catalog/keywords/binary/skills.md`
 - **burp**: 1 skills — `skills/catalog/keywords/burp/skills.md`
+- **ci**: 2 skills — `skills/catalog/keywords/ci/skills.md`
 - **cloudflare**: 1 skills — `skills/catalog/keywords/cloudflare/skills.md`
 - **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
 - **compliance**: 9 skills — `skills/catalog/keywords/compliance/skills.md`
@@ -15,7 +16,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
 - **data**: 16 skills — `skills/catalog/keywords/data/skills.md`
 - **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
-- **deployment**: 6 skills — `skills/catalog/keywords/deployment/skills.md`
+- **deployment**: 7 skills — `skills/catalog/keywords/deployment/skills.md`
 - **dotnet**: 1 skills — `skills/catalog/keywords/dotnet/skills.md`
 - **dwarf**: 1 skills — `skills/catalog/keywords/dwarf/skills.md`
 - **firebase**: 1 skills — `skills/catalog/keywords/firebase/skills.md`

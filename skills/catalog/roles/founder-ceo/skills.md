@@ -30,7 +30,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **people**: 2 skills — `skills/catalog/keywords/people/skills.md`
 - **performance-review**: 1 skills — `skills/catalog/keywords/performance-review/skills.md`
 - **pipeline**: 4 skills — `skills/catalog/keywords/pipeline/skills.md`
-- **planning**: 13 skills — `skills/catalog/keywords/planning/skills.md`
+- **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
 - **product**: 8 skills — `skills/catalog/keywords/product/skills.md`
 - **reconciliation**: 1 skills — `skills/catalog/keywords/reconciliation/skills.md`
 - **recruiting**: 5 skills — `skills/catalog/keywords/recruiting/skills.md`
@@ -38,7 +38,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **sales**: 10 skills — `skills/catalog/keywords/sales/skills.md`
 - **seo**: 1 skills — `skills/catalog/keywords/seo/skills.md`
 - **sox**: 2 skills — `skills/catalog/keywords/sox/skills.md`
-- **spec**: 3 skills — `skills/catalog/keywords/spec/skills.md`
+- **spec**: 5 skills — `skills/catalog/keywords/spec/skills.md`
 - **sprint**: 2 skills — `skills/catalog/keywords/sprint/skills.md`
 - **stakeholder**: 1 skills — `skills/catalog/keywords/stakeholder/skills.md`
-- **user-research**: 2 skills — `skills/catalog/keywords/user-research/skills.md`
+- **user-research**: 3 skills — `skills/catalog/keywords/user-research/skills.md`

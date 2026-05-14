@@ -1,0 +1,237 @@
+# Auto-synced by scripts/discover-skills.py.
+# Edit `enabled` and `keywords`; other fields are refreshed from discovered skills when exists=true.
+# `keywords` are auto-filled only for newly discovered skills, then preserved for manual curation.
+# `exists=false` means the skill was previously cataloged but is absent from current external sources.
+source: "superpowers-skills"
+skills:
+  - id: "external/superpowers-skills/skills/brainstorming"
+    exists: true
+    enabled: true
+    name: "brainstorming"
+    description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/brainstorming"
+    skill_file: "external/superpowers-skills/skills/brainstorming/SKILL.md"
+    keywords:
+      - "architecture"
+      - "brainstorming"
+      - "design"
+      - "development"
+      - "planning"
+      - "requirements"
+      - "spec"
+      - "user-research"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/dispatching-parallel-agents"
+    exists: true
+    enabled: true
+    name: "dispatching-parallel-agents"
+    description: "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/dispatching-parallel-agents"
+    skill_file: "external/superpowers-skills/skills/dispatching-parallel-agents/SKILL.md"
+    keywords:
+      - "agent"
+      - "automation"
+      - "management"
+      - "parallel-task"
+      - "planning"
+      - "task-management"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/executing-plans"
+    exists: true
+    enabled: true
+    name: "executing-plans"
+    description: "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/executing-plans"
+    skill_file: "external/superpowers-skills/skills/executing-plans/SKILL.md"
+    keywords:
+      - "development"
+      - "execute"
+      - "planning"
+      - "review"
+      - "task-management"
+      - "validation"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/finishing-a-development-branch"
+    exists: true
+    enabled: true
+    name: "finishing-a-development-branch"
+    description: "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/finishing-a-development-branch"
+    skill_file: "external/superpowers-skills/skills/finishing-a-development-branch/SKILL.md"
+    keywords:
+      - "changelog"
+      - "ci"
+      - "code-review"
+      - "deployment"
+      - "development"
+      - "git"
+      - "pull-requests"
+      - "testing"
+      - "validation"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/receiving-code-review"
+    exists: true
+    enabled: true
+    name: "receiving-code-review"
+    description: "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/receiving-code-review"
+    skill_file: "external/superpowers-skills/skills/receiving-code-review/SKILL.md"
+    keywords:
+      - "code-review"
+      - "development"
+      - "review"
+      - "testing"
+      - "validation"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/requesting-code-review"
+    exists: true
+    enabled: true
+    name: "requesting-code-review"
+    description: "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/requesting-code-review"
+    skill_file: "external/superpowers-skills/skills/requesting-code-review/SKILL.md"
+    keywords:
+      - "code-review"
+      - "pull-requests"
+      - "requirements"
+      - "review"
+      - "testing"
+      - "validation"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/subagent-driven-development"
+    exists: true
+    enabled: true
+    name: "subagent-driven-development"
+    description: "Use when executing implementation plans with independent tasks in the current session"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/subagent-driven-development"
+    skill_file: "external/superpowers-skills/skills/subagent-driven-development/SKILL.md"
+    keywords:
+      - "agent"
+      - "automation"
+      - "development"
+      - "execute"
+      - "planning"
+      - "task-management"
+      - "testing"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/systematic-debugging"
+    exists: true
+    enabled: true
+    name: "systematic-debugging"
+    description: "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/systematic-debugging"
+    skill_file: "external/superpowers-skills/skills/systematic-debugging/SKILL.md"
+    keywords:
+      - "debug"
+      - "debugging"
+      - "development"
+      - "error-analysis"
+      - "incident"
+      - "runbook"
+      - "testing"
+      - "validation"
+  - id: "external/superpowers-skills/skills/test-driven-development"
+    exists: true
+    enabled: true
+    name: "test-driven-development"
+    description: "Use when implementing any feature or bugfix, before writing implementation code"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/test-driven-development"
+    skill_file: "external/superpowers-skills/skills/test-driven-development/SKILL.md"
+    keywords:
+      - "development"
+      - "quality"
+      - "refactor"
+      - "testing"
+      - "testing-strategy"
+      - "validation"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/using-git-worktrees"
+    exists: true
+    enabled: true
+    name: "using-git-worktrees"
+    description: "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/using-git-worktrees"
+    skill_file: "external/superpowers-skills/skills/using-git-worktrees/SKILL.md"
+    keywords:
+      - "development"
+      - "execute"
+      - "git"
+      - "planning"
+      - "source-management"
+      - "task-management"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/using-superpowers"
+    exists: true
+    enabled: true
+    name: "using-superpowers"
+    description: "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/using-superpowers"
+    skill_file: "external/superpowers-skills/skills/using-superpowers/SKILL.md"
+    keywords:
+      - "agent"
+      - "automation"
+      - "claude-code"
+      - "codex"
+      - "plugin"
+      - "skill-creator"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/verification-before-completion"
+    exists: true
+    enabled: true
+    name: "verification-before-completion"
+    description: "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/verification-before-completion"
+    skill_file: "external/superpowers-skills/skills/verification-before-completion/SKILL.md"
+    keywords:
+      - "ci"
+      - "code-review"
+      - "development"
+      - "quality"
+      - "review"
+      - "testing"
+      - "validation"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/writing-plans"
+    exists: true
+    enabled: true
+    name: "writing-plans"
+    description: "Use when you have a spec or requirements for a multi-step task, before touching code"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/writing-plans"
+    skill_file: "external/superpowers-skills/skills/writing-plans/SKILL.md"
+    keywords:
+      - "architecture"
+      - "development"
+      - "planning"
+      - "requirements"
+      - "spec"
+      - "task-management"
+      - "workflow"
+  - id: "external/superpowers-skills/skills/writing-skills"
+    exists: true
+    enabled: true
+    name: "writing-skills"
+    description: "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
+    source: "superpowers-skills"
+    path: "external/superpowers-skills/skills/writing-skills"
+    skill_file: "external/superpowers-skills/skills/writing-skills/SKILL.md"
+    keywords:
+      - "agent"
+      - "automation"
+      - "documentation"
+      - "plugin"
+      - "skill-creator"
+      - "testing"
+      - "validation"

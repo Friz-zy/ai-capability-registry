@@ -240,6 +240,96 @@ skills:
       reviewed: true
     enabled: true
 
+  - id: superpowers-skills
+    name: Superpowers Skills
+    description: Composable software development methodology skills for coding agents, including brainstorming, planning, TDD, debugging, code review, subagent-driven development, and branch completion workflows.
+    source:
+      type: git
+      repo: https://github.com/obra/superpowers
+      subdir: skills
+      external_path: external/superpowers-skills
+    category:
+      - core
+      - engineering
+      - workflow
+    trust:
+      level: trusted
+      curated: true
+      reviewed: true
+      reason: reputable_open_source_methodology
+    activation:
+      keywords:
+        - superpowers
+        - test-driven development
+        - systematic debugging
+        - subagent-driven development
+        - implementation planning
+        - code review
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - opencode
+      - cursor
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+      pinned: true
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: high
+      arbitrary_exec: review_required
+      reviewed: true
+    enabled: true
+
+  - id: caveman
+    name: Caveman
+    description: Token-efficient communication skill/plugin that compresses agent responses while preserving technical accuracy.
+    source:
+      type: git
+      repo: https://github.com/JuliusBrussee/caveman
+      subdir: skills
+      external_path: external/caveman
+    category:
+      - communication
+      - token-efficiency
+      - candidate
+    trust:
+      level: candidate
+      curated: false
+      reviewed: false
+      reason: discovery_only
+    activation:
+      keywords:
+        - caveman
+        - terse responses
+        - token efficiency
+        - output compression
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - opencode
+      - cursor
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: 63a91ecadbf4c4719a4602a5abb00883f9966034
+      pinned: true
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: false
+    enabled: false
+
   - id: trailofbits-skills
     name: Trail of Bits Skills
     description: Security research, vulnerability detection, and audit workflows from Trail of Bits.

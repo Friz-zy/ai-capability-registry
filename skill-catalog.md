@@ -2,8 +2,8 @@
 
 This is a generated human-readable view. Edit `enabled` and `keywords` in `skill-catalog.d/*.yaml`.
 
-Total: 392 skills across 33 categories
-Enabled: 288; Disabled: 104
+Total: 406 skills across 33 categories
+Enabled: 302; Disabled: 104
 
 ## Ai
 
@@ -398,6 +398,16 @@ Prepares codebases for security review using Trail of Bits' checklist. Helps set
 **Source:** trailofbits-skills
 
 File: `external/trailofbits-skills/plugins/building-secure-contracts/skills/audit-prep-assistant/SKILL.md`
+
+### brainstorming
+You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/brainstorming`
+**Keywords:** `architecture`, `brainstorming`, `design`, `development`, `planning`, `requirements`, `spec`, `user-research`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/brainstorming/SKILL.md`
 
 ### brand-guidelines
 Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.
@@ -849,6 +859,16 @@ Annotates codebases with dimensional analysis comments documenting units, dimens
 
 File: `external/trailofbits-skills/plugins/dimensional-analysis/skills/dimensional-analysis/SKILL.md`
 
+### dispatching-parallel-agents
+Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/dispatching-parallel-agents`
+**Keywords:** `agent`, `automation`, `management`, `parallel-task`, `planning`, `task-management`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/dispatching-parallel-agents/SKILL.md`
+
 ### doc-coauthoring
 Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.
 
@@ -929,6 +949,16 @@ Analyzes smart contract codebases to identify state-changing entry points for se
 
 File: `external/trailofbits-skills/plugins/entry-point-analyzer/skills/entry-point-analyzer/SKILL.md`
 
+### executing-plans
+Use when you have a written implementation plan to execute in a separate session with review checkpoints
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/executing-plans`
+**Keywords:** `development`, `execute`, `planning`, `review`, `task-management`, `validation`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/executing-plans/SKILL.md`
+
 ### fetching-dbt-docs
 Retrieves and searches dbt documentation pages in LLM-friendly markdown format. Use when fetching dbt documentation, looking up dbt features, or answering questions about dbt Cloud, dbt Core, or the dbt Semantic Layer.
 
@@ -988,6 +1018,16 @@ Generate financial statements (income statement, balance sheet, cash flow) with 
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/finance/skills/financial-statements/SKILL.md`
+
+### finishing-a-development-branch
+Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/finishing-a-development-branch`
+**Keywords:** `changelog`, `ci`, `code-review`, `deployment`, `development`, `git`, `pull-requests`, `testing`, `validation`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/finishing-a-development-branch/SKILL.md`
 
 ### fp-check
 Systematically verifies suspected security bugs to eliminate false positives. Produces TRUE POSITIVE or FALSE POSITIVE verdicts with documented evidence for each bug.
@@ -1469,6 +1509,26 @@ Brainstorm product ideas, explore problem spaces, and challenge assumptions as a
 
 File: `external/anthropic-knowledge-work-plugins/product-management/skills/product-brainstorming/SKILL.md`
 
+### receiving-code-review
+Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/receiving-code-review`
+**Keywords:** `code-review`, `development`, `review`, `testing`, `validation`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/receiving-code-review/SKILL.md`
+
+### requesting-code-review
+Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/requesting-code-review`
+**Keywords:** `code-review`, `pull-requests`, `requirements`, `review`, `testing`, `validation`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/requesting-code-review/SKILL.md`
+
 ### research-synthesis
 Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey results, usability test notes, support tickets, or NPS responses that need to be distilled into patterns, user segments, and prioritized next steps.
 
@@ -1869,6 +1929,16 @@ Generate a status report with KPIs, risks, and action items. Use when writing a 
 
 File: `external/anthropic-knowledge-work-plugins/operations/skills/status-report/SKILL.md`
 
+### subagent-driven-development
+Use when executing implementation plans with independent tasks in the current session
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/subagent-driven-development`
+**Keywords:** `agent`, `automation`, `development`, `execute`, `planning`, `task-management`, `testing`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/subagent-driven-development/SKILL.md`
+
 ### synthesize-research
 Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations.
 
@@ -1879,6 +1949,16 @@ Synthesize user research from interviews, surveys, and feedback into structured 
 
 File: `external/anthropic-knowledge-work-plugins/product-management/skills/synthesize-research/SKILL.md`
 
+### systematic-debugging
+Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/systematic-debugging`
+**Keywords:** `debug`, `debugging`, `development`, `error-analysis`, `incident`, `runbook`, `testing`, `validation`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/systematic-debugging/SKILL.md`
+
 ### task-management
 Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/complete tasks, or needs help tracking commitments.
 
@@ -1888,6 +1968,16 @@ Simple task management using a shared TASKS.md file. Reference this when the use
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/productivity/skills/task-management/SKILL.md`
+
+### test-driven-development
+Use when implementing any feature or bugfix, before writing implementation code
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/test-driven-development`
+**Keywords:** `development`, `quality`, `refactor`, `testing`, `testing-strategy`, `validation`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/test-driven-development/SKILL.md`
 
 ### testing-handbook-generator
 Meta-skill that analyzes the Trail of Bits Testing Handbook (appsec.guide) and generates Claude Code skills for security testing tools and techniques. Use when creating new skills based on handbook content.
@@ -1969,6 +2059,26 @@ Sync tasks and refresh memory from your current activity. Use when pulling new a
 
 File: `external/anthropic-knowledge-work-plugins/productivity/skills/update/SKILL.md`
 
+### using-git-worktrees
+Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/using-git-worktrees`
+**Keywords:** `development`, `execute`, `git`, `planning`, `source-management`, `task-management`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/using-git-worktrees/SKILL.md`
+
+### using-superpowers
+Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/using-superpowers`
+**Keywords:** `agent`, `automation`, `claude-code`, `codex`, `plugin`, `skill-creator`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/using-superpowers/SKILL.md`
+
 ### ux-copy
 Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with "write copy for", "what should this button say?", "review this error message", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text.
 
@@ -2009,6 +2119,16 @@ Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use wh
 
 File: `external/anthropic-knowledge-work-plugins/operations/skills/vendor-review/SKILL.md`
 
+### verification-before-completion
+Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/verification-before-completion`
+**Keywords:** `ci`, `code-review`, `development`, `quality`, `review`, `testing`, `validation`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/verification-before-completion/SKILL.md`
+
 ### webapp-testing
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
 
@@ -2038,6 +2158,26 @@ Write a feature spec or PRD from a problem statement or feature idea. Use when t
 **Source:** anthropic-knowledge-work-plugins
 
 File: `external/anthropic-knowledge-work-plugins/product-management/skills/write-spec/SKILL.md`
+
+### writing-plans
+Use when you have a spec or requirements for a multi-step task, before touching code
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/writing-plans`
+**Keywords:** `architecture`, `development`, `planning`, `requirements`, `spec`, `task-management`, `workflow`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/writing-plans/SKILL.md`
+
+### writing-skills
+Use when creating new skills, editing existing skills, or verifying skills work before deployment
+
+**Enabled:** `true`
+**ID:** `external/superpowers-skills/skills/writing-skills`
+**Keywords:** `agent`, `automation`, `documentation`, `plugin`, `skill-creator`, `testing`, `validation`
+**Source:** superpowers-skills
+
+File: `external/superpowers-skills/skills/writing-skills/SKILL.md`
 
 ### yeet
 Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).

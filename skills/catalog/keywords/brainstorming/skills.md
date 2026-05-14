@@ -3,6 +3,11 @@
 ## Skills
 Select only the most relevant skills by description, then read only those `SKILL.md` files.
 
+### brainstorming
+You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+
+File: `external/superpowers-skills/skills/brainstorming/SKILL.md`
+
 ### domain-name-brainstormer
 Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking.
 

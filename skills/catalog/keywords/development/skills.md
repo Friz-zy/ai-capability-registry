@@ -68,6 +68,11 @@ Build, review, refactor, or architect ASP.NET Core web applications using curren
 
 File: `external/openai-skills/skills/.curated/aspnet-core/SKILL.md`
 
+### brainstorming
+You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+
+File: `external/superpowers-skills/skills/brainstorming/SKILL.md`
+
 ### changelog-generator
 Automatically creates user-facing changelogs from git commits by analyzing commit history, categorizing changes, and transforming technical commits into clear, customer-friendly release notes. Turns hours of manual changelog writing into minutes of automated generation.
 
@@ -107,6 +112,16 @@ File: `external/kilo-marketplace-skills/skills/dbt-migration/SKILL.md`
 Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persistent volumes. Use when adding devcontainer support to a project, setting up isolated development environments, or configuring sandboxed Claude Code workspaces.
 
 File: `external/trailofbits-skills/plugins/devcontainer-setup/skills/devcontainer-setup/SKILL.md`
+
+### executing-plans
+Use when you have a written implementation plan to execute in a separate session with review checkpoints
+
+File: `external/superpowers-skills/skills/executing-plans/SKILL.md`
+
+### finishing-a-development-branch
+Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+
+File: `external/superpowers-skills/skills/finishing-a-development-branch/SKILL.md`
 
 ### frontend-design
 Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.
@@ -168,6 +183,11 @@ Create and scaffold plugin directories for Codex with a required `.codex-plugin/
 
 File: `external/openai-skills/skills/.system/plugin-creator/SKILL.md`
 
+### receiving-code-review
+Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation
+
+File: `external/superpowers-skills/skills/receiving-code-review/SKILL.md`
+
 ### security-best-practices
 Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.
 
@@ -193,6 +213,26 @@ A skill that creates new agent skills and automatically shares them on Slack usi
 
 File: `external/kilo-marketplace-skills/skills/skill-share/SKILL.md`
 
+### subagent-driven-development
+Use when executing implementation plans with independent tasks in the current session
+
+File: `external/superpowers-skills/skills/subagent-driven-development/SKILL.md`
+
+### systematic-debugging
+Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+
+File: `external/superpowers-skills/skills/systematic-debugging/SKILL.md`
+
+### test-driven-development
+Use when implementing any feature or bugfix, before writing implementation code
+
+File: `external/superpowers-skills/skills/test-driven-development/SKILL.md`
+
+### using-git-worktrees
+Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback
+
+File: `external/superpowers-skills/skills/using-git-worktrees/SKILL.md`
+
 ### vercel-composition-patterns
 React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes.
 
@@ -202,6 +242,11 @@ File: `external/kilo-marketplace-skills/skills/vercel-composition-patterns/SKILL
 React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.
 
 File: `external/kilo-marketplace-skills/skills/vercel-react-best-practices/SKILL.md`
+
+### verification-before-completion
+Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+
+File: `external/superpowers-skills/skills/verification-before-completion/SKILL.md`
 
 ### web-artifacts-builder
 Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
@@ -227,3 +272,8 @@ File: `external/openai-skills/skills/.curated/winui-app/SKILL.md`
 Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague idea or user request into a structured document, scoping a feature with goals and non-goals, defining success metrics and acceptance criteria, or breaking a big ask into a phased spec.
 
 File: `external/anthropic-knowledge-work-plugins/product-management/skills/write-spec/SKILL.md`
+
+### writing-plans
+Use when you have a spec or requirements for a multi-step task, before touching code
+
+File: `external/superpowers-skills/skills/writing-plans/SKILL.md`

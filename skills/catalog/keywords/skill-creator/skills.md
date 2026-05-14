@@ -32,3 +32,13 @@ File: `external/openai-skills/skills/.system/skill-installer/SKILL.md`
 A skill that creates new agent skills and automatically shares them on Slack using Rube for seamless team collaboration and skill discovery.
 
 File: `external/kilo-marketplace-skills/skills/skill-share/SKILL.md`
+
+### using-superpowers
+Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
+
+File: `external/superpowers-skills/skills/using-superpowers/SKILL.md`
+
+### writing-skills
+Use when creating new skills, editing existing skills, or verifying skills work before deployment
+
+File: `external/superpowers-skills/skills/writing-skills/SKILL.md`

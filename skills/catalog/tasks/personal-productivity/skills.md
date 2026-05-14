@@ -16,4 +16,4 @@ Select 1-3 keywords that directly match the current request. Prefer exact stack/
 - **memory**: 2 skills — `skills/catalog/keywords/memory/skills.md`
 - **productivity**: 6 skills — `skills/catalog/keywords/productivity/skills.md`
 - **slack**: 2 skills — `skills/catalog/keywords/slack/skills.md`
-- **task-management**: 1 skills — `skills/catalog/keywords/task-management/skills.md`
+- **task-management**: 6 skills — `skills/catalog/keywords/task-management/skills.md`

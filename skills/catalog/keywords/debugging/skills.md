@@ -32,3 +32,8 @@ File: `external/trailofbits-skills-curated/plugins/openai-gh-fix-ci/skills/opena
 Use when the user asks to inspect Sentry issues or events, summarize recent production errors,
 
 File: `external/trailofbits-skills-curated/plugins/openai-sentry/skills/openai-sentry/SKILL.md`
+
+### systematic-debugging
+Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+
+File: `external/superpowers-skills/skills/systematic-debugging/SKILL.md`

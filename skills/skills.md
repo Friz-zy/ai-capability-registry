@@ -22,6 +22,12 @@ Use `skills/catalog/` only for skill selection.
 Use `skills/packs/` only when configuring agents with preselected skill directories.
 Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution.
 
+### Default Development Methodology
+
+When `superpowers-skills` are available and relevant, prefer them as the default software-development workflow skills before comparable generic skills.
+Use Superpowers for brainstorming before code, implementation planning, true red/green TDD, systematic debugging, subagent-driven execution, code review, and finishing development branches.
+Treat those workflows as mandatory guidance for matching development tasks, while still loading only relevant `SKILL.md` files from trusted or reviewed sources.
+
 ### Roles (category groupings)
 
 - **Personal AI Assistant**: `skills/catalog/roles/personal-assistant/skills.md` -> `personal_assistant`, `research`, `core`
@@ -59,15 +65,15 @@ Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution
 - **Implement or Refactor Code**: `skills/catalog/tasks/implement-code/skills.md` -> `debugging`, `development`, `documentation`, `refactor`, `testing`
 - **Review Code or PR**: `skills/catalog/tasks/review-code/skills.md` -> `code-review`, `review`, `static-analysis`, `testing`, `threat-model`
 - **Debug an Issue or Incident**: `skills/catalog/tasks/debug-incident/skills.md` -> `debugging`, `incident`, `langsmith`, `runbook`, `sentry`, `status-report`
-- **Test and Validate**: `skills/catalog/tasks/test-validate/skills.md` -> `fuzzing`, `testing`, `validation`
+- **Test and Validate**: `skills/catalog/tasks/test-validate/skills.md` -> `fuzzing`, `testing`, `testing-strategy`, `validation`
 - **Security Audit or Threat Model**: `skills/catalog/tasks/security-audit/skills.md` -> `codeql`, `cryptography`, `sarif`, `semgrep`, `static-analysis`, `supply-chain`, `threat-model`
 - **Build Frontend or UI**: `skills/catalog/tasks/build-frontend/skills.md` -> `accessibility`, `angular`, `design-system`, `frontend`, `react`, `ui`, `web`
 - **Build Backend or Integration**: `skills/catalog/tasks/build-backend/skills.md` -> `aspnet`, `dotnet`, `rest-api`
-- **Deploy or Release**: `skills/catalog/tasks/deploy-release/skills.md` -> `cloudflare`, `deployment`, `netlify`, `render`, `vercel`
+- **Deploy or Release**: `skills/catalog/tasks/deploy-release/skills.md` -> `changelog`, `ci`, `cloudflare`, `deployment`, `netlify`, `render`, `vercel`
 - **Analyze Data or Metrics**: `skills/catalog/tasks/analyze-data/skills.md` -> `analytics`, `dashboard`, `data`, `forecast`, `metrics`, `sql`, `statistics`, `visualization`
 - **Research and Brief**: `skills/catalog/tasks/research-brief/skills.md` -> `knowledge`, `pdf`, `research`, `summarization`
-- **Build Agent Automation**: `skills/catalog/tasks/automate-agent/skills.md` -> `agent`, `automation`, `mcp`, `plugin`, `skill-creator`
-- **Write Docs or Documents**: `skills/catalog/tasks/write-documents/skills.md` -> `content`, `documentation`, `docx`, `pdf`, `pptx`, `summarization`, `writing`
+- **Build Agent Automation**: `skills/catalog/tasks/automate-agent/skills.md` -> `agent`, `automation`, `claude-code`, `codex`, `mcp`, `plugin`, `skill-creator`
+- **Write Docs or Documents**: `skills/catalog/tasks/write-documents/skills.md` -> `changelog`, `content`, `documentation`, `docx`, `pdf`, `pptx`, `summarization`, `writing`
 - **Manage Product or Project**: `skills/catalog/tasks/manage-project/skills.md` -> `planning`, `roadmap`, `spec`, `sprint`, `stakeholder`, `task-management`
 - **Support Customers or Sales**: `skills/catalog/tasks/customer-sales/skills.md` -> `account-research`, `call-prep`, `customer-support`, `lead-generation`, `outreach`, `pipeline`, `ticket-triage`
 - **Finance, Compliance, or Legal**: `skills/catalog/tasks/finance-legal/skills.md` -> `audit`, `compliance`, `contract`, `finance`, `nda`, `policy`, `risk`
@@ -75,7 +81,7 @@ Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution
 - **Personal Productivity**: `skills/catalog/tasks/personal-productivity/skills.md` -> `email`, `meeting`, `memory`, `productivity`, `slack`, `task-management`
 - **Create or Edit Media**: `skills/catalog/tasks/create-media/skills.md` -> `creative-media`, `imagegen`, `media`, `screenshot`, `speech`, `transcribe`, `youtube`
 - **Manage Data Systems**: `skills/catalog/tasks/manage-data-systems/skills.md` -> `analytics`, `dashboard`, `data`, `dbt`, `sql`
-- **Manage Cloud Infrastructure**: `skills/catalog/tasks/manage-cloud-infra/skills.md` -> `cloudflare`, `deployment`, `incident`, `netlify`, `render`, `vercel`
+- **Manage Cloud Infrastructure**: `skills/catalog/tasks/manage-cloud-infra/skills.md` -> `ci`, `cloudflare`, `deployment`, `incident`, `netlify`, `render`, `vercel`
 - **Build Blockchain or Smart Contracts**: `skills/catalog/tasks/build-blockchain/skills.md` -> `blockchain`, `cairo`, `smart-contracts`, `solana`, `solidity`, `threat-model`
 - **Build Hardware or IoT**: `skills/catalog/tasks/build-hardware-iot/skills.md` -> `integration`
 - **Build Mobile or Desktop App**: `skills/catalog/tasks/build-mobile-desktop/skills.md` -> `android`, `testing`, `windows`

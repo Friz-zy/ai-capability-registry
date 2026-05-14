@@ -970,6 +970,12 @@ def generate_root_skills_md(
         "Use `skills/packs/` only when configuring agents with preselected skill directories.",
         "Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution.",
         "",
+        "### Default Development Methodology",
+        "",
+        "When `superpowers-skills` are available and relevant, prefer them as the default software-development workflow skills before comparable generic skills.",
+        "Use Superpowers for brainstorming before code, implementation planning, true red/green TDD, systematic debugging, subagent-driven execution, code review, and finishing development branches.",
+        "Treat those workflows as mandatory guidance for matching development tasks, while still loading only relevant `SKILL.md` files from trusted or reviewed sources.",
+        "",
         "### Roles (category groupings)",
         "",
     ]

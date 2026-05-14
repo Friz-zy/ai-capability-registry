@@ -62,3 +62,8 @@ File: `external/anthropic-knowledge-work-plugins/operations/skills/runbook/SKILL
 Meta-skill that analyzes the Trail of Bits Testing Handbook (appsec.guide) and generates Claude Code skills for security testing tools and techniques. Use when creating new skills based on handbook content.
 
 File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/SKILL.md`
+
+### writing-skills
+Use when creating new skills, editing existing skills, or verifying skills work before deployment
+
+File: `external/superpowers-skills/skills/writing-skills/SKILL.md`

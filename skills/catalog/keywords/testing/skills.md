@@ -28,6 +28,11 @@ Coverage analysis measures code exercised during fuzzing. Use when assessing har
 
 File: `external/trailofbits-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md`
 
+### finishing-a-development-branch
+Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+
+File: `external/superpowers-skills/skills/finishing-a-development-branch/SKILL.md`
+
 ### grill-me
 Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions "grill me".
 
@@ -58,6 +63,16 @@ Provides guidance for property-based testing across multiple languages and smart
 
 File: `external/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/SKILL.md`
 
+### receiving-code-review
+Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation
+
+File: `external/superpowers-skills/skills/receiving-code-review/SKILL.md`
+
+### requesting-code-review
+Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+
+File: `external/superpowers-skills/skills/requesting-code-review/SKILL.md`
+
 ### single-cell-rna-qc
 Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based filtering and comprehensive visualizations. Use when users request QC analysis, filtering low-quality cells, assessing data quality, or following scverse/scanpy best practices for single-cell analysis.
 
@@ -67,6 +82,21 @@ File: `external/anthropic-knowledge-work-plugins/bio-research/skills/single-cell
 Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency.
 
 File: `external/anthropic-knowledge-work-plugins/finance/skills/sox-testing/SKILL.md`
+
+### subagent-driven-development
+Use when executing implementation plans with independent tasks in the current session
+
+File: `external/superpowers-skills/skills/subagent-driven-development/SKILL.md`
+
+### systematic-debugging
+Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+
+File: `external/superpowers-skills/skills/systematic-debugging/SKILL.md`
+
+### test-driven-development
+Use when implementing any feature or bugfix, before writing implementation code
+
+File: `external/superpowers-skills/skills/test-driven-development/SKILL.md`
 
 ### testing-handbook-generator
 Meta-skill that analyzes the Trail of Bits Testing Handbook (appsec.guide) and generates Claude Code skills for security testing tools and techniques. Use when creating new skills based on handbook content.
@@ -88,6 +118,11 @@ Mutation-driven test vector generation. Finds implementations of a cryptographic
 
 File: `external/trailofbits-skills/plugins/trailmark/skills/vector-forge/SKILL.md`
 
+### verification-before-completion
+Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+
+File: `external/superpowers-skills/skills/verification-before-completion/SKILL.md`
+
 ### webapp-testing
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
 
@@ -97,3 +132,8 @@ File: `external/anthropic-skills/skills/webapp-testing/SKILL.md`
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
 
 File: `external/kilo-marketplace-skills/skills/webapp-testing/SKILL.md`
+
+### writing-skills
+Use when creating new skills, editing existing skills, or verifying skills work before deployment
+
+File: `external/superpowers-skills/skills/writing-skills/SKILL.md`

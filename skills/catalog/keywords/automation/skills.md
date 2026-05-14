@@ -3,6 +3,11 @@
 ## Skills
 Select only the most relevant skills by description, then read only those `SKILL.md` files.
 
+### dispatching-parallel-agents
+Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+
+File: `external/superpowers-skills/skills/dispatching-parallel-agents/SKILL.md`
+
 ### email-sequence
 Design and draft multi-email sequences with full copy, timing, branching logic, exit conditions, and performance benchmarks. Use when building onboarding, lead nurture, re-engagement, win-back, or product launch flows, when you need a complete drip campaign with A/B test suggestions, or when mapping a sequence end-to-end with a flow diagram.
 
@@ -48,7 +53,22 @@ Creates language variants of existing Semgrep rules. Use when porting a Semgrep 
 
 File: `external/trailofbits-skills/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator/SKILL.md`
 
+### subagent-driven-development
+Use when executing implementation plans with independent tasks in the current session
+
+File: `external/superpowers-skills/skills/subagent-driven-development/SKILL.md`
+
+### using-superpowers
+Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
+
+File: `external/superpowers-skills/skills/using-superpowers/SKILL.md`
+
 ### webapp-testing
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
 
 File: `external/kilo-marketplace-skills/skills/webapp-testing/SKILL.md`
+
+### writing-skills
+Use when creating new skills, editing existing skills, or verifying skills work before deployment
+
+File: `external/superpowers-skills/skills/writing-skills/SKILL.md`

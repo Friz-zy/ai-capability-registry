@@ -13,6 +13,11 @@ Prepares codebases for security review using Trail of Bits' checklist. Helps set
 
 File: `external/trailofbits-skills/plugins/building-secure-contracts/skills/audit-prep-assistant/SKILL.md`
 
+### brainstorming
+You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+
+File: `external/superpowers-skills/skills/brainstorming/SKILL.md`
+
 ### call-prep
 Prepare for a sales call with account context, attendee research, and suggested agenda. Works standalone with user input and web research, supercharged when you connect your CRM, email, chat, or transcripts. Trigger with "prep me for my call with [company]", "I'm meeting with [company] prep me", "call prep [company]", or "get me ready for [meeting]".
 
@@ -32,6 +37,16 @@ File: `external/anthropic-knowledge-work-plugins/operations/skills/capacity-plan
 Create a competitive analysis brief for one or more competitors or a feature area. Use when informing product strategy or feature prioritization, building sales battle cards, prepping board or investor materials, or deciding where to differentiate vs. achieve parity.
 
 File: `external/anthropic-knowledge-work-plugins/product-management/skills/competitive-brief/SKILL.md`
+
+### dispatching-parallel-agents
+Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+
+File: `external/superpowers-skills/skills/dispatching-parallel-agents/SKILL.md`
+
+### executing-plans
+Use when you have a written implementation plan to execute in a separate session with review checkpoints
+
+File: `external/superpowers-skills/skills/executing-plans/SKILL.md`
 
 ### let-fate-decide
 Draws 4 Tarot cards to inject entropy into planning when prompts are vague, ambiguous, or casually delegated. Interprets the spread to guide next steps. Use when the user says 'let fate decide', 'YOLO', 'whatever', 'idk', or other nonchalant phrases, makes Yu-Gi-Oh references, or when you are about to arbitrarily pick between multiple reasonable approaches. Prefer over ask-questions-if-underspecified when the user's tone is casual or playful rather than precision-seeking.
@@ -67,3 +82,18 @@ File: `external/anthropic-knowledge-work-plugins/bio-research/skills/scientific-
 Plan a sprint — scope work, estimate capacity, set goals, and draft a sprint plan. Use when kicking off a new sprint, sizing a backlog against team availability (accounting for PTO and meetings), deciding what's P0 vs. stretch, or handling carryover from the last sprint.
 
 File: `external/anthropic-knowledge-work-plugins/product-management/skills/sprint-planning/SKILL.md`
+
+### subagent-driven-development
+Use when executing implementation plans with independent tasks in the current session
+
+File: `external/superpowers-skills/skills/subagent-driven-development/SKILL.md`
+
+### using-git-worktrees
+Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback
+
+File: `external/superpowers-skills/skills/using-git-worktrees/SKILL.md`
+
+### writing-plans
+Use when you have a spec or requirements for a multi-step task, before touching code
+
+File: `external/superpowers-skills/skills/writing-plans/SKILL.md`

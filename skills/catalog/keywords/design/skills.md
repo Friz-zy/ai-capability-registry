@@ -13,6 +13,11 @@ Create or evaluate an architecture decision record (ADR). Use when choosing betw
 
 File: `external/anthropic-knowledge-work-plugins/engineering/skills/architecture/SKILL.md`
 
+### brainstorming
+You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+
+File: `external/superpowers-skills/skills/brainstorming/SKILL.md`
+
 ### brand-guidelines
 Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.
 

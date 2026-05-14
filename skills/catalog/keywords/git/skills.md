@@ -3,6 +3,11 @@
 ## Skills
 Select only the most relevant skills by description, then read only those `SKILL.md` files.
 
+### finishing-a-development-branch
+Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+
+File: `external/superpowers-skills/skills/finishing-a-development-branch/SKILL.md`
+
 ### gh-address-comments
 Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.
 
@@ -47,3 +52,8 @@ File: `external/trailofbits-skills-curated/plugins/openai-yeet/skills/openai-yee
 Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.
 
 File: `external/openai-skills/skills/.curated/security-ownership-map/SKILL.md`
+
+### using-git-worktrees
+Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback
+
+File: `external/superpowers-skills/skills/using-git-worktrees/SKILL.md`

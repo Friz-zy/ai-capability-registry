@@ -24,3 +24,6 @@
 [submodule "external/kilo-marketplace-skills"]
 	path = external/kilo-marketplace-skills
 	url = https://github.com/Kilo-Org/kilo-marketplace
+[submodule "external/superpowers-skills"]
+	path = external/superpowers-skills
+	url = https://github.com/obra/superpowers

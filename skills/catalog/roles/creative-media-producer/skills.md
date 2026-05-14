@@ -11,9 +11,9 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **content**: 10 skills — `skills/catalog/keywords/content/skills.md`
 - **creative**: 5 skills — `skills/catalog/keywords/creative/skills.md`
 - **creative-media**: 10 skills — `skills/catalog/keywords/creative-media/skills.md`
-- **design**: 18 skills — `skills/catalog/keywords/design/skills.md`
+- **design**: 19 skills — `skills/catalog/keywords/design/skills.md`
 - **design-system**: 1 skills — `skills/catalog/keywords/design-system/skills.md`
-- **documentation**: 12 skills — `skills/catalog/keywords/documentation/skills.md`
+- **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
 - **documents**: 9 skills — `skills/catalog/keywords/documents/skills.md`
 - **docx**: 2 skills — `skills/catalog/keywords/docx/skills.md`
 - **imagegen**: 4 skills — `skills/catalog/keywords/imagegen/skills.md`

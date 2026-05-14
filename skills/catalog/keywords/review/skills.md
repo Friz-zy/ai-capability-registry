@@ -23,6 +23,11 @@ Get structured design feedback on usability, hierarchy, and consistency. Trigger
 
 File: `external/anthropic-knowledge-work-plugins/design/skills/design-critique/SKILL.md`
 
+### executing-plans
+Use when you have a written implementation plan to execute in a separate session with review checkpoints
+
+File: `external/superpowers-skills/skills/executing-plans/SKILL.md`
+
 ### gh-address-comments
 Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.
 
@@ -48,6 +53,16 @@ Structure a performance review with self-assessment, manager template, and calib
 
 File: `external/anthropic-knowledge-work-plugins/human-resources/skills/performance-review/SKILL.md`
 
+### receiving-code-review
+Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation
+
+File: `external/superpowers-skills/skills/receiving-code-review/SKILL.md`
+
+### requesting-code-review
+Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+
+File: `external/superpowers-skills/skills/requesting-code-review/SKILL.md`
+
 ### review-contract
 Review a contract against your organization's negotiation playbook — flag deviations, generate redlines, provide business impact analysis. Use when reviewing vendor or customer agreements, when you need clause-by-clause analysis against standard positions, or when preparing a negotiation strategy with prioritized redlines and fallback positions.
 
@@ -62,3 +77,8 @@ File: `external/trailofbits-skills/plugins/building-secure-contracts/skills/secu
 Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes. Use when reviewing API designs, configuration schemas, cryptographic library ergonomics, or evaluating whether code follows 'secure by default' and 'pit of success' principles. Triggers: footgun, misuse-resistant, secure defaults, API usability, dangerous configuration.
 
 File: `external/trailofbits-skills/plugins/sharp-edges/skills/sharp-edges/SKILL.md`
+
+### verification-before-completion
+Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+
+File: `external/superpowers-skills/skills/verification-before-completion/SKILL.md`

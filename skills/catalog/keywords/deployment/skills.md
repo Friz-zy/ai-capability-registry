@@ -8,6 +8,11 @@ Pre-deployment verification checklist. Use when about to ship a release, deployi
 
 File: `external/anthropic-knowledge-work-plugins/engineering/skills/deploy-checklist/SKILL.md`
 
+### finishing-a-development-branch
+Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+
+File: `external/superpowers-skills/skills/finishing-a-development-branch/SKILL.md`
+
 ### openai-cloudflare-deploy
 Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform
 

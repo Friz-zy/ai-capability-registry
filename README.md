@@ -146,4 +146,4 @@ Policy defaults:
 - Never use `curl | sh`, privileged Docker, host networking, Docker socket mounts, or unrestricted host mounts.
 - Load skills and MCP servers only when they are relevant to the current task.
 
-Trusted skill sources currently include Anthropic skills and knowledge-work plugins, OpenAI skills, the Agent Skills specification, Trail of Bits security workflows, and Kilo Marketplace skills.
+Trusted skill sources currently include Anthropic skills and knowledge-work plugins, OpenAI skills, the Agent Skills specification, Superpowers development methodology skills, Trail of Bits security workflows, and Kilo Marketplace skills.
