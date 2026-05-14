@@ -11,10 +11,12 @@ Handle finance operations, audits, contracts, policies, and legal risk review.
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
-- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
-- **contract**: 4 skills — `skills/catalog/keywords/contract/skills.md`
-- **finance**: 8 skills — `skills/catalog/keywords/finance/skills.md`
-- **nda**: 1 skills — `skills/catalog/keywords/nda/skills.md`
-- **policy**: 1 skills — `skills/catalog/keywords/policy/skills.md`
-- **risk**: 5 skills — `skills/catalog/keywords/risk/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **audit**: 13 skills
+- **compliance**: 10 skills
+- **contract**: 4 skills
+- **finance**: 8 skills
+- **nda**: 1 skills
+- **policy**: 1 skills
+- **risk**: 5 skills

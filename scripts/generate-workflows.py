@@ -80,9 +80,9 @@ def workflow_block(workflow: dict[str, Any], tasks_by_workflow: dict[str, list[s
     matched_tasks = tasks_by_workflow.get(workflow_id, [])
     matched_roles = roles_by_workflow.get(workflow_id, [])
     if matched_tasks:
-        lines.append("**Matched tasks:** " + ", ".join(f"`{task_id}`" for task_id in matched_tasks))
+        lines.extend(["", f"### {name} Task IDs", "", ", ".join(f"`{task_id}`" for task_id in matched_tasks)])
     if matched_roles:
-        lines.append("**Matched roles:** " + ", ".join(f"`{role_id}`" for role_id in matched_roles))
+        lines.extend(["", f"### {name} Role IDs", "", ", ".join(f"`{role_id}`" for role_id in matched_roles)])
     if policies:
         lines.append("**Required policies:** " + ", ".join(f"`{policy}`" for policy in policies))
     if steps:
@@ -107,8 +107,6 @@ def main() -> int:
     content = render(
         "workflows.md",
         {
-            "roles": role_lines(registry["profiles"], workflows),
-            "tasks": task_lines(registry["tasks"], workflows),
             "workflows": workflow_lines(workflows),
         },
     )

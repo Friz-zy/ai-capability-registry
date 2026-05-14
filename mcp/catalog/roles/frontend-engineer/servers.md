@@ -3,44 +3,46 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact service/platform keywords when present.
 
-- **actions**: 1 server(s) — `mcp/catalog/keywords/actions/servers.md`
-- **astro**: 1 server(s) — `mcp/catalog/keywords/astro/servers.md`
-- **atlassian**: 1 server(s) — `mcp/catalog/keywords/atlassian/servers.md`
-- **atlassian-atlassian**: 1 server(s) — `mcp/catalog/keywords/atlassian-atlassian/servers.md`
-- **aws-diagram**: 1 server(s) — `mcp/catalog/keywords/aws-diagram/servers.md`
-- **awslabs-nova-canvas**: 1 server(s) — `mcp/catalog/keywords/awslabs-nova-canvas/servers.md`
-- **browserbase**: 1 server(s) — `mcp/catalog/keywords/browserbase/servers.md`
-- **canva**: 1 server(s) — `mcp/catalog/keywords/canva/servers.md`
-- **canvas**: 1 server(s) — `mcp/catalog/keywords/canvas/servers.md`
-- **code**: 4 server(s) — `mcp/catalog/keywords/code/servers.md`
-- **code-examples**: 1 server(s) — `mcp/catalog/keywords/code-examples/servers.md`
-- **command**: 1 server(s) — `mcp/catalog/keywords/command/servers.md`
-- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
-- **design**: 3 server(s) — `mcp/catalog/keywords/design/servers.md`
-- **developer-portal**: 2 server(s) — `mcp/catalog/keywords/developer-portal/servers.md`
-- **development**: 22 server(s) — `mcp/catalog/keywords/development/servers.md`
-- **diagram**: 1 server(s) — `mcp/catalog/keywords/diagram/servers.md`
-- **figma**: 1 server(s) — `mcp/catalog/keywords/figma/servers.md`
-- **git**: 2 server(s) — `mcp/catalog/keywords/git/servers.md`
-- **github**: 2 server(s) — `mcp/catalog/keywords/github/servers.md`
-- **gitlab**: 1 server(s) — `mcp/catalog/keywords/gitlab/servers.md`
-- **googleapis-design**: 1 server(s) — `mcp/catalog/keywords/googleapis-design/servers.md`
-- **html**: 1 server(s) — `mcp/catalog/keywords/html/servers.md`
-- **issues**: 3 server(s) — `mcp/catalog/keywords/issues/servers.md`
-- **javadocs**: 1 server(s) — `mcp/catalog/keywords/javadocs/servers.md`
-- **library-documentation**: 1 server(s) — `mcp/catalog/keywords/library-documentation/servers.md`
-- **linear**: 1 server(s) — `mcp/catalog/keywords/linear/servers.md`
-- **playwright**: 1 server(s) — `mcp/catalog/keywords/playwright/servers.md`
-- **portal**: 2 server(s) — `mcp/catalog/keywords/portal/servers.md`
-- **pull-requests**: 1 server(s) — `mcp/catalog/keywords/pull-requests/servers.md`
-- **repositories**: 1 server(s) — `mcp/catalog/keywords/repositories/servers.md`
-- **run**: 3 server(s) — `mcp/catalog/keywords/run/servers.md`
-- **scorecard**: 1 server(s) — `mcp/catalog/keywords/scorecard/servers.md`
-- **scorecard-mcp**: 1 server(s) — `mcp/catalog/keywords/scorecard-mcp/servers.md`
-- **sentry**: 1 server(s) — `mcp/catalog/keywords/sentry/servers.md`
-- **stack-overflow**: 1 server(s) — `mcp/catalog/keywords/stack-overflow/servers.md`
-- **stackoverflow**: 1 server(s) — `mcp/catalog/keywords/stackoverflow/servers.md`
-- **validation**: 2 server(s) — `mcp/catalog/keywords/validation/servers.md`
-- **web**: 2 server(s) — `mcp/catalog/keywords/web/servers.md`
-- **web-scraping**: 2 server(s) — `mcp/catalog/keywords/web-scraping/servers.md`
-- **webzum**: 1 server(s) — `mcp/catalog/keywords/webzum/servers.md`
+Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+
+- **actions**: 1 server(s)
+- **astro**: 1 server(s)
+- **atlassian**: 1 server(s)
+- **atlassian-atlassian**: 1 server(s)
+- **aws-diagram**: 1 server(s)
+- **awslabs-nova-canvas**: 1 server(s)
+- **browserbase**: 1 server(s)
+- **canva**: 1 server(s)
+- **canvas**: 1 server(s)
+- **code**: 4 server(s)
+- **code-examples**: 1 server(s)
+- **command**: 1 server(s)
+- **context7**: 1 server(s)
+- **design**: 3 server(s)
+- **developer-portal**: 2 server(s)
+- **development**: 22 server(s)
+- **diagram**: 1 server(s)
+- **figma**: 1 server(s)
+- **git**: 2 server(s)
+- **github**: 2 server(s)
+- **gitlab**: 1 server(s)
+- **googleapis-design**: 1 server(s)
+- **html**: 1 server(s)
+- **issues**: 3 server(s)
+- **javadocs**: 1 server(s)
+- **library-documentation**: 1 server(s)
+- **linear**: 1 server(s)
+- **playwright**: 1 server(s)
+- **portal**: 2 server(s)
+- **pull-requests**: 1 server(s)
+- **repositories**: 1 server(s)
+- **run**: 3 server(s)
+- **scorecard**: 1 server(s)
+- **scorecard-mcp**: 1 server(s)
+- **sentry**: 1 server(s)
+- **stack-overflow**: 1 server(s)
+- **stackoverflow**: 1 server(s)
+- **validation**: 2 server(s)
+- **web**: 2 server(s)
+- **web-scraping**: 2 server(s)
+- **webzum**: 1 server(s)

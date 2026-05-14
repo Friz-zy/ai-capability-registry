@@ -12,9 +12,11 @@ Investigate failures, production incidents, regressions, and runtime anomalies.
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **debugging**: 7 skills — `skills/catalog/keywords/debugging/skills.md`
-- **incident**: 2 skills — `skills/catalog/keywords/incident/skills.md`
-- **langsmith**: 1 skills — `skills/catalog/keywords/langsmith/skills.md`
-- **runbook**: 3 skills — `skills/catalog/keywords/runbook/skills.md`
-- **sentry**: 2 skills — `skills/catalog/keywords/sentry/skills.md`
-- **status-report**: 2 skills — `skills/catalog/keywords/status-report/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **debugging**: 7 skills
+- **incident**: 2 skills
+- **langsmith**: 1 skills
+- **runbook**: 3 skills
+- **sentry**: 2 skills
+- **status-report**: 2 skills

@@ -1,36 +1,36 @@
 # MCP Capability Registry
 
+Read `../capability-routing.md` first. This file defines MCP-specific routing and safety rules.
+
 ## MCP Sources
 
-MCP servers may be available from two sources:
-
-- **Agent-native MCP servers**: MCP servers already exposed by the current agent runtime through its built-in MCP configuration or tool layer.
-- **Registry MCP servers**: MCP servers indexed under this repository's `mcp/` routing catalogs and loaded from referenced server files and connection metadata.
-
-Use both sources as one capability pool. Prefer an already-connected agent-native MCP server when the same trusted or reviewed server is available there; otherwise use this registry's routing catalogs and follow the referenced server instructions.
-
-Do not assume that every registry MCP server is connected in the agent runtime. Do not assume that every agent-native MCP server is represented in this registry.
+MCP servers may be agent-native or registry-indexed. Treat both as one capability pool. Prefer an already-connected trusted or reviewed native server when equivalent; otherwise use this registry's catalogs and referenced server instructions. Do not assume both sources mirror each other.
 
 ## MCP Resolution Protocol
 
-1. **Extract intent** - identify the target technology, service, SaaS product, data domain, action type, and sensitivity.
-2. **Route by task first** - match the request to one task listed in `mcp.md`; select a second task only for clearly mixed workflows.
-3. **Use role as context** - select at most one role listed in `mcp.md` only when it disambiguates service/platform scope.
-4. **Read selected indexes only** - open only the matched `mcp/catalog/tasks/<task-id>/servers.md` and optional `mcp/catalog/roles/<role-id>/servers.md`.
-5. **Choose keywords** - select 1-3 exact keywords from those indexes; prefer service names over broad domains.
-6. **Read keyword catalogs** - open only selected `mcp/catalog/keywords/<keyword>/servers.md` files.
-7. **Read server files** - follow `mcp/servers/<server>/SKILL.md`.
-8. **Select MCP only if you can work with it** - Select a hosted HTTPS MCP channel only when the current agent can connect to HTTPS through built-in MCP/web tools or approved commands such as `curl`. Select a docker MCP only when the current agent can run docker commands.
-9. **Confirm authorization** - if OAuth, API keys, tokens, account access, or workspace access are required, ask the user before connecting.
-10. **Connect safely** - use only allowed transport and never hardcode secrets. Use environment variables or vault integration.
+1. Follow the shared routing pattern in `../capability-routing.md`, including service/product/data-domain sensitivity.
+2. Read only the matched task server index and optional role server index.
+3. Select 1-3 exact keywords, preferring service names over broad domains.
+4. Read only selected keyword server catalogs.
+5. Read selected `mcp/servers/<server>/SKILL.md` files.
+6. Select hosted HTTPS only when the current agent can connect through built-in MCP/web tools or approved commands such as `curl`; select Docker only when Docker commands are available.
+7. Ask before OAuth, API keys, tokens, account access, workspace access, private data access, or remote mutation.
+8. Connect safely using allowed transport and environment variables or vault integration; never hardcode secrets.
 
 ## MCP Runtime Instructions
 
-After selecting an MCP server via the resolution protocol above, read the appropriate runtime guide:
+After selecting an MCP server, read the runtime guide that matches the transport:
 
-- **No prior MCP knowledge**: Only if you don't know about MCP servers, read `mcp/common.md` for general MCP concepts, tool discovery, response handling, and error diagnostics.
-- **HTTPS / SSE MCP server**: Read `mcp/web.md` for HTTPS API connection, authentication methods, and health checks.
-- **Docker MCP server**: Read `mcp/docker.md` for container naming, lifecycle management, connection, and cleanup.
+- `mcp/common.md`: only when MCP concepts, tool discovery, response handling, or error diagnostics are unknown.
+- `mcp/web.md`: HTTPS/SSE API connection, authentication methods, and health checks.
+- `mcp/docker.md`: container naming, lifecycle management, connection, and cleanup.
+
+### Path Templates
+
+- Role index: `mcp/catalog/roles/<role-id>/servers.md`
+- Task index: `mcp/catalog/tasks/<task-id>/servers.md`
+- Keyword catalog: `mcp/catalog/keywords/<keyword>/servers.md`
+- Server guide: `mcp/servers/<server>/SKILL.md`
 
 ### Roles (category groupings)
 

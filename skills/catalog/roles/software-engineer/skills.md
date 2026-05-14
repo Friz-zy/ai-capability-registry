@@ -3,61 +3,63 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **access**: 1 skills — `skills/catalog/keywords/access/skills.md`
-- **afl**: 1 skills — `skills/catalog/keywords/afl/skills.md`
-- **analysis**: 27 skills — `skills/catalog/keywords/analysis/skills.md`
-- **angular**: 10 skills — `skills/catalog/keywords/angular/skills.md`
-- **architecture**: 6 skills — `skills/catalog/keywords/architecture/skills.md`
-- **aspnet**: 1 skills — `skills/catalog/keywords/aspnet/skills.md`
-- **automation**: 13 skills — `skills/catalog/keywords/automation/skills.md`
-- **brainstorming**: 4 skills — `skills/catalog/keywords/brainstorming/skills.md`
-- **changelog**: 1 skills — `skills/catalog/keywords/changelog/skills.md`
-- **code-review**: 10 skills — `skills/catalog/keywords/code-review/skills.md`
-- **communication**: 8 skills — `skills/catalog/keywords/communication/skills.md`
-- **communication-writing**: 2 skills — `skills/catalog/keywords/communication-writing/skills.md`
-- **configuration**: 9 skills — `skills/catalog/keywords/configuration/skills.md`
-- **cpp**: 2 skills — `skills/catalog/keywords/cpp/skills.md`
-- **debug**: 1 skills — `skills/catalog/keywords/debug/skills.md`
-- **debugging**: 7 skills — `skills/catalog/keywords/debugging/skills.md`
-- **development**: 59 skills — `skills/catalog/keywords/development/skills.md`
-- **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
-- **dotnet**: 1 skills — `skills/catalog/keywords/dotnet/skills.md`
-- **engineering**: 12 skills — `skills/catalog/keywords/engineering/skills.md`
-- **error-analysis**: 1 skills — `skills/catalog/keywords/error-analysis/skills.md`
-- **frontend**: 22 skills — `skills/catalog/keywords/frontend/skills.md`
-- **fuzzing**: 14 skills — `skills/catalog/keywords/fuzzing/skills.md`
-- **incident**: 2 skills — `skills/catalog/keywords/incident/skills.md`
-- **integration**: 9 skills — `skills/catalog/keywords/integration/skills.md`
-- **management**: 11 skills — `skills/catalog/keywords/management/skills.md`
-- **migration**: 2 skills — `skills/catalog/keywords/migration/skills.md`
-- **next**: 2 skills — `skills/catalog/keywords/next/skills.md`
-- **optimization**: 5 skills — `skills/catalog/keywords/optimization/skills.md`
-- **organization**: 1 skills — `skills/catalog/keywords/organization/skills.md`
-- **pages**: 1 skills — `skills/catalog/keywords/pages/skills.md`
-- **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
-- **playwright**: 5 skills — `skills/catalog/keywords/playwright/skills.md`
-- **python**: 6 skills — `skills/catalog/keywords/python/skills.md`
-- **quality**: 2 skills — `skills/catalog/keywords/quality/skills.md`
-- **react**: 6 skills — `skills/catalog/keywords/react/skills.md`
-- **react-native**: 1 skills — `skills/catalog/keywords/react-native/skills.md`
-- **refactor**: 4 skills — `skills/catalog/keywords/refactor/skills.md`
-- **refactoring**: 2 skills — `skills/catalog/keywords/refactoring/skills.md`
-- **reporting**: 10 skills — `skills/catalog/keywords/reporting/skills.md`
-- **requirements**: 4 skills — `skills/catalog/keywords/requirements/skills.md`
-- **rest-api**: 5 skills — `skills/catalog/keywords/rest-api/skills.md`
-- **review**: 18 skills — `skills/catalog/keywords/review/skills.md`
-- **runbook**: 3 skills — `skills/catalog/keywords/runbook/skills.md`
-- **rust**: 4 skills — `skills/catalog/keywords/rust/skills.md`
-- **semgrep**: 3 skills — `skills/catalog/keywords/semgrep/skills.md`
-- **static-analysis**: 6 skills — `skills/catalog/keywords/static-analysis/skills.md`
-- **status-report**: 2 skills — `skills/catalog/keywords/status-report/skills.md`
-- **summarization**: 6 skills — `skills/catalog/keywords/summarization/skills.md`
-- **system-design**: 1 skills — `skills/catalog/keywords/system-design/skills.md`
-- **tech-debt**: 2 skills — `skills/catalog/keywords/tech-debt/skills.md`
-- **testing**: 27 skills — `skills/catalog/keywords/testing/skills.md`
-- **testing-strategy**: 1 skills — `skills/catalog/keywords/testing-strategy/skills.md`
-- **ui**: 9 skills — `skills/catalog/keywords/ui/skills.md`
-- **validation**: 11 skills — `skills/catalog/keywords/validation/skills.md`
-- **web**: 11 skills — `skills/catalog/keywords/web/skills.md`
-- **workflow**: 20 skills — `skills/catalog/keywords/workflow/skills.md`
-- **writing**: 5 skills — `skills/catalog/keywords/writing/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **access**: 1 skills
+- **afl**: 1 skills
+- **analysis**: 27 skills
+- **angular**: 10 skills
+- **architecture**: 6 skills
+- **aspnet**: 1 skills
+- **automation**: 13 skills
+- **brainstorming**: 4 skills
+- **changelog**: 1 skills
+- **code-review**: 10 skills
+- **communication**: 8 skills
+- **communication-writing**: 2 skills
+- **configuration**: 9 skills
+- **cpp**: 2 skills
+- **debug**: 1 skills
+- **debugging**: 7 skills
+- **development**: 59 skills
+- **documentation**: 13 skills
+- **dotnet**: 1 skills
+- **engineering**: 12 skills
+- **error-analysis**: 1 skills
+- **frontend**: 22 skills
+- **fuzzing**: 14 skills
+- **incident**: 2 skills
+- **integration**: 9 skills
+- **management**: 11 skills
+- **migration**: 2 skills
+- **next**: 2 skills
+- **optimization**: 5 skills
+- **organization**: 1 skills
+- **pages**: 1 skills
+- **planning**: 19 skills
+- **playwright**: 5 skills
+- **python**: 6 skills
+- **quality**: 2 skills
+- **react**: 6 skills
+- **react-native**: 1 skills
+- **refactor**: 4 skills
+- **refactoring**: 2 skills
+- **reporting**: 10 skills
+- **requirements**: 4 skills
+- **rest-api**: 5 skills
+- **review**: 18 skills
+- **runbook**: 3 skills
+- **rust**: 4 skills
+- **semgrep**: 3 skills
+- **static-analysis**: 6 skills
+- **status-report**: 2 skills
+- **summarization**: 6 skills
+- **system-design**: 1 skills
+- **tech-debt**: 2 skills
+- **testing**: 27 skills
+- **testing-strategy**: 1 skills
+- **ui**: 9 skills
+- **validation**: 11 skills
+- **web**: 11 skills
+- **workflow**: 20 skills
+- **writing**: 5 skills

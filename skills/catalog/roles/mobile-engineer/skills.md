@@ -3,39 +3,41 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **actions**: 1 skills — `skills/catalog/keywords/actions/skills.md`
-- **afl**: 1 skills — `skills/catalog/keywords/afl/skills.md`
-- **android**: 2 skills — `skills/catalog/keywords/android/skills.md`
-- **angular**: 10 skills — `skills/catalog/keywords/angular/skills.md`
-- **claude-api**: 1 skills — `skills/catalog/keywords/claude-api/skills.md`
-- **cli**: 1 skills — `skills/catalog/keywords/cli/skills.md`
-- **code**: 2 skills — `skills/catalog/keywords/code/skills.md`
-- **code-review**: 10 skills — `skills/catalog/keywords/code-review/skills.md`
-- **command**: 2 skills — `skills/catalog/keywords/command/skills.md`
-- **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
-- **devcontainer**: 3 skills — `skills/catalog/keywords/devcontainer/skills.md`
-- **development**: 59 skills — `skills/catalog/keywords/development/skills.md`
-- **execute**: 3 skills — `skills/catalog/keywords/execute/skills.md`
-- **frontend**: 22 skills — `skills/catalog/keywords/frontend/skills.md`
-- **fuzzing**: 14 skills — `skills/catalog/keywords/fuzzing/skills.md`
-- **git**: 11 skills — `skills/catalog/keywords/git/skills.md`
-- **github**: 5 skills — `skills/catalog/keywords/github/skills.md`
-- **ios**: 1 skills — `skills/catalog/keywords/ios/skills.md`
-- **jupyter**: 2 skills — `skills/catalog/keywords/jupyter/skills.md`
-- **macos**: 1 skills — `skills/catalog/keywords/macos/skills.md`
-- **next**: 2 skills — `skills/catalog/keywords/next/skills.md`
-- **pages**: 1 skills — `skills/catalog/keywords/pages/skills.md`
-- **playwright**: 5 skills — `skills/catalog/keywords/playwright/skills.md`
-- **plugin**: 4 skills — `skills/catalog/keywords/plugin/skills.md`
-- **pull-requests**: 2 skills — `skills/catalog/keywords/pull-requests/skills.md`
-- **quality**: 2 skills — `skills/catalog/keywords/quality/skills.md`
-- **react**: 6 skills — `skills/catalog/keywords/react/skills.md`
-- **react-native**: 1 skills — `skills/catalog/keywords/react-native/skills.md`
-- **rest-api**: 5 skills — `skills/catalog/keywords/rest-api/skills.md`
-- **sentry**: 2 skills — `skills/catalog/keywords/sentry/skills.md`
-- **testing**: 27 skills — `skills/catalog/keywords/testing/skills.md`
-- **testing-strategy**: 1 skills — `skills/catalog/keywords/testing-strategy/skills.md`
-- **ui**: 9 skills — `skills/catalog/keywords/ui/skills.md`
-- **validation**: 11 skills — `skills/catalog/keywords/validation/skills.md`
-- **web**: 11 skills — `skills/catalog/keywords/web/skills.md`
-- **windows**: 3 skills — `skills/catalog/keywords/windows/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **actions**: 1 skills
+- **afl**: 1 skills
+- **android**: 2 skills
+- **angular**: 10 skills
+- **claude-api**: 1 skills
+- **cli**: 1 skills
+- **code**: 2 skills
+- **code-review**: 10 skills
+- **command**: 2 skills
+- **dbt**: 2 skills
+- **devcontainer**: 3 skills
+- **development**: 59 skills
+- **execute**: 3 skills
+- **frontend**: 22 skills
+- **fuzzing**: 14 skills
+- **git**: 11 skills
+- **github**: 5 skills
+- **ios**: 1 skills
+- **jupyter**: 2 skills
+- **macos**: 1 skills
+- **next**: 2 skills
+- **pages**: 1 skills
+- **playwright**: 5 skills
+- **plugin**: 4 skills
+- **pull-requests**: 2 skills
+- **quality**: 2 skills
+- **react**: 6 skills
+- **react-native**: 1 skills
+- **rest-api**: 5 skills
+- **sentry**: 2 skills
+- **testing**: 27 skills
+- **testing-strategy**: 1 skills
+- **ui**: 9 skills
+- **validation**: 11 skills
+- **web**: 11 skills
+- **windows**: 3 skills

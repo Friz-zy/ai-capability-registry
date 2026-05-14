@@ -11,8 +11,10 @@ Work with databases, warehouses, data products, semantic layers, and data-platfo
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **analytics**: 12 skills — `skills/catalog/keywords/analytics/skills.md`
-- **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
-- **data**: 17 skills — `skills/catalog/keywords/data/skills.md`
-- **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
-- **sql**: 4 skills — `skills/catalog/keywords/sql/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **analytics**: 12 skills
+- **dashboard**: 1 skills
+- **data**: 17 skills
+- **dbt**: 2 skills
+- **sql**: 4 skills

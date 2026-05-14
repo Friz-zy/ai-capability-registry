@@ -11,6 +11,8 @@ Build APIs, SDK integrations, OAuth flows, webhooks, and backend services.
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **aspnet**: 1 skills — `skills/catalog/keywords/aspnet/skills.md`
-- **dotnet**: 1 skills — `skills/catalog/keywords/dotnet/skills.md`
-- **rest-api**: 5 skills — `skills/catalog/keywords/rest-api/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **aspnet**: 1 skills
+- **dotnet**: 1 skills
+- **rest-api**: 5 skills

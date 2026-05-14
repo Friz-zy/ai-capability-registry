@@ -3,60 +3,62 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **actions**: 1 skills — `skills/catalog/keywords/actions/skills.md`
-- **analytics**: 12 skills — `skills/catalog/keywords/analytics/skills.md`
-- **aspnet**: 1 skills — `skills/catalog/keywords/aspnet/skills.md`
-- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
-- **authentication**: 1 skills — `skills/catalog/keywords/authentication/skills.md`
-- **binary**: 6 skills — `skills/catalog/keywords/binary/skills.md`
-- **burp**: 1 skills — `skills/catalog/keywords/burp/skills.md`
-- **ci**: 2 skills — `skills/catalog/keywords/ci/skills.md`
-- **claude-api**: 1 skills — `skills/catalog/keywords/claude-api/skills.md`
-- **cli**: 1 skills — `skills/catalog/keywords/cli/skills.md`
-- **cloudflare**: 1 skills — `skills/catalog/keywords/cloudflare/skills.md`
-- **code**: 2 skills — `skills/catalog/keywords/code/skills.md`
-- **code-review**: 10 skills — `skills/catalog/keywords/code-review/skills.md`
-- **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
-- **command**: 2 skills — `skills/catalog/keywords/command/skills.md`
-- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
-- **cryptography**: 6 skills — `skills/catalog/keywords/cryptography/skills.md`
-- **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
-- **data**: 17 skills — `skills/catalog/keywords/data/skills.md`
-- **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
-- **deploy**: 2 skills — `skills/catalog/keywords/deploy/skills.md`
-- **deployment**: 9 skills — `skills/catalog/keywords/deployment/skills.md`
-- **devcontainer**: 3 skills — `skills/catalog/keywords/devcontainer/skills.md`
-- **development**: 59 skills — `skills/catalog/keywords/development/skills.md`
-- **dotnet**: 1 skills — `skills/catalog/keywords/dotnet/skills.md`
-- **dwarf**: 1 skills — `skills/catalog/keywords/dwarf/skills.md`
-- **execute**: 3 skills — `skills/catalog/keywords/execute/skills.md`
-- **firebase**: 1 skills — `skills/catalog/keywords/firebase/skills.md`
-- **forecast**: 1 skills — `skills/catalog/keywords/forecast/skills.md`
-- **ghidra**: 2 skills — `skills/catalog/keywords/ghidra/skills.md`
-- **git**: 11 skills — `skills/catalog/keywords/git/skills.md`
-- **github**: 5 skills — `skills/catalog/keywords/github/skills.md`
-- **hosting**: 1 skills — `skills/catalog/keywords/hosting/skills.md`
-- **jupyter**: 2 skills — `skills/catalog/keywords/jupyter/skills.md`
-- **malware**: 1 skills — `skills/catalog/keywords/malware/skills.md`
-- **metrics**: 2 skills — `skills/catalog/keywords/metrics/skills.md`
-- **netlify**: 1 skills — `skills/catalog/keywords/netlify/skills.md`
-- **plugin**: 4 skills — `skills/catalog/keywords/plugin/skills.md`
-- **policy**: 1 skills — `skills/catalog/keywords/policy/skills.md`
-- **pull-requests**: 2 skills — `skills/catalog/keywords/pull-requests/skills.md`
-- **render**: 1 skills — `skills/catalog/keywords/render/skills.md`
-- **rest-api**: 5 skills — `skills/catalog/keywords/rest-api/skills.md`
-- **risk**: 5 skills — `skills/catalog/keywords/risk/skills.md`
-- **sarif**: 1 skills — `skills/catalog/keywords/sarif/skills.md`
-- **seatbelt**: 1 skills — `skills/catalog/keywords/seatbelt/skills.md`
-- **security**: 68 skills — `skills/catalog/keywords/security/skills.md`
-- **semgrep**: 3 skills — `skills/catalog/keywords/semgrep/skills.md`
-- **sentry**: 2 skills — `skills/catalog/keywords/sentry/skills.md`
-- **sql**: 4 skills — `skills/catalog/keywords/sql/skills.md`
-- **static-analysis**: 6 skills — `skills/catalog/keywords/static-analysis/skills.md`
-- **statistics**: 1 skills — `skills/catalog/keywords/statistics/skills.md`
-- **supply-chain**: 1 skills — `skills/catalog/keywords/supply-chain/skills.md`
-- **threat-model**: 2 skills — `skills/catalog/keywords/threat-model/skills.md`
-- **trailmark**: 3 skills — `skills/catalog/keywords/trailmark/skills.md`
-- **vercel**: 9 skills — `skills/catalog/keywords/vercel/skills.md`
-- **visualization**: 3 skills — `skills/catalog/keywords/visualization/skills.md`
-- **yara**: 1 skills — `skills/catalog/keywords/yara/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **actions**: 1 skills
+- **analytics**: 12 skills
+- **aspnet**: 1 skills
+- **audit**: 13 skills
+- **authentication**: 1 skills
+- **binary**: 6 skills
+- **burp**: 1 skills
+- **ci**: 2 skills
+- **claude-api**: 1 skills
+- **cli**: 1 skills
+- **cloudflare**: 1 skills
+- **code**: 2 skills
+- **code-review**: 10 skills
+- **codeql**: 1 skills
+- **command**: 2 skills
+- **compliance**: 10 skills
+- **cryptography**: 6 skills
+- **dashboard**: 1 skills
+- **data**: 17 skills
+- **dbt**: 2 skills
+- **deploy**: 2 skills
+- **deployment**: 9 skills
+- **devcontainer**: 3 skills
+- **development**: 59 skills
+- **dotnet**: 1 skills
+- **dwarf**: 1 skills
+- **execute**: 3 skills
+- **firebase**: 1 skills
+- **forecast**: 1 skills
+- **ghidra**: 2 skills
+- **git**: 11 skills
+- **github**: 5 skills
+- **hosting**: 1 skills
+- **jupyter**: 2 skills
+- **malware**: 1 skills
+- **metrics**: 2 skills
+- **netlify**: 1 skills
+- **plugin**: 4 skills
+- **policy**: 1 skills
+- **pull-requests**: 2 skills
+- **render**: 1 skills
+- **rest-api**: 5 skills
+- **risk**: 5 skills
+- **sarif**: 1 skills
+- **seatbelt**: 1 skills
+- **security**: 68 skills
+- **semgrep**: 3 skills
+- **sentry**: 2 skills
+- **sql**: 4 skills
+- **static-analysis**: 6 skills
+- **statistics**: 1 skills
+- **supply-chain**: 1 skills
+- **threat-model**: 2 skills
+- **trailmark**: 3 skills
+- **vercel**: 9 skills
+- **visualization**: 3 skills
+- **yara**: 1 skills

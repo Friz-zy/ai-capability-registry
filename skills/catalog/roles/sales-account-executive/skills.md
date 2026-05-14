@@ -3,23 +3,25 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **account-research**: 1 skills — `skills/catalog/keywords/account-research/skills.md`
-- **ads**: 1 skills — `skills/catalog/keywords/ads/skills.md`
-- **bio-research**: 6 skills — `skills/catalog/keywords/bio-research/skills.md`
-- **brand**: 7 skills — `skills/catalog/keywords/brand/skills.md`
-- **business-marketing**: 4 skills — `skills/catalog/keywords/business-marketing/skills.md`
-- **call-prep**: 1 skills — `skills/catalog/keywords/call-prep/skills.md`
-- **campaign**: 3 skills — `skills/catalog/keywords/campaign/skills.md`
-- **content**: 10 skills — `skills/catalog/keywords/content/skills.md`
-- **crm**: 8 skills — `skills/catalog/keywords/crm/skills.md`
-- **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
-- **knowledge**: 4 skills — `skills/catalog/keywords/knowledge/skills.md`
-- **lead-generation**: 1 skills — `skills/catalog/keywords/lead-generation/skills.md`
-- **link**: 1 skills — `skills/catalog/keywords/link/skills.md`
-- **marketing**: 17 skills — `skills/catalog/keywords/marketing/skills.md`
-- **outreach**: 1 skills — `skills/catalog/keywords/outreach/skills.md`
-- **pipeline**: 4 skills — `skills/catalog/keywords/pipeline/skills.md`
-- **research**: 15 skills — `skills/catalog/keywords/research/skills.md`
-- **sales**: 10 skills — `skills/catalog/keywords/sales/skills.md`
-- **seo**: 1 skills — `skills/catalog/keywords/seo/skills.md`
-- **user-research**: 3 skills — `skills/catalog/keywords/user-research/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **account-research**: 1 skills
+- **ads**: 1 skills
+- **bio-research**: 6 skills
+- **brand**: 7 skills
+- **business-marketing**: 4 skills
+- **call-prep**: 1 skills
+- **campaign**: 3 skills
+- **content**: 10 skills
+- **crm**: 8 skills
+- **documentation**: 13 skills
+- **knowledge**: 4 skills
+- **lead-generation**: 1 skills
+- **link**: 1 skills
+- **marketing**: 17 skills
+- **outreach**: 1 skills
+- **pipeline**: 4 skills
+- **research**: 15 skills
+- **sales**: 10 skills
+- **seo**: 1 skills
+- **user-research**: 3 skills

@@ -11,9 +11,11 @@ Manage personal memory, tasks, communication, meetings, and productivity workflo
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **email**: 3 skills — `skills/catalog/keywords/email/skills.md`
-- **meeting**: 2 skills — `skills/catalog/keywords/meeting/skills.md`
-- **memory**: 2 skills — `skills/catalog/keywords/memory/skills.md`
-- **productivity**: 6 skills — `skills/catalog/keywords/productivity/skills.md`
-- **slack**: 2 skills — `skills/catalog/keywords/slack/skills.md`
-- **task-management**: 6 skills — `skills/catalog/keywords/task-management/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **email**: 3 skills
+- **meeting**: 2 skills
+- **memory**: 2 skills
+- **productivity**: 6 skills
+- **slack**: 2 skills
+- **task-management**: 6 skills

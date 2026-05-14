@@ -11,10 +11,12 @@ Operate cloud platforms, deployment targets, containers, observability, and infr
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **ci**: 2 skills — `skills/catalog/keywords/ci/skills.md`
-- **cloudflare**: 1 skills — `skills/catalog/keywords/cloudflare/skills.md`
-- **deployment**: 9 skills — `skills/catalog/keywords/deployment/skills.md`
-- **incident**: 2 skills — `skills/catalog/keywords/incident/skills.md`
-- **netlify**: 1 skills — `skills/catalog/keywords/netlify/skills.md`
-- **render**: 1 skills — `skills/catalog/keywords/render/skills.md`
-- **vercel**: 9 skills — `skills/catalog/keywords/vercel/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **ci**: 2 skills
+- **cloudflare**: 1 skills
+- **deployment**: 9 skills
+- **incident**: 2 skills
+- **netlify**: 1 skills
+- **render**: 1 skills
+- **vercel**: 9 skills

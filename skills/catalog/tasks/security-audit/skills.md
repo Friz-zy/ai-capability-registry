@@ -10,10 +10,12 @@ Analyze security posture, threat model designs, and run static-analysis workflow
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
-- **cryptography**: 6 skills — `skills/catalog/keywords/cryptography/skills.md`
-- **sarif**: 1 skills — `skills/catalog/keywords/sarif/skills.md`
-- **semgrep**: 3 skills — `skills/catalog/keywords/semgrep/skills.md`
-- **static-analysis**: 6 skills — `skills/catalog/keywords/static-analysis/skills.md`
-- **supply-chain**: 1 skills — `skills/catalog/keywords/supply-chain/skills.md`
-- **threat-model**: 2 skills — `skills/catalog/keywords/threat-model/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **codeql**: 1 skills
+- **cryptography**: 6 skills
+- **sarif**: 1 skills
+- **semgrep**: 3 skills
+- **static-analysis**: 6 skills
+- **supply-chain**: 1 skills
+- **threat-model**: 2 skills

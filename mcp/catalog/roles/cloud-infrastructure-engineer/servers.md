@@ -3,80 +3,82 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact service/platform keywords when present.
 
-- **aks**: 1 server(s) — `mcp/catalog/keywords/aks/servers.md`
-- **amazon**: 15 server(s) — `mcp/catalog/keywords/amazon/servers.md`
-- **appsignals**: 1 server(s) — `mcp/catalog/keywords/appsignals/servers.md`
-- **audit**: 1 server(s) — `mcp/catalog/keywords/audit/servers.md`
-- **authentication**: 2 server(s) — `mcp/catalog/keywords/authentication/servers.md`
-- **aws**: 36 server(s) — `mcp/catalog/keywords/aws/servers.md`
-- **aws-appsync**: 1 server(s) — `mcp/catalog/keywords/aws-appsync/servers.md`
-- **aws-bedrock**: 1 server(s) — `mcp/catalog/keywords/aws-bedrock/servers.md`
-- **aws-cdk**: 1 server(s) — `mcp/catalog/keywords/aws-cdk/servers.md`
-- **aws-core**: 1 server(s) — `mcp/catalog/keywords/aws-core/servers.md`
-- **aws-dataprocessing**: 1 server(s) — `mcp/catalog/keywords/aws-dataprocessing/servers.md`
-- **aws-diagram**: 1 server(s) — `mcp/catalog/keywords/aws-diagram/servers.md`
-- **aws-healthomics**: 1 server(s) — `mcp/catalog/keywords/aws-healthomics/servers.md`
-- **aws-iot-sitewise**: 1 server(s) — `mcp/catalog/keywords/aws-iot-sitewise/servers.md`
-- **aws-knowledge**: 1 server(s) — `mcp/catalog/keywords/aws-knowledge/servers.md`
-- **aws-location**: 1 server(s) — `mcp/catalog/keywords/aws-location/servers.md`
-- **aws-msk**: 1 server(s) — `mcp/catalog/keywords/aws-msk/servers.md`
-- **aws-pricing**: 1 server(s) — `mcp/catalog/keywords/aws-pricing/servers.md`
-- **aws-terraform**: 1 server(s) — `mcp/catalog/keywords/aws-terraform/servers.md`
-- **awslabs**: 35 server(s) — `mcp/catalog/keywords/awslabs/servers.md`
-- **awslabs-billing-cost**: 1 server(s) — `mcp/catalog/keywords/awslabs-billing-cost/servers.md`
-- **awslabs-ccapi**: 1 server(s) — `mcp/catalog/keywords/awslabs-ccapi/servers.md`
-- **awslabs-cfn**: 1 server(s) — `mcp/catalog/keywords/awslabs-cfn/servers.md`
-- **awslabs-cloudtrail**: 1 server(s) — `mcp/catalog/keywords/awslabs-cloudtrail/servers.md`
-- **awslabs-cloudwatch**: 1 server(s) — `mcp/catalog/keywords/awslabs-cloudwatch/servers.md`
-- **awslabs-cloudwatch-appsignals**: 1 server(s) — `mcp/catalog/keywords/awslabs-cloudwatch-appsignals/servers.md`
-- **awslabs-cost-explorer**: 1 server(s) — `mcp/catalog/keywords/awslabs-cost-explorer/servers.md`
-- **awslabs-dynamodb**: 1 server(s) — `mcp/catalog/keywords/awslabs-dynamodb/servers.md`
-- **awslabs-elasticache**: 1 server(s) — `mcp/catalog/keywords/awslabs-elasticache/servers.md`
-- **awslabs-iam**: 1 server(s) — `mcp/catalog/keywords/awslabs-iam/servers.md`
-- **awslabs-memcached**: 1 server(s) — `mcp/catalog/keywords/awslabs-memcached/servers.md`
-- **awslabs-nova-canvas**: 1 server(s) — `mcp/catalog/keywords/awslabs-nova-canvas/servers.md`
-- **awslabs-redshift**: 1 server(s) — `mcp/catalog/keywords/awslabs-redshift/servers.md`
-- **awslabs-tables**: 1 server(s) — `mcp/catalog/keywords/awslabs-tables/servers.md`
-- **awslabs-timestream-influxdb**: 1 server(s) — `mcp/catalog/keywords/awslabs-timestream-influxdb/servers.md`
-- **awslabs-valkey**: 1 server(s) — `mcp/catalog/keywords/awslabs-valkey/servers.md`
-- **azure**: 2 server(s) — `mcp/catalog/keywords/azure/servers.md`
-- **cdk**: 1 server(s) — `mcp/catalog/keywords/cdk/servers.md`
-- **cloudflare**: 4 server(s) — `mcp/catalog/keywords/cloudflare/servers.md`
-- **cloudflare-observability**: 1 server(s) — `mcp/catalog/keywords/cloudflare-observability/servers.md`
-- **cloudflare-workers**: 1 server(s) — `mcp/catalog/keywords/cloudflare-workers/servers.md`
-- **cloudtrail**: 1 server(s) — `mcp/catalog/keywords/cloudtrail/servers.md`
-- **cloudwatch**: 2 server(s) — `mcp/catalog/keywords/cloudwatch/servers.md`
-- **compliance**: 2 server(s) — `mcp/catalog/keywords/compliance/servers.md`
-- **compute**: 1 server(s) — `mcp/catalog/keywords/compute/servers.md`
-- **container**: 2 server(s) — `mcp/catalog/keywords/container/servers.md`
-- **deploy**: 2 server(s) — `mcp/catalog/keywords/deploy/servers.md`
-- **deployment**: 1 server(s) — `mcp/catalog/keywords/deployment/servers.md`
-- **docker**: 2 server(s) — `mcp/catalog/keywords/docker/servers.md`
-- **dockerhub**: 1 server(s) — `mcp/catalog/keywords/dockerhub/servers.md`
-- **error-analysis**: 1 server(s) — `mcp/catalog/keywords/error-analysis/servers.md`
-- **googleapis-compute**: 1 server(s) — `mcp/catalog/keywords/googleapis-compute/servers.md`
-- **googleapis-container**: 1 server(s) — `mcp/catalog/keywords/googleapis-container/servers.md`
-- **googleapis-monitoring**: 1 server(s) — `mcp/catalog/keywords/googleapis-monitoring/servers.md`
-- **googleapis-run**: 1 server(s) — `mcp/catalog/keywords/googleapis-run/servers.md`
-- **grafana**: 1 server(s) — `mcp/catalog/keywords/grafana/servers.md`
-- **hosting**: 1 server(s) — `mcp/catalog/keywords/hosting/servers.md`
-- **iam**: 1 server(s) — `mcp/catalog/keywords/iam/servers.md`
-- **incident**: 2 server(s) — `mcp/catalog/keywords/incident/servers.md`
-- **kubernetes**: 2 server(s) — `mcp/catalog/keywords/kubernetes/servers.md`
-- **malware**: 1 server(s) — `mcp/catalog/keywords/malware/servers.md`
-- **malware-patrol**: 1 server(s) — `mcp/catalog/keywords/malware-patrol/servers.md`
-- **malwarepatrol**: 1 server(s) — `mcp/catalog/keywords/malwarepatrol/servers.md`
-- **monitoring**: 4 server(s) — `mcp/catalog/keywords/monitoring/servers.md`
-- **netlify**: 1 server(s) — `mcp/catalog/keywords/netlify/servers.md`
-- **netlify-mcp**: 1 server(s) — `mcp/catalog/keywords/netlify-mcp/servers.md`
-- **oauth**: 1 server(s) — `mcp/catalog/keywords/oauth/servers.md`
-- **observability**: 2 server(s) — `mcp/catalog/keywords/observability/servers.md`
-- **policy**: 1 server(s) — `mcp/catalog/keywords/policy/servers.md`
-- **security**: 6 server(s) — `mcp/catalog/keywords/security/servers.md`
-- **semgrep**: 1 server(s) — `mcp/catalog/keywords/semgrep/servers.md`
-- **sentry**: 1 server(s) — `mcp/catalog/keywords/sentry/servers.md`
-- **stytch**: 1 server(s) — `mcp/catalog/keywords/stytch/servers.md`
-- **terraform**: 2 server(s) — `mcp/catalog/keywords/terraform/servers.md`
-- **threat-intelligence**: 1 server(s) — `mcp/catalog/keywords/threat-intelligence/servers.md`
-- **vercel**: 1 server(s) — `mcp/catalog/keywords/vercel/servers.md`
-- **workers**: 3 server(s) — `mcp/catalog/keywords/workers/servers.md`
+Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+
+- **aks**: 1 server(s)
+- **amazon**: 15 server(s)
+- **appsignals**: 1 server(s)
+- **audit**: 1 server(s)
+- **authentication**: 2 server(s)
+- **aws**: 36 server(s)
+- **aws-appsync**: 1 server(s)
+- **aws-bedrock**: 1 server(s)
+- **aws-cdk**: 1 server(s)
+- **aws-core**: 1 server(s)
+- **aws-dataprocessing**: 1 server(s)
+- **aws-diagram**: 1 server(s)
+- **aws-healthomics**: 1 server(s)
+- **aws-iot-sitewise**: 1 server(s)
+- **aws-knowledge**: 1 server(s)
+- **aws-location**: 1 server(s)
+- **aws-msk**: 1 server(s)
+- **aws-pricing**: 1 server(s)
+- **aws-terraform**: 1 server(s)
+- **awslabs**: 35 server(s)
+- **awslabs-billing-cost**: 1 server(s)
+- **awslabs-ccapi**: 1 server(s)
+- **awslabs-cfn**: 1 server(s)
+- **awslabs-cloudtrail**: 1 server(s)
+- **awslabs-cloudwatch**: 1 server(s)
+- **awslabs-cloudwatch-appsignals**: 1 server(s)
+- **awslabs-cost-explorer**: 1 server(s)
+- **awslabs-dynamodb**: 1 server(s)
+- **awslabs-elasticache**: 1 server(s)
+- **awslabs-iam**: 1 server(s)
+- **awslabs-memcached**: 1 server(s)
+- **awslabs-nova-canvas**: 1 server(s)
+- **awslabs-redshift**: 1 server(s)
+- **awslabs-tables**: 1 server(s)
+- **awslabs-timestream-influxdb**: 1 server(s)
+- **awslabs-valkey**: 1 server(s)
+- **azure**: 2 server(s)
+- **cdk**: 1 server(s)
+- **cloudflare**: 4 server(s)
+- **cloudflare-observability**: 1 server(s)
+- **cloudflare-workers**: 1 server(s)
+- **cloudtrail**: 1 server(s)
+- **cloudwatch**: 2 server(s)
+- **compliance**: 2 server(s)
+- **compute**: 1 server(s)
+- **container**: 2 server(s)
+- **deploy**: 2 server(s)
+- **deployment**: 1 server(s)
+- **docker**: 2 server(s)
+- **dockerhub**: 1 server(s)
+- **error-analysis**: 1 server(s)
+- **googleapis-compute**: 1 server(s)
+- **googleapis-container**: 1 server(s)
+- **googleapis-monitoring**: 1 server(s)
+- **googleapis-run**: 1 server(s)
+- **grafana**: 1 server(s)
+- **hosting**: 1 server(s)
+- **iam**: 1 server(s)
+- **incident**: 2 server(s)
+- **kubernetes**: 2 server(s)
+- **malware**: 1 server(s)
+- **malware-patrol**: 1 server(s)
+- **malwarepatrol**: 1 server(s)
+- **monitoring**: 4 server(s)
+- **netlify**: 1 server(s)
+- **netlify-mcp**: 1 server(s)
+- **oauth**: 1 server(s)
+- **observability**: 2 server(s)
+- **policy**: 1 server(s)
+- **security**: 6 server(s)
+- **semgrep**: 1 server(s)
+- **sentry**: 1 server(s)
+- **stytch**: 1 server(s)
+- **terraform**: 2 server(s)
+- **threat-intelligence**: 1 server(s)
+- **vercel**: 1 server(s)
+- **workers**: 3 server(s)

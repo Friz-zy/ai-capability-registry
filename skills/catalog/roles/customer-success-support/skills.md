@@ -3,20 +3,22 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **account-research**: 1 skills — `skills/catalog/keywords/account-research/skills.md`
-- **bio-research**: 6 skills — `skills/catalog/keywords/bio-research/skills.md`
-- **competitive-intelligence**: 4 skills — `skills/catalog/keywords/competitive-intelligence/skills.md`
-- **customer-support**: 5 skills — `skills/catalog/keywords/customer-support/skills.md`
-- **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
-- **knowledge**: 4 skills — `skills/catalog/keywords/knowledge/skills.md`
-- **link**: 1 skills — `skills/catalog/keywords/link/skills.md`
-- **metrics**: 2 skills — `skills/catalog/keywords/metrics/skills.md`
-- **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
-- **product**: 8 skills — `skills/catalog/keywords/product/skills.md`
-- **research**: 15 skills — `skills/catalog/keywords/research/skills.md`
-- **roadmap**: 1 skills — `skills/catalog/keywords/roadmap/skills.md`
-- **spec**: 5 skills — `skills/catalog/keywords/spec/skills.md`
-- **sprint**: 2 skills — `skills/catalog/keywords/sprint/skills.md`
-- **stakeholder**: 1 skills — `skills/catalog/keywords/stakeholder/skills.md`
-- **ticket-triage**: 4 skills — `skills/catalog/keywords/ticket-triage/skills.md`
-- **user-research**: 3 skills — `skills/catalog/keywords/user-research/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **account-research**: 1 skills
+- **bio-research**: 6 skills
+- **competitive-intelligence**: 4 skills
+- **customer-support**: 5 skills
+- **documentation**: 13 skills
+- **knowledge**: 4 skills
+- **link**: 1 skills
+- **metrics**: 2 skills
+- **planning**: 19 skills
+- **product**: 8 skills
+- **research**: 15 skills
+- **roadmap**: 1 skills
+- **spec**: 5 skills
+- **sprint**: 2 skills
+- **stakeholder**: 1 skills
+- **ticket-triage**: 4 skills
+- **user-research**: 3 skills

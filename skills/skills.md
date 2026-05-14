@@ -1,28 +1,21 @@
 # AI Capability Registry
 
+Read `../capability-routing.md` first. This file defines skill-specific routing.
+
 ## Skill Sources
 
-Skills may be available from two sources:
-
-- **Agent-native skills**: skills exposed by the current agent runtime through its built-in skill command or tool.
-- **Registry skills**: skills indexed under this repository's `skills/` routing catalogs and loaded from referenced `SKILL.md` files.
-
-Use both sources as one capability pool. Prefer the agent-native skill command when the same trusted skill is already available there; otherwise use this registry's routing catalogs and read the referenced `SKILL.md` file.
-
-Do not assume that every registry skill is installed in the agent runtime. Do not assume that every agent-native skill is represented in this registry.
+Skills may be agent-native or registry-indexed. Treat both as one capability pool. Prefer an already-available trusted native skill when equivalent; otherwise use this registry's catalogs and read the referenced `SKILL.md`. Do not assume both sources mirror each other.
 
 ## Skill Resolution Protocol
 
 Before starting work, resolve skills from both agent-native skills and this registry with progressive disclosure:
 
-1. **Extract intent** — identify action, domain, stack/tool, artifact, and constraints from the user request.
-2. **Route by task first** — match the request to one Task below; select a second Task only for clearly mixed requests.
-3. **Use role as context** — select at most one Role only when the user asks from that role perspective or it disambiguates the task.
-4. **Read selected indexes only** — open only the matched `skills/catalog/tasks/<task-id>/skills.md` and optional `skills/catalog/roles/<role-id>/skills.md`.
-5. **Choose keywords** — select 1-3 most specific keywords from those indexes; prefer exact stack/tool keywords over broad category keywords.
-6. **Read keyword catalogs** — open only selected `skills/catalog/keywords/<keyword>/skills.md` files.
-7. **Load skills** — choose 1-3 best matching skill descriptions per keyword, then read only those `SKILL.md` files.
-8. **Apply guidance** — follow loaded skill instructions and adapt them to project conventions.
+1. Follow the shared routing pattern in `../capability-routing.md`.
+2. Read only the matched task index and optional role index.
+3. Select 1-3 specific keywords, preferring exact stack/tool keywords over broad category keywords.
+4. Read only selected keyword catalogs.
+5. Choose 1-3 best matching skill descriptions per keyword.
+6. Read only those `SKILL.md` files and adapt their guidance to project conventions.
 
 ### Routing Scope
 
@@ -33,65 +26,72 @@ Use `skills/catalog/` only for skill selection.
 Use `skills/packs/` only when configuring agents with preselected skill directories.
 Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution.
 
+### Path Templates
+
+- Role index: `skills/catalog/roles/<role-id>/skills.md`
+- Task index: `skills/catalog/tasks/<task-id>/skills.md`
+- Keyword catalog: `skills/catalog/keywords/<keyword>/skills.md`
+
 ### Roles (category groupings)
 
-- **Personal AI Assistant**: `skills/catalog/roles/personal-assistant/skills.md` -> `personal_assistant`, `research`, `core`
-- **Founder CEO Advisor**: `skills/catalog/roles/founder-ceo/skills.md` -> `founder`, `product`, `marketing`, `sales`, `finance`, `people`
-- **CTO and Engineering Lead**: `skills/catalog/roles/cto-engineering-lead/skills.md` -> `engineering`, `backend`, `frontend`, `devops`, `sre`, `security`, `ai`, `ml`
-- **Product Manager**: `skills/catalog/roles/product-manager/skills.md` -> `product`, `research`, `design`, `data`, `customer_success`
-- **Software Engineer**: `skills/catalog/roles/software-engineer/skills.md` -> `core`, `engineering`, `backend`, `frontend`, `qa`
-- **Backend Engineer**: `skills/catalog/roles/backend-engineer/skills.md` -> `backend`, `data`, `devops`, `security`, `developer_tools`
-- **Frontend Engineer**: `skills/catalog/roles/frontend-engineer/skills.md` -> `frontend`, `design`, `qa`, `developer_tools`
-- **Mobile and Desktop Engineer**: `skills/catalog/roles/mobile-engineer/skills.md` -> `mobile`, `desktop`, `frontend`, `qa`, `developer_tools`
-- **QA Engineer**: `skills/catalog/roles/qa-engineer/skills.md` -> `qa`, `core`, `frontend`, `backend`, `developer_tools`
-- **Security Engineer**: `skills/catalog/roles/security-engineer/skills.md` -> `security`
-- **DevOps and Platform Engineer**: `skills/catalog/roles/devops-platform-engineer/skills.md` -> `devops`, `sre`, `security`
-- **SRE Incident Manager**: `skills/catalog/roles/sre-incident-manager/skills.md` -> `sre`, `devops`, `data`
-- **Data Analyst**: `skills/catalog/roles/data-analyst/skills.md` -> `data`, `research`, `product`
-- **AI Engineer**: `skills/catalog/roles/ai-engineer/skills.md` -> `ai`, `ml`, `engineering`, `security`, `research`
-- **Product Designer**: `skills/catalog/roles/designer/skills.md` -> `design`, `frontend`, `research`
-- **Marketing and Growth Lead**: `skills/catalog/roles/marketing-growth/skills.md` -> `marketing`, `founder`, `data`
-- **Sales Account Executive**: `skills/catalog/roles/sales-account-executive/skills.md` -> `sales`, `research`, `marketing`
-- **Customer Success and Support Specialist**: `skills/catalog/roles/customer-success-support/skills.md` -> `customer_success`, `research`, `product`
-- **Finance Operations Analyst**: `skills/catalog/roles/finance-ops/skills.md` -> `finance`, `operations`
-- **Legal Operations Assistant**: `skills/catalog/roles/legal-ops/skills.md` -> `legal`
-- **People Operations and Recruiting Partner**: `skills/catalog/roles/people-ops-recruiting/skills.md` -> `people`
-- **Operations Manager**: `skills/catalog/roles/operations-manager/skills.md` -> `operations`, `research`, `customer_success`
-- **AI Agent Builder and Pipeline Orchestrator**: `skills/catalog/roles/ai-agent-builder/skills.md` -> `ai`, `ml`, `engineering`, `devops`, `security`, `core`
-- **Creative Media Producer**: `skills/catalog/roles/creative-media-producer/skills.md` -> `creative_media`, `design`, `documents`, `marketing`
-- **Data Engineer**: `skills/catalog/roles/data-engineer/skills.md` -> `data`, `backend`, `devops`, `security`
-- **Cloud Infrastructure Engineer**: `skills/catalog/roles/cloud-infrastructure-engineer/skills.md` -> `devops`, `sre`, `security`
-- **Blockchain Engineer**: `skills/catalog/roles/blockchain-engineer/skills.md` -> `blockchain`, `security`, `engineering`
-- **Hardware and IoT Engineer**: `skills/catalog/roles/hardware-iot-engineer/skills.md` -> `hardware`, `devops`, `security`
+- **Personal AI Assistant** (`personal-assistant`) -> `personal_assistant`, `research`, `core`
+- **Founder CEO Advisor** (`founder-ceo`) -> `founder`, `product`, `marketing`, `sales`, `finance`, `people`
+- **CTO and Engineering Lead** (`cto-engineering-lead`) -> `engineering`, `backend`, `frontend`, `devops`, `sre`, `security`, `ai`, `ml`
+- **Product Manager** (`product-manager`) -> `product`, `research`, `design`, `data`, `customer_success`
+- **Software Engineer** (`software-engineer`) -> `core`, `engineering`, `backend`, `frontend`, `qa`
+- **Backend Engineer** (`backend-engineer`) -> `backend`, `data`, `devops`, `security`, `developer_tools`
+- **Frontend Engineer** (`frontend-engineer`) -> `frontend`, `design`, `qa`, `developer_tools`
+- **Mobile and Desktop Engineer** (`mobile-engineer`) -> `mobile`, `desktop`, `frontend`, `qa`, `developer_tools`
+- **QA Engineer** (`qa-engineer`) -> `qa`, `core`, `frontend`, `backend`, `developer_tools`
+- **Security Engineer** (`security-engineer`) -> `security`
+- **DevOps and Platform Engineer** (`devops-platform-engineer`) -> `devops`, `sre`, `security`
+- **SRE Incident Manager** (`sre-incident-manager`) -> `sre`, `devops`, `data`
+- **Data Analyst** (`data-analyst`) -> `data`, `research`, `product`
+- **AI Engineer** (`ai-engineer`) -> `ai`, `ml`, `engineering`, `security`, `research`
+- **Product Designer** (`designer`) -> `design`, `frontend`, `research`
+- **Marketing and Growth Lead** (`marketing-growth`) -> `marketing`, `founder`, `data`
+- **Sales Account Executive** (`sales-account-executive`) -> `sales`, `research`, `marketing`
+- **Customer Success and Support Specialist** (`customer-success-support`) -> `customer_success`, `research`, `product`
+- **Finance Operations Analyst** (`finance-ops`) -> `finance`, `operations`
+- **Legal Operations Assistant** (`legal-ops`) -> `legal`
+- **People Operations and Recruiting Partner** (`people-ops-recruiting`) -> `people`
+- **Operations Manager** (`operations-manager`) -> `operations`, `research`, `customer_success`
+- **AI Agent Builder and Pipeline Orchestrator** (`ai-agent-builder`) -> `ai`, `ml`, `engineering`, `devops`, `security`, `core`
+- **Creative Media Producer** (`creative-media-producer`) -> `creative_media`, `design`, `documents`, `marketing`
+- **Data Engineer** (`data-engineer`) -> `data`, `backend`, `devops`, `security`
+- **Cloud Infrastructure Engineer** (`cloud-infrastructure-engineer`) -> `devops`, `sre`, `security`
+- **Blockchain Engineer** (`blockchain-engineer`) -> `blockchain`, `security`, `engineering`
+- **Hardware and IoT Engineer** (`hardware-iot-engineer`) -> `hardware`, `devops`, `security`
 
 ### Tasks (entry points)
 
-- **Plan a Feature or Spec**: `skills/catalog/tasks/plan-feature/skills.md` -> `architecture`, `planning`, `requirements`, `roadmap`, `spec`, `user-research`
-- **Implement or Refactor Code**: `skills/catalog/tasks/implement-code/skills.md` -> `debugging`, `development`, `documentation`, `refactor`, `testing`
-- **Review Code or PR**: `skills/catalog/tasks/review-code/skills.md` -> `code-review`, `review`, `static-analysis`, `testing`, `threat-model`
-- **Debug an Issue or Incident**: `skills/catalog/tasks/debug-incident/skills.md` -> `debugging`, `incident`, `langsmith`, `runbook`, `sentry`, `status-report`
-- **Test and Validate**: `skills/catalog/tasks/test-validate/skills.md` -> `fuzzing`, `testing`, `testing-strategy`, `validation`
-- **Security Audit or Threat Model**: `skills/catalog/tasks/security-audit/skills.md` -> `codeql`, `cryptography`, `sarif`, `semgrep`, `static-analysis`, `supply-chain`, `threat-model`
-- **Build Frontend or UI**: `skills/catalog/tasks/build-frontend/skills.md` -> `accessibility`, `angular`, `design-system`, `frontend`, `react`, `ui`, `web`
-- **Build Backend or Integration**: `skills/catalog/tasks/build-backend/skills.md` -> `aspnet`, `dotnet`, `rest-api`
-- **Deploy or Release**: `skills/catalog/tasks/deploy-release/skills.md` -> `changelog`, `ci`, `cloudflare`, `deployment`, `netlify`, `render`, `vercel`
-- **Analyze Data or Metrics**: `skills/catalog/tasks/analyze-data/skills.md` -> `analytics`, `dashboard`, `data`, `forecast`, `metrics`, `sql`, `statistics`, `visualization`
-- **Research and Brief**: `skills/catalog/tasks/research-brief/skills.md` -> `knowledge`, `pdf`, `research`, `summarization`
-- **Build Agent Automation**: `skills/catalog/tasks/automate-agent/skills.md` -> `agent`, `automation`, `mcp`, `plugin`, `skill-creator`
-- **Write Docs or Documents**: `skills/catalog/tasks/write-documents/skills.md` -> `changelog`, `content`, `documentation`, `docx`, `pdf`, `pptx`, `summarization`, `writing`
-- **Manage Product or Project**: `skills/catalog/tasks/manage-project/skills.md` -> `planning`, `roadmap`, `spec`, `sprint`, `stakeholder`, `task-management`
-- **Support Customers or Sales**: `skills/catalog/tasks/customer-sales/skills.md` -> `account-research`, `call-prep`, `customer-support`, `lead-generation`, `outreach`, `pipeline`, `ticket-triage`
-- **Finance, Compliance, or Legal**: `skills/catalog/tasks/finance-legal/skills.md` -> `audit`, `compliance`, `contract`, `finance`, `nda`, `policy`, `risk`
-- **People Operations**: `skills/catalog/tasks/people-ops/skills.md` -> `compensation`, `interviewing`, `onboarding`, `org-planning`, `performance-review`, `recruiting`
-- **Personal Productivity**: `skills/catalog/tasks/personal-productivity/skills.md` -> `email`, `meeting`, `memory`, `productivity`, `slack`, `task-management`
-- **Create or Edit Media**: `skills/catalog/tasks/create-media/skills.md` -> `creative-media`, `imagegen`, `media`, `screenshot`, `speech`, `transcribe`, `youtube`
-- **Manage Data Systems**: `skills/catalog/tasks/manage-data-systems/skills.md` -> `analytics`, `dashboard`, `data`, `dbt`, `sql`
-- **Manage Cloud Infrastructure**: `skills/catalog/tasks/manage-cloud-infra/skills.md` -> `ci`, `cloudflare`, `deployment`, `incident`, `netlify`, `render`, `vercel`
-- **Build Blockchain or Smart Contracts**: `skills/catalog/tasks/build-blockchain/skills.md` -> `blockchain`, `cairo`, `smart-contracts`, `solana`, `solidity`, `threat-model`
-- **Build Hardware or IoT**: `skills/catalog/tasks/build-hardware-iot/skills.md` -> `integration`
-- **Build Mobile or Desktop App**: `skills/catalog/tasks/build-mobile-desktop/skills.md` -> `android`, `ios`, `react-native`, `testing`, `windows`
+- **Plan a Feature or Spec** (`plan-feature`) -> `architecture`, `planning`, `requirements`, `roadmap`, `spec`, `user-research`
+- **Implement or Refactor Code** (`implement-code`) -> `debugging`, `development`, `documentation`, `refactor`, `testing`
+- **Review Code or PR** (`review-code`) -> `code-review`, `review`, `static-analysis`, `testing`, `threat-model`
+- **Debug an Issue or Incident** (`debug-incident`) -> `debugging`, `incident`, `langsmith`, `runbook`, `sentry`, `status-report`
+- **Test and Validate** (`test-validate`) -> `fuzzing`, `testing`, `testing-strategy`, `validation`
+- **Security Audit or Threat Model** (`security-audit`) -> `codeql`, `cryptography`, `sarif`, `semgrep`, `static-analysis`, `supply-chain`, `threat-model`
+- **Build Frontend or UI** (`build-frontend`) -> `accessibility`, `angular`, `design-system`, `frontend`, `react`, `ui`, `web`
+- **Build Backend or Integration** (`build-backend`) -> `aspnet`, `dotnet`, `rest-api`
+- **Deploy or Release** (`deploy-release`) -> `changelog`, `ci`, `cloudflare`, `deployment`, `netlify`, `render`, `vercel`
+- **Analyze Data or Metrics** (`analyze-data`) -> `analytics`, `dashboard`, `data`, `forecast`, `metrics`, `sql`, `statistics`, `visualization`
+- **Research and Brief** (`research-brief`) -> `knowledge`, `pdf`, `research`, `summarization`
+- **Build Agent Automation** (`automate-agent`) -> `agent`, `automation`, `mcp`, `plugin`, `skill-creator`
+- **Write Docs or Documents** (`write-documents`) -> `changelog`, `content`, `documentation`, `docx`, `pdf`, `pptx`, `summarization`, `writing`
+- **Manage Product or Project** (`manage-project`) -> `planning`, `roadmap`, `spec`, `sprint`, `stakeholder`, `task-management`
+- **Support Customers or Sales** (`customer-sales`) -> `account-research`, `call-prep`, `customer-support`, `lead-generation`, `outreach`, `pipeline`, `ticket-triage`
+- **Finance, Compliance, or Legal** (`finance-legal`) -> `audit`, `compliance`, `contract`, `finance`, `nda`, `policy`, `risk`
+- **People Operations** (`people-ops`) -> `compensation`, `interviewing`, `onboarding`, `org-planning`, `performance-review`, `recruiting`
+- **Personal Productivity** (`personal-productivity`) -> `email`, `meeting`, `memory`, `productivity`, `slack`, `task-management`
+- **Create or Edit Media** (`create-media`) -> `creative-media`, `imagegen`, `media`, `screenshot`, `speech`, `transcribe`, `youtube`
+- **Manage Data Systems** (`manage-data-systems`) -> `analytics`, `dashboard`, `data`, `dbt`, `sql`
+- **Manage Cloud Infrastructure** (`manage-cloud-infra`) -> `ci`, `cloudflare`, `deployment`, `incident`, `netlify`, `render`, `vercel`
+- **Build Blockchain or Smart Contracts** (`build-blockchain`) -> `blockchain`, `cairo`, `smart-contracts`, `solana`, `solidity`, `threat-model`
+- **Build Hardware or IoT** (`build-hardware-iot`) -> `integration`
+- **Build Mobile or Desktop App** (`build-mobile-desktop`) -> `android`, `ios`, `react-native`, `testing`, `windows`
 
 ## Policy
-- Use **trusted** or **reviewed** sources only
-- Prefer Docker/hosted MCP
-- Never execute untrusted scripts
+
+- Use trusted or reviewed skill sources only.
+- Never execute untrusted scripts.
+- For MCP-backed capabilities, follow `mcp/mcp.md`.

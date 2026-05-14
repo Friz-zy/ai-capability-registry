@@ -11,9 +11,11 @@ Manage roadmap, sprint planning, stakeholder updates, and project operations.
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
-- **roadmap**: 1 skills — `skills/catalog/keywords/roadmap/skills.md`
-- **spec**: 5 skills — `skills/catalog/keywords/spec/skills.md`
-- **sprint**: 2 skills — `skills/catalog/keywords/sprint/skills.md`
-- **stakeholder**: 1 skills — `skills/catalog/keywords/stakeholder/skills.md`
-- **task-management**: 6 skills — `skills/catalog/keywords/task-management/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **planning**: 19 skills
+- **roadmap**: 1 skills
+- **spec**: 5 skills
+- **sprint**: 2 skills
+- **stakeholder**: 1 skills
+- **task-management**: 6 skills

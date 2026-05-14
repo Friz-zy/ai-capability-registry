@@ -196,7 +196,7 @@ def task_keywords(task: dict[str, Any], keyword_categories: dict[str, list[str]]
 def keyword_items(keys: list[str], by_keyword: dict[str, list[dict[str, Any]]], empty_template: str) -> str:
     if not keys:
         return "No enabled MCP servers match this task." if empty_template == "task" else "No enabled MCP servers match this role."
-    return "\n".join(f"- **{key}**: {len(by_keyword[key])} server(s) — `mcp/catalog/keywords/{key}/servers.md`" for key in keys)
+    return "\n".join(f"- **{key}**: {len(by_keyword[key])} server(s)" for key in keys)
 
 
 def generate_task_servers_md(task: dict[str, Any], keyword_categories: dict[str, list[str]], by_keyword: dict[str, list[dict[str, Any]]]) -> str:
@@ -265,7 +265,7 @@ def root_roles(profiles: list[dict[str, Any]], keyword_categories: dict[str, lis
         available = [keyword for keyword in get_keywords_for_categories(categories, keyword_categories) if by_keyword.get(keyword)]
         if available:
             role = profile.get("role", {}).get("title") or profile["name"]
-            items.append(f"- **{role}**: `mcp/catalog/roles/{profile['id']}/servers.md` -> {inline_keywords(available[:12])}")
+            items.append(f"- **{role}** (`{profile['id']}`) -> {inline_keywords(available[:12])}")
     return "\n".join(items)
 
 
@@ -274,7 +274,7 @@ def root_tasks(tasks: list[dict[str, Any]], keyword_categories: dict[str, list[s
     for task in tasks:
         available = [keyword for keyword in task_keywords(task, keyword_categories) if by_keyword.get(keyword)]
         if available:
-            items.append(f"- **{task['name']}**: `mcp/catalog/tasks/{task['id']}/servers.md` -> {inline_keywords(available[:12])}")
+            items.append(f"- **{task['name']}** (`{task['id']}`) -> {inline_keywords(available[:12])}")
     return "\n".join(items)
 
 

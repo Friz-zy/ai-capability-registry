@@ -12,9 +12,11 @@ Define requirements, architecture, rollout, and acceptance criteria before imple
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **architecture**: 6 skills — `skills/catalog/keywords/architecture/skills.md`
-- **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
-- **requirements**: 4 skills — `skills/catalog/keywords/requirements/skills.md`
-- **roadmap**: 1 skills — `skills/catalog/keywords/roadmap/skills.md`
-- **spec**: 5 skills — `skills/catalog/keywords/spec/skills.md`
-- **user-research**: 3 skills — `skills/catalog/keywords/user-research/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **architecture**: 6 skills
+- **planning**: 19 skills
+- **requirements**: 4 skills
+- **roadmap**: 1 skills
+- **spec**: 5 skills
+- **user-research**: 3 skills

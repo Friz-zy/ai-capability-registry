@@ -3,81 +3,83 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **access**: 1 skills — `skills/catalog/keywords/access/skills.md`
-- **agent**: 4 skills — `skills/catalog/keywords/agent/skills.md`
-- **ai**: 43 skills — `skills/catalog/keywords/ai/skills.md`
-- **analysis**: 27 skills — `skills/catalog/keywords/analysis/skills.md`
-- **architecture**: 6 skills — `skills/catalog/keywords/architecture/skills.md`
-- **audit**: 13 skills — `skills/catalog/keywords/audit/skills.md`
-- **authentication**: 1 skills — `skills/catalog/keywords/authentication/skills.md`
-- **automation**: 13 skills — `skills/catalog/keywords/automation/skills.md`
-- **binary**: 6 skills — `skills/catalog/keywords/binary/skills.md`
-- **bio-research**: 6 skills — `skills/catalog/keywords/bio-research/skills.md`
-- **brainstorming**: 4 skills — `skills/catalog/keywords/brainstorming/skills.md`
-- **burp**: 1 skills — `skills/catalog/keywords/burp/skills.md`
-- **changelog**: 1 skills — `skills/catalog/keywords/changelog/skills.md`
-- **chatgpt**: 1 skills — `skills/catalog/keywords/chatgpt/skills.md`
-- **ci**: 2 skills — `skills/catalog/keywords/ci/skills.md`
-- **claude-api**: 1 skills — `skills/catalog/keywords/claude-api/skills.md`
-- **cloudflare**: 1 skills — `skills/catalog/keywords/cloudflare/skills.md`
-- **code-review**: 10 skills — `skills/catalog/keywords/code-review/skills.md`
-- **codeql**: 1 skills — `skills/catalog/keywords/codeql/skills.md`
-- **communication**: 8 skills — `skills/catalog/keywords/communication/skills.md`
-- **communication-writing**: 2 skills — `skills/catalog/keywords/communication-writing/skills.md`
-- **compliance**: 10 skills — `skills/catalog/keywords/compliance/skills.md`
-- **configuration**: 9 skills — `skills/catalog/keywords/configuration/skills.md`
-- **cpp**: 2 skills — `skills/catalog/keywords/cpp/skills.md`
-- **cryptography**: 6 skills — `skills/catalog/keywords/cryptography/skills.md`
-- **debug**: 1 skills — `skills/catalog/keywords/debug/skills.md`
-- **debugging**: 7 skills — `skills/catalog/keywords/debugging/skills.md`
-- **deploy**: 2 skills — `skills/catalog/keywords/deploy/skills.md`
-- **deployment**: 9 skills — `skills/catalog/keywords/deployment/skills.md`
-- **development**: 59 skills — `skills/catalog/keywords/development/skills.md`
-- **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
-- **dwarf**: 1 skills — `skills/catalog/keywords/dwarf/skills.md`
-- **engineering**: 12 skills — `skills/catalog/keywords/engineering/skills.md`
-- **error-analysis**: 1 skills — `skills/catalog/keywords/error-analysis/skills.md`
-- **firebase**: 1 skills — `skills/catalog/keywords/firebase/skills.md`
-- **ghidra**: 2 skills — `skills/catalog/keywords/ghidra/skills.md`
-- **hosting**: 1 skills — `skills/catalog/keywords/hosting/skills.md`
-- **incident**: 2 skills — `skills/catalog/keywords/incident/skills.md`
-- **integration**: 9 skills — `skills/catalog/keywords/integration/skills.md`
-- **malware**: 1 skills — `skills/catalog/keywords/malware/skills.md`
-- **management**: 11 skills — `skills/catalog/keywords/management/skills.md`
-- **mcp**: 1 skills — `skills/catalog/keywords/mcp/skills.md`
-- **migration**: 2 skills — `skills/catalog/keywords/migration/skills.md`
-- **netlify**: 1 skills — `skills/catalog/keywords/netlify/skills.md`
-- **nextflow**: 1 skills — `skills/catalog/keywords/nextflow/skills.md`
-- **openai**: 2 skills — `skills/catalog/keywords/openai/skills.md`
-- **optimization**: 5 skills — `skills/catalog/keywords/optimization/skills.md`
-- **organization**: 1 skills — `skills/catalog/keywords/organization/skills.md`
-- **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
-- **policy**: 1 skills — `skills/catalog/keywords/policy/skills.md`
-- **python**: 6 skills — `skills/catalog/keywords/python/skills.md`
-- **refactor**: 4 skills — `skills/catalog/keywords/refactor/skills.md`
-- **refactoring**: 2 skills — `skills/catalog/keywords/refactoring/skills.md`
-- **render**: 1 skills — `skills/catalog/keywords/render/skills.md`
-- **reporting**: 10 skills — `skills/catalog/keywords/reporting/skills.md`
-- **requirements**: 4 skills — `skills/catalog/keywords/requirements/skills.md`
-- **review**: 18 skills — `skills/catalog/keywords/review/skills.md`
-- **risk**: 5 skills — `skills/catalog/keywords/risk/skills.md`
-- **runbook**: 3 skills — `skills/catalog/keywords/runbook/skills.md`
-- **rust**: 4 skills — `skills/catalog/keywords/rust/skills.md`
-- **sarif**: 1 skills — `skills/catalog/keywords/sarif/skills.md`
-- **seatbelt**: 1 skills — `skills/catalog/keywords/seatbelt/skills.md`
-- **security**: 68 skills — `skills/catalog/keywords/security/skills.md`
-- **semgrep**: 3 skills — `skills/catalog/keywords/semgrep/skills.md`
-- **skill-creator**: 7 skills — `skills/catalog/keywords/skill-creator/skills.md`
-- **static-analysis**: 6 skills — `skills/catalog/keywords/static-analysis/skills.md`
-- **status-report**: 2 skills — `skills/catalog/keywords/status-report/skills.md`
-- **summarization**: 6 skills — `skills/catalog/keywords/summarization/skills.md`
-- **supply-chain**: 1 skills — `skills/catalog/keywords/supply-chain/skills.md`
-- **system-design**: 1 skills — `skills/catalog/keywords/system-design/skills.md`
-- **tech-debt**: 2 skills — `skills/catalog/keywords/tech-debt/skills.md`
-- **threat-model**: 2 skills — `skills/catalog/keywords/threat-model/skills.md`
-- **trailmark**: 3 skills — `skills/catalog/keywords/trailmark/skills.md`
-- **validation**: 11 skills — `skills/catalog/keywords/validation/skills.md`
-- **vercel**: 9 skills — `skills/catalog/keywords/vercel/skills.md`
-- **workflow**: 20 skills — `skills/catalog/keywords/workflow/skills.md`
-- **writing**: 5 skills — `skills/catalog/keywords/writing/skills.md`
-- **yara**: 1 skills — `skills/catalog/keywords/yara/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **access**: 1 skills
+- **agent**: 4 skills
+- **ai**: 43 skills
+- **analysis**: 27 skills
+- **architecture**: 6 skills
+- **audit**: 13 skills
+- **authentication**: 1 skills
+- **automation**: 13 skills
+- **binary**: 6 skills
+- **bio-research**: 6 skills
+- **brainstorming**: 4 skills
+- **burp**: 1 skills
+- **changelog**: 1 skills
+- **chatgpt**: 1 skills
+- **ci**: 2 skills
+- **claude-api**: 1 skills
+- **cloudflare**: 1 skills
+- **code-review**: 10 skills
+- **codeql**: 1 skills
+- **communication**: 8 skills
+- **communication-writing**: 2 skills
+- **compliance**: 10 skills
+- **configuration**: 9 skills
+- **cpp**: 2 skills
+- **cryptography**: 6 skills
+- **debug**: 1 skills
+- **debugging**: 7 skills
+- **deploy**: 2 skills
+- **deployment**: 9 skills
+- **development**: 59 skills
+- **documentation**: 13 skills
+- **dwarf**: 1 skills
+- **engineering**: 12 skills
+- **error-analysis**: 1 skills
+- **firebase**: 1 skills
+- **ghidra**: 2 skills
+- **hosting**: 1 skills
+- **incident**: 2 skills
+- **integration**: 9 skills
+- **malware**: 1 skills
+- **management**: 11 skills
+- **mcp**: 1 skills
+- **migration**: 2 skills
+- **netlify**: 1 skills
+- **nextflow**: 1 skills
+- **openai**: 2 skills
+- **optimization**: 5 skills
+- **organization**: 1 skills
+- **planning**: 19 skills
+- **policy**: 1 skills
+- **python**: 6 skills
+- **refactor**: 4 skills
+- **refactoring**: 2 skills
+- **render**: 1 skills
+- **reporting**: 10 skills
+- **requirements**: 4 skills
+- **review**: 18 skills
+- **risk**: 5 skills
+- **runbook**: 3 skills
+- **rust**: 4 skills
+- **sarif**: 1 skills
+- **seatbelt**: 1 skills
+- **security**: 68 skills
+- **semgrep**: 3 skills
+- **skill-creator**: 7 skills
+- **static-analysis**: 6 skills
+- **status-report**: 2 skills
+- **summarization**: 6 skills
+- **supply-chain**: 1 skills
+- **system-design**: 1 skills
+- **tech-debt**: 2 skills
+- **threat-model**: 2 skills
+- **trailmark**: 3 skills
+- **validation**: 11 skills
+- **vercel**: 9 skills
+- **workflow**: 20 skills
+- **writing**: 5 skills
+- **yara**: 1 skills

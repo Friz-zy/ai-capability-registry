@@ -1,16 +1,14 @@
-# Build Hardware or IoT
+# {{name}}
 
-Build, debug, and integrate firmware, embedded hardware, IoT devices, and device-management workflows.
+{{description}}
 
 ## Categories
 
-- `hardware`
-- `devops`
-- `security`
+{{categories}}
 
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
 Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
 
-- **integration**: 9 skills
+{{keywords}}

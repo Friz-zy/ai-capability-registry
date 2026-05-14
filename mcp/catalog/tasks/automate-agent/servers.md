@@ -12,179 +12,181 @@ Create skills, agents, MCP integrations, hooks, and plugin-like automation.
 ## Keywords
 Select 1-3 keywords from this list that directly match the current request. Prefer exact service/platform keywords when present.
 
-- **access**: 7 server(s) — `mcp/catalog/keywords/access/servers.md`
-- **actions**: 1 server(s) — `mcp/catalog/keywords/actions/servers.md`
-- **agent**: 1 server(s) — `mcp/catalog/keywords/agent/servers.md`
-- **agentcore**: 1 server(s) — `mcp/catalog/keywords/agentcore/servers.md`
-- **ai**: 2 server(s) — `mcp/catalog/keywords/ai/servers.md`
-- **ai-assistant**: 2 server(s) — `mcp/catalog/keywords/ai-assistant/servers.md`
-- **alfresco**: 1 server(s) — `mcp/catalog/keywords/alfresco/servers.md`
-- **amazon-bedrock-agentcore**: 1 server(s) — `mcp/catalog/keywords/amazon-bedrock-agentcore/servers.md`
-- **amazon-kendra-index**: 1 server(s) — `mcp/catalog/keywords/amazon-kendra-index/servers.md`
-- **amazon-qbusiness-anonymous**: 1 server(s) — `mcp/catalog/keywords/amazon-qbusiness-anonymous/servers.md`
-- **analysis**: 6 server(s) — `mcp/catalog/keywords/analysis/servers.md`
-- **anonymous**: 1 server(s) — `mcp/catalog/keywords/anonymous/servers.md`
-- **anurag**: 1 server(s) — `mcp/catalog/keywords/anurag/servers.md`
-- **anuragd**: 1 server(s) — `mcp/catalog/keywords/anuragd/servers.md`
-- **apollo**: 1 server(s) — `mcp/catalog/keywords/apollo/servers.md`
-- **arm**: 1 server(s) — `mcp/catalog/keywords/arm/servers.md`
-- **astra**: 1 server(s) — `mcp/catalog/keywords/astra/servers.md`
-- **atlan**: 1 server(s) — `mcp/catalog/keywords/atlan/servers.md`
-- **atlassian**: 1 server(s) — `mcp/catalog/keywords/atlassian/servers.md`
-- **atlassian-atlassian**: 1 server(s) — `mcp/catalog/keywords/atlassian-atlassian/servers.md`
-- **automation**: 4 server(s) — `mcp/catalog/keywords/automation/servers.md`
-- **awesome**: 1 server(s) — `mcp/catalog/keywords/awesome/servers.md`
-- **aws-bedrock**: 1 server(s) — `mcp/catalog/keywords/aws-bedrock/servers.md`
-- **bedrock**: 3 server(s) — `mcp/catalog/keywords/bedrock/servers.md`
-- **bgpt**: 1 server(s) — `mcp/catalog/keywords/bgpt/servers.md`
-- **big**: 1 server(s) — `mcp/catalog/keywords/big/servers.md`
-- **ccapi**: 1 server(s) — `mcp/catalog/keywords/ccapi/servers.md`
-- **cfn**: 1 server(s) — `mcp/catalog/keywords/cfn/servers.md`
-- **chroma**: 1 server(s) — `mcp/catalog/keywords/chroma/servers.md`
-- **cloudflare**: 4 server(s) — `mcp/catalog/keywords/cloudflare/servers.md`
-- **code**: 4 server(s) — `mcp/catalog/keywords/code/servers.md`
-- **code-examples**: 1 server(s) — `mcp/catalog/keywords/code-examples/servers.md`
-- **command**: 1 server(s) — `mcp/catalog/keywords/command/servers.md`
-- **communication**: 2 server(s) — `mcp/catalog/keywords/communication/servers.md`
-- **composer**: 1 server(s) — `mcp/catalog/keywords/composer/servers.md`
-- **composio**: 1 server(s) — `mcp/catalog/keywords/composio/servers.md`
-- **comprehensive**: 2 server(s) — `mcp/catalog/keywords/comprehensive/servers.md`
-- **context-awesome**: 1 server(s) — `mcp/catalog/keywords/context-awesome/servers.md`
-- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
-- **control**: 4 server(s) — `mcp/catalog/keywords/control/servers.md`
-- **core**: 1 server(s) — `mcp/catalog/keywords/core/servers.md`
-- **cortex**: 1 server(s) — `mcp/catalog/keywords/cortex/servers.md`
-- **crm**: 2 server(s) — `mcp/catalog/keywords/crm/servers.md`
-- **custom**: 1 server(s) — `mcp/catalog/keywords/custom/servers.md`
-- **customgpt**: 1 server(s) — `mcp/catalog/keywords/customgpt/servers.md`
-- **dare-d5b**: 1 server(s) — `mcp/catalog/keywords/dare-d5b/servers.md`
-- **dataprocessing**: 1 server(s) — `mcp/catalog/keywords/dataprocessing/servers.md`
-- **developer-portal**: 2 server(s) — `mcp/catalog/keywords/developer-portal/servers.md`
-- **developerknowledge**: 1 server(s) — `mcp/catalog/keywords/developerknowledge/servers.md`
-- **development**: 22 server(s) — `mcp/catalog/keywords/development/servers.md`
-- **devin**: 1 server(s) — `mcp/catalog/keywords/devin/servers.md`
-- **documentation**: 8 server(s) — `mcp/catalog/keywords/documentation/servers.md`
-- **dodo**: 1 server(s) — `mcp/catalog/keywords/dodo/servers.md`
-- **dodopayments**: 1 server(s) — `mcp/catalog/keywords/dodopayments/servers.md`
-- **domain**: 1 server(s) — `mcp/catalog/keywords/domain/servers.md`
-- **ean**: 1 server(s) — `mcp/catalog/keywords/ean/servers.md`
-- **explorer**: 1 server(s) — `mcp/catalog/keywords/explorer/servers.md`
-- **ferryhopper**: 1 server(s) — `mcp/catalog/keywords/ferryhopper/servers.md`
-- **figma**: 1 server(s) — `mcp/catalog/keywords/figma/servers.md`
-- **find**: 1 server(s) — `mcp/catalog/keywords/find/servers.md`
-- **find-domain**: 1 server(s) — `mcp/catalog/keywords/find-domain/servers.md`
-- **findadomain**: 1 server(s) — `mcp/catalog/keywords/findadomain/servers.md`
-- **fireflies**: 1 server(s) — `mcp/catalog/keywords/fireflies/servers.md`
-- **firefly**: 1 server(s) — `mcp/catalog/keywords/firefly/servers.md`
-- **genai**: 1 server(s) — `mcp/catalog/keywords/genai/servers.md`
-- **genai-toolbox**: 1 server(s) — `mcp/catalog/keywords/genai-toolbox/servers.md`
-- **generate**: 2 server(s) — `mcp/catalog/keywords/generate/servers.md`
-- **git**: 2 server(s) — `mcp/catalog/keywords/git/servers.md`
-- **github**: 2 server(s) — `mcp/catalog/keywords/github/servers.md`
-- **gitlab**: 1 server(s) — `mcp/catalog/keywords/gitlab/servers.md`
-- **gitmcp**: 1 server(s) — `mcp/catalog/keywords/gitmcp/servers.md`
-- **globalping**: 1 server(s) — `mcp/catalog/keywords/globalping/servers.md`
-- **google**: 9 server(s) — `mcp/catalog/keywords/google/servers.md`
-- **googleapis**: 17 server(s) — `mcp/catalog/keywords/googleapis/servers.md`
-- **googleapis-composer**: 1 server(s) — `mcp/catalog/keywords/googleapis-composer/servers.md`
-- **googleapis-developerknowledge**: 1 server(s) — `mcp/catalog/keywords/googleapis-developerknowledge/servers.md`
-- **googleapis-memorystore**: 1 server(s) — `mcp/catalog/keywords/googleapis-memorystore/servers.md`
-- **googleapis-stitch**: 1 server(s) — `mcp/catalog/keywords/googleapis-stitch/servers.md`
-- **governance**: 1 server(s) — `mcp/catalog/keywords/governance/servers.md`
-- **grafbase**: 1 server(s) — `mcp/catalog/keywords/grafbase/servers.md`
-- **hive**: 1 server(s) — `mcp/catalog/keywords/hive/servers.md`
-- **hiveintelligence**: 1 server(s) — `mcp/catalog/keywords/hiveintelligence/servers.md`
-- **hub**: 1 server(s) — `mcp/catalog/keywords/hub/servers.md`
-- **index**: 1 server(s) — `mcp/catalog/keywords/index/servers.md`
-- **instant**: 1 server(s) — `mcp/catalog/keywords/instant/servers.md`
-- **integration**: 1 server(s) — `mcp/catalog/keywords/integration/servers.md`
-- **invidio**: 1 server(s) — `mcp/catalog/keywords/invidio/servers.md`
-- **issues**: 3 server(s) — `mcp/catalog/keywords/issues/servers.md`
-- **jam**: 1 server(s) — `mcp/catalog/keywords/jam/servers.md`
-- **javadocs**: 1 server(s) — `mcp/catalog/keywords/javadocs/servers.md`
-- **kendra**: 1 server(s) — `mcp/catalog/keywords/kendra/servers.md`
-- **knowledge-mcp**: 1 server(s) — `mcp/catalog/keywords/knowledge-mcp/servers.md`
-- **kollektiv**: 1 server(s) — `mcp/catalog/keywords/kollektiv/servers.md`
-- **library-documentation**: 1 server(s) — `mcp/catalog/keywords/library-documentation/servers.md`
-- **libre**: 1 server(s) — `mcp/catalog/keywords/libre/servers.md`
-- **linear**: 1 server(s) — `mcp/catalog/keywords/linear/servers.md`
-- **listenetic**: 1 server(s) — `mcp/catalog/keywords/listenetic/servers.md`
-- **livescore**: 1 server(s) — `mcp/catalog/keywords/livescore/servers.md`
-- **livescoremcp**: 1 server(s) — `mcp/catalog/keywords/livescoremcp/servers.md`
-- **llm**: 2 server(s) — `mcp/catalog/keywords/llm/servers.md`
-- **llm-text**: 1 server(s) — `mcp/catalog/keywords/llm-text/servers.md`
-- **llmtxt**: 1 server(s) — `mcp/catalog/keywords/llmtxt/servers.md`
-- **management**: 11 server(s) — `mcp/catalog/keywords/management/servers.md`
-- **manifold**: 1 server(s) — `mcp/catalog/keywords/manifold/servers.md`
-- **markitdown**: 1 server(s) — `mcp/catalog/keywords/markitdown/servers.md`
-- **mcp**: 5 server(s) — `mcp/catalog/keywords/mcp/servers.md`
-- **mcp-server**: 1 server(s) — `mcp/catalog/keywords/mcp-server/servers.md`
-- **memorystore**: 1 server(s) — `mcp/catalog/keywords/memorystore/servers.md`
-- **mercado**: 2 server(s) — `mcp/catalog/keywords/mercado/servers.md`
-- **mercado-pago**: 1 server(s) — `mcp/catalog/keywords/mercado-pago/servers.md`
-- **metro-mcp**: 1 server(s) — `mcp/catalog/keywords/metro-mcp/servers.md`
-- **migration**: 1 server(s) — `mcp/catalog/keywords/migration/servers.md`
-- **morningstar**: 1 server(s) — `mcp/catalog/keywords/morningstar/servers.md`
-- **mypromind**: 1 server(s) — `mcp/catalog/keywords/mypromind/servers.md`
-- **needle-ai**: 1 server(s) — `mcp/catalog/keywords/needle-ai/servers.md`
-- **netlify**: 1 server(s) — `mcp/catalog/keywords/netlify/servers.md`
-- **netlify-mcp**: 1 server(s) — `mcp/catalog/keywords/netlify-mcp/servers.md`
-- **notion**: 1 server(s) — `mcp/catalog/keywords/notion/servers.md`
-- **nyc**: 1 server(s) — `mcp/catalog/keywords/nyc/servers.md`
-- **oauth**: 1 server(s) — `mcp/catalog/keywords/oauth/servers.md`
-- **octagonagents**: 1 server(s) — `mcp/catalog/keywords/octagonagents/servers.md`
-- **openmesh**: 1 server(s) — `mcp/catalog/keywords/openmesh/servers.md`
-- **optimization**: 1 server(s) — `mcp/catalog/keywords/optimization/servers.md`
-- **overflow**: 1 server(s) — `mcp/catalog/keywords/overflow/servers.md`
-- **pago**: 1 server(s) — `mcp/catalog/keywords/pago/servers.md`
-- **patrol**: 1 server(s) — `mcp/catalog/keywords/patrol/servers.md`
-- **paypal**: 1 server(s) — `mcp/catalog/keywords/paypal/servers.md`
-- **peek**: 1 server(s) — `mcp/catalog/keywords/peek/servers.md`
-- **pinecone**: 1 server(s) — `mcp/catalog/keywords/pinecone/servers.md`
-- **plane**: 1 server(s) — `mcp/catalog/keywords/plane/servers.md`
-- **planning**: 1 server(s) — `mcp/catalog/keywords/planning/servers.md`
-- **polar**: 1 server(s) — `mcp/catalog/keywords/polar/servers.md`
-- **polar-signals**: 1 server(s) — `mcp/catalog/keywords/polar-signals/servers.md`
-- **polarsignals**: 1 server(s) — `mcp/catalog/keywords/polarsignals/servers.md`
-- **port**: 1 server(s) — `mcp/catalog/keywords/port/servers.md`
-- **portal**: 2 server(s) — `mcp/catalog/keywords/portal/servers.md`
-- **processing**: 1 server(s) — `mcp/catalog/keywords/processing/servers.md`
-- **pull-requests**: 1 server(s) — `mcp/catalog/keywords/pull-requests/servers.md`
-- **qbusiness**: 1 server(s) — `mcp/catalog/keywords/qbusiness/servers.md`
-- **rag**: 1 server(s) — `mcp/catalog/keywords/rag/servers.md`
-- **rag-mcp-2**: 1 server(s) — `mcp/catalog/keywords/rag-mcp-2/servers.md`
-- **ramp-mcp-remote**: 1 server(s) — `mcp/catalog/keywords/ramp-mcp-remote/servers.md`
-- **remote-mcp**: 1 server(s) — `mcp/catalog/keywords/remote-mcp/servers.md`
-- **reporting**: 1 server(s) — `mcp/catalog/keywords/reporting/servers.md`
-- **repositories**: 1 server(s) — `mcp/catalog/keywords/repositories/servers.md`
-- **rube**: 1 server(s) — `mcp/catalog/keywords/rube/servers.md`
-- **run**: 3 server(s) — `mcp/catalog/keywords/run/servers.md`
-- **scorecard-mcp**: 1 server(s) — `mcp/catalog/keywords/scorecard-mcp/servers.md`
-- **searchapi**: 1 server(s) — `mcp/catalog/keywords/searchapi/servers.md`
-- **sentry**: 1 server(s) — `mcp/catalog/keywords/sentry/servers.md`
-- **service-discovery**: 1 server(s) — `mcp/catalog/keywords/service-discovery/servers.md`
-- **short**: 1 server(s) — `mcp/catalog/keywords/short/servers.md`
-- **signals**: 2 server(s) — `mcp/catalog/keywords/signals/servers.md`
-- **squareup**: 1 server(s) — `mcp/catalog/keywords/squareup/servers.md`
-- **stack**: 1 server(s) — `mcp/catalog/keywords/stack/servers.md`
-- **stack-overflow**: 1 server(s) — `mcp/catalog/keywords/stack-overflow/servers.md`
-- **stackoverflow**: 1 server(s) — `mcp/catalog/keywords/stackoverflow/servers.md`
-- **stitch**: 1 server(s) — `mcp/catalog/keywords/stitch/servers.md`
-- **stylus**: 1 server(s) — `mcp/catalog/keywords/stylus/servers.md`
-- **subwayinfo**: 1 server(s) — `mcp/catalog/keywords/subwayinfo/servers.md`
-- **subwayinfo-nyc**: 1 server(s) — `mcp/catalog/keywords/subwayinfo-nyc/servers.md`
-- **technology**: 1 server(s) — `mcp/catalog/keywords/technology/servers.md`
-- **telnyx**: 1 server(s) — `mcp/catalog/keywords/telnyx/servers.md`
-- **text**: 1 server(s) — `mcp/catalog/keywords/text/servers.md`
-- **thekollektiv**: 1 server(s) — `mcp/catalog/keywords/thekollektiv/servers.md`
-- **toolbox**: 1 server(s) — `mcp/catalog/keywords/toolbox/servers.md`
-- **turkish**: 1 server(s) — `mcp/catalog/keywords/turkish/servers.md`
-- **turkishtechlab**: 1 server(s) — `mcp/catalog/keywords/turkishtechlab/servers.md`
-- **user**: 1 server(s) — `mcp/catalog/keywords/user/servers.md`
-- **validation**: 2 server(s) — `mcp/catalog/keywords/validation/servers.md`
-- **vercel**: 1 server(s) — `mcp/catalog/keywords/vercel/servers.md`
-- **whatsmcp**: 1 server(s) — `mcp/catalog/keywords/whatsmcp/servers.md`
-- **workflow**: 2 server(s) — `mcp/catalog/keywords/workflow/servers.md`
-- **xbirdapi**: 1 server(s) — `mcp/catalog/keywords/xbirdapi/servers.md`
-- **zapier**: 1 server(s) — `mcp/catalog/keywords/zapier/servers.md`
-- **zip1**: 1 server(s) — `mcp/catalog/keywords/zip1/servers.md`
+Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+
+- **access**: 7 server(s)
+- **actions**: 1 server(s)
+- **agent**: 1 server(s)
+- **agentcore**: 1 server(s)
+- **ai**: 2 server(s)
+- **ai-assistant**: 2 server(s)
+- **alfresco**: 1 server(s)
+- **amazon-bedrock-agentcore**: 1 server(s)
+- **amazon-kendra-index**: 1 server(s)
+- **amazon-qbusiness-anonymous**: 1 server(s)
+- **analysis**: 6 server(s)
+- **anonymous**: 1 server(s)
+- **anurag**: 1 server(s)
+- **anuragd**: 1 server(s)
+- **apollo**: 1 server(s)
+- **arm**: 1 server(s)
+- **astra**: 1 server(s)
+- **atlan**: 1 server(s)
+- **atlassian**: 1 server(s)
+- **atlassian-atlassian**: 1 server(s)
+- **automation**: 4 server(s)
+- **awesome**: 1 server(s)
+- **aws-bedrock**: 1 server(s)
+- **bedrock**: 3 server(s)
+- **bgpt**: 1 server(s)
+- **big**: 1 server(s)
+- **ccapi**: 1 server(s)
+- **cfn**: 1 server(s)
+- **chroma**: 1 server(s)
+- **cloudflare**: 4 server(s)
+- **code**: 4 server(s)
+- **code-examples**: 1 server(s)
+- **command**: 1 server(s)
+- **communication**: 2 server(s)
+- **composer**: 1 server(s)
+- **composio**: 1 server(s)
+- **comprehensive**: 2 server(s)
+- **context-awesome**: 1 server(s)
+- **context7**: 1 server(s)
+- **control**: 4 server(s)
+- **core**: 1 server(s)
+- **cortex**: 1 server(s)
+- **crm**: 2 server(s)
+- **custom**: 1 server(s)
+- **customgpt**: 1 server(s)
+- **dare-d5b**: 1 server(s)
+- **dataprocessing**: 1 server(s)
+- **developer-portal**: 2 server(s)
+- **developerknowledge**: 1 server(s)
+- **development**: 22 server(s)
+- **devin**: 1 server(s)
+- **documentation**: 8 server(s)
+- **dodo**: 1 server(s)
+- **dodopayments**: 1 server(s)
+- **domain**: 1 server(s)
+- **ean**: 1 server(s)
+- **explorer**: 1 server(s)
+- **ferryhopper**: 1 server(s)
+- **figma**: 1 server(s)
+- **find**: 1 server(s)
+- **find-domain**: 1 server(s)
+- **findadomain**: 1 server(s)
+- **fireflies**: 1 server(s)
+- **firefly**: 1 server(s)
+- **genai**: 1 server(s)
+- **genai-toolbox**: 1 server(s)
+- **generate**: 2 server(s)
+- **git**: 2 server(s)
+- **github**: 2 server(s)
+- **gitlab**: 1 server(s)
+- **gitmcp**: 1 server(s)
+- **globalping**: 1 server(s)
+- **google**: 9 server(s)
+- **googleapis**: 17 server(s)
+- **googleapis-composer**: 1 server(s)
+- **googleapis-developerknowledge**: 1 server(s)
+- **googleapis-memorystore**: 1 server(s)
+- **googleapis-stitch**: 1 server(s)
+- **governance**: 1 server(s)
+- **grafbase**: 1 server(s)
+- **hive**: 1 server(s)
+- **hiveintelligence**: 1 server(s)
+- **hub**: 1 server(s)
+- **index**: 1 server(s)
+- **instant**: 1 server(s)
+- **integration**: 1 server(s)
+- **invidio**: 1 server(s)
+- **issues**: 3 server(s)
+- **jam**: 1 server(s)
+- **javadocs**: 1 server(s)
+- **kendra**: 1 server(s)
+- **knowledge-mcp**: 1 server(s)
+- **kollektiv**: 1 server(s)
+- **library-documentation**: 1 server(s)
+- **libre**: 1 server(s)
+- **linear**: 1 server(s)
+- **listenetic**: 1 server(s)
+- **livescore**: 1 server(s)
+- **livescoremcp**: 1 server(s)
+- **llm**: 2 server(s)
+- **llm-text**: 1 server(s)
+- **llmtxt**: 1 server(s)
+- **management**: 11 server(s)
+- **manifold**: 1 server(s)
+- **markitdown**: 1 server(s)
+- **mcp**: 5 server(s)
+- **mcp-server**: 1 server(s)
+- **memorystore**: 1 server(s)
+- **mercado**: 2 server(s)
+- **mercado-pago**: 1 server(s)
+- **metro-mcp**: 1 server(s)
+- **migration**: 1 server(s)
+- **morningstar**: 1 server(s)
+- **mypromind**: 1 server(s)
+- **needle-ai**: 1 server(s)
+- **netlify**: 1 server(s)
+- **netlify-mcp**: 1 server(s)
+- **notion**: 1 server(s)
+- **nyc**: 1 server(s)
+- **oauth**: 1 server(s)
+- **octagonagents**: 1 server(s)
+- **openmesh**: 1 server(s)
+- **optimization**: 1 server(s)
+- **overflow**: 1 server(s)
+- **pago**: 1 server(s)
+- **patrol**: 1 server(s)
+- **paypal**: 1 server(s)
+- **peek**: 1 server(s)
+- **pinecone**: 1 server(s)
+- **plane**: 1 server(s)
+- **planning**: 1 server(s)
+- **polar**: 1 server(s)
+- **polar-signals**: 1 server(s)
+- **polarsignals**: 1 server(s)
+- **port**: 1 server(s)
+- **portal**: 2 server(s)
+- **processing**: 1 server(s)
+- **pull-requests**: 1 server(s)
+- **qbusiness**: 1 server(s)
+- **rag**: 1 server(s)
+- **rag-mcp-2**: 1 server(s)
+- **ramp-mcp-remote**: 1 server(s)
+- **remote-mcp**: 1 server(s)
+- **reporting**: 1 server(s)
+- **repositories**: 1 server(s)
+- **rube**: 1 server(s)
+- **run**: 3 server(s)
+- **scorecard-mcp**: 1 server(s)
+- **searchapi**: 1 server(s)
+- **sentry**: 1 server(s)
+- **service-discovery**: 1 server(s)
+- **short**: 1 server(s)
+- **signals**: 2 server(s)
+- **squareup**: 1 server(s)
+- **stack**: 1 server(s)
+- **stack-overflow**: 1 server(s)
+- **stackoverflow**: 1 server(s)
+- **stitch**: 1 server(s)
+- **stylus**: 1 server(s)
+- **subwayinfo**: 1 server(s)
+- **subwayinfo-nyc**: 1 server(s)
+- **technology**: 1 server(s)
+- **telnyx**: 1 server(s)
+- **text**: 1 server(s)
+- **thekollektiv**: 1 server(s)
+- **toolbox**: 1 server(s)
+- **turkish**: 1 server(s)
+- **turkishtechlab**: 1 server(s)
+- **user**: 1 server(s)
+- **validation**: 2 server(s)
+- **vercel**: 1 server(s)
+- **whatsmcp**: 1 server(s)
+- **workflow**: 2 server(s)
+- **xbirdapi**: 1 server(s)
+- **zapier**: 1 server(s)
+- **zip1**: 1 server(s)

@@ -10,11 +10,13 @@ Query, validate, visualize, forecast, and summarize analytical data.
 ## Keywords
 Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **analytics**: 12 skills — `skills/catalog/keywords/analytics/skills.md`
-- **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
-- **data**: 17 skills — `skills/catalog/keywords/data/skills.md`
-- **forecast**: 1 skills — `skills/catalog/keywords/forecast/skills.md`
-- **metrics**: 2 skills — `skills/catalog/keywords/metrics/skills.md`
-- **sql**: 4 skills — `skills/catalog/keywords/sql/skills.md`
-- **statistics**: 1 skills — `skills/catalog/keywords/statistics/skills.md`
-- **visualization**: 3 skills — `skills/catalog/keywords/visualization/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **analytics**: 12 skills
+- **dashboard**: 1 skills
+- **data**: 17 skills
+- **forecast**: 1 skills
+- **metrics**: 2 skills
+- **sql**: 4 skills
+- **statistics**: 1 skills
+- **visualization**: 3 skills

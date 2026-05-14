@@ -3,52 +3,54 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact service/platform keywords when present.
 
-- **airlines**: 1 server(s) — `mcp/catalog/keywords/airlines/servers.md`
-- **amazon-kendra-index**: 1 server(s) — `mcp/catalog/keywords/amazon-kendra-index/servers.md`
-- **asana**: 1 server(s) — `mcp/catalog/keywords/asana/servers.md`
-- **asset-management**: 1 server(s) — `mcp/catalog/keywords/asset-management/servers.md`
-- **aws-knowledge**: 1 server(s) — `mcp/catalog/keywords/aws-knowledge/servers.md`
-- **aws-location**: 1 server(s) — `mcp/catalog/keywords/aws-location/servers.md`
-- **carbon**: 1 server(s) — `mcp/catalog/keywords/carbon/servers.md`
-- **code-examples**: 1 server(s) — `mcp/catalog/keywords/code-examples/servers.md`
-- **context7**: 1 server(s) — `mcp/catalog/keywords/context7/servers.md`
-- **customer-support**: 1 server(s) — `mcp/catalog/keywords/customer-support/servers.md`
-- **deepwiki**: 1 server(s) — `mcp/catalog/keywords/deepwiki/servers.md`
-- **directory**: 1 server(s) — `mcp/catalog/keywords/directory/servers.md`
-- **discovery**: 2 server(s) — `mcp/catalog/keywords/discovery/servers.md`
-- **documentation**: 8 server(s) — `mcp/catalog/keywords/documentation/servers.md`
-- **e-commerce**: 1 server(s) — `mcp/catalog/keywords/e-commerce/servers.md`
-- **ean-search**: 1 server(s) — `mcp/catalog/keywords/ean-search/servers.md`
-- **elasticsearch**: 1 server(s) — `mcp/catalog/keywords/elasticsearch/servers.md`
-- **extract**: 3 server(s) — `mcp/catalog/keywords/extract/servers.md`
-- **googleapis-mapstools**: 1 server(s) — `mcp/catalog/keywords/googleapis-mapstools/servers.md`
-- **intercom**: 1 server(s) — `mcp/catalog/keywords/intercom/servers.md`
-- **javadocs**: 1 server(s) — `mcp/catalog/keywords/javadocs/servers.md`
-- **kendra**: 1 server(s) — `mcp/catalog/keywords/kendra/servers.md`
-- **knowledge**: 4 server(s) — `mcp/catalog/keywords/knowledge/servers.md`
-- **knowledge-mcp**: 1 server(s) — `mcp/catalog/keywords/knowledge-mcp/servers.md`
-- **library-documentation**: 1 server(s) — `mcp/catalog/keywords/library-documentation/servers.md`
-- **link**: 2 server(s) — `mcp/catalog/keywords/link/servers.md`
-- **links**: 2 server(s) — `mcp/catalog/keywords/links/servers.md`
-- **location**: 1 server(s) — `mcp/catalog/keywords/location/servers.md`
-- **management**: 11 server(s) — `mcp/catalog/keywords/management/servers.md`
-- **maps**: 1 server(s) — `mcp/catalog/keywords/maps/servers.md`
-- **mapstools**: 1 server(s) — `mcp/catalog/keywords/mapstools/servers.md`
-- **metro**: 1 server(s) — `mcp/catalog/keywords/metro/servers.md`
-- **metro-mcp**: 1 server(s) — `mcp/catalog/keywords/metro-mcp/servers.md`
-- **monday**: 1 server(s) — `mcp/catalog/keywords/monday/servers.md`
-- **needle**: 1 server(s) — `mcp/catalog/keywords/needle/servers.md`
-- **octagon**: 1 server(s) — `mcp/catalog/keywords/octagon/servers.md`
-- **onecontext**: 1 server(s) — `mcp/catalog/keywords/onecontext/servers.md`
-- **operations**: 6 server(s) — `mcp/catalog/keywords/operations/servers.md`
-- **project-management**: 2 server(s) — `mcp/catalog/keywords/project-management/servers.md`
-- **research**: 2 server(s) — `mcp/catalog/keywords/research/servers.md`
-- **search**: 11 server(s) — `mcp/catalog/keywords/search/servers.md`
-- **simplescraper**: 1 server(s) — `mcp/catalog/keywords/simplescraper/servers.md`
-- **sports**: 1 server(s) — `mcp/catalog/keywords/sports/servers.md`
-- **task-management**: 1 server(s) — `mcp/catalog/keywords/task-management/servers.md`
-- **tavily**: 1 server(s) — `mcp/catalog/keywords/tavily/servers.md`
-- **transit**: 1 server(s) — `mcp/catalog/keywords/transit/servers.md`
-- **travel**: 1 server(s) — `mcp/catalog/keywords/travel/servers.md`
-- **turkish-airlines**: 1 server(s) — `mcp/catalog/keywords/turkish-airlines/servers.md`
-- **whatsmcp**: 1 server(s) — `mcp/catalog/keywords/whatsmcp/servers.md`
+Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+
+- **airlines**: 1 server(s)
+- **amazon-kendra-index**: 1 server(s)
+- **asana**: 1 server(s)
+- **asset-management**: 1 server(s)
+- **aws-knowledge**: 1 server(s)
+- **aws-location**: 1 server(s)
+- **carbon**: 1 server(s)
+- **code-examples**: 1 server(s)
+- **context7**: 1 server(s)
+- **customer-support**: 1 server(s)
+- **deepwiki**: 1 server(s)
+- **directory**: 1 server(s)
+- **discovery**: 2 server(s)
+- **documentation**: 8 server(s)
+- **e-commerce**: 1 server(s)
+- **ean-search**: 1 server(s)
+- **elasticsearch**: 1 server(s)
+- **extract**: 3 server(s)
+- **googleapis-mapstools**: 1 server(s)
+- **intercom**: 1 server(s)
+- **javadocs**: 1 server(s)
+- **kendra**: 1 server(s)
+- **knowledge**: 4 server(s)
+- **knowledge-mcp**: 1 server(s)
+- **library-documentation**: 1 server(s)
+- **link**: 2 server(s)
+- **links**: 2 server(s)
+- **location**: 1 server(s)
+- **management**: 11 server(s)
+- **maps**: 1 server(s)
+- **mapstools**: 1 server(s)
+- **metro**: 1 server(s)
+- **metro-mcp**: 1 server(s)
+- **monday**: 1 server(s)
+- **needle**: 1 server(s)
+- **octagon**: 1 server(s)
+- **onecontext**: 1 server(s)
+- **operations**: 6 server(s)
+- **project-management**: 2 server(s)
+- **research**: 2 server(s)
+- **search**: 11 server(s)
+- **simplescraper**: 1 server(s)
+- **sports**: 1 server(s)
+- **task-management**: 1 server(s)
+- **tavily**: 1 server(s)
+- **transit**: 1 server(s)
+- **travel**: 1 server(s)
+- **turkish-airlines**: 1 server(s)
+- **whatsmcp**: 1 server(s)

@@ -11,102 +11,104 @@ Work with databases, warehouses, data products, semantic layers, and data-platfo
 ## Keywords
 Select 1-3 keywords from this list that directly match the current request. Prefer exact service/platform keywords when present.
 
-- **aks**: 1 server(s) — `mcp/catalog/keywords/aks/servers.md`
-- **amazon**: 15 server(s) — `mcp/catalog/keywords/amazon/servers.md`
-- **amazon-neptune**: 1 server(s) — `mcp/catalog/keywords/amazon-neptune/servers.md`
-- **analytics**: 6 server(s) — `mcp/catalog/keywords/analytics/servers.md`
-- **appsync**: 1 server(s) — `mcp/catalog/keywords/appsync/servers.md`
-- **aws**: 36 server(s) — `mcp/catalog/keywords/aws/servers.md`
-- **aws-appsync**: 1 server(s) — `mcp/catalog/keywords/aws-appsync/servers.md`
-- **aws-bedrock**: 1 server(s) — `mcp/catalog/keywords/aws-bedrock/servers.md`
-- **aws-cdk**: 1 server(s) — `mcp/catalog/keywords/aws-cdk/servers.md`
-- **aws-core**: 1 server(s) — `mcp/catalog/keywords/aws-core/servers.md`
-- **aws-dataprocessing**: 1 server(s) — `mcp/catalog/keywords/aws-dataprocessing/servers.md`
-- **aws-diagram**: 1 server(s) — `mcp/catalog/keywords/aws-diagram/servers.md`
-- **aws-healthomics**: 1 server(s) — `mcp/catalog/keywords/aws-healthomics/servers.md`
-- **aws-iot-sitewise**: 1 server(s) — `mcp/catalog/keywords/aws-iot-sitewise/servers.md`
-- **aws-knowledge**: 1 server(s) — `mcp/catalog/keywords/aws-knowledge/servers.md`
-- **aws-location**: 1 server(s) — `mcp/catalog/keywords/aws-location/servers.md`
-- **aws-msk**: 1 server(s) — `mcp/catalog/keywords/aws-msk/servers.md`
-- **aws-pricing**: 1 server(s) — `mcp/catalog/keywords/aws-pricing/servers.md`
-- **aws-terraform**: 1 server(s) — `mcp/catalog/keywords/aws-terraform/servers.md`
-- **awslabs**: 35 server(s) — `mcp/catalog/keywords/awslabs/servers.md`
-- **awslabs-billing-cost**: 1 server(s) — `mcp/catalog/keywords/awslabs-billing-cost/servers.md`
-- **awslabs-ccapi**: 1 server(s) — `mcp/catalog/keywords/awslabs-ccapi/servers.md`
-- **awslabs-cfn**: 1 server(s) — `mcp/catalog/keywords/awslabs-cfn/servers.md`
-- **awslabs-cloudtrail**: 1 server(s) — `mcp/catalog/keywords/awslabs-cloudtrail/servers.md`
-- **awslabs-cloudwatch**: 1 server(s) — `mcp/catalog/keywords/awslabs-cloudwatch/servers.md`
-- **awslabs-cloudwatch-appsignals**: 1 server(s) — `mcp/catalog/keywords/awslabs-cloudwatch-appsignals/servers.md`
-- **awslabs-cost-explorer**: 1 server(s) — `mcp/catalog/keywords/awslabs-cost-explorer/servers.md`
-- **awslabs-dynamodb**: 1 server(s) — `mcp/catalog/keywords/awslabs-dynamodb/servers.md`
-- **awslabs-elasticache**: 1 server(s) — `mcp/catalog/keywords/awslabs-elasticache/servers.md`
-- **awslabs-iam**: 1 server(s) — `mcp/catalog/keywords/awslabs-iam/servers.md`
-- **awslabs-memcached**: 1 server(s) — `mcp/catalog/keywords/awslabs-memcached/servers.md`
-- **awslabs-nova-canvas**: 1 server(s) — `mcp/catalog/keywords/awslabs-nova-canvas/servers.md`
-- **awslabs-redshift**: 1 server(s) — `mcp/catalog/keywords/awslabs-redshift/servers.md`
-- **awslabs-tables**: 1 server(s) — `mcp/catalog/keywords/awslabs-tables/servers.md`
-- **awslabs-timestream-influxdb**: 1 server(s) — `mcp/catalog/keywords/awslabs-timestream-influxdb/servers.md`
-- **awslabs-valkey**: 1 server(s) — `mcp/catalog/keywords/awslabs-valkey/servers.md`
-- **azure**: 2 server(s) — `mcp/catalog/keywords/azure/servers.md`
-- **bigquery**: 1 server(s) — `mcp/catalog/keywords/bigquery/servers.md`
-- **bigtableadmin**: 1 server(s) — `mcp/catalog/keywords/bigtableadmin/servers.md`
-- **cdk**: 1 server(s) — `mcp/catalog/keywords/cdk/servers.md`
-- **cloudflare**: 4 server(s) — `mcp/catalog/keywords/cloudflare/servers.md`
-- **cloudflare-observability**: 1 server(s) — `mcp/catalog/keywords/cloudflare-observability/servers.md`
-- **cloudflare-workers**: 1 server(s) — `mcp/catalog/keywords/cloudflare-workers/servers.md`
-- **cloudtrail**: 1 server(s) — `mcp/catalog/keywords/cloudtrail/servers.md`
-- **cloudwatch**: 2 server(s) — `mcp/catalog/keywords/cloudwatch/servers.md`
-- **compute**: 1 server(s) — `mcp/catalog/keywords/compute/servers.md`
-- **container**: 2 server(s) — `mcp/catalog/keywords/container/servers.md`
-- **cypher**: 2 server(s) — `mcp/catalog/keywords/cypher/servers.md`
-- **dashboard**: 1 server(s) — `mcp/catalog/keywords/dashboard/servers.md`
-- **data**: 14 server(s) — `mcp/catalog/keywords/data/servers.md`
-- **database**: 9 server(s) — `mcp/catalog/keywords/database/servers.md`
-- **databases**: 2 server(s) — `mcp/catalog/keywords/databases/servers.md`
-- **dataset**: 1 server(s) — `mcp/catalog/keywords/dataset/servers.md`
-- **datastream**: 1 server(s) — `mcp/catalog/keywords/datastream/servers.md`
-- **deploy**: 2 server(s) — `mcp/catalog/keywords/deploy/servers.md`
-- **deployment**: 1 server(s) — `mcp/catalog/keywords/deployment/servers.md`
-- **docker**: 2 server(s) — `mcp/catalog/keywords/docker/servers.md`
-- **dockerhub**: 1 server(s) — `mcp/catalog/keywords/dockerhub/servers.md`
-- **dynamodb**: 1 server(s) — `mcp/catalog/keywords/dynamodb/servers.md`
-- **elasticache**: 3 server(s) — `mcp/catalog/keywords/elasticache/servers.md`
-- **elasticsearch**: 1 server(s) — `mcp/catalog/keywords/elasticsearch/servers.md`
-- **firestore**: 1 server(s) — `mcp/catalog/keywords/firestore/servers.md`
-- **forecast**: 1 server(s) — `mcp/catalog/keywords/forecast/servers.md`
-- **google-big-query**: 1 server(s) — `mcp/catalog/keywords/google-big-query/servers.md`
-- **googleapis-bigtableadmin**: 1 server(s) — `mcp/catalog/keywords/googleapis-bigtableadmin/servers.md`
-- **googleapis-compute**: 1 server(s) — `mcp/catalog/keywords/googleapis-compute/servers.md`
-- **googleapis-container**: 1 server(s) — `mcp/catalog/keywords/googleapis-container/servers.md`
-- **googleapis-datastream**: 1 server(s) — `mcp/catalog/keywords/googleapis-datastream/servers.md`
-- **googleapis-firestore**: 1 server(s) — `mcp/catalog/keywords/googleapis-firestore/servers.md`
-- **googleapis-run**: 1 server(s) — `mcp/catalog/keywords/googleapis-run/servers.md`
-- **googleapis-sqladmin**: 1 server(s) — `mcp/catalog/keywords/googleapis-sqladmin/servers.md`
-- **hosting**: 1 server(s) — `mcp/catalog/keywords/hosting/servers.md`
-- **influxdb**: 1 server(s) — `mcp/catalog/keywords/influxdb/servers.md`
-- **instantdb**: 1 server(s) — `mcp/catalog/keywords/instantdb/servers.md`
-- **kafka**: 1 server(s) — `mcp/catalog/keywords/kafka/servers.md`
-- **kubernetes**: 2 server(s) — `mcp/catalog/keywords/kubernetes/servers.md`
-- **memcached**: 1 server(s) — `mcp/catalog/keywords/memcached/servers.md`
-- **metrics**: 2 server(s) — `mcp/catalog/keywords/metrics/servers.md`
-- **msk**: 1 server(s) — `mcp/catalog/keywords/msk/servers.md`
-- **neo4j**: 1 server(s) — `mcp/catalog/keywords/neo4j/servers.md`
-- **neptune**: 1 server(s) — `mcp/catalog/keywords/neptune/servers.md`
-- **netlify**: 1 server(s) — `mcp/catalog/keywords/netlify/servers.md`
-- **netlify-mcp**: 1 server(s) — `mcp/catalog/keywords/netlify-mcp/servers.md`
-- **oauth**: 1 server(s) — `mcp/catalog/keywords/oauth/servers.md`
-- **postgres**: 1 server(s) — `mcp/catalog/keywords/postgres/servers.md`
-- **prisma**: 1 server(s) — `mcp/catalog/keywords/prisma/servers.md`
-- **prisma-postgres**: 1 server(s) — `mcp/catalog/keywords/prisma-postgres/servers.md`
-- **query**: 2 server(s) — `mcp/catalog/keywords/query/servers.md`
-- **redis**: 2 server(s) — `mcp/catalog/keywords/redis/servers.md`
-- **redshift**: 1 server(s) — `mcp/catalog/keywords/redshift/servers.md`
-- **sql**: 4 server(s) — `mcp/catalog/keywords/sql/servers.md`
-- **sqladmin**: 1 server(s) — `mcp/catalog/keywords/sqladmin/servers.md`
-- **supabase**: 1 server(s) — `mcp/catalog/keywords/supabase/servers.md`
-- **tables**: 1 server(s) — `mcp/catalog/keywords/tables/servers.md`
-- **terraform**: 2 server(s) — `mcp/catalog/keywords/terraform/servers.md`
-- **timestream**: 1 server(s) — `mcp/catalog/keywords/timestream/servers.md`
-- **valkey**: 2 server(s) — `mcp/catalog/keywords/valkey/servers.md`
-- **vercel**: 1 server(s) — `mcp/catalog/keywords/vercel/servers.md`
-- **workers**: 3 server(s) — `mcp/catalog/keywords/workers/servers.md`
+Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+
+- **aks**: 1 server(s)
+- **amazon**: 15 server(s)
+- **amazon-neptune**: 1 server(s)
+- **analytics**: 6 server(s)
+- **appsync**: 1 server(s)
+- **aws**: 36 server(s)
+- **aws-appsync**: 1 server(s)
+- **aws-bedrock**: 1 server(s)
+- **aws-cdk**: 1 server(s)
+- **aws-core**: 1 server(s)
+- **aws-dataprocessing**: 1 server(s)
+- **aws-diagram**: 1 server(s)
+- **aws-healthomics**: 1 server(s)
+- **aws-iot-sitewise**: 1 server(s)
+- **aws-knowledge**: 1 server(s)
+- **aws-location**: 1 server(s)
+- **aws-msk**: 1 server(s)
+- **aws-pricing**: 1 server(s)
+- **aws-terraform**: 1 server(s)
+- **awslabs**: 35 server(s)
+- **awslabs-billing-cost**: 1 server(s)
+- **awslabs-ccapi**: 1 server(s)
+- **awslabs-cfn**: 1 server(s)
+- **awslabs-cloudtrail**: 1 server(s)
+- **awslabs-cloudwatch**: 1 server(s)
+- **awslabs-cloudwatch-appsignals**: 1 server(s)
+- **awslabs-cost-explorer**: 1 server(s)
+- **awslabs-dynamodb**: 1 server(s)
+- **awslabs-elasticache**: 1 server(s)
+- **awslabs-iam**: 1 server(s)
+- **awslabs-memcached**: 1 server(s)
+- **awslabs-nova-canvas**: 1 server(s)
+- **awslabs-redshift**: 1 server(s)
+- **awslabs-tables**: 1 server(s)
+- **awslabs-timestream-influxdb**: 1 server(s)
+- **awslabs-valkey**: 1 server(s)
+- **azure**: 2 server(s)
+- **bigquery**: 1 server(s)
+- **bigtableadmin**: 1 server(s)
+- **cdk**: 1 server(s)
+- **cloudflare**: 4 server(s)
+- **cloudflare-observability**: 1 server(s)
+- **cloudflare-workers**: 1 server(s)
+- **cloudtrail**: 1 server(s)
+- **cloudwatch**: 2 server(s)
+- **compute**: 1 server(s)
+- **container**: 2 server(s)
+- **cypher**: 2 server(s)
+- **dashboard**: 1 server(s)
+- **data**: 14 server(s)
+- **database**: 9 server(s)
+- **databases**: 2 server(s)
+- **dataset**: 1 server(s)
+- **datastream**: 1 server(s)
+- **deploy**: 2 server(s)
+- **deployment**: 1 server(s)
+- **docker**: 2 server(s)
+- **dockerhub**: 1 server(s)
+- **dynamodb**: 1 server(s)
+- **elasticache**: 3 server(s)
+- **elasticsearch**: 1 server(s)
+- **firestore**: 1 server(s)
+- **forecast**: 1 server(s)
+- **google-big-query**: 1 server(s)
+- **googleapis-bigtableadmin**: 1 server(s)
+- **googleapis-compute**: 1 server(s)
+- **googleapis-container**: 1 server(s)
+- **googleapis-datastream**: 1 server(s)
+- **googleapis-firestore**: 1 server(s)
+- **googleapis-run**: 1 server(s)
+- **googleapis-sqladmin**: 1 server(s)
+- **hosting**: 1 server(s)
+- **influxdb**: 1 server(s)
+- **instantdb**: 1 server(s)
+- **kafka**: 1 server(s)
+- **kubernetes**: 2 server(s)
+- **memcached**: 1 server(s)
+- **metrics**: 2 server(s)
+- **msk**: 1 server(s)
+- **neo4j**: 1 server(s)
+- **neptune**: 1 server(s)
+- **netlify**: 1 server(s)
+- **netlify-mcp**: 1 server(s)
+- **oauth**: 1 server(s)
+- **postgres**: 1 server(s)
+- **prisma**: 1 server(s)
+- **prisma-postgres**: 1 server(s)
+- **query**: 2 server(s)
+- **redis**: 2 server(s)
+- **redshift**: 1 server(s)
+- **sql**: 4 server(s)
+- **sqladmin**: 1 server(s)
+- **supabase**: 1 server(s)
+- **tables**: 1 server(s)
+- **terraform**: 2 server(s)
+- **timestream**: 1 server(s)
+- **valkey**: 2 server(s)
+- **vercel**: 1 server(s)
+- **workers**: 3 server(s)

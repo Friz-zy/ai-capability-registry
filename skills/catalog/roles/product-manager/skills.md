@@ -3,36 +3,38 @@
 ## Keywords
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories.
 
-- **accessibility**: 2 skills — `skills/catalog/keywords/accessibility/skills.md`
-- **account-research**: 1 skills — `skills/catalog/keywords/account-research/skills.md`
-- **analytics**: 12 skills — `skills/catalog/keywords/analytics/skills.md`
-- **bio-research**: 6 skills — `skills/catalog/keywords/bio-research/skills.md`
-- **brand**: 7 skills — `skills/catalog/keywords/brand/skills.md`
-- **competitive-intelligence**: 4 skills — `skills/catalog/keywords/competitive-intelligence/skills.md`
-- **creative-media**: 10 skills — `skills/catalog/keywords/creative-media/skills.md`
-- **customer-support**: 5 skills — `skills/catalog/keywords/customer-support/skills.md`
-- **dashboard**: 1 skills — `skills/catalog/keywords/dashboard/skills.md`
-- **data**: 17 skills — `skills/catalog/keywords/data/skills.md`
-- **dbt**: 2 skills — `skills/catalog/keywords/dbt/skills.md`
-- **design**: 21 skills — `skills/catalog/keywords/design/skills.md`
-- **design-system**: 1 skills — `skills/catalog/keywords/design-system/skills.md`
-- **documentation**: 13 skills — `skills/catalog/keywords/documentation/skills.md`
-- **forecast**: 1 skills — `skills/catalog/keywords/forecast/skills.md`
-- **knowledge**: 4 skills — `skills/catalog/keywords/knowledge/skills.md`
-- **link**: 1 skills — `skills/catalog/keywords/link/skills.md`
-- **metrics**: 2 skills — `skills/catalog/keywords/metrics/skills.md`
-- **planning**: 19 skills — `skills/catalog/keywords/planning/skills.md`
-- **product**: 8 skills — `skills/catalog/keywords/product/skills.md`
-- **research**: 15 skills — `skills/catalog/keywords/research/skills.md`
-- **roadmap**: 1 skills — `skills/catalog/keywords/roadmap/skills.md`
-- **spec**: 5 skills — `skills/catalog/keywords/spec/skills.md`
-- **sprint**: 2 skills — `skills/catalog/keywords/sprint/skills.md`
-- **sql**: 4 skills — `skills/catalog/keywords/sql/skills.md`
-- **stakeholder**: 1 skills — `skills/catalog/keywords/stakeholder/skills.md`
-- **statistics**: 1 skills — `skills/catalog/keywords/statistics/skills.md`
-- **system-design**: 1 skills — `skills/catalog/keywords/system-design/skills.md`
-- **theme**: 2 skills — `skills/catalog/keywords/theme/skills.md`
-- **ticket-triage**: 4 skills — `skills/catalog/keywords/ticket-triage/skills.md`
-- **user-research**: 3 skills — `skills/catalog/keywords/user-research/skills.md`
-- **ux**: 5 skills — `skills/catalog/keywords/ux/skills.md`
-- **visualization**: 3 skills — `skills/catalog/keywords/visualization/skills.md`
+Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+
+- **accessibility**: 2 skills
+- **account-research**: 1 skills
+- **analytics**: 12 skills
+- **bio-research**: 6 skills
+- **brand**: 7 skills
+- **competitive-intelligence**: 4 skills
+- **creative-media**: 10 skills
+- **customer-support**: 5 skills
+- **dashboard**: 1 skills
+- **data**: 17 skills
+- **dbt**: 2 skills
+- **design**: 21 skills
+- **design-system**: 1 skills
+- **documentation**: 13 skills
+- **forecast**: 1 skills
+- **knowledge**: 4 skills
+- **link**: 1 skills
+- **metrics**: 2 skills
+- **planning**: 19 skills
+- **product**: 8 skills
+- **research**: 15 skills
+- **roadmap**: 1 skills
+- **spec**: 5 skills
+- **sprint**: 2 skills
+- **sql**: 4 skills
+- **stakeholder**: 1 skills
+- **statistics**: 1 skills
+- **system-design**: 1 skills
+- **theme**: 2 skills
+- **ticket-triage**: 4 skills
+- **user-research**: 3 skills
+- **ux**: 5 skills
+- **visualization**: 3 skills
