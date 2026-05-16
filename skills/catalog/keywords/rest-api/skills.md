@@ -1,7 +1,7 @@
 # rest-api
 
 ## Skills
-Select only the most relevant skills by description, then read only those `SKILL.md` files.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
 
 ### angular-http
 Implement HTTP data fetching in Angular v20+ using resource(), httpResource(), and HttpClient. Use for API calls, data loading with signals, request/response handling, and interceptors. Triggers on data fetching, API integration, loading states, error handling, or converting Observable-based HTTP to signal-based patterns.

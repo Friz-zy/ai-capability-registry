@@ -1,7 +1,7 @@
 # contract
 
 ## Skills
-Select only the most relevant skills by description, then read only those `SKILL.md` files.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
 
 ### review-contract
 Review a contract against your organization's negotiation playbook — flag deviations, generate redlines, provide business impact analysis. Use when reviewing vendor or customer agreements, when you need clause-by-clause analysis against standard positions, or when preparing a negotiation strategy with prioritized redlines and fallback positions.

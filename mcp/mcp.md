@@ -9,11 +9,11 @@ MCP servers may be agent-native or registry-indexed. Treat both as one capabilit
 ## MCP Resolution Protocol
 
 1. Follow the shared routing pattern in `../capability-routing.md`, including service/product/data-domain sensitivity.
-2. Read only the matched task server index and optional role server index.
-3. Select 1-3 exact keywords, preferring service names over broad domains.
-4. Read only selected keyword server catalogs.
-5. Read selected `mcp/servers/<server>/SKILL.md` files.
-6. Select hosted HTTPS only when the current agent can connect through built-in MCP/web tools or approved commands such as `curl`; select Docker only when Docker commands are available.
+2. If a task or role matches, read its server index before acting.
+3. Select 1-3 exact keywords from matched indexes, preferring service names over broad domains.
+4. If a keyword matches, read `mcp/catalog/keywords/<keyword>/servers.md` before acting.
+5. If a server matches, read its `mcp/servers/<server>/SKILL.md` before acting.
+6. Use a matched server only when it directly fits the task and transport is available: hosted HTTPS through built-in MCP/web tools or approved commands such as `curl`, Docker only when Docker commands are available.
 7. Ask before OAuth, API keys, tokens, account access, workspace access, private data access, or remote mutation.
 8. Connect safely using allowed transport and environment variables or vault integration; never hardcode secrets.
 

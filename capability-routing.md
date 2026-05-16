@@ -20,9 +20,9 @@ For each capability registry:
 1. **Extract intent**: identify action, domain, stack/tool/service, artifact, constraints, likely task, and optional role.
 2. **Route by task first**: match one task; select a second task only for clearly mixed requests.
 3. **Use role as context**: select at most one role only when the user asks from that role perspective or it disambiguates routing.
-4. **Read selected entries only**: open only matched indexes, catalogs, guides, or server files. Do not browse registry directories broadly.
+4. **Read matched entries**: when a role, task, keyword, guide, skill, server, or other capability entry matches the request, read it before acting. Do not browse registry directories broadly.
 5. **Select specific capabilities**: prefer exact stack, tool, service, product, or artifact matches over broad category matches.
-6. **Apply loaded guidance**: follow selected instructions within user, project, safety, and runtime constraints.
+6. **Use selected capabilities**: when a loaded workflow, skill, MCP server, or other capability fits the task, apply it within user, project, safety, and runtime constraints.
 
 ## Subagent Scope
 

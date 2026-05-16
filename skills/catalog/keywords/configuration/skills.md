@@ -1,7 +1,7 @@
 # configuration
 
 ## Skills
-Select only the most relevant skills by description, then read only those `SKILL.md` files.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
 
 ### cowork-plugin-customizer
 Customize a Claude Code plugin for a specific organization's tools and workflows. Use when: customize plugin, set up plugin, configure plugin, tailor plugin, adjust plugin settings, customize plugin connectors, customize plugin skill, tweak plugin, modify plugin configuration.

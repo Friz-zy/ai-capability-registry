@@ -1,7 +1,7 @@
 # execute
 
 ## Skills
-Select only the most relevant skills by description, then read only those `SKILL.md` files.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
 
 ### executing-plans
 Use when you have a written implementation plan to execute in a separate session with review checkpoints

@@ -1,7 +1,7 @@
 # playwright
 
 ## Skills
-Select only the most relevant skills by description, then read only those `SKILL.md` files.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
 
 ### openai-playwright
 Use when the task requires automating a real browser from the terminal (navigation, form

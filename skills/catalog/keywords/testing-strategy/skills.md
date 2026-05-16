@@ -1,7 +1,7 @@
 # testing-strategy
 
 ## Skills
-Select only the most relevant skills by description, then read only those `SKILL.md` files.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
 
 ### test-driven-development
 Use when implementing any feature or bugfix, before writing implementation code

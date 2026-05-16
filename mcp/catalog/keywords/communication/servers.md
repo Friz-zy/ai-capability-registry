@@ -1,4 +1,6 @@
 # communication MCP Servers
 
+Select only servers that directly match the current request. If a server matches, read its `mcp/servers/<server>/SKILL.md` and use it only within MCP safety rules.
+
 - **Dialer** (`dialer`) — `hosted_https`, `trusted`: Outbound Phone Calls MCP server by Dialer.
 - **Telnyx** (`telnyx`) — `hosted_https`, `trusted`: Communication MCP server by Telnyx.

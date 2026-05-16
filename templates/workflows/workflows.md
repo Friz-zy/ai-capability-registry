@@ -7,8 +7,8 @@ Read `../capability-routing.md` first. This file defines workflow-specific routi
 Before ordinary skill routing, decide whether a workflow applies by task first and role second:
 
 1. Follow the shared routing pattern in `../capability-routing.md`.
-2. Read only guide files for workflows matched by the selected task or role.
-3. Use workflow guidance to choose relevant process skills before implementation skills.
+2. If a task or role matches a workflow, read that workflow guide before acting.
+3. Use matched workflow guidance to choose relevant process skills before implementation skills.
 4. Continue capability routing through `skills/skills.md` and `mcp/mcp.md` when those entrypoints are available.
 
 Read only workflow files that match the current task or role. Do not browse `workflows/` broadly.

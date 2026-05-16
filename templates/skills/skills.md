@@ -11,11 +11,11 @@ Skills may be agent-native or registry-indexed. Treat both as one capability poo
 Before starting work, resolve skills from both agent-native skills and this registry with progressive disclosure:
 
 1. Follow the shared routing pattern in `../capability-routing.md`.
-2. Read only the matched task index and optional role index.
-3. Select 1-3 specific keywords, preferring exact stack/tool keywords over broad category keywords.
-4. Read only selected keyword catalogs.
+2. If a task or role matches, read its index before acting.
+3. Select 1-3 specific keywords from matched indexes, preferring exact stack/tool keywords over broad category keywords.
+4. If a keyword matches, read `skills/catalog/keywords/<keyword>/skills.md` before acting.
 5. Choose 1-3 best matching skill descriptions per keyword.
-6. Read only those `SKILL.md` files and adapt their guidance to project conventions.
+6. If a skill matches, read its `SKILL.md` and use it within project conventions.
 
 ### Routing Scope
 
