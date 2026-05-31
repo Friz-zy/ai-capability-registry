@@ -20,4 +20,7 @@ cd "${ROOT_DIR}"
 # Generate MCP routing indexes from mcp-catalog.d/
 ./scripts/generate-mcp.py
 
+# Generate local SQLite FTS5 cache when the host Python/SQLite supports it
+./scripts/build-capability-cache.py
+
 echo "Bootstrap complete"

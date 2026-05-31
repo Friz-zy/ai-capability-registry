@@ -2626,3 +2626,99 @@ keyword_categories:
     - sitewise
     - smart
     - thingsboard
+
+routing_aliases:
+  agent:
+    - ai agent
+    - assistant
+    - autonomous agent
+    - subagent
+  automation:
+    - capability resolver
+    - cli
+    - pipeline
+    - router
+    - routing
+    - script
+    - tool selection
+  mcp:
+    - external tool
+    - model context protocol
+    - server
+    - tool server
+  skill-creator:
+    - create skill
+    - new skill
+    - skill definition
+    - skill registry
+  code-review:
+    - audit diff
+    - bugs in pr
+    - find bugs
+    - pull request
+    - pr review
+    - pull request review
+    - review diff
+  debugging:
+    - bug
+    - bugs
+    - crash
+    - error
+    - exception
+    - failing
+    - root cause
+  testing:
+    - check behavior
+    - regression
+    - test failure
+    - validate behavior
+  deployment:
+    - ci cd
+    - deploy
+    - release
+    - rollout
+  documentation:
+    - docs
+    - readme
+    - write docs
+  research:
+    - find information
+    - lookup
+    - search
+    - summarize sources
+  frontend:
+    - component
+    - css
+    - page
+    - ui
+    - web app
+  backend:
+    - api
+    - integration
+    - service
+    - server side
+  security:
+    - appsec
+    - security review
+    - threat analysis
+    - vulnerability
+
+routing_negative_matches:
+  mcp_servers:
+    direct-runners:
+      - direct node
+      - direct python
+      - npx
+      - npm runner
+      - pip runner
+      - uvx
+    secrets:
+      - api key
+      - oauth
+      - private data
+      - secret
+      - token
+  skills:
+    untrusted-execution:
+      - arbitrary exec
+      - untrusted script
