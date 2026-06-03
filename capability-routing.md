@@ -26,4 +26,6 @@ For each capability registry:
 
 ## Subagent Scope
 
-If dispatched as a subagent, do not restart top-level routing. Follow the parent task instructions and already selected workflows, skills, or MCP servers. Resolve more capabilities only when directly needed for the assigned subtask.
+If dispatched as a subagent with assigned workflow, role, task, skill, MCP server, or explicit catalog scope, do not restart top-level routing. Follow the parent task instructions and already selected capabilities.
+
+If dispatched as a subagent without assigned registry scope, you may resolve a capability route only for skill or MCP selection. This route does not change your operational role, parent instructions, expected outputs, or handoff scope.

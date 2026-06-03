@@ -15,8 +15,8 @@ Own product clarity, business value, scope, priorities, user needs, and measurab
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/product-manager/skills.md` when specialized product, research, roadmap, analytics, or documentation skills are needed.
-- MCP: read `mcp/catalog/roles/product-manager/servers.md` only when the task directly requires an external product, analytics, documentation, or research service.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/product-manager/skills.md` when specialized product, research, roadmap, analytics, or documentation skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/product-manager/servers.md` only when the task directly requires an external product, analytics, documentation, or research service.
 
 ## Output Format
 

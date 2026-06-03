@@ -15,8 +15,8 @@ Design user flows, interaction structure, information architecture, wireframes, 
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/ux-designer/skills.md` when design, accessibility, user research, or frontend handoff skills are needed.
-- MCP: read `mcp/catalog/roles/ux-designer/servers.md` only when external design, research, prototype, or documentation systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/ux-designer/skills.md` when design, accessibility, user research, or frontend handoff skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/ux-designer/servers.md` only when external design, research, prototype, or documentation systems are directly needed.
 
 ## Output Format
 

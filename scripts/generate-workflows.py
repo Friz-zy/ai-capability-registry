@@ -302,16 +302,18 @@ def write_catalog_indexes(workflows: list[dict[str, Any]], tasks: list[dict[str,
 def main() -> int:
     registry = load_all()
     workflows = registry["workflows"]
-    content = render(
-        "workflow.md",
+    write_text(WORKFLOWS_DIR / "workflow.md", render("workflow.md", {}))
+    routing_content = render(
+        "routing.md",
         {
             "workflows": workflow_lines(workflows),
         },
     )
-    write_text(WORKFLOWS_DIR / "workflow.md", content)
+    write_text(WORKFLOWS_DIR / "routing.md", routing_content)
     write_catalog_indexes(workflows, registry["tasks"], registry["profiles"])
     write_text(WORKFLOWS_CATALOG_MD, generate_workflows_catalog_md(workflows))
-    print(f"Generated workflow routing dispatcher: {WORKFLOWS_DIR / 'workflow.md'}")
+    print(f"Generated workflow runtime instructions: {WORKFLOWS_DIR / 'workflow.md'}")
+    print(f"Generated workflow routing dispatcher: {WORKFLOWS_DIR / 'routing.md'}")
     print(f"Generated workflow catalog: {WORKFLOWS_CATALOG_MD}")
     return 0
 

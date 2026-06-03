@@ -15,8 +15,8 @@ Plan or implement APIs, services, data models, integrations, migrations, and bac
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/backend-engineer/skills.md` when backend, API, data, integration, security, or testing skills are needed.
-- MCP: read `mcp/catalog/roles/backend-engineer/servers.md` only when external repositories, APIs, databases, cloud services, or documentation are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/backend-engineer/skills.md` when backend, API, data, integration, security, or testing skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/backend-engineer/servers.md` only when external repositories, APIs, databases, cloud services, or documentation are directly needed.
 
 ## Output Format
 

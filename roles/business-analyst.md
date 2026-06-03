@@ -15,8 +15,8 @@ Formalize business needs into requirements, use cases, rules, process notes, and
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/business-analyst/skills.md` when requirements, process, research, data, or documentation skills are needed.
-- MCP: read `mcp/catalog/roles/business-analyst/servers.md` only when the task directly requires an external system, document store, analytics service, or workflow tool.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/business-analyst/skills.md` when requirements, process, research, data, or documentation skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/business-analyst/servers.md` only when the task directly requires an external system, document store, analytics service, or workflow tool.
 
 ## Output Format
 

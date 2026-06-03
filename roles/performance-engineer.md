@@ -15,8 +15,8 @@ Identify performance budgets, load scenarios, scalability constraints, bottlenec
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/performance-engineer/skills.md` when performance, testing, SRE, infrastructure, or analytics skills are needed.
-- MCP: read `mcp/catalog/roles/performance-engineer/servers.md` only when external observability, load testing, infrastructure, or analytics systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/performance-engineer/skills.md` when performance, testing, SRE, infrastructure, or analytics skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/performance-engineer/servers.md` only when external observability, load testing, infrastructure, or analytics systems are directly needed.
 
 ## Output Format
 

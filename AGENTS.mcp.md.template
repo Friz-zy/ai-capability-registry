@@ -5,7 +5,7 @@ Before using shared MCP guidance or connecting external tools, read and follow:
 
 Use this template when the target project should dynamically route to MCP servers without adopting shared workflow orchestration or skill routing.
 
-If the agent is dispatched as a subagent, it must not select its own workflow or role. It must follow the role, task, expected outputs, acceptance criteria, and handoff instructions assigned by the primary agent. A subagent may route to MCP only within its assigned role and task scope.
+If the agent is dispatched as a subagent with an assigned workflow, stage, role, task, or explicit MCP catalog path, it must use that assigned scope and must not reselect workflow, role, or task. If it is dispatched without an assigned registry scope, it may resolve a capability route only for MCP server selection; this route does not change its operational role, parent instructions, expected outputs, or handoff scope. Before using MCP catalogs, read `~/.ai-registry/mcp/mcp.md`; use `~/.ai-registry/mcp/routing.md` only when no registry scope is assigned.
 
 Ask before OAuth, API keys, tokens, account access, private workspace access, private data access, or remote mutations.
 

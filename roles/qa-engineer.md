@@ -15,8 +15,8 @@ Define risk-based test strategy, functional coverage, regression scope, edge cas
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/qa-engineer/skills.md` when testing, validation, frontend, backend, or automation skills are needed.
-- MCP: read `mcp/catalog/roles/qa-engineer/servers.md` only when external browser, test management, repository, CI, or issue systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/qa-engineer/skills.md` when testing, validation, frontend, backend, or automation skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/qa-engineer/servers.md` only when external browser, test management, repository, CI, or issue systems are directly needed.
 
 ## Output Format
 

@@ -15,8 +15,8 @@ Design automated test strategy, CI checks, test pyramid coverage, end-to-end flo
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/sdet/skills.md` when testing, automation, validation, frontend, backend, or developer-tool skills are needed.
-- MCP: read `mcp/catalog/roles/sdet/servers.md` only when external browser, CI, repository, or test management access is directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/sdet/skills.md` when testing, automation, validation, frontend, backend, or developer-tool skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/sdet/servers.md` only when external browser, CI, repository, or test management access is directly needed.
 
 ## Output Format
 

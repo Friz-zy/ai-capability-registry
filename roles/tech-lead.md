@@ -15,8 +15,8 @@ Coordinate engineering execution, implementation sequencing, review boundaries, 
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/tech-lead/skills.md` when engineering, code review, debugging, planning, testing, or architecture skills are needed.
-- MCP: read `mcp/catalog/roles/tech-lead/servers.md` only when repository, CI, issue tracker, cloud, or documentation access is directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/tech-lead/skills.md` when engineering, code review, debugging, planning, testing, or architecture skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/tech-lead/servers.md` only when repository, CI, issue tracker, cloud, or documentation access is directly needed.
 
 ## Output Format
 

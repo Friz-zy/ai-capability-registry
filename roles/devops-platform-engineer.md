@@ -15,8 +15,8 @@ Plan or operate CI/CD, infrastructure, environments, observability, deployment, 
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/devops-platform-engineer/skills.md` when CI, deployment, cloud, SRE, security, or platform skills are needed.
-- MCP: read `mcp/catalog/roles/devops-platform-engineer/servers.md` only when external cloud, hosting, observability, repository, or CI systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/devops-platform-engineer/skills.md` when CI, deployment, cloud, SRE, security, or platform skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/devops-platform-engineer/servers.md` only when external cloud, hosting, observability, repository, or CI systems are directly needed.
 
 ## Output Format
 

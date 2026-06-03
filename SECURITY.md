@@ -43,10 +43,22 @@ CI automatically syncs when `registry/skills.yaml` is modified.
 
 Agents discover capabilities via routing catalogs with progressive disclosure:
 
+### Workflows
+
+```
+workflows/workflow.md (runtime and coordination protocol)
+-> workflows/routing.md (only when no workflow scope is assigned)
+-> workflows/catalog/tasks/<task>/workflows.md (optional task routing catalog)
+-> workflows/catalog/roles/<role>/workflows.md (optional role routing catalog)
+-> workflows/<category>/<workflow>/workflow.md (selected workflow guide)
+-> workflows/<category>/<workflow>/workflow.yaml (selected workflow manifest)
+```
+
 ### Skills
 
 ```
 skills/skills.md (root)
+-> skills/routing.md (only when no registry scope is assigned)
 -> skills/catalog/tasks/<task>/skills.md (task routing catalog)
 -> skills/catalog/roles/<role>/skills.md (optional role routing catalog)
 -> skills/catalog/keywords/<keyword>/skills.md (keyword catalog with skill descriptions)
@@ -56,7 +68,8 @@ skills/skills.md (root)
 ### MCP
 
 ```
-mcp/mcp.md (root with resolution protocol)
+mcp/mcp.md (runtime and safety protocol)
+-> mcp/routing.md (only when no registry scope is assigned)
 -> mcp/web.md | mcp/docker.md | mcp/common.md (runtime connector guides)
 -> mcp/catalog/tasks/<task>/servers.md (task routing catalog)
 -> mcp/catalog/roles/<role>/servers.md (optional role routing catalog)

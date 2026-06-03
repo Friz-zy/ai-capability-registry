@@ -914,13 +914,14 @@ def build_keyword_category_display(keyword_categories: dict[str, list[str]]) -> 
     return {cat: cat.replace("_", " ").title() for cat in keyword_categories.keys()}
 
 
-def generate_root_skills_md(
+def generate_skill_routing_md(
     profiles: list[dict[str, Any]],
     tasks: list[dict[str, Any]],
     keyword_categories: dict[str, list[str]],
     skills_by_keyword: dict[str, list[SkillRecord]],
     keyword_to_category: dict[str, str],
 ) -> str:
+    """Generate the full skill capability routing index."""
     role_lines = []
 
     for profile in profiles:
@@ -936,7 +937,7 @@ def generate_root_skills_md(
             keyword_links = ", ".join(f"`{keyword}`" for keyword in available)
             task_lines.append(f"- **{task['name']}** (`{task['id']}`) -> {keyword_links}")
 
-    return render("skills.md", {"roles": "\n".join(role_lines), "tasks": "\n".join(task_lines)})
+    return render("routing.md", {"roles": "\n".join(role_lines), "tasks": "\n".join(task_lines)})
 
 
 def cleanup_output_dir(path: Path) -> None:
@@ -1079,15 +1080,16 @@ def main() -> int:
     # Generate symlink packs for direct inclusion in agent configs.
     generate_collections(skills, keyword_categories, registry["profiles"], registry["tasks"])
 
-    # Generate root skills.md
-    root_skills_content = generate_root_skills_md(
+    # Generate root runtime instructions and full routing index.
+    write_text(SKILLS_DIR / "skills.md", render("skills.md", {}))
+    skill_routing_content = generate_skill_routing_md(
         registry["profiles"],
         registry["tasks"],
         keyword_categories,
         skills_by_keyword,
         keyword_to_category,
     )
-    write_text(SKILLS_DIR / "skills.md", root_skills_content)
+    write_text(SKILLS_DIR / "routing.md", skill_routing_content)
 
     # Generate human-readable skill catalog at root level
     catalog_path = ROOT / "skill-catalog.md"
@@ -1097,6 +1099,7 @@ def main() -> int:
 
     print("Generated skill maps:")
     print(f"  - {SKILLS_DIR / 'skills.md'}")
+    print(f"  - {SKILLS_DIR / 'routing.md'}")
     print(f"  - {len(registry['profiles'])} role catalogs")
     print(f"  - {len(registry['tasks'])} task catalogs")
     print(f"  - {len(skills_by_keyword)} keyword catalogs")

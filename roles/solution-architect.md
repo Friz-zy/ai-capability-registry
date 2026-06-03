@@ -15,8 +15,8 @@ Design system architecture, boundaries, data flows, API contracts, integration p
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/solution-architect/skills.md` when architecture, system design, security, backend, frontend, or infrastructure skills are needed.
-- MCP: read `mcp/catalog/roles/solution-architect/servers.md` only when external architecture, cloud, repository, or documentation access is directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/solution-architect/skills.md` when architecture, system design, security, backend, frontend, or infrastructure skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/solution-architect/servers.md` only when external architecture, cloud, repository, or documentation access is directly needed.
 
 ## Output Format
 

@@ -15,8 +15,8 @@ Plan or implement native and cross-platform mobile work with platform convention
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/mobile-engineer/skills.md` when iOS, Android, React Native, Flutter, testing, or platform skills are needed.
-- MCP: read `mcp/catalog/roles/mobile-engineer/servers.md` only when external mobile, repository, documentation, store, or device-management access is directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/mobile-engineer/skills.md` when iOS, Android, React Native, Flutter, testing, or platform skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/mobile-engineer/servers.md` only when external mobile, repository, documentation, store, or device-management access is directly needed.
 
 ## Output Format
 

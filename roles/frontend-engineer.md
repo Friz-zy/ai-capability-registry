@@ -15,8 +15,8 @@ Plan or implement user-facing web interfaces with accessibility, design-system c
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/frontend-engineer/skills.md` when frontend, UI, accessibility, testing, or framework-specific skills are needed.
-- MCP: read `mcp/catalog/roles/frontend-engineer/servers.md` only when external design, browser, repository, documentation, or deployment access is directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/frontend-engineer/skills.md` when frontend, UI, accessibility, testing, or framework-specific skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/frontend-engineer/servers.md` only when external design, browser, repository, documentation, or deployment access is directly needed.
 
 ## Output Format
 

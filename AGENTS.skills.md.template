@@ -5,7 +5,7 @@ Before using shared skills, read and follow:
 
 Use this template when the target project should dynamically route to skills without adopting shared workflow orchestration or MCP routing.
 
-If the agent is dispatched as a subagent, it must not select its own workflow or role. It must follow the role, task, expected outputs, acceptance criteria, and handoff instructions assigned by the primary agent. A subagent may route to skills only within its assigned role and task scope.
+If the agent is dispatched as a subagent with an assigned workflow, stage, role, task, or explicit skill catalog path, it must use that assigned scope and must not reselect workflow, role, or task. If it is dispatched without an assigned registry scope, it may resolve a capability route only for skill selection; this route does not change its operational role, parent instructions, expected outputs, or handoff scope. Before using skill catalogs, read `~/.ai-registry/skills/skills.md`; use `~/.ai-registry/skills/routing.md` only when no registry scope is assigned.
 
 Local repository instructions override shared registry guidance when more specific.
 If `~/.ai-registry` is unavailable, state that and continue with local instructions only.

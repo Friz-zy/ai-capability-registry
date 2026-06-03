@@ -15,8 +15,8 @@ Define metrics, funnels, dashboards, instrumentation needs, experiment plans, an
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/product-analyst/skills.md` when analytics, SQL, metrics, visualization, research, or product skills are needed.
-- MCP: read `mcp/catalog/roles/product-analyst/servers.md` only when external analytics, data warehouse, dashboard, or experimentation systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/product-analyst/skills.md` when analytics, SQL, metrics, visualization, research, or product skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/product-analyst/servers.md` only when external analytics, data warehouse, dashboard, or experimentation systems are directly needed.
 
 ## Output Format
 

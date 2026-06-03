@@ -313,7 +313,8 @@ def main() -> int:
         write_text(server_dir / "SKILL.md", skill_content(server))
         write_text(server_dir / "connection.json", render("connection.json", {"connection_json": json.dumps(connection_config(server), indent=2, ensure_ascii=False)}))
 
-    write_text(MCP_DIR / "mcp.md", render("mcp.md", {"roles": root_roles(registry["profiles"], registry["keyword_categories"], by_keyword), "tasks": root_tasks(registry["tasks"], registry["keyword_categories"], by_keyword), "runtime_catalogs": runtime_catalogs(by_runtime)}))
+    write_text(MCP_DIR / "mcp.md", render("mcp.md", {}))
+    write_text(MCP_DIR / "routing.md", render("routing.md", {"roles": root_roles(registry["profiles"], registry["keyword_categories"], by_keyword), "tasks": root_tasks(registry["tasks"], registry["keyword_categories"], by_keyword), "runtime_catalogs": runtime_catalogs(by_runtime)}))
 
     for runtime_file in ["common.md", "web.md", "docker.md"]:
         shutil.copy2(TEMPLATES_DIR / runtime_file, MCP_DIR / runtime_file)

@@ -1,16 +1,21 @@
 Before editing files, running commands, using external tools, or committing, read and follow:
 
 1. `~/.ai-registry/capability-routing.md`
-2. `~/.ai-registry/workflows/workflow.md`
-3. Load workflow-selected roles from `~/.ai-registry/roles/` when a workflow requires delegation.
-4. Let selected roles route to `~/.ai-registry/skills/skills.md` and role-specific skill catalogs.
-5. Let selected workflows or roles route to `~/.ai-registry/mcp/mcp.md` only when external services, data sources, or tool integrations are directly needed.
+2. `~/.ai-registry/workflows/workflow.md`; use `~/.ai-registry/workflows/routing.md` only when workflow selection is needed.
+3. `~/.ai-registry/roles/orchestrator.md` for the user-facing primary agent.
+4. Load selected workflow guides, manifests, and roles from `~/.ai-registry/` only when routing selects them.
+5. Let selected roles route to `~/.ai-registry/skills/skills.md` before role, task, or keyword skill catalogs. Use `~/.ai-registry/skills/routing.md` only when no registry scope is assigned and a capability route is needed.
+6. Let selected workflows or roles route to `~/.ai-registry/mcp/mcp.md` before MCP catalogs only when external services, data sources, or tool integrations are directly needed. Use `~/.ai-registry/mcp/routing.md` only when no registry scope is assigned and a capability route is needed.
 
 Use workflow-first routing as the default practice. Skills and MCP should usually be loaded through the selected workflow and role prompts, not attached broadly at startup.
 
-For every new task or user request, the primary agent must try to match the request to an available workflow whenever one plausibly applies. When a workflow matches, the primary agent follows that workflow as the facilitator and coordinator and takes the Product Manager coordinator posture by default: clarify scope with the user, ask necessary questions, maintain workflow state, assign subagents to stage roles, validate their outputs, and consolidate results.
+## Primary Agent
 
-A subagent must not select its own workflow or role. It must follow the workflow id, stage id, role id, task, expected outputs, acceptance criteria, and handoff instructions assigned by the primary agent. A subagent may route to skills and MCP only within its assigned role and task scope.
+The primary agent is only the user-facing root agent. For every new task or user request, the primary agent MUST try to match the request to an available workflow whenever one plausibly applies. It MUST read `~/.ai-registry/workflows/routing.md` only when no workflow is already assigned and workflow selection is needed. When a workflow matches, the primary agent MUST take the Product Manager facilitator posture: evaluate the request, clarify scope, maintain workflow state, dispatch stage execution to role subagents, validate outputs and gates, and consolidate user communication. It MUST NOT execute delegated stage work directly when a workflow role applies.
+
+## Subagent
+
+If a subagent is launched with an assigned workflow, stage, role, task, or explicit capability catalog path, it MUST use that assigned scope and MUST NOT reselect workflow, role, or task. If a subagent is launched without an assigned registry scope, it may resolve a capability route only for skill or MCP selection; this route does not change its operational role, parent instructions, expected outputs, or handoff scope. Before using catalogs, read `~/.ai-registry/skills/skills.md` for skills or `~/.ai-registry/mcp/mcp.md` for MCP. Assigned-scope subagents use assigned role and task catalogs; unassigned-scope subagents may use `~/.ai-registry/skills/routing.md` or `~/.ai-registry/mcp/routing.md` only as allowed by the runtime instructions.
 
 Local repository instructions override shared registry guidance when more specific.
 These shared registry files are the source of truth. Do not replace them with summaries or assumptions.

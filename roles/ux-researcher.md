@@ -15,8 +15,8 @@ Reduce product uncertainty through research planning, evidence synthesis, and us
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/ux-researcher/skills.md` when user research, synthesis, design, or documentation skills are needed.
-- MCP: read `mcp/catalog/roles/ux-researcher/servers.md` only when external research, document, survey, or repository access is directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/ux-researcher/skills.md` when user research, synthesis, design, or documentation skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/ux-researcher/servers.md` only when external research, document, survey, or repository access is directly needed.
 
 ## Output Format
 

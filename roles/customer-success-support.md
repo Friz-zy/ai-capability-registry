@@ -15,8 +15,8 @@ Prepare support readiness, customer communication, feedback channels, knowledge-
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/customer-success-support/skills.md` when support, documentation, research, product, or communication skills are needed.
-- MCP: read `mcp/catalog/roles/customer-success-support/servers.md` only when external support, CRM, knowledge-base, documentation, or customer systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/customer-success-support/skills.md` when support, documentation, research, product, or communication skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/customer-success-support/servers.md` only when external support, CRM, knowledge-base, documentation, or customer systems are directly needed.
 
 ## Output Format
 

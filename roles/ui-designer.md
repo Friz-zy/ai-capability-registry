@@ -15,8 +15,8 @@ Define visual interface direction, component states, design-system fit, layout, 
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/ui-designer/skills.md` when UI, design-system, accessibility, or frontend handoff skills are needed.
-- MCP: read `mcp/catalog/roles/ui-designer/servers.md` only when external design or asset systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/ui-designer/skills.md` when UI, design-system, accessibility, or frontend handoff skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/ui-designer/servers.md` only when external design or asset systems are directly needed.
 
 ## Output Format
 

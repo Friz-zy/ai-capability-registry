@@ -8,17 +8,24 @@
 Before editing files, running commands, using external tools, or committing, first read and follow the shared capability routing instructions:
 
 1. Read `./capability-routing.md`.
-2. Read and follow `./workflows/workflow.md`.
+2. Read and follow `./workflows/workflow.md`; use `./workflows/routing.md` only when workflow selection is needed.
+3. The primary agent must read and follow `./roles/orchestrator.md`.
 
 Local repository instructions override shared registry guidance when more specific.
 Do not replace these steps with summaries or assumptions.
 
 ## Workflow Coordination
+### Primary Agent
 * For every new task or user request, the primary agent must try to match the request to an available workflow whenever one plausibly applies.
+* The primary agent must read `./workflows/routing.md` only when no workflow is already assigned and workflow selection is needed.
 * When a workflow matches, the primary agent follows that workflow as the facilitator and coordinator, not as an ad-hoc executor.
-* The primary agent takes the Product Manager coordinator posture by default: clarify scope with the user, ask necessary questions, maintain workflow state, assign subagents to stage roles, validate their outputs, and consolidate results.
-* A subagent must not select its own workflow or role. It must follow the workflow id, stage id, role id, task, expected outputs, acceptance criteria, and handoff instructions assigned by the primary agent.
-* A subagent may route to skills and MCP only within its assigned role and task scope. It must not restart top-level routing, replace the selected workflow, promote itself to coordinator, or choose a different role unless reassigned by the primary agent.
+* The primary agent takes the Product Manager coordinator posture by default: evaluate user requests, clarify scope with the user, ask necessary questions, maintain workflow state, assign subagents to stage roles, validate their outputs, and consolidate results.
+* The primary agent executes workflow coordination and user communication only; stage task execution must run in the appropriate delegated role subagents when roles apply.
+
+### Subagent
+* If a subagent is launched with an assigned workflow, stage, role, task, or explicit capability catalog path, it must use that assigned scope and must not reselect workflow, role, or task.
+* If a subagent is launched without an assigned registry scope, it may resolve a capability route only for skill or MCP selection. This route does not change the subagent's operational role, parent instructions, expected outputs, or handoff scope.
+* When routing to skills or MCP, a subagent must first read `./skills/skills.md` or `./mcp/mcp.md`. Assigned-scope subagents use assigned role and task catalogs; unassigned-scope subagents may use `./skills/routing.md` or `./mcp/routing.md` only as allowed by the runtime instructions.
 
 ## Code Writing Rules
 * Avoid tiny helper functions that only wrap one expression or call. Extract only meaningful, reusable, or complexity-reducing logic.

@@ -15,8 +15,8 @@ Coordinate release readiness, rollout strategy, rollback planning, release notes
 
 ## Capability Routing
 
-- Skills: read `skills/catalog/roles/release-manager/skills.md` when deployment, changelog, release, CI, project, or communication skills are needed.
-- MCP: read `mcp/catalog/roles/release-manager/servers.md` only when external CI, deployment, issue tracker, documentation, or release systems are directly needed.
+- Skills: first read `skills/skills.md`, then `skills/catalog/roles/release-manager/skills.md` when deployment, changelog, release, CI, project, or communication skills are needed.
+- MCP: first read `mcp/mcp.md`, then `mcp/catalog/roles/release-manager/servers.md` only when external CI, deployment, issue tracker, documentation, or release systems are directly needed.
 
 ## Output Format
 
