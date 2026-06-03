@@ -1,19 +1,10 @@
-Before planning, editing files, running commands, using external tools, or committing, read and follow:
+Before acting, read and follow the shared registry runtime files:
 
 1. `~/.ai-registry/capability-routing.md`
-2. `~/.ai-registry/workflows/workflow.md`; use `~/.ai-registry/workflows/routing.md` only when workflow selection is needed.
-3. `~/.ai-registry/roles/orchestrator.md` for the user-facing primary agent.
-4. Load selected workflow guides, manifests, and roles from `~/.ai-registry/` only when routing selects them.
+2. `~/.ai-registry/workflows/workflow.md`
 
 Use this template when the target project should use shared workflow orchestration but should not dynamically load the shared skill or MCP registries by default.
 
-## Primary Agent
-
-The primary agent is only the user-facing root agent. For every new task or user request, the primary agent MUST try to match the request to an available workflow whenever one plausibly applies. It MUST read `~/.ai-registry/workflows/routing.md` only when no workflow is already assigned and workflow selection is needed. When a workflow matches, the primary agent MUST take the Product Manager facilitator posture: evaluate the request, clarify scope, maintain workflow state, dispatch stage execution to role subagents, validate outputs and gates, and consolidate user communication. It MUST NOT execute delegated stage work directly when a workflow role applies.
-
-## Subagent
-
-If a subagent is launched with an assigned workflow, stage, role, task, or explicit capability catalog path, it MUST use that assigned scope and MUST NOT reselect workflow, role, or task. If a subagent is launched without an assigned registry scope, it may resolve a capability route only for skill or MCP selection; this route does not change its operational role, parent instructions, expected outputs, or handoff scope. A subagent may route to skills or MCP only if the primary agent explicitly gives access to those registries for the assigned task; when given access, it must first read `~/.ai-registry/skills/skills.md` or `~/.ai-registry/mcp/mcp.md`.
-
 Local repository instructions override shared registry guidance when more specific.
+These shared registry files are the source of truth. Do not replace them with summaries or assumptions.
 If `~/.ai-registry` is unavailable, state that and continue with local instructions only.

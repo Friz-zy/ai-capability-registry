@@ -1,13 +1,10 @@
-Before using shared MCP guidance or connecting external tools, read and follow:
+Before acting, read and follow the shared registry runtime files:
 
 1. `~/.ai-registry/capability-routing.md`
 2. `~/.ai-registry/mcp/mcp.md`
 
 Use this template when the target project should dynamically route to MCP servers without adopting shared workflow orchestration or skill routing.
 
-If the agent is dispatched as a subagent with an assigned workflow, stage, role, task, or explicit MCP catalog path, it must use that assigned scope and must not reselect workflow, role, or task. If it is dispatched without an assigned registry scope, it may resolve a capability route only for MCP server selection; this route does not change its operational role, parent instructions, expected outputs, or handoff scope. Before using MCP catalogs, read `~/.ai-registry/mcp/mcp.md`; use `~/.ai-registry/mcp/routing.md` only when no registry scope is assigned.
-
-Ask before OAuth, API keys, tokens, account access, private workspace access, private data access, or remote mutations.
-
 Local repository instructions override shared registry guidance when more specific.
+These shared registry files are the source of truth. Do not replace them with summaries or assumptions.
 If `~/.ai-registry` is unavailable, state that and continue with local instructions only.
