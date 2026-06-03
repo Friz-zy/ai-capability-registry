@@ -1,7 +1,7 @@
 # knowledge
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
 
 ### customer-research
 Multi-source research on a customer question or topic with source attribution. Use when a customer asks something you need to look up, investigating whether a bug has been reported before, checking what was previously told to a specific account, or gathering background before drafting a response.

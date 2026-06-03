@@ -1,7 +1,7 @@
 # speech
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
 
 ### speech
 Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.

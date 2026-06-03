@@ -1,7 +1,7 @@
 # workflow
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
 
 ### ask-questions-if-underspecified
 Clarify requirements before implementing. Use when serious doubts arise.

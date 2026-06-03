@@ -1,7 +1,7 @@
 # ghidra
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
 
 ### dwarf-expert
 Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5). Triggers when understanding DWARF information, interacting with DWARF files, answering DWARF-related questions, or working with code that parses DWARF data.

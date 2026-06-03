@@ -1,6 +1,6 @@
 # cost MCP Servers
 
-Select only servers that directly match the current request. If a server matches, read its `mcp/servers/<server>/SKILL.md` and use it only within MCP safety rules.
+Select only servers that directly match the current request. If a server matches, read `mcp/servers/<server>/SKILL.md` and apply it only under `mcp.md` safety rules.
 
 - **AWS Billing and Cost Management** (`awslabs-billing-cost-management`) — `docker`, `reviewed`: Billing and cost management.
 - **AWS Cost Explorer** (`awslabs-cost-explorer`) — `docker`, `reviewed`: Detailed cost analysis and reporting.

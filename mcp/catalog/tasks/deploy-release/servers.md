@@ -9,9 +9,7 @@ Prepare deployments, CI, release checks, and operational rollout guidance.
 - `core`
 
 ## Keywords
-Select 1-3 keywords from this list that directly match the current request. Prefer exact service/platform keywords when present. If a keyword matches, read `mcp/catalog/keywords/<keyword>/servers.md` before acting.
-
-Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
 
 - **access**: 7 server(s)
 - **aks**: 1 server(s)

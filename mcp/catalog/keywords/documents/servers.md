@@ -1,6 +1,6 @@
 # documents MCP Servers
 
-Select only servers that directly match the current request. If a server matches, read its `mcp/servers/<server>/SKILL.md` and use it only within MCP safety rules.
+Select only servers that directly match the current request. If a server matches, read `mcp/servers/<server>/SKILL.md` and apply it only under `mcp.md` safety rules.
 
 - **AWS Bedrock Data Automation** (`aws-bedrock-data-automation`) — `docker`, `reviewed`: Analyze documents, images, videos, and audio.
 - **Egnyte** (`egnyte`) — `hosted_https`, `trusted`: Document Management MCP server by Egnyte.

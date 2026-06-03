@@ -9,9 +9,7 @@ Review diffs, pull requests, architecture changes, and implementation quality.
 - `qa`
 
 ## Keywords
-Select 1-3 keywords from this list that directly match the current request. Prefer exact service/platform keywords when present. If a keyword matches, read `mcp/catalog/keywords/<keyword>/servers.md` before acting.
-
-Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
 
 - **analysis**: 6 server(s)
 - **architecture**: 1 server(s)

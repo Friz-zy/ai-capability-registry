@@ -2,18 +2,18 @@
 
 ## Transport Modes
 
-Docker MCP servers use one of two transports:
+Use the transport required by the selected server:
 
 | Mode | Transport | Sharing | Launch flags |
 |------|-----------|---------|-------------|
-| **stdio** | stdin/stdout pipe | **No** — one container per session | `docker run --rm -i` (foreground) |
-| **Network** | localhost TCP port | **Yes** — one container, many sessions | `docker run -d --rm -p` (detached) |
+| **stdio** | stdin/stdout pipe | **No** - one container per session | `docker run --rm -i` (foreground) |
+| **Network** | localhost TCP port | **Yes** - one container, many sessions | `docker run -d --rm -p` (detached) |
 
 ### stdio Mode (Default)
 
-The MCP server reads JSON-RPC from stdin and writes responses to stdout. This is the primary mode for Docker MCP.
+The server reads JSON-RPC from stdin and writes responses to stdout. This is the primary Docker MCP mode.
 
-**Session sharing**: stdio is a point-to-point pipe — only the launching process can communicate with the server. Each concurrent session **must** start its own container. Reuse is not possible; the container is tied to a single session for its entire lifetime.
+**Session sharing**: stdio is point-to-point. Each concurrent session **must** start its own container.
 
 **Required launch flags**:
 
@@ -22,11 +22,11 @@ The MCP server reads JSON-RPC from stdin and writes responses to stdout. This is
 | `--rm` | Auto-remove container on exit |
 | `-i` | Keep stdin attached (critical — without this, the server gets EOF immediately) |
 
-**Do NOT use** with stdio: `-d` (detached — breaks stdin), `-t` (pseudo-TTY — may corrupt JSON-RPC framing).
+**Do NOT use** with stdio: `-d` breaks stdin; `-t` may corrupt JSON-RPC framing.
 
 ### Network Mode (Port Exposure)
 
-The MCP server listens on a localhost TCP port, usually exposing SSE or Streamable HTTP. Multiple sessions connect via `http://localhost:<port>`.
+The server listens on localhost, usually exposing SSE or Streamable HTTP. Multiple sessions connect via `http://localhost:<port>`.
 
 **Session sharing**: one container can serve many concurrent sessions. Start once, reuse across tasks.
 
@@ -38,7 +38,7 @@ The MCP server listens on a localhost TCP port, usually exposing SSE or Streamab
 | `--rm` | Auto-remove container on exit |
 | `-p <host>:<container>` | Map container port to localhost |
 
-**Do NOT use** with network mode: `-i` (not needed, the server listens on a socket, not stdin).
+**Do NOT use** with network mode: `-i`; the server listens on a socket, not stdin.
 
 ## Container Naming
 
@@ -54,7 +54,7 @@ docker run --rm -i \
   org/mcp-server:latest
 ```
 
-The container runs in the foreground. JSON-RPC messages go over stdin/stdout.
+The container runs in the foreground; JSON-RPC uses stdin/stdout.
 
 ## Network Launch (Multi-Session, Shared)
 
@@ -84,7 +84,7 @@ mcp_servers: [{ type: "url", url: "http://localhost:8811/sse", name: "mcp-docker
 # stdio mode (--rm): container auto-removes on exit, force-kill if stuck
 docker kill "${CONTAINER_NAME}"
 
-# Network mode: stop — --rm auto-removes
+# Network mode: stop; --rm auto-removes
 docker stop "${CONTAINER_NAME}"
 
 # Check status
@@ -94,8 +94,8 @@ docker inspect "${CONTAINER_NAME}" --format '{{.State.Status}}'
 ## Policy
 
 - Confirm required environment variables before launching the container.
-- For stdio mode, keep stdin attached with `-i` and run the container in the foreground. Do not use `-d`.
+- For stdio mode, use `-i`, run in the foreground, and do not use `-d`.
 - Name containers clearly as `mcp-<server-id>-<session-id>-<purpose>`.
-- Before starting, check `docker ps` for an existing matching MCP container. For network-mode containers, reuse if already running. For stdio, start a fresh container.
+- Before starting, check `docker ps` for an existing matching MCP container. Reuse running network-mode containers; start fresh stdio containers.
 - Stop or remove Docker MCP containers you started at the end of the session, unless they were already running before the session or the user explicitly asks to keep them.
 - Do NOT use unsafe Docker options: `--privileged`, host filesystem mounts (`-v /:/host`), host networking (`--network host`), or mounts to `/var/run/docker.sock`, `~/.ssh`, or cloud credential directories.

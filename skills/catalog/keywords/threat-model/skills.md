@@ -1,7 +1,7 @@
 # threat-model
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
 
 ### openai-security-threat-model
 Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities,

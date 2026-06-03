@@ -2,7 +2,7 @@
 
 This is a generated human-readable view. Edit `enabled` and `keywords` in `skill-catalog.d/*.yaml`.
 
-Total: 413 skills across 33 categories
+Total: 413 skills across 34 categories
 Enabled: 308; Disabled: 105
 
 ## Ai

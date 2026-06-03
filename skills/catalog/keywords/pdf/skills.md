@@ -1,7 +1,7 @@
 # pdf
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` and use it before acting.
+Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
 
 ### openai-pdf
 Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout

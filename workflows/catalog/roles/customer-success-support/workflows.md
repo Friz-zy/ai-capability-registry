@@ -3,7 +3,7 @@
 Route type: `role`
 Route id: `customer-success-support`
 
-Read `../../../workflow.md` before selecting a workflow from this generated index.
+Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
 
 ## Matching Workflows
 

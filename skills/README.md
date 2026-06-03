@@ -10,9 +10,9 @@ This directory is generated from `registry/*.yaml` and `skill-catalog.d/*.yaml`.
 - `packs/` contains symlink packs for direct inclusion in agent configs.
 - `packs/all/` contains every existing enabled skill once.
 
-Skill paths are relative to the registry root. The `external/` directory is a sibling of the root `skills/` directory, not a child of it.
+Skill paths are relative to the registry root. `external/` is a sibling of the root `skills/` directory, not a child of it.
 Each `packs/` entry is a symlink to the original skill directory under `external/`, named as `<repo-name>-<skill-name>`.
-To change membership, edit `enabled` or `keywords` in provider chunks under `skill-catalog.d/`, or role/keyword definitions under `registry/`, then run:
+To change membership, edit provider chunks under `skill-catalog.d/` or role/keyword definitions under `registry/`, then run:
 
 ```bash
 python scripts/discover-skills.py

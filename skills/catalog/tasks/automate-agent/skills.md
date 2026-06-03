@@ -10,9 +10,7 @@ Create skills, agents, MCP integrations, hooks, and plugin-like automation.
 - `core`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. If a keyword matches, read `skills/catalog/keywords/<keyword>/skills.md` before acting.
-
-Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. Read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
 
 - **agent**: 4 skills
 - **automation**: 13 skills

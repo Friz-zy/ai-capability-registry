@@ -1,9 +1,7 @@
 # Customer Success and Support Specialist
 
 ## Keywords
-Select only keywords that directly match the current request. Prefer exact service/platform keywords when present. If a keyword matches, read `mcp/catalog/keywords/<keyword>/servers.md` before acting.
-
-Keyword catalog path: `mcp/catalog/keywords/<keyword>/servers.md`
+Select only keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
 
 - **amazon-kendra-index**: 1 server(s)
 - **aws-knowledge**: 1 server(s)

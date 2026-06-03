@@ -1,9 +1,7 @@
 # Customer Success and Support Specialist
 
 ## Keywords
-Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. If a keyword matches, read `skills/catalog/keywords/<keyword>/skills.md` before acting.
-
-Keyword catalog path: `skills/catalog/keywords/<keyword>/skills.md`
+Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. Read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
 
 - **account-research**: 1 skills
 - **bio-research**: 6 skills

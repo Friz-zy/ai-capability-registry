@@ -1,6 +1,6 @@
 # issues MCP Servers
 
-Select only servers that directly match the current request. If a server matches, read its `mcp/servers/<server>/SKILL.md` and use it only within MCP safety rules.
+Select only servers that directly match the current request. If a server matches, read `mcp/servers/<server>/SKILL.md` and apply it only under `mcp.md` safety rules.
 
 - **GitHub (Archived)** (`github`) — `docker`, `trusted`: Tools for interacting with the GitHub API, enabling file operations, repository management, search functionality, and more.
 - **Linear MCP** (`linear`) — `hosted_https_oauth`, `trusted`: Official Linear remote MCP for issues, projects, comments, and planning workflows.

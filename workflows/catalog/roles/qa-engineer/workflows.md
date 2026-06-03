@@ -3,7 +3,7 @@
 Route type: `role`
 Route id: `qa-engineer`
 
-Read `../../../workflow.md` before selecting a workflow from this generated index.
+Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
 
 ## Matching Workflows
 

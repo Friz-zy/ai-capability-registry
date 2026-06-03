@@ -15,7 +15,7 @@ url: "https://mcp.example.com/sse?api_key=KEY"
 authorization_token: "Basic " + btoa("user:password")
 ```
 
-Check the server's documentation first. If unspecified — try Bearer.
+Check the server's documentation first. If unspecified, try Bearer.
 
 ## Health Check
 
