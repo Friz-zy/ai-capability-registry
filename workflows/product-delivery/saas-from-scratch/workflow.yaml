@@ -1,0 +1,210 @@
+id: saas-from-scratch
+name: SaaS From Scratch Workflow
+description: Workflow for creating a new SaaS product, platform, marketplace, dashboard, or web service from zero.
+entry_conditions:
+  - User wants to create a new web product, SaaS, platform, marketplace, dashboard, or service.
+  - No stable existing product, users, codebase, or delivery process can be assumed.
+clarification_questions:
+  - What problem should the product solve and for whom?
+  - What is the desired first release scope: prototype, MVP, beta, or production launch?
+  - What business constraints exist: timeline, budget, market, compliance, integrations, or team size?
+  - Are there known competitors, reference products, or customer research inputs?
+  - What output should this run produce: PRD, technical plan, task breakdown, implementation, or full workflow result?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  business_scope: product-manager
+  requirements_detail: business-analyst
+  user_research: ux-researcher
+  user_experience: ux-designer
+  visual_design: ui-designer
+  architecture: solution-architect
+  implementation: tech-lead
+  infrastructure: devops-platform-engineer
+  testing: qa-engineer
+  release: release-manager
+stages:
+  - id: discovery
+    name: Discovery & Requirements
+    coordinator_goal: Understand the product opportunity, target users, value proposition, constraints, and MVP scope.
+    roles:
+      - product-manager
+      - business-analyst
+      - tech-lead
+      - ux-researcher
+    inputs:
+      - user_request
+      - market_context
+      - stakeholder_context
+    outputs:
+      - prd
+      - target_users
+      - personas
+      - stakeholder_map
+      - roadmap
+      - success_metrics
+      - out_of_scope
+    acceptance_criteria:
+      - Business goal and target users are clear.
+      - MVP scope and non-goals are explicit.
+      - Success metrics and key assumptions are listed.
+      - Technical feasibility constraints are identified.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: ux_ui_design
+    name: UX/UI Design
+    coordinator_goal: Define the product experience, navigation, key screens, and initial design system direction.
+    roles:
+      - ux-researcher
+      - ux-designer
+      - ui-designer
+    inputs:
+      - prd
+      - personas
+      - roadmap
+    outputs:
+      - customer_journey_map
+      - user_flows
+      - wireframe_description
+      - clickable_prototype_notes
+      - design_system_plan
+      - usability_test_plan
+    acceptance_criteria:
+      - Core user journeys are described.
+      - Navigation and key screens are covered.
+      - Empty, loading, error, and success states are included.
+      - Design system needs are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: architecture_planning
+    name: Architecture & Planning
+    coordinator_goal: Select a pragmatic technical approach and identify costly decisions before development starts.
+    roles:
+      - solution-architect
+      - tech-lead
+      - backend-engineer
+      - devops-platform-engineer
+    inputs:
+      - prd
+      - user_flows
+      - known_constraints
+    outputs:
+      - architecture_plan
+      - technology_stack
+      - api_contract_notes
+      - database_plan
+      - infrastructure_plan
+      - implementation_risks
+    acceptance_criteria:
+      - Architecture boundaries and data flows are clear.
+      - Stack choices are justified by product constraints.
+      - API, data, auth, billing, and infrastructure needs are identified.
+      - Major risks and reversibility tradeoffs are documented.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: development_planning
+    name: Development Planning
+    coordinator_goal: Convert the approved product and architecture plan into implementable milestones and tasks.
+    roles:
+      - product-manager
+      - tech-lead
+      - frontend-engineer
+      - backend-engineer
+      - devops-platform-engineer
+    inputs:
+      - prd
+      - architecture_plan
+      - design_system_plan
+    outputs:
+      - backlog
+      - task_breakdown
+      - implementation_order
+      - dependencies
+      - pull_request_plan
+    acceptance_criteria:
+      - Work is split into small implementation tasks.
+      - Dependencies and sequencing are explicit.
+      - Frontend, backend, and infrastructure work are separated.
+      - MVP milestone is independently releasable.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: qa_testing
+    name: QA & Testing
+    coordinator_goal: Define the quality strategy for a first release with limited regression history.
+    roles:
+      - qa-engineer
+      - sdet
+      - performance-engineer
+    inputs:
+      - prd
+      - task_breakdown
+      - architecture_plan
+    outputs:
+      - test_plan
+      - automation_plan
+      - performance_test_scope
+      - qa_risks
+    acceptance_criteria:
+      - Critical user flows have positive and negative test coverage.
+      - Automation candidates are listed.
+      - Performance and reliability risks are identified.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: release_deployment
+    name: Release & Deployment
+    coordinator_goal: Prepare a safe MVP or beta launch with rollout, monitoring, and rollback guidance.
+    roles:
+      - release-manager
+      - devops-platform-engineer
+      - product-manager
+      - customer-success-support
+    inputs:
+      - implementation_plan
+      - test_plan
+      - qa_risks
+    outputs:
+      - release_plan
+      - rollout_strategy
+      - rollback_plan
+      - release_notes
+      - support_plan
+    acceptance_criteria:
+      - Rollout strategy is safe for early users.
+      - Rollback path and monitoring are clear.
+      - Beta access, feature flags, or staged rollout are considered.
+      - Customer communication and support plan are included.
+    gate:
+      type: final_review
+      by: coordinator
+  - id: support_iteration
+    name: Support, Analytics & Iteration
+    coordinator_goal: Close the loop after release using support signals, analytics, and next-cycle prioritization.
+    roles:
+      - product-manager
+      - product-analyst
+      - customer-success-support
+    inputs:
+      - release_plan
+      - success_metrics
+      - support_plan
+    outputs:
+      - analytics_plan
+      - feedback_channels
+      - iteration_backlog
+      - learning_risks
+    acceptance_criteria:
+      - Product metrics and feedback channels are defined.
+      - Next iteration inputs are traceable to user and business signals.
+      - Open assumptions are tracked for validation.
+    gate:
+      type: quality_check
+      by: coordinator

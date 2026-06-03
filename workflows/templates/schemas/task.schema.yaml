@@ -1,0 +1,37 @@
+type: object
+required:
+  - id
+  - title
+  - workflow
+  - status
+  - user_request
+  - current_stage
+properties:
+  id:
+    type: string
+  title:
+    type: string
+  workflow:
+    type: string
+  status:
+    enum:
+      - inbox
+      - active
+      - blocked
+      - complete
+  user_request:
+    type: string
+  context:
+    type: object
+  current_stage:
+    type: string
+  stage_outputs:
+    type: object
+  decisions:
+    type: array
+  risks:
+    type: array
+  open_questions:
+    type: array
+  final_artifacts:
+    type: object

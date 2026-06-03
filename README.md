@@ -1,7 +1,7 @@
 # AI Capability Registry
 
 > **Warning**
-> Connecting this registry through `AGENTS.md.template` makes agents read routing indexes and selected capability guides at runtime. This can use substantially more model context and tokens than a minimal static agent setup. Prefer task-, role-, keyword-, or project-specific subsets when context budget matters.
+> Connecting this registry through `AGENTS.full-registry.md.template` makes agents read routing indexes and selected capability guides at runtime. This can use substantially more model context and tokens than a minimal static agent setup. Prefer task-, role-, keyword-, or project-specific subsets when context budget matters.
 
 AI Capability Registry is an experiment in dynamic capability routing for AI agents: load the right skills, MCP servers, workflows, and integration instructions only when the current task needs them.
 
@@ -42,7 +42,7 @@ The bootstrap script will:
 1. Sync external submodules to correct commits
 2. Validate registry configuration
 3. Sync provider chunks under `skill-catalog.d/` with discovered skills
-4. Generate the workflow routing index from `registry/workflows.yaml`
+4. Generate the workflow routing index and human-readable workflow catalog from `registry/workflows.yaml`
 5. Generate the combined `skills/` routing catalogs and symlink packs from `skill-catalog.d/`
 6. Generate MCP routing catalogs from `mcp-catalog.d/`
 
@@ -50,29 +50,39 @@ The bootstrap script will:
 
 Agents can use this registry in two ways: dynamic routing at runtime or a minimal static setup derived from the registry for a specific agent, role, or task.
 
-### AGENTS.md Template
+### AGENTS.md Templates
 
-Use `AGENTS.md.template` to connect another repository to a shared registry stored at `~/.ai-registry`:
+Use `AGENTS.full-registry.md.template` to connect another repository to a shared registry stored at `~/.ai-registry` with the recommended workflow-first setup:
 
 ```bash
-cp ~/.ai-registry/AGENTS.md.template /path/to/project/AGENTS.md
+cp ~/.ai-registry/AGENTS.full-registry.md.template /path/to/project/AGENTS.md
 ```
 
-The template is intentionally only a bootloader. It tells agents to read and follow `capability-routing.md`, `workflows/workflows.md`, `skills/skills.md`, and `mcp/mcp.md` from the shared registry, while allowing more specific local repository instructions to override shared guidance.
+The full-registry template is intentionally only a bootloader. It tells agents to read and follow `capability-routing.md`, start with `workflows/workflow.md`, load workflow-selected roles from `roles/`, then let those roles route to skills and MCP only when needed. More specific local repository instructions still override shared guidance.
+
+Root templates are available for narrower setups:
+
+| Template | Use |
+| --- | --- |
+| `AGENTS.full-registry.md.template` | Recommended workflow-first full-registry setup with role-mediated skills and MCP. |
+| `AGENTS.workflows.md.template` | Workflow orchestration and roles only. |
+| `AGENTS.skills.md.template` | Skill routing only. |
+| `AGENTS.mcp.md.template` | MCP routing only. |
+| `AGENTS.workflows-skills.md.template` | Workflow orchestration and role-mediated skills, without MCP routing by default. |
 
 If the registry is installed somewhere else, edit the paths in the copied `AGENTS.md`.
 
 ### Workflows
 
-Use the generated workflow routing index when the agent should choose process guidance before loading concrete skills or MCP servers:
+Use the generated workflow dispatcher when the agent should choose process guidance before loading concrete skills or MCP servers:
 
 ```
-<path-to-registry>/workflows/workflows.md
+<path-to-registry>/workflows/workflow.md
 ```
 
-For cross-repository use, prefer installing `AGENTS.md.template` rather than adding partial workflow-only instructions.
+For cross-repository use, prefer installing `AGENTS.full-registry.md.template` or `AGENTS.workflows.md.template` rather than adding partial workflow-only instructions.
 
-Workflow routing should be read before skill routing. Workflows answer how to approach a task; skills provide concrete task, tool, or domain instructions.
+Workflow routing should be read before skill routing. Workflows answer how to approach a task, which roles should participate, which stages and gates apply, and which artifacts are expected. Roles then decide which skills to load for their part of the workflow.
 
 ### Skills
 
@@ -82,7 +92,7 @@ Use the generated skill routing index when the agent should dynamically choose s
 <path-to-registry>/skills/skills.md
 ```
 
-For dynamic routing, agents should reach this file through `AGENTS.md.template` or an equivalent bootloader that also includes `capability-routing.md`, workflows, and MCP routing.
+For dynamic routing, agents should usually reach this file through workflow-selected role prompts. Direct skill-only use is still supported through `AGENTS.skills.md.template` or an equivalent bootloader.
 
 For direct agent configuration, attach one generated pack instead of the whole registry when you want a narrower static setup:
 
@@ -102,7 +112,7 @@ Use the generated MCP routing index when the agent should choose MCP servers onl
 <path-to-registry>/mcp/mcp.md
 ```
 
-For dynamic routing, agents should reach this file through `AGENTS.md.template` or an equivalent bootloader that also includes `capability-routing.md`, workflows, and skills routing.
+For dynamic routing, agents should usually reach this file through workflow-selected role prompts or workflow stage guidance. Direct MCP-only use is still supported through `AGENTS.mcp.md.template` or an equivalent bootloader.
 
 For direct agent configuration, adapt the generated connection metadata to your agent's MCP config schema:
 
@@ -122,6 +132,7 @@ Editable source chunks:
 | `registry/skills.yaml` | Upstream skills discovery source configuration |
 | `registry/mcp-sources.yaml` | Upstream MCP discovery source configuration |
 | `registry/workflows.yaml` | Workflow routing source configuration |
+| `registry/profiles.yaml` | Role/profile source configuration used by workflow role matching |
 | `skill-catalog.d/*.yaml` | Source of truth for discovered skills |
 | `mcp-catalog.d/*.yml` | Source of truth for MCP servers |
 
@@ -134,15 +145,22 @@ Generated outputs:
 | `skills/catalog/roles/<role>/skills.md` | Skill role routing indexes |
 | `skills/catalog/keywords/<keyword>/skills.md` | Skill keyword routing indexes |
 | `skills/packs/` | Symlink packs for direct agent inclusion |
-| `workflows/workflows.md` | Root workflow routing index |
-| `workflows/<workflow>.md` | Workflow guide files referenced by the workflow index |
+| `workflows/workflow.md` | Generated root workflow dispatcher |
+| `workflows/catalog/tasks/<task>/workflows.md` | Generated workflow task routing indexes |
+| `workflows/catalog/roles/<role>/workflows.md` | Generated workflow role routing indexes |
+| `workflows/catalog/categories/<category>/workflows.md` | Generated workflow category routing indexes |
+| `workflows/catalog/tags/<tag>/workflows.md` | Generated workflow tag routing indexes |
+| `workflows-catalog.md` | Generated human-readable workflow catalog view |
+| `workflows/<category>/<workflow>/workflow.md` | Workflow guide files referenced by the workflow dispatcher |
+| `workflows/<category>/<workflow>/workflow.yaml` | Workflow manifests with stages, roles, gates, and acceptance criteria |
+| `roles/<role-id>.md` | Runtime role prompts loaded by workflow stages |
 | `mcp/mcp.md` | Root MCP routing index |
 | `mcp/catalog/tasks/<task>/servers.md` | MCP task routing indexes |
 | `mcp/catalog/roles/<role>/servers.md` | MCP role routing indexes |
 | `mcp/catalog/keywords/<keyword>/servers.md` | MCP keyword routing indexes |
 | `mcp/servers/<server-id>/SKILL.md` | Generated MCP usage wrapper |
 | `mcp/servers/<server-id>/connection.json` | Generated MCP connection metadata |
-| `skill-catalog.md` and `mcp-catalog.md` | Generated human-readable catalog views |
+| `skill-catalog.md`, `workflows-catalog.md`, and `mcp-catalog.md` | Generated human-readable catalog views |
 
 Do not edit generated files directly. Edit source chunks, then regenerate.
 
@@ -159,7 +177,7 @@ Important MCP fields are `enabled`, `exists`, `trust`, `runtime`, `transport.typ
 | Command | Use |
 | --- | --- |
 | `./scripts/bootstrap.sh` | Full sync, validation, workflow generation, skills generation, and MCP generation |
-| `./scripts/generate-workflows.py` | Regenerate `workflows/workflows.md` from `registry/workflows.yaml` |
+| `./scripts/generate-workflows.py` | Regenerate `workflows/workflow.md`, `workflows-catalog.md`, and workflow catalogs from `registry/workflows.yaml` |
 | `./scripts/discover-skills.py` | Regenerate skill catalogs and packs from `skill-catalog.d/` |
 | `./scripts/discover-mcp.py` | Import disabled candidate MCP entries from configured upstream sources |
 | `./scripts/generate-mcp.py` | Regenerate `mcp/` and `mcp-catalog.md` from `mcp-catalog.d/` |

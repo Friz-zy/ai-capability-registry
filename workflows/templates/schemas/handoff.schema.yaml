@@ -1,0 +1,26 @@
+type: object
+required:
+  - from_role
+  - to_role
+  - stage
+  - context_summary
+  - required_action
+properties:
+  from_role:
+    type: string
+  to_role:
+    type: string
+  stage:
+    type: string
+  context_summary:
+    type: string
+  artifacts:
+    type: array
+  decisions:
+    type: array
+  risks:
+    type: array
+  open_questions:
+    type: array
+  required_action:
+    type: string

@@ -1,0 +1,208 @@
+id: mobile-app
+name: Mobile App Workflow
+description: Workflow for building native or cross-platform mobile applications.
+entry_conditions:
+  - User wants to create an iOS, Android, Flutter, React Native, native, cross-platform, or mobile-first application.
+  - Platform, app store, device capability, or mobile UX constraints are central to the request.
+clarification_questions:
+  - Which platforms are required: iOS, Android, or both?
+  - Should the app be native or cross-platform?
+  - Does the app need offline mode, push notifications, camera, geolocation, biometrics, or local storage?
+  - What backend or API already exists, if any?
+  - What output should this run produce: PRD, technical plan, task breakdown, implementation, or full workflow result?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  business_scope: product-manager
+  requirements_detail: business-analyst
+  user_research: ux-researcher
+  user_experience: ux-designer
+  visual_design: ui-designer
+  architecture: solution-architect
+  implementation: tech-lead
+  mobile_platform: mobile-engineer
+  infrastructure: devops-platform-engineer
+  testing: qa-engineer
+  release: release-manager
+stages:
+  - id: discovery
+    name: Discovery & Requirements
+    coordinator_goal: Define the mobile product goal, platform scope, users, constraints, and success metrics.
+    roles:
+      - product-manager
+      - business-analyst
+      - tech-lead
+      - mobile-engineer
+    inputs:
+      - user_request
+      - product_context
+    outputs:
+      - prd
+      - platform_scope
+      - target_users
+      - device_capabilities
+      - success_metrics
+      - out_of_scope
+    acceptance_criteria:
+      - Target platforms are explicit.
+      - Required platform capabilities are listed.
+      - Offline, notification, permission, and data needs are addressed.
+      - Success metrics and non-goals are clear.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: ux_ui_design
+    name: UX/UI Design
+    coordinator_goal: Design mobile-native flows that respect platform conventions and device constraints.
+    roles:
+      - ux-researcher
+      - ux-designer
+      - ui-designer
+      - mobile-engineer
+    inputs:
+      - prd
+      - platform_scope
+    outputs:
+      - mobile_user_flows
+      - gesture_notes
+      - wireframe_description
+      - ui_states
+      - platform_guideline_notes
+    acceptance_criteria:
+      - Navigation matches mobile patterns.
+      - Key gestures and permissions are covered.
+      - Empty, loading, error, success, and offline states are included.
+      - Apple and Google platform guidance is considered.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: architecture_planning
+    name: Architecture & Planning
+    coordinator_goal: Plan mobile architecture, synchronization, API contracts, and backend constraints.
+    roles:
+      - solution-architect
+      - tech-lead
+      - mobile-engineer
+      - backend-engineer
+      - devops-platform-engineer
+    inputs:
+      - prd
+      - mobile_user_flows
+      - platform_scope
+    outputs:
+      - architecture_plan
+      - api_contract_notes
+      - offline_sync_strategy
+      - push_notification_plan
+      - infrastructure_plan
+      - implementation_risks
+    acceptance_criteria:
+      - Mobile data synchronization is described.
+      - API contracts account for mobile latency and payload constraints.
+      - Push notifications, permissions, and local storage are considered when relevant.
+      - App update and data migration risks are listed.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: development_planning
+    name: Development Planning
+    coordinator_goal: Break mobile, backend, and platform work into coordinated implementation tasks.
+    roles:
+      - tech-lead
+      - mobile-engineer
+      - backend-engineer
+      - devops-platform-engineer
+    inputs:
+      - architecture_plan
+      - mobile_user_flows
+      - platform_guideline_notes
+    outputs:
+      - task_breakdown
+      - implementation_order
+      - api_dependency_plan
+      - build_pipeline_plan
+    acceptance_criteria:
+      - Mobile and backend tasks are separated but contract-linked.
+      - App signing, build, and beta distribution needs are listed.
+      - Platform-specific dependencies are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: qa_testing
+    name: QA & Testing
+    coordinator_goal: Define mobile QA coverage for devices, platforms, permissions, network states, and store readiness.
+    roles:
+      - qa-engineer
+      - sdet
+      - mobile-engineer
+    inputs:
+      - prd
+      - task_breakdown
+      - architecture_plan
+    outputs:
+      - mobile_test_plan
+      - device_matrix
+      - automation_plan
+      - regression_scope
+      - qa_risks
+    acceptance_criteria:
+      - Device and OS coverage is explicit.
+      - Offline, permission, upgrade, and network failure cases are covered.
+      - Store rejection risks are listed.
+      - Automation candidates are identified.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: release_deployment
+    name: Release & Deployment
+    coordinator_goal: Prepare beta, store submission, staged rollout, monitoring, and rollback-compatible mitigation.
+    roles:
+      - release-manager
+      - devops-platform-engineer
+      - mobile-engineer
+      - product-manager
+      - customer-success-support
+    inputs:
+      - build_pipeline_plan
+      - mobile_test_plan
+      - qa_risks
+    outputs:
+      - mobile_release_plan
+      - store_submission_plan
+      - rollout_strategy
+      - rollback_constraints
+      - release_notes
+      - support_plan
+    acceptance_criteria:
+      - Store review, signing, and distribution requirements are clear.
+      - Feature flags or remote configuration are considered.
+      - Rollback limitations are explicit.
+      - Monitoring and support communication are included.
+    gate:
+      type: final_review
+      by: coordinator
+  - id: support_iteration
+    name: Support, Analytics & Iteration
+    coordinator_goal: Track mobile release health and feed store, support, and analytics signals into the next iteration.
+    roles:
+      - product-manager
+      - product-analyst
+      - customer-success-support
+    inputs:
+      - mobile_release_plan
+      - success_metrics
+    outputs:
+      - analytics_plan
+      - store_feedback_plan
+      - crash_monitoring_plan
+      - iteration_backlog
+    acceptance_criteria:
+      - App health, store feedback, crash signals, and product metrics are covered.
+      - Next iteration inputs are traceable to observed user or release signals.
+    gate:
+      type: quality_check
+      by: coordinator

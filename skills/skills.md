@@ -49,6 +49,16 @@ Do not browse `skills/catalog/` or `skills/packs/` broadly during task execution
 - **Data Analyst** (`data-analyst`) -> `data`, `research`, `product`
 - **AI Engineer** (`ai-engineer`) -> `ai`, `ml`, `engineering`, `security`, `research`
 - **Product Designer** (`designer`) -> `design`, `frontend`, `research`
+- **Business Analyst** (`business-analyst`) -> `product`, `operations`, `research`, `data`
+- **UX Researcher** (`ux-researcher`) -> `research`, `design`, `product`
+- **UX Designer** (`ux-designer`) -> `design`, `research`, `frontend`
+- **UI Designer** (`ui-designer`) -> `design`, `frontend`
+- **Solution Architect** (`solution-architect`) -> `engineering`, `backend`, `frontend`, `devops`, `security`
+- **Tech Lead** (`tech-lead`) -> `engineering`, `backend`, `frontend`, `devops`, `qa`, `security`
+- **Software Development Engineer in Test** (`sdet`) -> `qa`, `engineering`, `frontend`, `backend`, `developer_tools`
+- **Performance Engineer** (`performance-engineer`) -> `qa`, `engineering`, `sre`, `devops`
+- **Release Manager** (`release-manager`) -> `devops`, `operations`, `product`, `customer_success`
+- **Product Analyst** (`product-analyst`) -> `data`, `product`, `research`
 - **Marketing and Growth Lead** (`marketing-growth`) -> `marketing`, `founder`, `data`
 - **Sales Account Executive** (`sales-account-executive`) -> `sales`, `research`, `marketing`
 - **Customer Success and Support Specialist** (`customer-success-support`) -> `customer_success`, `research`, `product`

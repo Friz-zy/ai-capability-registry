@@ -1,0 +1,31 @@
+type: object
+required:
+  - role
+  - stage
+  - status
+  - summary
+  - artifacts
+properties:
+  role:
+    type: string
+  stage:
+    type: string
+  status:
+    enum:
+      - complete
+      - blocked
+      - needs_review
+  summary:
+    type: string
+  assumptions:
+    type: array
+  decisions:
+    type: array
+  risks:
+    type: array
+  open_questions:
+    type: array
+  artifacts:
+    type: object
+  handoff:
+    type: object

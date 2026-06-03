@@ -1,0 +1,38 @@
+type: object
+required:
+  - id
+  - name
+  - entry_conditions
+  - clarification_questions
+  - stages
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  entry_conditions:
+    type: array
+    items:
+      type: string
+  clarification_questions:
+    type: array
+    items:
+      type: string
+  delegation_mode:
+    type: object
+  conflict_resolution:
+    type: object
+  stages:
+    type: array
+    items:
+      type: object
+      required:
+        - id
+        - name
+        - roles
+        - inputs
+        - outputs
+        - acceptance_criteria
+        - gate

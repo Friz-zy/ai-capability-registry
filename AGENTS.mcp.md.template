@@ -1,0 +1,13 @@
+Before using shared MCP guidance or connecting external tools, read and follow:
+
+1. `~/.ai-registry/capability-routing.md`
+2. `~/.ai-registry/mcp/mcp.md`
+
+Use this template when the target project should dynamically route to MCP servers without adopting shared workflow orchestration or skill routing.
+
+If the agent is dispatched as a subagent, it must not select its own workflow or role. It must follow the role, task, expected outputs, acceptance criteria, and handoff instructions assigned by the primary agent. A subagent may route to MCP only within its assigned role and task scope.
+
+Ask before OAuth, API keys, tokens, account access, private workspace access, private data access, or remote mutations.
+
+Local repository instructions override shared registry guidance when more specific.
+If `~/.ai-registry` is unavailable, state that and continue with local instructions only.

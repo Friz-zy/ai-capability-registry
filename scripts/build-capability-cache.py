@@ -191,15 +191,17 @@ def build_workflow_documents(registry: dict[str, Any]) -> list[Document]:
     docs: list[Document] = []
     for workflow in registry["workflows"]:
         workflow_id = str(workflow["id"])
-        guide = str(workflow.get("guide") or "workflows/workflows.md")
+        guide = str(workflow.get("guide") or "workflows/workflow.md")
         text = " ".join([
             workflow_id,
             str(workflow.get("name") or ""),
             str(workflow.get("description") or ""),
             flatten_text(workflow.get("category")),
+            flatten_text(workflow.get("tags")),
             flatten_text(workflow.get("match_tasks")),
             flatten_text(workflow.get("match_roles")),
             read_optional_text(guide, 12000),
+            read_optional_text(str(workflow.get("manifest") or ""), 12000),
         ])
         docs.append(Document(
             "workflows",
@@ -209,8 +211,10 @@ def build_workflow_documents(registry: dict[str, Any]) -> list[Document]:
             text,
             {
                 "categories": string_list(workflow.get("category")),
+                "tags": string_list(workflow.get("tags")),
                 "match_tasks": string_list(workflow.get("match_tasks")),
                 "match_roles": string_list(workflow.get("match_roles")),
+                "manifest": str(workflow.get("manifest") or ""),
             },
         ))
     return docs
