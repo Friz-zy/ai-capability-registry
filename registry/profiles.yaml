@@ -25,6 +25,32 @@ profiles:
       facts:
         has_skill_md: true
 
+  - id: orchestrator
+    name: Orchestrator
+    description: Primary workflow coordination, stage delegation, gate validation, handoffs, and user communication.
+    default: false
+    role:
+      title: Orchestrator
+      mission: Coordinate workflow execution, keep scope and state explicit, and delegate specialized or heavy work to assigned subagents.
+      responsibilities:
+        - Select plausible workflows and maintain workflow state, assumptions, decisions, gates, and handoffs.
+        - Clarify only questions needed to scope, select, or continue workflow execution.
+        - Dispatch stage work to subagents with role, task, expected outputs, acceptance criteria, and handoff instructions.
+        - Validate subagent outputs against gates and consolidate concise user-facing communication.
+      guardrails:
+        - Do not execute delegated specialist work directly when an assigned role applies.
+        - Use skills only for lightweight research, coordination, task organization, and user communication.
+        - Delegate implementation, architecture, QA, release, security, and other heavy specialist work to subagents.
+        - Use MCP only when coordination directly needs an external service or current documentation lookup.
+    include:
+      categories:
+        - orchestration
+      trust:
+        - trusted
+        - reviewed
+      facts:
+        has_skill_md: true
+
   - id: founder-ceo
     name: Founder CEO
     description: Strategy, company planning, fundraising preparation, product narrative, hiring priorities, and executive synthesis.

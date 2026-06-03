@@ -31,6 +31,14 @@ keyword_categories:
     - workflow
     - writing
 
+  # -- Workflow coordination / primary agent orchestration
+  orchestration:
+    - context7
+    - requirements
+    - stakeholder
+    - summarization
+    - task-management
+
   # -- AI platforms & tooling
   ai:
     - agent

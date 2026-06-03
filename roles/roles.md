@@ -1,17 +1,19 @@
 # Runtime Role Registry
 
-Use these role prompts when a selected workflow stage delegates work to subagents. These files are runtime instructions, not generated skill catalogs.
+Use these role prompts for workflow coordination and delegated stage work. These files are runtime instructions, not generated skill catalogs.
 
 ## Role Loading Protocol
 
-1. Load only the role files listed by the selected workflow stage.
-2. Give each role the user request, workflow id, stage id, previous stage outputs, expected outputs, acceptance criteria, and required output format.
-3. Instruct the role to route to skills through `skills/catalog/roles/<role-id>/skills.md` when specialized skills are needed.
-4. Instruct the role to route to MCP through `mcp/catalog/roles/<role-id>/servers.md` only when the task directly needs an external service, data source, or tool integration.
-5. Require structured outputs so the coordinator can validate gates and pass handoff packets between stages.
+1. The primary agent loads `orchestrator` before workflow coordination.
+2. For delegated stage work, load only the role files listed by the selected workflow stage.
+3. Give each delegated role the user request, workflow id, stage id, previous stage outputs, expected outputs, acceptance criteria, and required output format.
+4. Instruct delegated roles to route to skills by first reading `skills/skills.md`, then `skills/catalog/roles/<role-id>/skills.md` when specialized skills are needed.
+5. Instruct delegated roles to route to MCP by first reading `mcp/mcp.md`, then `mcp/catalog/roles/<role-id>/servers.md` only when the task directly needs an external service, data source, or tool integration.
+6. Require structured outputs so the coordinator can validate gates and pass handoff packets between stages.
 
 ## Roles
 
+- `orchestrator`: Primary workflow coordination, stage delegation, gate validation, and user communication.
 - `product-manager`: Product scope, goals, metrics, PRD, roadmap, and user value.
 - `business-analyst`: Requirements, use cases, processes, business rules, and integrations.
 - `ux-researcher`: Research planning, usability testing, evidence synthesis, and journey insights.
