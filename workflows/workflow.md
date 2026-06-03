@@ -9,7 +9,7 @@
 5. Delegate each stage to subagents assigned a role from `../roles/`. Include expected outputs, acceptance criteria, and handoff instructions; each subagent MUST read `../roles/<role-id>.md`.
 6. Validate gates before advancing, request targeted revisions when needed, and resolve role conflicts through the YAML manifest.
 7. Communicate with the user, including needed clarifications and consolidated results.
-8. If no workflow applies, state that and continue with ordinary task handling.
+8. If no workflow applies, state that and use lightweight orchestration for non-trivial, multi-domain, ambiguous, or risk-sensitive tasks: remain responsible for coordination, delegate focused work to 1-5 directly relevant subagents assigned roles from `../roles/`, and include expected outputs, acceptance criteria, and handoff instructions. Each delegated subagent MUST read `../roles/<role-id>.md`. Do not synthesize an implicit workflow, stage model, or manifest. For simple single-domain tasks, continue with direct task handling.
 
 ## Follow these instructions if you are a delegated Subagent
 

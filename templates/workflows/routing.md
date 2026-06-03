@@ -9,7 +9,7 @@ Use this file only for primary-agent workflow selection when no workflow scope i
 1. Follow the shared routing pattern in `../capability-routing.md`.
 2. Match by task first, then role, category, and tags.
 3. Read only the selected workflow markdown guide and YAML manifest.
-4. If no workflow applies, state that and continue with ordinary task handling.
+4. If no workflow applies, state that and follow the no-workflow fallback in `workflow.md`.
 
 Do not browse workflow directories broadly. Use the smallest matching index, then read only the selected workflow guide and manifest.
 
