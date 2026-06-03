@@ -1,7 +1,17 @@
-Before acting, read and follow the shared registry runtime files:
+## Mandatory Registry Bootstrap
+
+Before any substantive response, tool use, planning, analysis, implementation, review, or command execution, read and apply the shared registry runtime files listed below in order:
 
 1. `~/.ai-registry/capability-routing.md`
 2. `~/.ai-registry/mcp/mcp.md`
+
+This bootstrap is mandatory when these files are listed. Do not rely on memory, prior summaries, or assumptions about their contents.
+
+After reading them, perform MCP capability routing before acting:
+
+* Select MCP servers only according to `~/.ai-registry/mcp/mcp.md`.
+* Do not select workflows or skills unless local instructions separately enable those registries.
+* If no MCP server applies, continue with direct task handling within local instructions.
 
 Use this template when the target project should dynamically route to MCP servers without adopting shared workflow orchestration or skill routing.
 

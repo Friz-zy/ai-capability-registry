@@ -5,12 +5,26 @@
 * All functions, classes, high-level objects: docstrings in Google format.
 * Do not change the formatting in the files or make cosmetic edits unless I have specifically asked you to do so.
 
-Before acting, read and follow the shared registry runtime files:
+## Mandatory Registry Bootstrap
+
+Before any substantive response, tool use, planning, analysis, implementation, review, or command execution, read and apply the shared registry runtime files listed below in order:
 
 1. `./capability-routing.md`
 2. `./workflows/workflow.md`
 3. `./skills/skills.md`
 4. `./mcp/mcp.md`
+
+This bootstrap is mandatory when these files are listed. Do not rely on memory, prior summaries, or assumptions about their contents.
+
+After reading them, perform capability routing before acting:
+
+* Decide whether a workflow applies.
+* If a workflow applies, follow the selected workflow.
+* If no workflow applies, explicitly use the no-workflow fallback from `./workflows/workflow.md`.
+* Select skills only according to `./skills/skills.md`.
+* Select MCP servers only according to `./mcp/mcp.md`.
+
+For trivial conversational requests, still obey the registry files, but no workflow delegation is required unless the routing instructions require it.
 
 Local repository instructions override shared registry guidance when more specific.
 These shared registry files are the source of truth. Do not replace them with summaries or assumptions.

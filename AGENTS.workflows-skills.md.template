@@ -1,8 +1,22 @@
-Before acting, read and follow the shared registry runtime files:
+## Mandatory Registry Bootstrap
+
+Before any substantive response, tool use, planning, analysis, implementation, review, or command execution, read and apply the shared registry runtime files listed below in order:
 
 1. `~/.ai-registry/capability-routing.md`
 2. `~/.ai-registry/workflows/workflow.md`
 3. `~/.ai-registry/skills/skills.md`
+
+This bootstrap is mandatory when these files are listed. Do not rely on memory, prior summaries, or assumptions about their contents.
+
+After reading them, perform capability routing before acting:
+
+* Decide whether a workflow applies.
+* If a workflow applies, follow the selected workflow.
+* If no workflow applies, explicitly use the no-workflow fallback from `~/.ai-registry/workflows/workflow.md`.
+* Select skills only according to `~/.ai-registry/skills/skills.md`.
+* Do not dynamically route to MCP servers unless local instructions separately enable MCP routing.
+
+For trivial conversational requests, still obey the registry files, but no workflow delegation is required unless the routing instructions require it.
 
 Use this template when the target project should use shared workflow orchestration and skills but should not dynamically route to MCP servers by default.
 
