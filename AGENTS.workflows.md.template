@@ -1,4 +1,4 @@
-## Mandatory Registry Bootstrap
+## Follow these instructions only if you are the user-facing Primary Agent
 
 Before any substantive response, tool use, planning, analysis, implementation, review, or command execution, read and apply the shared registry runtime files listed below in order:
 
@@ -7,12 +7,11 @@ Before any substantive response, tool use, planning, analysis, implementation, r
 
 This bootstrap is mandatory when these files are listed. Do not rely on memory, prior summaries, or assumptions about their contents.
 
-After reading them, perform workflow capability routing before acting:
+Then perform workflow capability routing before acting:
 
 * Decide whether a workflow applies.
 * If a workflow applies, follow the selected workflow.
 * If no workflow applies, explicitly use the no-workflow fallback from `~/.ai-registry/workflows/workflow.md`.
-* Do not dynamically route to skills or MCP servers unless local instructions separately enable those registries.
 
 For trivial conversational requests, still obey the registry files, but no workflow delegation is required unless the routing instructions require it.
 
