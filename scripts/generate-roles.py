@@ -8,7 +8,7 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-from registry_lib import ROOT, load_all, write_text
+from registry_lib import ROOT, load_registry, write_text
 
 
 ROLES_DIR = ROOT / "roles"
@@ -80,6 +80,21 @@ def bullet_list(values: list[str]) -> str:
     return "\n".join(f"- {value}" for value in values)
 
 
+def markdown_section(title: str, values: list[str]) -> str:
+    """Render a Markdown section only when values exist.
+
+    Args:
+        title: Section heading text without Markdown prefix.
+        values: Items to render as bullets.
+
+    Returns:
+        Markdown section content, or an empty string when no values exist.
+    """
+    if not values:
+        return ""
+    return f"## {title}\n\n{bullet_list(values)}\n\n"
+
+
 def profile_role(profile: dict[str, Any]) -> dict[str, Any]:
     """Return the role metadata mapping for a profile.
 
@@ -93,11 +108,12 @@ def profile_role(profile: dict[str, Any]) -> dict[str, Any]:
     return role if isinstance(role, dict) else {}
 
 
-def generated_role_content(profile: dict[str, Any]) -> str:
+def generated_role_content(profile: dict[str, Any], common_instructions: list[str]) -> str:
     """Generate one role prompt from a profile.
 
     Args:
         profile: Profile registry entry.
+        common_instructions: Instructions shared by every generated role.
 
     Returns:
         Rendered role prompt.
@@ -107,7 +123,8 @@ def generated_role_content(profile: dict[str, Any]) -> str:
     title = str(role.get("title") or profile.get("name") or profile_id)
     purpose = str(role.get("mission") or profile.get("description") or "No purpose specified.")
     responsibilities = bullet_list(string_list(role.get("responsibilities")))
-    guardrails = bullet_list(string_list(role.get("guardrails")))
+    guardrails_section = markdown_section("Guardrails", string_list(role.get("guardrails")))
+    rendered_common_instructions = bullet_list(common_instructions)
     return render(
         "role.md",
         {
@@ -115,7 +132,8 @@ def generated_role_content(profile: dict[str, Any]) -> str:
             "title": title,
             "purpose": purpose,
             "responsibilities": responsibilities,
-            "guardrails": guardrails,
+            "guardrails_section": guardrails_section,
+            "common_instructions": rendered_common_instructions,
         },
     )
 
@@ -147,17 +165,18 @@ def clean_roles_directory() -> None:
         path.unlink()
 
 
-def write_roles(profiles: list[dict[str, Any]]) -> None:
+def write_roles(profiles: list[dict[str, Any]], common_instructions: list[str]) -> None:
     """Write generated role prompts and the role registry index.
 
     Args:
         profiles: Profile registry entries.
+        common_instructions: Instructions shared by every generated role.
     """
     clean_roles_directory()
     sorted_profiles = sorted(profiles, key=lambda item: str(item.get("id") or ""))
     for profile in sorted_profiles:
         profile_id = str(profile.get("id") or "unknown")
-        write_text(ROLES_DIR / f"{profile_id}.md", generated_role_content(profile))
+        write_text(ROLES_DIR / f"{profile_id}.md", generated_role_content(profile, common_instructions))
 
     roles = "\n".join(role_registry_line(profile) for profile in sorted_profiles)
     write_text(ROLES_DIR / "roles.md", render("roles.md", {"roles": roles}))
@@ -176,10 +195,12 @@ def main() -> int:
     Returns:
         Process exit code.
     """
-    registry = load_all()
+    registry = load_registry("profiles")
+    profiles = registry.get("profiles", [])
+    common_instructions = string_list(registry.get("common_instructions"))
     cleanup_legacy_role_directory()
-    write_roles(registry["profiles"])
-    print(f"Generated role prompts: {len(registry['profiles'])} roles")
+    write_roles(profiles, common_instructions)
+    print(f"Generated role prompts: {len(profiles)} roles")
     print(f"Generated role registry: {ROLES_DIR / 'roles.md'}")
     return 0
 
