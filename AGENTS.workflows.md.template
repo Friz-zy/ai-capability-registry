@@ -15,8 +15,6 @@ Then perform workflow capability routing before acting:
 
 For trivial conversational requests, still obey the registry files, but no workflow delegation is required unless the routing instructions require it.
 
-Use this template when the target project should use shared workflow orchestration but should not dynamically load the shared skill or MCP registries by default.
-
 Local repository instructions override shared registry guidance when more specific.
 These shared registry files are the source of truth. Do not replace them with summaries or assumptions.
 If `~/.ai-registry` is unavailable, state that and continue with local instructions only.

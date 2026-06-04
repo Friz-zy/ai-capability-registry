@@ -26,8 +26,6 @@ After reading them, perform skill capability routing before acting:
 * Select skills only according to `~/.ai-registry/skills/skills.md`.
 * Do not dynamically route to MCP servers unless local instructions separately enable MCP routing.
 
-Use this template when the target project should use shared workflow orchestration and skills but should not dynamically route to MCP servers by default.
-
 Local repository instructions override shared registry guidance when more specific.
 These shared registry files are the source of truth. Do not replace them with summaries or assumptions.
 If `~/.ai-registry` is unavailable, state that and continue with local instructions only.
@@ -56,4 +54,3 @@ If `~/.ai-registry` is unavailable, state that and continue with local instructi
 * Write complex algorithms explicitly with good names and comments instead of scattering logic across many small functions.
 * Readability refactors must preserve behavior and API. Run targeted tests after changes.
 * Tests should verify observable behavior, not private implementation details, unless the private helper contains standalone algorithmic logic.
-

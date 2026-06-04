@@ -14,8 +14,6 @@ After reading them, perform skill capability routing before acting:
 * Do not select workflows or MCP servers unless local instructions separately enable those registries.
 * If no skill applies, continue with direct task handling within local instructions.
 
-Use this template when the target project should dynamically route to skills without adopting shared workflow orchestration or MCP routing.
-
 Local repository instructions override shared registry guidance when more specific.
 These shared registry files are the source of truth. Do not replace them with summaries or assumptions.
 If `~/.ai-registry` is unavailable, state that and continue with local instructions only.
