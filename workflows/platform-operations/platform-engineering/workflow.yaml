@@ -1,0 +1,92 @@
+id: platform-engineering
+name: Platform Engineering Workflow
+description: Workflow for internal developer platform design, golden paths, templates, portal needs, CI/CD defaults, and observability defaults.
+entry_conditions:
+  - User wants to build or improve an internal developer platform, service templates, golden paths, or platform defaults.
+  - Developer experience, platform governance, security, reliability, and reuse are central.
+clarification_questions:
+  - Which teams, services, and developer journeys should the platform support?
+  - What pain points, standards, and operational requirements already exist?
+  - What should be delivered first: templates, pipelines, portal, docs, or observability defaults?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  platform_scope: devops-platform-engineer
+  architecture: cloud-architect
+  reliability: sre
+  security: security-engineer
+  delivery_process: engineering-manager
+stages:
+  - id: platform_discovery
+    name: Platform Discovery
+    coordinator_goal: Identify developer journeys, service lifecycle pain points, standards, and platform boundaries.
+    roles:
+      - devops-platform-engineer
+      - engineering-manager
+      - tech-lead
+    inputs:
+      - user_request
+      - platform_context
+    outputs:
+      - developer_journeys
+      - platform_pain_points
+      - platform_scope
+      - non_goals
+    acceptance_criteria:
+      - Target users and golden-path candidates are clear.
+      - Platform boundaries and non-goals are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: platform_design
+    name: Platform Design
+    coordinator_goal: Define golden paths, templates, CI/CD defaults, security controls, observability, and portal needs.
+    roles:
+      - devops-platform-engineer
+      - cloud-architect
+      - security-engineer
+      - sre
+      - technical-writer
+    inputs:
+      - developer_journeys
+      - platform_scope
+    outputs:
+      - golden_paths
+      - service_templates
+      - ci_cd_templates
+      - internal_developer_portal
+      - observability_defaults
+      - platform_documentation
+    acceptance_criteria:
+      - Golden paths and templates reduce repeated team work.
+      - Security, reliability, and documentation defaults are included.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: adoption_governance
+    name: Adoption & Governance
+    coordinator_goal: Plan rollout, ownership, feedback loops, lifecycle governance, and success metrics.
+    roles:
+      - engineering-manager
+      - devops-platform-engineer
+      - product-analyst
+      - customer-success-support
+    inputs:
+      - golden_paths
+      - service_templates
+      - platform_documentation
+    outputs:
+      - adoption_plan
+      - governance_model
+      - success_metrics
+      - feedback_channels
+    acceptance_criteria:
+      - Adoption plan includes owners and feedback loops.
+      - Governance and lifecycle maintenance are explicit.
+    gate:
+      type: final_review
+      by: coordinator

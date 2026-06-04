@@ -1,0 +1,90 @@
+id: sales-support
+name: Sales Support Workflow
+description: Workflow for B2B sales enablement, demos, objection handling, technical FAQ, and proposal support.
+entry_conditions:
+  - User wants sales deck, demo script, objection handling, technical FAQ, or proposal support.
+  - Sales needs cross-functional product, technical, legal, or documentation input.
+clarification_questions:
+  - What buyer, deal stage, market, or sales motion should be supported?
+  - What product claims, technical constraints, or legal constraints matter?
+  - What sales artifact is needed first?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  sales_motion: sales-strategist
+  product_scope: product-manager
+  technical_accuracy: solution-consultant
+  documentation: technical-writer
+  compliance: compliance-officer
+stages:
+  - id: sales_context
+    name: Sales Context
+    coordinator_goal: Define buyer, use case, deal constraints, proof points, and artifact needs.
+    roles:
+      - sales-strategist
+      - product-manager
+      - solution-consultant
+    inputs:
+      - user_request
+      - sales_context
+    outputs:
+      - buyer_profile
+      - sales_goals
+      - proof_points
+      - constraints
+    acceptance_criteria:
+      - Buyer and sales objective are explicit.
+      - Product and technical constraints are listed.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: enablement_design
+    name: Enablement Design
+    coordinator_goal: Create demo flow, objection handling, technical FAQ, and proposal inputs.
+    roles:
+      - sales-strategist
+      - solution-consultant
+      - technical-writer
+    inputs:
+      - buyer_profile
+      - proof_points
+      - constraints
+    outputs:
+      - sales_deck_outline
+      - demo_script
+      - objection_handling
+      - technical_faq
+      - proposal_template
+    acceptance_criteria:
+      - Materials address buyer goals and known objections.
+      - Technical FAQ is accurate and scoped.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: risk_review
+    name: Risk Review
+    coordinator_goal: Review claims, security, compliance, legal, and implementation risks before sales use.
+    roles:
+      - compliance-officer
+      - security-engineer
+      - product-manager
+    inputs:
+      - sales_deck_outline
+      - technical_faq
+      - proposal_template
+    outputs:
+      - claim_risks
+      - compliance_notes
+      - approved_materials
+      - follow_up_actions
+    acceptance_criteria:
+      - Unsupported claims are identified.
+      - Risky legal, compliance, or security statements are flagged.
+      - Materials are ready for controlled sales use or revision needs are listed.
+    gate:
+      type: final_review
+      by: coordinator

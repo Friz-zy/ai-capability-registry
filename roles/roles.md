@@ -1,33 +1,91 @@
-# Runtime Role Registry
+# Role Registry
 
-Use these role prompts for workflow coordination and delegated stage work. These files are runtime instructions, not generated skill catalogs.
-
-## Role Loading Protocol
-
-1. The primary agent loads `orchestrator` before workflow coordination.
-2. For delegated stage work, load only the role files listed by the selected workflow stage.
-3. Give each delegated role the user request, workflow id, stage id, previous stage outputs, expected outputs, acceptance criteria, and required output format.
-4. Instruct delegated roles to route to skills by first reading `skills/skills.md`, then `skills/catalog/roles/<role-id>/skills.md` when specialized skills are needed.
-5. Instruct delegated roles to route to MCP by first reading `mcp/mcp.md`, then `mcp/catalog/roles/<role-id>/servers.md` only when the task directly needs an external service, data source, or tool integration.
-6. Require structured outputs so the coordinator can validate gates and pass handoff packets between stages.
+Generated from `registry/profiles.yaml`. Edit role source data in the registry, not in generated role files.
 
 ## Roles
 
-- `orchestrator`: Primary workflow coordination, stage delegation, gate validation, and user communication.
-- `product-manager`: Product scope, goals, metrics, PRD, roadmap, and user value.
-- `business-analyst`: Requirements, use cases, processes, business rules, and integrations.
-- `ux-researcher`: Research planning, usability testing, evidence synthesis, and journey insights.
-- `ux-designer`: User flows, interaction design, wireframes, states, and edge cases.
-- `ui-designer`: Visual design, component states, design-system fit, and handoff notes.
-- `solution-architect`: System boundaries, architecture, data flows, APIs, and technical tradeoffs.
-- `tech-lead`: Engineering sequencing, implementation planning, review boundaries, and delivery risk.
-- `frontend-engineer`: Web UI implementation planning, accessibility, state handling, and frontend risks.
-- `backend-engineer`: APIs, services, data models, integrations, migrations, and backend risks.
-- `mobile-engineer`: Native and cross-platform mobile implementation, platform constraints, and app releases.
-- `devops-platform-engineer`: CI/CD, infrastructure, environments, observability, deployment, and rollback.
-- `qa-engineer`: Risk-based test planning, manual coverage, regression scope, and defect clarity.
-- `sdet`: Automated test strategy, CI checks, test reliability, and automation candidates.
-- `performance-engineer`: Performance budgets, load scenarios, bottlenecks, and scalability validation.
-- `release-manager`: Release readiness, rollout, rollback, release notes, and launch coordination.
-- `product-analyst`: Metrics, funnels, dashboards, instrumentation, and post-release analysis.
-- `customer-success-support`: Support readiness, customer communication, feedback channels, and knowledge-base notes.
+- `ai-agent-builder`: AI Agent Builder and Pipeline Orchestrator. Building, configuring, and orchestrating AI agents and pipelines like Claude Code, Codex, and custom agent systems. Categories: `ai`, `ml`, `engineering`, `devops`, `security`, `core`.
+- `ai-engineer`: AI Engineer. LLM apps, MCP, prompts, model integrations, embeddings, AI workflows, and agent capability design. Categories: `ai`, `ml`, `engineering`, `security`, `research`.
+- `backend-engineer`: Backend Engineer. APIs, services, databases, backend frameworks, integration work, and server-side quality. Categories: `backend`, `data`, `devops`, `security`, `developer_tools`.
+- `blockchain-engineer`: Blockchain Engineer. Smart contracts, blockchain APIs, chain-specific integrations, audits, and protocol tooling. Categories: `blockchain`, `security`, `engineering`.
+- `business-analyst`: Business Analyst. Requirements analysis, process modeling, use cases, integration context, and business-rule clarification. Categories: `product`, `operations`, `research`, `data`.
+- `cloud-architect`: Cloud Architect. Cloud architecture, network boundaries, IAM, managed services, resilience, and cloud cost tradeoffs. Categories: `devops`, `sre`, `security`, `finance`.
+- `cloud-infrastructure-engineer`: Cloud Infrastructure Engineer. Cloud providers, Kubernetes, containers, hosting, observability, infrastructure automation, and platform integrations. Categories: `devops`, `sre`, `security`.
+- `compliance-officer`: Compliance Officer. Regulatory obligations, policy controls, audit readiness, control gaps, and evidence needs. Categories: `legal`, `security`, `finance`, `operations`.
+- `content-marketer`: Content Marketer. Launch content, SEO briefs, landing page inputs, campaigns, and content strategy. Categories: `marketing`, `documents`, `product`, `research`.
+- `creative-media-producer`: Creative Media Producer. Image, audio, video, screenshot, transcription, presentation, and design-asset workflows. Categories: `creative_media`, `design`, `documents`, `marketing`.
+- `cto-engineering-lead`: CTO and Engineering Lead. Architecture, engineering strategy, technical planning, code review, delivery, and platform decisions. Categories: `engineering`, `backend`, `frontend`, `devops`, `sre`, `security`, `ai`, `ml`.
+- `customer-success-support`: Customer Success and Support Specialist. Customer support, knowledge base articles, account prep, issue summaries, and success workflows. Categories: `customer_success`, `research`, `product`.
+- `data-analyst`: Data Analyst. SQL, dashboards, metrics review, data validation, visualization, and statistical analysis. Categories: `data`, `research`, `product`.
+- `data-engineer`: Data Engineer. Databases, warehouses, pipelines, data products, analytics engineering, and data-platform integrations. Categories: `data`, `backend`, `devops`, `security`.
+- `data-protection-officer`: Data Protection Officer. Privacy, personal data processing, retention, consent, and data subject risks. Categories: `legal`, `security`, `data`, `product`.
+- `database-engineer`: Database Engineer. Database schema, migrations, integrity, performance, storage, and operational data risks. Categories: `data`, `backend`, `devops`, `engineering`.
+- `designer`: Product Designer. UX, UI, accessibility, design critique, design systems, handoff, and research synthesis. Categories: `design`, `frontend`, `research`.
+- `devops-platform-engineer`: DevOps and Platform Engineer. CI, deployment, infrastructure, containers, cloud, platform automation, and release workflows. Categories: `devops`, `sre`, `security`.
+- `engineering-manager`: Engineering Manager. Engineering team effectiveness, delivery health, staffing fit, and process improvement. Categories: `people`, `operations`, `engineering`, `product`.
+- `finance-manager`: Finance Manager. Budget constraints, approvals, spend governance, financial viability, and forecasting assumptions. Categories: `finance`, `operations`, `founder`.
+- `finance-ops`: Finance Operations Analyst. Financial statements, close management, audit support, journal entries, SOX testing, and finance workflows. Categories: `finance`, `operations`.
+- `finops-analyst`: FinOps Analyst. Cloud cost analysis, rightsizing, savings opportunities, commitments, and cost governance. Categories: `finance`, `devops`, `sre`, `operations`.
+- `founder-business-owner`: Founder Business Owner. Business ownership, strategic constraints, funding tradeoffs, and go/no-go decisions. Categories: `founder`, `product`, `finance`, `operations`.
+- `founder-ceo`: Founder CEO Advisor. Strategy, company planning, fundraising preparation, product narrative, hiring priorities, and executive synthesis. Categories: `founder`, `product`, `marketing`, `sales`, `finance`, `people`.
+- `frontend-engineer`: Frontend Engineer. UI implementation, frontend architecture, accessibility, design systems, and web app testing. Categories: `frontend`, `design`, `qa`, `developer_tools`.
+- `growth-marketer`: Growth Marketer. Acquisition, activation, retention, conversion, growth experiments, and growth measurement. Categories: `marketing`, `data`, `product`, `sales`.
+- `hardware-iot-engineer`: Hardware and IoT Engineer. Firmware, embedded hardware, IoT platforms, device management, and hardware-adjacent integrations. Categories: `hardware`, `devops`, `security`.
+- `hr-manager`: HR Manager. HR process constraints, interview governance, employment process requirements, and people-operation risks. Categories: `people`, `operations`.
+- `incident-commander`: Incident Commander. Incident severity, ownership, timeline, response coordination, and communication cadence. Categories: `sre`, `operations`, `devops`, `customer_success`.
+- `knowledge-manager`: Knowledge Manager. Internal knowledge lifecycle, runbooks, decision logs, onboarding content, and deprecation governance. Categories: `documents`, `operations`, `customer_success`, `research`.
+- `legal-ops`: Legal Operations Assistant. Contract review support, NDA triage, legal risk assessment, and legal operations workflows. Categories: `legal`.
+- `market-researcher`: Market Researcher. Market structure, competitors, customer segments, demand signals, and opportunity evidence. Categories: `research`, `product`, `marketing`, `sales`.
+- `marketing-growth`: Marketing and Growth Lead. Brand, campaigns, lifecycle email, SEO, ads, copywriting, growth, and conversion workflows. Categories: `marketing`, `founder`, `data`.
+- `mobile-engineer`: Mobile and Desktop Engineer. Mobile and desktop SDKs, native platforms, React Native, Electron, app UX, and cross-platform workflows. Categories: `mobile`, `desktop`, `frontend`, `qa`, `developer_tools`.
+- `operations-manager`: Operations Manager. Vendor review, change requests, capacity planning, process documentation, and operational coordination. Categories: `operations`, `research`, `customer_success`.
+- `orchestrator`: Orchestrator. Primary workflow coordination, stage delegation, gate validation, handoffs, and user communication. Categories: `orchestration`.
+- `people-ops-recruiting`: People Operations and Recruiting Partner. Hiring, org planning, performance review support, people operations, and recruiting workflows. Categories: `people`.
+- `performance-engineer`: Performance Engineer. Load testing, performance budgets, bottleneck analysis, reliability risk, and scalability validation. Categories: `qa`, `engineering`, `sre`, `devops`.
+- `personal-assistant`: Personal AI Assistant. Personal productivity, research, summarization, planning, notes, and lightweight coordination. Categories: `personal_assistant`, `research`, `core`.
+- `procurement-manager`: Procurement Manager. Vendor selection, procurement requirements, comparison, purchasing risks, and recommendation. Categories: `operations`, `finance`, `legal`, `research`.
+- `product-analyst`: Product Analyst. Product metrics, funnels, retention, dashboards, A/B test analysis, and post-release measurement. Categories: `data`, `product`, `research`.
+- `product-manager`: Product Manager. Product discovery, requirements, roadmap, metrics, sprint planning, and customer-informed prioritization. Categories: `product`, `research`, `design`, `data`, `customer_success`.
+- `product-marketing-manager`: Product Marketing Manager. Product positioning, launch messaging, audience narratives, and go-to-market readiness. Categories: `marketing`, `product`, `sales`, `customer_success`.
+- `product-strategist`: Product Strategist. Product vision, positioning, product principles, strategy, and roadmap direction. Categories: `product`, `research`, `founder`, `finance`.
+- `qa-engineer`: QA Engineer. Test strategy, regression coverage, web app testing, Playwright, and quality workflows. Categories: `qa`, `core`, `frontend`, `backend`, `developer_tools`.
+- `recruiter`: Recruiter. Candidate sourcing, screening, pipeline management, and recruiting process execution. Categories: `people`, `operations`.
+- `release-manager`: Release Manager. Release planning, rollout strategy, rollback planning, release notes, approvals, and launch coordination. Categories: `devops`, `operations`, `product`, `customer_success`.
+- `sales-account-executive`: Sales Account Executive. Account research, call prep, outreach, competitive intelligence, pipeline review, and sales planning. Categories: `sales`, `research`, `marketing`.
+- `sales-strategist`: Sales Strategist. Sales motion, buyer targeting, objection handling, qualification, and sales enablement. Categories: `sales`, `marketing`, `research`, `product`.
+- `sdet`: Software Development Engineer in Test. Test automation strategy, unit, integration, end-to-end testing, CI test reliability, and automation risk. Categories: `qa`, `engineering`, `frontend`, `backend`, `developer_tools`.
+- `security-architect`: Security Architect. Security architecture, trust boundaries, threat mitigations, and security decision tradeoffs. Categories: `security`, `engineering`, `devops`.
+- `security-engineer`: Security Engineer. Application security, threat modeling, static analysis, fuzzing, dependency review, and audit workflows. Categories: `security`.
+- `software-engineer`: Software Engineer. General software implementation, debugging, refactoring, testing, and code review. Categories: `core`, `engineering`, `backend`, `frontend`, `qa`.
+- `solution-architect`: Solution Architect. System architecture, integration design, data boundaries, API contracts, and strategic technical decisions. Categories: `engineering`, `backend`, `frontend`, `devops`, `security`.
+- `solution-consultant`: Solution Consultant. Buyer needs, solution fit, demos, technical FAQ, and enterprise sales support. Categories: `sales`, `engineering`, `backend`, `product`.
+- `sre`: SRE. Reliability, service health, incident readiness, observability, capacity, and operational risk reduction. Categories: `sre`, `devops`, `data`, `security`.
+- `sre-incident-manager`: SRE Incident Manager. Reliability, incident response, observability, capacity planning, and operational readiness. Categories: `sre`, `devops`, `data`.
+- `tech-lead`: Tech Lead. Engineering planning, implementation sequencing, code review strategy, risk management, and team coordination. Categories: `engineering`, `backend`, `frontend`, `devops`, `qa`, `security`.
+- `technical-writer`: Technical Writer. Technical, user, API, release, and operational documentation. Categories: `documents`, `research`, `product`, `customer_success`.
+- `ui-designer`: UI Designer. Visual design, design systems, component states, typography, layout, and interface handoff. Categories: `design`, `frontend`.
+- `ux-designer`: UX Designer. User flows, interaction design, information architecture, wireframes, and experience edge cases. Categories: `design`, `research`, `frontend`.
+- `ux-researcher`: UX Researcher. User research, interview synthesis, usability testing, journey mapping, and research-risk analysis. Categories: `research`, `design`, `product`.
+
+## Common Aliases
+
+- `Founder`, `Business Owner`: use `founder-business-owner`.
+- `Product Owner`: use `product-manager`.
+- `Data Analyst`: use `product-analyst` for product analytics; use `data-analyst` for broader BI or analytics work.
+- `Product Designer`: use `ux-designer` and `ui-designer` according to stage ownership; use `designer` for broad product design work.
+- `Design System Designer`: use `ui-designer` unless a design-system-specific workflow is added.
+- `Software Architect`, `API Architect`, `Integration Architect`: use `solution-architect`.
+- `Backend Developer`: use `backend-engineer`.
+- `Frontend Developer`: use `frontend-engineer`.
+- `Fullstack Developer`: use `frontend-engineer` and `backend-engineer`; use `tech-lead` for implementation coordination.
+- `Mobile Developer`, `iOS Developer`, `Android Developer`, `Flutter Developer`, `React Native Developer`: use `mobile-engineer`.
+- `DevOps Engineer`, `Platform Engineer`: use `devops-platform-engineer` unless cloud architecture or reliability ownership requires `cloud-architect` or `sre`.
+- `QA Lead`, `Test Engineer`, `Mobile QA Engineer`: use `qa-engineer` or `sdet` based on manual versus automation ownership.
+- `AppSec Engineer`, `DevSecOps Engineer`: use `security-engineer`, plus `devops-platform-engineer` when CI/CD or infrastructure controls dominate.
+- `Support Agent`, `Support Lead`, `Customer Success Manager`: use `customer-success-support`.
+- `Marketing Manager`: use `growth-marketer`, `content-marketer`, or `product-marketing-manager` based on workflow context.
+- `Sales Manager`: use `sales-strategist`.
+- `Legal Advisor`: use `compliance-officer` for registry runtime unless a contract-heavy legal workflow adds a dedicated role.
+- `Financial Analyst`: use `finance-manager` for business finance or `finops-analyst` for cloud cost analysis.
+- `Scrum Master`, `Delivery Manager`: use `engineering-manager` for process improvement or `release-manager` for release coordination.
+- `Documentation Reviewer`, `UX Writer`, `Developer Advocate`: use `technical-writer` unless GTM positioning requires `product-marketing-manager`.

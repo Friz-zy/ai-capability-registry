@@ -1,0 +1,91 @@
+id: user-documentation
+name: User Documentation Workflow
+description: Workflow for user-facing help center articles, onboarding guides, FAQ, how-to guides, and release notes.
+entry_conditions:
+  - User wants user-facing documentation, onboarding content, FAQ, how-to guides, help center content, or release notes.
+  - Documentation needs product, UX, support, and writing review.
+clarification_questions:
+  - Who is the user audience and what task should the content support?
+  - What product behavior, release, or workflow should be documented?
+  - Where will the documentation be published?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  user_content: technical-writer
+  product_accuracy: product-manager
+  user_experience: ux-designer
+  support_readiness: customer-success-support
+stages:
+  - id: user_context
+    name: User Context
+    coordinator_goal: Define audience, user task, product scope, support context, and success criteria.
+    roles:
+      - technical-writer
+      - product-manager
+      - customer-success-support
+      - ux-designer
+    inputs:
+      - user_request
+      - product_context
+    outputs:
+      - audience
+      - user_scenarios
+      - content_scope
+      - support_context
+    acceptance_criteria:
+      - Audience and user scenarios are clear.
+      - Product scope and support context are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: content_creation
+    name: Content Creation
+    coordinator_goal: Draft help center article, onboarding guide, FAQ, how-to guides, and release notes as needed.
+    roles:
+      - technical-writer
+      - ux-designer
+      - product-manager
+    inputs:
+      - audience
+      - user_scenarios
+      - content_scope
+    outputs:
+      - help_center_article
+      - onboarding_guide
+      - faq
+      - how_to_guides
+      - release_notes
+    acceptance_criteria:
+      - Content is task-oriented and understandable for the target audience.
+      - User-facing claims match product behavior.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: support_publication
+    name: Support & Publication
+    coordinator_goal: Review support readiness, publication notes, feedback channels, and maintenance needs.
+    roles:
+      - customer-success-support
+      - technical-writer
+      - release-manager
+    inputs:
+      - help_center_article
+      - onboarding_guide
+      - faq
+      - how_to_guides
+      - release_notes
+    outputs:
+      - support_review_notes
+      - publication_notes
+      - feedback_channels
+      - maintenance_notes
+    acceptance_criteria:
+      - Support can use and maintain the content.
+      - Publication and feedback channels are clear.
+    gate:
+      type: final_review
+      by: coordinator

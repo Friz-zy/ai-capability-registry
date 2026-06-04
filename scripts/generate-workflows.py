@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Generate workflow routing indexes from registry/workflows.yaml."""
+"""Generate workflow routing indexes from registry/workflows.yaml.
+
+This generator intentionally preserves authored workflow guide and manifest files
+under workflows/<category>/<workflow-id>/. The registry stores routing metadata;
+the detailed stage and gate manifests remain authored runtime files until the
+registry schema is expanded to store those details without making
+registry/workflows.yaml unwieldy.
+"""
 
 from __future__ import annotations
 
@@ -42,6 +49,31 @@ def workflow_refs(workflows: list[dict[str, Any]]) -> str:
     if not workflows:
         return "none"
     return ", ".join(f"`{workflow['id']}`" for workflow in sorted(workflows, key=lambda item: str(item.get("id"))))
+
+
+def validate_authored_workflow_files(workflows: list[dict[str, Any]]) -> None:
+    """Validate workflow guide and manifest references without generating them.
+
+    Args:
+        workflows: Workflow registry entries.
+
+    Raises:
+        FileNotFoundError: If a referenced guide or manifest is missing.
+    """
+    missing_paths: list[str] = []
+    for workflow in workflows:
+        workflow_id = str(workflow.get("id") or "unknown")
+        for field in ("guide", "manifest"):
+            value = workflow.get(field)
+            if not isinstance(value, str) or not value:
+                continue
+            path = ROOT / value
+            if not path.exists():
+                missing_paths.append(f"{workflow_id}: {field} {value}")
+
+    if missing_paths:
+        missing_summary = "\n".join(f"- {path}" for path in missing_paths)
+        raise FileNotFoundError(f"Missing authored workflow file(s):\n{missing_summary}")
 
 
 def matched_workflows(workflows: list[dict[str, Any]], field: str, entry_id: str) -> list[dict[str, Any]]:
@@ -223,6 +255,10 @@ def generate_workflows_catalog_md(workflows: list[dict[str, Any]]) -> str:
 
 
 def clean_generated_catalog() -> None:
+    """Clean only generated workflow catalog indexes.
+
+    Authored workflow guide and manifest files are deliberately preserved.
+    """
     catalog_dir = WORKFLOWS_DIR / "catalog"
     if not catalog_dir.exists():
         return
@@ -302,6 +338,7 @@ def write_catalog_indexes(workflows: list[dict[str, Any]], tasks: list[dict[str,
 def main() -> int:
     registry = load_all()
     workflows = registry["workflows"]
+    validate_authored_workflow_files(workflows)
     write_text(WORKFLOWS_DIR / "workflow.md", render("workflow.md", {}))
     routing_content = render(
         "routing.md",
@@ -315,6 +352,7 @@ def main() -> int:
     print(f"Generated workflow runtime instructions: {WORKFLOWS_DIR / 'workflow.md'}")
     print(f"Generated workflow routing dispatcher: {WORKFLOWS_DIR / 'routing.md'}")
     print(f"Generated workflow catalog: {WORKFLOWS_CATALOG_MD}")
+    print("Preserved authored workflow guide and manifest files referenced by registry/workflows.yaml")
     return 0
 
 

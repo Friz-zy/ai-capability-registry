@@ -1,0 +1,88 @@
+id: analytics-and-growth
+name: Analytics And Growth Workflow
+description: Workflow for product analytics, funnel analysis, retention insights, growth experiments, and A/B test planning.
+entry_conditions:
+  - User wants to analyze product growth, funnels, retention, cohorts, conversion, or experiments.
+  - The request requires product, analytics, growth, and research perspectives.
+clarification_questions:
+  - What product area, funnel, cohort, or growth question should be analyzed?
+  - What data sources, dashboards, or event definitions already exist?
+  - What decision should the analysis support?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  product_question: product-manager
+  metrics_analysis: product-analyst
+  growth_experiment: growth-marketer
+  user_insight: ux-researcher
+  implementation_feasibility: tech-lead
+stages:
+  - id: question_scope
+    name: Question Scope
+    coordinator_goal: Define decision questions, metrics, segments, and data quality assumptions.
+    roles:
+      - product-manager
+      - product-analyst
+      - growth-marketer
+    inputs:
+      - user_request
+      - product_context
+    outputs:
+      - analysis_questions
+      - metric_definitions
+      - segment_scope
+      - data_quality_assumptions
+    acceptance_criteria:
+      - Questions are tied to product or growth decisions.
+      - Metrics and segments are defined.
+      - Data limitations are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: analysis
+    name: Analysis
+    coordinator_goal: Produce funnel, retention, cohort, and qualitative insight synthesis.
+    roles:
+      - product-analyst
+      - ux-researcher
+      - product-manager
+    inputs:
+      - analysis_questions
+      - metric_definitions
+    outputs:
+      - funnel_analysis
+      - retention_report
+      - cohort_analysis
+      - insight_summary
+    acceptance_criteria:
+      - Findings distinguish signal, assumption, and data gap.
+      - Analysis answers the scoped decision questions.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: growth_experiments
+    name: Growth Experiments
+    coordinator_goal: Convert insights into prioritized growth experiments and A/B test plan.
+    roles:
+      - growth-marketer
+      - product-manager
+      - tech-lead
+    inputs:
+      - funnel_analysis
+      - retention_report
+      - insight_summary
+    outputs:
+      - growth_experiments
+      - ab_test_plan
+      - instrumentation_gaps
+      - follow_up_backlog
+    acceptance_criteria:
+      - Experiments have hypotheses, metrics, guardrails, and feasibility notes.
+      - Instrumentation gaps and follow-up work are explicit.
+    gate:
+      type: final_review
+      by: coordinator

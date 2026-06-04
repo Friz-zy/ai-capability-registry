@@ -1,0 +1,90 @@
+id: performance-testing
+name: Performance Testing Workflow
+description: Workflow for load profile definition, performance scenarios, bottleneck analysis, capacity estimate, and optimization plan.
+entry_conditions:
+  - User wants load testing, performance testing, capacity planning, bottleneck analysis, or optimization planning.
+  - Performance goals, scenarios, infrastructure, data, or measurement validity need review.
+clarification_questions:
+  - What workload, user journey, service, or system should be tested?
+  - What latency, throughput, concurrency, capacity, or reliability goals exist?
+  - What production-like data, environment, and observability are available?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  performance_strategy: performance-engineer
+  reliability: sre
+  backend_bottlenecks: backend-engineer
+  database_bottlenecks: database-engineer
+  infrastructure: devops-platform-engineer
+stages:
+  - id: load_profile
+    name: Load Profile
+    coordinator_goal: Define workloads, SLO-like goals, test environment, data assumptions, and measurement plan.
+    roles:
+      - performance-engineer
+      - sre
+      - product-manager
+    inputs:
+      - user_request
+      - performance_context
+    outputs:
+      - load_profile
+      - performance_goals
+      - measurement_plan
+      - environment_assumptions
+    acceptance_criteria:
+      - Load profile and goals are realistic and measurable.
+      - Environment and data limitations are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: scenarios_bottlenecks
+    name: Scenarios & Bottlenecks
+    coordinator_goal: Define test scenarios, likely bottlenecks, observability needs, and capacity assumptions.
+    roles:
+      - performance-engineer
+      - backend-engineer
+      - database-engineer
+      - devops-platform-engineer
+    inputs:
+      - load_profile
+      - performance_goals
+      - measurement_plan
+    outputs:
+      - test_scenarios
+      - bottleneck_hypotheses
+      - observability_needs
+      - capacity_estimate
+    acceptance_criteria:
+      - Scenarios cover critical workload patterns.
+      - Bottleneck hypotheses span application, database, and infrastructure layers.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: optimization_plan
+    name: Optimization Plan
+    coordinator_goal: Produce bottleneck report, optimization plan, validation strategy, and rollout safeguards.
+    roles:
+      - performance-engineer
+      - tech-lead
+      - sre
+      - qa-engineer
+    inputs:
+      - test_scenarios
+      - bottleneck_hypotheses
+      - capacity_estimate
+    outputs:
+      - bottleneck_report
+      - optimization_plan
+      - validation_strategy
+      - rollout_safeguards
+    acceptance_criteria:
+      - Optimization plan is prioritized by measured or plausible bottlenecks.
+      - Validation and rollout safeguards are clear.
+    gate:
+      type: final_review
+      by: coordinator

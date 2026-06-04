@@ -1,0 +1,116 @@
+id: idea-validation
+name: Idea Validation Workflow
+description: Workflow for validating a product or business idea before delivery investment.
+entry_conditions:
+  - User wants to validate an idea, opportunity, or product concept before development.
+  - The main risk is business desirability, market demand, pricing, or MVP scope rather than implementation.
+clarification_questions:
+  - What problem, audience, and context should be evaluated?
+  - What evidence or constraints already exist?
+  - What decision is needed: go, no-go, pivot, research more, or MVP scope?
+  - What timeline, budget, or market constraints should shape the recommendation?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  business_decision: founder-business-owner
+  product_scope: product-manager
+  market_evidence: market-researcher
+  requirements_detail: business-analyst
+  financial_assumptions: finance-manager
+  user_evidence: ux-researcher
+stages:
+  - id: problem_framing
+    name: Problem Framing
+    coordinator_goal: Clarify the problem, target audience, assumptions, constraints, and decision criteria.
+    roles:
+      - founder-business-owner
+      - product-manager
+      - business-analyst
+    inputs:
+      - user_request
+      - existing_context
+    outputs:
+      - problem_statement
+      - target_audience_hypothesis
+      - assumptions
+      - decision_criteria
+    acceptance_criteria:
+      - Problem statement is specific and testable.
+      - Target audience and use context are explicit.
+      - Decision criteria and constraints are listed.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: market_customer_research
+    name: Market & Customer Research
+    coordinator_goal: Evaluate market signals, competitors, customer pains, and evidence quality.
+    roles:
+      - market-researcher
+      - ux-researcher
+      - product-analyst
+    inputs:
+      - problem_statement
+      - target_audience_hypothesis
+    outputs:
+      - competitor_analysis
+      - customer_pains
+      - evidence_summary
+      - evidence_gaps
+    acceptance_criteria:
+      - Competitors or substitutes are identified.
+      - Customer pains and evidence strength are separated from assumptions.
+      - Evidence gaps that affect the decision are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: value_pricing_mvp
+    name: Value, Pricing & MVP Hypothesis
+    coordinator_goal: Form a value proposition, pricing hypothesis, and minimal testable MVP scope.
+    roles:
+      - product-manager
+      - finance-manager
+      - founder-business-owner
+    inputs:
+      - evidence_summary
+      - customer_pains
+      - competitor_analysis
+    outputs:
+      - value_proposition
+      - pricing_hypothesis
+      - mvp_scope
+      - risks
+    acceptance_criteria:
+      - Value proposition addresses the stated problem and audience.
+      - Pricing and MVP assumptions are explicit.
+      - Risks and non-goals are documented.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: decision
+    name: Decision
+    coordinator_goal: Produce a concise go/no-go recommendation with rationale and next steps.
+    roles:
+      - founder-business-owner
+      - product-manager
+      - market-researcher
+    inputs:
+      - value_proposition
+      - pricing_hypothesis
+      - mvp_scope
+      - evidence_gaps
+    outputs:
+      - go_no_go_decision
+      - decision_rationale
+      - next_steps
+      - validation_backlog
+    acceptance_criteria:
+      - Recommendation is traceable to evidence and assumptions.
+      - Follow-up research or MVP steps are actionable.
+      - Decision risks are explicit.
+    gate:
+      type: final_review
+      by: coordinator

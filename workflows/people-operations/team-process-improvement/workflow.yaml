@@ -1,0 +1,91 @@
+id: team-process-improvement
+name: Team Process Improvement Workflow
+description: Workflow for diagnosing process pain points, bottlenecks, working agreements, delivery metrics, and improvement plan.
+entry_conditions:
+  - User wants to improve software delivery process, team workflow, planning, QA collaboration, or delivery predictability.
+  - Process pain points, bottlenecks, working agreements, metrics, or improvement plan are needed.
+clarification_questions:
+  - What team, process, pain points, and outcomes should be improved?
+  - What delivery metrics, rituals, handoffs, and constraints are known?
+  - What change scope is acceptable?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  process_ownership: engineering-manager
+  delivery_coordination: release-manager
+  technical_process: tech-lead
+  quality_process: qa-engineer
+  product_collaboration: product-manager
+stages:
+  - id: process_diagnosis
+    name: Process Diagnosis
+    coordinator_goal: Identify process pain points, bottlenecks, handoff issues, team constraints, and current metrics.
+    roles:
+      - engineering-manager
+      - tech-lead
+      - qa-engineer
+      - product-manager
+    inputs:
+      - user_request
+      - team_context
+    outputs:
+      - process_pain_points
+      - bottlenecks
+      - current_working_agreements
+      - delivery_metrics
+    acceptance_criteria:
+      - Pain points and bottlenecks are specific.
+      - Metrics and current agreements are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: improvement_design
+    name: Improvement Design
+    coordinator_goal: Define target working agreements, process experiments, quality gates, and measurement approach.
+    roles:
+      - engineering-manager
+      - release-manager
+      - tech-lead
+      - qa-engineer
+      - product-manager
+    inputs:
+      - process_pain_points
+      - bottlenecks
+      - delivery_metrics
+    outputs:
+      - working_agreements
+      - improvement_experiments
+      - quality_gate_changes
+      - measurement_plan
+    acceptance_criteria:
+      - Improvements address diagnosed bottlenecks.
+      - Measurement plan is lightweight and actionable.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: rollout
+    name: Rollout
+    coordinator_goal: Create improvement plan, owners, cadence, communication, and review checkpoints.
+    roles:
+      - engineering-manager
+      - release-manager
+      - product-manager
+    inputs:
+      - working_agreements
+      - improvement_experiments
+      - measurement_plan
+    outputs:
+      - improvement_plan
+      - owners
+      - review_cadence
+      - communication_plan
+    acceptance_criteria:
+      - Improvement plan is actionable and time-boxed.
+      - Owners and review cadence are clear.
+    gate:
+      type: final_review
+      by: coordinator

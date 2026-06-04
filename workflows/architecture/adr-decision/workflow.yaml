@@ -1,0 +1,91 @@
+id: adr-decision
+name: ADR Decision Workflow
+description: Workflow for documenting context, options, pros and cons, decision, consequences, and migration plan.
+entry_conditions:
+  - User needs to make or document a technical architecture decision.
+  - Multiple options, consequences, tradeoffs, or migration steps need structured evaluation.
+clarification_questions:
+  - What decision must be made?
+  - What options are currently under consideration?
+  - What constraints, stakeholders, and reversibility requirements matter?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  decision_owner: tech-lead
+  architecture: solution-architect
+  implementation: backend-engineer
+  infrastructure: devops-platform-engineer
+  security: security-engineer
+stages:
+  - id: decision_context
+    name: Decision Context
+    coordinator_goal: Define decision scope, drivers, constraints, stakeholders, and evaluation criteria.
+    roles:
+      - tech-lead
+      - solution-architect
+      - product-manager
+    inputs:
+      - user_request
+      - technical_context
+    outputs:
+      - context
+      - decision_drivers
+      - constraints
+      - evaluation_criteria
+    acceptance_criteria:
+      - Decision scope and drivers are explicit.
+      - Constraints and evaluation criteria are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: options_analysis
+    name: Options Analysis
+    coordinator_goal: Compare options across technical, implementation, security, operational, and migration tradeoffs.
+    roles:
+      - solution-architect
+      - tech-lead
+      - backend-engineer
+      - devops-platform-engineer
+      - security-engineer
+    inputs:
+      - context
+      - evaluation_criteria
+    outputs:
+      - options
+      - pros_cons
+      - risk_comparison
+      - migration_implications
+    acceptance_criteria:
+      - Options are comparable against the same criteria.
+      - Pros, cons, risks, and reversibility are explicit.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: decision_record
+    name: Decision Record
+    coordinator_goal: Produce ADR decision, consequences, migration plan, and follow-up actions.
+    roles:
+      - tech-lead
+      - solution-architect
+      - release-manager
+    inputs:
+      - options
+      - pros_cons
+      - risk_comparison
+    outputs:
+      - decision
+      - consequences
+      - migration_plan
+      - adr_summary
+      - follow_up_actions
+    acceptance_criteria:
+      - Decision is stated clearly with rationale.
+      - Consequences and migration plan are actionable.
+      - Follow-up actions have owners or owning roles.
+    gate:
+      type: final_review
+      by: coordinator

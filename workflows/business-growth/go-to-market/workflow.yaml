@@ -1,0 +1,111 @@
+id: go-to-market
+name: Go To Market Workflow
+description: Workflow for preparing product launch messaging, channels, sales materials, onboarding, and launch readiness.
+entry_conditions:
+  - User wants to launch or relaunch a product, feature, plan, or market-facing offer.
+  - Messaging, channels, sales readiness, support readiness, or launch checklist are needed.
+clarification_questions:
+  - What is being launched and to whom?
+  - What launch date, scope, channels, and success metrics are expected?
+  - What product, sales, support, or legal constraints exist?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  launch_scope: product-manager
+  positioning: product-marketing-manager
+  content: content-marketer
+  sales_readiness: sales-strategist
+  support_readiness: customer-success-support
+stages:
+  - id: launch_scope
+    name: Launch Scope
+    coordinator_goal: Define launch goals, audience, offer, timing, success metrics, and constraints.
+    roles:
+      - product-manager
+      - product-marketing-manager
+      - founder-business-owner
+    inputs:
+      - user_request
+      - product_context
+    outputs:
+      - gtm_goals
+      - launch_audience
+      - launch_scope
+      - success_metrics
+      - constraints
+    acceptance_criteria:
+      - Launch audience, offer, and goals are explicit.
+      - Success metrics and constraints are listed.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: messaging_channels
+    name: Messaging & Channels
+    coordinator_goal: Create launch messaging, positioning, channel plan, and landing page brief.
+    roles:
+      - product-marketing-manager
+      - content-marketer
+      - growth-marketer
+    inputs:
+      - launch_scope
+      - launch_audience
+    outputs:
+      - launch_messaging
+      - positioning_notes
+      - channel_plan
+      - landing_page_brief
+    acceptance_criteria:
+      - Messaging is audience-specific and product-accurate.
+      - Channel plan and content needs are clear.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: sales_support_readiness
+    name: Sales & Support Readiness
+    coordinator_goal: Prepare sales materials, onboarding flow, support notes, and customer communication needs.
+    roles:
+      - sales-strategist
+      - solution-consultant
+      - customer-success-support
+      - technical-writer
+    inputs:
+      - launch_messaging
+      - channel_plan
+    outputs:
+      - sales_materials
+      - onboarding_flow
+      - support_notes
+      - customer_communication_notes
+    acceptance_criteria:
+      - Sales and support teams can explain the launch accurately.
+      - Onboarding and customer communication gaps are identified.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: launch_readiness
+    name: Launch Readiness
+    coordinator_goal: Consolidate launch checklist, risks, owners, and post-launch feedback plan.
+    roles:
+      - product-manager
+      - release-manager
+      - product-marketing-manager
+      - customer-success-support
+    inputs:
+      - sales_materials
+      - onboarding_flow
+      - support_notes
+    outputs:
+      - gtm_plan
+      - launch_checklist
+      - launch_risks
+      - feedback_plan
+    acceptance_criteria:
+      - Launch checklist has owners and readiness criteria.
+      - Risks and feedback plan are explicit.
+    gate:
+      type: final_review
+      by: coordinator

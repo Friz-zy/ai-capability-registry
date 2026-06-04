@@ -1,0 +1,91 @@
+id: architecture-review
+name: Architecture Review Workflow
+description: Workflow for reviewing architecture context, diagrams, risks, scalability, security, cost, and decision readiness.
+entry_conditions:
+  - User wants to review or validate an architecture proposal, design, or technical approach.
+  - Architecture risks, scalability, security, cost, or tradeoffs need cross-functional review.
+clarification_questions:
+  - What architecture or decision should be reviewed?
+  - What constraints, diagrams, ADRs, or system context are available?
+  - What decision or approval should the review support?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  architecture: solution-architect
+  implementation: tech-lead
+  security: security-engineer
+  infrastructure: devops-platform-engineer
+  data: database-engineer
+stages:
+  - id: context_review
+    name: Context Review
+    coordinator_goal: Establish system context, goals, constraints, diagrams, and review criteria.
+    roles:
+      - solution-architect
+      - tech-lead
+      - product-manager
+    inputs:
+      - user_request
+      - architecture_context
+    outputs:
+      - context_summary
+      - review_criteria
+      - c4_diagram_notes
+      - assumptions
+    acceptance_criteria:
+      - System context and review criteria are clear.
+      - Missing diagrams or context gaps are identified.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: risk_review
+    name: Risk Review
+    coordinator_goal: Evaluate scalability, security, database, infrastructure, cost, and operational risks.
+    roles:
+      - solution-architect
+      - security-engineer
+      - devops-platform-engineer
+      - database-engineer
+      - cloud-architect
+    inputs:
+      - context_summary
+      - review_criteria
+    outputs:
+      - risk_matrix
+      - scalability_notes
+      - security_notes
+      - cost_estimate
+      - operational_risks
+    acceptance_criteria:
+      - Major architecture risks are prioritized by impact and likelihood.
+      - Security, scalability, cost, and operations are addressed.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: recommendation
+    name: Recommendation
+    coordinator_goal: Produce review decision, ADR inputs, conditions, and follow-up actions.
+    roles:
+      - solution-architect
+      - tech-lead
+      - release-manager
+    inputs:
+      - risk_matrix
+      - scalability_notes
+      - security_notes
+      - cost_estimate
+    outputs:
+      - adr
+      - recommendation
+      - required_changes
+      - follow_up_actions
+    acceptance_criteria:
+      - Recommendation is actionable and traceable to review criteria.
+      - Required changes and follow-up owners are clear.
+    gate:
+      type: final_review
+      by: coordinator

@@ -1,0 +1,32 @@
+# Solution Consultant
+
+## Keywords
+Select only keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+
+- **analysis**: 6 server(s)
+- **apollo**: 1 server(s)
+- **appsync**: 1 server(s)
+- **architecture**: 1 server(s)
+- **attio**: 1 server(s)
+- **aws-appsync**: 1 server(s)
+- **bindings**: 1 server(s)
+- **competitive-intelligence**: 1 server(s)
+- **context7**: 1 server(s)
+- **crm**: 2 server(s)
+- **debug**: 1 server(s)
+- **development**: 22 server(s)
+- **error-analysis**: 1 server(s)
+- **feature-flags**: 1 server(s)
+- **firestore**: 1 server(s)
+- **googleapis-firestore**: 1 server(s)
+- **hubspot**: 1 server(s)
+- **incident**: 2 server(s)
+- **insights**: 1 server(s)
+- **metrics**: 2 server(s)
+- **oauth**: 1 server(s)
+- **planning**: 1 server(s)
+- **posthog**: 1 server(s)
+- **product**: 1 server(s)
+- **product-insights**: 1 server(s)
+- **python**: 1 server(s)
+- **semgrep**: 1 server(s)

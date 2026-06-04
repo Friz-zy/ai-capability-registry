@@ -380,3 +380,481 @@ tasks:
       - windows
       - testing
       - context7
+
+  - id: validate-idea
+    name: Validate an Idea
+    description: Validate problem, audience, market evidence, value proposition, MVP hypothesis, and go/no-go decision.
+    categories:
+      - product
+      - research
+      - founder
+      - finance
+    keywords:
+      - product
+      - research
+      - competitive-intelligence
+      - pricing
+      - roadmap
+      - forecast
+
+  - id: define-product-strategy
+    name: Define Product Strategy
+    description: Define product vision, positioning, north-star metric, roadmap direction, monetization, and strategic risks.
+    categories:
+      - product
+      - research
+      - founder
+    keywords:
+      - product
+      - roadmap
+      - metrics
+      - planning
+      - competitive-intelligence
+      - finance
+
+  - id: design-pricing
+    name: Design Pricing and Monetization
+    description: Design pricing tiers, value metrics, freemium rules, quotas, unit economics, and revenue assumptions.
+    categories:
+      - finance
+      - product
+      - sales
+      - marketing
+    keywords:
+      - pricing
+      - finance
+      - forecast
+      - sales
+      - growth
+      - compliance
+
+  - id: plan-launch
+    name: Plan Go To Market Launch
+    description: Prepare launch plan, messaging, channels, sales materials, onboarding flow, support readiness, and checklist.
+    categories:
+      - marketing
+      - sales
+      - product
+      - customer_success
+    keywords:
+      - marketing
+      - campaign
+      - content
+      - sales
+      - customer-support
+      - planning
+
+  - id: triage-bug
+    name: Triage and Fix a Bug
+    description: Triage, reproduce, diagnose, fix, regression test, and release a defect or regression.
+    categories:
+      - engineering
+      - qa
+      - customer_success
+    keywords:
+      - debugging
+      - incident
+      - error-analysis
+      - testing
+      - status-report
+      - deployment
+
+  - id: reduce-technical-debt
+    name: Reduce Technical Debt
+    description: Inventory debt, plan behavior-preserving refactoring, validate regression risk, and prepare rollback.
+    categories:
+      - engineering
+      - qa
+      - devops
+    keywords:
+      - refactoring
+      - tech-debt
+      - migration
+      - testing
+      - architecture
+      - optimization
+
+  - id: design-api
+    name: Design an API
+    description: Design API contracts, auth, errors, pagination, filtering, versioning, tests, and documentation.
+    categories:
+      - backend
+      - engineering
+      - security
+      - documents
+    keywords:
+      - rest-api
+      - openapi
+      - oauth
+      - schema
+      - documentation
+      - testing
+
+  - id: develop-integration
+    name: Develop an Integration
+    description: Define external integration requirements, data mapping, API contract, auth, failure handling, retries, and operations.
+    categories:
+      - backend
+      - integrations
+      - devops
+      - security
+    keywords:
+      - integration
+      - webhooks
+      - oauth
+      - data
+      - rest-api
+      - incident
+
+  - id: review-architecture
+    name: Review Architecture
+    description: Review architecture context, diagrams, risks, scalability, security, cost, and decision readiness.
+    categories:
+      - engineering
+      - security
+      - devops
+    keywords:
+      - architecture
+      - system-design
+      - risk
+      - security
+      - cost
+      - review
+
+  - id: write-adr
+    name: Write an ADR
+    description: Compare options, document tradeoffs, record a decision, consequences, and migration plan.
+    categories:
+      - engineering
+      - documents
+    keywords:
+      - architecture
+      - decision
+      - documentation
+      - migration
+      - review
+      - planning
+
+  - id: provision-infrastructure
+    name: Provision Infrastructure
+    description: Plan and provision infrastructure, environments, network, IAM, CI/CD, observability, and cost controls.
+    categories:
+      - devops
+      - sre
+      - security
+      - finance
+    keywords:
+      - terraform
+      - deployment
+      - ci
+      - iam
+      - observability
+      - cost
+
+  - id: engineer-platform
+    name: Engineer Internal Platform
+    description: Design internal platform golden paths, templates, CI/CD defaults, developer portal, observability, and governance.
+    categories:
+      - devops
+      - sre
+      - engineering
+      - operations
+    keywords:
+      - developer-portal
+      - ci
+      - observability
+      - deployment
+      - process
+      - documentation
+
+  - id: review-security
+    name: Review Security
+    description: Review security controls, secrets, dependencies, authn/authz, vulnerabilities, and remediation readiness.
+    categories:
+      - security
+      - engineering
+      - devops
+    keywords:
+      - security
+      - audit
+      - compliance
+      - authentication
+      - supply-chain
+      - threat-model
+
+  - id: model-threats
+    name: Model Threats
+    description: Model assets, trust boundaries, threats, attack paths, mitigations, validation, and residual risks.
+    categories:
+      - security
+      - engineering
+    keywords:
+      - threat-model
+      - security
+      - risk
+      - architecture
+      - authentication
+      - validation
+
+  - id: plan-tests
+    name: Plan Tests
+    description: Define risk-based test strategy, test cases, regression scope, automation scope, and acceptance criteria.
+    categories:
+      - qa
+      - product
+      - engineering
+    keywords:
+      - testing
+      - testing-strategy
+      - coverage
+      - validation
+      - requirements
+      - planning
+
+  - id: automate-tests
+    name: Automate Tests
+    description: Design automated unit, integration, API, UI, and e2e tests with CI reliability and flaky-test policy.
+    categories:
+      - qa
+      - engineering
+      - devops
+    keywords:
+      - testing
+      - automation
+      - ci
+      - playwright
+      - coverage
+      - validation
+
+  - id: test-performance
+    name: Test Performance
+    description: Define load profile, test scenarios, bottleneck analysis, capacity estimate, and optimization plan.
+    categories:
+      - qa
+      - sre
+      - devops
+      - data
+    keywords:
+      - testing
+      - capacity
+      - capacity
+      - observability
+      - optimization
+      - metrics
+
+  - id: respond-incident
+    name: Respond to Incident
+    description: Coordinate incident triage, impact analysis, mitigation, communication, recovery, and follow-up tasks.
+    categories:
+      - sre
+      - devops
+      - operations
+      - customer_success
+    keywords:
+      - incident
+      - status-report
+      - runbook
+      - customer-support
+      - observability
+      - deployment
+
+  - id: write-postmortem
+    name: Write Postmortem
+    description: Analyze incident facts, causes, detection gaps, prevention actions, owners, and deadlines.
+    categories:
+      - sre
+      - operations
+      - documents
+    keywords:
+      - incident
+      - runbook
+      - documentation
+      - reporting
+      - risk
+      - process
+
+  - id: support-customer
+    name: Support Customer
+    description: Classify customer tickets, assess impact, provide workaround, escalate, and route bug or feature requests.
+    categories:
+      - customer_success
+      - product
+      - qa
+    keywords:
+      - customer-support
+      - ticket-triage
+      - sentiment
+      - debugging
+      - product
+      - documentation
+
+  - id: analyze-feedback
+    name: Analyze Customer Feedback
+    description: Cluster feedback, identify pain points, feature requests, churn risks, and roadmap inputs.
+    categories:
+      - customer_success
+      - product
+      - research
+      - data
+    keywords:
+      - customer-support
+      - user-research
+      - sentiment
+      - analytics
+      - roadmap
+      - product
+
+  - id: analyze-growth
+    name: Analyze Growth
+    description: Analyze funnels, retention, cohorts, growth experiments, A/B tests, and instrumentation gaps.
+    categories:
+      - data
+      - product
+      - marketing
+    keywords:
+      - analytics
+      - dashboard
+      - metrics
+      - growth
+      - statistics
+      - visualization
+
+  - id: support-sales
+    name: Support Sales
+    description: Prepare sales deck, demo script, objection handling, technical FAQ, proposal template, and risk review.
+    categories:
+      - sales
+      - marketing
+      - documents
+      - product
+    keywords:
+      - sales
+      - call-prep
+      - crm
+      - content
+      - contract
+      - documentation
+
+  - id: review-compliance
+    name: Review Legal Compliance
+    description: Review legal, privacy, regulatory, data-processing, terms, compliance risks, and action plan.
+    categories:
+      - legal
+      - security
+      - finance
+      - product
+    keywords:
+      - compliance
+      - legal
+      - policy
+      - risk
+      - contract
+      - security
+
+  - id: write-technical-docs
+    name: Write Technical Documentation
+    description: Create README, API docs, architecture docs, deployment guide, troubleshooting guide, and publication notes.
+    categories:
+      - documents
+      - engineering
+      - backend
+      - devops
+    keywords:
+      - documentation
+      - rest-api
+      - architecture
+      - deployment
+      - debugging
+      - writing
+
+  - id: write-user-docs
+    name: Write User Documentation
+    description: Create help center articles, onboarding guides, FAQ, how-to guides, and release notes.
+    categories:
+      - documents
+      - customer_success
+      - product
+    keywords:
+      - documentation
+      - customer-support
+      - onboarding
+      - changelog
+      - writing
+      - content
+
+  - id: maintain-knowledge-base
+    name: Maintain Knowledge Base
+    description: Audit, update, deprecate, and govern knowledge articles, decision logs, runbooks, and onboarding docs.
+    categories:
+      - documents
+      - operations
+      - customer_success
+    keywords:
+      - knowledge
+      - documentation
+      - runbook
+      - onboarding
+      - organization
+      - process
+
+  - id: optimize-costs
+    name: Optimize Costs
+    description: Analyze cost breakdown, unused resources, rightsizing, savings recommendations, and cost guardrails.
+    categories:
+      - finance
+      - devops
+      - sre
+    keywords:
+      - cost
+      - finance
+      - aws-pricing
+      - awslabs-billing-cost
+      - optimization
+      - metrics
+
+  - id: select-vendor
+    name: Select Vendor
+    description: Compare vendors, SaaS tools, APIs, cloud services, or contractors and produce a recommendation.
+    categories:
+      - operations
+      - finance
+      - legal
+      - research
+    keywords:
+      - vendor
+      - competitive-intelligence
+      - cost
+      - contract
+      - risk
+      - vendor
+
+  - id: plan-hiring
+    name: Plan Hiring
+    description: Define role description, candidate scorecard, sourcing plan, interview plan, test task, and hiring recommendation.
+    categories:
+      - people
+      - operations
+      - engineering
+    keywords:
+      - hiring
+      - recruiting
+      - interviewing
+      - compensation
+      - onboarding
+      - people
+
+  - id: improve-team-process
+    name: Improve Team Process
+    description: Diagnose process pain points, bottlenecks, working agreements, delivery metrics, and improvement plan.
+    categories:
+      - people
+      - operations
+      - engineering
+      - product
+    keywords:
+      - process
+      - delivery
+      - metrics
+      - planning
+      - management
+      - reporting

@@ -1,0 +1,93 @@
+id: technical-documentation
+name: Technical Documentation Workflow
+description: Workflow for creating technical documentation such as README, API docs, architecture docs, deployment guide, and troubleshooting guide.
+entry_conditions:
+  - User wants technical documentation for developers, operators, maintainers, or integrators.
+  - README, API docs, architecture docs, deployment guide, troubleshooting guide, or technical reference is needed.
+clarification_questions:
+  - Who is the audience and what task should the documentation help them complete?
+  - What source material, code, API, architecture, or deployment context is available?
+  - What documentation format and publication location are expected?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  documentation: technical-writer
+  architecture_accuracy: solution-architect
+  implementation_accuracy: tech-lead
+  qa_review: qa-engineer
+  product_context: product-manager
+stages:
+  - id: doc_scope
+    name: Documentation Scope
+    coordinator_goal: Define audience, use cases, source material, documentation type, and completeness criteria.
+    roles:
+      - technical-writer
+      - product-manager
+      - tech-lead
+    inputs:
+      - user_request
+      - source_context
+    outputs:
+      - documentation_scope
+      - audience
+      - source_materials
+      - acceptance_criteria
+    acceptance_criteria:
+      - Audience and documentation task are clear.
+      - Source materials and completeness criteria are listed.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: content_design
+    name: Content Design
+    coordinator_goal: Draft structure and content for README, API docs, architecture docs, deployment, or troubleshooting.
+    roles:
+      - technical-writer
+      - solution-architect
+      - backend-engineer
+      - frontend-engineer
+      - devops-platform-engineer
+    inputs:
+      - documentation_scope
+      - audience
+      - source_materials
+    outputs:
+      - readme_outline
+      - api_docs
+      - architecture_docs
+      - deployment_guide
+      - troubleshooting_guide
+    acceptance_criteria:
+      - Content structure matches audience tasks.
+      - Technical details are accurate and source-backed.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: review_publication
+    name: Review & Publication
+    coordinator_goal: Validate accuracy, test instructions, identify gaps, and prepare publication notes.
+    roles:
+      - qa-engineer
+      - technical-writer
+      - tech-lead
+    inputs:
+      - readme_outline
+      - api_docs
+      - architecture_docs
+      - deployment_guide
+      - troubleshooting_guide
+    outputs:
+      - review_findings
+      - documentation_updates
+      - publication_notes
+      - maintenance_owner
+    acceptance_criteria:
+      - Instructions are testable or reviewed against source material.
+      - Publication and maintenance ownership are clear.
+    gate:
+      type: final_review
+      by: coordinator

@@ -1,0 +1,110 @@
+id: product-strategy
+name: Product Strategy Workflow
+description: Workflow for defining product vision, strategy, metrics, roadmap direction, and product principles.
+entry_conditions:
+  - User wants strategic product direction rather than implementation planning.
+  - Vision, positioning, monetization, roadmap, or strategic risks are unclear.
+clarification_questions:
+  - What product, market, and time horizon should the strategy cover?
+  - What current evidence, constraints, or business goals are already known?
+  - Which decisions must the strategy support?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  product_strategy: product-strategist
+  business_goals: founder-business-owner
+  product_scope: product-manager
+  architecture_feasibility: solution-architect
+  financial_constraints: finance-manager
+stages:
+  - id: context_alignment
+    name: Context Alignment
+    coordinator_goal: Establish product context, business goals, users, constraints, and current assumptions.
+    roles:
+      - product-strategist
+      - product-manager
+      - founder-business-owner
+    inputs:
+      - user_request
+      - product_context
+    outputs:
+      - strategic_context
+      - business_goals
+      - assumptions
+      - constraints
+    acceptance_criteria:
+      - Business goals and product context are clear.
+      - Strategic assumptions and constraints are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: strategy_definition
+    name: Strategy Definition
+    coordinator_goal: Define product vision, positioning, principles, north-star metric, and strategic options.
+    roles:
+      - product-strategist
+      - product-manager
+      - market-researcher
+    inputs:
+      - strategic_context
+      - business_goals
+    outputs:
+      - product_vision
+      - positioning_notes
+      - north_star_metric
+      - product_principles
+      - strategic_options
+    acceptance_criteria:
+      - Vision and positioning are differentiated enough to guide decisions.
+      - North-star metric reflects user and business value.
+      - Product principles are actionable.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: feasibility_monetization
+    name: Feasibility & Monetization
+    coordinator_goal: Evaluate strategic feasibility, monetization model, technical constraints, and financial risks.
+    roles:
+      - solution-architect
+      - finance-manager
+      - product-manager
+    inputs:
+      - product_vision
+      - strategic_options
+    outputs:
+      - monetization_model
+      - feasibility_notes
+      - strategic_risks
+      - tradeoffs
+    acceptance_criteria:
+      - Monetization and feasibility assumptions are documented.
+      - Strategic risks and reversibility tradeoffs are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: roadmap_direction
+    name: Roadmap Direction
+    coordinator_goal: Convert strategy into roadmap themes, decision rules, and follow-up actions.
+    roles:
+      - product-strategist
+      - product-manager
+      - founder-business-owner
+    inputs:
+      - product_vision
+      - north_star_metric
+      - strategic_risks
+    outputs:
+      - roadmap
+      - decision_rules
+      - follow_up_backlog
+      - strategy_summary
+    acceptance_criteria:
+      - Roadmap themes are tied to strategy and metrics.
+      - Follow-up work is separated from strategic decisions.
+    gate:
+      type: final_review
+      by: coordinator

@@ -113,3 +113,849 @@ workflows:
       - release-manager
       - product-analyst
       - customer-success-support
+
+  - id: idea-validation
+    name: Idea Validation Workflow
+    description: Coordinate pre-development validation of problem, audience, market signals, value proposition, pricing hypothesis, MVP scope, and go/no-go decision.
+    guide: workflows/product-discovery/idea-validation/workflow.md
+    manifest: workflows/product-discovery/idea-validation/workflow.yaml
+    category:
+      - product-discovery
+      - business
+    tags:
+      - idea
+      - validation
+      - market-research
+      - mvp
+      - go-no-go
+    match_tasks:
+      - validate-idea
+      - research-brief
+      - manage-project
+    match_roles:
+      - founder-business-owner
+      - product-manager
+      - market-researcher
+      - business-analyst
+      - finance-manager
+      - ux-researcher
+      - product-analyst
+
+  - id: product-strategy
+    name: Product Strategy Workflow
+    description: Coordinate product vision, positioning, north-star metric, roadmap direction, monetization model, strategic risks, and product principles.
+    guide: workflows/product-discovery/product-strategy/workflow.md
+    manifest: workflows/product-discovery/product-strategy/workflow.yaml
+    category:
+      - product-discovery
+      - business
+    tags:
+      - strategy
+      - vision
+      - roadmap
+      - positioning
+      - north-star-metric
+    match_tasks:
+      - define-product-strategy
+      - validate-idea
+      - manage-project
+    match_roles:
+      - product-strategist
+      - product-manager
+      - founder-business-owner
+      - solution-architect
+      - finance-manager
+      - market-researcher
+
+  - id: pricing-and-monetization
+    name: Pricing And Monetization Workflow
+    description: Coordinate pricing tiers, unit economics, free trial or freemium rules, limits, quotas, and revenue forecast.
+    guide: workflows/business-growth/pricing-and-monetization/workflow.md
+    manifest: workflows/business-growth/pricing-and-monetization/workflow.yaml
+    category:
+      - business-growth
+      - product
+    tags:
+      - pricing
+      - monetization
+      - unit-economics
+      - freemium
+      - revenue
+    match_tasks:
+      - design-pricing
+      - finance-legal
+      - manage-project
+    match_roles:
+      - product-manager
+      - finance-manager
+      - growth-marketer
+      - sales-strategist
+      - compliance-officer
+
+  - id: go-to-market
+    name: Go To Market Workflow
+    description: Coordinate launch plan, messaging, landing page brief, sales materials, onboarding flow, support readiness, and launch checklist.
+    guide: workflows/business-growth/go-to-market/workflow.md
+    manifest: workflows/business-growth/go-to-market/workflow.yaml
+    category:
+      - business-growth
+      - product-launch
+    tags:
+      - gtm
+      - launch
+      - messaging
+      - sales-enablement
+      - onboarding
+    match_tasks:
+      - plan-launch
+      - customer-sales
+      - write-documents
+      - deploy-release
+    match_roles:
+      - product-manager
+      - product-marketing-manager
+      - growth-marketer
+      - sales-strategist
+      - content-marketer
+      - customer-success-support
+      - technical-writer
+      - release-manager
+
+  - id: bugfix
+    name: Bugfix Workflow
+    description: Coordinate defect triage, reproduction, root cause, fix plan, regression checklist, and hotfix or normal release decision.
+    guide: workflows/engineering/bugfix/workflow.md
+    manifest: workflows/engineering/bugfix/workflow.yaml
+    category:
+      - engineering
+      - product-delivery
+    tags:
+      - bugfix
+      - defect
+      - regression
+      - root-cause
+      - hotfix
+    match_tasks:
+      - triage-bug
+      - debug-incident
+      - test-validate
+      - deploy-release
+    match_roles:
+      - customer-success-support
+      - qa-engineer
+      - product-manager
+      - tech-lead
+      - backend-engineer
+      - frontend-engineer
+      - mobile-engineer
+      - sdet
+      - release-manager
+      - devops-platform-engineer
+
+  - id: technical-debt-refactoring
+    name: Technical Debt Refactoring Workflow
+    description: Coordinate debt inventory, risk analysis, behavior-preserving refactoring plan, affected modules, test strategy, and rollback plan.
+    guide: workflows/engineering/technical-debt-refactoring/workflow.md
+    manifest: workflows/engineering/technical-debt-refactoring/workflow.yaml
+    category:
+      - engineering
+    tags:
+      - technical-debt
+      - refactoring
+      - modernization
+      - maintainability
+      - regression
+    match_tasks:
+      - reduce-technical-debt
+      - implement-code
+      - test-validate
+      - deploy-release
+    match_roles:
+      - tech-lead
+      - solution-architect
+      - backend-engineer
+      - frontend-engineer
+      - database-engineer
+      - devops-platform-engineer
+      - qa-engineer
+      - sdet
+      - performance-engineer
+      - release-manager
+      - product-manager
+
+  - id: api-design
+    name: API Design Workflow
+    description: Coordinate OpenAPI contract, auth model, error model, pagination and filtering rules, versioning strategy, and SDK/client notes.
+    guide: workflows/engineering/api-design/workflow.md
+    manifest: workflows/engineering/api-design/workflow.yaml
+    category:
+      - engineering
+      - architecture
+    tags:
+      - api
+      - openapi
+      - contract
+      - auth
+      - versioning
+    match_tasks:
+      - design-api
+      - build-backend
+      - write-documents
+      - security-audit
+    match_roles:
+      - product-manager
+      - business-analyst
+      - solution-architect
+      - backend-engineer
+      - frontend-engineer
+      - mobile-engineer
+      - security-engineer
+      - qa-engineer
+      - sdet
+      - technical-writer
+
+  - id: integration-development
+    name: Integration Development Workflow
+    description: Coordinate external integration requirements, data mapping, API contract, auth and secrets model, failure handling, retry, and idempotency rules.
+    guide: workflows/engineering/integration-development/workflow.md
+    manifest: workflows/engineering/integration-development/workflow.yaml
+    category:
+      - engineering
+      - integration
+    tags:
+      - integration
+      - external-api
+      - data-mapping
+      - idempotency
+      - secrets
+    match_tasks:
+      - develop-integration
+      - build-backend
+      - security-audit
+      - test-validate
+      - deploy-release
+    match_roles:
+      - business-analyst
+      - product-manager
+      - solution-architect
+      - backend-engineer
+      - security-engineer
+      - qa-engineer
+      - sdet
+      - devops-platform-engineer
+      - release-manager
+      - customer-success-support
+
+  - id: architecture-review
+    name: Architecture Review Workflow
+    description: Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability notes, security notes, and cost estimate.
+    guide: workflows/architecture/architecture-review/workflow.md
+    manifest: workflows/architecture/architecture-review/workflow.yaml
+    category:
+      - architecture
+      - engineering
+    tags:
+      - architecture-review
+      - adr
+      - c4
+      - scalability
+      - cost
+    match_tasks:
+      - review-architecture
+      - review-code
+      - manage-project
+    match_roles:
+      - solution-architect
+      - tech-lead
+      - product-manager
+      - security-engineer
+      - devops-platform-engineer
+      - database-engineer
+      - cloud-architect
+      - release-manager
+
+  - id: adr-decision
+    name: ADR Decision Workflow
+    description: Coordinate technical decision context, options, pros and cons, decision, consequences, migration plan, and ADR summary.
+    guide: workflows/architecture/adr-decision/workflow.md
+    manifest: workflows/architecture/adr-decision/workflow.yaml
+    category:
+      - architecture
+      - engineering
+    tags:
+      - adr
+      - decision
+      - tradeoffs
+      - migration
+      - technical-decision
+    match_tasks:
+      - write-adr
+      - review-architecture
+      - write-documents
+    match_roles:
+      - tech-lead
+      - solution-architect
+      - product-manager
+      - backend-engineer
+      - devops-platform-engineer
+      - security-engineer
+      - release-manager
+
+  - id: infrastructure-provisioning
+    name: Infrastructure Provisioning Workflow
+    description: Coordinate Terraform/OpenTofu modules, environment plan, network plan, IAM model, CI/CD plan, observability, and cost estimate.
+    guide: workflows/platform-operations/infrastructure-provisioning/workflow.md
+    manifest: workflows/platform-operations/infrastructure-provisioning/workflow.yaml
+    category:
+      - platform-operations
+      - infrastructure
+    tags:
+      - infrastructure
+      - terraform
+      - opentofu
+      - iam
+      - ci-cd
+    match_tasks:
+      - provision-infrastructure
+      - manage-cloud-infra
+      - deploy-release
+    match_roles:
+      - cloud-architect
+      - devops-platform-engineer
+      - sre
+      - security-engineer
+      - finops-analyst
+      - qa-engineer
+      - release-manager
+
+  - id: platform-engineering
+    name: Platform Engineering Workflow
+    description: Coordinate internal developer platform design, golden paths, service templates, CI/CD templates, developer portal, observability defaults, and documentation.
+    guide: workflows/platform-operations/platform-engineering/workflow.md
+    manifest: workflows/platform-operations/platform-engineering/workflow.yaml
+    category:
+      - platform-operations
+      - developer-experience
+    tags:
+      - platform
+      - golden-path
+      - service-template
+      - developer-portal
+      - observability
+    match_tasks:
+      - engineer-platform
+      - manage-cloud-infra
+      - write-documents
+    match_roles:
+      - devops-platform-engineer
+      - engineering-manager
+      - tech-lead
+      - cloud-architect
+      - security-engineer
+      - sre
+      - technical-writer
+      - product-analyst
+      - customer-success-support
+
+  - id: security-review
+    name: Security Review Workflow
+    description: Coordinate threat/security checklist, secrets review, dependency scan report, authn/authz review, vulnerability report, and remediation plan.
+    guide: workflows/security-compliance/security-review/workflow.md
+    manifest: workflows/security-compliance/security-review/workflow.yaml
+    category:
+      - security-compliance
+      - engineering
+    tags:
+      - security
+      - appsec
+      - secrets
+      - dependencies
+      - authz
+    match_tasks:
+      - review-security
+      - security-audit
+      - review-code
+    match_roles:
+      - security-engineer
+      - security-architect
+      - solution-architect
+      - product-manager
+      - backend-engineer
+      - frontend-engineer
+      - devops-platform-engineer
+      - compliance-officer
+      - tech-lead
+      - release-manager
+      - qa-engineer
+
+  - id: threat-modeling
+    name: Threat Modeling Workflow
+    description: Coordinate assets, actors, trust boundaries, threat list, attack paths, mitigations, residual risks, and validation plan.
+    guide: workflows/security-compliance/threat-modeling/workflow.md
+    manifest: workflows/security-compliance/threat-modeling/workflow.yaml
+    category:
+      - security-compliance
+      - architecture
+    tags:
+      - threat-modeling
+      - trust-boundaries
+      - attack-paths
+      - mitigations
+      - security-design
+    match_tasks:
+      - model-threats
+      - security-audit
+      - review-architecture
+    match_roles:
+      - security-architect
+      - solution-architect
+      - product-manager
+      - security-engineer
+      - backend-engineer
+      - devops-platform-engineer
+      - qa-engineer
+      - tech-lead
+
+  - id: legal-compliance
+    name: Legal Compliance Workflow
+    description: Coordinate GDPR checklist, privacy policy notes, data processing map, ToS requirements, compliance risks, and action plan.
+    guide: workflows/security-compliance/legal-compliance/workflow.md
+    manifest: workflows/security-compliance/legal-compliance/workflow.yaml
+    category:
+      - security-compliance
+      - business-operations
+    tags:
+      - legal
+      - compliance
+      - privacy
+      - gdpr
+      - terms
+    match_tasks:
+      - review-compliance
+      - finance-legal
+      - security-audit
+    match_roles:
+      - compliance-officer
+      - data-protection-officer
+      - product-manager
+      - security-engineer
+      - finance-manager
+      - technical-writer
+      - release-manager
+
+  - id: test-planning
+    name: Test Planning Workflow
+    description: Coordinate test strategy, test cases, regression scope, automation scope, acceptance criteria, and quality gates.
+    guide: workflows/quality/test-planning/workflow.md
+    manifest: workflows/quality/test-planning/workflow.yaml
+    category:
+      - quality
+      - engineering
+    tags:
+      - qa
+      - test-plan
+      - acceptance-criteria
+      - regression
+      - quality-gates
+    match_tasks:
+      - plan-tests
+      - test-validate
+    match_roles:
+      - qa-engineer
+      - product-manager
+      - tech-lead
+      - sdet
+      - devops-platform-engineer
+
+  - id: automated-testing
+    name: Automated Testing Workflow
+    description: Coordinate unit, integration, and e2e test plans, CI test pipeline, flaky-test policy, reporting, and maintenance plan.
+    guide: workflows/quality/automated-testing/workflow.md
+    manifest: workflows/quality/automated-testing/workflow.yaml
+    category:
+      - quality
+      - engineering
+    tags:
+      - automated-tests
+      - unit-tests
+      - integration-tests
+      - e2e
+      - ci
+    match_tasks:
+      - automate-tests
+      - test-validate
+      - implement-code
+    match_roles:
+      - sdet
+      - qa-engineer
+      - tech-lead
+      - backend-engineer
+      - frontend-engineer
+      - devops-platform-engineer
+
+  - id: performance-testing
+    name: Performance Testing Workflow
+    description: Coordinate load profile, performance scenarios, bottleneck report, capacity estimate, optimization plan, and rollout safeguards.
+    guide: workflows/quality/performance-testing/workflow.md
+    manifest: workflows/quality/performance-testing/workflow.yaml
+    category:
+      - quality
+      - reliability
+    tags:
+      - performance
+      - load-test
+      - capacity
+      - bottleneck
+      - optimization
+    match_tasks:
+      - test-performance
+      - test-validate
+      - analyze-data
+    match_roles:
+      - performance-engineer
+      - sre
+      - product-manager
+      - backend-engineer
+      - database-engineer
+      - devops-platform-engineer
+      - tech-lead
+      - qa-engineer
+
+  - id: incident-response
+    name: Incident Response Workflow
+    description: Coordinate incident timeline, impact analysis, mitigation actions, customer communication, recovery validation, and follow-up tasks.
+    guide: workflows/operations/incident-response/workflow.md
+    manifest: workflows/operations/incident-response/workflow.yaml
+    category:
+      - operations
+      - reliability
+    tags:
+      - incident
+      - outage
+      - mitigation
+      - customer-communication
+      - recovery
+    match_tasks:
+      - respond-incident
+      - debug-incident
+      - deploy-release
+    match_roles:
+      - incident-commander
+      - sre
+      - customer-success-support
+      - product-manager
+      - devops-platform-engineer
+      - backend-engineer
+      - qa-engineer
+      - release-manager
+      - engineering-manager
+
+  - id: postmortem
+    name: Postmortem Workflow
+    description: Coordinate what happened, why it happened, detection gap, prevention actions, owner per action, and deadline per action.
+    guide: workflows/operations/postmortem/workflow.md
+    manifest: workflows/operations/postmortem/workflow.yaml
+    category:
+      - operations
+      - reliability
+    tags:
+      - postmortem
+      - incident-review
+      - root-cause
+      - prevention
+      - follow-up
+    match_tasks:
+      - write-postmortem
+      - debug-incident
+      - write-documents
+    match_roles:
+      - incident-commander
+      - sre
+      - customer-success-support
+      - tech-lead
+      - backend-engineer
+      - devops-platform-engineer
+      - product-manager
+      - engineering-manager
+
+  - id: customer-support
+    name: Customer Support Workflow
+    description: Coordinate ticket classification, user impact, workaround, escalation, and bug or feature request routing.
+    guide: workflows/customer-success/customer-support/workflow.md
+    manifest: workflows/customer-success/customer-support/workflow.yaml
+    category:
+      - customer-success
+      - operations
+    tags:
+      - support
+      - ticket
+      - workaround
+      - escalation
+      - customer-impact
+    match_tasks:
+      - support-customer
+      - customer-sales
+      - triage-bug
+    match_roles:
+      - customer-success-support
+      - product-manager
+      - qa-engineer
+      - tech-lead
+      - technical-writer
+
+  - id: customer-feedback-analysis
+    name: Customer Feedback Analysis Workflow
+    description: Coordinate feedback clusters, pain points, feature requests, churn risks, roadmap inputs, and follow-up research.
+    guide: workflows/customer-success/customer-feedback-analysis/workflow.md
+    manifest: workflows/customer-success/customer-feedback-analysis/workflow.yaml
+    category:
+      - customer-success
+      - product
+    tags:
+      - feedback
+      - customer-insights
+      - churn
+      - roadmap
+      - feature-requests
+    match_tasks:
+      - analyze-feedback
+      - customer-sales
+      - analyze-data
+    match_roles:
+      - customer-success-support
+      - product-manager
+      - product-analyst
+      - ux-researcher
+
+  - id: analytics-and-growth
+    name: Analytics And Growth Workflow
+    description: Coordinate funnel analysis, retention report, cohort analysis, growth experiments, A/B test plan, and instrumentation gaps.
+    guide: workflows/business-growth/analytics-and-growth/workflow.md
+    manifest: workflows/business-growth/analytics-and-growth/workflow.yaml
+    category:
+      - business-growth
+      - product-analytics
+    tags:
+      - analytics
+      - growth
+      - funnel
+      - retention
+      - ab-test
+    match_tasks:
+      - analyze-growth
+      - analyze-data
+      - manage-project
+    match_roles:
+      - product-manager
+      - product-analyst
+      - growth-marketer
+      - ux-researcher
+      - tech-lead
+
+  - id: sales-support
+    name: Sales Support Workflow
+    description: Coordinate sales deck, demo script, objection handling, technical FAQ, proposal template, and risk review.
+    guide: workflows/business-growth/sales-support/workflow.md
+    manifest: workflows/business-growth/sales-support/workflow.yaml
+    category:
+      - business-growth
+      - sales
+    tags:
+      - sales
+      - b2b
+      - demo
+      - objections
+      - proposal
+    match_tasks:
+      - support-sales
+      - customer-sales
+      - write-documents
+    match_roles:
+      - sales-strategist
+      - product-manager
+      - solution-consultant
+      - technical-writer
+      - compliance-officer
+      - security-engineer
+
+  - id: technical-documentation
+    name: Technical Documentation Workflow
+    description: Coordinate README, API docs, architecture docs, deployment guide, troubleshooting guide, review, and publication notes.
+    guide: workflows/documentation/technical-documentation/workflow.md
+    manifest: workflows/documentation/technical-documentation/workflow.yaml
+    category:
+      - documentation
+      - engineering
+    tags:
+      - docs
+      - technical-docs
+      - api-docs
+      - readme
+      - troubleshooting
+    match_tasks:
+      - write-technical-docs
+      - write-documents
+      - design-api
+    match_roles:
+      - technical-writer
+      - product-manager
+      - tech-lead
+      - solution-architect
+      - backend-engineer
+      - frontend-engineer
+      - devops-platform-engineer
+      - qa-engineer
+
+  - id: user-documentation
+    name: User Documentation Workflow
+    description: Coordinate help center article, onboarding guide, FAQ, how-to guides, release notes, support review, and publication notes.
+    guide: workflows/documentation/user-documentation/workflow.md
+    manifest: workflows/documentation/user-documentation/workflow.yaml
+    category:
+      - documentation
+      - customer-success
+    tags:
+      - user-docs
+      - help-center
+      - faq
+      - onboarding
+      - release-notes
+    match_tasks:
+      - write-user-docs
+      - write-documents
+      - customer-sales
+    match_roles:
+      - technical-writer
+      - product-manager
+      - ux-designer
+      - customer-success-support
+      - release-manager
+
+  - id: knowledge-base-maintenance
+    name: Knowledge Base Maintenance Workflow
+    description: Coordinate knowledge articles, decision logs, runbooks, onboarding docs, deprecated docs list, governance, and maintenance cadence.
+    guide: workflows/documentation/knowledge-base-maintenance/workflow.md
+    manifest: workflows/documentation/knowledge-base-maintenance/workflow.yaml
+    category:
+      - documentation
+      - knowledge-management
+    tags:
+      - knowledge-base
+      - runbooks
+      - decision-logs
+      - onboarding-docs
+      - deprecation
+    match_tasks:
+      - maintain-knowledge-base
+      - write-documents
+      - manage-project
+    match_roles:
+      - knowledge-manager
+      - technical-writer
+      - customer-success-support
+      - tech-lead
+      - product-manager
+      - engineering-manager
+
+  - id: finops-cost-optimization
+    name: FinOps Cost Optimization Workflow
+    description: Coordinate cost breakdown, unused resources list, rightsizing plan, reserved or savings plan recommendation, and cost guardrails.
+    guide: workflows/business-operations/finops-cost-optimization/workflow.md
+    manifest: workflows/business-operations/finops-cost-optimization/workflow.yaml
+    category:
+      - business-operations
+      - finops
+    tags:
+      - finops
+      - cost-optimization
+      - cloud-cost
+      - rightsizing
+      - savings-plan
+    match_tasks:
+      - optimize-costs
+      - finance-legal
+      - manage-cloud-infra
+    match_roles:
+      - finops-analyst
+      - finance-manager
+      - product-manager
+      - sre
+      - devops-platform-engineer
+      - cloud-architect
+      - engineering-manager
+
+  - id: vendor-selection
+    name: Vendor Selection Workflow
+    description: Coordinate requirements, comparison matrix, risks, cost model, recommendation, fallback option, and approval needs.
+    guide: workflows/business-operations/vendor-selection/workflow.md
+    manifest: workflows/business-operations/vendor-selection/workflow.yaml
+    category:
+      - business-operations
+      - procurement
+    tags:
+      - vendor
+      - procurement
+      - comparison
+      - cost-model
+      - fallback
+    match_tasks:
+      - select-vendor
+      - finance-legal
+      - research-brief
+    match_roles:
+      - procurement-manager
+      - product-manager
+      - tech-lead
+      - finance-manager
+      - security-engineer
+      - compliance-officer
+      - release-manager
+
+  - id: hiring
+    name: Hiring Workflow
+    description: Coordinate role description, candidate scorecard, interview plan, test task, sourcing plan, and hiring recommendation.
+    guide: workflows/people-operations/hiring/workflow.md
+    manifest: workflows/people-operations/hiring/workflow.yaml
+    category:
+      - people-operations
+      - management
+    tags:
+      - hiring
+      - recruiting
+      - interview
+      - scorecard
+      - test-task
+    match_tasks:
+      - plan-hiring
+      - people-ops
+    match_roles:
+      - engineering-manager
+      - tech-lead
+      - hr-manager
+      - finance-manager
+      - recruiter
+
+  - id: team-process-improvement
+    name: Team Process Improvement Workflow
+    description: Coordinate process pain points, bottlenecks, working agreements, delivery metrics, improvement plan, and review cadence.
+    guide: workflows/people-operations/team-process-improvement/workflow.md
+    manifest: workflows/people-operations/team-process-improvement/workflow.yaml
+    category:
+      - people-operations
+      - management
+    tags:
+      - process-improvement
+      - delivery
+      - working-agreements
+      - metrics
+      - team-health
+    match_tasks:
+      - improve-team-process
+      - people-ops
+      - manage-project
+    match_roles:
+      - engineering-manager
+      - release-manager
+      - tech-lead
+      - qa-engineer
+      - product-manager

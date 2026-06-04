@@ -1,0 +1,91 @@
+id: infrastructure-provisioning
+name: Infrastructure Provisioning Workflow
+description: Workflow for provisioning cloud infrastructure, environments, IAM, network, CI/CD, observability, and cost controls.
+entry_conditions:
+  - User wants to create or significantly change infrastructure, environments, cloud resources, or CI/CD foundations.
+  - Network, IAM, IaC, observability, security, reliability, or cost review is needed.
+clarification_questions:
+  - What environments, workloads, cloud providers, and constraints are in scope?
+  - What security, compliance, reliability, and cost requirements apply?
+  - Should the output be architecture, IaC plan, implementation tasks, or review notes?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  cloud_architecture: cloud-architect
+  infrastructure: devops-platform-engineer
+  security: security-engineer
+  reliability: sre
+  cost: finops-analyst
+stages:
+  - id: environment_planning
+    name: Environment Planning
+    coordinator_goal: Define workloads, environments, boundaries, requirements, and operational constraints.
+    roles:
+      - cloud-architect
+      - devops-platform-engineer
+      - sre
+    inputs:
+      - user_request
+      - infrastructure_context
+    outputs:
+      - environment_plan
+      - workload_requirements
+      - reliability_requirements
+      - assumptions
+    acceptance_criteria:
+      - Environments and workloads are explicit.
+      - Reliability and operational constraints are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: architecture_security_cost
+    name: Architecture, Security & Cost
+    coordinator_goal: Design network, IAM, security controls, cost model, and observability baseline.
+    roles:
+      - cloud-architect
+      - security-engineer
+      - finops-analyst
+      - sre
+    inputs:
+      - environment_plan
+      - workload_requirements
+    outputs:
+      - network_plan
+      - iam_model
+      - security_controls
+      - cost_estimate
+      - observability_defaults
+    acceptance_criteria:
+      - Network and IAM boundaries are clear.
+      - Security, observability, and cost assumptions are reviewed.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: provisioning_delivery
+    name: Provisioning Delivery
+    coordinator_goal: Define IaC modules, CI/CD plan, rollout, validation, and rollback guidance.
+    roles:
+      - devops-platform-engineer
+      - cloud-architect
+      - qa-engineer
+      - release-manager
+    inputs:
+      - network_plan
+      - iam_model
+      - observability_defaults
+    outputs:
+      - terraform_opentofu_modules
+      - ci_cd_plan
+      - validation_plan
+      - rollback_plan
+    acceptance_criteria:
+      - IaC and CI/CD plan are reproducible.
+      - Validation and rollback are explicit.
+      - Privilege and environment risks are addressed.
+    gate:
+      type: final_review
+      by: coordinator

@@ -1,0 +1,66 @@
+# Validate an Idea
+
+Validate problem, audience, market evidence, value proposition, MVP hypothesis, and go/no-go decision.
+
+## Categories
+
+- `product`
+- `research`
+- `founder`
+- `finance`
+
+## Keywords
+Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+
+- **amazon-kendra-index**: 1 server(s)
+- **audit**: 1 server(s)
+- **aws-knowledge**: 1 server(s)
+- **aws-pricing**: 1 server(s)
+- **awslabs-billing-cost**: 1 server(s)
+- **awslabs-cost-explorer**: 1 server(s)
+- **billing**: 1 server(s)
+- **code-examples**: 1 server(s)
+- **competitive-intelligence**: 1 server(s)
+- **compliance**: 2 server(s)
+- **context7**: 1 server(s)
+- **cost**: 3 server(s)
+- **deepwiki**: 1 server(s)
+- **directory**: 1 server(s)
+- **discovery**: 2 server(s)
+- **documentation**: 8 server(s)
+- **dodo-payments**: 1 server(s)
+- **ean-search**: 1 server(s)
+- **elasticsearch**: 1 server(s)
+- **extract**: 3 server(s)
+- **feature-flags**: 1 server(s)
+- **finance**: 8 server(s)
+- **forecast**: 1 server(s)
+- **insights**: 1 server(s)
+- **javadocs**: 1 server(s)
+- **kendra**: 1 server(s)
+- **knowledge**: 4 server(s)
+- **knowledge-mcp**: 1 server(s)
+- **library-documentation**: 1 server(s)
+- **link**: 2 server(s)
+- **links**: 2 server(s)
+- **marketing**: 1 server(s)
+- **mercadopago**: 1 server(s)
+- **metrics**: 2 server(s)
+- **needle**: 1 server(s)
+- **octagon**: 1 server(s)
+- **onecontext**: 1 server(s)
+- **payments**: 6 server(s)
+- **plaid**: 1 server(s)
+- **planning**: 1 server(s)
+- **posthog**: 1 server(s)
+- **pricing**: 1 server(s)
+- **product**: 1 server(s)
+- **product-insights**: 1 server(s)
+- **ramp**: 1 server(s)
+- **research**: 2 server(s)
+- **search**: 11 server(s)
+- **simplescraper**: 1 server(s)
+- **square**: 1 server(s)
+- **stripe**: 1 server(s)
+- **tavily**: 1 server(s)
+- **whatsmcp**: 1 server(s)

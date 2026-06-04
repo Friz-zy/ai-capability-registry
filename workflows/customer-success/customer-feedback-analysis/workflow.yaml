@@ -1,0 +1,89 @@
+id: customer-feedback-analysis
+name: Customer Feedback Analysis Workflow
+description: Workflow for analyzing feedback clusters, pain points, feature requests, churn risks, and roadmap inputs.
+entry_conditions:
+  - User wants to analyze customer feedback, support themes, churn signals, product requests, or qualitative insights.
+  - Feedback needs synthesis into product, UX, roadmap, or retention decisions.
+clarification_questions:
+  - What feedback sources, time period, users, and product areas should be analyzed?
+  - What decision should the analysis inform?
+  - Are there quantitative signals to combine with qualitative feedback?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  customer_signal: customer-success-support
+  product_priorities: product-manager
+  analytics: product-analyst
+  user_research: ux-researcher
+stages:
+  - id: feedback_scope
+    name: Feedback Scope
+    coordinator_goal: Define sources, segments, product areas, time range, and analysis questions.
+    roles:
+      - customer-success-support
+      - product-manager
+      - product-analyst
+    inputs:
+      - user_request
+      - feedback_context
+    outputs:
+      - feedback_sources
+      - analysis_questions
+      - segment_scope
+      - data_limitations
+    acceptance_criteria:
+      - Feedback scope and analysis questions are clear.
+      - Data limitations and segment assumptions are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: synthesis
+    name: Synthesis
+    coordinator_goal: Cluster feedback, identify pain points, feature requests, churn risks, and supporting evidence.
+    roles:
+      - customer-success-support
+      - ux-researcher
+      - product-analyst
+    inputs:
+      - feedback_sources
+      - analysis_questions
+      - segment_scope
+    outputs:
+      - feedback_clusters
+      - pain_points
+      - feature_requests
+      - churn_risks
+      - evidence_summary
+    acceptance_criteria:
+      - Clusters are supported by evidence.
+      - Churn risks and feature requests are separated from general sentiment.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: roadmap_inputs
+    name: Roadmap Inputs
+    coordinator_goal: Convert synthesized feedback into roadmap inputs, experiments, and follow-up research needs.
+    roles:
+      - product-manager
+      - product-analyst
+      - ux-researcher
+    inputs:
+      - feedback_clusters
+      - pain_points
+      - feature_requests
+      - churn_risks
+    outputs:
+      - roadmap_inputs
+      - prioritization_notes
+      - follow_up_research
+      - feedback_summary
+    acceptance_criteria:
+      - Roadmap inputs are traceable to feedback evidence.
+      - Follow-up research and analytics gaps are explicit.
+    gate:
+      type: final_review
+      by: coordinator

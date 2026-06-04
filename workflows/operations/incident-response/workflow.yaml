@@ -1,0 +1,94 @@
+id: incident-response
+name: Incident Response Workflow
+description: Workflow for incident triage, impact analysis, mitigation, communication, recovery, and follow-up tasks.
+entry_conditions:
+  - User reports or asks to coordinate a production incident, outage, degradation, data issue, or urgent operational event.
+  - Impact, mitigation, communication, recovery, or follow-up actions need coordination.
+clarification_questions:
+  - What is affected, when did it start, and who is impacted?
+  - What severity, current status, and mitigation actions are known?
+  - What communication, escalation, or recovery constraints apply?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  incident_command: incident-commander
+  reliability: sre
+  infrastructure: devops-platform-engineer
+  application: backend-engineer
+  customer_communication: customer-success-support
+stages:
+  - id: incident_triage
+    name: Incident Triage
+    coordinator_goal: Establish severity, scope, timeline, impact, owners, and communication channels.
+    roles:
+      - incident-commander
+      - sre
+      - customer-success-support
+      - product-manager
+    inputs:
+      - user_request
+      - incident_context
+    outputs:
+      - incident_timeline
+      - severity_assessment
+      - impact_analysis
+      - communication_channel
+    acceptance_criteria:
+      - Severity and impact are explicit.
+      - Timeline and owners are established.
+      - Communication channel and cadence are defined.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: mitigation_recovery
+    name: Mitigation & Recovery
+    coordinator_goal: Coordinate mitigation actions, rollback or roll-forward decisions, and recovery validation.
+    roles:
+      - incident-commander
+      - sre
+      - devops-platform-engineer
+      - backend-engineer
+      - qa-engineer
+    inputs:
+      - incident_timeline
+      - severity_assessment
+      - impact_analysis
+    outputs:
+      - mitigation_actions
+      - rollback_rollforward_decision
+      - recovery_validation
+      - residual_risks
+    acceptance_criteria:
+      - Mitigation actions prioritize impact reduction.
+      - Recovery validation and residual risks are documented.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: communication_follow_up
+    name: Communication & Follow-Up
+    coordinator_goal: Prepare customer communication, internal summary, follow-up tasks, and postmortem trigger.
+    roles:
+      - incident-commander
+      - customer-success-support
+      - release-manager
+      - engineering-manager
+    inputs:
+      - mitigation_actions
+      - recovery_validation
+      - residual_risks
+    outputs:
+      - customer_communication
+      - internal_status_summary
+      - follow_up_tasks
+      - postmortem_trigger
+    acceptance_criteria:
+      - Customer communication is accurate and appropriate to impact.
+      - Follow-up tasks have owners or owning roles.
+      - Postmortem need is explicit.
+    gate:
+      type: final_review
+      by: coordinator

@@ -1,0 +1,87 @@
+id: test-planning
+name: Test Planning Workflow
+description: Workflow for planning risk-based testing, test cases, regression scope, automation scope, and acceptance criteria.
+entry_conditions:
+  - User wants a test plan, test strategy, acceptance criteria, regression scope, or QA coverage plan.
+  - Requirements, risks, and coverage need QA and product alignment before validation.
+clarification_questions:
+  - What feature, product, release, or system should be tested?
+  - What requirements, risks, environments, and constraints are known?
+  - Should the plan focus on manual testing, automation, regression, or acceptance criteria?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  testing_strategy: qa-engineer
+  automation_scope: sdet
+  product_acceptance: product-manager
+  implementation_risk: tech-lead
+stages:
+  - id: scope_risk
+    name: Scope & Risk
+    coordinator_goal: Define test scope, requirements, acceptance criteria, risks, environments, and constraints.
+    roles:
+      - qa-engineer
+      - product-manager
+      - tech-lead
+    inputs:
+      - user_request
+      - requirements_context
+    outputs:
+      - test_scope
+      - acceptance_criteria
+      - risk_analysis
+      - environment_needs
+    acceptance_criteria:
+      - Test scope and acceptance criteria are traceable to requirements.
+      - Major risk areas and environments are listed.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: strategy_cases
+    name: Strategy & Cases
+    coordinator_goal: Define test strategy, positive and negative cases, regression scope, and data needs.
+    roles:
+      - qa-engineer
+      - sdet
+      - product-manager
+    inputs:
+      - test_scope
+      - acceptance_criteria
+      - risk_analysis
+    outputs:
+      - test_strategy
+      - test_cases
+      - regression_scope
+      - test_data_needs
+    acceptance_criteria:
+      - Positive, negative, edge, and regression cases are covered.
+      - Test data and environment needs are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: automation_readiness
+    name: Automation Readiness
+    coordinator_goal: Identify automation candidates, CI implications, coverage gaps, and quality gates.
+    roles:
+      - sdet
+      - qa-engineer
+      - devops-platform-engineer
+    inputs:
+      - test_strategy
+      - test_cases
+      - regression_scope
+    outputs:
+      - automation_scope
+      - ci_quality_gates
+      - coverage_gaps
+      - qa_handoff
+    acceptance_criteria:
+      - Automation candidates are prioritized by value and stability.
+      - CI quality gates and remaining manual coverage are clear.
+    gate:
+      type: final_review
+      by: coordinator

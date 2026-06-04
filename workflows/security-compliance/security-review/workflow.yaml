@@ -1,0 +1,93 @@
+id: security-review
+name: Security Review Workflow
+description: Workflow for reviewing security controls, secrets, dependencies, authn/authz, vulnerabilities, and remediation readiness.
+entry_conditions:
+  - User wants a security review, audit preparation, vulnerability assessment, or remediation plan.
+  - Application, infrastructure, dependency, secrets, auth, or compliance-adjacent risks need review.
+clarification_questions:
+  - What system, change, environment, or release should be reviewed?
+  - What security standards, threat context, or prior findings exist?
+  - Should the output be checklist, findings, remediation plan, or release gate recommendation?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  security_findings: security-engineer
+  architecture: security-architect
+  backend_controls: backend-engineer
+  infrastructure_controls: devops-platform-engineer
+  compliance: compliance-officer
+stages:
+  - id: review_scope
+    name: Review Scope
+    coordinator_goal: Define system scope, assets, security criteria, data sensitivity, and release context.
+    roles:
+      - security-engineer
+      - solution-architect
+      - product-manager
+    inputs:
+      - user_request
+      - security_context
+    outputs:
+      - security_review_scope
+      - assets
+      - data_sensitivity
+      - security_checklist
+    acceptance_criteria:
+      - Review scope and security criteria are clear.
+      - Sensitive assets and data categories are identified.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: findings_review
+    name: Findings Review
+    coordinator_goal: Review secrets, dependencies, authentication, authorization, infrastructure, and vulnerability risks.
+    roles:
+      - security-engineer
+      - backend-engineer
+      - frontend-engineer
+      - devops-platform-engineer
+      - compliance-officer
+    inputs:
+      - security_review_scope
+      - security_checklist
+      - data_sensitivity
+    outputs:
+      - secrets_review
+      - dependency_scan_report
+      - authn_authz_review
+      - vulnerability_report
+      - compliance_notes
+    acceptance_criteria:
+      - Findings are prioritized by exploitability and impact.
+      - Auth, secrets, dependency, and infrastructure risks are covered.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: remediation_gate
+    name: Remediation Gate
+    coordinator_goal: Define remediation plan, release recommendation, residual risks, and follow-up ownership.
+    roles:
+      - security-engineer
+      - tech-lead
+      - release-manager
+      - qa-engineer
+    inputs:
+      - vulnerability_report
+      - authn_authz_review
+      - compliance_notes
+    outputs:
+      - remediation_plan
+      - residual_risks
+      - release_gate_recommendation
+      - follow_up_actions
+    acceptance_criteria:
+      - Critical and high risks have explicit disposition.
+      - Remediation work is actionable and owned by roles.
+      - Residual risks are documented.
+    gate:
+      type: final_review
+      by: coordinator

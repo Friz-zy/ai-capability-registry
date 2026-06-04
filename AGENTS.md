@@ -29,6 +29,12 @@ For trivial conversational requests, still obey the registry files, but no workf
 Local repository instructions override shared registry guidance when more specific.
 These shared registry files are the source of truth. Do not replace them with summaries or assumptions.
 
+## Registry Source Of Truth
+
+* Define roles, workflows, tasks, skills, MCP servers, tags, categories, and routing metadata in `registry/*.yaml` first.
+* Treat generated runtime files under `roles/`, `workflows/`, `skills/catalog/`, `skills/packs/`, `mcp/`, and root catalog files as generator outputs.
+* After changing registry source files, run the existing generator scripts instead of manually maintaining generated catalogs.
+
 ## Code Writing Rules
 * Avoid tiny helper functions that only wrap one expression or call. Extract only meaningful, reusable, or complexity-reducing logic.
 * Avoid deep private-call chains. Prefer a readable linear flow when several steps belong to one algorithm.

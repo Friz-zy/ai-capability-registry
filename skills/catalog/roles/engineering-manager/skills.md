@@ -1,0 +1,55 @@
+# Engineering Manager
+
+## Keywords
+Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. Read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
+
+- **analysis**: 27 skills
+- **architecture**: 6 skills
+- **business**: 4 skills
+- **capacity**: 1 skills
+- **change-management**: 1 skills
+- **code-review**: 10 skills
+- **compensation**: 2 skills
+- **competitive-intelligence**: 4 skills
+- **cpp**: 2 skills
+- **debug**: 1 skills
+- **debugging**: 7 skills
+- **development**: 59 skills
+- **engineering**: 12 skills
+- **error-analysis**: 1 skills
+- **hr**: 10 skills
+- **incident**: 2 skills
+- **interviewing**: 2 skills
+- **management**: 11 skills
+- **metrics**: 2 skills
+- **offer**: 1 skills
+- **onboarding**: 3 skills
+- **operations**: 10 skills
+- **org-planning**: 1 skills
+- **organization**: 1 skills
+- **parallel-task**: 1 skills
+- **people**: 2 skills
+- **performance-review**: 1 skills
+- **planning**: 19 skills
+- **process**: 2 skills
+- **product**: 8 skills
+- **productivity-organization**: 1 skills
+- **python**: 6 skills
+- **recruiting**: 5 skills
+- **refactor**: 4 skills
+- **refactoring**: 2 skills
+- **roadmap**: 1 skills
+- **runbook**: 3 skills
+- **rust**: 4 skills
+- **semgrep**: 3 skills
+- **source-management**: 1 skills
+- **spec**: 5 skills
+- **sprint**: 2 skills
+- **stakeholder**: 1 skills
+- **static-analysis**: 6 skills
+- **status-report**: 2 skills
+- **system-design**: 1 skills
+- **task-management**: 6 skills
+- **tech-debt**: 2 skills
+- **user-research**: 3 skills
+- **vendor**: 2 skills

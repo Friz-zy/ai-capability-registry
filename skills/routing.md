@@ -61,6 +61,29 @@ For an unassigned subagent, this route selects skill catalogs only; it does not 
 - **Cloud Infrastructure Engineer** (`cloud-infrastructure-engineer`) -> `devops`, `sre`, `security`
 - **Blockchain Engineer** (`blockchain-engineer`) -> `blockchain`, `security`, `engineering`
 - **Hardware and IoT Engineer** (`hardware-iot-engineer`) -> `hardware`, `devops`, `security`
+- **Founder Business Owner** (`founder-business-owner`) -> `founder`, `product`, `finance`, `operations`
+- **Product Strategist** (`product-strategist`) -> `product`, `research`, `founder`, `finance`
+- **Market Researcher** (`market-researcher`) -> `research`, `product`, `marketing`, `sales`
+- **Growth Marketer** (`growth-marketer`) -> `marketing`, `data`, `product`, `sales`
+- **Product Marketing Manager** (`product-marketing-manager`) -> `marketing`, `product`, `sales`, `customer_success`
+- **Sales Strategist** (`sales-strategist`) -> `sales`, `marketing`, `research`, `product`
+- **Solution Consultant** (`solution-consultant`) -> `sales`, `engineering`, `backend`, `product`
+- **Security Architect** (`security-architect`) -> `security`, `engineering`, `devops`
+- **Compliance Officer** (`compliance-officer`) -> `legal`, `security`, `finance`, `operations`
+- **Data Protection Officer** (`data-protection-officer`) -> `legal`, `security`, `data`, `product`
+- **Database Engineer** (`database-engineer`) -> `data`, `backend`, `devops`, `engineering`
+- **Cloud Architect** (`cloud-architect`) -> `devops`, `sre`, `security`, `finance`
+- **SRE** (`sre`) -> `sre`, `devops`, `data`, `security`
+- **Incident Commander** (`incident-commander`) -> `sre`, `operations`, `devops`, `customer_success`
+- **FinOps Analyst** (`finops-analyst`) -> `finance`, `devops`, `sre`, `operations`
+- **Finance Manager** (`finance-manager`) -> `finance`, `operations`, `founder`
+- **Procurement Manager** (`procurement-manager`) -> `operations`, `finance`, `legal`, `research`
+- **Technical Writer** (`technical-writer`) -> `documents`, `research`, `product`, `customer_success`
+- **Knowledge Manager** (`knowledge-manager`) -> `documents`, `operations`, `customer_success`, `research`
+- **Content Marketer** (`content-marketer`) -> `marketing`, `documents`, `product`, `research`
+- **Recruiter** (`recruiter`) -> `people`, `operations`
+- **HR Manager** (`hr-manager`) -> `people`, `operations`
+- **Engineering Manager** (`engineering-manager`) -> `people`, `operations`, `engineering`, `product`
 
 ### Tasks (entry points)
 
@@ -88,3 +111,34 @@ For an unassigned subagent, this route selects skill catalogs only; it does not 
 - **Build Blockchain or Smart Contracts** (`build-blockchain`) -> `blockchain`, `cairo`, `smart-contracts`, `solana`, `solidity`, `threat-model`
 - **Build Hardware or IoT** (`build-hardware-iot`) -> `integration`
 - **Build Mobile or Desktop App** (`build-mobile-desktop`) -> `android`, `ios`, `react-native`, `testing`, `windows`
+- **Validate an Idea** (`validate-idea`) -> `competitive-intelligence`, `forecast`, `product`, `research`, `roadmap`
+- **Define Product Strategy** (`define-product-strategy`) -> `competitive-intelligence`, `finance`, `metrics`, `planning`, `product`, `roadmap`
+- **Design Pricing and Monetization** (`design-pricing`) -> `compliance`, `finance`, `forecast`, `sales`
+- **Plan Go To Market Launch** (`plan-launch`) -> `campaign`, `content`, `customer-support`, `marketing`, `planning`, `sales`
+- **Triage and Fix a Bug** (`triage-bug`) -> `debugging`, `deployment`, `error-analysis`, `incident`, `status-report`, `testing`
+- **Reduce Technical Debt** (`reduce-technical-debt`) -> `architecture`, `migration`, `optimization`, `refactoring`, `tech-debt`, `testing`
+- **Design an API** (`design-api`) -> `documentation`, `rest-api`, `testing`
+- **Develop an Integration** (`develop-integration`) -> `data`, `incident`, `integration`, `rest-api`
+- **Review Architecture** (`review-architecture`) -> `architecture`, `review`, `risk`, `security`, `system-design`
+- **Write an ADR** (`write-adr`) -> `architecture`, `documentation`, `migration`, `planning`, `review`
+- **Provision Infrastructure** (`provision-infrastructure`) -> `ci`, `deployment`
+- **Engineer Internal Platform** (`engineer-platform`) -> `ci`, `deployment`, `documentation`, `process`
+- **Review Security** (`review-security`) -> `audit`, `authentication`, `compliance`, `security`, `supply-chain`, `threat-model`
+- **Model Threats** (`model-threats`) -> `architecture`, `authentication`, `risk`, `security`, `threat-model`, `validation`
+- **Plan Tests** (`plan-tests`) -> `planning`, `requirements`, `testing`, `testing-strategy`, `validation`
+- **Automate Tests** (`automate-tests`) -> `automation`, `ci`, `playwright`, `testing`, `validation`
+- **Test Performance** (`test-performance`) -> `capacity`, `metrics`, `optimization`, `testing`
+- **Respond to Incident** (`respond-incident`) -> `customer-support`, `deployment`, `incident`, `runbook`, `status-report`
+- **Write Postmortem** (`write-postmortem`) -> `documentation`, `incident`, `process`, `reporting`, `risk`, `runbook`
+- **Support Customer** (`support-customer`) -> `customer-support`, `debugging`, `documentation`, `product`, `ticket-triage`
+- **Analyze Customer Feedback** (`analyze-feedback`) -> `analytics`, `customer-support`, `product`, `roadmap`, `user-research`
+- **Analyze Growth** (`analyze-growth`) -> `analytics`, `dashboard`, `metrics`, `statistics`, `visualization`
+- **Support Sales** (`support-sales`) -> `call-prep`, `content`, `contract`, `crm`, `documentation`, `sales`
+- **Review Legal Compliance** (`review-compliance`) -> `compliance`, `contract`, `legal`, `policy`, `risk`, `security`
+- **Write Technical Documentation** (`write-technical-docs`) -> `architecture`, `debugging`, `deployment`, `documentation`, `rest-api`, `writing`
+- **Write User Documentation** (`write-user-docs`) -> `changelog`, `content`, `customer-support`, `documentation`, `onboarding`, `writing`
+- **Maintain Knowledge Base** (`maintain-knowledge-base`) -> `documentation`, `knowledge`, `onboarding`, `organization`, `process`, `runbook`
+- **Optimize Costs** (`optimize-costs`) -> `finance`, `metrics`, `optimization`
+- **Select Vendor** (`select-vendor`) -> `competitive-intelligence`, `contract`, `risk`, `vendor`
+- **Plan Hiring** (`plan-hiring`) -> `compensation`, `interviewing`, `onboarding`, `people`, `recruiting`
+- **Improve Team Process** (`improve-team-process`) -> `management`, `metrics`, `planning`, `process`, `reporting`

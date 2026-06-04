@@ -1,0 +1,90 @@
+id: automated-testing
+name: Automated Testing Workflow
+description: Workflow for creating automated test strategy, unit and integration plans, e2e coverage, CI pipeline, and flaky-test policy.
+entry_conditions:
+  - User wants to add, improve, or plan automated tests.
+  - Unit, integration, e2e, CI, reliability, or flaky-test policy needs engineering and QA alignment.
+clarification_questions:
+  - What codebase, feature, service, or user flow should automation cover?
+  - What test frameworks, CI constraints, and existing coverage are known?
+  - What reliability, speed, and maintenance constraints matter?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  automation_strategy: sdet
+  qa_risk: qa-engineer
+  backend_tests: backend-engineer
+  frontend_tests: frontend-engineer
+  ci_pipeline: devops-platform-engineer
+stages:
+  - id: automation_scope
+    name: Automation Scope
+    coordinator_goal: Define target coverage, current gaps, maintainability constraints, and quality goals.
+    roles:
+      - sdet
+      - qa-engineer
+      - tech-lead
+    inputs:
+      - user_request
+      - test_context
+    outputs:
+      - automation_goals
+      - coverage_gaps
+      - testability_constraints
+      - quality_goals
+    acceptance_criteria:
+      - Automation scope is tied to risk and value.
+      - Current gaps and constraints are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: test_design
+    name: Test Design
+    coordinator_goal: Define unit, integration, API, frontend, and e2e test plans with ownership boundaries.
+    roles:
+      - sdet
+      - backend-engineer
+      - frontend-engineer
+      - qa-engineer
+    inputs:
+      - automation_goals
+      - coverage_gaps
+      - testability_constraints
+    outputs:
+      - unit_test_plan
+      - integration_test_plan
+      - e2e_test_plan
+      - test_data_strategy
+    acceptance_criteria:
+      - Test levels have clear purpose and ownership.
+      - E2E tests are limited to high-value flows.
+      - Test data strategy is explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: ci_reliability
+    name: CI & Reliability
+    coordinator_goal: Plan CI execution, reporting, flaky-test policy, maintenance, and rollout.
+    roles:
+      - sdet
+      - devops-platform-engineer
+      - qa-engineer
+    inputs:
+      - unit_test_plan
+      - integration_test_plan
+      - e2e_test_plan
+    outputs:
+      - ci_test_pipeline
+      - flaky_tests_policy
+      - reporting_plan
+      - maintenance_plan
+    acceptance_criteria:
+      - CI pipeline balances speed, confidence, and reliability.
+      - Flaky-test handling and ownership are clear.
+    gate:
+      type: final_review
+      by: coordinator

@@ -1,0 +1,92 @@
+id: vendor-selection
+name: Vendor Selection Workflow
+description: Workflow for requirements, comparison matrix, risks, cost model, recommendation, and fallback option for vendor selection.
+entry_conditions:
+  - User wants to choose a cloud provider, SaaS tool, API, contractor, platform, or vendor.
+  - Requirements, comparison, risks, cost model, recommendation, or fallback option are needed.
+clarification_questions:
+  - What problem should the vendor solve and what options are in scope?
+  - What technical, security, legal, procurement, and budget constraints apply?
+  - What decision timeline and fallback requirements exist?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  procurement: procurement-manager
+  technical_fit: tech-lead
+  security: security-engineer
+  compliance: compliance-officer
+  cost: finance-manager
+stages:
+  - id: requirements
+    name: Requirements
+    coordinator_goal: Define business, technical, security, legal, support, and procurement requirements.
+    roles:
+      - procurement-manager
+      - product-manager
+      - tech-lead
+      - finance-manager
+    inputs:
+      - user_request
+      - vendor_context
+    outputs:
+      - requirements
+      - evaluation_criteria
+      - budget_constraints
+      - fallback_needs
+    acceptance_criteria:
+      - Requirements and evaluation criteria are explicit.
+      - Budget and fallback needs are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: comparison_review
+    name: Comparison Review
+    coordinator_goal: Compare options across fit, implementation, security, compliance, support, cost, and lock-in.
+    roles:
+      - procurement-manager
+      - tech-lead
+      - security-engineer
+      - compliance-officer
+      - finance-manager
+    inputs:
+      - requirements
+      - evaluation_criteria
+      - budget_constraints
+    outputs:
+      - comparison_matrix
+      - risks
+      - cost_model
+      - implementation_notes
+    acceptance_criteria:
+      - Comparison uses consistent criteria.
+      - Security, compliance, cost, and implementation risks are included.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: recommendation
+    name: Recommendation
+    coordinator_goal: Produce recommended vendor, rationale, fallback option, approval needs, and next steps.
+    roles:
+      - procurement-manager
+      - product-manager
+      - finance-manager
+      - release-manager
+    inputs:
+      - comparison_matrix
+      - risks
+      - cost_model
+    outputs:
+      - recommendation
+      - fallback_option
+      - approval_needs
+      - next_steps
+    acceptance_criteria:
+      - Recommendation is traceable to requirements and risks.
+      - Fallback option and approval needs are explicit.
+    gate:
+      type: final_review
+      by: coordinator

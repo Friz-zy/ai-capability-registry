@@ -1,0 +1,30 @@
+# Product Marketing Manager
+
+## Keywords
+Select only keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+
+- **apollo**: 1 server(s)
+- **attio**: 1 server(s)
+- **cms**: 1 server(s)
+- **competitive-intelligence**: 1 server(s)
+- **content**: 3 server(s)
+- **crm**: 2 server(s)
+- **customer-support**: 1 server(s)
+- **feature-flags**: 1 server(s)
+- **hubspot**: 1 server(s)
+- **insights**: 1 server(s)
+- **intercom**: 1 server(s)
+- **marketing**: 1 server(s)
+- **mercado-libre**: 1 server(s)
+- **mercadolibre**: 1 server(s)
+- **metrics**: 2 server(s)
+- **planning**: 1 server(s)
+- **posthog**: 1 server(s)
+- **product**: 1 server(s)
+- **product-insights**: 1 server(s)
+- **social**: 3 server(s)
+- **social-media**: 3 server(s)
+- **tweetsave**: 1 server(s)
+- **vibemarketing**: 1 server(s)
+- **wix**: 1 server(s)
+- **xbird**: 1 server(s)

@@ -1,0 +1,94 @@
+id: bugfix
+name: Bugfix Workflow
+description: Workflow for resolving a defect through triage, reproduction, root cause analysis, fix planning, regression validation, and release decision.
+entry_conditions:
+  - User reports a bug, defect, regression, or incorrect behavior in an existing product.
+  - Reproduction, root cause, fix plan, regression checklist, or release decision is needed.
+clarification_questions:
+  - What is the observed behavior, expected behavior, and affected environment?
+  - Can the issue be reproduced, and who is impacted?
+  - Is this an active incident, urgent hotfix, or normal release candidate?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  severity: product-manager
+  reproduction: qa-engineer
+  root_cause: tech-lead
+  implementation: tech-lead
+  release: release-manager
+stages:
+  - id: triage_reproduction
+    name: Triage & Reproduction
+    coordinator_goal: Confirm impact, severity, reproduction steps, expected behavior, and affected scope.
+    roles:
+      - customer-success-support
+      - qa-engineer
+      - product-manager
+      - tech-lead
+    inputs:
+      - user_request
+      - bug_context
+    outputs:
+      - bug_report
+      - reproduction_steps
+      - impact_assessment
+      - severity_recommendation
+    acceptance_criteria:
+      - Expected and actual behavior are clear.
+      - Reproduction status and impacted users are documented.
+      - Severity and urgency are justified.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: root_cause_fix_plan
+    name: Root Cause & Fix Plan
+    coordinator_goal: Identify root cause, affected modules, minimal fix scope, and implementation risks.
+    roles:
+      - tech-lead
+      - backend-engineer
+      - frontend-engineer
+      - mobile-engineer
+    inputs:
+      - bug_report
+      - reproduction_steps
+      - impact_assessment
+    outputs:
+      - root_cause
+      - affected_modules
+      - fix_plan
+      - implementation_risks
+    acceptance_criteria:
+      - Root cause is plausible and traceable to evidence.
+      - Fix plan is minimal and avoids unrelated changes.
+      - Affected modules and risks are listed.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: validation_release
+    name: Validation & Release Decision
+    coordinator_goal: Define regression coverage, verification evidence, release path, and rollback notes.
+    roles:
+      - qa-engineer
+      - sdet
+      - release-manager
+      - devops-platform-engineer
+    inputs:
+      - fix_plan
+      - affected_modules
+      - implementation_risks
+    outputs:
+      - regression_checklist
+      - verification_plan
+      - hotfix_normal_release_decision
+      - rollback_notes
+    acceptance_criteria:
+      - Regression checklist covers affected behavior.
+      - Hotfix versus normal release decision is justified.
+      - Rollback or mitigation notes are included.
+    gate:
+      type: final_review
+      by: coordinator

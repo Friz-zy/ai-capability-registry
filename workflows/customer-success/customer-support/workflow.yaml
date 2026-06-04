@@ -1,0 +1,88 @@
+id: customer-support
+name: Customer Support Workflow
+description: Workflow for ticket classification, user impact, workaround, escalation, and bug or feature request routing.
+entry_conditions:
+  - User wants to process customer support tickets, classify requests, assess impact, or plan escalation.
+  - Workaround, customer response, bug routing, or feature request routing is needed.
+clarification_questions:
+  - What customer issue, ticket, product area, and user impact are involved?
+  - Is there a known workaround, defect, feature gap, or account-specific context?
+  - What response SLA, escalation path, or communication constraints apply?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  customer_response: customer-success-support
+  product_routing: product-manager
+  defect_validation: qa-engineer
+  engineering_triage: tech-lead
+stages:
+  - id: ticket_classification
+    name: Ticket Classification
+    coordinator_goal: Classify ticket type, user impact, urgency, account context, and initial response needs.
+    roles:
+      - customer-success-support
+      - product-manager
+    inputs:
+      - user_request
+      - ticket_context
+    outputs:
+      - ticket_classification
+      - user_impact
+      - urgency
+      - initial_response
+    acceptance_criteria:
+      - Ticket type and impact are clear.
+      - Urgency and response needs are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: investigation_escalation
+    name: Investigation & Escalation
+    coordinator_goal: Identify workaround, bug evidence, feature request signal, and escalation path.
+    roles:
+      - customer-success-support
+      - qa-engineer
+      - tech-lead
+      - product-manager
+    inputs:
+      - ticket_classification
+      - user_impact
+      - urgency
+    outputs:
+      - workaround
+      - escalation
+      - bug_feature_request
+      - investigation_notes
+    acceptance_criteria:
+      - Workaround or next action is clear.
+      - Bug versus feature request routing is justified.
+      - Escalation owner is identified when needed.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: response_follow_up
+    name: Response & Follow-Up
+    coordinator_goal: Prepare customer response, internal handoff, follow-up tracking, and feedback capture.
+    roles:
+      - customer-success-support
+      - product-manager
+      - technical-writer
+    inputs:
+      - workaround
+      - escalation
+      - bug_feature_request
+    outputs:
+      - customer_response
+      - internal_handoff
+      - follow_up_plan
+      - knowledge_base_notes
+    acceptance_criteria:
+      - Customer response is clear, accurate, and privacy-safe.
+      - Internal handoff and follow-up are actionable.
+    gate:
+      type: final_review
+      by: coordinator

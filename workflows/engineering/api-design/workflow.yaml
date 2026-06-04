@@ -1,0 +1,94 @@
+id: api-design
+name: API Design Workflow
+description: Workflow for designing API contracts, auth, errors, pagination, filtering, versioning, and client guidance.
+entry_conditions:
+  - User wants to design or review an API contract before implementation.
+  - Consumers, authentication, errors, pagination, versioning, or SDK notes need alignment.
+clarification_questions:
+  - Who are the API consumers and providers?
+  - What use cases, entities, operations, and constraints should the API support?
+  - Are there existing API standards, auth systems, or versioning requirements?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  api_contract: solution-architect
+  backend_implementation: backend-engineer
+  consumer_needs: frontend-engineer
+  security: security-engineer
+  documentation: technical-writer
+stages:
+  - id: requirements_contract_scope
+    name: Requirements & Contract Scope
+    coordinator_goal: Define consumers, use cases, resources, operations, constraints, and compatibility needs.
+    roles:
+      - product-manager
+      - business-analyst
+      - solution-architect
+    inputs:
+      - user_request
+      - system_context
+    outputs:
+      - api_requirements
+      - consumer_profiles
+      - resource_model
+      - compatibility_constraints
+    acceptance_criteria:
+      - Consumer use cases and resource boundaries are clear.
+      - Compatibility and non-goals are explicit.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: contract_design
+    name: Contract Design
+    coordinator_goal: Define endpoints, schemas, auth model, error model, pagination, filtering, and versioning.
+    roles:
+      - solution-architect
+      - backend-engineer
+      - frontend-engineer
+      - mobile-engineer
+      - security-engineer
+    inputs:
+      - api_requirements
+      - resource_model
+      - compatibility_constraints
+    outputs:
+      - openapi_spec
+      - auth_model
+      - error_model
+      - pagination_filtering_rules
+      - versioning_strategy
+    acceptance_criteria:
+      - API contract supports defined use cases.
+      - Auth, errors, pagination, filtering, and versioning are explicit.
+      - Security and consumer impacts are reviewed.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: validation_documentation
+    name: Validation & Documentation
+    coordinator_goal: Validate contract usability, testability, and documentation readiness.
+    roles:
+      - qa-engineer
+      - sdet
+      - technical-writer
+      - backend-engineer
+    inputs:
+      - openapi_spec
+      - auth_model
+      - error_model
+    outputs:
+      - contract_test_plan
+      - sdk_client_notes
+      - api_docs_outline
+      - implementation_handoff
+    acceptance_criteria:
+      - Contract tests and negative cases are identified.
+      - Documentation and client notes are sufficient for implementation.
+      - Open questions are tracked.
+    gate:
+      type: final_review
+      by: coordinator

@@ -1,0 +1,94 @@
+id: technical-debt-refactoring
+name: Technical Debt Refactoring Workflow
+description: Workflow for inventorying technical debt, planning behavior-preserving refactoring, validating regression risk, and releasing safely.
+entry_conditions:
+  - User wants refactoring, technical debt reduction, modernization, cleanup, or maintainability improvement.
+  - Observable behavior should be preserved unless explicitly changed.
+clarification_questions:
+  - What debt, modules, or risks should be addressed?
+  - What behavior must remain unchanged?
+  - Are there migration, rollout, performance, or compatibility constraints?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  debt_scope: tech-lead
+  architecture: solution-architect
+  implementation: tech-lead
+  testing: qa-engineer
+  release: release-manager
+stages:
+  - id: debt_inventory
+    name: Debt Inventory
+    coordinator_goal: Identify debt items, affected modules, behavior contract, and business or engineering risk.
+    roles:
+      - tech-lead
+      - solution-architect
+      - product-manager
+    inputs:
+      - user_request
+      - codebase_context
+    outputs:
+      - debt_inventory
+      - affected_modules
+      - behavior_preservation_contract
+      - risk_analysis
+    acceptance_criteria:
+      - Debt items and affected modules are explicit.
+      - Behavior-preservation expectations are documented.
+      - Risks and non-goals are listed.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: refactoring_plan
+    name: Refactoring Plan
+    coordinator_goal: Design a small, reviewable, reversible refactoring plan with dependencies and migration notes.
+    roles:
+      - tech-lead
+      - backend-engineer
+      - frontend-engineer
+      - database-engineer
+      - devops-platform-engineer
+    inputs:
+      - debt_inventory
+      - affected_modules
+      - behavior_preservation_contract
+    outputs:
+      - refactoring_plan
+      - implementation_order
+      - migration_notes
+      - rollback_plan
+    acceptance_criteria:
+      - Plan is split into reviewable steps.
+      - Migration and rollback implications are explicit.
+      - Shared-code risks are listed.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: validation_release
+    name: Validation & Release
+    coordinator_goal: Define test strategy, regression coverage, monitoring, and rollout guidance.
+    roles:
+      - qa-engineer
+      - sdet
+      - performance-engineer
+      - release-manager
+    inputs:
+      - refactoring_plan
+      - risk_analysis
+      - behavior_preservation_contract
+    outputs:
+      - test_strategy
+      - regression_scope
+      - performance_baseline
+      - release_plan
+    acceptance_criteria:
+      - Tests verify observable behavior rather than private implementation details.
+      - Regression scope and performance risk are addressed.
+      - Release and rollback plan are clear.
+    gate:
+      type: final_review
+      by: coordinator

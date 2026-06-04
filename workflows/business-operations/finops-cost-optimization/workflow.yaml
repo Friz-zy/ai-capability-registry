@@ -1,0 +1,92 @@
+id: finops-cost-optimization
+name: FinOps Cost Optimization Workflow
+description: Workflow for cloud cost breakdown, unused resources, rightsizing, savings recommendations, and cost guardrails.
+entry_conditions:
+  - User wants to reduce or understand cloud, infrastructure, or SaaS operating costs.
+  - Cost breakdown, unused resources, rightsizing, savings plans, or guardrails are needed.
+clarification_questions:
+  - What cloud accounts, services, products, teams, and time periods are in scope?
+  - What reliability, compliance, or performance constraints limit cost reduction?
+  - What approval, budget, or reporting constraints apply?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  cost_analysis: finops-analyst
+  infrastructure: devops-platform-engineer
+  cloud_architecture: cloud-architect
+  budget: finance-manager
+  product_tradeoffs: product-manager
+stages:
+  - id: cost_scope
+    name: Cost Scope
+    coordinator_goal: Define cost scope, ownership, baseline, business constraints, and reliability guardrails.
+    roles:
+      - finops-analyst
+      - finance-manager
+      - product-manager
+      - sre
+    inputs:
+      - user_request
+      - cost_context
+    outputs:
+      - cost_scope
+      - baseline_assumptions
+      - ownership_map
+      - reliability_guardrails
+    acceptance_criteria:
+      - Cost scope and baseline assumptions are clear.
+      - Reliability and business guardrails are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: optimization_analysis
+    name: Optimization Analysis
+    coordinator_goal: Identify cost breakdown, unused resources, rightsizing opportunities, commitments, and risks.
+    roles:
+      - finops-analyst
+      - devops-platform-engineer
+      - cloud-architect
+      - finance-manager
+    inputs:
+      - cost_scope
+      - baseline_assumptions
+      - reliability_guardrails
+    outputs:
+      - cost_breakdown
+      - unused_resources_list
+      - rightsizing_plan
+      - reserved_savings_plan_recommendation
+      - risk_notes
+    acceptance_criteria:
+      - Savings opportunities are tied to assumptions and risks.
+      - Rightsizing does not violate known reliability guardrails.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: guardrails_execution
+    name: Guardrails & Execution
+    coordinator_goal: Define cost guardrails, approvals, implementation sequence, monitoring, and follow-up ownership.
+    roles:
+      - finops-analyst
+      - devops-platform-engineer
+      - finance-manager
+      - engineering-manager
+    inputs:
+      - cost_breakdown
+      - rightsizing_plan
+      - reserved_savings_plan_recommendation
+    outputs:
+      - cost_guardrails
+      - implementation_plan
+      - approval_needs
+      - monitoring_plan
+    acceptance_criteria:
+      - Guardrails are measurable and owned.
+      - Implementation plan includes approvals and monitoring.
+    gate:
+      type: final_review
+      by: coordinator

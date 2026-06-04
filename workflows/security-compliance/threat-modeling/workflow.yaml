@@ -1,0 +1,91 @@
+id: threat-modeling
+name: Threat Modeling Workflow
+description: Workflow for identifying assets, trust boundaries, threats, attack paths, mitigations, and residual risks.
+entry_conditions:
+  - User wants to model threats for a product, system, feature, architecture, or integration.
+  - Assets, trust boundaries, attack paths, mitigations, or residual risks need structured analysis.
+clarification_questions:
+  - What system, feature, data, and deployment context should be modeled?
+  - What users, attackers, integrations, and trust boundaries are known?
+  - What decisions should the threat model support?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  threat_model: security-architect
+  security_controls: security-engineer
+  architecture: solution-architect
+  implementation: backend-engineer
+  product_risk: product-manager
+stages:
+  - id: model_scope
+    name: Model Scope
+    coordinator_goal: Define system scope, assets, data sensitivity, actors, trust boundaries, and assumptions.
+    roles:
+      - security-architect
+      - solution-architect
+      - product-manager
+    inputs:
+      - user_request
+      - architecture_context
+    outputs:
+      - assets
+      - actors
+      - trust_boundaries
+      - assumptions
+    acceptance_criteria:
+      - Assets, actors, data sensitivity, and trust boundaries are explicit.
+      - Scope boundaries and assumptions are clear.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: threat_analysis
+    name: Threat Analysis
+    coordinator_goal: Identify threats, attack paths, abuse cases, likelihood, impact, and existing controls.
+    roles:
+      - security-architect
+      - security-engineer
+      - backend-engineer
+      - devops-platform-engineer
+    inputs:
+      - assets
+      - actors
+      - trust_boundaries
+    outputs:
+      - threat_list
+      - attack_paths
+      - abuse_cases
+      - existing_controls
+      - risk_ranking
+    acceptance_criteria:
+      - Threats and attack paths are tied to assets and boundaries.
+      - Risk ranking considers likelihood and impact.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: mitigations
+    name: Mitigations
+    coordinator_goal: Define mitigations, residual risks, validation needs, and implementation follow-up.
+    roles:
+      - security-engineer
+      - solution-architect
+      - qa-engineer
+      - tech-lead
+    inputs:
+      - threat_list
+      - attack_paths
+      - risk_ranking
+    outputs:
+      - mitigations
+      - residual_risks
+      - validation_plan
+      - follow_up_actions
+    acceptance_criteria:
+      - High-priority threats have mitigation or explicit residual risk.
+      - Validation and follow-up actions are actionable.
+    gate:
+      type: final_review
+      by: coordinator

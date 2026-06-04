@@ -1,0 +1,91 @@
+id: knowledge-base-maintenance
+name: Knowledge Base Maintenance Workflow
+description: Workflow for maintaining knowledge articles, decision logs, runbooks, onboarding docs, and deprecated docs list.
+entry_conditions:
+  - User wants to audit, update, reorganize, deprecate, or govern an internal knowledge base.
+  - Knowledge articles, runbooks, decision logs, onboarding docs, or deprecated docs need maintenance.
+clarification_questions:
+  - What knowledge base, audience, and content scope should be maintained?
+  - What freshness, ownership, or discoverability problems exist?
+  - What publication or governance rules should apply?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  knowledge_lifecycle: knowledge-manager
+  technical_accuracy: tech-lead
+  support_context: customer-success-support
+  product_context: product-manager
+  documentation_quality: technical-writer
+stages:
+  - id: knowledge_audit
+    name: Knowledge Audit
+    coordinator_goal: Inventory content, owners, freshness, usage, gaps, and deprecated candidates.
+    roles:
+      - knowledge-manager
+      - technical-writer
+      - customer-success-support
+    inputs:
+      - user_request
+      - knowledge_base_context
+    outputs:
+      - knowledge_articles
+      - decision_logs
+      - runbooks
+      - onboarding_docs
+      - deprecated_docs_list
+    acceptance_criteria:
+      - Content inventory and deprecated candidates are explicit.
+      - Ownership and freshness gaps are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: update_plan
+    name: Update Plan
+    coordinator_goal: Prioritize updates, archive decisions, missing content, and review owners.
+    roles:
+      - knowledge-manager
+      - tech-lead
+      - product-manager
+      - technical-writer
+    inputs:
+      - knowledge_articles
+      - decision_logs
+      - runbooks
+      - deprecated_docs_list
+    outputs:
+      - update_plan
+      - archive_plan
+      - missing_content
+      - review_owners
+    acceptance_criteria:
+      - Update and archive decisions are justified.
+      - Review owners and missing content are clear.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: governance
+    name: Governance
+    coordinator_goal: Define maintenance cadence, ownership, review rules, and feedback loop.
+    roles:
+      - knowledge-manager
+      - engineering-manager
+      - customer-success-support
+    inputs:
+      - update_plan
+      - archive_plan
+      - missing_content
+    outputs:
+      - maintenance_cadence
+      - governance_rules
+      - feedback_loop
+      - handoff_summary
+    acceptance_criteria:
+      - Governance rules are practical and owned.
+      - Maintenance cadence and feedback loop are explicit.
+    gate:
+      type: final_review
+      by: coordinator

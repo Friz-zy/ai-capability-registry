@@ -1,0 +1,91 @@
+id: legal-compliance
+name: Legal Compliance Workflow
+description: Workflow for reviewing privacy, data processing, ToS requirements, regulatory checklists, and compliance risks.
+entry_conditions:
+  - User wants legal, privacy, regulatory, GDPR, ToS, data processing, or compliance review.
+  - Product, data, security, or business decisions may be constrained by compliance obligations.
+clarification_questions:
+  - What jurisdictions, regulations, users, and data categories are in scope?
+  - What product, policy, vendor, or processing activity should be reviewed?
+  - What decision or artifact is needed: checklist, policy notes, data map, or risk report?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  compliance_requirements: compliance-officer
+  privacy: data-protection-officer
+  security_controls: security-engineer
+  product_scope: product-manager
+  financial_or_contract_constraints: finance-manager
+stages:
+  - id: compliance_scope
+    name: Compliance Scope
+    coordinator_goal: Define jurisdictions, regulations, data categories, processing activities, and affected users.
+    roles:
+      - compliance-officer
+      - data-protection-officer
+      - product-manager
+    inputs:
+      - user_request
+      - product_context
+    outputs:
+      - compliance_scope
+      - data_categories
+      - processing_activities
+      - affected_users
+    acceptance_criteria:
+      - Jurisdictions, data categories, and processing activities are explicit.
+      - Scope and assumptions are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: requirements_risk_review
+    name: Requirements & Risk Review
+    coordinator_goal: Identify GDPR-style checklist items, policy notes, ToS requirements, security controls, and compliance risks.
+    roles:
+      - compliance-officer
+      - data-protection-officer
+      - security-engineer
+      - finance-manager
+    inputs:
+      - compliance_scope
+      - data_categories
+      - processing_activities
+    outputs:
+      - gdpr_checklist
+      - privacy_policy_notes
+      - data_processing_map
+      - tos_requirements
+      - compliance_risks
+    acceptance_criteria:
+      - Compliance requirements are tied to scope and data processing.
+      - Policy, ToS, and security implications are listed.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: action_plan
+    name: Action Plan
+    coordinator_goal: Produce compliance actions, owners, approvals, documentation needs, and residual risks.
+    roles:
+      - compliance-officer
+      - product-manager
+      - technical-writer
+      - release-manager
+    inputs:
+      - gdpr_checklist
+      - privacy_policy_notes
+      - compliance_risks
+    outputs:
+      - compliance_action_plan
+      - approval_needs
+      - documentation_updates
+      - residual_risks
+    acceptance_criteria:
+      - Required actions and owners are clear.
+      - Residual risks and approval needs are explicit.
+    gate:
+      type: final_review
+      by: coordinator

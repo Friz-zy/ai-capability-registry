@@ -1,0 +1,88 @@
+id: pricing-and-monetization
+name: Pricing And Monetization Workflow
+description: Workflow for selecting pricing tiers, value metrics, limits, freemium or trial rules, and revenue assumptions.
+entry_conditions:
+  - User wants to choose or revise pricing, packaging, monetization, trial, freemium, or revenue model rules.
+  - Pricing assumptions need business, product, sales, growth, finance, or compliance review.
+clarification_questions:
+  - What product, customer segments, and buying motion should pricing cover?
+  - What current usage, cost, conversion, or sales evidence exists?
+  - Are there legal, procurement, marketplace, or regional constraints?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  product_scope: product-manager
+  financial_model: finance-manager
+  growth_model: growth-marketer
+  sales_motion: sales-strategist
+  compliance_constraints: compliance-officer
+stages:
+  - id: pricing_context
+    name: Pricing Context
+    coordinator_goal: Establish customer segments, value drivers, buying motion, costs, and constraints.
+    roles:
+      - product-manager
+      - finance-manager
+      - sales-strategist
+    inputs:
+      - user_request
+      - product_context
+    outputs:
+      - customer_segments
+      - value_metric_candidates
+      - cost_drivers
+      - constraints
+    acceptance_criteria:
+      - Customer segments and buying motion are explicit.
+      - Cost drivers and constraints are listed.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: packaging_design
+    name: Packaging Design
+    coordinator_goal: Define pricing tiers, limits, quotas, trial rules, and upgrade paths.
+    roles:
+      - product-manager
+      - growth-marketer
+      - sales-strategist
+    inputs:
+      - customer_segments
+      - value_metric_candidates
+      - constraints
+    outputs:
+      - pricing_tiers
+      - limits_and_quotas
+      - free_trial_freemium_rules
+      - upgrade_paths
+    acceptance_criteria:
+      - Tiers map to customer value and usage patterns.
+      - Limits, quotas, and trial rules are understandable and enforceable.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: economics_compliance
+    name: Economics & Compliance
+    coordinator_goal: Validate unit economics, revenue forecast assumptions, and legal or compliance risks.
+    roles:
+      - finance-manager
+      - compliance-officer
+      - product-manager
+    inputs:
+      - pricing_tiers
+      - limits_and_quotas
+    outputs:
+      - unit_economics
+      - revenue_forecast
+      - compliance_risks
+      - assumptions
+    acceptance_criteria:
+      - Revenue forecast is tied to explicit assumptions.
+      - Compliance and contract risks are documented.
+      - Unit economics are plausible or gaps are stated.
+    gate:
+      type: final_review
+      by: coordinator

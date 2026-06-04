@@ -1,0 +1,91 @@
+id: postmortem
+name: Postmortem Workflow
+description: Workflow for incident review, causal analysis, detection gaps, prevention actions, owners, and deadlines.
+entry_conditions:
+  - User wants to analyze what happened after an incident, outage, regression, or operational failure.
+  - Root causes, detection gaps, prevention actions, owners, or deadlines need documentation.
+clarification_questions:
+  - Which incident and timeline should be reviewed?
+  - What evidence, logs, status updates, and mitigation notes are available?
+  - What output format or audience is required?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  incident_record: incident-commander
+  reliability_causes: sre
+  technical_causes: tech-lead
+  product_impact: product-manager
+  customer_impact: customer-success-support
+stages:
+  - id: facts_timeline
+    name: Facts & Timeline
+    coordinator_goal: Establish what happened, impact, detection, mitigation, and recovery timeline.
+    roles:
+      - incident-commander
+      - sre
+      - customer-success-support
+    inputs:
+      - user_request
+      - incident_artifacts
+    outputs:
+      - what_happened
+      - incident_timeline
+      - impact_summary
+      - mitigation_summary
+    acceptance_criteria:
+      - Timeline separates facts from assumptions.
+      - Customer and system impact are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: causal_analysis
+    name: Causal Analysis
+    coordinator_goal: Identify contributing factors, root causes, detection gaps, and prevention opportunities.
+    roles:
+      - sre
+      - tech-lead
+      - backend-engineer
+      - devops-platform-engineer
+      - product-manager
+    inputs:
+      - what_happened
+      - incident_timeline
+      - impact_summary
+    outputs:
+      - why_it_happened
+      - contributing_factors
+      - detection_gap
+      - prevention_opportunities
+    acceptance_criteria:
+      - Causes avoid blame and focus on systems and process.
+      - Detection gaps and prevention opportunities are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: action_plan
+    name: Action Plan
+    coordinator_goal: Assign prevention actions, owners, deadlines, follow-up review, and communication notes.
+    roles:
+      - incident-commander
+      - engineering-manager
+      - product-manager
+      - customer-success-support
+    inputs:
+      - why_it_happened
+      - detection_gap
+      - prevention_opportunities
+    outputs:
+      - prevention_actions
+      - owner_per_action
+      - deadline_per_action
+      - postmortem_summary
+    acceptance_criteria:
+      - Actions are concrete, owned, and time-bound.
+      - Residual risks and follow-up review are documented.
+    gate:
+      type: final_review
+      by: coordinator

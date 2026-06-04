@@ -1,0 +1,92 @@
+id: integration-development
+name: Integration Development Workflow
+description: Workflow for requirements, data mapping, API contract, auth, failure handling, testing, and operations for an external integration.
+entry_conditions:
+  - User wants to integrate with an external API, SaaS, partner system, data source, or service.
+  - Data mapping, auth, retries, idempotency, failures, or external contract risks are central.
+clarification_questions:
+  - What external system is being integrated and for what business process?
+  - What data flows, credentials, environments, and rate limits are involved?
+  - What failure handling, retries, idempotency, and support expectations exist?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  requirements: business-analyst
+  integration_architecture: solution-architect
+  backend_implementation: backend-engineer
+  security: security-engineer
+  operations: devops-platform-engineer
+stages:
+  - id: integration_discovery
+    name: Integration Discovery
+    coordinator_goal: Define integration goals, external constraints, process fit, data flows, and provider risks.
+    roles:
+      - business-analyst
+      - product-manager
+      - solution-architect
+    inputs:
+      - user_request
+      - external_system_context
+    outputs:
+      - integration_requirements
+      - process_map
+      - data_mapping
+      - provider_constraints
+    acceptance_criteria:
+      - Business process and integration goal are clear.
+      - Data mapping and provider constraints are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: contract_failure_design
+    name: Contract & Failure Design
+    coordinator_goal: Define API contract, auth, secrets, retries, idempotency, rate limits, and failure handling.
+    roles:
+      - solution-architect
+      - backend-engineer
+      - security-engineer
+      - devops-platform-engineer
+    inputs:
+      - integration_requirements
+      - data_mapping
+      - provider_constraints
+    outputs:
+      - api_contract
+      - auth_secrets_model
+      - failure_handling
+      - retry_idempotency_rules
+      - observability_plan
+    acceptance_criteria:
+      - Auth, secrets, retries, idempotency, and failure modes are explicit.
+      - Provider rate limits and operational risks are addressed.
+    gate:
+      type: architecture_review
+      by: coordinator
+  - id: testing_release_operations
+    name: Testing, Release & Operations
+    coordinator_goal: Plan sandbox tests, contract tests, rollout, monitoring, support, and fallback.
+    roles:
+      - qa-engineer
+      - sdet
+      - release-manager
+      - customer-success-support
+    inputs:
+      - api_contract
+      - failure_handling
+      - observability_plan
+    outputs:
+      - integration_test_plan
+      - contract_test_plan
+      - rollout_plan
+      - support_runbook
+      - fallback_plan
+    acceptance_criteria:
+      - Positive, negative, and provider-failure paths are covered.
+      - Rollout, monitoring, support, and fallback are clear.
+    gate:
+      type: final_review
+      by: coordinator

@@ -1,0 +1,91 @@
+id: hiring
+name: Hiring Workflow
+description: Workflow for role description, candidate scorecard, interview plan, test task, and hiring recommendation.
+entry_conditions:
+  - User wants to hire an IT specialist or design a hiring process for a technical, product, design, QA, or operations role.
+  - Role description, scorecard, interview plan, test task, or hiring recommendation is needed.
+clarification_questions:
+  - What role, level, team, responsibilities, and constraints are in scope?
+  - What must-have skills, compensation range, location, and process constraints exist?
+  - What hiring artifact should be produced first?
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Run roles inside the same stage in parallel when their inputs are ready.
+    - Do not start the next stage until the current stage gate passes.
+    - Request revisions from roles when acceptance criteria are not met.
+conflict_resolution:
+  hiring_need: engineering-manager
+  technical_evaluation: tech-lead
+  recruiting_process: recruiter
+  hr_process: hr-manager
+  compensation: finance-manager
+stages:
+  - id: role_definition
+    name: Role Definition
+    coordinator_goal: Define role purpose, responsibilities, must-have criteria, team context, and compensation constraints.
+    roles:
+      - engineering-manager
+      - tech-lead
+      - hr-manager
+      - finance-manager
+    inputs:
+      - user_request
+      - hiring_context
+    outputs:
+      - role_description
+      - must_have_criteria
+      - compensation_constraints
+      - hiring_risks
+    acceptance_criteria:
+      - Role description is specific and job-relevant.
+      - Must-have criteria are separated from nice-to-have criteria.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: evaluation_design
+    name: Evaluation Design
+    coordinator_goal: Define scorecard, interview plan, test task, screening process, and evaluation rubrics.
+    roles:
+      - tech-lead
+      - recruiter
+      - hr-manager
+      - engineering-manager
+    inputs:
+      - role_description
+      - must_have_criteria
+      - hiring_risks
+    outputs:
+      - candidate_scorecard
+      - interview_plan
+      - test_task
+      - evaluation_rubric
+    acceptance_criteria:
+      - Evaluation maps directly to role requirements.
+      - Test task is scoped, fair, and job-relevant.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: process_recommendation
+    name: Process & Recommendation
+    coordinator_goal: Plan sourcing, process stages, decision rules, offer constraints, and hiring recommendation format.
+    roles:
+      - recruiter
+      - hr-manager
+      - engineering-manager
+      - finance-manager
+    inputs:
+      - candidate_scorecard
+      - interview_plan
+      - test_task
+    outputs:
+      - sourcing_plan
+      - process_stages
+      - decision_rules
+      - hiring_recommendation
+    acceptance_criteria:
+      - Process stages and decision rules are clear.
+      - Hiring recommendation format is tied to the scorecard.
+    gate:
+      type: final_review
+      by: coordinator
