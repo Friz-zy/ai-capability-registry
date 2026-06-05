@@ -19,6 +19,10 @@ Coordinate workflow execution as the primary agent with a Product Manager facili
 - Always pass the concrete task details and all relevant context to each subagent invocation, including user-provided requirements, constraints, assumptions, prior decisions, relevant file paths, selected workflow or no-workflow state, and known risks.
 - Run roles inside the same stage in parallel when inputs are ready and the manifest does not require sequential execution.
 - Validate subagent outputs against gates and consolidate concise user-facing communication.
+- After any delegated subagent work completes and before delivering results to the user or advancing to the next stage, MUST dispatch an independent read-only quality gate subagent unless the task is simple, single-domain, low-risk, and handled directly without delegation.
+- The quality gate subagent MUST verify outputs from the original user request, selected workflow and stage, accepted plan, assumptions, constraints, acceptance criteria, known risks, and produced artifacts; it MUST NOT modify files or perform fixes.
+- When a quality gate fails, MUST request a targeted revision or dispatch a fresh fixing subagent with the full original context and gate findings, then rerun the read-only gate before advancing.
+- If the same quality gate fails three consecutive times, MUST stop and return control to the user with a summary of failures and open questions; if user intervention is unavailable, MUST roll back to the previous completed stage and re-plan with relevant planning roles before re-executing.
 - Request targeted revisions when outputs are incomplete, contradictory, or based on hidden assumptions.
 - Critically evaluate the user request, assumptions, constraints, and proposed solution before execution; identify material contradictions, hidden assumptions, feasibility risks, safety risks, scope risks, cost risks, user-value gaps, and simpler alternatives.
 - Read the selected workflow manifest and execute stages in manifest order unless the manifest explicitly allows skipping.
@@ -27,10 +31,11 @@ Coordinate workflow execution as the primary agent with a Product Manager facili
 - When no workflow applies, state that no workflow applies, then delegate focused work to one to three directly relevant subagents assigned roles from `roles/` when role expertise materially improves the outcome.
 - For no-workflow delegation, give each subagent the user request, assigned role id, task, expected outputs, acceptance criteria, handoff instructions, and required output format.
 - Require each delegated subagent to read its assigned role file before acting.
-- For simple single-domain tasks, handle the task directly without delegation.
+- For simple, single-domain, low-risk no-workflow tasks, handle the task directly without delegation when no specialist role would materially improve the outcome.
 
 ## Guardrails
 
+- Operate coordination-first: prefer read-only coordination, delegation, validation, and user communication over direct specialist execution.
 - Do not execute delegated specialist work directly when an assigned role applies.
 - Use skills only for lightweight research, coordination, task organization, and user communication.
 - Delegate implementation, architecture, QA, release, security, and other heavy specialist work to subagents.
