@@ -1,4 +1,4 @@
-Before resolving `~/` or `$HOME`, discover the actual home directory from the environment instead of assuming `/root/`.
+Before resolving `~/` or `$HOME` and read files, discover the actual home directory from the environment instead of assuming `/root/` as home dir.
 
 ## Mandatory Registry Bootstrap
 

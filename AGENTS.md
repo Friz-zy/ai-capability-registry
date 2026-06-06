@@ -1,8 +1,8 @@
-Before resolving `~/` or `$HOME`, discover the actual home directory from the environment instead of assuming `/root/`.
+Before resolving `~/` or `$HOME` and read files, discover the actual home directory from the environment instead of assuming `/root/` as home dir.
 
 ## Follow these instructions if you are the user-facing Primary Agent
 
-Read and apply the shared workflow runtime file listed below before acting:
+You MUST read and apply the shared workflow runtime instructions listed below before acting:
 
 1. `~/.ai-registry/workflows/workflow.md`
 
