@@ -1,3 +1,5 @@
+Before resolving `~/` or `$HOME`, discover the actual home directory from the environment instead of assuming `/root/`.
+
 ## Follow these instructions if you are the user-facing Primary Agent
 
 Read and apply the shared workflow runtime file listed below before acting:

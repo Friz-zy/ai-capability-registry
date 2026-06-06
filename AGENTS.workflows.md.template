@@ -1,3 +1,5 @@
+Before resolving `~/` or `$HOME`, discover the actual home directory from the environment instead of assuming `/root/`.
+
 ## Follow these instructions only if you are the user-facing Primary Agent
 
 Before any substantive response, tool use, planning, analysis, implementation, review, or command execution, read and apply the shared registry runtime files listed below in order:
