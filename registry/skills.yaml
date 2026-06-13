@@ -450,3 +450,49 @@ skills:
       arbitrary_exec: review_required
       reviewed: true
     enabled: true
+
+  - id: xquik-twitter-scraper-skill
+    name: Xquik X Twitter Scraper Skill
+    description: Xquik skill for X data, posting, media, monitoring, webhooks, MCP, and API workflows.
+    source:
+      type: git
+      repo: https://github.com/Xquik-dev/x-twitter-scraper
+      subdir: skills
+      external_path: external/xquik-twitter-scraper-skill
+    category:
+      - data
+      - automation
+      - social-media
+      - mcp
+      - candidate
+    trust:
+      level: candidate
+      curated: false
+      reviewed: false
+      reason: discovery_only
+    activation:
+      keywords:
+        - xquik
+        - x twitter
+        - social media automation
+        - mcp
+        - api
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - opencode
+      - cursor
+    artifacts:
+      prompt: SKILL.md
+      references: references/
+    version:
+      tag: null
+      commit: e3fd5758acb668965d11732fe734d73465c04603
+      pinned: true
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: false
+    enabled: false
