@@ -1,11 +1,19 @@
 {
-  "name": "custom-agent",
-  "description": "A specialized agent for [purpose]",
-  "prompt": "You are a specialized agent for [purpose]. Follow these rules:\n1. ...\n2. ...",
+  "name": "security-reviewer",
+  "description": "Performs security audits and identifies vulnerabilities in code",
+
+  "prompt": "You are a specialized security reviewer agent.\n\n## Responsibilities\n1. Check for injection, XSS, and improper input handling\n2. Verify authentication and authorization flows\n3. Identify data exposure risks and leaked secrets\n4. Review dependencies for known CVEs\n5. Audit configuration files for insecure defaults\n\n## Output Format\n1. Summary (2-3 sentences)\n2. Critical Issues (must fix)\n3. Major Issues (should fix)\n4. Minor Issues (nice to fix)\n5. Positive Observations",
+
+  "model": "claude-sonnet-4",
+
   "mcpServers": {
     "fetch": {
       "command": "fetch3.1",
-      "args": []
+      "args": [],
+      "env": {
+        "STATIC": "yes"
+      },
+      "timeout": 30000
     },
     "git": {
       "command": "git-mcp-server",
@@ -16,57 +24,85 @@
       "timeout": 120000
     }
   },
+
   "includeMcpJson": true,
+
   "tools": [
     "read",
     "write",
     "shell",
-    "@git"
+    "@git",
+    "@fetch/fetch_url"
   ],
+
   "toolAliases": {
     "@git/git_status": "status",
     "@git/git_log": "log",
-    "@git/git_diff": "diff"
+    "@git/git_diff": "diff",
+    "@fetch/fetch_url": "get"
   },
+
   "allowedTools": [
     "read",
     "@git/git_status",
     "@git/git_log",
-    "@git/git_diff"
+    "@git/git_diff",
+    "@fetch/fetch_url",
+    "@server/read_*"
   ],
+
   "toolsSettings": {
     "write": {
-      "allowedPaths": ["src/**", "tests/**", "docs/**/*.md"]
+      "allowedPaths": ["src/**", "tests/**", "docs/**/*.md", "Cargo.toml"]
     },
     "shell": {
       "allowedCommands": [
         "npm test",
         "npm run build",
         "npm run lint",
+        "python manage.py test",
         "git status",
         "git diff",
-        "git log"
+        "git log",
+        "grep",
+        "find"
+      ],
+      "deniedCommands": [
+        "rm *",
+        "git push *",
+        "git commit *"
       ],
       "autoAllowReadonly": true
+    },
+    "aws": {
+      "allowedServices": ["s3", "lambda", "dynamodb"]
     }
   },
+
   "resources": [
     "file://README.md",
     "file://docs/**/*.md",
+    "file://CONTRIBUTING.md",
     "skill://.kiro/skills/**/SKILL.md"
   ],
+
   "hooks": {
     "agentSpawn": [
       {
         "command": "git status --porcelain",
-        "timeout_ms": 5000
+        "timeout_ms": 5000,
+        "cache_ttl_seconds": 30
+      },
+      {
+        "command": "git branch --show-current",
+        "timeout_ms": 3000
       }
     ],
     "userPromptSubmit": [
       {
         "command": "ls -la",
         "timeout_ms": 3000,
-        "cache_ttl_seconds": 30
+        "cache_ttl_seconds": 60
       }
     ],
     "preToolUse": [
@@ -78,7 +114,7 @@
     "postToolUse": [
       {
         "matcher": "fs_write",
-        "command": "npm run format -- $(cat)"
+        "command": "npx prettier --write $(cat)"
       }
     ],
     "stop": [
@@ -87,7 +123,8 @@
       }
     ]
   },
-  "model": "claude-sonnet-4",
-  "keyboardShortcut": "ctrl+shift+a",
-  "welcomeMessage": "Ready to help with [purpose]!"
+
+  "keyboardShortcut": "ctrl+shift+s",
+  "welcomeMessage": "Ready to perform a security audit. What code should I review?",
+  "useLegacyMcpJson": false
 }

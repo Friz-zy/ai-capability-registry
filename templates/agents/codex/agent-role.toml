@@ -1,44 +1,148 @@
 # =============================================================================
-# Codex CLI — Agent Role File Template
+# Codex CLI — Standalone Agent Role File (Full Reference)
 # Format: TOML
 #
-# Referenced from config.toml via:
-#   [agents.<name>]
-#   config_file = "./agents/<name>.toml"
+# Placement:
+#   - Any path; reference from config.toml via config_file:
+#       [agents.my-role]
+#       description = "Role description"
+#       config_file = "./agents/my-role.toml"
 #
-# Location: <project>/.codex/agents/<name>.toml
-#           or path specified in config_file
+# This file defines role-specific config overrides including model,
+# instructions, permissions, MCP servers, features, and skills.
 # =============================================================================
 
-name = "custom-role"                                        # Role display name
-description = "Description of what this agent role does"    # Shown to model for delegation
-
-# Optional: Override model for this role
-# model = "o3"
-
-# Optional: Nickname candidates the model can use
-# nickname_candidates = ["Atlas", "Nike"]
+# ---------------------------------------------------------------------------
+# Required: Role display name
+# ---------------------------------------------------------------------------
+name = "custom-role"
 
 # ---------------------------------------------------------------------------
-# Developer instructions (inline)
+# Required: Human-facing description used in spawn tool guidance
 # ---------------------------------------------------------------------------
-# developer_instructions = """
-# You are a specialized agent. Follow these rules:
-# 1. Always review code for security issues
-# 2. Provide actionable feedback
-# """
+description = "A specialized role for [purpose]. Describe when this role should be used."
 
 # ---------------------------------------------------------------------------
-# Nested ConfigToml overrides (model, permissions, etc.)
+# Optional: Developer instructions (system prompt override / supplement)
 # ---------------------------------------------------------------------------
-# These override the base config.toml settings for this role only.
+# Multi-line string with instructions the model sees.
+developer_instructions = """
+You are a specialized agent for [purpose].
+
+## Responsibilities
+1. [Primary responsibility]
+2. [Secondary responsibility]
+
+## Constraints
+- [Constraint 1]
+- [Constraint 2]
+
+## Output Format
+[Describe expected output format]
+"""
+
+# ---------------------------------------------------------------------------
+# Optional: Nickname candidates for spawned agents
+# ---------------------------------------------------------------------------
+# The model picks a nickname from this list when spawning an agent with this role.
+# nickname_candidates = ["Atlas", "Nike", "Hermes"]
+
+# ---------------------------------------------------------------------------
+# Model overrides (these override the base config.toml model settings)
+# ---------------------------------------------------------------------------
+model = "o3"
+# review_model = "o4-mini"                            # Model for /review feature
+# model_provider = "openai"                            # Key into [model_providers]
+# model_context_window = 200_000                      # Context window in tokens
+# model_auto_compact_token_limit = 150_000            # Auto-compact threshold
+# model_auto_compact_token_limit_scope = "full"       # "full" | "after_prefix"
+
+# ---------------------------------------------------------------------------
+# Default permissions
+# ---------------------------------------------------------------------------
+# One of: "workspace" | "sandbox" | "full-auto"
+# default_permissions = "workspace"
+
+# ---------------------------------------------------------------------------
+# Permissions: Network proxy (fine-grained)
+# ---------------------------------------------------------------------------
+# [permissions.workspace.network]
+# enabled = true
+# proxy_url = "http://127.0.0.1:3128"
+# enable_socks5 = true
+# socks_url = "http://127.0.0.1:8081"
+# allow_upstream_proxy = true
+# dangerously_allow_non_loopback_proxy = false
+# mode = "full"                                       # "full" | "limited"
+# allow_local_binding = false
 #
-# model = "o4-mini"
-# model_context_window = 128_000
-# default_permissions = "sandbox"
+# [permissions.workspace.network.domains]
+# "*.openai.com" = "allow"
+# "localhost" = "allow"
+# "127.0.0.1" = "allow"
+# "::1" = "allow"
+# "evil.example" = "deny"
 
 # ---------------------------------------------------------------------------
-# Approval policies for this role
+# Permissions: MITM hooks for HTTPS inspection (macOS-only for limited mode)
 # ---------------------------------------------------------------------------
-# [permissions.workspace]
-# network = { enabled = false }
+# [permissions.workspace.network.mitm.hooks.github_write]
+# host = "api.github.com"
+# methods = ["POST", "PUT"]
+# path_prefixes = ["/repos/openai/"]
+# action = ["strip_auth"]
+#
+# [permissions.workspace.network.mitm.actions.strip_auth]
+# strip_request_headers = ["authorization"]
+
+# ---------------------------------------------------------------------------
+# MCP Servers (role-specific, overrides base config)
+# ---------------------------------------------------------------------------
+# [mcp_servers.my-role-server]
+# command = "my-mcp-server"
+# args = ["--verbose"]
+# cwd = "/path/to/server"
+# env = { STATIC = "yes" }
+# env_vars = ["MY_TOKEN"]                              # Forward env vars from shell
+# enabled = true
+
+# HTTP MCP server
+# [mcp_servers.my-http-server]
+# url = "https://example.com/mcp"
+# bearer_token_env_var = "GITHUB_TOKEN"
+# http_headers = { "X-Foo" = "bar" }
+# env_http_headers = { "X-Token" = "TOKEN_ENV" }
+# oauth_resource = "https://api.example.com"
+
+# ---------------------------------------------------------------------------
+# Skills (role-specific)
+# ---------------------------------------------------------------------------
+# [[skills.config]]
+# path = ".agents/skills/my-skill"
+# enabled = true
+#
+# [[skills.config]]
+# path = "~/.agents/skills/another-skill"
+# enabled = false
+
+# ---------------------------------------------------------------------------
+# Hooks (role-specific, requires features.hooks = true)
+# ---------------------------------------------------------------------------
+# [hooks]
+# pre_tool_use = ["/path/to/pre-hook.sh"]
+# post_tool_use = ["/path/to/post-hook.sh"]
+# on_agent_start = ["/path/to/start-hook.sh"]
+
+# ---------------------------------------------------------------------------
+# Features (role-specific, overrides base config features)
+# ---------------------------------------------------------------------------
+# [features]
+# multi_agent = true
+# hooks = true
+# shell_tool = true
+# memories = true
+# personality = true
+# web_search = false
+# undo = true
+# apps = false
+# codex_git_commit = false

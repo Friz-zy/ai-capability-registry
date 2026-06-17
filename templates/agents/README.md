@@ -376,6 +376,7 @@ Precedence: agent.prompt > config `instructions` > AGENTS.md.
 | `steering-conditional.md` | Steering file: activated by glob pattern |
 | `steering-manual.md` | Steering file: activated by `#name` reference |
 | `AGENTS.md` | Project instructions (always active) |
+| `REFERENCE.md` | Field-by-field reference for all `agent.json` fields |
 
 <details>
 <summary>File placement details</summary>
