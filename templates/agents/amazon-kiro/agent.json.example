@@ -1,0 +1,182 @@
+{
+  "// =============================================================================": "",
+  "// Amazon Kiro — Agent Configuration (Full Reference)": "",
+  "//": "",
+  "// Placement:": "",
+  "//   Global:  ~/.kiro/agents/<name>.json": "",
+  "//   Project: .kiro/agents/<name>.json": "",
+  "// The filename (minus .json) becomes the agent name.": "",
+  "// Local takes precedence over global (with a warning).": "",
+  "// =============================================================================": "",
+
+  "// ── Identity ──────────────────────────────────────────────────────────────": "",
+
+  "name": "security-reviewer",
+  "// Agent identifier. Derived from filename if omitted.": "",
+
+  "description": "Performs security audits and identifies vulnerabilities in code",
+  "// Human-readable purpose. Used for display and for AI to decide when to invoke.": "",
+
+  "// ── Prompt (system instructions) ──────────────────────────────────────────": "",
+  "// Supports inline text or file:// URIs for external files.": "",
+  "// Relative paths resolve from the agent config file's directory.": "",
+  "//   \"prompt\": \"file://./prompts/expert.md\"         // relative to agent dir": "",
+  "//   \"prompt\": \"file:///home/user/prompts/agent.md\" // absolute path": "",
+
+  "prompt": "You are a specialized security reviewer agent.\n\n## Responsibilities\n1. Check for injection, XSS, and improper input handling\n2. Verify authentication and authorization flows\n3. Identify data exposure risks and leaked secrets\n4. Review dependencies for known CVEs\n5. Audit configuration files for insecure defaults\n\n## Output Format\n1. Summary (2-3 sentences)\n2. Critical Issues (must fix)\n3. Major Issues (should fix)\n4. Minor Issues (nice to fix)\n5. Positive Observations",
+
+  "// ── Model ─────────────────────────────────────────────────────────────────": "",
+  "// Must match an available model from the /model command.": "",
+  "// Falls back to default model if unset or unavailable.": "",
+
+  "model": "claude-sonnet-4",
+
+  "// ── MCP Servers (per-agent) ──────────────────────────────────────────────": "",
+  "// Define MCP servers available ONLY to this agent.": "",
+  "// Set includeMcpJson=true to also load global/project mcp.json servers.": "",
+  "//": "",
+  "// Stdio server:": "",
+  "//   \"command\" (required), \"args\" (optional), \"env\" (optional), \"timeout\" (optional, ms)": "",
+  "// HTTP server with OAuth:": "",
+  "//   \"type\": \"http\", \"url\", \"oauth.clientId\", \"oauth.redirectUri\", \"oauth.oauthScopes\"": "",
+
+  "mcpServers": {
+    "fetch": {
+      "command": "fetch3.1",
+      "args": [],
+      "env": { "STATIC": "yes" },
+      "timeout": 30000
+    },
+    "git": {
+      "command": "git-mcp-server",
+      "args": [],
+      "env": { "GIT_CONFIG_GLOBAL": "/dev/null" },
+      "timeout": 120000
+    }
+  },
+
+  "includeMcpJson": true,
+  "// Whether to also load MCP servers from ~/.kiro/settings/mcp.json and .kiro/settings/mcp.json.": "",
+  "// true = merge global/project MCP config with per-agent mcpServers.": "",
+  "// false = only use per-agent mcpServers defined above.": "",
+
+  "// ── Tools ─────────────────────────────────────────────────────────────────": "",
+  "// Built-in: \"read\", \"write\", \"shell\", \"aws\": "",
+  "// MCP:      \"@server\" (all tools), \"@server/tool\" (specific)": "",
+  "// All:       \"*\"": "",
+  "// Namespace: \"@builtin\" (all built-in)": "",
+
+  "tools": [
+    "read",
+    "write",
+    "shell",
+    "@git",
+    "@fetch/fetch_url"
+  ],
+
+  "// ── Tool Aliases ──────────────────────────────────────────────────────────": "",
+  "// Remap tool names to resolve naming collisions or create intuitive names.": "",
+  "// Key = original tool name (with server prefix for MCP), value = new name.": "",
+
+  "toolAliases": {
+    "@git/git_status": "status",
+    "@git/git_log": "log",
+    "@git/git_diff": "diff",
+    "@fetch/fetch_url": "get"
+  },
+
+  "// ── Allowed Tools (auto-approve) ──────────────────────────────────────────": "",
+  "// Tools that can be used WITHOUT prompting the user for permission.": "",
+  "// Supports glob-style wildcards: *, ?, exact matches, server-level @server.": "",
+  "// NOTE: Unlike \"tools\", this does NOT support bare \"*\".": "",
+  "//   \"read\"              exact match": "",
+  "//   \"@git/git_status\"   specific MCP tool": "",
+  "//   \"@server/read_*\"    wildcard prefix": "",
+  "//   \"@fetch\"            all tools from a server": "",
+
+  "allowedTools": [
+    "read",
+    "@git/git_status",
+    "@git/git_log",
+    "@git/git_diff",
+    "@fetch/fetch_url",
+    "@server/read_*"
+  ],
+
+  "// ── Tools Settings (per-tool configuration) ───────────────────────────────": "",
+  "// write.allowedPaths       glob patterns restricting write access": "",
+  "// shell.allowedCommands   list of allowed shell commands": "",
+  "// shell.deniedCommands    list of denied shell commands (glob patterns)": "",
+  "// shell.autoAllowReadonly automatically approve read-only shell commands": "",
+  "// aws.allowedServices     restrict AWS tools to specific services": "",
+
+  "toolsSettings": {
+    "write": {
+      "allowedPaths": ["src/**", "tests/**", "docs/**/*.md", "Cargo.toml"]
+    },
+    "shell": {
+      "allowedCommands": ["npm test", "npm run build", "npm run lint", "python manage.py test", "git status", "git diff", "git log", "grep", "find"],
+      "deniedCommands": ["rm *", "git push *", "git commit *"],
+      "autoAllowReadonly": true
+    },
+    "aws": {
+      "allowedServices": ["s3", "lambda", "dynamodb"]
+    }
+  },
+
+  "// ── Resources ────────────────────────────────────────────────────────────": "",
+  "// file://   loaded directly into context at startup": "",
+  "// skill://  metadata at startup, full content on demand": "",
+  "// knowledgeBase: {type, source, name, description, indexType, autoUpdate}": "",
+
+  "resources": [
+    "file://README.md",
+    "file://docs/**/*.md",
+    "file://CONTRIBUTING.md",
+    "skill://.kiro/skills/**/SKILL.md"
+  ],
+
+  "// ── Hooks ────────────────────────────────────────────────────────────────": "",
+  "// Commands to run at specific trigger points.": "",
+  "// Each entry: {\"command\": \"...\", \"matcher\": \"...\" (opt), \"timeout_ms\": N (opt), \"cache_ttl_seconds\": N (opt)}": "",
+  "// Hook event contains: hook_event_name, cwd, session_id, tool_name, tool_input, tool_response": "",
+  "// Exit codes: 0 = success, 2 = block (preToolUse only), other = warning": "",
+  "// Matcher uses canonical names: fs_read, fs_write, execute_bash, use_aws, @git, @git/status, @builtin, *": "",
+  "//": "",
+  "// agentSpawn      when agent is activated": "",
+  "// userPromptSubmit when user submits a prompt (also receives \"prompt\" field)": "",
+  "// preToolUse       before tool execution (matcher required; exit 2 = block)": "",
+  "// postToolUse      after tool execution (matcher required)": "",
+  "// stop             when agent finishes (can return {\"decision\":\"block\",\"reason\":\"...\"} to continue)": "",
+
+  "hooks": {
+    "agentSpawn": [
+      { "command": "git status --porcelain", "timeout_ms": 5000, "cache_ttl_seconds": 30 },
+      { "command": "git branch --show-current", "timeout_ms": 3000 }
+    ],
+    "userPromptSubmit": [
+      { "command": "ls -la", "timeout_ms": 3000, "cache_ttl_seconds": 60 }
+    ],
+    "preToolUse": [
+      { "matcher": "execute_bash", "command": "{ echo \"$(date) - Bash command:\"; cat; echo; } >> /tmp/bash_audit_log" }
+    ],
+    "postToolUse": [
+      { "matcher": "fs_write", "command": "npx prettier --write $(cat)" }
+    ],
+    "stop": [
+      { "command": "npm run lint" }
+    ]
+  },
+
+  "// ── Keyboard Shortcut & Welcome ──────────────────────────────────────────": "",
+  "// Format: [modifier+]key. Modifiers: ctrl, shift. Keys: a-z, 0-9.": "",
+  "// Pressing switches to this agent; pressing again switches back.": "",
+
+  "keyboardShortcut": "ctrl+shift+s",
+  "welcomeMessage": "Ready to perform a security audit. What code should I review?",
+
+  "// ── Legacy ────────────────────────────────────────────────────────────────": "",
+  "// Set to true to also load MCP servers from legacy .kiro/settings/mcp.json format.": "",
+
+  "useLegacyMcpJson": false
+}

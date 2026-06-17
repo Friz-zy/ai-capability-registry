@@ -4,8 +4,8 @@
 
 | File | Global | Project |
 |------|--------|---------|
-| `agent.json` | `~/.kiro/agents/<name>.json` | `.kiro/agents/<name>.json` |
-| `mcp.json` | `~/.kiro/settings/mcp.json` | `.kiro/settings/mcp.json` |
+| `agent.json.example` | `~/.kiro/agents/<name>.json` | `.kiro/agents/<name>.json` |
+| `mcp.json.example` | `~/.kiro/settings/mcp.json` | `.kiro/settings/mcp.json` |
 | `SKILL.md` | `~/.kiro/skills/<name>/SKILL.md` | `.kiro/skills/<name>/SKILL.md` |
 | `steering-*.md` | `~/.kiro/steering/<name>.md` | `.kiro/steering/<name>.md` |
 | `AGENTS.md` | — | `<project-root>/AGENTS.md` (always active) |
@@ -14,7 +14,7 @@ Managed: MDM/Group Policy → `~/.kiro/steering/`
 
 ### File Placement Details
 
-#### `agent.json` — Agent configuration
+#### `agent.json.example` — Agent configuration (copy to `agent.json`)
 
 ```
 # Global (available in all projects)
@@ -91,7 +91,7 @@ Unlike steering files, `AGENTS.md` is always loaded into context (equivalent to 
 
 ## How to Use
 
-### 1. Agent config (`agent.json`)
+### 1. Agent config (`agent.json.example` → `agent.json`)
 
 Save as `.kiro/agents/<name>.json` (project) or `~/.kiro/agents/<name>.json` (global). The **filename** (minus `.json`) becomes the agent name. When both locations have the same name, the local one takes precedence.
 
@@ -126,7 +126,7 @@ Key fields:
 - **keyboardShortcut** — Quick switch: `"ctrl+a"`, `"shift+b"`, etc.
 - **welcomeMessage** — Shown when switching to this agent
 
-### 2. MCP servers (`mcp.json`)
+### 2. MCP servers (`mcp.json.example` → `mcp.json`)
 
 Place at `.kiro/settings/mcp.json` (project) or `~/.kiro/settings/mcp.json` (global).
 

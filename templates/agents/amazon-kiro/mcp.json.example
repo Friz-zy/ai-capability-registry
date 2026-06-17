@@ -1,0 +1,48 @@
+{
+  "// Amazon Kiro — MCP Server Configuration": "",
+  "//": "",
+  "// Placement:": "",
+  "//   Global:  ~/.kiro/settings/mcp.json": "",
+  "//   Project: .kiro/settings/mcp.json": "",
+  "//": "",
+  "// Server types:": "",
+  "//   stdio  → command + args (+ optional env, timeout)": "",
+  "//   http   → type + url (+ optional oauth with clientId, redirectUri, oauthScopes)": "",
+  "//": "",
+  "// Env var expansion: ${VAR_NAME}": "",
+  "// Agent configs can define per-agent mcpServers and control": "",
+  "// merging with includeMcpJson (true = merge global/project).": "",
+
+  "mcpServers": {
+    "// ── Stdio server ──────────────────────────────────────────────": "",
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/workspace"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+
+    "// ── Stdio server with env vars ────────────────────────────────": "",
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+
+    "// ── HTTP server with OAuth ─────────────────────────────────────": "",
+    "// clientId     pre-registered OAuth client ID (for services like Slack, GitHub, Figma)": "",
+    "// redirectUri  custom redirect URI for OAuth flow (e.g. \"127.0.0.1:8080\")": "",
+    "// oauthScopes  array of OAuth scopes (use [] to bypass scope requirements)": "",
+    "remote-api": {
+      "type": "http",
+      "url": "https://api.example.com/mcp",
+      "oauth": {
+        "redirectUri": "127.0.0.1:8080",
+        "oauthScopes": ["read", "write"]
+      }
+    }
+  }
+}

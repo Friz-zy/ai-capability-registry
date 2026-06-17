@@ -369,19 +369,19 @@ Precedence: agent.prompt > config `instructions` > AGENTS.md.
 
 | File | Purpose |
 |------|---------|
-| `agent.json` | Full agent config: tools, MCP, hooks, resources, model, keyboard shortcut |
-| `mcp.json` | MCP server configuration (project or global) |
+| `agent.json.example` | Full agent config with all fields documented (commented JSON) |
+| `mcp.json.example` | MCP server configuration with all fields documented (commented JSON) |
 | `SKILL.md` | Skill template with YAML frontmatter |
 | `steering-always.md` | Steering file: always active |
 | `steering-conditional.md` | Steering file: activated by glob pattern |
 | `steering-manual.md` | Steering file: activated by `#name` reference |
 | `AGENTS.md` | Project instructions (always active) |
-| `REFERENCE.md` | Field-by-field reference for all `agent.json` fields |
+| `REFERENCE.md` | Field-by-field reference for `agent.json` fields |
 
 <details>
 <summary>File placement details</summary>
 
-#### `agent.json` — Agent configuration
+#### `agent.json.example` — Agent configuration
 
 ```
 # Global (available in all projects)

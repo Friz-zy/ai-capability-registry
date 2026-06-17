@@ -1,6 +1,6 @@
 # Amazon Kiro Agent Configuration — Field Reference
 
-Full field-by-field reference for `agent.json`. See `agent.json` for a complete working example.
+Full field-by-field reference for Kiro agent configuration. See `agent.json.example` for a complete working example with comments.
 
 ## Fields
 
