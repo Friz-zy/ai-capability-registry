@@ -75,11 +75,21 @@ my-project/AGENTS.md
 
 Precedence: agent.prompt > config `instructions` > AGENTS.md.
 
+## Template Files
+
+| File | Description |
+|------|-------------|
+| `opencode.json` | Working config with all sections populated |
+| `opencode.json.example` | Full reference with all fields commented (JSON — delete `//` keys before use) |
+| `agent.md` | Full agent definition with all frontmatter fields |
+| `SKILL.md` | Skill definition template with frontmatter fields |
+| `AGENTS.md` | Project instructions template |
+
 ## How to Use
 
 ### 1. Main config (`opencode.json`)
 
-Copy to `opencode.json` in the project root (or `~/.config/opencode/opencode.json` for global). Edit sections you need; remove the rest.
+Copy to `opencode.json` in the project root (or `~/.config/opencode/opencode.json` for global). Edit sections you need; remove the rest. For a complete reference of all fields with detailed comments, see `opencode.json.example`.
 
 Key sections:
 - **model** / **small_model** — Default and fast models in `provider/model-id` format

@@ -123,11 +123,26 @@ my-project/.claude/rules/no-mutation.md
 
 Rules are always loaded into context (no glob-based activation like Kiro steering).
 
+## Template Files
+
+| File | Description |
+|------|-------------|
+| `settings.json` | Minimal working settings (permissions + hooks) |
+| `settings.json.example` | Full reference with all fields commented (JSON — delete `//` keys before use) |
+| `settings.local.json` | Minimal local overrides example (gitignored, personal) |
+| `.mcp.json` | Minimal MCP server configuration |
+| `.mcp.json.example` | Full MCP reference with all server types (JSON — delete `//` keys before use) |
+| `agent.md` | Full agent definition with all frontmatter fields |
+| `SKILL.md` | Skill definition template with frontmatter fields |
+| `command.md` | Slash command template |
+| `CLAUDE.md` | Project instructions template |
+| `rule.md` | Path-scoped rule template |
+
 ## How to Use
 
 ### 1. Settings (`settings.json`)
 
-Copy to `~/.claude/settings.json` (global) or `.claude/settings.json` (project). Edit the permissions and hooks you need.
+Copy to `~/.claude/settings.json` (global) or `.claude/settings.json` (project). Edit the permissions and hooks you need. For a complete reference of all fields, see `settings.json.example`.
 
 Key sections:
 - **permissions.allow** / **permissions.deny** — Tool access rules with glob patterns
@@ -137,7 +152,7 @@ Key sections:
 
 ### 2. MCP servers (`.mcp.json`)
 
-Place at project root. Each key under `mcpServers` defines one server with `command`, `args`, `env`. Supports env var expansion like `${MY_API_KEY}`.
+Place at project root. Each key under `mcpServers` defines one server with `command`, `args`, `env`. Supports env var expansion like `${MY_API_KEY}`. For all server types (stdio, HTTP, SSE, WebSocket, OAuth), see `.mcp.json.example`.
 
 ### 3. Agents (`agent.md`)
 

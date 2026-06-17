@@ -1,5 +1,14 @@
 # Codex CLI Configuration Templates
 
+## Template Files
+
+| File | Description |
+|------|-------------|
+| `config.toml` | Full config reference with all sections commented (TOML — supports `#` comments) |
+| `agent-role.toml` | Full standalone agent role file with all fields commented |
+| `SKILL.md` | Skill definition template |
+| `AGENTS.md` | Project instructions template (hierarchical) |
+
 ## Where to Place Files
 
 | File | Global | Project | Managed (enterprise) |

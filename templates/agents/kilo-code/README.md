@@ -100,11 +100,21 @@ my-project/.kilo/command/test-coverage.md
 
 The filename (minus `.md`) becomes the command name, accessible as `/migrate`, `/test-coverage`, etc.
 
+## Template Files
+
+| File | Description |
+|------|-------------|
+| `kilo.jsonc` | Full config reference with all fields and section comments (JSONC — supports `//` comments) |
+| `agent.md` | Full agent definition with all frontmatter fields |
+| `SKILL.md` | Skill definition template with frontmatter fields |
+| `AGENTS.md` | Project instructions template |
+| `command.md` | Slash command template |
+
 ## How to Use
 
 ### 1. Main config (`kilo.jsonc`)
 
-Copy to `kilo.jsonc` in the project root (or `.kilo/kilo.jsonc`). Edit sections you need; remove the rest. The file is JSONC (JSON with comments).
+Copy to `kilo.jsonc` in the project root (or `.kilo/kilo.jsonc`). Edit sections you need; remove the rest. The file is JSONC (JSON with comments), so `//` comments are valid.
 
 Key sections:
 - **model** / **small_model** — Default and fast models in `provider/model-id` format

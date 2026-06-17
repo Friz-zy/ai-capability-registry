@@ -2,6 +2,12 @@
 
 Full configuration file templates for each CLI agent tool referenced in `ai-agents.md`.
 
+## Conventions
+
+- **`.example` files** (e.g. `settings.json.example`, `opencode.json.example`): Full reference with all fields commented. Since JSON doesn't support comments, these use `"//"` keys as pseudo-comments — delete all `"//"` keys before using.
+- **TOML and JSONC files** (e.g. `config.toml`, `kilo.jsonc`): Already have native `#` or `//` comment support, so they serve as their own full reference.
+- **Markdown files** (e.g. `agent.md`, `SKILL.md`): Use YAML frontmatter comments (`#`) and HTML comments (`<!-- -->`) for documentation.
+
 ## Directory Structure
 
 | Tool | Directory | Format |
@@ -18,7 +24,7 @@ Full configuration file templates for each CLI agent tool referenced in `ai-agen
 
 | File | Purpose |
 |------|---------|
-| `config.toml` | Full project/global config: model, providers, agents, MCP, features, skills, hooks, permissions |
+| `config.toml` | Full project/global config: model, providers, agents, MCP, features, skills, hooks, permissions (TOML — supports `#` comments) |
 | `agent-role.toml` | Agent role definition (referenced via `config_file` in `[agents.<name>]`) |
 | `SKILL.md` | Skill template with TOML-compatible YAML frontmatter |
 | `AGENTS.md` | Project instructions (hierarchical by directory) |
@@ -93,13 +99,15 @@ Nested files override parent ones. Precedence: nested > parent > global.
 
 | File | Purpose |
 |------|---------|
-| `settings.json` | Project settings: permissions, hooks |
-| `settings.local.json` | Local overrides (gitignored) |
-| `.mcp.json` | MCP server configuration |
-| `agent.md` | Agent definition (YAML frontmatter + markdown body) |
+| `settings.json` | Minimal working settings: permissions + hooks |
+| `settings.json.example` | Full reference of all fields with comments (JSON — delete `"//"` keys before use) |
+| `settings.local.json` | Minimal local overrides example (gitignored) |
+| `.mcp.json` | Minimal MCP server configuration |
+| `.mcp.json.example` | Full MCP reference with all server types (JSON — delete `"//"` keys before use) |
+| `agent.md` | Agent definition with all frontmatter fields (YAML fm + markdown) |
 | `SKILL.md` | Skill template with YAML frontmatter |
 | `command.md` | Slash command template |
-| `CLAUDE.md` | Project instructions |
+| `CLAUDE.md` | Project instructions template |
 | `rule.md` | Path-scoped rule template |
 
 <details>
@@ -203,8 +211,8 @@ my-project/.claude/rules/security-standards.md
 
 | File | Purpose |
 |------|---------|
-| `kilo.jsonc` | Full project config: model, providers, agents, MCP, permissions, commands, references |
-| `agent.md` | Agent definition (YAML frontmatter + markdown body) |
+| `kilo.jsonc` | Full config reference: model, providers, agents, MCP, permissions, commands, references (JSONC — supports `//` comments) |
+| `agent.md` | Agent definition with all frontmatter fields (YAML fm + markdown) |
 | `SKILL.md` | Skill template with YAML frontmatter |
 | `AGENTS.md` | Project instructions (hierarchical) |
 | `command.md` | Slash command template |
@@ -298,8 +306,9 @@ The filename (minus `.md`) becomes the command name.
 
 | File | Purpose |
 |------|---------|
-| `opencode.json` | Full project config: model, providers, agents, MCP, permissions, plugins, references |
-| `agent.md` | Agent definition (YAML frontmatter + markdown body) |
+| `opencode.json` | Working config with all sections populated |
+| `opencode.json.example` | Full reference of all fields with comments (JSON — delete `"//"` keys before use) |
+| `agent.md` | Agent definition with all frontmatter fields (YAML fm + markdown) |
 | `SKILL.md` | Skill template with YAML frontmatter |
 | `AGENTS.md` | Project instructions |
 
@@ -369,12 +378,12 @@ Precedence: agent.prompt > config `instructions` > AGENTS.md.
 
 | File | Purpose |
 |------|---------|
-| `agent.json.example` | Full agent config with all fields documented (commented JSON) |
-| `mcp.json.example` | MCP server configuration with all fields documented (commented JSON) |
+| `agent.json.example` | Full agent config with all fields documented (JSON — delete `"//"` keys before use) |
+| `mcp.json.example` | Full MCP server config with all fields documented (JSON — delete `"//"` keys before use) |
 | `SKILL.md` | Skill template with YAML frontmatter |
-| `steering-always.md` | Steering file: always active |
-| `steering-conditional.md` | Steering file: activated by glob pattern |
-| `steering-manual.md` | Steering file: activated by `#name` reference |
+| `steering-always.md` | Steering file: always active (`mode: always`) |
+| `steering-conditional.md` | Steering file: activated by glob pattern (`condition: "*.ts"`) |
+| `steering-manual.md` | Steering file: activated by `#name` reference (`mode: manual`) |
 | `AGENTS.md` | Project instructions (always active) |
 | `REFERENCE.md` | Field-by-field reference for `agent.json` fields |
 

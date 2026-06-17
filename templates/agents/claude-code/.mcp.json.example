@@ -1,0 +1,109 @@
+{
+  "// =============================================================================": "",
+  "// Claude Code — MCP Server Configuration (Full Reference)": "",
+  "// Format: JSON (no native comments — delete all \"//\" keys before use)": "",
+  "//": "",
+  "// Placement:": "",
+  "//   Global:   ~/.claude.json (mcpServers key inside existing config)": "",
+  "//   Project:  .mcp.json (project root, standalone file)": "",
+  "//   Plugin:   .claude-plugin/.mcp.json or inline in plugin.json": "",
+  "//   Managed:  managed-mcp.json (enterprise)": "",
+  "//": "",
+  "// Env var expansion: ${MY_API_KEY} resolves from environment.": "",
+  "// Copy this file to .mcp.json, remove comment keys, uncomment what you need.": "",
+  "// =============================================================================": "",
+
+  "mcpServers": {
+    "// ── Stdio MCP server ──────────────────────────────────────────────────────": "",
+    "// Most common type. Runs a local command and communicates via stdin/stdout.": "",
+
+    "my-local-server": {
+      "command": "node",
+      "args": ["path/to/server/index.js"],
+      "env": {
+        "API_KEY": "${MY_API_KEY}",
+        "NODE_ENV": "production"
+      }
+    },
+
+    "// ── Stdio server with npx ──────────────────────────────────────────────────": "",
+    "// "github-api": {": "",
+    "//   "command": "npx",": "",
+    "//   "args": ["-y", "@modelcontextprotocol/server-github"],": "",
+    "//   "env": {": "",
+    "//     "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"": "",
+    "//   }": "",
+    "// },": "",
+
+    "// ── Stdio server with uvx ──────────────────────────────────────────────────": "",
+    "// "awslabs-docs": {": "",
+    "//   "command": "uvx",": "",
+    "//   "args": ["awslabs.aws-documentation-mcp-server@latest"],": "",
+    "//   "env": {": "",
+    "//     "FASTMCP_LOG_LEVEL": "ERROR",": "",
+    "//     "AWS_DOCUMENTATION_PARTITION": "aws"": "",
+    "//   }": "",
+    "// },": "",
+
+    "// ── HTTP MCP server ───────────────────────────────────────────────────────": "",
+    "// Connects to a remote server via HTTP/SSE.": "",
+
+    "remote-server": {
+      "type": "http",
+      "url": "https://example.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MY_TOKEN}"
+      }
+    },
+
+    "// ── SSE MCP server ──────────────────────────────────────────────────────────": "",
+    "// "my-sse-server": {": "",
+    "//   "type": "sse",": "",
+    "//   "url": "https://example.com/sse",": "",
+    "//   "headers": {": "",
+    "//     "X-API-Key": "${MY_API_KEY}"": "",
+    "//   }": "",
+    "// },": "",
+
+    "// ── Streamable HTTP with OAuth ───────────────────────────────────────────": "",
+    "// "slack-api": {": "",
+    "//   "type": "streamable-http",": "",
+    "//   "url": "https://slack.com/mcp",": "",
+    "//   "authServerMetadataUrl": "https://slack.com/.well-known/oauth-authorization-server",": "",
+    "//   "oauth": {": "",
+    "//     "scopes": ["search:read", "channels:read"]": "",
+    "//   }": "",
+    "// },": "",
+
+    "// ── WebSocket MCP server ────────────────────────────────────────────────────": "",
+    "// "ws-server": {": "",
+    "//   "url": "wss://example.com/mcp"": "",
+    "// },": "",
+
+    "// ── Disabled server ────────────────────────────────────────────────────": "",
+    "// "disabled-server": {": "",
+    "//   "command": "my-server",": "",
+    "//   "args": [],": "",
+    "//   "disabled": true": "",
+    "// },": "",
+
+    "// ── Enable/disable specific MCP servers from .mcp.json ─────────────────": "",
+    "// These are set in settings.json, not .mcp.json:": "",
+    "// "disabledMcpjsonServers": ["unwanted-server"],": "",
+    "// "enabledMcpjsonServers": ["wanted-server"],": "",
+
+    "// ── Authentication discovery ──────────────────────────────────────────────": "",
+    "// "auth-server": {": "",
+    "//   "type": "http",": "",
+    "//   "url": "https://api.example.com/mcp",": "",
+    "//   "authServerMetadataUrl": "https://api.example.com/.well-known/oauth-authorization-server",": "",
+    "//   "oauth": {": "",
+    "//     "scopes": ["read", "write"]": "",
+    "//   }": "",
+    "// },": "",
+
+    "// ── Plugin MCP servers ──────────────────────────────────────────────────": "",
+    "// Defined in .claude-plugin/.mcp.json or inline in plugin.json": "",
+    "// Contains plugin-specific MCP servers."": ""
+  }
+}

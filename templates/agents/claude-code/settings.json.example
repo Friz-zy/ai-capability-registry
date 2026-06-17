@@ -1,0 +1,120 @@
+{
+  "// =============================================================================": "",
+  "// Claude Code — Settings Configuration (Full Reference)": "",
+  "// Format: JSON (no native comments — delete all \"//\" keys before use)": "",
+  "//": "",
+  "// Placement:": "",
+  "//   Global:    ~/.claude/settings.json": "",
+  "//   Project:   .claude/settings.json": "",
+  "//   Local:     .claude/settings.local.json (gitignored, personal overrides)": "",
+  "//   Managed:   managed-settings.json (enterprise, overrides everything)": "",
+  "//": "",
+  "// Precedence: managed-settings > local > project > global.": "",
+  "// Copy this file to settings.json, remove comment keys, uncomment what you need.": "",
+  "// =============================================================================": "",
+
+  "// ── Permissions ──────────────────────────────────────────────────────────────": "",
+  "// Three actions: \"allow\" (no prompt), \"ask\" (prompt user), \"deny\" (block).": "",
+  "// Glob patterns supported for Bash: Bash(git:*), Bash(npm test:*), etc.": "",
+  "// For agents: Agent(Explore), Agent(my-custom-agent)": "",
+
+  "permissions": {
+    "allow": [
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(npm test *)",
+      "Bash(npm run *)"
+      "// "Bash(cargo test *)",           // Rust projects
+      "// "Bash(python -m pytest *)",     // Python projects
+      "// "Read",                          // Allow all Read operations
+      "// "Glob",                           // Allow all Glob operations
+      "// "Grep",                           // Allow all Grep operations
+      "// "WebSearch",                      // Allow web search
+      "// "WebFetch",                       // Allow web fetch
+      "// "Agent(Explore)",                 // Allow specific subagent
+      "// "Agent(my-custom-agent)"          // Allow custom agent
+    ],
+
+    "deny": [
+      "Bash(rm -rf *)"
+      "// "Bash(curl *)",                   // Deny all curl
+      "// "Read(./.env)",                   // Deny reading .env files
+      "// "Read(./.env.*)",                 // Deny reading .env.* files
+      "// "WebSearch",                      // Deny web search entirely
+      "// "WebFetch"                        // Deny web fetch entirely
+    ]
+
+    "// ── Managed-policy settings (enterprise only) ──────────────────────────────": "",
+    "// \"disableBypassPermissionsMode\": \"disable\",     // Prevent permission bypass": "",
+    "// \"allowManagedPermissionRulesOnly\": true,        // Enforce managed permission rules only": "",
+    "// \"allowManagedHooksOnly\": true,                   // Enforce managed hooks only": "",
+    "// \"allowManagedMcpServersOnly\": true,              // Enforce managed MCP servers only": "",
+    "// \"deniedMcpServers\": [\"dangerous-server\"],       // Block specific MCP servers": "",
+  },
+
+  "// ── Hooks ───────────────────────────────────────────────────────────────────": "",
+  "// Run commands at specific lifecycle points.": "",
+  "// Available hooks: PreToolUse, PostToolUse, Notification, Stop": "",
+  "// Each hook entry: {\"matcher\": \"...\" (optional), \"hooks\": [{\"type\": \"command\", \"command\": \"...\"}]}": "",
+  "// Matcher: regex matching tool names (Edit, Write, Bash, Read, Grep, Glob, WebSearch, WebFetch, Agent)": "",
+
+  "hooks": {
+    "// ── After any tool use ────────────────────────────────────────────────────": "",
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | xargs npx prettier --write"
+          }
+        ]
+      }
+      // {
+      //   "matcher": "Bash",
+      //   "hooks": [
+      //     {
+      //       "type": "command",
+      //       "command": "echo \"Bash command executed\" >> /tmp/audit.log"
+      //     }
+      //   ]
+      // }
+    ]
+
+    "// ── Before tool use (can block execution) ──────────────────────────────────": "",
+    "// "PreToolUse": [": "",
+    "//   {": "",
+    "//     "matcher": "Bash",": "",
+    "//     "hooks": [": "",
+    "//       { "type": "command", "command": "echo 'Bash blocked' >&2; exit 2" }": "",
+    "//     ]": "",
+    "//   }": "",
+    "// ],": "",
+
+    "// ── On notification ────────────────────────────────────────────────────────": "",
+    "// "Notification": [": "",
+    "//   { "type": "command", "command": "echo 'Notification received'" }": "",
+    "// ],": "",
+
+    "// ── On stop (after response completes) ──────────────────────────────────────": "",
+    "// "Stop": [": "",
+    "//   { "type": "command", "command": "npm run lint" }": "",
+    "// ],": ""
+  },
+
+  "// ── Sandbox settings ──────────────────────────────────────────────────────": "",
+  "// "sandbox": {": "",
+  "//   "autoAllowBashIfSandboxed": false,": "",
+  "//   "excludedCommands": [],": "",
+  "//   "network": {": "",
+  "//     "allowUnixSockets": [],": "",
+  "//     "allowAllUnixSockets": false,": "",
+  "//     "allowLocalBinding": false,": "",
+  "//     "allowedDomains": []": "",
+  "//   }": "",
+  "// },": "",
+
+  "// ── MCP server allow/deny (managed settings) ──────────────────────────────": "",
+  "// "allowedMcpServers": ["github", "filesystem"],": "",
+  "// "deniedMcpServers": ["dangerous-server"],": ""
+}

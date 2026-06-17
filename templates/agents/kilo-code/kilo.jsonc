@@ -1,26 +1,92 @@
 {
+  // =============================================================================
+  // Kilo Code — Main Configuration (Full Reference)
+  // Format: JSONC (JSON with comments)
+  //
+  // Placement:
+  //   Global:    ~/.config/kilo/kilo.jsonc
+  //   Project:   kilo.jsonc (project root)
+  //              .kilo/kilo.jsonc (alternative)
+  //   Managed:   /etc/kilo/kilo.json (enterprise, overrides everything)
+  //
+  // Override config path with env: KILO_CONFIG, KILO_CONFIG_CONTENT.
+  // Schema: https://app.kilo.ai/config.json
+  //
+  // Edit sections you need; remove the rest. JSONC supports // comments.
+  // =============================================================================
+
   "$schema": "https://app.kilo.ai/config.json",
 
+  // ── Identity ────────────────────────────────────────────────────────────────
+  // Username shown in the TUI and used for git commits.
+
   "username": "developer",
+
+  // ── Model ────────────────────────────────────────────────────────────────────
+  // Format: provider/model-id (e.g. anthropic/claude-sonnet-4-20250514).
+  // Providers must be configured in the "provider" section below.
+  // "model" sets the default (primary) model.
+  // "small_model" sets the fast/cheap model used for subagents and quick tasks.
 
   "model": "anthropic/claude-sonnet-4-20250514",
   "small_model": "anthropic/claude-haiku-4-20250514",
 
+  // ── Default Agent ───────────────────────────────────────────────────────────
+  // Name of the agent to use by default when starting Kilo Code.
+  // Must match a key in the "agent" section or a built-in agent name.
+
   "default_agent": "code",
 
+  // ── Shell ────────────────────────────────────────────────────────────────────
+  // Shell used for bash tool commands. Default: system shell.
+
   "shell": "/bin/zsh",
+
+  // ── Log Level ───────────────────────────────────────────────────────────────
+  // One of: DEBUG | INFO | WARN | ERROR
+
   "logLevel": "INFO",
 
+  // ── Sharing ─────────────────────────────────────────────────────────────────
+  // How to handle sharing sessions.
+  // "manual" = ask before sharing, "always" = auto-share, "never" = never share.
+
   "share": "manual",
+
+  // ── Auto-update ─────────────────────────────────────────────────────────────
+  // Automatically check for updates.
+
   "autoupdate": true,
+
+  // ── Snapshot ─────────────────────────────────────────────────────────────────
+  // Automatically snapshot conversation state for crash recovery.
+
   "snapshot": true,
 
+  // ── Instructions ─────────────────────────────────────────────────────────────
+  // Files loaded as system instructions, in addition to AGENTS.md.
+  // Paths are relative to the project root.
+  // Precedence: agent.prompt > config instructions > AGENTS.md.
+
   "instructions": ["AGENTS.md", "docs/style.md"],
+
+  // ── Skills ───────────────────────────────────────────────────────────────────
+  // Register skill directories and remote skill URLs.
+  // paths: local directories to scan for SKILL.md files.
+  // urls: remote URLs serving OpenAI-compatible well-known skill manifests.
+  // Compat directories .claude/skills/ and .agents/skills/ are also scanned.
 
   "skills": {
     "paths": [".kilo/skills", "/absolute/path/to/skills"],
     "urls": ["https://example.com/.well-known/skills/"]
   },
+
+  // ── References ──────────────────────────────────────────────────────────────
+  // Codebase references for context injection.
+  // path:       local directory to index.
+  // repository: GitHub repo reference (owner/repo). branch is optional.
+  // description: what this reference is used for.
+  // hidden:     if true, reference is indexed but not shown in UI.
 
   "references": {
     "docs": {
@@ -34,6 +100,21 @@
       "hidden": true
     }
   },
+
+  // ── Agents ───────────────────────────────────────────────────────────────────
+  // Define custom agents or override built-in ones.
+  // Each key becomes the agent name.
+  // mode:       "primary" (user-facing, in agent picker), Tab to switch;
+  //             "subagent" (only via Task tool or @mention);
+  //             "all" (both; default for custom agents).
+  // model:      model override in provider/model-id format.
+  //             Subagents inherit the invoking primary agent's model if not set.
+  // prompt:     system prompt text, or "{file:./path}" for external file.
+  // permission: per-agent tool permissions (glob patterns for bash, file patterns for edit).
+  // steps:      max agentic iterations before text-only response.
+  // hidden:     true = hide from @ autocomplete (still Task-invocable).
+  // color:      hex color or theme keyword (primary, accent, error, warning).
+  // disable:    true = remove agent entirely.
 
   "agent": {
     "code-reviewer": {
@@ -74,6 +155,8 @@
         }
       }
     },
+
+    // Orchestrator agent that delegates to specialized subagents only.
     "orchestrator": {
       "description": "Delegates tasks to specialized subagents",
       "mode": "primary",
@@ -86,14 +169,54 @@
         }
       }
     }
+
+    // ── More agent examples ─────────────────────────────────────────────────
+    // "plan": {
+    //   "mode": "primary",
+    //   "model": "anthropic/claude-haiku-4-20250514",
+    //   "permission": {
+    //     "edit": "deny",
+    //     "bash": "deny"
+    //   }
+    // },
+    // "researcher": {
+    //   "description": "Deep research on any topic",
+    //   "mode": "subagent",
+    //   "model": "anthropic/claude-sonnet-4-20250514",
+    //   "steps": 50,
+    //   "permission": {
+    //     "websearch": "allow",
+    //     "webfetch": "ask"
+    //   }
+    // }
   },
+
+  // ── Commands (Slash Commands) ────────────────────────────────────────────────
+  // Define custom slash commands accessible as /<name>.
+  // description: shown in command palette.
+  // prompt: the prompt sent when the command is invoked.
 
   "command": {
     "deploy": {
       "description": "Deploy the current project to staging",
       "prompt": "Deploy the project following the deployment checklist in docs/deploy.md"
     }
+
+    // "review": {
+    //   "description": "Run code review on staged changes",
+    //   "prompt": "Review all staged changes with git diff --staged"
+    // },
+    // "test-coverage": {
+    //   "description": "Run tests and check coverage",
+    //   "prompt": "Run the test suite and analyze coverage for untested paths"
+    // }
   },
+
+  // ── Providers ────────────────────────────────────────────────────────────────
+  // Configure API providers. Each key is a provider identifier.
+  // apiKey: use "env:VAR_NAME" to reference environment variables.
+  // api_url: optional custom API endpoint URL for proxying.
+  // Supports 75+ providers via OpenRouter, OpenAI-compatible APIs, etc.
 
   "provider": {
     "anthropic": {
@@ -106,11 +229,40 @@
         "apiKey": "env:OPENAI_API_KEY"
       }
     }
+
+    // "google": {
+    //   "options": {
+    //     "apiKey": "env:GOOGLE_API_KEY"
+    //   }
+    // },
+    // "openrouter": {
+    //   "options": {
+    //     "apiKey": "env:OPENROUTER_API_KEY",
+    //     "api_url": "https://openrouter.ai/api/v1"
+    //   }
+    // },
+    // "ollama": {
+    //   "options": {
+    //     "api_url": "http://localhost:11434/v1"
+    //   }
+    // }
   },
+
+  // ── Provider Filtering ──────────────────────────────────────────────────────
+  // enabled_providers:  only these providers are available (empty = all).
+  // disabled_providers: these providers are excluded.
+
   "disabled_providers": [],
   "enabled_providers": ["anthropic", "openai"],
 
+  // ── MCP Servers ─────────────────────────────────────────────────────────────
+  // Define MCP tool servers.
+  // type: "local" (stdio, command + args + env/environment) or "remote" (HTTP/SSE, url + headers).
+  // environment / env: environment variables to set. Use "env:VAR_NAME" to forward from shell.
+  // enabled: true/false to toggle servers.
+
   "mcp": {
+    // ── Local (stdio) MCP server ─────────────────────────────────────────────
     "filesystem": {
       "type": "local",
       "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/workspace"],
@@ -119,6 +271,8 @@
         "NODE_ENV": "production"
       }
     },
+
+    // ── Local MCP server with env var forwarding ─────────────────────────────
     "github-api": {
       "type": "local",
       "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
@@ -127,6 +281,8 @@
         "GITHUB_PERSONAL_ACCESS_TOKEN": "env:GITHUB_TOKEN"
       }
     },
+
+    // ── Remote (HTTP) MCP server ─────────────────────────────────────────────
     "remote-api": {
       "type": "remote",
       "url": "https://api.example.com/mcp",
@@ -135,7 +291,47 @@
       },
       "enabled": true
     }
+
+    // ── Additional MCP server examples ───────────────────────────────────────
+    // "postgres": {
+    //   "type": "local",
+    //   "command": ["npx", "-y", "@modelcontextprotocol/server-postgres",
+    //                "postgresql://localhost/mydb"],
+    //   "enabled": true
+    // },
+    // "fetch": {
+    //   "type": "local",
+    //   "command": ["npx", "-y", "@modelcontextprotocol/server-fetch"],
+    //   "enabled": true
+    // }
   },
+
+  // ── Plugins ─────────────────────────────────────────────────────────────────
+  // TS/JS plugin packages or local paths.
+  // npm packages (with optional version): "kilo-gemini-auth", "kilo-foo@1.2.3"
+  // Local paths: "./local-plugin.ts"
+
+  "plugin": [
+    "opencode-gemini-auth",
+    "./local-plugin.ts"
+  ],
+
+  // ── Permissions ─────────────────────────────────────────────────────────────
+  // Global tool permissions. Each key is a tool name or category.
+  // Values: "allow" (no prompt), "ask" (prompt user), "deny" (block).
+  // For bash and edit: can be a map of glob patterns where last match wins.
+  // Known permission types: read, edit, bash, glob, grep, task, webfetch,
+  //                        websearch, todowrite, todoread, skill, and more.
+  //
+  // Skill-level permission patterns:
+  //   "*" = allow all skills
+  //   "internal-*" = deny skills matching pattern
+  //   "experimental-*" = ask for experimental skills
+  //
+  // Subagent delegation control:
+  //   task:
+  //     "*": "deny"          # deny all by default
+  //     "code-reviewer": "allow"  # allow specific subagents
 
   "permission": {
     "edit": "allow",
@@ -152,18 +348,42 @@
     }
   },
 
+  // ── Formatting ──────────────────────────────────────────────────────────────
+  // Enable/disable auto-formatting of edited files.
+  // Set to true to enable (uses prettier or project formatter).
+
   "formatter": false,
+
+  // ── LSP ──────────────────────────────────────────────────────────────────────
+  // Enable LSP support (diagnostics, hover, completion).
+  // Note: Kilo Code does not have built-in LSP — set to false.
+
   "lsp": false,
+
+  // ── Experimental ─────────────────────────────────────────────────────────────
+  // Experimental features that may change or be removed.
+  // primary_tools: tools available to primary agents.
+  // mcp_timeout: timeout for MCP tool calls in milliseconds.
 
   "experimental": {
     "primary_tools": ["edit"],
     "mcp_timeout": 30000
   },
 
+  // ── Tool Output ──────────────────────────────────────────────────────────────
+  // Control how much tool output is shown in the conversation.
+  // max_lines: maximum lines of tool output to display.
+  // max_bytes: maximum bytes of tool output to display.
+
   "tool_output": {
     "max_lines": 200,
     "max_bytes": 8192
   },
+
+  // ── Compaction ───────────────────────────────────────────────────────────────
+  // Control automatic context compaction.
+  // auto: true = automatically compact when context grows large.
+  // tail_turns: number of recent turns to keep after compaction.
 
   "compaction": {
     "auto": true,

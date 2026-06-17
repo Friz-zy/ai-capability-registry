@@ -1,5 +1,18 @@
 # Amazon Kiro Configuration Templates
 
+## Template Files
+
+| File | Description |
+|------|-------------|
+| `agent.json.example` | Full agent config reference (JSON — delete `//` keys before use). See `REFERENCE.md` for field-by-field docs. |
+| `mcp.json.example` | Full MCP server config reference (JSON — delete `//` keys before use) |
+| `SKILL.md` | Skill definition template with frontmatter fields |
+| `AGENTS.md` | Project instructions template (always active) |
+| `steering-always.md` | Steering file — always active (`mode: always`) |
+| `steering-conditional.md` | Steering file — active on matching glob (`condition: "*.ts"`) |
+| `steering-manual.md` | Steering file — manual activation (`mode: manual`, use `#name`) |
+| `REFERENCE.md` | Field-by-field reference for `agent.json` fields |
+
 ## Where to Place Files
 
 | File | Global | Project |

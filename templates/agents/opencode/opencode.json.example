@@ -1,0 +1,322 @@
+{
+  "// =============================================================================": "",
+  "// OpenCode — Main Configuration (Full Reference)": "",
+  "// Format: JSON (no native comments — delete all \"//\" keys before use)": "",
+  "//": "",
+  "// Placement:": "",
+  "//   Global:    ~/.config/opencode/opencode.json": "",
+  "//   Project:   opencode.json (project root)": "",
+  "//              .opencode/opencode.json (alternative)": "",
+  "//   Managed:   MDM .mobileconfig (enterprise)": "",
+  "//": "",
+  "// Override config path with env: OPENCODE_CONFIG, OPENCODE_CONFIG_CONTENT, OPENCODE_CONFIG_DIR.": "",
+  "// Schema: https://opencode.ai/config.json": "",
+  "// Copy this file to opencode.json, remove comment keys, uncomment what you need.": "",
+  "// =============================================================================": "",
+
+  "$schema": "https://opencode.ai/config.json",
+
+  "// ── Identity ────────────────────────────────────────────────────────────────": "",
+  "// Username shown in the TUI and used for commits.": "",
+
+  "username": "developer",
+
+  "// ── Model ─────────────────────────────────────────────────────────────────": "",
+  "// Format: provider/model-id (e.g. anthropic/claude-sonnet-4-20250514).": "",
+  "// Providers must be configured in the \"provider\" section below.": "",
+  "// The \"model\" key sets the default (primary) model.": "",
+  "// The \"small_model\" key sets the fast/cheap model used for subagents.": "",
+
+  "model": "anthropic/claude-sonnet-4-20250514",
+  "small_model": "anthropic/claude-haiku-4-20250514",
+
+  "// ── Default Agent ──────────────────────────────────────────────────────────": "",
+  "// Name of the agent to use by default when starting OpenCode.": "",
+  "// Must match a key in the \"agent\" section or a built-in agent name.": "",
+
+  "default_agent": "code",
+
+  "// ── Shell ──────────────────────────────────────────────────────────────────": "",
+  "// Shell used for bash tool commands. Default: system shell.": "",
+
+  "shell": "/bin/zsh",
+
+  "// ── Log Level ─────────────────────────────────────────────────────────────": "",
+  "// One of: DEBUG | INFO | WARN | ERROR": "",
+
+  "logLevel": "INFO",
+
+  "// ── Sharing ────────────────────────────────────────────────────────────────": "",
+  "// How to handle sharing sessions.": "",
+  "// \"manual\" = ask before sharing, \"always\" = auto-share, \"never\" = never share.": "",
+
+  "share": "manual",
+
+  "// ── Auto-update ────────────────────────────────────────────────────────────": "",
+  "// Automatically check for updates.": "",
+
+  "autoupdate": true,
+
+  "// ── Snapshot ────────────────────────────────────────────────────────────────": "",
+  "// Automatically snapshot conversation state for crash recovery.": "",
+
+  "snapshot": true,
+
+  "// ── Instructions ────────────────────────────────────────────────────────────": "",
+  "// Files loaded as system instructions, in addition to AGENTS.md.": "",
+  "// Paths are relative to the project root.": "",
+  "// Precedence: agent.prompt > config instructions > AGENTS.md.": "",
+
+  "instructions": ["AGENTS.md", "docs/style.md"],
+
+  "// ── Skills ──────────────────────────────────────────────────────────────────": "",
+  "// Register skill directories and remote skill URLs.": "",
+  "// paths: local directories to scan for SKILL.md files.": "",
+  "// urls: remote URLs serving OpenAI-compatible well-known skill manifests.": "",
+
+  "skills": {
+    "paths": [".opencode/skills", "/absolute/path/to/skills"],
+    "urls": ["https://example.com/.well-known/skills/"]
+  },
+
+  "// ── References ──────────────────────────────────────────────────────────────": "",
+  "// Codebase references for context injection.": "",
+  "// path:     local directory to index.": "",
+  "// repository: GitHub repo reference (owner/repo). branch is optional.": "",
+  "// description: what this reference is used for.": "",
+  "// hidden:  if true, reference is indexed but not shown in UI.": "",
+
+  "references": {
+    "docs": {
+      "path": "../docs",
+      "description": "Use for product behavior and documentation conventions"
+    },
+    "sdk": {
+      "repository": "owner/sdk",
+      "branch": "main",
+      "description": "Use for SDK implementation details",
+      "hidden": true
+    }
+  },
+
+  "// ── Agents ──────────────────────────────────────────────────────────────────": "",
+  "// Define custom agents or override built-in ones.": "",
+  "// Each key becomes the agent name.": "",
+  "// mode:        \"primary\" (user-facing, in mode picker),": "",
+  "//              \"subagent\" (only via Task tool),": "",
+  "//              \"all\" (both; default for custom agents).": "",
+  "// model:       model override in provider/model-id format.": "",
+  "// prompt:      system prompt text, or \"{file:./path}\" for external file.": "",
+  "// permission:  per-agent tool permissions.": "",
+  "// description: shown to orchestrator for delegation decisions.": "",
+
+  "agent": {
+    "code-reviewer": {
+      "description": "Reviews code for best practices and potential issues",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "model": "anthropic/claude-haiku-4-20250514",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    },
+    "docs-writer": {
+      "description": "Specialized for writing and editing technical documentation",
+      "mode": "primary",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "prompt": "{file:./prompts/docs-writer.txt}",
+      "permission": {
+        "edit": {
+          "*.md": "allow",
+          "*": "deny"
+        },
+        "bash": "deny"
+      }
+    }
+  },
+
+  "// ── Commands (Slash Commands) ──────────────────────────────────────────────": "",
+  "// Define custom slash commands accessible as /<name>.": "",
+  "// Each key becomes the command name.": "",
+  "// description: shown in command palette.": "",
+  "// prompt: the prompt sent when the command is invoked.": "",
+
+  "command": {
+    "deploy": {
+      "description": "Deploy the current project to staging",
+      "prompt": "Deploy the project following the deployment checklist in docs/deploy.md"
+    }
+  },
+
+  "// ── Providers ──────────────────────────────────────────────────────────────": "",
+  "// Configure API providers. Each key is a provider identifier.": "",
+  "// apiKey: use \"env:VAR_NAME\" to reference environment variables.": "",
+  "// api_url: optional custom API endpoint URL.": "",
+  "// You can also set OPENCODE_PROVIDER_API_KEY env var.": "",
+
+  "provider": {
+    "anthropic": {
+      "options": {
+        "apiKey": "env:ANTHROPIC_API_KEY"
+      }
+    },
+    "openai": {
+      "options": {
+        "apiKey": "env:OPENAI_API_KEY"
+      }
+    }
+  },
+
+  "// ── Provider Filtering ──────────────────────────────────────────────────────": "",
+  "// enabled_providers:  only these providers are available (empty = all).": "",
+  "// disabled_providers: these providers are excluded.": "",
+
+  "disabled_providers": [],
+  "enabled_providers": ["anthropic", "openai"],
+
+  "// ── MCP Servers ────────────────────────────────────────────────────────────": "",
+  "// Define MCP tool servers.": "",
+  "// type: \"local\" (stdio) or \"remote\" (HTTP/SSE).": "",
+  "// For local: command (required), env (optional).": "",
+  "// For remote: url (required), headers (optional).": "",
+  "// enabled: true/false to toggle servers.": "",
+
+  "mcp": {
+    "// ── Local (stdio) MCP server ──────────────────────────────────────────────": "",
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/workspace"],
+      "enabled": true,
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+
+    "// ── Local MCP server with env var forwarding ──────────────────────────────": "",
+    "github-api": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "enabled": true,
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "env:GITHUB_TOKEN"
+      }
+    },
+
+    "// ── Remote (HTTP) MCP server ──────────────────────────────────────────────": "",
+    "remote-api": {
+      "type": "remote",
+      "url": "https://api.example.com/mcp",
+      "headers": {
+        "Authorization": "Bearer env:API_TOKEN"
+      },
+      "enabled": true
+    }
+
+    "// ── Additional MCP servers ──────────────────────────────────────────────": "",
+    "// "postgres": {": "",
+    "//   "type": "local",": "",
+    "//   "command": ["npx", "-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/mydb"],": "",
+    "//   "enabled": true": "",
+    "// },": "",
+    "// "fetch": {": "",
+    "//   "type": "local",": "",
+    "//   "command": ["npx", "-y", "@modelcontextprotocol/server-fetch"],": "",
+    "//   "enabled": true": "",
+    "// },": "",
+    "// "another-remote": {": "",
+    "//   "type": "remote",": "",
+    "//   "url": "https://other-api.example.com/mcp",": "",
+    "//   "headers": { "X-API-Key": "env:MY_OTHER_KEY" },": "",
+    "//   "enabled": true": "",
+    "// }": ""
+  },
+
+  "// ── Plugins ─────────────────────────────────────────────────────────────────": "",
+  "// TS/JS plugin packages or local paths.": "",
+  "// npm packages (with optional version):": "",
+  "//   \"opencode-gemini-auth\", \"opencode-foo@1.2.3\"": "",
+  "// Local paths:": "",
+  "//   \"./local-plugin.ts\"": "",
+  "// With config:": "",
+  "//   [\"opencode-bar\", { \"option\": \"value\" }]": "",
+
+  "plugin": [
+    "opencode-gemini-auth",
+    "./local-plugin.ts"
+  ],
+
+  "// ── Permissions ────────────────────────────────────────────────────────────": "",
+  "// Global tool permissions. Each key is a tool name or category.": "",
+  "// Values: \"allow\" (no prompt), \"ask\" (prompt), \"deny\" (block).": "",
+  "// For bash and edit: can be a map of glob patterns where last match wins.": "",
+  "// Skill permissions use glob patterns on skill names.": "",
+
+  "permission": {
+    "edit": "allow",
+    "bash": {
+      "*": "ask",
+      "git *": "allow",
+      "git commit *": "ask",
+      "git push *": "deny",
+      "npm test *": "allow",
+      "npm run *": "allow",
+      "grep *": "allow"
+    },
+    "skill": {
+      "*": "allow",
+      "internal-*": "deny",
+      "experimental-*": "ask"
+    }
+  },
+
+  "// ── Formatting ──────────────────────────────────────────────────────────────": "",
+  "// Enable/disable auto-formatting of edited files.": "",
+  "// Set to true to enable (uses prettier or project formatter).": "",
+
+  "formatter": false,
+
+  "// ── LSP ──────────────────────────────────────────────────────────────────────": "",
+  "// Enable built-in LSP support (diagnostics, hover, completion).": "",
+  "// No plugin required — OpenCode has native LSP.": "",
+
+  "lsp": true,
+
+  "// ── Experimental ────────────────────────────────────────────────────────────": "",
+  "// Experimental features that may change or be removed.": "",
+  "// primary_tools: tools available to primary agents.": "",
+  "// mcp_timeout: timeout for MCP tool calls in milliseconds.": "",
+
+  "experimental": {
+    "primary_tools": ["edit"],
+    "mcp_timeout": 30000
+  },
+
+  "// ── Tool Output ──────────────────────────────────────────────────────────────": "",
+ "// Control how much tool output is shown in the conversation.": "",
+  "// max_lines: maximum lines of tool output to display.": "",
+  "// max_bytes: maximum bytes of tool output to display.": "",
+
+  "tool_output": {
+    "max_lines": 200,
+    "max_bytes": 8192
+  },
+
+  "// ── Compaction ──────────────────────────────────────────────────────────────": "",
+ "// Control automatic context compaction.": "",
+  "// auto: true = automatically compact when context grows large.": "",
+  "// tail_turns: number of recent turns to keep after compaction.": "",
+
+  "compaction": {
+    "auto": true,
+    "tail_turns": 15
+  }
+}
