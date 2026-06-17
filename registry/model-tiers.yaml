@@ -1,0 +1,476 @@
+# Model tier presets for AI providers connectable to CLI coding agents.
+# Tiers: junior (fast/cheap), middle (balanced), senior (high capability), lead (maximum capability).
+# Ranking based on public benchmarks, OpenRouter pricing, and capability data as of 2026-06.
+# Benchmark: Artificial Analysis Coding Index (https://artificialanalysis.ai).
+# Score 0-100, higher is better. Composite coding capability metric. null = not yet evaluated.
+
+schema_version: "1.3"
+
+tier_definitions:
+  junior:
+    description: Fastest and cheapest. Good for high-volume, low-complexity tasks.
+    characteristics: [fast_response, low_cost, reduced_reasoning_depth]
+    typical_use_cases: [classification, simple_edits, formatting, boilerplate_generation, summarization]
+  middle:
+    description: Best balance of speed, cost, and intelligence. Default for most tasks.
+    characteristics: [balanced_speed_and_intelligence, cost_effective, solid_reasoning]
+    typical_use_cases: [feature_implementation, debugging, refactoring, code_review, documentation]
+  senior:
+    description: High capability for complex reasoning and large-context tasks.
+    characteristics: [strong_reasoning, large_context_window, extended_thinking, nuanced_understanding]
+    typical_use_cases: [architecture_decisions, complex_bug_analysis, multi_file_refactoring, security_review]
+  lead:
+    description: Maximum capability. For mission-critical, highest-difficulty tasks.
+    characteristics: [frontier_reasoning, maximum_context, best_instruction_following, deepest_analysis]
+    typical_use_cases: [system_design, critical_security_audit, novel_algorithm_design, complex_migration_planning]
+
+providers:
+  - id: anthropic
+    tiers:
+      junior:
+        models:
+          - model_id: claude-haiku-4-5
+            openrouter_id: anthropic/claude-haiku-4.5
+            context: 200000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.00, output: 5.00 }
+            coding_index: 32.6
+      middle:
+        models:
+          - model_id: claude-sonnet-4-6
+            openrouter_id: anthropic/claude-sonnet-4.6
+            context: 1000000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 3.00, output: 15.00 }
+            coding_index: 50.9
+      senior:
+        models:
+          - model_id: claude-opus-4-8
+            openrouter_id: anthropic/claude-opus-4.8
+            context: 1000000
+            max_output: 128000
+            pricing_per_million_tokens: { input: 5.00, output: 25.00 }
+            coding_index: 56.7
+      lead:
+        models:
+          - model_id: claude-fable-5
+            openrouter_id: anthropic/claude-fable-5
+            context: 1000000
+            max_output: 128000
+            pricing_per_million_tokens: { input: 10.00, output: 50.00 }
+            coding_index: 62.0
+
+  - id: openai
+    tiers:
+      junior:
+        models:
+          - model_id: gpt-5.4-nano
+            openrouter_id: openai/gpt-5.4-nano
+            context: 400000
+            max_output: 32000
+            pricing_per_million_tokens: { input: 0.20, output: 1.25 }
+            coding_index: 43.9
+      middle:
+        models:
+          - model_id: gpt-5.4-mini
+            openrouter_id: openai/gpt-5.4-mini
+            context: 400000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.75, output: 4.50 }
+            coding_index: 51.5
+      senior:
+        models:
+          - model_id: gpt-5.5
+            openrouter_id: openai/gpt-5.5
+            context: 1048576
+            max_output: 128000
+            pricing_per_million_tokens: { input: 5.00, output: 30.00 }
+            coding_index: 59.1
+          - model_id: gpt-5.3-codex
+            openrouter_id: openai/gpt-5.3-codex
+            context: 400000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.75, output: 14.00 }
+            coding_index: 53.1
+      lead:
+        models:
+          - model_id: gpt-5.5
+            openrouter_id: openai/gpt-5.5
+            context: 1048576
+            max_output: 128000
+            pricing_per_million_tokens: { input: 5.00, output: 30.00 }
+            coding_index: 59.1
+          - model_id: gpt-5.5-pro
+            openrouter_id: openai/gpt-5.5-pro
+            context: 1048576
+            max_output: 128000
+            pricing_per_million_tokens: { input: 30.00, output: 180.00 }
+            coding_index: null
+          - model_id: o3-pro
+            openrouter_id: openai/o3-pro
+            context: 200000
+            max_output: 100000
+            pricing_per_million_tokens: { input: 20.00, output: 80.00 }
+            coding_index: null
+
+  - id: google
+    tiers:
+      junior:
+        models:
+          - model_id: gemini-3.1-flash-lite
+            openrouter_id: google/gemini-3.1-flash-lite
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.25, output: 1.50 }
+            coding_index: null
+      middle:
+        models:
+          - model_id: gemini-3-flash-preview
+            openrouter_id: google/gemini-3-flash-preview
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.50, output: 3.00 }
+            coding_index: 42.6
+      senior:
+        models:
+          - model_id: gemini-3.1-pro-preview
+            openrouter_id: google/gemini-3.1-pro-preview
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 2.00, output: 12.00 }
+            coding_index: 55.5
+          - model_id: gemini-3.5-flash
+            openrouter_id: google/gemini-3.5-flash
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.50, output: 9.00 }
+            coding_index: 45.0
+      lead:
+        models:
+          - model_id: gemini-3.1-pro-preview
+            openrouter_id: google/gemini-3.1-pro-preview
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 2.00, output: 12.00 }
+            coding_index: 55.5
+
+  - id: xai
+    tiers:
+      junior:
+        models:
+          - model_id: grok-build-0.1
+            openrouter_id: x-ai/grok-build-0.1
+            context: 256000
+            max_output: 32000
+            pricing_per_million_tokens: { input: 1.00, output: 2.00 }
+            coding_index: null
+      middle:
+        models:
+          - model_id: grok-4.3
+            openrouter_id: x-ai/grok-4.3
+            context: 1000000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.25, output: 2.50 }
+            coding_index: 41.0
+          - model_id: grok-build-0.1
+            openrouter_id: x-ai/grok-build-0.1
+            context: 256000
+            max_output: 32000
+            pricing_per_million_tokens: { input: 1.00, output: 2.00 }
+            coding_index: null
+      senior:
+        models:
+          - model_id: grok-4.3
+            openrouter_id: x-ai/grok-4.3
+            context: 1000000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.25, output: 2.50 }
+            coding_index: 41.0
+      lead:
+        models:
+          - model_id: grok-4.20
+            openrouter_id: x-ai/grok-4.20
+            context: 2000000
+            max_output: 128000
+            pricing_per_million_tokens: { input: 2.00, output: 6.00 }
+            coding_index: 42.2
+
+  - id: deepseek
+    tiers:
+      junior:
+        models:
+          - model_id: deepseek-v4-flash
+            openrouter_id: deepseek/deepseek-v4-flash
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.09, output: 0.18 }
+            coding_index: 38.7
+      middle:
+        models:
+          - model_id: deepseek-v4-flash
+            openrouter_id: deepseek/deepseek-v4-flash
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.09, output: 0.18 }
+            coding_index: 38.7
+      senior:
+        models:
+          - model_id: deepseek-v4-pro
+            openrouter_id: deepseek/deepseek-v4-pro
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.43, output: 0.87 }
+            coding_index: 47.5
+      lead:
+        models:
+          - model_id: deepseek-v4-pro
+            openrouter_id: deepseek/deepseek-v4-pro
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.43, output: 0.87 }
+            coding_index: 47.5
+
+  - id: z-ai
+    tiers:
+      junior:
+        models:
+          - model_id: glm-4.7-flash
+            openrouter_id: z-ai/glm-4.7-flash
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.06, output: 0.40 }
+            coding_index: 25.9
+      middle:
+        models:
+          - model_id: glm-4.7
+            openrouter_id: z-ai/glm-4.7
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.40, output: 1.75 }
+            coding_index: 36.3
+          - model_id: glm-5-turbo
+            openrouter_id: z-ai/glm-5-turbo
+            context: 262144
+            max_output: 131072
+            pricing_per_million_tokens: { input: 1.20, output: 4.00 }
+            coding_index: 36.8
+      senior:
+        models:
+          - model_id: glm-5
+            openrouter_id: z-ai/glm-5
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.60, output: 1.92 }
+            coding_index: 44.2
+          - model_id: glm-4.7
+            openrouter_id: z-ai/glm-4.7
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.40, output: 1.75 }
+            coding_index: 36.3
+      lead:
+        models:
+          - model_id: glm-5.2
+            openrouter_id: z-ai/glm-5.2
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 1.40, output: 4.40 }
+            coding_index: null
+          - model_id: glm-5.1
+            openrouter_id: z-ai/glm-5.1
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.98, output: 3.08 }
+            coding_index: 43.4
+
+  - id: openrouter
+    notes: OpenRouter is an aggregator, not a model provider. Model IDs use "provider/model" format. Platform fee 5.5% on paid model tokens.
+    tiers:
+      junior:
+        models:
+          - model_id: deepseek/deepseek-v4-flash
+            openrouter_id: deepseek/deepseek-v4-flash
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.09, output: 0.18 }
+            coding_index: 38.7
+          - model_id: google/gemini-3.1-flash-lite
+            openrouter_id: google/gemini-3.1-flash-lite
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.26, output: 1.58 }
+            coding_index: null
+          - model_id: openai/gpt-5.4-nano
+            openrouter_id: openai/gpt-5.4-nano
+            context: 400000
+            max_output: 32000
+            pricing_per_million_tokens: { input: 0.21, output: 1.32 }
+            coding_index: 43.9
+          - model_id: anthropic/claude-haiku-4.5
+            openrouter_id: anthropic/claude-haiku-4.5
+            context: 200000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.05, output: 5.25 }
+            coding_index: 32.6
+          - model_id: z-ai/glm-4.7-flash
+            openrouter_id: z-ai/glm-4.7-flash
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.06, output: 0.42 }
+            coding_index: 25.9
+      middle:
+        models:
+          - model_id: anthropic/claude-sonnet-4.6
+            openrouter_id: anthropic/claude-sonnet-4.6
+            context: 1000000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 3.16, output: 15.80 }
+            coding_index: 50.9
+          - model_id: openai/gpt-5.4-mini
+            openrouter_id: openai/gpt-5.4-mini
+            context: 400000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.79, output: 4.75 }
+            coding_index: 51.5
+          - model_id: google/gemini-3-flash-preview
+            openrouter_id: google/gemini-3-flash-preview
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.53, output: 3.17 }
+            coding_index: 42.6
+          - model_id: x-ai/grok-4.3
+            openrouter_id: x-ai/grok-4.3
+            context: 1000000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.31, output: 2.64 }
+            coding_index: 41.0
+          - model_id: deepseek/deepseek-v4-flash
+            openrouter_id: deepseek/deepseek-v4-flash
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.09, output: 0.18 }
+            coding_index: 38.7
+          - model_id: z-ai/glm-4.7
+            openrouter_id: z-ai/glm-4.7
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.42, output: 1.84 }
+            coding_index: 36.3
+          - model_id: z-ai/glm-5-turbo
+            openrouter_id: z-ai/glm-5-turbo
+            context: 262144
+            max_output: 131072
+            pricing_per_million_tokens: { input: 1.27, output: 4.22 }
+            coding_index: 36.8
+      senior:
+        models:
+          - model_id: anthropic/claude-opus-4.8
+            openrouter_id: anthropic/claude-opus-4.8
+            context: 1000000
+            max_output: 128000
+            pricing_per_million_tokens: { input: 5.27, output: 26.35 }
+            coding_index: 56.7
+          - model_id: openai/gpt-5.5
+            openrouter_id: openai/gpt-5.5
+            context: 1048576
+            max_output: 128000
+            pricing_per_million_tokens: { input: 5.27, output: 31.65 }
+            coding_index: 59.1
+          - model_id: google/gemini-3.1-pro-preview
+            openrouter_id: google/gemini-3.1-pro-preview
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 2.11, output: 12.66 }
+            coding_index: 55.5
+          - model_id: deepseek/deepseek-v4-pro
+            openrouter_id: deepseek/deepseek-v4-pro
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.45, output: 0.92 }
+            coding_index: 47.5
+          - model_id: z-ai/glm-5
+            openrouter_id: z-ai/glm-5
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.63, output: 2.02 }
+            coding_index: 44.2
+          - model_id: x-ai/grok-4.3
+            openrouter_id: x-ai/grok-4.3
+            context: 1000000
+            max_output: 64000
+            pricing_per_million_tokens: { input: 1.31, output: 2.64 }
+            coding_index: 41.0
+      lead:
+        models:
+          - model_id: anthropic/claude-opus-4.8
+            openrouter_id: anthropic/claude-opus-4.8
+            context: 1000000
+            max_output: 128000
+            pricing_per_million_tokens: { input: 5.27, output: 26.35 }
+            coding_index: 56.7
+          - model_id: openai/gpt-5.5
+            openrouter_id: openai/gpt-5.5
+            context: 1048576
+            max_output: 128000
+            pricing_per_million_tokens: { input: 5.27, output: 31.65 }
+            coding_index: 59.1
+          - model_id: google/gemini-3.1-pro-preview
+            openrouter_id: google/gemini-3.1-pro-preview
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 2.11, output: 12.66 }
+            coding_index: 55.5
+          - model_id: deepseek/deepseek-v4-pro
+            openrouter_id: deepseek/deepseek-v4-pro
+            context: 1048576
+            max_output: 64000
+            pricing_per_million_tokens: { input: 0.45, output: 0.92 }
+            coding_index: 47.5
+          - model_id: z-ai/glm-5.2
+            openrouter_id: z-ai/glm-5.2
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 1.47, output: 4.64 }
+            coding_index: null
+          - model_id: z-ai/glm-5.1
+            openrouter_id: z-ai/glm-5.1
+            context: 200000
+            max_output: 131072
+            pricing_per_million_tokens: { input: 1.03, output: 3.25 }
+            coding_index: 43.4
+          - model_id: x-ai/grok-4.20
+            openrouter_id: x-ai/grok-4.20
+            context: 2000000
+            max_output: 128000
+            pricing_per_million_tokens: { input: 1.31, output: 2.64 }
+            coding_index: 42.2
+
+recommended_defaults:
+  junior:
+    anthropic: claude-haiku-4-5
+    openai: gpt-5.4-nano
+    google: gemini-3.1-flash-lite
+    xai: grok-build-0.1
+    deepseek: deepseek-v4-flash
+    z-ai: glm-4.7-flash
+  middle:
+    anthropic: claude-sonnet-4-6
+    openai: gpt-5.4-mini
+    google: gemini-3-flash-preview
+    xai: grok-4.3
+    deepseek: deepseek-v4-flash
+    z-ai: glm-4.7
+  senior:
+    anthropic: claude-opus-4-8
+    openai: gpt-5.5
+    google: gemini-3.1-pro-preview
+    xai: grok-4.3
+    deepseek: deepseek-v4-pro
+    z-ai: glm-5
+  lead:
+    anthropic: claude-opus-4-8
+    openai: gpt-5.5
+    google: gemini-3.1-pro-preview
+    xai: grok-4.20
+    deepseek: deepseek-v4-pro
+    z-ai: glm-5.2
