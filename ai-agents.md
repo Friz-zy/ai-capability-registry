@@ -4,7 +4,13 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 
 > Current as of: May 2026. Sources: official documentation, Context7, GitHub repositories.
 
-> **Configuration templates:** [Codex CLI](templates/agents/codex/README.md) · [Claude Code](templates/agents/claude-code/README.md) · [Kilo Code](templates/agents/kilo-code/README.md) · [OpenCode](templates/agents/opencode/README.md) · [Amazon Kiro](templates/agents/amazon-kiro/README.md)
+| Tool | Templates | Docs |
+|------|-----------|------|
+| Codex CLI | [README](templates/agents/codex/README.md) | [config.toml](templates/agents/codex/config.toml) · [agent-role.toml](templates/agents/codex/agent-role.toml) · [SKILL.md](templates/agents/codex/SKILL.md) · [AGENTS.md](templates/agents/codex/AGENTS.md) |
+| Claude Code | [README](templates/agents/claude-code/README.md) | [settings.json](templates/agents/claude-code/settings.json) · [settings.local.json](templates/agents/claude-code/settings.local.json) · [.mcp.json](templates/agents/claude-code/.mcp.json) · [agent.md](templates/agents/claude-code/agent.md) · [SKILL.md](templates/agents/claude-code/SKILL.md) · [command.md](templates/agents/claude-code/command.md) · [CLAUDE.md](templates/agents/claude-code/CLAUDE.md) · [rule.md](templates/agents/claude-code/rule.md) |
+| Kilo Code | [README](templates/agents/kilo-code/README.md) | [kilo.jsonc](templates/agents/kilo-code/kilo.jsonc) · [agent.md](templates/agents/kilo-code/agent.md) · [SKILL.md](templates/agents/kilo-code/SKILL.md) · [AGENTS.md](templates/agents/kilo-code/AGENTS.md) · [command.md](templates/agents/kilo-code/command.md) |
+| OpenCode | [README](templates/agents/opencode/README.md) | [opencode.json](templates/agents/opencode/opencode.json) · [agent.md](templates/agents/opencode/agent.md) · [SKILL.md](templates/agents/opencode/SKILL.md) · [AGENTS.md](templates/agents/opencode/AGENTS.md) |
+| Amazon Kiro | [README](templates/agents/amazon-kiro/README.md) | [agent.json](templates/agents/amazon-kiro/agent.json) · [mcp.json](templates/agents/amazon-kiro/mcp.json) · [SKILL.md](templates/agents/amazon-kiro/SKILL.md) · [AGENTS.md](templates/agents/amazon-kiro/AGENTS.md) · [steering-always.md](templates/agents/amazon-kiro/steering-always.md) · [steering-conditional.md](templates/agents/amazon-kiro/steering-conditional.md) · [steering-manual.md](templates/agents/amazon-kiro/steering-manual.md) |
 
 ---
 
@@ -29,11 +35,10 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 
 ## Configuration Files
 
-> **Templates:** [config.toml](templates/agents/codex/config.toml) · [settings.json](templates/agents/claude-code/settings.json) / [.mcp.json](templates/agents/claude-code/.mcp.json) · [kilo.jsonc](templates/agents/kilo-code/kilo.jsonc) · [opencode.json](templates/agents/opencode/opencode.json) · [agent.json](templates/agents/amazon-kiro/agent.json) / [mcp.json](templates/agents/amazon-kiro/mcp.json)
-
 | Aspect | Codex CLI (OpenAI) | Claude Code (Anthropic) | Kilo Code | OpenCode | Amazon Kiro (AWS) |
 |--------|--------------------|-------------------------|-----------|----------|--------------------|
 | **Format** | TOML | JSON / Markdown (YAML fm) | JSONC / Markdown (YAML fm) | JSON / Markdown (YAML fm) | JSON / Markdown (YAML fm) |
+| **Template** | [config.toml](templates/agents/codex/config.toml) | [settings.json](templates/agents/claude-code/settings.json) / [.mcp.json](templates/agents/claude-code/.mcp.json) | [kilo.jsonc](templates/agents/kilo-code/kilo.jsonc) | [opencode.json](templates/agents/opencode/opencode.json) | [agent.json](templates/agents/amazon-kiro/agent.json) / [mcp.json](templates/agents/amazon-kiro/mcp.json) |
 | **Global config** | `~/.codex/config.toml` | `~/.claude.json` `~/.claude/settings.json` | `~/.config/kilo/kilo.jsonc` | `~/.config/opencode/opencode.json` | `~/.kiro/` |
 | **Project config** | `.codex/config.toml` | `.claude/settings.json` `.mcp.json` | `kilo.jsonc` `.kilo/kilo.jsonc` | `opencode.json` | `.kiro/` |
 | **Local/private config** | — | `.claude/settings.local.json` `CLAUDE.local.md` | — | — | — |
@@ -47,10 +52,9 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 
 ## Roles and Agents (Subagents)
 
-> **Templates:** [agent-role.toml](templates/agents/codex/agent-role.toml) · [agent.md](templates/agents/claude-code/agent.md) · [agent.md](templates/agents/kilo-code/agent.md) · [agent.md](templates/agents/opencode/agent.md) · [agent.json](templates/agents/amazon-kiro/agent.json)
-
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|
+| **Template** | [agent-role.toml](templates/agents/codex/agent-role.toml) | [agent.md](templates/agents/claude-code/agent.md) | [agent.md](templates/agents/kilo-code/agent.md) | [agent.md](templates/agents/opencode/agent.md) | [agent.json](templates/agents/amazon-kiro/agent.json) |
 | **Global agents** | `~/.codex/config.toml` → `[agents.<name>]` | `~/.claude/agents/<name>.md` | `~/.config/kilo/agent/<name>.md` | `~/.config/opencode/agents/<name>.md` | `~/.kiro/agents/<name>.json` |
 | **Project agents** | `.codex/config.toml` → `[agents.<name>]` | `.claude/agents/<name>.md` | `.kilo/agent/<name>.md` | `.opencode/agents/<name>.md` | `.kiro/agents/<name>.json` |
 | **Inline (config)** | `[agents.<name>]` TOML | — | `agent.<name>` in kilo.jsonc | `agent.<name>` in opencode.json | — |
@@ -72,10 +76,9 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 
 ## Skills
 
-> **Templates:** [SKILL.md](templates/agents/codex/SKILL.md) · [SKILL.md](templates/agents/claude-code/SKILL.md) · [SKILL.md](templates/agents/kilo-code/SKILL.md) · [SKILL.md](templates/agents/opencode/SKILL.md) · [SKILL.md](templates/agents/amazon-kiro/SKILL.md)
-
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|
+| **Template** | [SKILL.md](templates/agents/codex/SKILL.md) | [SKILL.md](templates/agents/claude-code/SKILL.md) | [SKILL.md](templates/agents/kilo-code/SKILL.md) | [SKILL.md](templates/agents/opencode/SKILL.md) | [SKILL.md](templates/agents/amazon-kiro/SKILL.md) |
 | **Format** | `SKILL.md` with metadata | `SKILL.md` YAML frontmatter + Markdown | `SKILL.md` YAML frontmatter (name, description) | `SKILL.md` YAML frontmatter (name, description) | `SKILL.md` YAML frontmatter (name, description) |
 | **Global skills** | `~/.agents/skills/<name>/SKILL.md` | `~/.claude/skills/<name>/SKILL.md` | `~/.config/kilo/skills/<name>/SKILL.md` `.kilo/skills/<name>/SKILL.md` | `~/.config/opencode/skills/<name>/SKILL.md` | `~/.kiro/skills/<name>/SKILL.md` |
 | **Project skills** | `.agents/skills/<name>/SKILL.md` | `.claude/skills/<name>/SKILL.md` | `.kilo/skills/<name>/SKILL.md` | `.opencode/skills/<name>/SKILL.md` | `.kiro/skills/<name>/SKILL.md` |
@@ -121,10 +124,9 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 
 ## Instructions and Context
 
-> **Templates:** [AGENTS.md](templates/agents/codex/AGENTS.md) · [CLAUDE.md](templates/agents/claude-code/CLAUDE.md) / [rule.md](templates/agents/claude-code/rule.md) · [AGENTS.md](templates/agents/kilo-code/AGENTS.md) · [AGENTS.md](templates/agents/opencode/AGENTS.md) · [AGENTS.md](templates/agents/amazon-kiro/AGENTS.md) / [steering-always.md](templates/agents/amazon-kiro/steering-always.md) / [steering-conditional.md](templates/agents/amazon-kiro/steering-conditional.md) / [steering-manual.md](templates/agents/amazon-kiro/steering-manual.md)
-
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|
+| **Template** | [AGENTS.md](templates/agents/codex/AGENTS.md) | [CLAUDE.md](templates/agents/claude-code/CLAUDE.md) / [rule.md](templates/agents/claude-code/rule.md) | [AGENTS.md](templates/agents/kilo-code/AGENTS.md) | [AGENTS.md](templates/agents/opencode/AGENTS.md) | [AGENTS.md](templates/agents/amazon-kiro/AGENTS.md) / [steering-*.md](templates/agents/amazon-kiro/steering-always.md) |
 | **Standard** | `AGENTS.md` | `CLAUDE.md` | `AGENTS.md` | `AGENTS.md` | `AGENTS.md` + steering |
 | **Global instructions** | `~/.codex/AGENTS.md` | `~/.claude/CLAUDE.md` | config `instructions` key | — | `~/.kiro/steering/<name>.md` |
 | **Project instructions** | `AGENTS.md` (root + nested, hierarchical) | `CLAUDE.md` / `.claude/CLAUDE.md` | `AGENTS.md` (root + per-dir) | `AGENTS.md` | `.kiro/steering/<name>.md` `AGENTS.md` |
