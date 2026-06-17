@@ -4,6 +4,8 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 
 > Current as of: May 2026. Sources: official documentation, Context7, GitHub repositories.
 
+> **Configuration templates:** [Codex CLI](templates/agents/codex-cli/README.md) · [Claude Code](templates/agents/claude-code/README.md) · [Kilo Code](templates/agents/kilo-code/README.md) · [OpenCode](templates/agents/opencode/README.md) · [Amazon Kiro](templates/agents/amazon-kiro/README.md)
+
 ---
 
 ## Summary: Capabilities by Configuration Type
@@ -27,6 +29,8 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 
 ## Configuration Files
 
+> **Templates:** [config.toml](templates/agents/codex-cli/config.toml) · [settings.json](templates/agents/claude-code/settings.json) / [.mcp.json](templates/agents/claude-code/.mcp.json) · [kilo.jsonc](templates/agents/kilo-code/kilo.jsonc) · [opencode.json](templates/agents/opencode/opencode.json) · [agent.json](templates/agents/amazon-kiro/agent.json) / [mcp.json](templates/agents/amazon-kiro/mcp.json)
+
 | Aspect | Codex CLI (OpenAI) | Claude Code (Anthropic) | Kilo Code | OpenCode | Amazon Kiro (AWS) |
 |--------|--------------------|-------------------------|-----------|----------|--------------------|
 | **Format** | TOML | JSON / Markdown (YAML fm) | JSONC / Markdown (YAML fm) | JSON / Markdown (YAML fm) | JSON / Markdown (YAML fm) |
@@ -42,6 +46,8 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 ---
 
 ## Roles and Agents (Subagents)
+
+> **Templates:** [agent-role.toml](templates/agents/codex-cli/agent-role.toml) · [agent.md](templates/agents/claude-code/agent.md) · [agent.md](templates/agents/kilo-code/agent.md) · [agent.md](templates/agents/opencode/agent.md) · [agent.json](templates/agents/amazon-kiro/agent.json)
 
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|
@@ -65,6 +71,8 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 ---
 
 ## Skills
+
+> **Templates:** [SKILL.md](templates/agents/codex-cli/SKILL.md) · [SKILL.md](templates/agents/claude-code/SKILL.md) · [SKILL.md](templates/agents/kilo-code/SKILL.md) · [SKILL.md](templates/agents/opencode/SKILL.md) · [SKILL.md](templates/agents/amazon-kiro/SKILL.md)
 
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|
@@ -112,6 +120,8 @@ A comparative table of AI agent configuration mechanisms via config files (globa
 ---
 
 ## Instructions and Context
+
+> **Templates:** [AGENTS.md](templates/agents/codex-cli/AGENTS.md) · [CLAUDE.md](templates/agents/claude-code/CLAUDE.md) / [rule.md](templates/agents/claude-code/rule.md) · [AGENTS.md](templates/agents/kilo-code/AGENTS.md) · [AGENTS.md](templates/agents/opencode/AGENTS.md) · [AGENTS.md](templates/agents/amazon-kiro/AGENTS.md) / [steering-always.md](templates/agents/amazon-kiro/steering-always.md) / [steering-conditional.md](templates/agents/amazon-kiro/steering-conditional.md) / [steering-manual.md](templates/agents/amazon-kiro/steering-manual.md)
 
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|

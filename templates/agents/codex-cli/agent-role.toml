@@ -1,0 +1,44 @@
+# =============================================================================
+# Codex CLI — Agent Role File Template
+# Format: TOML
+#
+# Referenced from config.toml via:
+#   [agents.<name>]
+#   config_file = "./agents/<name>.toml"
+#
+# Location: <project>/.codex/agents/<name>.toml
+#           or path specified in config_file
+# =============================================================================
+
+name = "custom-role"                                        # Role display name
+description = "Description of what this agent role does"    # Shown to model for delegation
+
+# Optional: Override model for this role
+# model = "o3"
+
+# Optional: Nickname candidates the model can use
+# nickname_candidates = ["Atlas", "Nike"]
+
+# ---------------------------------------------------------------------------
+# Developer instructions (inline)
+# ---------------------------------------------------------------------------
+# developer_instructions = """
+# You are a specialized agent. Follow these rules:
+# 1. Always review code for security issues
+# 2. Provide actionable feedback
+# """
+
+# ---------------------------------------------------------------------------
+# Nested ConfigToml overrides (model, permissions, etc.)
+# ---------------------------------------------------------------------------
+# These override the base config.toml settings for this role only.
+#
+# model = "o4-mini"
+# model_context_window = 128_000
+# default_permissions = "sandbox"
+
+# ---------------------------------------------------------------------------
+# Approval policies for this role
+# ---------------------------------------------------------------------------
+# [permissions.workspace]
+# network = { enabled = false }

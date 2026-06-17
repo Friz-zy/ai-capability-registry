@@ -1,0 +1,93 @@
+{
+  "name": "custom-agent",
+  "description": "A specialized agent for [purpose]",
+  "prompt": "You are a specialized agent for [purpose]. Follow these rules:\n1. ...\n2. ...",
+  "mcpServers": {
+    "fetch": {
+      "command": "fetch3.1",
+      "args": []
+    },
+    "git": {
+      "command": "git-mcp-server",
+      "args": [],
+      "env": {
+        "GIT_CONFIG_GLOBAL": "/dev/null"
+      },
+      "timeout": 120000
+    }
+  },
+  "includeMcpJson": true,
+  "tools": [
+    "read",
+    "write",
+    "shell",
+    "@git"
+  ],
+  "toolAliases": {
+    "@git/git_status": "status",
+    "@git/git_log": "log",
+    "@git/git_diff": "diff"
+  },
+  "allowedTools": [
+    "read",
+    "@git/git_status",
+    "@git/git_log",
+    "@git/git_diff"
+  ],
+  "toolsSettings": {
+    "write": {
+      "allowedPaths": ["src/**", "tests/**", "docs/**/*.md"]
+    },
+    "shell": {
+      "allowedCommands": [
+        "npm test",
+        "npm run build",
+        "npm run lint",
+        "git status",
+        "git diff",
+        "git log"
+      ],
+      "autoAllowReadonly": true
+    }
+  },
+  "resources": [
+    "file://README.md",
+    "file://docs/**/*.md",
+    "skill://.kiro/skills/**/SKILL.md"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "git status --porcelain",
+        "timeout_ms": 5000
+      }
+    ],
+    "userPromptSubmit": [
+      {
+        "command": "ls -la",
+        "timeout_ms": 3000,
+        "cache_ttl_seconds": 30
+      }
+    ],
+    "preToolUse": [
+      {
+        "matcher": "execute_bash",
+        "command": "{ echo \"$(date) - Bash command:\"; cat; echo; } >> /tmp/bash_audit_log"
+      }
+    ],
+    "postToolUse": [
+      {
+        "matcher": "fs_write",
+        "command": "npm run format -- $(cat)"
+      }
+    ],
+    "stop": [
+      {
+        "command": "npm run lint"
+      }
+    ]
+  },
+  "model": "claude-sonnet-4",
+  "keyboardShortcut": "ctrl+shift+a",
+  "welcomeMessage": "Ready to help with [purpose]!"
+}

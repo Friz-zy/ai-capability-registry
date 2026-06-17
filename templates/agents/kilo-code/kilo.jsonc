@@ -1,0 +1,172 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+
+  "username": "developer",
+
+  "model": "anthropic/claude-sonnet-4-20250514",
+  "small_model": "anthropic/claude-haiku-4-20250514",
+
+  "default_agent": "code",
+
+  "shell": "/bin/zsh",
+  "logLevel": "INFO",
+
+  "share": "manual",
+  "autoupdate": true,
+  "snapshot": true,
+
+  "instructions": ["AGENTS.md", "docs/style.md"],
+
+  "skills": {
+    "paths": [".kilo/skills", "/absolute/path/to/skills"],
+    "urls": ["https://example.com/.well-known/skills/"]
+  },
+
+  "references": {
+    "docs": {
+      "path": "../docs",
+      "description": "Use for product behavior and documentation conventions"
+    },
+    "sdk": {
+      "repository": "owner/sdk",
+      "branch": "main",
+      "description": "Use for SDK implementation details",
+      "hidden": true
+    }
+  },
+
+  "agent": {
+    "code-reviewer": {
+      "description": "Reviews code for best practices and potential issues",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      },
+      "steps": 25
+    },
+    "docs-writer": {
+      "description": "Specialized for writing and editing technical documentation",
+      "mode": "primary",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "color": "#10B981",
+      "prompt": "You are a technical documentation specialist...",
+      "permission": {
+        "edit": {
+          "*.md": "allow",
+          "*": "deny"
+        },
+        "bash": "deny"
+      }
+    },
+    "security-auditor": {
+      "description": "Performs security audits and identifies vulnerabilities",
+      "mode": "subagent",
+      "prompt": "{file:./prompts/security-audit.txt}",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "deny",
+          "git log*": "allow",
+          "grep *": "allow"
+        }
+      }
+    },
+    "orchestrator": {
+      "description": "Delegates tasks to specialized subagents",
+      "mode": "primary",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "code-reviewer": "allow",
+          "docs-writer": "allow",
+          "security-auditor": "allow"
+        }
+      }
+    }
+  },
+
+  "command": {
+    "deploy": {
+      "description": "Deploy the current project to staging",
+      "prompt": "Deploy the project following the deployment checklist in docs/deploy.md"
+    }
+  },
+
+  "provider": {
+    "anthropic": {
+      "options": {
+        "apiKey": "env:ANTHROPIC_API_KEY"
+      }
+    },
+    "openai": {
+      "options": {
+        "apiKey": "env:OPENAI_API_KEY"
+      }
+    }
+  },
+  "disabled_providers": [],
+  "enabled_providers": ["anthropic", "openai"],
+
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/workspace"],
+      "enabled": true,
+      "environment": {
+        "NODE_ENV": "production"
+      }
+    },
+    "github-api": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "enabled": true,
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "env:GITHUB_TOKEN"
+      }
+    },
+    "remote-api": {
+      "type": "remote",
+      "url": "https://api.example.com/mcp",
+      "headers": {
+        "Authorization": "Bearer env:API_TOKEN"
+      },
+      "enabled": true
+    }
+  },
+
+  "permission": {
+    "edit": "allow",
+    "bash": {
+      "*": "ask",
+      "git *": "allow",
+      "git push *": "deny",
+      "npm test *": "allow",
+      "npm run *": "allow"
+    },
+    "skill": {
+      "*": "allow",
+      "experimental-*": "ask"
+    }
+  },
+
+  "formatter": false,
+  "lsp": false,
+
+  "experimental": {
+    "primary_tools": ["edit"],
+    "mcp_timeout": 30000
+  },
+
+  "tool_output": {
+    "max_lines": 200,
+    "max_bytes": 8192
+  },
+
+  "compaction": {
+    "auto": true,
+    "tail_turns": 15
+  }
+}

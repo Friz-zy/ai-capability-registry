@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "my-server": {
+      "command": "node",
+      "args": ["path/to/server/index.js"],
+      "env": {
+        "API_KEY": "${MY_API_KEY}"
+      }
+    },
+    "remote-server": {
+      "type": "http",
+      "url": "https://example.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MY_TOKEN}"
+      }
+    }
+  }
+}

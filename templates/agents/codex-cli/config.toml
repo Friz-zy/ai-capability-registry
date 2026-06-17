@@ -1,0 +1,161 @@
+# =============================================================================
+# Codex CLI — Full Configuration Template
+# Format: TOML
+# Docs:   https://github.com/openai/codex
+#
+# File locations:
+#   Global:   ~/.codex/config.toml
+#   Project:  .codex/config.toml
+#   Profile:  ~/.codex/<name>.config.toml  (--profile <name>)
+#   Managed:  /etc/codex/config.toml
+#   Env var:  CODEX_HOME (overrides config dir)
+#
+# Schema:  run `codex write-config-schema` to get JSON Schema
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Model
+# ---------------------------------------------------------------------------
+model = "o3"                                   # Model override
+review_model = "o4-mini"                       # Model for /review feature
+model_provider = "openai"                       # Key into [model_providers]
+model_context_window = 200_000                  # Context window in tokens
+model_auto_compact_token_limit = 150_000       # Auto-compact threshold
+# model_auto_compact_token_limit_scope = "full" # "full" | "after_prefix"
+
+# ---------------------------------------------------------------------------
+# Default permissions
+# ---------------------------------------------------------------------------
+# One of: "workspace" | "sandbox" | "full-auto"
+default_permissions = "workspace"
+
+# ---------------------------------------------------------------------------
+# Approval policies (fine-grained)
+# ---------------------------------------------------------------------------
+# [permissions.workspace]
+# network = { enabled = false }
+#
+# [permissions.workspace.network]
+# enabled = false
+# proxy_url = "http://127.0.0.1:3128"
+# enable_socks5 = true
+# socks_url = "http://127.0.0.1:8081"
+# allow_upstream_proxy = true
+# dangerously_allow_non_loopback_proxy = false
+# mode = "full"              # "full" | "limited"
+# allow_local_binding = false
+#
+# [permissions.workspace.network.domains]
+# "*.openai.com" = "allow"
+# "localhost" = "allow"
+# "evil.example" = "deny"
+
+# ---------------------------------------------------------------------------
+# Custom model providers
+# ---------------------------------------------------------------------------
+# [model_providers.anthropic]
+# name = "Anthropic"
+# base_url = "https://api.anthropic.com/v1"
+# env_key = "ANTHROPIC_API_KEY"
+# http_headers = { "anthropic-version" = "2023-06-01" }
+# env_http_headers = { "X-Extra" = "EXTRA_ENV_VAR" }
+#
+# [model_providers.custom]
+# name = "Custom Provider"
+# base_url = "https://example.com/v1"
+# env_key = "CUSTOM_API_KEY"
+
+# ---------------------------------------------------------------------------
+# Agents / Roles
+# ---------------------------------------------------------------------------
+# Each key under [agents] defines a named role. Inline or via config_file.
+#
+# [agents.researcher]
+# description = "Research-focused role for deep investigation"
+# config_file = "./agents/researcher.toml"          # External role file
+# nickname_candidates = ["Herodotus", "Ibn Battuta"]
+#
+# [agents.reviewer]
+# description = "Reviews code for quality and security issues"
+# config_file = "./agents/reviewer.toml"
+#
+# [agents.tester]
+# description = "Generates comprehensive test suites"
+# config_file = "./agents/tester.toml"
+
+# ---------------------------------------------------------------------------
+# Agent thread limits (top-level under [agents])
+# ---------------------------------------------------------------------------
+# [agents]
+# max_threads = 5                   # Max concurrent agent threads
+# max_depth = 3                     # Max nesting depth (root = 0)
+# job_max_runtime_seconds = 300     # Max runtime per agent job
+# interrupt_message = true           # Record message on interruption
+
+# ---------------------------------------------------------------------------
+# MCP Servers (stdio transport)
+# ---------------------------------------------------------------------------
+# [mcp_servers.my-local-server]
+# command = "my-mcp-server"
+# args = ["--verbose"]
+# env = { STATIC = "yes" }
+# env_vars = ["MY_TOKEN"]           # Env var names to forward from shell
+# enabled = true
+#
+# [mcp_servers.my-server-with-cwd]
+# command = "node"
+# args = ["server.js"]
+# cwd = "/path/to/server"
+
+# ---------------------------------------------------------------------------
+# MCP Servers (HTTP / SSE / streamable HTTP transport)
+# ---------------------------------------------------------------------------
+# [mcp_servers.my_http_server]
+# url = "https://example.com/mcp"
+# # type = "sse"                      # "sse" | "streamable_http" (default)
+# # bearer_token_env_var = "GITHUB_TOKEN"
+# # http_headers = { "X-Foo" = "bar" }
+# # env_http_headers = { "X-Token" = "TOKEN_ENV" }
+# # oauth_resource = "https://api.example.com"
+
+# ---------------------------------------------------------------------------
+# Feature flags
+# ---------------------------------------------------------------------------
+# [features]
+# multi_agent = true
+# hooks = true
+# shell_tool = true
+# memories = true
+# personality = true
+# web_search = false
+# undo = true
+# apps = false
+# codex_git_commit = false
+
+# ---------------------------------------------------------------------------
+# Skills
+# ---------------------------------------------------------------------------
+# [skills.config]
+# Global skill directories or individual skill paths.
+#
+# [[skills.config]]
+# path = "~/.agents/skills/my-skill"
+# enabled = true
+#
+# [[skills.config]]
+# path = ".agents/skills/review"
+# enabled = true
+
+# ---------------------------------------------------------------------------
+# Hooks
+# ---------------------------------------------------------------------------
+# [hooks]
+# pre_tool_use = ["/path/to/pre-hook.sh"]
+# post_tool_use = ["/path/to/post-hook.sh"]
+# on_agent_start = ["/path/to/start-hook.sh"]
+
+# ---------------------------------------------------------------------------
+# Instructions / AGENTS.md
+# ---------------------------------------------------------------------------
+# model_instructions_file = "./custom_instructions.md"
+# Resolve order: nested AGENTS.md > parent AGENTS.md > model_instructions_file
