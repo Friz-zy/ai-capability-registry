@@ -6,7 +6,7 @@ Full configuration file templates for each CLI agent tool referenced in `ai-agen
 
 | Tool | Directory | Format |
 |------|-----------|--------|
-| Codex CLI | `codex-cli/` | TOML |
+| Codex CLI | `codex/` | TOML |
 | Claude Code | `claude-code/` | JSON + Markdown (YAML frontmatter) |
 | Kilo Code | `kilo-code/` | JSONC + Markdown (YAML frontmatter) |
 | OpenCode | `opencode/` | JSON + Markdown (YAML frontmatter) |
@@ -14,7 +14,7 @@ Full configuration file templates for each CLI agent tool referenced in `ai-agen
 
 ## Template Files by Tool
 
-### Codex CLI (`codex-cli/`)
+### Codex CLI (`codex/`)
 
 | File | Purpose |
 |------|---------|
