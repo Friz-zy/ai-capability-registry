@@ -283,6 +283,194 @@ providers:
             pricing_per_million_tokens: { input: 0.98, output: 3.08 }
             coding_index: 43.4
 
+  - id: kimi
+    tiers:
+      junior:
+        models:
+          - model_id: kimi-k2
+            openrouter_id: moonshotai/kimi-k2
+            context: 131072
+            max_output: 32768
+            pricing_per_million_tokens: { input: 0.57, output: 2.30 }
+            coding_index: 22.1
+      middle:
+        models:
+          - model_id: kimi-k2.5
+            openrouter_id: moonshotai/kimi-k2.5
+            context: 262144
+            max_output: 262144
+            pricing_per_million_tokens: { input: 0.375, output: 2.025 }
+            coding_index: 39.6
+          - model_id: kimi-k2-thinking
+            openrouter_id: moonshotai/kimi-k2-thinking
+            context: 262144
+            max_output: 262144
+            pricing_per_million_tokens: { input: 0.60, output: 2.50 }
+            coding_index: 34.8
+      senior:
+        models:
+          - model_id: kimi-k2.6
+            openrouter_id: moonshotai/kimi-k2.6
+            context: 262144
+            max_output: 262142
+            pricing_per_million_tokens: { input: 0.68, output: 3.41 }
+            coding_index: 47.1
+          - model_id: kimi-k2.7-code
+            openrouter_id: moonshotai/kimi-k2.7-code
+            context: 262144
+            max_output: 16384
+            pricing_per_million_tokens: { input: 0.74, output: 3.50 }
+            coding_index: 45.6
+      lead:
+        models:
+          - model_id: kimi-k2.6
+            openrouter_id: moonshotai/kimi-k2.6
+            context: 262144
+            max_output: 262142
+            pricing_per_million_tokens: { input: 0.68, output: 3.41 }
+            coding_index: 47.1
+
+  - id: minimax
+    tiers:
+      junior:
+        models:
+          - model_id: minimax-m2.5
+            openrouter_id: minimax/minimax-m2.5
+            context: 204800
+            max_output: 196608
+            pricing_per_million_tokens: { input: 0.15, output: 0.90 }
+            coding_index: 37.4
+      middle:
+        models:
+          - model_id: minimax-m2.7
+            openrouter_id: minimax/minimax-m2.7
+            context: 204800
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.25, output: 1.00 }
+            coding_index: 41.9
+      senior:
+        models:
+          - model_id: minimax-m3
+            openrouter_id: minimax/minimax-m3
+            context: 1048576
+            max_output: 512000
+            pricing_per_million_tokens: { input: 0.30, output: 1.20 }
+            coding_index: 43.4
+      lead:
+        models:
+          - model_id: minimax-m3
+            openrouter_id: minimax/minimax-m3
+            context: 1048576
+            max_output: 512000
+            pricing_per_million_tokens: { input: 0.30, output: 1.20 }
+            coding_index: 43.4
+
+  - id: mimo
+    tiers:
+      junior:
+        models:
+          - model_id: mimo-v2.5
+            openrouter_id: xiaomi/mimo-v2.5
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.14, output: 0.28 }
+            coding_index: null
+      middle:
+        models:
+          - model_id: mimo-v2.5
+            openrouter_id: xiaomi/mimo-v2.5
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.14, output: 0.28 }
+            coding_index: null
+      senior:
+        models:
+          - model_id: mimo-v2.5-pro
+            openrouter_id: xiaomi/mimo-v2.5-pro
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.435, output: 0.87 }
+            coding_index: null
+      lead:
+        models:
+          - model_id: mimo-v2.5-pro
+            openrouter_id: xiaomi/mimo-v2.5-pro
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.435, output: 0.87 }
+            coding_index: null
+
+  - id: qwen
+    tiers:
+      junior:
+        models:
+          - model_id: qwen3.5-flash-02-23
+            openrouter_id: qwen/qwen3.5-flash-02-23
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.065, output: 0.26 }
+            coding_index: null
+          - model_id: qwen3-coder-flash
+            openrouter_id: qwen/qwen3-coder-flash
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.195, output: 0.975 }
+            coding_index: null
+      middle:
+        models:
+          - model_id: qwen3.7-plus
+            openrouter_id: qwen/qwen3.7-plus
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.32, output: 1.28 }
+            coding_index: 46.5
+          - model_id: qwen3.6-plus
+            openrouter_id: qwen/qwen3.6-plus
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.325, output: 1.95 }
+            coding_index: 42.9
+          - model_id: qwen3-coder
+            openrouter_id: qwen/qwen3-coder
+            context: 1048576
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.22, output: 1.80 }
+            coding_index: 24.6
+      senior:
+        models:
+          - model_id: qwen3.7-max
+            openrouter_id: qwen/qwen3.7-max
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 1.25, output: 3.75 }
+            coding_index: 50.1
+          - model_id: qwen3-coder-plus
+            openrouter_id: qwen/qwen3-coder-plus
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.65, output: 3.25 }
+            coding_index: null
+          - model_id: qwen3.6-max-preview
+            openrouter_id: qwen/qwen3.6-max-preview
+            context: 262144
+            max_output: 65536
+            pricing_per_million_tokens: { input: 1.04, output: 6.24 }
+            coding_index: 44.9
+      lead:
+        models:
+          - model_id: qwen3.7-max
+            openrouter_id: qwen/qwen3.7-max
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 1.25, output: 3.75 }
+            coding_index: 50.1
+          - model_id: qwen3-coder-plus
+            openrouter_id: qwen/qwen3-coder-plus
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.65, output: 3.25 }
+            coding_index: null
+
   - id: openrouter
     notes: OpenRouter is an aggregator, not a model provider. Model IDs use "provider/model" format. Platform fee 5.5% on paid model tokens.
     tiers:
@@ -318,6 +506,24 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.06, output: 0.42 }
             coding_index: 25.9
+          - model_id: minimax/minimax-m2.5
+            openrouter_id: minimax/minimax-m2.5
+            context: 204800
+            max_output: 196608
+            pricing_per_million_tokens: { input: 0.16, output: 0.95 }
+            coding_index: 37.4
+          - model_id: qwen/qwen3.5-flash-02-23
+            openrouter_id: qwen/qwen3.5-flash-02-23
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.07, output: 0.27 }
+            coding_index: null
+          - model_id: moonshotai/kimi-k2
+            openrouter_id: moonshotai/kimi-k2
+            context: 131072
+            max_output: 32768
+            pricing_per_million_tokens: { input: 0.60, output: 2.43 }
+            coding_index: 22.1
       middle:
         models:
           - model_id: anthropic/claude-sonnet-4.6
@@ -362,6 +568,30 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 1.27, output: 4.22 }
             coding_index: 36.8
+          - model_id: minimax/minimax-m2.7
+            openrouter_id: minimax/minimax-m2.7
+            context: 204800
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.26, output: 1.06 }
+            coding_index: 41.9
+          - model_id: qwen/qwen3.7-plus
+            openrouter_id: qwen/qwen3.7-plus
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 0.34, output: 1.35 }
+            coding_index: 46.5
+          - model_id: xiaomi/mimo-v2.5
+            openrouter_id: xiaomi/mimo-v2.5
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.15, output: 0.30 }
+            coding_index: null
+          - model_id: moonshotai/kimi-k2.5
+            openrouter_id: moonshotai/kimi-k2.5
+            context: 262144
+            max_output: 262144
+            pricing_per_million_tokens: { input: 0.40, output: 2.14 }
+            coding_index: 39.6
       senior:
         models:
           - model_id: anthropic/claude-opus-4.8
@@ -400,6 +630,30 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 1.31, output: 2.64 }
             coding_index: 41.0
+          - model_id: minimax/minimax-m3
+            openrouter_id: minimax/minimax-m3
+            context: 1048576
+            max_output: 512000
+            pricing_per_million_tokens: { input: 0.32, output: 1.27 }
+            coding_index: 43.4
+          - model_id: qwen/qwen3.7-max
+            openrouter_id: qwen/qwen3.7-max
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 1.32, output: 3.96 }
+            coding_index: 50.1
+          - model_id: xiaomi/mimo-v2.5-pro
+            openrouter_id: xiaomi/mimo-v2.5-pro
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 0.46, output: 0.92 }
+            coding_index: null
+          - model_id: moonshotai/kimi-k2.6
+            openrouter_id: moonshotai/kimi-k2.6
+            context: 262144
+            max_output: 262142
+            pricing_per_million_tokens: { input: 0.72, output: 3.60 }
+            coding_index: 47.1
       lead:
         models:
           - model_id: anthropic/claude-opus-4.8
@@ -444,6 +698,24 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 1.31, output: 2.64 }
             coding_index: 42.2
+          - model_id: minimax/minimax-m3
+            openrouter_id: minimax/minimax-m3
+            context: 1048576
+            max_output: 512000
+            pricing_per_million_tokens: { input: 0.32, output: 1.27 }
+            coding_index: 43.4
+          - model_id: qwen/qwen3.7-max
+            openrouter_id: qwen/qwen3.7-max
+            context: 1000000
+            max_output: 65536
+            pricing_per_million_tokens: { input: 1.32, output: 3.96 }
+            coding_index: 50.1
+          - model_id: moonshotai/kimi-k2.6
+            openrouter_id: moonshotai/kimi-k2.6
+            context: 262144
+            max_output: 262142
+            pricing_per_million_tokens: { input: 0.72, output: 3.60 }
+            coding_index: 47.1
 
 recommended_defaults:
   junior:
@@ -453,6 +725,12 @@ recommended_defaults:
     xai: grok-build-0.1
     deepseek: deepseek-v4-flash
     z-ai: glm-4.7-flash
+    kimi: kimi-k2
+    minimax: minimax-m2.5
+    mimo: mimo-v2.5
+    qwen: qwen3.5-flash-02-23
+    opencode: deepseek-v4-flash
+    openrouter: deepseek/deepseek-v4-flash
   middle:
     anthropic: claude-sonnet-4-6
     openai: gpt-5.4-mini
@@ -460,6 +738,12 @@ recommended_defaults:
     xai: grok-4.3
     deepseek: deepseek-v4-flash
     z-ai: glm-4.7
+    kimi: kimi-k2.5
+    minimax: minimax-m2.7
+    mimo: mimo-v2.5
+    qwen: qwen3.7-plus
+    opencode: deepseek-v4-pro
+    openrouter: anthropic/claude-sonnet-4.6
   senior:
     anthropic: claude-opus-4-8
     openai: gpt-5.5
@@ -467,6 +751,12 @@ recommended_defaults:
     xai: grok-4.3
     deepseek: deepseek-v4-pro
     z-ai: glm-5
+    kimi: kimi-k2.6
+    minimax: minimax-m3
+    mimo: mimo-v2.5-pro
+    qwen: qwen3.7-max
+    opencode: deepseek-v4-pro
+    openrouter: anthropic/claude-opus-4.8
   lead:
     anthropic: claude-opus-4-8
     openai: gpt-5.5
@@ -474,3 +764,9 @@ recommended_defaults:
     xai: grok-4.20
     deepseek: deepseek-v4-pro
     z-ai: glm-5.2
+    kimi: kimi-k2.6
+    minimax: minimax-m3
+    mimo: mimo-v2.5-pro
+    qwen: qwen3.7-max
+    opencode: glm-5.2
+    openrouter: anthropic/claude-opus-4.8
