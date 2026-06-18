@@ -22,8 +22,7 @@ workflows:
     match_roles:
       - product-manager
       - business-analyst
-      - ux-designer
-      - ui-designer
+      - ux-ui-designer
       - ux-researcher
       - solution-architect
       - tech-lead
@@ -31,9 +30,7 @@ workflows:
       - backend-engineer
       - devops-platform-engineer
       - qa-engineer
-      - sdet
       - release-manager
-      - product-analyst
       - customer-success-support
 
   - id: mobile-app
@@ -61,8 +58,7 @@ workflows:
     match_roles:
       - product-manager
       - business-analyst
-      - ux-designer
-      - ui-designer
+      - ux-ui-designer
       - ux-researcher
       - solution-architect
       - tech-lead
@@ -70,9 +66,7 @@ workflows:
       - backend-engineer
       - devops-platform-engineer
       - qa-engineer
-      - sdet
       - release-manager
-      - product-analyst
       - customer-success-support
 
   - id: feature-development
@@ -101,17 +95,14 @@ workflows:
     match_roles:
       - product-manager
       - business-analyst
-      - ux-designer
-      - ui-designer
+      - ux-ui-designer
       - solution-architect
       - tech-lead
       - frontend-engineer
       - backend-engineer
       - devops-platform-engineer
       - qa-engineer
-      - sdet
       - release-manager
-      - product-analyst
       - customer-success-support
 
   - id: idea-validation
@@ -133,13 +124,12 @@ workflows:
       - research-brief
       - manage-project
     match_roles:
-      - founder-business-owner
+      - founder-ceo
       - product-manager
       - market-researcher
       - business-analyst
       - finance-manager
       - ux-researcher
-      - product-analyst
 
   - id: product-strategy
     name: Product Strategy Workflow
@@ -162,7 +152,7 @@ workflows:
     match_roles:
       - product-strategist
       - product-manager
-      - founder-business-owner
+      - founder-ceo
       - solution-architect
       - finance-manager
       - market-researcher
@@ -216,7 +206,6 @@ workflows:
       - product-marketing-manager
       - growth-marketer
       - sales-strategist
-      - content-marketer
       - customer-success-support
       - technical-writer
       - release-manager
@@ -248,7 +237,6 @@ workflows:
       - backend-engineer
       - frontend-engineer
       - mobile-engineer
-      - sdet
       - release-manager
       - devops-platform-engineer
 
@@ -275,11 +263,9 @@ workflows:
       - solution-architect
       - backend-engineer
       - frontend-engineer
-      - database-engineer
+      - data-engineer
       - devops-platform-engineer
       - qa-engineer
-      - sdet
-      - performance-engineer
       - release-manager
       - product-manager
 
@@ -311,7 +297,6 @@ workflows:
       - mobile-engineer
       - security-engineer
       - qa-engineer
-      - sdet
       - technical-writer
 
   - id: integration-development
@@ -341,7 +326,6 @@ workflows:
       - backend-engineer
       - security-engineer
       - qa-engineer
-      - sdet
       - devops-platform-engineer
       - release-manager
       - customer-success-support
@@ -370,8 +354,7 @@ workflows:
       - product-manager
       - security-engineer
       - devops-platform-engineer
-      - database-engineer
-      - cloud-architect
+      - data-engineer
       - release-manager
 
   - id: adr-decision
@@ -420,7 +403,6 @@ workflows:
       - manage-cloud-infra
       - deploy-release
     match_roles:
-      - cloud-architect
       - devops-platform-engineer
       - sre
       - security-engineer
@@ -450,11 +432,10 @@ workflows:
       - devops-platform-engineer
       - engineering-manager
       - tech-lead
-      - cloud-architect
       - security-engineer
       - sre
       - technical-writer
-      - product-analyst
+      - business-analyst
       - customer-success-support
 
   - id: security-review
@@ -564,7 +545,6 @@ workflows:
       - qa-engineer
       - product-manager
       - tech-lead
-      - sdet
       - devops-platform-engineer
 
   - id: automated-testing
@@ -586,7 +566,6 @@ workflows:
       - test-validate
       - implement-code
     match_roles:
-      - sdet
       - qa-engineer
       - tech-lead
       - backend-engineer
@@ -612,11 +591,10 @@ workflows:
       - test-validate
       - analyze-data
     match_roles:
-      - performance-engineer
       - sre
       - product-manager
       - backend-engineer
-      - database-engineer
+      - data-engineer
       - devops-platform-engineer
       - tech-lead
       - qa-engineer
@@ -640,7 +618,7 @@ workflows:
       - debug-incident
       - deploy-release
     match_roles:
-      - incident-commander
+      - incident-manager
       - sre
       - customer-success-support
       - product-manager
@@ -669,7 +647,7 @@ workflows:
       - debug-incident
       - write-documents
     match_roles:
-      - incident-commander
+      - incident-manager
       - sre
       - customer-success-support
       - tech-lead
@@ -724,7 +702,7 @@ workflows:
     match_roles:
       - customer-success-support
       - product-manager
-      - product-analyst
+      - business-analyst
       - ux-researcher
 
   - id: analytics-and-growth
@@ -747,7 +725,7 @@ workflows:
       - manage-project
     match_roles:
       - product-manager
-      - product-analyst
+      - business-analyst
       - growth-marketer
       - ux-researcher
       - tech-lead
@@ -773,7 +751,6 @@ workflows:
     match_roles:
       - sales-strategist
       - product-manager
-      - solution-consultant
       - technical-writer
       - compliance-officer
       - security-engineer
@@ -827,7 +804,7 @@ workflows:
     match_roles:
       - technical-writer
       - product-manager
-      - ux-designer
+      - ux-ui-designer
       - customer-success-support
       - release-manager
 
@@ -850,7 +827,6 @@ workflows:
       - write-documents
       - manage-project
     match_roles:
-      - knowledge-manager
       - technical-writer
       - customer-success-support
       - tech-lead
@@ -881,7 +857,7 @@ workflows:
       - product-manager
       - sre
       - devops-platform-engineer
-      - cloud-architect
+      - solution-architect
       - engineering-manager
 
   - id: vendor-selection
@@ -903,7 +879,7 @@ workflows:
       - finance-legal
       - research-brief
     match_roles:
-      - procurement-manager
+      - operations-manager
       - product-manager
       - tech-lead
       - finance-manager
@@ -933,7 +909,6 @@ workflows:
       - tech-lead
       - hr-manager
       - finance-manager
-      - recruiter
 
   - id: team-process-improvement
     name: Team Process Improvement Workflow

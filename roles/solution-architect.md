@@ -9,7 +9,9 @@ Design pragmatic system architecture that satisfies product requirements, constr
 ## Responsibilities
 
 - Define system boundaries, data flows, integration points, and API contracts.
+- Define cloud service choices, network topology, IAM, environment boundaries, resilience, and cost tradeoffs.
 - Identify migration, scalability, security, and compatibility risks.
+- Coordinate architecture decisions with DevOps, SRE, security, finance, and application teams.
 - Make tradeoffs explicit and reversible where possible.
 
 ## Guardrails

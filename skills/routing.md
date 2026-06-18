@@ -24,64 +24,42 @@ For an unassigned subagent, this route selects skill catalogs only; it does not 
 
 - **Personal AI Assistant** (`personal-assistant`) -> `personal_assistant`, `research`, `core`
 - **Orchestrator** (`orchestrator`) -> `orchestration`
-- **Founder CEO Advisor** (`founder-ceo`) -> `founder`, `product`, `marketing`, `sales`, `finance`, `people`
-- **CTO and Engineering Lead** (`cto-engineering-lead`) -> `engineering`, `backend`, `frontend`, `devops`, `sre`, `security`, `ai`, `ml`
+- **Founder CEO Advisor** (`founder-ceo`) -> `founder`, `product`, `marketing`, `sales`, `finance`, `people`, `operations`
 - **Product Manager** (`product-manager`) -> `product`, `research`, `design`, `data`, `customer_success`
 - **Software Engineer** (`software-engineer`) -> `core`, `engineering`, `backend`, `frontend`, `qa`
 - **Backend Engineer** (`backend-engineer`) -> `backend`, `data`, `devops`, `security`, `developer_tools`
 - **Frontend Engineer** (`frontend-engineer`) -> `frontend`, `design`, `qa`, `developer_tools`
 - **Mobile and Desktop Engineer** (`mobile-engineer`) -> `mobile`, `desktop`, `frontend`, `qa`, `developer_tools`
-- **QA Engineer** (`qa-engineer`) -> `qa`, `core`, `frontend`, `backend`, `developer_tools`
+- **QA Engineer** (`qa-engineer`) -> `qa`, `core`, `frontend`, `backend`, `developer_tools`, `engineering`, `sre`, `devops`
 - **Security Engineer** (`security-engineer`) -> `security`
 - **DevOps and Platform Engineer** (`devops-platform-engineer`) -> `devops`, `sre`, `security`
-- **SRE Incident Manager** (`sre-incident-manager`) -> `sre`, `devops`, `data`
 - **Data Analyst** (`data-analyst`) -> `data`, `research`, `product`
-- **AI Engineer** (`ai-engineer`) -> `ai`, `ml`, `engineering`, `security`, `research`
-- **Product Designer** (`designer`) -> `design`, `frontend`, `research`
-- **Business Analyst** (`business-analyst`) -> `product`, `operations`, `research`, `data`
+- **AI Engineer** (`ai-engineer`) -> `ai`, `ml`, `engineering`, `devops`, `security`, `research`, `core`
+- **UX UI Designer** (`ux-ui-designer`) -> `design`, `frontend`, `research`
+- **Business and Product Analyst** (`business-analyst`) -> `product`, `operations`, `research`, `data`
 - **UX Researcher** (`ux-researcher`) -> `research`, `design`, `product`
-- **UX Designer** (`ux-designer`) -> `design`, `research`, `frontend`
-- **UI Designer** (`ui-designer`) -> `design`, `frontend`
-- **Solution Architect** (`solution-architect`) -> `engineering`, `backend`, `frontend`, `devops`, `security`
-- **Tech Lead** (`tech-lead`) -> `engineering`, `backend`, `frontend`, `devops`, `qa`, `security`
-- **Software Development Engineer in Test** (`sdet`) -> `qa`, `engineering`, `frontend`, `backend`, `developer_tools`
-- **Performance Engineer** (`performance-engineer`) -> `qa`, `engineering`, `sre`, `devops`
+- **Solution Architect** (`solution-architect`) -> `engineering`, `backend`, `frontend`, `devops`, `sre`, `security`, `finance`
+- **Tech Lead** (`tech-lead`) -> `engineering`, `backend`, `frontend`, `devops`, `sre`, `qa`, `security`, `ai`, `ml`
 - **Release Manager** (`release-manager`) -> `devops`, `operations`, `product`, `customer_success`
-- **Product Analyst** (`product-analyst`) -> `data`, `product`, `research`
-- **Marketing and Growth Lead** (`marketing-growth`) -> `marketing`, `founder`, `data`
-- **Sales Account Executive** (`sales-account-executive`) -> `sales`, `research`, `marketing`
 - **Customer Success and Support Specialist** (`customer-success-support`) -> `customer_success`, `research`, `product`
-- **Finance Operations Analyst** (`finance-ops`) -> `finance`, `operations`
-- **Legal Operations Assistant** (`legal-ops`) -> `legal`
-- **People Operations and Recruiting Partner** (`people-ops-recruiting`) -> `people`
-- **Operations Manager** (`operations-manager`) -> `operations`, `research`, `customer_success`
-- **AI Agent Builder and Pipeline Orchestrator** (`ai-agent-builder`) -> `ai`, `ml`, `engineering`, `devops`, `security`, `core`
+- **Operations Manager** (`operations-manager`) -> `operations`, `finance`, `legal`, `research`, `customer_success`
 - **Creative Media Producer** (`creative-media-producer`) -> `creative_media`, `design`, `documents`, `marketing`
-- **Data Engineer** (`data-engineer`) -> `data`, `backend`, `devops`, `security`
-- **Cloud Infrastructure Engineer** (`cloud-infrastructure-engineer`) -> `devops`, `sre`, `security`
+- **Data Engineer** (`data-engineer`) -> `data`, `backend`, `devops`, `security`, `engineering`
 - **Blockchain Engineer** (`blockchain-engineer`) -> `blockchain`, `security`, `engineering`
 - **Hardware and IoT Engineer** (`hardware-iot-engineer`) -> `hardware`, `devops`, `security`
-- **Founder Business Owner** (`founder-business-owner`) -> `founder`, `product`, `finance`, `operations`
 - **Product Strategist** (`product-strategist`) -> `product`, `research`, `founder`, `finance`
 - **Market Researcher** (`market-researcher`) -> `research`, `product`, `marketing`, `sales`
-- **Growth Marketer** (`growth-marketer`) -> `marketing`, `data`, `product`, `sales`
-- **Product Marketing Manager** (`product-marketing-manager`) -> `marketing`, `product`, `sales`, `customer_success`
-- **Sales Strategist** (`sales-strategist`) -> `sales`, `marketing`, `research`, `product`
-- **Solution Consultant** (`solution-consultant`) -> `sales`, `engineering`, `backend`, `product`
+- **Growth Marketer** (`growth-marketer`) -> `marketing`, `founder`, `data`, `product`, `sales`
+- **Product Marketing Manager** (`product-marketing-manager`) -> `marketing`, `documents`, `product`, `research`, `sales`, `customer_success`
+- **Sales Strategist** (`sales-strategist`) -> `sales`, `marketing`, `research`, `product`, `engineering`, `backend`
 - **Security Architect** (`security-architect`) -> `security`, `engineering`, `devops`
 - **Compliance Officer** (`compliance-officer`) -> `legal`, `security`, `finance`, `operations`
 - **Data Protection Officer** (`data-protection-officer`) -> `legal`, `security`, `data`, `product`
-- **Database Engineer** (`database-engineer`) -> `data`, `backend`, `devops`, `engineering`
-- **Cloud Architect** (`cloud-architect`) -> `devops`, `sre`, `security`, `finance`
 - **SRE** (`sre`) -> `sre`, `devops`, `data`, `security`
-- **Incident Commander** (`incident-commander`) -> `sre`, `operations`, `devops`, `customer_success`
+- **Incident Manager** (`incident-manager`) -> `sre`, `operations`, `devops`, `customer_success`, `data`
 - **FinOps Analyst** (`finops-analyst`) -> `finance`, `devops`, `sre`, `operations`
 - **Finance Manager** (`finance-manager`) -> `finance`, `operations`, `founder`
-- **Procurement Manager** (`procurement-manager`) -> `operations`, `finance`, `legal`, `research`
-- **Technical Writer** (`technical-writer`) -> `documents`, `research`, `product`, `customer_success`
-- **Knowledge Manager** (`knowledge-manager`) -> `documents`, `operations`, `customer_success`, `research`
-- **Content Marketer** (`content-marketer`) -> `marketing`, `documents`, `product`, `research`
-- **Recruiter** (`recruiter`) -> `people`, `operations`
+- **Technical Writer** (`technical-writer`) -> `documents`, `operations`, `research`, `product`, `customer_success`
 - **HR Manager** (`hr-manager`) -> `people`, `operations`
 - **Engineering Manager** (`engineering-manager`) -> `people`, `operations`, `engineering`, `product`
 

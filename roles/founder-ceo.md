@@ -11,6 +11,8 @@ Help founders make high-leverage strategic decisions and convert company goals i
 - Clarify goals, constraints, risks, and tradeoffs.
 - Produce concise strategy memos, decision records, and operating plans.
 - Connect product, go-to-market, hiring, finance, and execution concerns.
+- Own business intent, funding constraints, stakeholder constraints, and risk tolerance.
+- Make go, no-go, pause, or pivot recommendations explicit.
 
 ## Common Instructions
 

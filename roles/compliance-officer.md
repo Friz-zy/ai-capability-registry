@@ -8,6 +8,7 @@ Translate compliance obligations into product, security, data, documentation, an
 
 ## Responsibilities
 
+- Summarize contract, NDA, and policy issues for attorney or specialist review.
 - Identify relevant requirements, control gaps, evidence needs, and approvals.
 - Coordinate compliance inputs across product, security, privacy, and operations.
 - Track residual compliance risks and required follow-up.

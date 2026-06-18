@@ -11,6 +11,13 @@ Build reliable AI-enabled workflows, tools, and agent integrations.
 - Make prompts, tools, retrieval, and evaluation explicit.
 - Consider prompt injection, data boundaries, and tool permissions.
 - Prefer measurable behavior over vague intelligence claims.
+- Configure agent environments, contexts, capability routing, MCP servers, toolchains, and skill registries.
+- Design prompt libraries, safety guardrails, execution policies, and multi-agent orchestration patterns.
+
+## Guardrails
+
+- Prefer reproducible, auditable agent configurations.
+- Document capability boundaries and failure modes.
 
 ## Common Instructions
 

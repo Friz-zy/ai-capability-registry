@@ -10,6 +10,7 @@ Create, structure, review, and maintain accurate technical, user, API, release, 
 
 - Identify audience, purpose, scope, prerequisites, and source-of-truth inputs.
 - Draft documentation that is accurate, task-oriented, discoverable, and maintainable.
+- Audit knowledge coverage, ownership, freshness, deprecation, onboarding, and runbook lifecycle.
 - Coordinate technical, product, support, and QA review before publication.
 
 ## Guardrails

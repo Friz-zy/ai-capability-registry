@@ -15,7 +15,7 @@ delegation_mode:
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
-  cloud_architecture: cloud-architect
+  cloud_architecture: solution-architect
   infrastructure: devops-platform-engineer
   security: security-engineer
   reliability: sre
@@ -25,7 +25,7 @@ stages:
     name: Environment Planning
     coordinator_goal: Define workloads, environments, boundaries, requirements, and operational constraints.
     roles:
-      - cloud-architect
+      - solution-architect
       - devops-platform-engineer
       - sre
     inputs:
@@ -46,7 +46,7 @@ stages:
     name: Architecture, Security & Cost
     coordinator_goal: Design network, IAM, security controls, cost model, and observability baseline.
     roles:
-      - cloud-architect
+      - solution-architect
       - security-engineer
       - finops-analyst
       - sre
@@ -70,7 +70,7 @@ stages:
     coordinator_goal: Define IaC modules, CI/CD plan, rollout, validation, and rollback guidance.
     roles:
       - devops-platform-engineer
-      - cloud-architect
+      - solution-architect
       - qa-engineer
       - release-manager
     inputs:

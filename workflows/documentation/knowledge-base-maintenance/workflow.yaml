@@ -15,7 +15,7 @@ delegation_mode:
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
-  knowledge_lifecycle: knowledge-manager
+  knowledge_lifecycle: technical-writer
   technical_accuracy: tech-lead
   support_context: customer-success-support
   product_context: product-manager
@@ -25,7 +25,6 @@ stages:
     name: Knowledge Audit
     coordinator_goal: Inventory content, owners, freshness, usage, gaps, and deprecated candidates.
     roles:
-      - knowledge-manager
       - technical-writer
       - customer-success-support
     inputs:
@@ -47,10 +46,9 @@ stages:
     name: Update Plan
     coordinator_goal: Prioritize updates, archive decisions, missing content, and review owners.
     roles:
-      - knowledge-manager
+      - technical-writer
       - tech-lead
       - product-manager
-      - technical-writer
     inputs:
       - knowledge_articles
       - decision_logs
@@ -71,7 +69,7 @@ stages:
     name: Governance
     coordinator_goal: Define maintenance cadence, ownership, review rules, and feedback loop.
     roles:
-      - knowledge-manager
+      - technical-writer
       - engineering-manager
       - customer-success-support
     inputs:

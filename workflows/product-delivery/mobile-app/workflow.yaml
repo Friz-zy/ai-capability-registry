@@ -20,8 +20,8 @@ conflict_resolution:
   business_scope: product-manager
   requirements_detail: business-analyst
   user_research: ux-researcher
-  user_experience: ux-designer
-  visual_design: ui-designer
+  user_experience: ux-ui-designer
+  visual_design: ux-ui-designer
   architecture: solution-architect
   implementation: tech-lead
   mobile_platform: mobile-engineer
@@ -60,8 +60,7 @@ stages:
     coordinator_goal: Design mobile-native flows that respect platform conventions and device constraints.
     roles:
       - ux-researcher
-      - ux-designer
-      - ui-designer
+      - ux-ui-designer
       - mobile-engineer
     inputs:
       - prd
@@ -137,7 +136,6 @@ stages:
     coordinator_goal: Define mobile QA coverage for devices, platforms, permissions, network states, and store readiness.
     roles:
       - qa-engineer
-      - sdet
       - mobile-engineer
     inputs:
       - prd
@@ -190,7 +188,7 @@ stages:
     coordinator_goal: Track mobile release health and feed store, support, and analytics signals into the next iteration.
     roles:
       - product-manager
-      - product-analyst
+      - business-analyst
       - customer-success-support
     inputs:
       - mobile_release_plan

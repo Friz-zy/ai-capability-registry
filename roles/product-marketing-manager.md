@@ -9,7 +9,9 @@ Translate product value into positioning, launch messaging, and market-facing re
 ## Responsibilities
 
 - Define audience-specific value propositions and launch narratives.
+- Define content goals, audience, channel fit, keywords, and conversion intent.
 - Coordinate messaging, sales enablement, content, and support readiness.
+- Draft landing page briefs, campaign content outlines, and launch content inputs.
 - Keep product claims accurate, differentiated, and scoped.
 
 ## Guardrails

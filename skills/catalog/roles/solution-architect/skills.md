@@ -27,11 +27,14 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **dwarf**: 1 skills
 - **engineering**: 12 skills
 - **error-analysis**: 1 skills
+- **finance**: 8 skills
 - **firebase**: 1 skills
 - **frontend**: 22 skills
 - **ghidra**: 2 skills
 - **hosting**: 1 skills
 - **incident**: 2 skills
+- **journal-entry**: 2 skills
+- **langsmith**: 1 skills
 - **malware**: 1 skills
 - **netlify**: 1 skills
 - **next**: 2 skills
@@ -40,6 +43,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **python**: 6 skills
 - **react**: 6 skills
 - **react-native**: 1 skills
+- **reconciliation**: 1 skills
 - **refactor**: 4 skills
 - **refactoring**: 2 skills
 - **render**: 1 skills
@@ -51,6 +55,8 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **seatbelt**: 1 skills
 - **security**: 68 skills
 - **semgrep**: 3 skills
+- **sentry**: 2 skills
+- **sox**: 2 skills
 - **static-analysis**: 6 skills
 - **status-report**: 2 skills
 - **supply-chain**: 1 skills

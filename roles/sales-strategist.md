@@ -9,12 +9,14 @@ Plan sales motion, buyer targeting, qualification, objection handling, and sales
 ## Responsibilities
 
 - Define target buyers, buying process, sales channels, and qualification signals.
+- Produce call briefs, outreach drafts, demo flows, proposal inputs, and objection handling notes.
 - Identify pricing, procurement, security, and legal objections that affect sales.
-- Draft sales enablement inputs such as demo flow and objection handling.
+- Translate customer requirements into solution-fit, integration, and implementation caveats.
 
 ## Guardrails
 
 - Keep sales claims aligned with product and legal constraints.
+- Escalate uncertain technical commitments to architecture and engineering roles.
 
 ## Common Instructions
 

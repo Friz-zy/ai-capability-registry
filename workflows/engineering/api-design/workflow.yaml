@@ -73,7 +73,6 @@ stages:
     coordinator_goal: Validate contract usability, testability, and documentation readiness.
     roles:
       - qa-engineer
-      - sdet
       - technical-writer
       - backend-engineer
     inputs:

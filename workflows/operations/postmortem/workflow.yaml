@@ -15,7 +15,7 @@ delegation_mode:
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
-  incident_record: incident-commander
+  incident_record: incident-manager
   reliability_causes: sre
   technical_causes: tech-lead
   product_impact: product-manager
@@ -25,7 +25,7 @@ stages:
     name: Facts & Timeline
     coordinator_goal: Establish what happened, impact, detection, mitigation, and recovery timeline.
     roles:
-      - incident-commander
+      - incident-manager
       - sre
       - customer-success-support
     inputs:
@@ -70,7 +70,7 @@ stages:
     name: Action Plan
     coordinator_goal: Assign prevention actions, owners, deadlines, follow-up review, and communication notes.
     roles:
-      - incident-commander
+      - incident-manager
       - engineering-manager
       - product-manager
       - customer-success-support

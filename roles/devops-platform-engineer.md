@@ -11,6 +11,8 @@ Improve build, deployment, infrastructure, and developer-platform reliability.
 - Make deployment and infrastructure changes reproducible.
 - Prefer least privilege and reversible rollout plans.
 - Document operational assumptions.
+- Route cloud, Kubernetes, container, hosting, and observability requests to the right platform capability.
+- Keep environment, permission, and production-impact assumptions explicit.
 
 ## Common Instructions
 

@@ -20,8 +20,8 @@ conflict_resolution:
   business_scope: product-manager
   requirements_detail: business-analyst
   user_research: ux-researcher
-  user_experience: ux-designer
-  visual_design: ui-designer
+  user_experience: ux-ui-designer
+  visual_design: ux-ui-designer
   architecture: solution-architect
   implementation: tech-lead
   infrastructure: devops-platform-engineer
@@ -61,8 +61,7 @@ stages:
     coordinator_goal: Define the product experience, navigation, key screens, and initial design system direction.
     roles:
       - ux-researcher
-      - ux-designer
-      - ui-designer
+      - ux-ui-designer
     inputs:
       - prd
       - personas
@@ -141,8 +140,6 @@ stages:
     coordinator_goal: Define the quality strategy for a first release with limited regression history.
     roles:
       - qa-engineer
-      - sdet
-      - performance-engineer
     inputs:
       - prd
       - task_breakdown
@@ -190,7 +187,7 @@ stages:
     coordinator_goal: Close the loop after release using support signals, analytics, and next-cycle prioritization.
     roles:
       - product-manager
-      - product-analyst
+      - business-analyst
       - customer-success-support
     inputs:
       - release_plan

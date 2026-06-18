@@ -19,7 +19,7 @@ conflict_resolution:
   implementation: tech-lead
   security: security-engineer
   infrastructure: devops-platform-engineer
-  data: database-engineer
+  data: data-engineer
 stages:
   - id: context_review
     name: Context Review
@@ -49,8 +49,7 @@ stages:
       - solution-architect
       - security-engineer
       - devops-platform-engineer
-      - database-engineer
-      - cloud-architect
+      - data-engineer
     inputs:
       - context_summary
       - review_criteria

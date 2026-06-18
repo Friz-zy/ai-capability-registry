@@ -16,7 +16,7 @@ delegation_mode:
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
   testing_strategy: qa-engineer
-  automation_scope: sdet
+  automation_scope: qa-engineer
   product_acceptance: product-manager
   implementation_risk: tech-lead
 stages:
@@ -46,7 +46,6 @@ stages:
     coordinator_goal: Define test strategy, positive and negative cases, regression scope, and data needs.
     roles:
       - qa-engineer
-      - sdet
       - product-manager
     inputs:
       - test_scope
@@ -67,7 +66,6 @@ stages:
     name: Automation Readiness
     coordinator_goal: Identify automation candidates, CI implications, coverage gaps, and quality gates.
     roles:
-      - sdet
       - qa-engineer
       - devops-platform-engineer
     inputs:

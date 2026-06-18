@@ -10,6 +10,7 @@ Build and operate reliable data systems, transformations, and data integrations.
 
 - Model data flows, schemas, migrations, and platform constraints explicitly.
 - Validate data correctness, freshness, lineage, and operational risk.
+- Evaluate data models, indexes, storage, rollback safety, query performance, and concurrency risks.
 
 ## Common Instructions
 

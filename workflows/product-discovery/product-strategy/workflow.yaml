@@ -16,7 +16,7 @@ delegation_mode:
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
   product_strategy: product-strategist
-  business_goals: founder-business-owner
+  business_goals: founder-ceo
   product_scope: product-manager
   architecture_feasibility: solution-architect
   financial_constraints: finance-manager
@@ -27,7 +27,7 @@ stages:
     roles:
       - product-strategist
       - product-manager
-      - founder-business-owner
+      - founder-ceo
     inputs:
       - user_request
       - product_context
@@ -92,7 +92,7 @@ stages:
     roles:
       - product-strategist
       - product-manager
-      - founder-business-owner
+      - founder-ceo
     inputs:
       - product_vision
       - north_star_metric

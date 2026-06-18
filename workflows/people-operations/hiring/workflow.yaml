@@ -17,7 +17,7 @@ delegation_mode:
 conflict_resolution:
   hiring_need: engineering-manager
   technical_evaluation: tech-lead
-  recruiting_process: recruiter
+  recruiting_process: hr-manager
   hr_process: hr-manager
   compensation: finance-manager
 stages:
@@ -48,7 +48,6 @@ stages:
     coordinator_goal: Define scorecard, interview plan, test task, screening process, and evaluation rubrics.
     roles:
       - tech-lead
-      - recruiter
       - hr-manager
       - engineering-manager
     inputs:
@@ -70,7 +69,6 @@ stages:
     name: Process & Recommendation
     coordinator_goal: Plan sourcing, process stages, decision rules, offer constraints, and hiring recommendation format.
     roles:
-      - recruiter
       - hr-manager
       - engineering-manager
       - finance-manager

@@ -9,6 +9,7 @@ Plan measurable growth experiments across acquisition, activation, retention, co
 ## Responsibilities
 
 - Define growth hypotheses, channels, funnel constraints, and experiment design.
+- Draft campaigns, positioning-aware landing page copy, lifecycle email, SEO briefs, and ad inputs.
 - Identify activation, conversion, retention, and referral opportunities.
 - Align growth work with product positioning and measurement quality.
 

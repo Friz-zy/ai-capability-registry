@@ -17,7 +17,7 @@ delegation_mode:
 conflict_resolution:
   launch_scope: product-manager
   positioning: product-marketing-manager
-  content: content-marketer
+  content: product-marketing-manager
   sales_readiness: sales-strategist
   support_readiness: customer-success-support
 stages:
@@ -27,7 +27,7 @@ stages:
     roles:
       - product-manager
       - product-marketing-manager
-      - founder-business-owner
+      - founder-ceo
     inputs:
       - user_request
       - product_context
@@ -48,7 +48,6 @@ stages:
     coordinator_goal: Create launch messaging, positioning, channel plan, and landing page brief.
     roles:
       - product-marketing-manager
-      - content-marketer
       - growth-marketer
     inputs:
       - launch_scope
@@ -69,7 +68,6 @@ stages:
     coordinator_goal: Prepare sales materials, onboarding flow, support notes, and customer communication needs.
     roles:
       - sales-strategist
-      - solution-consultant
       - customer-success-support
       - technical-writer
     inputs:

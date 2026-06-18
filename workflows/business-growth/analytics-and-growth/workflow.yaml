@@ -16,7 +16,7 @@ delegation_mode:
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
   product_question: product-manager
-  metrics_analysis: product-analyst
+  metrics_analysis: business-analyst
   growth_experiment: growth-marketer
   user_insight: ux-researcher
   implementation_feasibility: tech-lead
@@ -26,7 +26,7 @@ stages:
     coordinator_goal: Define decision questions, metrics, segments, and data quality assumptions.
     roles:
       - product-manager
-      - product-analyst
+      - business-analyst
       - growth-marketer
     inputs:
       - user_request
@@ -47,7 +47,7 @@ stages:
     name: Analysis
     coordinator_goal: Produce funnel, retention, cohort, and qualitative insight synthesis.
     roles:
-      - product-analyst
+      - business-analyst
       - ux-researcher
       - product-manager
     inputs:

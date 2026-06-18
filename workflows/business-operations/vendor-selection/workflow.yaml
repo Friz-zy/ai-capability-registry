@@ -15,7 +15,7 @@ delegation_mode:
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
-  procurement: procurement-manager
+  procurement: operations-manager
   technical_fit: tech-lead
   security: security-engineer
   compliance: compliance-officer
@@ -25,7 +25,7 @@ stages:
     name: Requirements
     coordinator_goal: Define business, technical, security, legal, support, and procurement requirements.
     roles:
-      - procurement-manager
+      - operations-manager
       - product-manager
       - tech-lead
       - finance-manager
@@ -47,7 +47,7 @@ stages:
     name: Comparison Review
     coordinator_goal: Compare options across fit, implementation, security, compliance, support, cost, and lock-in.
     roles:
-      - procurement-manager
+      - operations-manager
       - tech-lead
       - security-engineer
       - compliance-officer
@@ -71,7 +71,7 @@ stages:
     name: Recommendation
     coordinator_goal: Produce recommended vendor, rationale, fallback option, approval needs, and next steps.
     roles:
-      - procurement-manager
+      - operations-manager
       - product-manager
       - finance-manager
       - release-manager

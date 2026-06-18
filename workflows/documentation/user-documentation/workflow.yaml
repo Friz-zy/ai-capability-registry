@@ -17,7 +17,7 @@ delegation_mode:
 conflict_resolution:
   user_content: technical-writer
   product_accuracy: product-manager
-  user_experience: ux-designer
+  user_experience: ux-ui-designer
   support_readiness: customer-success-support
 stages:
   - id: user_context
@@ -27,7 +27,7 @@ stages:
       - technical-writer
       - product-manager
       - customer-success-support
-      - ux-designer
+      - ux-ui-designer
     inputs:
       - user_request
       - product_context
@@ -47,7 +47,7 @@ stages:
     coordinator_goal: Draft help center article, onboarding guide, FAQ, how-to guides, and release notes as needed.
     roles:
       - technical-writer
-      - ux-designer
+      - ux-ui-designer
       - product-manager
     inputs:
       - audience

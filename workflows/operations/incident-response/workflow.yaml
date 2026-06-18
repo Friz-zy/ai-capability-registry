@@ -15,7 +15,7 @@ delegation_mode:
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
-  incident_command: incident-commander
+  incident_command: incident-manager
   reliability: sre
   infrastructure: devops-platform-engineer
   application: backend-engineer
@@ -25,7 +25,7 @@ stages:
     name: Incident Triage
     coordinator_goal: Establish severity, scope, timeline, impact, owners, and communication channels.
     roles:
-      - incident-commander
+      - incident-manager
       - sre
       - customer-success-support
       - product-manager
@@ -48,7 +48,7 @@ stages:
     name: Mitigation & Recovery
     coordinator_goal: Coordinate mitigation actions, rollback or roll-forward decisions, and recovery validation.
     roles:
-      - incident-commander
+      - incident-manager
       - sre
       - devops-platform-engineer
       - backend-engineer
@@ -72,7 +72,7 @@ stages:
     name: Communication & Follow-Up
     coordinator_goal: Prepare customer communication, internal summary, follow-up tasks, and postmortem trigger.
     roles:
-      - incident-commander
+      - incident-manager
       - customer-success-support
       - release-manager
       - engineering-manager

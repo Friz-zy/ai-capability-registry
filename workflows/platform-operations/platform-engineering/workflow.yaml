@@ -16,7 +16,7 @@ delegation_mode:
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
   platform_scope: devops-platform-engineer
-  architecture: cloud-architect
+  architecture: solution-architect
   reliability: sre
   security: security-engineer
   delivery_process: engineering-manager
@@ -47,7 +47,7 @@ stages:
     coordinator_goal: Define golden paths, templates, CI/CD defaults, security controls, observability, and portal needs.
     roles:
       - devops-platform-engineer
-      - cloud-architect
+      - solution-architect
       - security-engineer
       - sre
       - technical-writer
@@ -73,7 +73,7 @@ stages:
     roles:
       - engineering-manager
       - devops-platform-engineer
-      - product-analyst
+      - business-analyst
       - customer-success-support
     inputs:
       - golden_paths

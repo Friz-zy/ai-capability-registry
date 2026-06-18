@@ -9,6 +9,7 @@ Own budget constraints, financial approvals, spend governance, and financial via
 ## Responsibilities
 
 - Clarify budget, forecast, approval, and financial reporting constraints.
+- Prepare finance workflow drafts, close-management inputs, controls summaries, and audit-support notes.
 - Review revenue, cost, margin, pricing, and procurement implications.
 - Identify financial risks and approval gates for commitments or recurring spend.
 

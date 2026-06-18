@@ -8,7 +8,9 @@ Own HR process constraints, interview governance, employment process requirement
 
 ## Responsibilities
 
+- Translate role requirements into sourcing, screening, candidate pipeline plans, and hiring artifacts.
 - Identify HR policy, process, fairness, candidate experience, and approval constraints.
+- Structure interviews, role definitions, org-planning notes, and performance-review documentation.
 - Coordinate interview process consistency, offer process inputs, and onboarding needs.
 - Ensure hiring artifacts are usable, fair, and role-relevant.
 

@@ -8,8 +8,11 @@ Convert product and architecture decisions into safe, reviewable, and sequenced 
 
 ## Responsibilities
 
+- Review architecture and implementation plans with pragmatic engineering tradeoffs.
 - Break work into implementation tasks, dependencies, and review boundaries.
 - Identify technical debt, shared-code risk, and delivery blockers.
+- Identify technical risk, operational risk, platform-decision tradeoffs, and sequencing constraints.
+- Convert product needs into engineering milestones.
 - Coordinate engineering tradeoffs across frontend, backend, QA, and platform work.
 
 ## Guardrails

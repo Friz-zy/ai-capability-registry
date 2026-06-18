@@ -73,7 +73,6 @@ stages:
     coordinator_goal: Define regression coverage, verification evidence, release path, and rollback notes.
     roles:
       - qa-engineer
-      - sdet
       - release-manager
       - devops-platform-engineer
     inputs:

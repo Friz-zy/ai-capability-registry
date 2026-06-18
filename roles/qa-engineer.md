@@ -11,10 +11,13 @@ Improve product quality through risk-based testing, automation, and clear defect
 - Identify high-risk flows and edge cases.
 - Write reproducible test plans and bug reports.
 - Prefer deterministic automated checks where practical.
+- Identify automation candidates and test pyramid coverage across unit, integration, and end-to-end checks.
+- Consider CI reliability, flakiness, performance budgets, load scenarios, and scalability risks.
 
 ## Guardrails
 
 - Do not overfit tests to implementation details.
+- Do not claim performance guarantees without measurements.
 
 ## Common Instructions
 

@@ -40,7 +40,7 @@ Coordinate discovery, design, architecture, development planning, QA, release, a
 
 ### SaaS From Scratch Workflow Role IDs
 
-`product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+`product-manager`, `business-analyst`, `ux-ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 
 ### Mobile App Workflow
 
@@ -58,7 +58,7 @@ Coordinate product, platform UX, mobile architecture, development planning, QA, 
 
 ### Mobile App Workflow Role IDs
 
-`product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `mobile-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+`product-manager`, `business-analyst`, `ux-ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `mobile-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 
 ### Feature Development Workflow
 
@@ -76,7 +76,7 @@ Coordinate scoped discovery, UX fit, architecture review, implementation plannin
 
 ### Feature Development Workflow Role IDs
 
-`product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+`product-manager`, `business-analyst`, `ux-ui-designer`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 
 ### Idea Validation Workflow
 
@@ -94,7 +94,7 @@ Coordinate pre-development validation of problem, audience, market signals, valu
 
 ### Idea Validation Workflow Role IDs
 
-`founder-business-owner`, `product-manager`, `market-researcher`, `business-analyst`, `finance-manager`, `ux-researcher`, `product-analyst`
+`founder-ceo`, `product-manager`, `market-researcher`, `business-analyst`, `finance-manager`, `ux-researcher`
 
 ### Product Strategy Workflow
 
@@ -112,7 +112,7 @@ Coordinate product vision, positioning, north-star metric, roadmap direction, mo
 
 ### Product Strategy Workflow Role IDs
 
-`product-strategist`, `product-manager`, `founder-business-owner`, `solution-architect`, `finance-manager`, `market-researcher`
+`product-strategist`, `product-manager`, `founder-ceo`, `solution-architect`, `finance-manager`, `market-researcher`
 
 ### Pricing And Monetization Workflow
 
@@ -148,7 +148,7 @@ Coordinate launch plan, messaging, landing page brief, sales materials, onboardi
 
 ### Go To Market Workflow Role IDs
 
-`product-manager`, `product-marketing-manager`, `growth-marketer`, `sales-strategist`, `content-marketer`, `customer-success-support`, `technical-writer`, `release-manager`
+`product-manager`, `product-marketing-manager`, `growth-marketer`, `sales-strategist`, `customer-success-support`, `technical-writer`, `release-manager`
 
 ### Bugfix Workflow
 
@@ -166,7 +166,7 @@ Coordinate defect triage, reproduction, root cause, fix plan, regression checkli
 
 ### Bugfix Workflow Role IDs
 
-`customer-success-support`, `qa-engineer`, `product-manager`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `sdet`, `release-manager`, `devops-platform-engineer`
+`customer-success-support`, `qa-engineer`, `product-manager`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `release-manager`, `devops-platform-engineer`
 
 ### Technical Debt Refactoring Workflow
 
@@ -184,7 +184,7 @@ Coordinate debt inventory, risk analysis, behavior-preserving refactoring plan, 
 
 ### Technical Debt Refactoring Workflow Role IDs
 
-`tech-lead`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `database-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `performance-engineer`, `release-manager`, `product-manager`
+`tech-lead`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `data-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `product-manager`
 
 ### API Design Workflow
 
@@ -202,7 +202,7 @@ Coordinate OpenAPI contract, auth model, error model, pagination and filtering r
 
 ### API Design Workflow Role IDs
 
-`product-manager`, `business-analyst`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `security-engineer`, `qa-engineer`, `sdet`, `technical-writer`
+`product-manager`, `business-analyst`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `security-engineer`, `qa-engineer`, `technical-writer`
 
 ### Integration Development Workflow
 
@@ -220,7 +220,7 @@ Coordinate external integration requirements, data mapping, API contract, auth a
 
 ### Integration Development Workflow Role IDs
 
-`business-analyst`, `product-manager`, `solution-architect`, `backend-engineer`, `security-engineer`, `qa-engineer`, `sdet`, `devops-platform-engineer`, `release-manager`, `customer-success-support`
+`business-analyst`, `product-manager`, `solution-architect`, `backend-engineer`, `security-engineer`, `qa-engineer`, `devops-platform-engineer`, `release-manager`, `customer-success-support`
 
 ### Architecture Review Workflow
 
@@ -238,7 +238,7 @@ Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability n
 
 ### Architecture Review Workflow Role IDs
 
-`solution-architect`, `tech-lead`, `product-manager`, `security-engineer`, `devops-platform-engineer`, `database-engineer`, `cloud-architect`, `release-manager`
+`solution-architect`, `tech-lead`, `product-manager`, `security-engineer`, `devops-platform-engineer`, `data-engineer`, `release-manager`
 
 ### ADR Decision Workflow
 
@@ -274,7 +274,7 @@ Coordinate Terraform/OpenTofu modules, environment plan, network plan, IAM model
 
 ### Infrastructure Provisioning Workflow Role IDs
 
-`cloud-architect`, `devops-platform-engineer`, `sre`, `security-engineer`, `finops-analyst`, `qa-engineer`, `release-manager`
+`devops-platform-engineer`, `sre`, `security-engineer`, `finops-analyst`, `qa-engineer`, `release-manager`
 
 ### Platform Engineering Workflow
 
@@ -292,7 +292,7 @@ Coordinate internal developer platform design, golden paths, service templates, 
 
 ### Platform Engineering Workflow Role IDs
 
-`devops-platform-engineer`, `engineering-manager`, `tech-lead`, `cloud-architect`, `security-engineer`, `sre`, `technical-writer`, `product-analyst`, `customer-success-support`
+`devops-platform-engineer`, `engineering-manager`, `tech-lead`, `security-engineer`, `sre`, `technical-writer`, `business-analyst`, `customer-success-support`
 
 ### Security Review Workflow
 
@@ -364,7 +364,7 @@ Coordinate test strategy, test cases, regression scope, automation scope, accept
 
 ### Test Planning Workflow Role IDs
 
-`qa-engineer`, `product-manager`, `tech-lead`, `sdet`, `devops-platform-engineer`
+`qa-engineer`, `product-manager`, `tech-lead`, `devops-platform-engineer`
 
 ### Automated Testing Workflow
 
@@ -382,7 +382,7 @@ Coordinate unit, integration, and e2e test plans, CI test pipeline, flaky-test p
 
 ### Automated Testing Workflow Role IDs
 
-`sdet`, `qa-engineer`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `devops-platform-engineer`
+`qa-engineer`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `devops-platform-engineer`
 
 ### Performance Testing Workflow
 
@@ -400,7 +400,7 @@ Coordinate load profile, performance scenarios, bottleneck report, capacity esti
 
 ### Performance Testing Workflow Role IDs
 
-`performance-engineer`, `sre`, `product-manager`, `backend-engineer`, `database-engineer`, `devops-platform-engineer`, `tech-lead`, `qa-engineer`
+`sre`, `product-manager`, `backend-engineer`, `data-engineer`, `devops-platform-engineer`, `tech-lead`, `qa-engineer`
 
 ### Incident Response Workflow
 
@@ -418,7 +418,7 @@ Coordinate incident timeline, impact analysis, mitigation actions, customer comm
 
 ### Incident Response Workflow Role IDs
 
-`incident-commander`, `sre`, `customer-success-support`, `product-manager`, `devops-platform-engineer`, `backend-engineer`, `qa-engineer`, `release-manager`, `engineering-manager`
+`incident-manager`, `sre`, `customer-success-support`, `product-manager`, `devops-platform-engineer`, `backend-engineer`, `qa-engineer`, `release-manager`, `engineering-manager`
 
 ### Postmortem Workflow
 
@@ -436,7 +436,7 @@ Coordinate what happened, why it happened, detection gap, prevention actions, ow
 
 ### Postmortem Workflow Role IDs
 
-`incident-commander`, `sre`, `customer-success-support`, `tech-lead`, `backend-engineer`, `devops-platform-engineer`, `product-manager`, `engineering-manager`
+`incident-manager`, `sre`, `customer-success-support`, `tech-lead`, `backend-engineer`, `devops-platform-engineer`, `product-manager`, `engineering-manager`
 
 ### Customer Support Workflow
 
@@ -472,7 +472,7 @@ Coordinate feedback clusters, pain points, feature requests, churn risks, roadma
 
 ### Customer Feedback Analysis Workflow Role IDs
 
-`customer-success-support`, `product-manager`, `product-analyst`, `ux-researcher`
+`customer-success-support`, `product-manager`, `business-analyst`, `ux-researcher`
 
 ### Analytics And Growth Workflow
 
@@ -490,7 +490,7 @@ Coordinate funnel analysis, retention report, cohort analysis, growth experiment
 
 ### Analytics And Growth Workflow Role IDs
 
-`product-manager`, `product-analyst`, `growth-marketer`, `ux-researcher`, `tech-lead`
+`product-manager`, `business-analyst`, `growth-marketer`, `ux-researcher`, `tech-lead`
 
 ### Sales Support Workflow
 
@@ -508,7 +508,7 @@ Coordinate sales deck, demo script, objection handling, technical FAQ, proposal 
 
 ### Sales Support Workflow Role IDs
 
-`sales-strategist`, `product-manager`, `solution-consultant`, `technical-writer`, `compliance-officer`, `security-engineer`
+`sales-strategist`, `product-manager`, `technical-writer`, `compliance-officer`, `security-engineer`
 
 ### Technical Documentation Workflow
 
@@ -544,7 +544,7 @@ Coordinate help center article, onboarding guide, FAQ, how-to guides, release no
 
 ### User Documentation Workflow Role IDs
 
-`technical-writer`, `product-manager`, `ux-designer`, `customer-success-support`, `release-manager`
+`technical-writer`, `product-manager`, `ux-ui-designer`, `customer-success-support`, `release-manager`
 
 ### Knowledge Base Maintenance Workflow
 
@@ -562,7 +562,7 @@ Coordinate knowledge articles, decision logs, runbooks, onboarding docs, depreca
 
 ### Knowledge Base Maintenance Workflow Role IDs
 
-`knowledge-manager`, `technical-writer`, `customer-success-support`, `tech-lead`, `product-manager`, `engineering-manager`
+`technical-writer`, `customer-success-support`, `tech-lead`, `product-manager`, `engineering-manager`
 
 ### FinOps Cost Optimization Workflow
 
@@ -580,7 +580,7 @@ Coordinate cost breakdown, unused resources list, rightsizing plan, reserved or 
 
 ### FinOps Cost Optimization Workflow Role IDs
 
-`finops-analyst`, `finance-manager`, `product-manager`, `sre`, `devops-platform-engineer`, `cloud-architect`, `engineering-manager`
+`finops-analyst`, `finance-manager`, `product-manager`, `sre`, `devops-platform-engineer`, `solution-architect`, `engineering-manager`
 
 ### Vendor Selection Workflow
 
@@ -598,7 +598,7 @@ Coordinate requirements, comparison matrix, risks, cost model, recommendation, f
 
 ### Vendor Selection Workflow Role IDs
 
-`procurement-manager`, `product-manager`, `tech-lead`, `finance-manager`, `security-engineer`, `compliance-officer`, `release-manager`
+`operations-manager`, `product-manager`, `tech-lead`, `finance-manager`, `security-engineer`, `compliance-officer`, `release-manager`
 
 ### Hiring Workflow
 
@@ -616,7 +616,7 @@ Coordinate role description, candidate scorecard, interview plan, test task, sou
 
 ### Hiring Workflow Role IDs
 
-`engineering-manager`, `tech-lead`, `hr-manager`, `finance-manager`, `recruiter`
+`engineering-manager`, `tech-lead`, `hr-manager`, `finance-manager`
 
 ### Team Process Improvement Workflow
 

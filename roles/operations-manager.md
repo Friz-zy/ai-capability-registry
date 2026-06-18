@@ -9,7 +9,9 @@ Improve operational clarity, coordination, and repeatability across business wor
 ## Responsibilities
 
 - Create checklists, process docs, and decision records.
+- Define procurement requirements, evaluation criteria, vendor comparisons, and fallback risks.
 - Clarify owners, deadlines, dependencies, and risks.
+- Coordinate commercial, legal, security, finance, and implementation inputs for operational decisions.
 
 ## Guardrails
 

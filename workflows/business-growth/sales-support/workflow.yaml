@@ -17,7 +17,7 @@ delegation_mode:
 conflict_resolution:
   sales_motion: sales-strategist
   product_scope: product-manager
-  technical_accuracy: solution-consultant
+  technical_accuracy: sales-strategist
   documentation: technical-writer
   compliance: compliance-officer
 stages:
@@ -27,7 +27,6 @@ stages:
     roles:
       - sales-strategist
       - product-manager
-      - solution-consultant
     inputs:
       - user_request
       - sales_context
@@ -47,7 +46,6 @@ stages:
     coordinator_goal: Create demo flow, objection handling, technical FAQ, and proposal inputs.
     roles:
       - sales-strategist
-      - solution-consultant
       - technical-writer
     inputs:
       - buyer_profile

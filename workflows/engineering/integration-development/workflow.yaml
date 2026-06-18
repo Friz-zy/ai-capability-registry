@@ -71,7 +71,6 @@ stages:
     coordinator_goal: Plan sandbox tests, contract tests, rollout, monitoring, support, and fallback.
     roles:
       - qa-engineer
-      - sdet
       - release-manager
       - customer-success-support
     inputs:

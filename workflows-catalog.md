@@ -24,7 +24,7 @@ Coordinate OpenAPI contract, auth model, error model, pagination and filtering r
 **Categories:** `engineering`, `architecture`
 **Tags:** `api`, `openapi`, `contract`, `auth`, `versioning`
 **Task IDs:** `design-api`, `build-backend`, `write-documents`, `security-audit`
-**Role IDs:** `product-manager`, `business-analyst`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `security-engineer`, `qa-engineer`, `sdet`, `technical-writer`
+**Role IDs:** `product-manager`, `business-analyst`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `security-engineer`, `qa-engineer`, `technical-writer`
 **Guide:** `workflows/engineering/api-design/workflow.md`
 **Manifest:** `workflows/engineering/api-design/workflow.yaml`
 
@@ -35,7 +35,7 @@ Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability n
 **Categories:** `architecture`, `engineering`
 **Tags:** `architecture-review`, `adr`, `c4`, `scalability`, `cost`
 **Task IDs:** `review-architecture`, `review-code`, `manage-project`
-**Role IDs:** `solution-architect`, `tech-lead`, `product-manager`, `security-engineer`, `devops-platform-engineer`, `database-engineer`, `cloud-architect`, `release-manager`
+**Role IDs:** `solution-architect`, `tech-lead`, `product-manager`, `security-engineer`, `devops-platform-engineer`, `data-engineer`, `release-manager`
 **Guide:** `workflows/architecture/architecture-review/workflow.md`
 **Manifest:** `workflows/architecture/architecture-review/workflow.yaml`
 
@@ -59,7 +59,7 @@ Coordinate pre-development validation of problem, audience, market signals, valu
 **Categories:** `product-discovery`, `business`
 **Tags:** `idea`, `validation`, `market-research`, `mvp`, `go-no-go`
 **Task IDs:** `validate-idea`, `research-brief`, `manage-project`
-**Role IDs:** `founder-business-owner`, `product-manager`, `market-researcher`, `business-analyst`, `finance-manager`, `ux-researcher`, `product-analyst`
+**Role IDs:** `founder-ceo`, `product-manager`, `market-researcher`, `business-analyst`, `finance-manager`, `ux-researcher`
 **Guide:** `workflows/product-discovery/idea-validation/workflow.md`
 **Manifest:** `workflows/product-discovery/idea-validation/workflow.yaml`
 
@@ -70,7 +70,7 @@ Coordinate product vision, positioning, north-star metric, roadmap direction, mo
 **Categories:** `product-discovery`, `business`
 **Tags:** `strategy`, `vision`, `roadmap`, `positioning`, `north-star-metric`
 **Task IDs:** `define-product-strategy`, `validate-idea`, `manage-project`
-**Role IDs:** `product-strategist`, `product-manager`, `founder-business-owner`, `solution-architect`, `finance-manager`, `market-researcher`
+**Role IDs:** `product-strategist`, `product-manager`, `founder-ceo`, `solution-architect`, `finance-manager`, `market-researcher`
 **Guide:** `workflows/product-discovery/product-strategy/workflow.md`
 **Manifest:** `workflows/product-discovery/product-strategy/workflow.yaml`
 
@@ -83,7 +83,7 @@ Coordinate funnel analysis, retention report, cohort analysis, growth experiment
 **Categories:** `business-growth`, `product-analytics`
 **Tags:** `analytics`, `growth`, `funnel`, `retention`, `ab-test`
 **Task IDs:** `analyze-growth`, `analyze-data`, `manage-project`
-**Role IDs:** `product-manager`, `product-analyst`, `growth-marketer`, `ux-researcher`, `tech-lead`
+**Role IDs:** `product-manager`, `business-analyst`, `growth-marketer`, `ux-researcher`, `tech-lead`
 **Guide:** `workflows/business-growth/analytics-and-growth/workflow.md`
 **Manifest:** `workflows/business-growth/analytics-and-growth/workflow.yaml`
 
@@ -94,7 +94,7 @@ Coordinate launch plan, messaging, landing page brief, sales materials, onboardi
 **Categories:** `business-growth`, `product-launch`
 **Tags:** `gtm`, `launch`, `messaging`, `sales-enablement`, `onboarding`
 **Task IDs:** `plan-launch`, `customer-sales`, `write-documents`, `deploy-release`
-**Role IDs:** `product-manager`, `product-marketing-manager`, `growth-marketer`, `sales-strategist`, `content-marketer`, `customer-success-support`, `technical-writer`, `release-manager`
+**Role IDs:** `product-manager`, `product-marketing-manager`, `growth-marketer`, `sales-strategist`, `customer-success-support`, `technical-writer`, `release-manager`
 **Guide:** `workflows/business-growth/go-to-market/workflow.md`
 **Manifest:** `workflows/business-growth/go-to-market/workflow.yaml`
 
@@ -116,7 +116,7 @@ Coordinate sales deck, demo script, objection handling, technical FAQ, proposal 
 **Categories:** `business-growth`, `sales`
 **Tags:** `sales`, `b2b`, `demo`, `objections`, `proposal`
 **Task IDs:** `support-sales`, `customer-sales`, `write-documents`
-**Role IDs:** `sales-strategist`, `product-manager`, `solution-consultant`, `technical-writer`, `compliance-officer`, `security-engineer`
+**Role IDs:** `sales-strategist`, `product-manager`, `technical-writer`, `compliance-officer`, `security-engineer`
 **Guide:** `workflows/business-growth/sales-support/workflow.md`
 **Manifest:** `workflows/business-growth/sales-support/workflow.yaml`
 
@@ -129,7 +129,7 @@ Coordinate cost breakdown, unused resources list, rightsizing plan, reserved or 
 **Categories:** `business-operations`, `finops`
 **Tags:** `finops`, `cost-optimization`, `cloud-cost`, `rightsizing`, `savings-plan`
 **Task IDs:** `optimize-costs`, `finance-legal`, `manage-cloud-infra`
-**Role IDs:** `finops-analyst`, `finance-manager`, `product-manager`, `sre`, `devops-platform-engineer`, `cloud-architect`, `engineering-manager`
+**Role IDs:** `finops-analyst`, `finance-manager`, `product-manager`, `sre`, `devops-platform-engineer`, `solution-architect`, `engineering-manager`
 **Guide:** `workflows/business-operations/finops-cost-optimization/workflow.md`
 **Manifest:** `workflows/business-operations/finops-cost-optimization/workflow.yaml`
 
@@ -151,7 +151,7 @@ Coordinate requirements, comparison matrix, risks, cost model, recommendation, f
 **Categories:** `business-operations`, `procurement`
 **Tags:** `vendor`, `procurement`, `comparison`, `cost-model`, `fallback`
 **Task IDs:** `select-vendor`, `finance-legal`, `research-brief`
-**Role IDs:** `procurement-manager`, `product-manager`, `tech-lead`, `finance-manager`, `security-engineer`, `compliance-officer`, `release-manager`
+**Role IDs:** `operations-manager`, `product-manager`, `tech-lead`, `finance-manager`, `security-engineer`, `compliance-officer`, `release-manager`
 **Guide:** `workflows/business-operations/vendor-selection/workflow.md`
 **Manifest:** `workflows/business-operations/vendor-selection/workflow.yaml`
 
@@ -164,7 +164,7 @@ Coordinate feedback clusters, pain points, feature requests, churn risks, roadma
 **Categories:** `customer-success`, `product`
 **Tags:** `feedback`, `customer-insights`, `churn`, `roadmap`, `feature-requests`
 **Task IDs:** `analyze-feedback`, `customer-sales`, `analyze-data`
-**Role IDs:** `customer-success-support`, `product-manager`, `product-analyst`, `ux-researcher`
+**Role IDs:** `customer-success-support`, `product-manager`, `business-analyst`, `ux-researcher`
 **Guide:** `workflows/customer-success/customer-feedback-analysis/workflow.md`
 **Manifest:** `workflows/customer-success/customer-feedback-analysis/workflow.yaml`
 
@@ -186,7 +186,7 @@ Coordinate help center article, onboarding guide, FAQ, how-to guides, release no
 **Categories:** `documentation`, `customer-success`
 **Tags:** `user-docs`, `help-center`, `faq`, `onboarding`, `release-notes`
 **Task IDs:** `write-user-docs`, `write-documents`, `customer-sales`
-**Role IDs:** `technical-writer`, `product-manager`, `ux-designer`, `customer-success-support`, `release-manager`
+**Role IDs:** `technical-writer`, `product-manager`, `ux-ui-designer`, `customer-success-support`, `release-manager`
 **Guide:** `workflows/documentation/user-documentation/workflow.md`
 **Manifest:** `workflows/documentation/user-documentation/workflow.yaml`
 
@@ -199,7 +199,7 @@ Coordinate internal developer platform design, golden paths, service templates, 
 **Categories:** `platform-operations`, `developer-experience`
 **Tags:** `platform`, `golden-path`, `service-template`, `developer-portal`, `observability`
 **Task IDs:** `engineer-platform`, `manage-cloud-infra`, `write-documents`
-**Role IDs:** `devops-platform-engineer`, `engineering-manager`, `tech-lead`, `cloud-architect`, `security-engineer`, `sre`, `technical-writer`, `product-analyst`, `customer-success-support`
+**Role IDs:** `devops-platform-engineer`, `engineering-manager`, `tech-lead`, `security-engineer`, `sre`, `technical-writer`, `business-analyst`, `customer-success-support`
 **Guide:** `workflows/platform-operations/platform-engineering/workflow.md`
 **Manifest:** `workflows/platform-operations/platform-engineering/workflow.yaml`
 
@@ -212,7 +212,7 @@ Coordinate knowledge articles, decision logs, runbooks, onboarding docs, depreca
 **Categories:** `documentation`, `knowledge-management`
 **Tags:** `knowledge-base`, `runbooks`, `decision-logs`, `onboarding-docs`, `deprecation`
 **Task IDs:** `maintain-knowledge-base`, `write-documents`, `manage-project`
-**Role IDs:** `knowledge-manager`, `technical-writer`, `customer-success-support`, `tech-lead`, `product-manager`, `engineering-manager`
+**Role IDs:** `technical-writer`, `customer-success-support`, `tech-lead`, `product-manager`, `engineering-manager`
 **Guide:** `workflows/documentation/knowledge-base-maintenance/workflow.md`
 **Manifest:** `workflows/documentation/knowledge-base-maintenance/workflow.yaml`
 
@@ -234,7 +234,7 @@ Coordinate help center article, onboarding guide, FAQ, how-to guides, release no
 **Categories:** `documentation`, `customer-success`
 **Tags:** `user-docs`, `help-center`, `faq`, `onboarding`, `release-notes`
 **Task IDs:** `write-user-docs`, `write-documents`, `customer-sales`
-**Role IDs:** `technical-writer`, `product-manager`, `ux-designer`, `customer-success-support`, `release-manager`
+**Role IDs:** `technical-writer`, `product-manager`, `ux-ui-designer`, `customer-success-support`, `release-manager`
 **Guide:** `workflows/documentation/user-documentation/workflow.md`
 **Manifest:** `workflows/documentation/user-documentation/workflow.yaml`
 
@@ -258,7 +258,7 @@ Coordinate OpenAPI contract, auth model, error model, pagination and filtering r
 **Categories:** `engineering`, `architecture`
 **Tags:** `api`, `openapi`, `contract`, `auth`, `versioning`
 **Task IDs:** `design-api`, `build-backend`, `write-documents`, `security-audit`
-**Role IDs:** `product-manager`, `business-analyst`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `security-engineer`, `qa-engineer`, `sdet`, `technical-writer`
+**Role IDs:** `product-manager`, `business-analyst`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `security-engineer`, `qa-engineer`, `technical-writer`
 **Guide:** `workflows/engineering/api-design/workflow.md`
 **Manifest:** `workflows/engineering/api-design/workflow.yaml`
 
@@ -269,7 +269,7 @@ Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability n
 **Categories:** `architecture`, `engineering`
 **Tags:** `architecture-review`, `adr`, `c4`, `scalability`, `cost`
 **Task IDs:** `review-architecture`, `review-code`, `manage-project`
-**Role IDs:** `solution-architect`, `tech-lead`, `product-manager`, `security-engineer`, `devops-platform-engineer`, `database-engineer`, `cloud-architect`, `release-manager`
+**Role IDs:** `solution-architect`, `tech-lead`, `product-manager`, `security-engineer`, `devops-platform-engineer`, `data-engineer`, `release-manager`
 **Guide:** `workflows/architecture/architecture-review/workflow.md`
 **Manifest:** `workflows/architecture/architecture-review/workflow.yaml`
 
@@ -280,7 +280,7 @@ Coordinate unit, integration, and e2e test plans, CI test pipeline, flaky-test p
 **Categories:** `quality`, `engineering`
 **Tags:** `automated-tests`, `unit-tests`, `integration-tests`, `e2e`, `ci`
 **Task IDs:** `automate-tests`, `test-validate`, `implement-code`
-**Role IDs:** `sdet`, `qa-engineer`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `devops-platform-engineer`
+**Role IDs:** `qa-engineer`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `devops-platform-engineer`
 **Guide:** `workflows/quality/automated-testing/workflow.md`
 **Manifest:** `workflows/quality/automated-testing/workflow.yaml`
 
@@ -291,7 +291,7 @@ Coordinate defect triage, reproduction, root cause, fix plan, regression checkli
 **Categories:** `engineering`, `product-delivery`
 **Tags:** `bugfix`, `defect`, `regression`, `root-cause`, `hotfix`
 **Task IDs:** `triage-bug`, `debug-incident`, `test-validate`, `deploy-release`
-**Role IDs:** `customer-success-support`, `qa-engineer`, `product-manager`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `sdet`, `release-manager`, `devops-platform-engineer`
+**Role IDs:** `customer-success-support`, `qa-engineer`, `product-manager`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `release-manager`, `devops-platform-engineer`
 **Guide:** `workflows/engineering/bugfix/workflow.md`
 **Manifest:** `workflows/engineering/bugfix/workflow.yaml`
 
@@ -302,7 +302,7 @@ Coordinate scoped discovery, UX fit, architecture review, implementation plannin
 **Categories:** `product-delivery`, `engineering`
 **Tags:** `feature`, `existing-product`, `regression`, `feature-flags`, `architecture-review`
 **Task IDs:** `plan-feature`, `implement-code`, `review-code`, `build-frontend`, `build-backend`, `test-validate`, `deploy-release`, `manage-project`
-**Role IDs:** `product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+**Role IDs:** `product-manager`, `business-analyst`, `ux-ui-designer`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/product-delivery/feature-development/workflow.md`
 **Manifest:** `workflows/product-delivery/feature-development/workflow.yaml`
 
@@ -313,7 +313,7 @@ Coordinate external integration requirements, data mapping, API contract, auth a
 **Categories:** `engineering`, `integration`
 **Tags:** `integration`, `external-api`, `data-mapping`, `idempotency`, `secrets`
 **Task IDs:** `develop-integration`, `build-backend`, `security-audit`, `test-validate`, `deploy-release`
-**Role IDs:** `business-analyst`, `product-manager`, `solution-architect`, `backend-engineer`, `security-engineer`, `qa-engineer`, `sdet`, `devops-platform-engineer`, `release-manager`, `customer-success-support`
+**Role IDs:** `business-analyst`, `product-manager`, `solution-architect`, `backend-engineer`, `security-engineer`, `qa-engineer`, `devops-platform-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/engineering/integration-development/workflow.md`
 **Manifest:** `workflows/engineering/integration-development/workflow.yaml`
 
@@ -335,7 +335,7 @@ Coordinate debt inventory, risk analysis, behavior-preserving refactoring plan, 
 **Categories:** `engineering`
 **Tags:** `technical-debt`, `refactoring`, `modernization`, `maintainability`, `regression`
 **Task IDs:** `reduce-technical-debt`, `implement-code`, `test-validate`, `deploy-release`
-**Role IDs:** `tech-lead`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `database-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `performance-engineer`, `release-manager`, `product-manager`
+**Role IDs:** `tech-lead`, `solution-architect`, `backend-engineer`, `frontend-engineer`, `data-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `product-manager`
 **Guide:** `workflows/engineering/technical-debt-refactoring/workflow.md`
 **Manifest:** `workflows/engineering/technical-debt-refactoring/workflow.yaml`
 
@@ -357,7 +357,7 @@ Coordinate test strategy, test cases, regression scope, automation scope, accept
 **Categories:** `quality`, `engineering`
 **Tags:** `qa`, `test-plan`, `acceptance-criteria`, `regression`, `quality-gates`
 **Task IDs:** `plan-tests`, `test-validate`
-**Role IDs:** `qa-engineer`, `product-manager`, `tech-lead`, `sdet`, `devops-platform-engineer`
+**Role IDs:** `qa-engineer`, `product-manager`, `tech-lead`, `devops-platform-engineer`
 **Guide:** `workflows/quality/test-planning/workflow.md`
 **Manifest:** `workflows/quality/test-planning/workflow.yaml`
 
@@ -370,7 +370,7 @@ Coordinate cost breakdown, unused resources list, rightsizing plan, reserved or 
 **Categories:** `business-operations`, `finops`
 **Tags:** `finops`, `cost-optimization`, `cloud-cost`, `rightsizing`, `savings-plan`
 **Task IDs:** `optimize-costs`, `finance-legal`, `manage-cloud-infra`
-**Role IDs:** `finops-analyst`, `finance-manager`, `product-manager`, `sre`, `devops-platform-engineer`, `cloud-architect`, `engineering-manager`
+**Role IDs:** `finops-analyst`, `finance-manager`, `product-manager`, `sre`, `devops-platform-engineer`, `solution-architect`, `engineering-manager`
 **Guide:** `workflows/business-operations/finops-cost-optimization/workflow.md`
 **Manifest:** `workflows/business-operations/finops-cost-optimization/workflow.yaml`
 
@@ -383,7 +383,7 @@ Coordinate Terraform/OpenTofu modules, environment plan, network plan, IAM model
 **Categories:** `platform-operations`, `infrastructure`
 **Tags:** `infrastructure`, `terraform`, `opentofu`, `iam`, `ci-cd`
 **Task IDs:** `provision-infrastructure`, `manage-cloud-infra`, `deploy-release`
-**Role IDs:** `cloud-architect`, `devops-platform-engineer`, `sre`, `security-engineer`, `finops-analyst`, `qa-engineer`, `release-manager`
+**Role IDs:** `devops-platform-engineer`, `sre`, `security-engineer`, `finops-analyst`, `qa-engineer`, `release-manager`
 **Guide:** `workflows/platform-operations/infrastructure-provisioning/workflow.md`
 **Manifest:** `workflows/platform-operations/infrastructure-provisioning/workflow.yaml`
 
@@ -396,7 +396,7 @@ Coordinate external integration requirements, data mapping, API contract, auth a
 **Categories:** `engineering`, `integration`
 **Tags:** `integration`, `external-api`, `data-mapping`, `idempotency`, `secrets`
 **Task IDs:** `develop-integration`, `build-backend`, `security-audit`, `test-validate`, `deploy-release`
-**Role IDs:** `business-analyst`, `product-manager`, `solution-architect`, `backend-engineer`, `security-engineer`, `qa-engineer`, `sdet`, `devops-platform-engineer`, `release-manager`, `customer-success-support`
+**Role IDs:** `business-analyst`, `product-manager`, `solution-architect`, `backend-engineer`, `security-engineer`, `qa-engineer`, `devops-platform-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/engineering/integration-development/workflow.md`
 **Manifest:** `workflows/engineering/integration-development/workflow.yaml`
 
@@ -409,7 +409,7 @@ Coordinate knowledge articles, decision logs, runbooks, onboarding docs, depreca
 **Categories:** `documentation`, `knowledge-management`
 **Tags:** `knowledge-base`, `runbooks`, `decision-logs`, `onboarding-docs`, `deprecation`
 **Task IDs:** `maintain-knowledge-base`, `write-documents`, `manage-project`
-**Role IDs:** `knowledge-manager`, `technical-writer`, `customer-success-support`, `tech-lead`, `product-manager`, `engineering-manager`
+**Role IDs:** `technical-writer`, `customer-success-support`, `tech-lead`, `product-manager`, `engineering-manager`
 **Guide:** `workflows/documentation/knowledge-base-maintenance/workflow.md`
 **Manifest:** `workflows/documentation/knowledge-base-maintenance/workflow.yaml`
 
@@ -422,7 +422,7 @@ Coordinate role description, candidate scorecard, interview plan, test task, sou
 **Categories:** `people-operations`, `management`
 **Tags:** `hiring`, `recruiting`, `interview`, `scorecard`, `test-task`
 **Task IDs:** `plan-hiring`, `people-ops`
-**Role IDs:** `engineering-manager`, `tech-lead`, `hr-manager`, `finance-manager`, `recruiter`
+**Role IDs:** `engineering-manager`, `tech-lead`, `hr-manager`, `finance-manager`
 **Guide:** `workflows/people-operations/hiring/workflow.md`
 **Manifest:** `workflows/people-operations/hiring/workflow.yaml`
 
@@ -446,7 +446,7 @@ Coordinate product, platform UX, mobile architecture, development planning, QA, 
 **Categories:** `product-delivery`, `mobile`
 **Tags:** `mobile`, `ios`, `android`, `app-store`, `offline`, `push-notifications`
 **Task IDs:** `plan-feature`, `build-mobile-desktop`, `build-backend`, `test-validate`, `deploy-release`, `manage-project`
-**Role IDs:** `product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `mobile-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+**Role IDs:** `product-manager`, `business-analyst`, `ux-ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `mobile-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/product-delivery/mobile-app/workflow.md`
 **Manifest:** `workflows/product-delivery/mobile-app/workflow.yaml`
 
@@ -470,7 +470,7 @@ Coordinate incident timeline, impact analysis, mitigation actions, customer comm
 **Categories:** `operations`, `reliability`
 **Tags:** `incident`, `outage`, `mitigation`, `customer-communication`, `recovery`
 **Task IDs:** `respond-incident`, `debug-incident`, `deploy-release`
-**Role IDs:** `incident-commander`, `sre`, `customer-success-support`, `product-manager`, `devops-platform-engineer`, `backend-engineer`, `qa-engineer`, `release-manager`, `engineering-manager`
+**Role IDs:** `incident-manager`, `sre`, `customer-success-support`, `product-manager`, `devops-platform-engineer`, `backend-engineer`, `qa-engineer`, `release-manager`, `engineering-manager`
 **Guide:** `workflows/operations/incident-response/workflow.md`
 **Manifest:** `workflows/operations/incident-response/workflow.yaml`
 
@@ -481,7 +481,7 @@ Coordinate what happened, why it happened, detection gap, prevention actions, ow
 **Categories:** `operations`, `reliability`
 **Tags:** `postmortem`, `incident-review`, `root-cause`, `prevention`, `follow-up`
 **Task IDs:** `write-postmortem`, `debug-incident`, `write-documents`
-**Role IDs:** `incident-commander`, `sre`, `customer-success-support`, `tech-lead`, `backend-engineer`, `devops-platform-engineer`, `product-manager`, `engineering-manager`
+**Role IDs:** `incident-manager`, `sre`, `customer-success-support`, `tech-lead`, `backend-engineer`, `devops-platform-engineer`, `product-manager`, `engineering-manager`
 **Guide:** `workflows/operations/postmortem/workflow.md`
 **Manifest:** `workflows/operations/postmortem/workflow.yaml`
 
@@ -494,7 +494,7 @@ Coordinate role description, candidate scorecard, interview plan, test task, sou
 **Categories:** `people-operations`, `management`
 **Tags:** `hiring`, `recruiting`, `interview`, `scorecard`, `test-task`
 **Task IDs:** `plan-hiring`, `people-ops`
-**Role IDs:** `engineering-manager`, `tech-lead`, `hr-manager`, `finance-manager`, `recruiter`
+**Role IDs:** `engineering-manager`, `tech-lead`, `hr-manager`, `finance-manager`
 **Guide:** `workflows/people-operations/hiring/workflow.md`
 **Manifest:** `workflows/people-operations/hiring/workflow.yaml`
 
@@ -518,7 +518,7 @@ Coordinate Terraform/OpenTofu modules, environment plan, network plan, IAM model
 **Categories:** `platform-operations`, `infrastructure`
 **Tags:** `infrastructure`, `terraform`, `opentofu`, `iam`, `ci-cd`
 **Task IDs:** `provision-infrastructure`, `manage-cloud-infra`, `deploy-release`
-**Role IDs:** `cloud-architect`, `devops-platform-engineer`, `sre`, `security-engineer`, `finops-analyst`, `qa-engineer`, `release-manager`
+**Role IDs:** `devops-platform-engineer`, `sre`, `security-engineer`, `finops-analyst`, `qa-engineer`, `release-manager`
 **Guide:** `workflows/platform-operations/infrastructure-provisioning/workflow.md`
 **Manifest:** `workflows/platform-operations/infrastructure-provisioning/workflow.yaml`
 
@@ -529,7 +529,7 @@ Coordinate internal developer platform design, golden paths, service templates, 
 **Categories:** `platform-operations`, `developer-experience`
 **Tags:** `platform`, `golden-path`, `service-template`, `developer-portal`, `observability`
 **Task IDs:** `engineer-platform`, `manage-cloud-infra`, `write-documents`
-**Role IDs:** `devops-platform-engineer`, `engineering-manager`, `tech-lead`, `cloud-architect`, `security-engineer`, `sre`, `technical-writer`, `product-analyst`, `customer-success-support`
+**Role IDs:** `devops-platform-engineer`, `engineering-manager`, `tech-lead`, `security-engineer`, `sre`, `technical-writer`, `business-analyst`, `customer-success-support`
 **Guide:** `workflows/platform-operations/platform-engineering/workflow.md`
 **Manifest:** `workflows/platform-operations/platform-engineering/workflow.yaml`
 
@@ -542,7 +542,7 @@ Coordinate requirements, comparison matrix, risks, cost model, recommendation, f
 **Categories:** `business-operations`, `procurement`
 **Tags:** `vendor`, `procurement`, `comparison`, `cost-model`, `fallback`
 **Task IDs:** `select-vendor`, `finance-legal`, `research-brief`
-**Role IDs:** `procurement-manager`, `product-manager`, `tech-lead`, `finance-manager`, `security-engineer`, `compliance-officer`, `release-manager`
+**Role IDs:** `operations-manager`, `product-manager`, `tech-lead`, `finance-manager`, `security-engineer`, `compliance-officer`, `release-manager`
 **Guide:** `workflows/business-operations/vendor-selection/workflow.md`
 **Manifest:** `workflows/business-operations/vendor-selection/workflow.yaml`
 
@@ -555,7 +555,7 @@ Coordinate feedback clusters, pain points, feature requests, churn risks, roadma
 **Categories:** `customer-success`, `product`
 **Tags:** `feedback`, `customer-insights`, `churn`, `roadmap`, `feature-requests`
 **Task IDs:** `analyze-feedback`, `customer-sales`, `analyze-data`
-**Role IDs:** `customer-success-support`, `product-manager`, `product-analyst`, `ux-researcher`
+**Role IDs:** `customer-success-support`, `product-manager`, `business-analyst`, `ux-researcher`
 **Guide:** `workflows/customer-success/customer-feedback-analysis/workflow.md`
 **Manifest:** `workflows/customer-success/customer-feedback-analysis/workflow.yaml`
 
@@ -579,7 +579,7 @@ Coordinate funnel analysis, retention report, cohort analysis, growth experiment
 **Categories:** `business-growth`, `product-analytics`
 **Tags:** `analytics`, `growth`, `funnel`, `retention`, `ab-test`
 **Task IDs:** `analyze-growth`, `analyze-data`, `manage-project`
-**Role IDs:** `product-manager`, `product-analyst`, `growth-marketer`, `ux-researcher`, `tech-lead`
+**Role IDs:** `product-manager`, `business-analyst`, `growth-marketer`, `ux-researcher`, `tech-lead`
 **Guide:** `workflows/business-growth/analytics-and-growth/workflow.md`
 **Manifest:** `workflows/business-growth/analytics-and-growth/workflow.yaml`
 
@@ -592,7 +592,7 @@ Coordinate defect triage, reproduction, root cause, fix plan, regression checkli
 **Categories:** `engineering`, `product-delivery`
 **Tags:** `bugfix`, `defect`, `regression`, `root-cause`, `hotfix`
 **Task IDs:** `triage-bug`, `debug-incident`, `test-validate`, `deploy-release`
-**Role IDs:** `customer-success-support`, `qa-engineer`, `product-manager`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `sdet`, `release-manager`, `devops-platform-engineer`
+**Role IDs:** `customer-success-support`, `qa-engineer`, `product-manager`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `release-manager`, `devops-platform-engineer`
 **Guide:** `workflows/engineering/bugfix/workflow.md`
 **Manifest:** `workflows/engineering/bugfix/workflow.yaml`
 
@@ -603,7 +603,7 @@ Coordinate scoped discovery, UX fit, architecture review, implementation plannin
 **Categories:** `product-delivery`, `engineering`
 **Tags:** `feature`, `existing-product`, `regression`, `feature-flags`, `architecture-review`
 **Task IDs:** `plan-feature`, `implement-code`, `review-code`, `build-frontend`, `build-backend`, `test-validate`, `deploy-release`, `manage-project`
-**Role IDs:** `product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+**Role IDs:** `product-manager`, `business-analyst`, `ux-ui-designer`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/product-delivery/feature-development/workflow.md`
 **Manifest:** `workflows/product-delivery/feature-development/workflow.yaml`
 
@@ -614,7 +614,7 @@ Coordinate product, platform UX, mobile architecture, development planning, QA, 
 **Categories:** `product-delivery`, `mobile`
 **Tags:** `mobile`, `ios`, `android`, `app-store`, `offline`, `push-notifications`
 **Task IDs:** `plan-feature`, `build-mobile-desktop`, `build-backend`, `test-validate`, `deploy-release`, `manage-project`
-**Role IDs:** `product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `mobile-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+**Role IDs:** `product-manager`, `business-analyst`, `ux-ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `mobile-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/product-delivery/mobile-app/workflow.md`
 **Manifest:** `workflows/product-delivery/mobile-app/workflow.yaml`
 
@@ -625,7 +625,7 @@ Coordinate discovery, design, architecture, development planning, QA, release, a
 **Categories:** `product-delivery`
 **Tags:** `saas`, `new-product`, `product-discovery`, `architecture`, `release`
 **Task IDs:** `plan-feature`, `build-frontend`, `build-backend`, `test-validate`, `deploy-release`, `manage-project`
-**Role IDs:** `product-manager`, `business-analyst`, `ux-designer`, `ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `sdet`, `release-manager`, `product-analyst`, `customer-success-support`
+**Role IDs:** `product-manager`, `business-analyst`, `ux-ui-designer`, `ux-researcher`, `solution-architect`, `tech-lead`, `frontend-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/product-delivery/saas-from-scratch/workflow.md`
 **Manifest:** `workflows/product-delivery/saas-from-scratch/workflow.yaml`
 
@@ -638,7 +638,7 @@ Coordinate pre-development validation of problem, audience, market signals, valu
 **Categories:** `product-discovery`, `business`
 **Tags:** `idea`, `validation`, `market-research`, `mvp`, `go-no-go`
 **Task IDs:** `validate-idea`, `research-brief`, `manage-project`
-**Role IDs:** `founder-business-owner`, `product-manager`, `market-researcher`, `business-analyst`, `finance-manager`, `ux-researcher`, `product-analyst`
+**Role IDs:** `founder-ceo`, `product-manager`, `market-researcher`, `business-analyst`, `finance-manager`, `ux-researcher`
 **Guide:** `workflows/product-discovery/idea-validation/workflow.md`
 **Manifest:** `workflows/product-discovery/idea-validation/workflow.yaml`
 
@@ -649,7 +649,7 @@ Coordinate product vision, positioning, north-star metric, roadmap direction, mo
 **Categories:** `product-discovery`, `business`
 **Tags:** `strategy`, `vision`, `roadmap`, `positioning`, `north-star-metric`
 **Task IDs:** `define-product-strategy`, `validate-idea`, `manage-project`
-**Role IDs:** `product-strategist`, `product-manager`, `founder-business-owner`, `solution-architect`, `finance-manager`, `market-researcher`
+**Role IDs:** `product-strategist`, `product-manager`, `founder-ceo`, `solution-architect`, `finance-manager`, `market-researcher`
 **Guide:** `workflows/product-discovery/product-strategy/workflow.md`
 **Manifest:** `workflows/product-discovery/product-strategy/workflow.yaml`
 
@@ -662,7 +662,7 @@ Coordinate launch plan, messaging, landing page brief, sales materials, onboardi
 **Categories:** `business-growth`, `product-launch`
 **Tags:** `gtm`, `launch`, `messaging`, `sales-enablement`, `onboarding`
 **Task IDs:** `plan-launch`, `customer-sales`, `write-documents`, `deploy-release`
-**Role IDs:** `product-manager`, `product-marketing-manager`, `growth-marketer`, `sales-strategist`, `content-marketer`, `customer-success-support`, `technical-writer`, `release-manager`
+**Role IDs:** `product-manager`, `product-marketing-manager`, `growth-marketer`, `sales-strategist`, `customer-success-support`, `technical-writer`, `release-manager`
 **Guide:** `workflows/business-growth/go-to-market/workflow.md`
 **Manifest:** `workflows/business-growth/go-to-market/workflow.yaml`
 
@@ -675,7 +675,7 @@ Coordinate unit, integration, and e2e test plans, CI test pipeline, flaky-test p
 **Categories:** `quality`, `engineering`
 **Tags:** `automated-tests`, `unit-tests`, `integration-tests`, `e2e`, `ci`
 **Task IDs:** `automate-tests`, `test-validate`, `implement-code`
-**Role IDs:** `sdet`, `qa-engineer`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `devops-platform-engineer`
+**Role IDs:** `qa-engineer`, `tech-lead`, `backend-engineer`, `frontend-engineer`, `devops-platform-engineer`
 **Guide:** `workflows/quality/automated-testing/workflow.md`
 **Manifest:** `workflows/quality/automated-testing/workflow.yaml`
 
@@ -686,7 +686,7 @@ Coordinate load profile, performance scenarios, bottleneck report, capacity esti
 **Categories:** `quality`, `reliability`
 **Tags:** `performance`, `load-test`, `capacity`, `bottleneck`, `optimization`
 **Task IDs:** `test-performance`, `test-validate`, `analyze-data`
-**Role IDs:** `performance-engineer`, `sre`, `product-manager`, `backend-engineer`, `database-engineer`, `devops-platform-engineer`, `tech-lead`, `qa-engineer`
+**Role IDs:** `sre`, `product-manager`, `backend-engineer`, `data-engineer`, `devops-platform-engineer`, `tech-lead`, `qa-engineer`
 **Guide:** `workflows/quality/performance-testing/workflow.md`
 **Manifest:** `workflows/quality/performance-testing/workflow.yaml`
 
@@ -697,7 +697,7 @@ Coordinate test strategy, test cases, regression scope, automation scope, accept
 **Categories:** `quality`, `engineering`
 **Tags:** `qa`, `test-plan`, `acceptance-criteria`, `regression`, `quality-gates`
 **Task IDs:** `plan-tests`, `test-validate`
-**Role IDs:** `qa-engineer`, `product-manager`, `tech-lead`, `sdet`, `devops-platform-engineer`
+**Role IDs:** `qa-engineer`, `product-manager`, `tech-lead`, `devops-platform-engineer`
 **Guide:** `workflows/quality/test-planning/workflow.md`
 **Manifest:** `workflows/quality/test-planning/workflow.yaml`
 
@@ -710,7 +710,7 @@ Coordinate incident timeline, impact analysis, mitigation actions, customer comm
 **Categories:** `operations`, `reliability`
 **Tags:** `incident`, `outage`, `mitigation`, `customer-communication`, `recovery`
 **Task IDs:** `respond-incident`, `debug-incident`, `deploy-release`
-**Role IDs:** `incident-commander`, `sre`, `customer-success-support`, `product-manager`, `devops-platform-engineer`, `backend-engineer`, `qa-engineer`, `release-manager`, `engineering-manager`
+**Role IDs:** `incident-manager`, `sre`, `customer-success-support`, `product-manager`, `devops-platform-engineer`, `backend-engineer`, `qa-engineer`, `release-manager`, `engineering-manager`
 **Guide:** `workflows/operations/incident-response/workflow.md`
 **Manifest:** `workflows/operations/incident-response/workflow.yaml`
 
@@ -721,7 +721,7 @@ Coordinate load profile, performance scenarios, bottleneck report, capacity esti
 **Categories:** `quality`, `reliability`
 **Tags:** `performance`, `load-test`, `capacity`, `bottleneck`, `optimization`
 **Task IDs:** `test-performance`, `test-validate`, `analyze-data`
-**Role IDs:** `performance-engineer`, `sre`, `product-manager`, `backend-engineer`, `database-engineer`, `devops-platform-engineer`, `tech-lead`, `qa-engineer`
+**Role IDs:** `sre`, `product-manager`, `backend-engineer`, `data-engineer`, `devops-platform-engineer`, `tech-lead`, `qa-engineer`
 **Guide:** `workflows/quality/performance-testing/workflow.md`
 **Manifest:** `workflows/quality/performance-testing/workflow.yaml`
 
@@ -732,7 +732,7 @@ Coordinate what happened, why it happened, detection gap, prevention actions, ow
 **Categories:** `operations`, `reliability`
 **Tags:** `postmortem`, `incident-review`, `root-cause`, `prevention`, `follow-up`
 **Task IDs:** `write-postmortem`, `debug-incident`, `write-documents`
-**Role IDs:** `incident-commander`, `sre`, `customer-success-support`, `tech-lead`, `backend-engineer`, `devops-platform-engineer`, `product-manager`, `engineering-manager`
+**Role IDs:** `incident-manager`, `sre`, `customer-success-support`, `tech-lead`, `backend-engineer`, `devops-platform-engineer`, `product-manager`, `engineering-manager`
 **Guide:** `workflows/operations/postmortem/workflow.md`
 **Manifest:** `workflows/operations/postmortem/workflow.yaml`
 
@@ -745,7 +745,7 @@ Coordinate sales deck, demo script, objection handling, technical FAQ, proposal 
 **Categories:** `business-growth`, `sales`
 **Tags:** `sales`, `b2b`, `demo`, `objections`, `proposal`
 **Task IDs:** `support-sales`, `customer-sales`, `write-documents`
-**Role IDs:** `sales-strategist`, `product-manager`, `solution-consultant`, `technical-writer`, `compliance-officer`, `security-engineer`
+**Role IDs:** `sales-strategist`, `product-manager`, `technical-writer`, `compliance-officer`, `security-engineer`
 **Guide:** `workflows/business-growth/sales-support/workflow.md`
 **Manifest:** `workflows/business-growth/sales-support/workflow.yaml`
 

@@ -50,7 +50,7 @@ stages:
       - tech-lead
       - backend-engineer
       - frontend-engineer
-      - database-engineer
+      - data-engineer
       - devops-platform-engineer
     inputs:
       - debt_inventory
@@ -73,8 +73,6 @@ stages:
     coordinator_goal: Define test strategy, regression coverage, monitoring, and rollout guidance.
     roles:
       - qa-engineer
-      - sdet
-      - performance-engineer
       - release-manager
     inputs:
       - refactoring_plan

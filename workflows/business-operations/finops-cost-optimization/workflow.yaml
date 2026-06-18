@@ -17,7 +17,7 @@ delegation_mode:
 conflict_resolution:
   cost_analysis: finops-analyst
   infrastructure: devops-platform-engineer
-  cloud_architecture: cloud-architect
+  cloud_architecture: solution-architect
   budget: finance-manager
   product_tradeoffs: product-manager
 stages:
@@ -49,7 +49,7 @@ stages:
     roles:
       - finops-analyst
       - devops-platform-engineer
-      - cloud-architect
+      - solution-architect
       - finance-manager
     inputs:
       - cost_scope

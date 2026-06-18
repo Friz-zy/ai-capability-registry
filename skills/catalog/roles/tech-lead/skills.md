@@ -4,6 +4,8 @@
 Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. Read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
 
 - **afl**: 1 skills
+- **agent**: 4 skills
+- **ai**: 43 skills
 - **analysis**: 27 skills
 - **angular**: 10 skills
 - **architecture**: 6 skills
@@ -11,8 +13,11 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **audit**: 13 skills
 - **authentication**: 1 skills
 - **binary**: 6 skills
+- **bio-research**: 6 skills
 - **burp**: 1 skills
+- **chatgpt**: 1 skills
 - **ci**: 2 skills
+- **claude-api**: 1 skills
 - **cloudflare**: 1 skills
 - **code-review**: 10 skills
 - **codeql**: 1 skills
@@ -34,9 +39,13 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **ghidra**: 2 skills
 - **hosting**: 1 skills
 - **incident**: 2 skills
+- **langsmith**: 1 skills
 - **malware**: 1 skills
+- **mcp**: 1 skills
 - **netlify**: 1 skills
 - **next**: 2 skills
+- **nextflow**: 1 skills
+- **openai**: 2 skills
 - **pages**: 1 skills
 - **playwright**: 5 skills
 - **policy**: 1 skills
@@ -55,6 +64,8 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **seatbelt**: 1 skills
 - **security**: 68 skills
 - **semgrep**: 3 skills
+- **sentry**: 2 skills
+- **skill-creator**: 7 skills
 - **static-analysis**: 6 skills
 - **status-report**: 2 skills
 - **supply-chain**: 1 skills

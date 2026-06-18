@@ -6,6 +6,7 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **ads**: 1 skills
 - **analytics**: 12 skills
 - **brand**: 7 skills
+- **business**: 4 skills
 - **business-marketing**: 4 skills
 - **call-prep**: 1 skills
 - **campaign**: 3 skills
@@ -15,7 +16,9 @@ Select only keywords that directly match the current request. Prefer exact stack
 - **dashboard**: 1 skills
 - **data**: 17 skills
 - **dbt**: 2 skills
+- **finance**: 8 skills
 - **forecast**: 1 skills
+- **hr**: 10 skills
 - **lead-generation**: 1 skills
 - **marketing**: 17 skills
 - **metrics**: 2 skills

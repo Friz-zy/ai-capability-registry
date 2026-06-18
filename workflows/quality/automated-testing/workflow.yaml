@@ -15,7 +15,7 @@ delegation_mode:
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
-  automation_strategy: sdet
+  automation_strategy: qa-engineer
   qa_risk: qa-engineer
   backend_tests: backend-engineer
   frontend_tests: frontend-engineer
@@ -25,7 +25,6 @@ stages:
     name: Automation Scope
     coordinator_goal: Define target coverage, current gaps, maintainability constraints, and quality goals.
     roles:
-      - sdet
       - qa-engineer
       - tech-lead
     inputs:
@@ -46,10 +45,9 @@ stages:
     name: Test Design
     coordinator_goal: Define unit, integration, API, frontend, and e2e test plans with ownership boundaries.
     roles:
-      - sdet
+      - qa-engineer
       - backend-engineer
       - frontend-engineer
-      - qa-engineer
     inputs:
       - automation_goals
       - coverage_gaps
@@ -70,9 +68,8 @@ stages:
     name: CI & Reliability
     coordinator_goal: Plan CI execution, reporting, flaky-test policy, maintenance, and rollout.
     roles:
-      - sdet
-      - devops-platform-engineer
       - qa-engineer
+      - devops-platform-engineer
     inputs:
       - unit_test_plan
       - integration_test_plan

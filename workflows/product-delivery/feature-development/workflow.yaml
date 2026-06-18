@@ -20,8 +20,8 @@ delegation_mode:
 conflict_resolution:
   business_scope: product-manager
   requirements_detail: business-analyst
-  user_experience: ux-designer
-  visual_design: ui-designer
+  user_experience: ux-ui-designer
+  visual_design: ux-ui-designer
   architecture: solution-architect
   implementation: tech-lead
   infrastructure: devops-platform-engineer
@@ -56,8 +56,7 @@ stages:
     name: UX/UI Design
     coordinator_goal: Fit the feature into existing user flows, product patterns, and UI states.
     roles:
-      - ux-designer
-      - ui-designer
+      - ux-ui-designer
     inputs:
       - feature_spec
       - user_stories
@@ -133,7 +132,6 @@ stages:
     coordinator_goal: Define coverage for the new feature and regression scope for affected existing behavior.
     roles:
       - qa-engineer
-      - sdet
     inputs:
       - feature_spec
       - task_breakdown
@@ -182,7 +180,7 @@ stages:
     coordinator_goal: Monitor feature impact and convert support, analytics, and user feedback into follow-up work.
     roles:
       - product-manager
-      - product-analyst
+      - business-analyst
       - customer-success-support
     inputs:
       - release_plan

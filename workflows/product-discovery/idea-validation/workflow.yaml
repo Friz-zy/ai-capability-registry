@@ -16,7 +16,7 @@ delegation_mode:
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
 conflict_resolution:
-  business_decision: founder-business-owner
+  business_decision: founder-ceo
   product_scope: product-manager
   market_evidence: market-researcher
   requirements_detail: business-analyst
@@ -27,7 +27,7 @@ stages:
     name: Problem Framing
     coordinator_goal: Clarify the problem, target audience, assumptions, constraints, and decision criteria.
     roles:
-      - founder-business-owner
+      - founder-ceo
       - product-manager
       - business-analyst
     inputs:
@@ -51,7 +51,7 @@ stages:
     roles:
       - market-researcher
       - ux-researcher
-      - product-analyst
+      - business-analyst
     inputs:
       - problem_statement
       - target_audience_hypothesis
@@ -73,7 +73,7 @@ stages:
     roles:
       - product-manager
       - finance-manager
-      - founder-business-owner
+      - founder-ceo
     inputs:
       - evidence_summary
       - customer_pains
@@ -94,7 +94,7 @@ stages:
     name: Decision
     coordinator_goal: Produce a concise go/no-go recommendation with rationale and next steps.
     roles:
-      - founder-business-owner
+      - founder-ceo
       - product-manager
       - market-researcher
     inputs:

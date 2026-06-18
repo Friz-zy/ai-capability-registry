@@ -17,7 +17,7 @@ delegation_mode:
 conflict_resolution:
   customer_signal: customer-success-support
   product_priorities: product-manager
-  analytics: product-analyst
+  analytics: business-analyst
   user_research: ux-researcher
 stages:
   - id: feedback_scope
@@ -26,7 +26,7 @@ stages:
     roles:
       - customer-success-support
       - product-manager
-      - product-analyst
+      - business-analyst
     inputs:
       - user_request
       - feedback_context
@@ -47,7 +47,7 @@ stages:
     roles:
       - customer-success-support
       - ux-researcher
-      - product-analyst
+      - business-analyst
     inputs:
       - feedback_sources
       - analysis_questions
@@ -69,7 +69,7 @@ stages:
     coordinator_goal: Convert synthesized feedback into roadmap inputs, experiments, and follow-up research needs.
     roles:
       - product-manager
-      - product-analyst
+      - business-analyst
       - ux-researcher
     inputs:
       - feedback_clusters
