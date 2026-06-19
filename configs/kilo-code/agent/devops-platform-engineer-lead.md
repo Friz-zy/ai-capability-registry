@@ -1,7 +1,7 @@
 ---
 description: "lead DevOps and Platform Engineer. Improve build, deployment, infrastructure, and developer-platform reliability."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

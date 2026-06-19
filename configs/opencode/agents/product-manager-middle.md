@@ -1,7 +1,7 @@
 ---
 description: "middle Product Manager. Turn user needs and company strategy into clear product decisions, specs, and measurable outcomes."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

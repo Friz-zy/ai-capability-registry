@@ -1,7 +1,7 @@
 ---
 description: "junior Customer Success and Support Specialist. Help customers succeed with clear support responses, knowledge articles, and account context."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "opencode-go/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

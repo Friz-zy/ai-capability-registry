@@ -1,7 +1,7 @@
 ---
 description: "senior Business and Product Analyst. Turn ambiguous business needs and product behavior into structured requirements, business rules, metrics, and measurable iteration inputs."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

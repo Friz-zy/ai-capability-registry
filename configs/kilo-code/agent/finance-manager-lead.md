@@ -1,7 +1,7 @@
 ---
 description: "lead Finance Manager. Own budget constraints, financial approvals, spend governance, and financial viability for decisions."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

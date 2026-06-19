@@ -1,7 +1,7 @@
 ---
 description: "lead Engineering Manager. Improve engineering effectiveness, delivery health, staffing fit, process quality, and cross-functional operating model."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

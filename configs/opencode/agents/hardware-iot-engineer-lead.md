@@ -1,7 +1,7 @@
 ---
 description: "lead Hardware and IoT Engineer. Build and debug hardware, firmware, and IoT workflows with clear device, network, and safety constraints."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

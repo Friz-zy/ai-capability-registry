@@ -1,7 +1,7 @@
 ---
 description: "senior HR Manager. Own HR process constraints, interview governance, employment process requirements, and people-operation risk controls."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

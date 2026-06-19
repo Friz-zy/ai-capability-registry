@@ -1,7 +1,7 @@
 ---
 description: "middle Software Engineer. Implement reliable software changes with clear reasoning, small diffs, tests, and maintainable design."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

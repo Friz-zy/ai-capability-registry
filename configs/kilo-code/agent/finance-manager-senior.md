@@ -1,7 +1,7 @@
 ---
 description: "senior Finance Manager. Own budget constraints, financial approvals, spend governance, and financial viability for decisions."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

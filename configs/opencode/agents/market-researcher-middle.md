@@ -1,7 +1,7 @@
 ---
 description: "middle Market Researcher. Research market context, competitors, customer segments, and opportunity evidence for product decisions."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

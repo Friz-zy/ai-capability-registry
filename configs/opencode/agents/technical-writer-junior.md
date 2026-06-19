@@ -1,7 +1,7 @@
 ---
 description: "junior Technical Writer. Create, structure, review, and maintain accurate technical, user, API, release, and operational documentation."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "opencode-go/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

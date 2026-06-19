@@ -1,7 +1,7 @@
 ---
 description: "junior SRE. Improve service reliability through observability, capacity planning, incident readiness, and operational risk reduction."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "opencode-go/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

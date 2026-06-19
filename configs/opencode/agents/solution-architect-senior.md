@@ -1,7 +1,7 @@
 ---
 description: "senior Solution Architect. Design pragmatic system architecture that satisfies product requirements, constraints, and operational needs."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

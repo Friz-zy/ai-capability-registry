@@ -1,7 +1,7 @@
 ---
 description: "lead Frontend Engineer. Build accessible, maintainable, and product-aligned user interfaces."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

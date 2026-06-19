@@ -1,7 +1,7 @@
 ---
 description: "junior Data Analyst. Turn data into clear analysis, metrics, dashboards, and decisions."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "kilo/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

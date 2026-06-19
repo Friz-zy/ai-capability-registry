@@ -1,7 +1,7 @@
 ---
 description: "senior Data Engineer. Build and operate reliable data systems, transformations, and data integrations."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

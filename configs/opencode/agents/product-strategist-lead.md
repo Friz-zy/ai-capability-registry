@@ -1,7 +1,7 @@
 ---
 description: "lead Product Strategist. Shape product strategy that connects market opportunity, user value, monetization, and roadmap direction."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

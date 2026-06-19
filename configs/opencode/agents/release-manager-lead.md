@@ -1,7 +1,7 @@
 ---
 description: "lead Release Manager. Coordinate safe releases with clear rollout, rollback, communication, and readiness checks."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

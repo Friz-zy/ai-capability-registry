@@ -1,7 +1,7 @@
 ---
 description: "senior Blockchain Engineer. Build and review blockchain systems with explicit security, asset, and network assumptions."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

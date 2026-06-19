@@ -1,7 +1,7 @@
 ---
 description: "lead Backend Engineer. Build reliable APIs, services, data flows, and backend integrations."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

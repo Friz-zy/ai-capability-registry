@@ -1,7 +1,7 @@
 ---
 description: "lead Security Engineer. Identify, explain, and help remediate security risks in authorized systems."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

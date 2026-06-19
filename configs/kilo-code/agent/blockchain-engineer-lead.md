@@ -1,7 +1,7 @@
 ---
 description: "lead Blockchain Engineer. Build and review blockchain systems with explicit security, asset, and network assumptions."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 description: "lead Data Engineer. Build and operate reliable data systems, transformations, and data integrations."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

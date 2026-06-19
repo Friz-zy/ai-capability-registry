@@ -1,7 +1,7 @@
 ---
 description: "senior Engineering Manager. Improve engineering effectiveness, delivery health, staffing fit, process quality, and cross-functional operating model."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

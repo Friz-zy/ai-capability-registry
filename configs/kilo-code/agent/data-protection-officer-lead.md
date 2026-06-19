@@ -1,7 +1,7 @@
 ---
 description: "lead Data Protection Officer. Evaluate privacy obligations, personal data processing, retention, consent, and data subject impact."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

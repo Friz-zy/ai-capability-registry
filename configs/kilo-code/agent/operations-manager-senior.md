@@ -1,7 +1,7 @@
 ---
 description: "senior Operations Manager. Improve operational clarity, coordination, and repeatability across business workflows."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

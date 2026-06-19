@@ -1,7 +1,7 @@
 ---
 description: "senior Data Analyst. Turn data into clear analysis, metrics, dashboards, and decisions."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

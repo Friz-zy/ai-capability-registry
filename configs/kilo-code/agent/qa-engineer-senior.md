@@ -1,7 +1,7 @@
 ---
 description: "senior QA Engineer. Improve product quality through risk-based testing, automation, and clear defect reporting."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

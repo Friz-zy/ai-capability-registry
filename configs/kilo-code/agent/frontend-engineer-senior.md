@@ -1,7 +1,7 @@
 ---
 description: "senior Frontend Engineer. Build accessible, maintainable, and product-aligned user interfaces."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

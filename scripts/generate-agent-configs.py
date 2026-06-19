@@ -32,6 +32,11 @@ LEGACY_AGENT_DIRECTORIES: dict[str, list[str]] = {
     "amazon-kiro": [".kiro/agents"],
 }
 
+DEFAULT_MODEL_PREFIXES: dict[str, str] = {
+    "kilo-code": "kilo",
+    "opencode": "opencode-go",
+}
+
 CLI_ALIASES = {
     "codex": "codex",
     "codex-cli": "codex",
@@ -226,6 +231,113 @@ def model_for_level(recommended_defaults: dict[str, Any], level: str, preset: st
     if not model_id:
         raise ValueError(f"Missing model preset '{preset}' for profile '{profile_id}' level '{level}'")
     return str(model_id)
+
+
+def normalize_model_prefix(model_prefix: str | None) -> str:
+    """Normalize a model catalog prefix.
+
+    Args:
+        model_prefix: User-provided or CLI-default model prefix.
+
+    Returns:
+        Prefix without leading or trailing slashes, or an empty string when disabled.
+    """
+    if model_prefix is None:
+        return ""
+    return model_prefix.strip().strip("/")
+
+
+def model_catalog_id_for_id(model_tiers_registry: dict[str, Any], model_id: str) -> str | None:
+    """Find the provider-qualified catalog id for a registry model id.
+
+    Args:
+        model_tiers_registry: Loaded ``model-tiers`` registry.
+        model_id: Model id without provider prefix.
+
+    Returns:
+        Provider-qualified catalog id when the model is found, otherwise ``None``.
+    """
+    providers = model_tiers_registry.get("providers", [])
+    if not isinstance(providers, list):
+        return None
+    for provider in providers:
+        if not isinstance(provider, dict):
+            continue
+        provider_id = provider.get("id")
+        tiers = provider.get("tiers", {})
+        if not isinstance(provider_id, str) or not isinstance(tiers, dict):
+            continue
+        for tier in tiers.values():
+            if not isinstance(tier, dict):
+                continue
+            models = tier.get("models", [])
+            if not isinstance(models, list):
+                continue
+            for model in models:
+                if not isinstance(model, dict) or model.get("model_id") != model_id:
+                    continue
+                catalog_model_id = model.get("openrouter_id")
+                if isinstance(catalog_model_id, str) and "/" in catalog_model_id:
+                    return catalog_model_id
+                return f"{provider_id}/{model_id}"
+    return None
+
+
+def provider_qualified_model(model_tiers_registry: dict[str, Any], model_id: str, profile_id: str) -> str:
+    """Return a model id with its native model provider prefix.
+
+    Args:
+        model_tiers_registry: Loaded ``model-tiers`` registry.
+        model_id: Model id from recommended defaults.
+        profile_id: Profile id used for precise errors.
+
+    Returns:
+        ``provider/model`` when a native provider can be resolved.
+
+    Raises:
+        ValueError: If an unqualified model cannot be found in the model catalog.
+    """
+    if "/" in model_id:
+        return model_id
+    catalog_model_id = model_catalog_id_for_id(model_tiers_registry, model_id)
+    if not catalog_model_id:
+        raise ValueError(f"Cannot resolve provider for model '{model_id}' used by profile '{profile_id}'")
+    return catalog_model_id
+
+
+def prefixed_model_id(model_id: str, model_prefix: str) -> str:
+    """Apply an outer model catalog prefix.
+
+    Args:
+        model_id: Provider-qualified model id.
+        model_prefix: Normalized outer provider prefix.
+
+    Returns:
+        Model id with the outer prefix applied, or the original model id when disabled.
+    """
+    if not model_prefix:
+        return model_id
+    if model_id.startswith(f"{model_prefix}/"):
+        return model_id
+    return f"{model_prefix}/{model_id}"
+
+
+def rendered_model_id(model_tiers_registry: dict[str, Any], model_id: str, model_prefix: str, profile_id: str) -> str:
+    """Resolve the final model id written to generated agent configs.
+
+    Args:
+        model_tiers_registry: Loaded ``model-tiers`` registry.
+        model_id: Model id from recommended defaults.
+        model_prefix: Normalized outer provider prefix.
+        profile_id: Profile id used for precise errors.
+
+    Returns:
+        Raw model id when no prefix is configured, otherwise ``prefix/provider/model``.
+    """
+    if not model_prefix:
+        return model_id
+    qualified_model_id = provider_qualified_model(model_tiers_registry, model_id, profile_id)
+    return prefixed_model_id(qualified_model_id, model_prefix)
 
 
 def slugify(value: str) -> str:
@@ -543,7 +655,13 @@ def cleanup_previous_generated_files(output_directory: Path, cli_id: str, entrie
             legacy_directory = legacy_directory.parent
 
 
-def generate_agent_configs(cli_id: str, output_directory: Path, preset: str, templates_path: str) -> int:
+def generate_agent_configs(
+    cli_id: str,
+    output_directory: Path,
+    preset: str,
+    templates_path: str,
+    model_prefix: str,
+) -> int:
     """Generate all role-level agent configs for a CLI target.
 
     Args:
@@ -551,6 +669,7 @@ def generate_agent_configs(cli_id: str, output_directory: Path, preset: str, tem
         output_directory: Directory where generated files are written.
         preset: Model preset key from recommended defaults.
         templates_path: Runtime registry template path used in generated references.
+        model_prefix: Outer provider prefix for generated model ids.
 
     Returns:
         Number of generated files.
@@ -579,7 +698,12 @@ def generate_agent_configs(cli_id: str, output_directory: Path, preset: str, tem
     generated_count = 0
     for profile, level in entries:
         profile_id = str(profile.get("id") or "unknown")
-        model = model_for_level(recommended_defaults, level, preset, profile_id)
+        model = rendered_model_id(
+            model_tiers_registry,
+            model_for_level(recommended_defaults, level, preset, profile_id),
+            model_prefix,
+            profile_id,
+        )
         prompt = render_role_prompt(profile, level, model, common_instructions, templates_path)
         generated_agent_id_value, rendered_agent = render_cli_agent(cli_id, profile, level, model, prompt)
         write_text(agent_directory / f"{generated_agent_id_value}{extension}", rendered_agent)
@@ -602,6 +726,14 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_TEMPLATES_PATH,
         help="Runtime registry template path embedded in generated prompts. Defaults to ~/.ai-registry.",
     )
+    parser.add_argument(
+        "--model-prefix",
+        default=None,
+        help=(
+            "Outer provider prefix for generated model ids. Defaults to kilo for kilo-code, "
+            "opencode-go for opencode, and no prefix for other CLIs. Use an empty value to disable."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -615,7 +747,17 @@ def main() -> int:
     try:
         cli_id = canonical_cli(args.cli)
         output_directory = Path(args.output)
-        generated_count = generate_agent_configs(cli_id, output_directory, args.preset, args.templates_path)
+        default_model_prefix = (
+            DEFAULT_MODEL_PREFIXES.get(cli_id, "") if args.model_prefix is None else args.model_prefix
+        )
+        model_prefix = normalize_model_prefix(default_model_prefix)
+        generated_count = generate_agent_configs(
+            cli_id,
+            output_directory,
+            args.preset,
+            args.templates_path,
+            model_prefix,
+        )
     except (FileNotFoundError, RegistryError, ValueError) as exc:
         print(f"ERROR {exc}", file=sys.stderr)
         return 1

@@ -1,7 +1,7 @@
 ---
 description: "lead Founder CEO Advisor. Help founders make high-leverage strategic decisions and convert company goals into focused execution plans."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

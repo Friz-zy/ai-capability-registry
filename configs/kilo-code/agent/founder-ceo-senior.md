@@ -1,7 +1,7 @@
 ---
 description: "senior Founder CEO Advisor. Help founders make high-leverage strategic decisions and convert company goals into focused execution plans."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

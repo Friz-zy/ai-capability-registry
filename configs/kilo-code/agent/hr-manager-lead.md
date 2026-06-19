@@ -1,7 +1,7 @@
 ---
 description: "lead HR Manager. Own HR process constraints, interview governance, employment process requirements, and people-operation risk controls."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

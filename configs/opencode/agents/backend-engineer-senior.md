@@ -1,7 +1,7 @@
 ---
 description: "senior Backend Engineer. Build reliable APIs, services, data flows, and backend integrations."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

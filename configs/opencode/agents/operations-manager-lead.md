@@ -1,7 +1,7 @@
 ---
 description: "lead Operations Manager. Improve operational clarity, coordination, and repeatability across business workflows."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

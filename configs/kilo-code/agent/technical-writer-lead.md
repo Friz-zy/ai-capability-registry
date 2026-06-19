@@ -1,7 +1,7 @@
 ---
 description: "lead Technical Writer. Create, structure, review, and maintain accurate technical, user, API, release, and operational documentation."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 description: "lead Software Engineer. Implement reliable software changes with clear reasoning, small diffs, tests, and maintainable design."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

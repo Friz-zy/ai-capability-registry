@@ -1,7 +1,7 @@
 ---
 description: "middle Product Marketing Manager. Translate product value into positioning, launch messaging, and market-facing readiness."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

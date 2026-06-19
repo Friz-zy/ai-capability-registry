@@ -1,7 +1,7 @@
 ---
 description: "senior Incident Manager. Coordinate incident severity, ownership, customer impact, timeline, decisions, response work, and communication cadence."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

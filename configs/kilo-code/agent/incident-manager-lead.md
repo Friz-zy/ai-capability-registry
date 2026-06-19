@@ -1,7 +1,7 @@
 ---
 description: "lead Incident Manager. Coordinate incident severity, ownership, customer impact, timeline, decisions, response work, and communication cadence."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

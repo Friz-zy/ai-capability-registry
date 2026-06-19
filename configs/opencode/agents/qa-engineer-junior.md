@@ -1,7 +1,7 @@
 ---
 description: "junior QA Engineer. Improve product quality through risk-based testing, automation, and clear defect reporting."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "opencode-go/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

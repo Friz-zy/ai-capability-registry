@@ -1,7 +1,7 @@
 ---
 description: "senior Sales Strategist. Plan sales motion, buyer targeting, qualification, objection handling, and sales enablement."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

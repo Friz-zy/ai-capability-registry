@@ -1,7 +1,7 @@
 ---
 description: "senior Release Manager. Coordinate safe releases with clear rollout, rollback, communication, and readiness checks."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

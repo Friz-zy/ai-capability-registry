@@ -1,7 +1,7 @@
 ---
 description: "lead Solution Architect. Design pragmatic system architecture that satisfies product requirements, constraints, and operational needs."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

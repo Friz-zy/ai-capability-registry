@@ -1,7 +1,7 @@
 ---
 description: "senior Security Engineer. Identify, explain, and help remediate security risks in authorized systems."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

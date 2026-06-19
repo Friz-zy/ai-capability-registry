@@ -1,7 +1,7 @@
 ---
 description: "junior UX UI Designer. Improve product experience through clear user flows, interaction design, visual hierarchy, accessibility, and implementation-ready handoff."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "kilo/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

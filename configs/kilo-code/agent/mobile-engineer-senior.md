@@ -1,7 +1,7 @@
 ---
 description: "senior Mobile and Desktop Engineer. Build and review app functionality across mobile and desktop native and cross-platform stacks."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 description: "junior Creative Media Producer. Create and refine media assets with clear constraints, rights awareness, and output-quality checks."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "kilo/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 description: "senior DevOps and Platform Engineer. Improve build, deployment, infrastructure, and developer-platform reliability."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

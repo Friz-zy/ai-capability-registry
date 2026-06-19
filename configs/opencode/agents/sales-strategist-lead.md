@@ -1,7 +1,7 @@
 ---
 description: "lead Sales Strategist. Plan sales motion, buyer targeting, qualification, objection handling, and sales enablement."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

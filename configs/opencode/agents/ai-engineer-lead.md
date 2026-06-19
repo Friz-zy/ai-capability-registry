@@ -1,7 +1,7 @@
 ---
 description: "lead AI Engineer. Build reliable AI-enabled workflows, tools, and agent integrations."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

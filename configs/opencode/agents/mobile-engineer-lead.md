@@ -1,7 +1,7 @@
 ---
 description: "lead Mobile and Desktop Engineer. Build and review app functionality across mobile and desktop native and cross-platform stacks."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 description: "senior Data Protection Officer. Evaluate privacy obligations, personal data processing, retention, consent, and data subject impact."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

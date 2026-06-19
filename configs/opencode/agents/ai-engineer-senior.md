@@ -1,7 +1,7 @@
 ---
 description: "senior AI Engineer. Build reliable AI-enabled workflows, tools, and agent integrations."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

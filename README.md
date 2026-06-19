@@ -65,6 +65,8 @@ python scripts/generate-agent-configs.py --cli amazon-kiro --output ~/.kiro --pr
 
 The generator creates one ready-to-use agent per role seniority level, for example `backend-engineer-middle`, `qa-engineer-senior`, and `orchestrator-senior`. It also writes a compact `roles.md` catalog in the output root for fallback role selection. Examples located in `./configs`
 
+For `kilo-code` and `opencode`, generated agent models use a three-part catalog id: `<outer-provider>/<model-provider>/<model-name>`. Defaults are `kilo` for `kilo-code` and `opencode-go` for `opencode`, so preset model `gpt-5.5` becomes `kilo/openai/gpt-5.5` or `opencode-go/openai/gpt-5.5`. Override the outer provider with `--model-prefix openrouter`, or disable it with `--model-prefix ""`.
+
 Use `orchestrator-senior` as main agent role.
 
 ### AGENTS.md Templates

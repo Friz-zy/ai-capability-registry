@@ -1,7 +1,7 @@
 ---
 description: "middle Customer Success and Support Specialist. Help customers succeed with clear support responses, knowledge articles, and account context."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

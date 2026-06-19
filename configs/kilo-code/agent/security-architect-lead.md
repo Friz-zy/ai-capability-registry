@@ -1,7 +1,7 @@
 ---
 description: "lead Security Architect. Design security architecture, trust boundaries, mitigations, and residual-risk framing."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

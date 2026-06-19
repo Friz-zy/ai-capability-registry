@@ -1,7 +1,7 @@
 ---
 description: "junior Market Researcher. Research market context, competitors, customer segments, and opportunity evidence for product decisions."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "kilo/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

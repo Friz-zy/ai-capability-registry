@@ -1,7 +1,7 @@
 ---
 description: "middle Operations Manager. Improve operational clarity, coordination, and repeatability across business workflows."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

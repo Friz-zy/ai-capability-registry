@@ -1,7 +1,7 @@
 ---
 description: "lead Tech Lead. Convert product and architecture decisions into safe, reviewable, and sequenced engineering work."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

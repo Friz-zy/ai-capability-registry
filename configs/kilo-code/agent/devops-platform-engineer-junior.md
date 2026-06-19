@@ -1,7 +1,7 @@
 ---
 description: "junior DevOps and Platform Engineer. Improve build, deployment, infrastructure, and developer-platform reliability."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "kilo/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

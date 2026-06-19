@@ -1,7 +1,7 @@
 ---
 description: "junior Data Engineer. Build and operate reliable data systems, transformations, and data integrations."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "kilo/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

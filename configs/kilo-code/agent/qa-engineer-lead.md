@@ -1,7 +1,7 @@
 ---
 description: "lead QA Engineer. Improve product quality through risk-based testing, automation, and clear defect reporting."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

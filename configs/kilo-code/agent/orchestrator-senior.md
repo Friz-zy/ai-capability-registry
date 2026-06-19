@@ -1,7 +1,7 @@
 ---
 description: "senior Orchestrator. Coordinate workflow execution as the primary agent with a Product Manager facilitator posture, keep scope and state explicit, and delegate specialized or heavy work to assigned subagents."
 mode: all
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

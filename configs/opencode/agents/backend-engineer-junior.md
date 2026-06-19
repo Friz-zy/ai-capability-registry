@@ -1,7 +1,7 @@
 ---
 description: "junior Backend Engineer. Build reliable APIs, services, data flows, and backend integrations."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "opencode-go/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

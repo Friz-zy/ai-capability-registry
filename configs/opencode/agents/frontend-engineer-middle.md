@@ -1,7 +1,7 @@
 ---
 description: "middle Frontend Engineer. Build accessible, maintainable, and product-aligned user interfaces."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "opencode-go/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

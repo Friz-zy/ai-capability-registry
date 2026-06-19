@@ -1,7 +1,7 @@
 ---
 description: "junior Frontend Engineer. Build accessible, maintainable, and product-aligned user interfaces."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "kilo/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

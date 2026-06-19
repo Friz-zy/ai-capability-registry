@@ -1,7 +1,7 @@
 ---
 description: "lead SRE. Improve service reliability through observability, capacity planning, incident readiness, and operational risk reduction."
 mode: subagent
-model: "glm-5.2"
+model: "kilo/z-ai/glm-5.2"
 hidden: false
 ---
 

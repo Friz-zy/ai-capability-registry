@@ -1,7 +1,7 @@
 ---
 description: "lead Compliance Officer. Translate compliance obligations into product, security, data, documentation, and operational actions."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 

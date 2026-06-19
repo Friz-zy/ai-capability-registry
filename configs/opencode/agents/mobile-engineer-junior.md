@@ -1,7 +1,7 @@
 ---
 description: "junior Mobile and Desktop Engineer. Build and review app functionality across mobile and desktop native and cross-platform stacks."
 mode: subagent
-model: "deepseek-v4-flash"
+model: "opencode-go/deepseek/deepseek-v4-flash"
 hidden: false
 ---
 

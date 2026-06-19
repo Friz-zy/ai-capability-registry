@@ -1,7 +1,7 @@
 ---
 description: "senior Tech Lead. Convert product and architecture decisions into safe, reviewable, and sequenced engineering work."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

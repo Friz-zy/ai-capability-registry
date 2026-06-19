@@ -1,7 +1,7 @@
 ---
 description: "senior Security Architect. Design security architecture, trust boundaries, mitigations, and residual-risk framing."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

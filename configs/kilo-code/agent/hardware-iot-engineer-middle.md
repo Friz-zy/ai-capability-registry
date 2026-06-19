@@ -1,7 +1,7 @@
 ---
 description: "middle Hardware and IoT Engineer. Build and debug hardware, firmware, and IoT workflows with clear device, network, and safety constraints."
 mode: subagent
-model: "deepseek-v4-pro"
+model: "kilo/deepseek/deepseek-v4-pro"
 hidden: false
 ---
 

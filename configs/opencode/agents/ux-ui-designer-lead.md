@@ -1,7 +1,7 @@
 ---
 description: "lead UX UI Designer. Improve product experience through clear user flows, interaction design, visual hierarchy, accessibility, and implementation-ready handoff."
 mode: subagent
-model: "glm-5.2"
+model: "opencode-go/z-ai/glm-5.2"
 hidden: false
 ---
 
