@@ -47,7 +47,19 @@ def render(name: str, values: dict[str, Any]) -> str:
     if unresolved_placeholders:
         unique_placeholders = ", ".join(sorted(set(unresolved_placeholders)))
         raise ValueError(f"Unresolved placeholder(s) in {name}: {unique_placeholders}")
-    return text
+    return compact_blank_lines(text)
+
+
+def compact_blank_lines(text: str) -> str:
+    """Collapse excessive blank lines in generated role prompts.
+
+    Args:
+        text: Rendered text.
+
+    Returns:
+        Text with at most one empty line between content blocks.
+    """
+    return re.sub(r"\n{3,}", "\n\n", text).rstrip()
 
 
 def string_list(value: Any) -> list[str]:
@@ -124,6 +136,10 @@ def generated_role_content(profile: dict[str, Any], common_instructions: list[st
     purpose = str(role.get("mission") or profile.get("description") or "No purpose specified.")
     responsibilities = bullet_list(string_list(role.get("responsibilities")))
     guardrails_section = markdown_section("Guardrails", string_list(role.get("guardrails")))
+    delegation_level_rules_section = markdown_section(
+        "Delegation Level Rules",
+        string_list(role.get("delegation_level_rules")),
+    )
     rendered_common_instructions = bullet_list(common_instructions)
     return render(
         "role.md",
@@ -132,6 +148,7 @@ def generated_role_content(profile: dict[str, Any], common_instructions: list[st
             "title": title,
             "purpose": purpose,
             "responsibilities": responsibilities,
+            "delegation_level_rules_section": delegation_level_rules_section,
             "guardrails_section": guardrails_section,
             "common_instructions": rendered_common_instructions,
         },

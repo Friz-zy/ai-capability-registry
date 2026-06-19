@@ -10,7 +10,7 @@ Registry role id: `{{role_id}}`
 
 {{responsibilities}}
 
-{{guardrails_section}}## Common Instructions
+{{delegation_level_rules_section}}{{guardrails_section}}## Common Instructions
 
 {{common_instructions}}
 

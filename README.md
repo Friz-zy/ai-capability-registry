@@ -25,30 +25,47 @@ This repository turns AI-agent capability sprawl into a reproducible GitOps-styl
 ## Setup
 
 ```bash
-git clone --recurse-submodules <repo-url>
+git clone --recurse-submodules --jobs 8 <repo-url> ai-capability-registry
 cd ai-capability-registry
-./scripts/bootstrap.sh
 ```
 
 For shared use across multiple repositories, keep this registry at `~/.ai-registry`:
 
 ```bash
-git clone --recurse-submodules <repo-url> ~/.ai-registry
+git clone --recurse-submodules --jobs 8 <repo-url> ~/.ai-registry
 cd ~/.ai-registry
-./scripts/bootstrap.sh
 ```
 
-The bootstrap script will:
-1. Sync external submodules to correct commits
-2. Validate registry configuration
-3. Sync provider chunks under `skill-catalog.d/` with discovered skills
-4. Generate the workflow runtime instructions, routing index, and human-readable workflow catalog from `registry/workflows.yaml`
-5. Generate the combined `skills/` routing catalogs and symlink packs from `skill-catalog.d/`
-6. Generate MCP routing catalogs from `mcp-catalog.d/`
+The `--recurse-submodules` flag clones all pinned upstream capability sources. Use the generation commands below when you need to refresh derived catalogs after editing registry source files.
 
 ## How Agents Use This Registry
 
-Agents can use this registry in two ways: dynamic routing at runtime or a minimal static setup derived from the registry for a specific agent, role, or task.
+Agents can use this registry in 3 ways: static setup for agents cli with roles, dynamic routing at runtime or a minimal static setup derived from the registry for a specific agent, role, or task.
+
+### Generate CLI Role Agent Configs
+
+Generate role-level agent configs for a CLI from `registry/profiles.yaml` and `registry/model-tiers.yaml`.
+
+```bash
+# generate ~/.codex/roles/*.toml
+python scripts/generate-agent-configs.py --cli codex --output ~/.codex --preset openai --templates-path "$PWD"
+
+# generate ~/.claude/agents/*.md
+python scripts/generate-agent-configs.py --cli claude-code --output ~/.claude --preset anthropic --templates-path "$PWD"
+
+# generate ~/.config/kilo/agent/*.md
+python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo --preset opencode --templates-path "$PWD"
+
+# generate ~/.config/opencode/agents/*.md
+python scripts/generate-agent-configs.py --cli opencode --output ~/.config/opencode --preset opencode --templates-path "$PWD"
+
+# generate ~/.kiro/agents/*.json
+python scripts/generate-agent-configs.py --cli amazon-kiro --output ~/.kiro --preset anthropic --templates-path "$PWD"
+```
+
+The generator creates one ready-to-use agent per role seniority level, for example `backend-engineer-middle`, `qa-engineer-senior`, and `orchestrator-senior`. It also writes a compact `roles.md` catalog in the output root for fallback role selection. Examples located in `./configs`
+
+Use `orchestrator-senior` as main agent role.
 
 ### AGENTS.md Templates
 
@@ -197,11 +214,11 @@ Important MCP fields are `enabled`, `exists`, `trust`, `runtime`, `transport.typ
 
 | Command | Use |
 | --- | --- |
-| `./scripts/bootstrap.sh` | Full sync, validation, workflow generation, skills generation, and MCP generation |
 | `./scripts/generate-workflows.py` | Regenerate `workflows/workflow.md`, `workflows/routing.md`, `workflows-catalog.md`, and workflow catalogs from `registry/workflows.yaml` |
 | `./scripts/discover-skills.py` | Regenerate skill catalogs and packs from `skill-catalog.d/` |
 | `./scripts/discover-mcp.py` | Import disabled candidate MCP entries from configured upstream sources |
 | `./scripts/generate-mcp.py` | Regenerate `mcp/` and `mcp-catalog.md` from `mcp-catalog.d/` |
+| `python scripts/generate-agent-configs.py --cli <cli> --output configs/<cli> --preset <preset> --templates-path "$PWD"` | Generate CLI-specific role agent configs from `registry/profiles.yaml` and `registry/model-tiers.yaml` |
 | `./scripts/validate-registry.py` | Validate registry YAML structure and policy constraints |
 
 ## Trust And Policy

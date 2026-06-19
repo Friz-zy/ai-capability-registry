@@ -1,0 +1,7 @@
+name = {{agent_id_toml}}
+description = {{agent_description_toml}}
+model = {{model_toml}}
+developer_instructions = {{prompt_toml}}
+
+# Generated from registry/profiles.yaml by scripts/generate-agent-configs.py.
+# This orchestrator role is intended to be user-facing and to delegate to exact role-level agents.
