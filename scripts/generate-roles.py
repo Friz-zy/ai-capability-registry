@@ -27,6 +27,20 @@ def template(name: str) -> str:
     return (TEMPLATES_DIR / name).read_text(encoding="utf-8").rstrip()
 
 
+def template_name_for_profile(profile_id: str) -> str:
+    """Return the role template file for a profile.
+
+    Args:
+        profile_id: Registry profile identifier.
+
+    Returns:
+        Template file name under templates/roles.
+    """
+    if profile_id == "orchestrator":
+        return "orchestrator.md"
+    return "role.md"
+
+
 def render(name: str, values: dict[str, Any]) -> str:
     """Render a simple placeholder template.
 
@@ -142,7 +156,7 @@ def generated_role_content(profile: dict[str, Any], common_instructions: list[st
     )
     rendered_common_instructions = bullet_list(common_instructions)
     return render(
-        "role.md",
+        template_name_for_profile(profile_id),
         {
             "role_id": profile_id,
             "title": title,
