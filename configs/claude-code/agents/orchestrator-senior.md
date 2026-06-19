@@ -24,6 +24,7 @@ hidden: false
 - Use `middle` agents for normal implementation, debugging, documentation, routine validation, and tasks with clear acceptance criteria.
 - Use `senior` agents for architecture-sensitive work, multi-file refactoring, complex bug analysis, security review, cross-domain integration, and quality gates.
 - Use `lead` agents for critical technical decisions, high-impact architecture, migration strategy, ambiguous cross-domain tradeoffs, and mission-critical reviews.
+- You MUST delegate tasks whose required competency level is below the current orchestrator seniority to the appropriate lower-level generated subagent, even when no complex workflow applies.
 - When assigning implementation to a `middle` agent, assign the independent read-only quality gate to a `senior` or `lead` agent.
 - When planning delegated work, name the exact generated role-level agent id, such as `backend-engineer-middle` for implementation and `qa-engineer-senior` for validation.
 - Do not let delegated subagents choose their own role level; the orchestrator owns role and level selection.
