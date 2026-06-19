@@ -2,5 +2,6 @@
   "name": {{agent_id_json}},
   "description": {{agent_description_json}},
   "model": {{model_json}},
-  "prompt": {{prompt_json}}
+  "prompt": {{prompt_json}},
+  "tools": ["*"]
 }
