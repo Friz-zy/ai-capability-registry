@@ -322,7 +322,13 @@ def prefixed_model_id(model_id: str, model_prefix: str) -> str:
     return f"{model_prefix}/{model_id}"
 
 
-def rendered_model_id(model_tiers_registry: dict[str, Any], model_id: str, model_prefix: str, profile_id: str) -> str:
+def rendered_model_id(
+    model_tiers_registry: dict[str, Any],
+    model_id: str,
+    model_prefix: str,
+    profile_id: str,
+    force_provider_qualified: bool = False,
+) -> str:
     """Resolve the final model id written to generated agent configs.
 
     Args:
@@ -330,11 +336,16 @@ def rendered_model_id(model_tiers_registry: dict[str, Any], model_id: str, model
         model_id: Model id from recommended defaults.
         model_prefix: Normalized outer provider prefix.
         profile_id: Profile id used for precise errors.
+        force_provider_qualified: Whether to keep the native model provider
+            even when the outer prefix is disabled.
 
     Returns:
-        Raw model id when no prefix is configured, otherwise ``prefix/provider/model``.
+        Raw model id, native ``provider/model``, or outer
+        ``prefix/provider/model`` according to CLI needs.
     """
     if not model_prefix:
+        if force_provider_qualified:
+            return provider_qualified_model(model_tiers_registry, model_id, profile_id)
         return model_id
     qualified_model_id = provider_qualified_model(model_tiers_registry, model_id, profile_id)
     return prefixed_model_id(qualified_model_id, model_prefix)
@@ -703,6 +714,7 @@ def generate_agent_configs(
             model_for_level(recommended_defaults, level, preset, profile_id),
             model_prefix,
             profile_id,
+            cli_id in DEFAULT_MODEL_PREFIXES,
         )
         prompt = render_role_prompt(profile, level, model, common_instructions, templates_path)
         generated_agent_id_value, rendered_agent = render_cli_agent(cli_id, profile, level, model, prompt)
