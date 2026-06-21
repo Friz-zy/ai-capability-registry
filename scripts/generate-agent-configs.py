@@ -37,6 +37,19 @@ DEFAULT_MODEL_PREFIXES: dict[str, str] = {
     "opencode": "opencode-go",
 }
 
+DEFAULT_PRESETS: dict[str, str] = {
+    "codex": "openai",
+    "claude-code": "anthropic",
+    "kilo-code": "opencode",
+    "opencode": "opencode",
+    "amazon-kiro": "none",
+}
+
+ROLE_LEVEL_MODES = {"tiered", "single"}
+
+DISABLED_MODEL_PRESETS = {"", "none"}
+MODEL_REMOVAL_TOKEN = "__MODEL_FIELD_DISABLED__"
+
 CLI_ALIASES = {
     "codex": "codex",
     "codex-cli": "codex",
@@ -102,6 +115,27 @@ def compact_blank_lines(text: str) -> str:
         Text with at most one empty line between content blocks.
     """
     return re.sub(r"\n{3,}", "\n\n", text).rstrip()
+
+
+def remove_model_field(rendered_text: str, file_extension: str) -> str:
+    """Remove a rendered model field from generated CLI files.
+
+    Args:
+        rendered_text: Fully rendered file content.
+        file_extension: Output file extension used to select the syntax.
+
+    Returns:
+        Content without a rendered model field.
+    """
+    if file_extension == ".toml":
+        cleaned_text = re.sub(r"(?m)^[ \t]*model[ \t]*=.*\n?", "", rendered_text)
+    elif file_extension == ".md":
+        cleaned_text = re.sub(r"(?m)^[ \t]*model:[^\n]*\n?", "", rendered_text)
+    elif file_extension == ".json":
+        cleaned_text = re.sub(r"(?m)^[ \t]*\"model\"[ \t]*:[^\n]*,?\n?", "", rendered_text)
+    else:
+        cleaned_text = rendered_text
+    return compact_blank_lines(cleaned_text)
 
 
 def string_list(value: Any) -> list[str]:
@@ -193,6 +227,37 @@ def canonical_cli(cli_name: str) -> str:
     return CLI_ALIASES[normalized_name]
 
 
+def default_preset_for_cli(cli_id: str) -> str:
+    """Return the default model preset for a CLI.
+
+    Args:
+        cli_id: Canonical CLI target id.
+
+    Returns:
+        Default preset key or ``none`` when the CLI does not use model fields.
+    """
+    return DEFAULT_PRESETS.get(cli_id, "none")
+
+
+def normalized_role_levels_mode(role_levels_mode: str) -> str:
+    """Validate and normalize the requested role-level generation mode.
+
+    Args:
+        role_levels_mode: User-provided mode string.
+
+    Returns:
+        Normalized mode name.
+
+    Raises:
+        ValueError: If the mode is unsupported.
+    """
+    normalized_mode = role_levels_mode.strip().lower()
+    if normalized_mode not in ROLE_LEVEL_MODES:
+        supported_modes = ", ".join(sorted(ROLE_LEVEL_MODES))
+        raise ValueError(f"Unknown role levels mode '{role_levels_mode}'. Supported values: {supported_modes}")
+    return normalized_mode
+
+
 def available_presets(recommended_defaults: dict[str, Any]) -> list[str]:
     """Return model preset keys available in recommended defaults.
 
@@ -207,6 +272,18 @@ def available_presets(recommended_defaults: dict[str, Any]) -> list[str]:
         if isinstance(level_defaults, dict):
             preset_names.update(str(key) for key in level_defaults)
     return sorted(preset_names)
+
+
+def preset_modeling_disabled(preset: str) -> bool:
+    """Return whether model lookup and rendering are disabled.
+
+    Args:
+        preset: User-provided preset value.
+
+    Returns:
+        ``True`` when the preset disables model lookup and rendering.
+    """
+    return preset.strip().lower() in DISABLED_MODEL_PRESETS
 
 
 def model_for_level(recommended_defaults: dict[str, Any], level: str, preset: str, profile_id: str) -> str:
@@ -387,49 +464,92 @@ def role_slug_parts(profile: dict[str, Any]) -> tuple[str, str | None]:
     return domain_slug, role_name_slug
 
 
-def generated_agent_id(profile: dict[str, Any], level: str) -> str:
+def generated_agent_id(profile: dict[str, Any], level: str, role_levels_mode: str) -> str:
     """Build the generated agent id from domain, role name, and level.
 
     Args:
         profile: Registry profile entry.
         level: Seniority level.
+        role_levels_mode: Generation mode controlling whether level suffixes are used.
 
     Returns:
-        Agent id following ``<domain>-<role-name>-<level>`` when role name exists,
-        otherwise ``<domain>-<level>`` for single-token roles.
+        Agent id following ``<domain>-<role-name>-<level>`` in tiered mode, or a
+        collapsed ``<domain>-<role-name>`` / ``<domain>`` id in single mode.
     """
     domain_slug, role_name_slug = role_slug_parts(profile)
+    if role_levels_mode == "single":
+        if role_name_slug:
+            return f"{domain_slug}-{role_name_slug}"
+        return domain_slug
     level_slug = slugify(level)
     if role_name_slug:
         return f"{domain_slug}-{role_name_slug}-{level_slug}"
     return f"{domain_slug}-{level_slug}"
 
 
-def level_title(level: str, title: str) -> str:
-    """Build a concise level-qualified role title.
+def selected_role_level(profile: dict[str, Any]) -> str:
+    """Choose the internal level used when levels are collapsed.
+
+    Args:
+        profile: Registry profile entry.
+
+    Returns:
+        Preferred seniority level for single-mode generation.
+    """
+    levels = string_list(profile.get("seniority"))
+    if "senior" in levels:
+        return "senior"
+    if "middle" in levels:
+        return "middle"
+    if levels:
+        return levels[0]
+    return "middle"
+
+
+def profile_generation_levels(profile: dict[str, Any], role_levels_mode: str) -> list[str]:
+    """Return the level list to generate for one profile.
+
+    Args:
+        profile: Registry profile entry.
+        role_levels_mode: Generation mode controlling whether levels collapse.
+
+    Returns:
+        One or more seniority levels for the profile.
+    """
+    if role_levels_mode == "single":
+        return [selected_role_level(profile)]
+    return string_list(profile.get("seniority")) or ["middle"]
+
+
+def role_display_title(level: str, title: str, role_levels_mode: str) -> str:
+    """Build the role title shown in prompts and descriptions.
 
     Args:
         level: Seniority level.
         title: Role display title.
+        role_levels_mode: Generation mode controlling whether the level is shown.
 
     Returns:
-        Title such as ``lead AI Engineer``.
+        Level-qualified title in tiered mode or the bare title in single mode.
     """
+    if role_levels_mode == "single":
+        return title
     return f"{level} {title}"
 
 
-def agent_description(title: str, level: str, purpose: str) -> str:
+def agent_description(title: str, level: str, role_levels_mode: str, purpose: str) -> str:
     """Build a concise CLI-facing agent description.
 
     Args:
         title: Role display title.
         level: Seniority level.
+        role_levels_mode: Generation mode controlling whether the level is shown.
         purpose: Role mission or profile description.
 
     Returns:
         Human-readable agent description for CLI agent pickers.
     """
-    return f"{level_title(level, title)}. {purpose}"
+    return f"{role_display_title(level, title, role_levels_mode)}. {purpose}"
 
 
 def normalized_reference_path(path: str) -> str:
@@ -450,7 +570,8 @@ def normalized_reference_path(path: str) -> str:
 def role_prompt_values(
     profile: dict[str, Any],
     level: str,
-    model: str,
+    role_levels_mode: str,
+    model: str | None,
     common_instructions: list[str],
     templates_path: str,
 ) -> dict[str, str]:
@@ -459,7 +580,8 @@ def role_prompt_values(
     Args:
         profile: Registry profile entry.
         level: Seniority level.
-        model: Resolved model id.
+        role_levels_mode: Generation mode controlling agent ids.
+        model: Resolved model id or ``None`` when model rendering is disabled.
         common_instructions: Shared profile instructions.
         templates_path: Runtime registry template path used in generated references.
 
@@ -476,20 +598,36 @@ def role_prompt_values(
         "Delegation Level Rules",
         string_list(role.get("delegation_level_rules")),
     )
-    agent_id = generated_agent_id(profile, level)
+    if profile_id == "orchestrator":
+        if role_levels_mode == "single":
+            delegation_examples = (
+                "You MUST delegate each workflow stage to exact generated role-level agents, such as "
+                "`backend-engineer` for implementation and `qa-engineer` for validation."
+            )
+        else:
+            delegation_examples = (
+                "You MUST delegate each workflow stage to exact generated role-level agents, such as "
+                "`backend-engineer-middle` for implementation and `qa-engineer-senior` for validation."
+            )
+    else:
+        delegation_examples = ""
+    agent_id = generated_agent_id(profile, level, role_levels_mode)
     runtime_templates_path = normalized_reference_path(templates_path)
+    level_prefix = f"{level} " if role_levels_mode != "single" else ""
     return {
         "agent_id": agent_id,
         "role_id": profile_id,
         "profile_id": profile_id,
         "level": level,
         "level_label": level,
-        "model": model,
+        "level_prefix": level_prefix,
+        "model": model or "",
         "title": title,
         "purpose": purpose,
         "responsibilities": responsibilities,
         "guardrails_section": guardrails_section,
         "delegation_level_rules_section": delegation_level_rules_section,
+        "delegation_examples": delegation_examples,
         "common_instructions": bullet_list(common_instructions),
         "templates_path": runtime_templates_path,
         "role_catalog_path": "roles.md",
@@ -499,18 +637,22 @@ def role_prompt_values(
 def render_role_prompt(
     profile: dict[str, Any],
     level: str,
-    model: str,
+    role_levels_mode: str,
+    model: str | None,
     common_instructions: list[str],
     templates_path: str,
+    single_mode_id_replacements: dict[str, str] | None,
 ) -> str:
     """Render the system prompt for one generated agent.
 
     Args:
         profile: Registry profile entry.
         level: Seniority level.
-        model: Resolved model id.
+        role_levels_mode: Generation mode controlling agent ids.
+        model: Resolved model id or ``None`` when model rendering is disabled.
         common_instructions: Shared profile instructions.
         templates_path: Runtime registry template path used in generated references.
+        single_mode_id_replacements: Tiered-to-single generated id replacements.
 
     Returns:
         Rendered system prompt.
@@ -518,23 +660,39 @@ def render_role_prompt(
     profile_id = str(profile.get("id") or "unknown")
     prompt_template_name = "orchestrator-prompt-template.md" if profile_id == "orchestrator" else "role-prompt-template.md"
     prompt_template_path = AGENT_TEMPLATES_DIR / prompt_template_name
-    values = role_prompt_values(profile, level, model, common_instructions, templates_path)
-    return render_text(
+    values = role_prompt_values(profile, level, role_levels_mode, model, common_instructions, templates_path)
+    rendered_prompt = render_text(
         template_text(prompt_template_path),
         values,
         str(prompt_template_path),
     )
+    if role_levels_mode == "single" and single_mode_id_replacements:
+        for tiered_agent_id, single_agent_id in sorted(
+            single_mode_id_replacements.items(), key=lambda item: len(item[0]), reverse=True
+        ):
+            rendered_prompt = rendered_prompt.replace(tiered_agent_id, single_agent_id)
+    return rendered_prompt
 
 
-def render_cli_agent(cli_id: str, profile: dict[str, Any], level: str, model: str, prompt: str) -> tuple[str, str]:
+def render_cli_agent(
+    cli_id: str,
+    profile: dict[str, Any],
+    level: str,
+    role_levels_mode: str,
+    model: str | None,
+    prompt: str,
+    model_disabled: bool,
+) -> tuple[str, str]:
     """Render one CLI-specific agent config.
 
     Args:
         cli_id: Canonical CLI target id.
         profile: Registry profile entry.
         level: Seniority level.
-        model: Resolved model id.
+        role_levels_mode: Generation mode controlling agent ids.
+        model: Resolved model id or ``None`` when model rendering is disabled.
         prompt: Rendered system prompt.
+        model_disabled: Whether the template should omit model fields.
 
     Returns:
         Pair of generated agent id and rendered file content.
@@ -543,12 +701,12 @@ def render_cli_agent(cli_id: str, profile: dict[str, Any], level: str, model: st
     profile_id = str(profile.get("id") or "unknown")
     title = str(role.get("title") or profile.get("name") or profile_id)
     purpose = str(role.get("mission") or profile.get("description") or "No purpose specified.")
-    generated_agent_id_value = generated_agent_id(profile, level)
+    generated_agent_id_value = generated_agent_id(profile, level, role_levels_mode)
     template_kind = "orchestrator-agent-template" if profile_id == "orchestrator" else "role-agent-template"
     template_dir = CLI_TARGETS[cli_id]["template_dir"]
     extension = CLI_TARGETS[cli_id]["extension"]
     cli_template_path = AGENT_TEMPLATES_DIR / template_dir / f"{template_kind}{extension}"
-    generated_description = agent_description(title, level, purpose)
+    generated_description = agent_description(title, level, role_levels_mode, purpose)
     values = {
         "agent_id_json": quoted_string(generated_agent_id_value),
         "agent_id_toml": quoted_string(generated_agent_id_value),
@@ -556,22 +714,183 @@ def render_cli_agent(cli_id: str, profile: dict[str, Any], level: str, model: st
         "agent_description_json": quoted_string(generated_description),
         "agent_description_toml": quoted_string(generated_description),
         "agent_description_yaml": quoted_string(generated_description),
-        "model_json": quoted_string(model),
-        "model_toml": quoted_string(model),
-        "model_yaml": quoted_string(model),
+        "model_json": quoted_string(model or MODEL_REMOVAL_TOKEN),
+        "model_toml": quoted_string(model or MODEL_REMOVAL_TOKEN),
+        "model_yaml": quoted_string(model or MODEL_REMOVAL_TOKEN),
         "prompt": prompt,
         "prompt_json": quoted_string(prompt),
         "prompt_toml": quoted_string(prompt),
     }
     rendered = render_text(template_text(cli_template_path), values, str(cli_template_path))
+    if model_disabled:
+        rendered = remove_model_field(rendered, extension)
     return generated_agent_id_value, rendered
 
 
-def generated_agent_entries(profiles: list[dict[str, Any]]) -> list[tuple[dict[str, Any], str]]:
+def orchestrator_primary_entry(
+    entries: list[tuple[dict[str, Any], str]],
+    role_levels_mode: str,
+) -> tuple[dict[str, Any], str]:
+    """Return the orchestrator senior entry used as the primary agent.
+
+    Args:
+        entries: Profile and seniority pairs being generated.
+        role_levels_mode: Generation mode controlling agent ids.
+
+    Returns:
+        The orchestrator profile pair using the selected generation mode.
+
+    Raises:
+        ValueError: If the orchestrator entry does not exist.
+    """
+    for profile, level in entries:
+        if str(profile.get("id") or "") != "orchestrator":
+            continue
+        if role_levels_mode == "tiered" and level != "senior":
+            continue
+        if role_levels_mode == "single" or level == "senior":
+            return profile, level
+    raise ValueError("Missing orchestrator profile required for primary CLI config generation")
+
+
+def codex_config_text(
+    entries: list[tuple[dict[str, Any], str]],
+    primary_model: str | None,
+    model_disabled: bool,
+    is_override: bool,
+    role_levels_mode: str,
+) -> str:
+    """Render the Codex main config or override file.
+
+    Args:
+        entries: Profile and seniority pairs being generated.
+        primary_model: Resolved orchestrator model id when available.
+        model_disabled: Whether model fields were disabled by the preset.
+        is_override: Whether the file is a manual-merge override.
+        role_levels_mode: Generation mode controlling agent ids.
+
+    Returns:
+        Rendered Codex config content.
+    """
+    primary_profile, primary_level = orchestrator_primary_entry(entries, role_levels_mode)
+    primary_agent_id = generated_agent_id(primary_profile, primary_level, role_levels_mode)
+    ordered_entries = [
+        (primary_profile, primary_level),
+        *[
+            (profile, level)
+            for profile, level in entries
+            if generated_agent_id(profile, level, role_levels_mode) != primary_agent_id
+        ],
+    ]
+    lines = ["# Generated by scripts/generate-agent-configs.py."]
+    if is_override:
+        lines.append("# Manual merge required: apply this file to an existing Codex config.toml.")
+    lines.append(f"default_agent = {quoted_string(primary_agent_id)}")
+    if primary_model and not model_disabled:
+        lines.append(f"model = {quoted_string(primary_model)}")
+    lines.append("")
+    for profile, level in ordered_entries:
+        agent_id = generated_agent_id(profile, level, role_levels_mode)
+        lines.append(f"[agents.{agent_id}]")
+        lines.append(f"config_file = {quoted_string(f'./roles/{agent_id}.toml')}")
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def default_agent_json_text(agent_name: str) -> str:
+    """Render a minimal JSON object that selects the primary agent.
+
+    Args:
+        agent_name: Primary agent name to activate.
+
+    Returns:
+        JSON object text with a single default-agent setting.
+    """
+    return "{\n" + f"  \"default_agent\": {quoted_string(agent_name)}\n" + "}\n"
+
+
+def kilo_default_config_text(agent_name: str, is_override: bool) -> str:
+    """Render the Kilo Code main config or override file.
+
+    Args:
+        agent_name: Primary agent name to activate.
+        is_override: Whether the generated file is a manual-merge override.
+
+    Returns:
+        JSONC content selecting the default agent.
+    """
+    lines = ["// Generated by scripts/generate-agent-configs.py."]
+    if is_override:
+        lines.append("// Manual merge required: apply this override to an existing kilo.jsonc file.")
+    lines.append("{")
+    lines.append(f"  \"default_agent\": {quoted_string(agent_name)}")
+    lines.append("}")
+    return "\n".join(lines) + "\n"
+
+
+def generate_primary_role_artifact(
+    cli_id: str,
+    output_directory: Path,
+    entries: list[tuple[dict[str, Any], str]],
+    primary_model: str | None,
+    model_disabled: bool,
+    role_levels_mode: str,
+) -> int:
+    """Write the primary-role config or override artifact for the selected CLI.
+
+    Args:
+        cli_id: Canonical CLI target id.
+        output_directory: Directory where generated files are written.
+        entries: Profile and seniority pairs being generated.
+        primary_model: Resolved orchestrator model id when available.
+        model_disabled: Whether model fields were disabled by the preset.
+        role_levels_mode: Generation mode controlling agent ids.
+
+    Returns:
+        Number of generated primary-role artifacts.
+    """
+    primary_profile, primary_level = orchestrator_primary_entry(entries, role_levels_mode)
+    primary_agent_id = generated_agent_id(primary_profile, primary_level, role_levels_mode)
+    if cli_id == "codex":
+        main_config_path = output_directory / "config.toml"
+        target_path = output_directory / ("config.override.toml" if main_config_path.exists() else "config.toml")
+        write_text(
+            target_path,
+            codex_config_text(
+                entries,
+                primary_model,
+                model_disabled,
+                target_path.name.endswith(".override.toml"),
+                role_levels_mode,
+            ),
+        )
+        return 1
+    if cli_id == "opencode":
+        main_config_path = output_directory / "opencode.json"
+        target_path = output_directory / ("opencode.override.json" if main_config_path.exists() else "opencode.json")
+        write_text(target_path, default_agent_json_text(primary_agent_id))
+        return 1
+    if cli_id == "kilo-code":
+        main_config_path = output_directory / "kilo.jsonc"
+        target_path = output_directory / ("kilo.override.jsonc" if main_config_path.exists() else "kilo.jsonc")
+        write_text(target_path, kilo_default_config_text(primary_agent_id, target_path.name.endswith(".override.jsonc")))
+        return 1
+    if cli_id == "claude-code":
+        return 0
+    if cli_id == "amazon-kiro":
+        return 0
+    raise ValueError(f"Unsupported CLI '{cli_id}'")
+
+
+def generated_agent_entries(
+    profiles: list[dict[str, Any]],
+    role_levels_mode: str,
+) -> list[tuple[dict[str, Any], str]]:
     """Return every profile and seniority pair to generate.
 
     Args:
         profiles: Registry profile entries.
+        role_levels_mode: Generation mode controlling whether levels collapse.
 
     Returns:
         Pairs of profile mapping and seniority level.
@@ -580,17 +899,38 @@ def generated_agent_entries(profiles: list[dict[str, Any]]) -> list[tuple[dict[s
     for profile in sorted(profiles, key=lambda item: str(item.get("id") or "")):
         if not isinstance(profile, dict):
             raise ValueError("Every profile entry must be a mapping")
-        for level in string_list(profile.get("seniority")) or ["middle"]:
+        for level in profile_generation_levels(profile, role_levels_mode):
             entries.append((profile, level))
     return entries
 
 
-def role_catalog_line(profile: dict[str, Any], levels: list[str]) -> str:
+def single_mode_agent_id_replacements(profiles: list[dict[str, Any]]) -> dict[str, str]:
+    """Build prompt replacements that remove tiered role ids in single mode.
+
+    Args:
+        profiles: Registry profile entries.
+
+    Returns:
+        Mapping from tiered generated ids to their collapsed single-mode ids.
+    """
+    replacements: dict[str, str] = {}
+    for profile in profiles:
+        if not isinstance(profile, dict):
+            raise ValueError("Every profile entry must be a mapping")
+        single_mode_agent_id = generated_agent_id(profile, selected_role_level(profile), "single")
+        for level in profile_generation_levels(profile, "tiered"):
+            tiered_agent_id = generated_agent_id(profile, level, "tiered")
+            replacements[tiered_agent_id] = single_mode_agent_id
+    return replacements
+
+
+def role_catalog_line(profile: dict[str, Any], levels: list[str], role_levels_mode: str) -> str:
     """Render one concise generated role catalog line.
 
     Args:
         profile: Registry profile entry.
         levels: Seniority levels available for the profile.
+        role_levels_mode: Generation mode controlling agent ids.
 
     Returns:
         Markdown bullet with role ids, description, tags, and usage hint.
@@ -601,18 +941,19 @@ def role_catalog_line(profile: dict[str, Any], levels: list[str]) -> str:
     profile_description = str(profile.get("description") or purpose)
     categories = string_list(profile.get("include", {}).get("categories"))
     tags = ", ".join(f"`{category}`" for category in categories) if categories else "none"
-    generated_ids = ", ".join(f"`{generated_agent_id(profile, level)}`" for level in levels)
+    generated_ids = ", ".join(f"`{generated_agent_id(profile, level, role_levels_mode)}`" for level in levels)
     return (
         f"- {generated_ids}: {title}. "
         f"{purpose} Tags: {tags}. Choose when: {profile_description}"
     )
 
 
-def generated_role_catalog(entries: list[tuple[dict[str, Any], str]]) -> str:
+def generated_role_catalog(entries: list[tuple[dict[str, Any], str]], role_levels_mode: str) -> str:
     """Render the generated role catalog.
 
     Args:
         entries: Profile and level pairs being generated.
+        role_levels_mode: Generation mode controlling agent ids.
 
     Returns:
         Markdown catalog content.
@@ -629,32 +970,39 @@ def generated_role_catalog(entries: list[tuple[dict[str, Any], str]]) -> str:
         if profile_id not in grouped_profiles:
             grouped_profiles[profile_id] = (profile, [])
         grouped_profiles[profile_id][1].append(level)
-    lines.extend(role_catalog_line(profile, levels) for profile, levels in grouped_profiles.values())
+    lines.extend(role_catalog_line(profile, levels, role_levels_mode) for profile, levels in grouped_profiles.values())
     return "\n".join(lines)
 
 
-def cleanup_previous_generated_files(output_directory: Path, cli_id: str, entries: list[tuple[dict[str, Any], str]]) -> None:
+def cleanup_previous_generated_files(output_directory: Path, cli_id: str, profiles: list[dict[str, Any]]) -> None:
     """Remove previously generated files for the current CLI target.
 
-    This only deletes files matching generated agent ids in the current flat output
-    directory and in the current CLI agent directory. It avoids deleting unrelated
-    user files from the output tree.
+    This removes files matching generated agent ids in the current flat output
+    directory and in the current CLI agent directory. It also removes stale files
+    from the alternate role-level mode so switching between tiered and single
+    generation does not leave behind orphaned generated files. It avoids deleting
+    unrelated user files from the output tree.
 
     Args:
         output_directory: Root output directory selected by the user.
         cli_id: Canonical CLI target id.
-        entries: Profile and level pairs being regenerated.
+        profiles: Registry profile entries being regenerated.
     """
     extension = CLI_TARGETS[cli_id]["extension"]
     agent_directories = [output_directory / CLI_TARGETS[cli_id]["agent_directory"]]
     agent_directories.extend(output_directory / legacy_path for legacy_path in LEGACY_AGENT_DIRECTORIES.get(cli_id, []))
-    for profile, level in entries:
-        file_name = f"{generated_agent_id(profile, level)}{extension}"
-        generated_paths = [output_directory / file_name]
-        generated_paths.extend(agent_directory / file_name for agent_directory in agent_directories)
-        for generated_path in generated_paths:
-            if generated_path.is_file():
-                generated_path.unlink()
+    for profile in profiles:
+        all_generated_ids = {
+            generated_agent_id(profile, level, "tiered") for level in profile_generation_levels(profile, "tiered")
+        }
+        all_generated_ids.add(generated_agent_id(profile, selected_role_level(profile), "single"))
+        for generated_id in all_generated_ids:
+            file_name = f"{generated_id}{extension}"
+            generated_paths = [output_directory / file_name]
+            generated_paths.extend(agent_directory / file_name for agent_directory in agent_directories)
+            for generated_path in generated_paths:
+                if generated_path.is_file():
+                    generated_path.unlink()
 
     for legacy_path in LEGACY_AGENT_DIRECTORIES.get(cli_id, []):
         legacy_directory = output_directory / legacy_path
@@ -665,22 +1013,31 @@ def cleanup_previous_generated_files(output_directory: Path, cli_id: str, entrie
                 break
             legacy_directory = legacy_directory.parent
 
+    for stale_note_path in {
+        "claude-code": [output_directory / "settings.override.md"],
+        "amazon-kiro": [output_directory / "agent.override.md"],
+    }.get(cli_id, []):
+        if stale_note_path.is_file():
+            stale_note_path.unlink()
+
 
 def generate_agent_configs(
     cli_id: str,
     output_directory: Path,
-    preset: str,
+    preset: str | None,
     templates_path: str,
     model_prefix: str,
+    role_levels_mode: str,
 ) -> int:
     """Generate all role-level agent configs for a CLI target.
 
     Args:
         cli_id: Canonical CLI target id.
         output_directory: Directory where generated files are written.
-        preset: Model preset key from recommended defaults.
+        preset: Model preset key from recommended defaults, or ``""``/``none`` to omit models.
         templates_path: Runtime registry template path used in generated references.
         model_prefix: Outer provider prefix for generated model ids.
+        role_levels_mode: ``tiered`` for current behavior or ``single`` for collapsed roles.
 
     Returns:
         Number of generated files.
@@ -689,37 +1046,89 @@ def generate_agent_configs(
         ValueError: If registry data or preset resolution is invalid.
     """
     profiles_registry = load_registry("profiles")
-    model_tiers_registry = load_registry("model-tiers")
+    selected_preset = (preset or "").strip()
+    model_disabled = preset_modeling_disabled(selected_preset)
+    if role_levels_mode == "single" and not model_disabled:
+        raise ValueError("--role-levels single requires --preset none or --preset \"\" so model fields are disabled")
     profiles = profiles_registry.get("profiles", [])
     if not isinstance(profiles, list):
         raise ValueError("registry/profiles.yaml must contain a profiles list")
-    recommended_defaults = model_tiers_registry.get("recommended_defaults", {})
-    if not isinstance(recommended_defaults, dict):
-        raise ValueError("registry/model-tiers.yaml must contain recommended_defaults")
-    if preset not in available_presets(recommended_defaults):
-        presets = ", ".join(available_presets(recommended_defaults))
-        raise ValueError(f"Unknown preset '{preset}'. Available presets: {presets}")
+    model_tiers_registry: dict[str, Any] = {}
+    recommended_defaults: dict[str, Any] = {}
+    if not model_disabled:
+        model_tiers_registry = load_registry("model-tiers")
+        recommended_defaults = model_tiers_registry.get("recommended_defaults", {})
+        if not isinstance(recommended_defaults, dict):
+            raise ValueError("registry/model-tiers.yaml must contain recommended_defaults")
+        if selected_preset not in available_presets(recommended_defaults):
+            presets = ", ".join(available_presets(recommended_defaults))
+            raise ValueError(f"Unknown preset '{selected_preset}'. Available presets: {presets}")
 
     common_instructions = string_list(profiles_registry.get("common_instructions"))
     extension = CLI_TARGETS[cli_id]["extension"]
     agent_directory = output_directory / CLI_TARGETS[cli_id]["agent_directory"]
-    entries = generated_agent_entries(profiles)
-    cleanup_previous_generated_files(output_directory, cli_id, entries)
-    write_text(output_directory / CLI_TARGETS[cli_id]["role_catalog_path"], generated_role_catalog(entries))
+    entries = generated_agent_entries(profiles, role_levels_mode)
+    single_mode_id_replacements = single_mode_agent_id_replacements(profiles) if role_levels_mode == "single" else None
+    cleanup_previous_generated_files(output_directory, cli_id, profiles)
+    write_text(
+        output_directory / CLI_TARGETS[cli_id]["role_catalog_path"],
+        generated_role_catalog(entries, role_levels_mode),
+    )
     generated_count = 0
     for profile, level in entries:
         profile_id = str(profile.get("id") or "unknown")
-        model = rendered_model_id(
-            model_tiers_registry,
-            model_for_level(recommended_defaults, level, preset, profile_id),
-            model_prefix,
-            profile_id,
-            cli_id in DEFAULT_MODEL_PREFIXES,
+        model: str | None = None
+        if not model_disabled:
+            model = rendered_model_id(
+                model_tiers_registry,
+                model_for_level(recommended_defaults, level, selected_preset, profile_id),
+                model_prefix,
+                profile_id,
+                cli_id in DEFAULT_MODEL_PREFIXES,
+            )
+        prompt = render_role_prompt(
+            profile,
+            level,
+            role_levels_mode,
+            model,
+            common_instructions,
+            templates_path,
+            single_mode_id_replacements,
         )
-        prompt = render_role_prompt(profile, level, model, common_instructions, templates_path)
-        generated_agent_id_value, rendered_agent = render_cli_agent(cli_id, profile, level, model, prompt)
+        generated_agent_id_value, rendered_agent = render_cli_agent(
+            cli_id,
+            profile,
+            level,
+            role_levels_mode,
+            model,
+            prompt,
+            model_disabled,
+        )
         write_text(agent_directory / f"{generated_agent_id_value}{extension}", rendered_agent)
         generated_count += 1
+    primary_model = None
+    if not model_disabled:
+        primary_profile, primary_level = orchestrator_primary_entry(entries, role_levels_mode)
+        primary_model = rendered_model_id(
+            model_tiers_registry,
+            model_for_level(
+                recommended_defaults,
+                primary_level,
+                selected_preset,
+                str(primary_profile.get("id") or "unknown"),
+            ),
+            model_prefix,
+            str(primary_profile.get("id") or "unknown"),
+            cli_id in DEFAULT_MODEL_PREFIXES,
+        )
+    generated_count += generate_primary_role_artifact(
+        cli_id,
+        output_directory,
+        entries,
+        primary_model,
+        model_disabled,
+        role_levels_mode,
+    )
     return generated_count
 
 
@@ -732,7 +1141,24 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cli", required=True, help="Target CLI name, such as codex, claude, kilo, opencode, or kiro.")
     parser.add_argument("--output", required=True, help="Directory where generated agent configs will be written.")
-    parser.add_argument("--preset", required=True, help="Model preset key from registry/model-tiers.yaml recommended_defaults.")
+    parser.add_argument(
+        "--preset",
+        default=None,
+        help=(
+            "Model preset key from registry/model-tiers.yaml recommended_defaults. "
+            "Defaults to the CLI-specific preset when omitted. Use '' or none to omit model fields. "
+            "Use this explicitly with --role-levels single unless the CLI default preset is already none."
+        ),
+    )
+    parser.add_argument(
+        "--role-levels",
+        default=None,
+        choices=sorted(ROLE_LEVEL_MODES),
+        help=(
+            "Generate tiered role ids with seniority suffixes or collapse each profile to a single role id. "
+            "Defaults to single for Amazon Kiro and tiered for other CLIs."
+        ),
+    )
     parser.add_argument(
         "--templates-path",
         default=DEFAULT_TEMPLATES_PATH,
@@ -759,6 +1185,10 @@ def main() -> int:
     try:
         cli_id = canonical_cli(args.cli)
         output_directory = Path(args.output)
+        default_role_levels_mode = "single" if cli_id == "amazon-kiro" else "tiered"
+        selected_role_levels_mode = args.role_levels or default_role_levels_mode
+        role_levels_mode = normalized_role_levels_mode(selected_role_levels_mode)
+        preset = default_preset_for_cli(cli_id) if args.preset is None else args.preset
         default_model_prefix = (
             DEFAULT_MODEL_PREFIXES.get(cli_id, "") if args.model_prefix is None else args.model_prefix
         )
@@ -766,9 +1196,10 @@ def main() -> int:
         generated_count = generate_agent_configs(
             cli_id,
             output_directory,
-            args.preset,
+            preset,
             args.templates_path,
             model_prefix,
+            role_levels_mode,
         )
     except (FileNotFoundError, RegistryError, ValueError) as exc:
         print(f"ERROR {exc}", file=sys.stderr)

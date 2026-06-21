@@ -47,27 +47,34 @@ Agents can use this registry in 3 ways: static setup for agents cli with roles, 
 Generate role-level agent configs for a CLI from `registry/profiles.yaml` and `registry/model-tiers.yaml`.
 
 ```bash
-# generate ~/.codex/roles/*.toml
-python scripts/generate-agent-configs.py --cli codex --output ~/.codex --preset openai --templates-path "$PWD"
+# generate ~/.codex/roles/*.toml using the CLI default preset
+python scripts/generate-agent-configs.py --cli codex --output ~/.codex --templates-path "$PWD"
 
-# generate ~/.claude/agents/*.md
-python scripts/generate-agent-configs.py --cli claude-code --output ~/.claude --preset anthropic --templates-path "$PWD"
+# generate ~/.claude/agents/*.md using the CLI default preset
+python scripts/generate-agent-configs.py --cli claude-code --output ~/.claude --templates-path "$PWD"
 
-# generate ~/.config/kilo/agent/*.md
-python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo --preset opencode --templates-path "$PWD"
+# generate ~/.config/kilo/agent/*.md and ~/.config/kilo/kilo.jsonc using the CLI default preset
+python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo --templates-path "$PWD"
 
-# generate ~/.config/opencode/agents/*.md
-python scripts/generate-agent-configs.py --cli opencode --output ~/.config/opencode --preset opencode --templates-path "$PWD"
+# generate ~/.config/opencode/agents/*.md and ~/.config/opencode/opencode.json using the CLI default preset
+python scripts/generate-agent-configs.py --cli opencode --output ~/.config/opencode --templates-path "$PWD"
 
-# generate ~/.kiro/agents/*.json
-python scripts/generate-agent-configs.py --cli amazon-kiro --output ~/.kiro --preset anthropic --templates-path "$PWD"
+# generate ~/.kiro/agents/*.json using the CLI default preset and single role levels
+python scripts/generate-agent-configs.py --cli amazon-kiro --output ~/.kiro --templates-path "$PWD"
+
+# collapse each profile to one generated agent id instead of tiered level ids
+python scripts/generate-agent-configs.py --cli codex --output ~/.codex --role-levels single --preset none --templates-path "$PWD"
 ```
 
-The generator creates one ready-to-use agent per role seniority level, for example `backend-engineer-middle`, `qa-engineer-senior`, and `orchestrator-senior`. It also writes a compact `roles.md` catalog in the output root for fallback role selection. Examples located in `./configs`
+The generator defaults to `tiered` role levels for Codex, Claude Code, Kilo Code, and OpenCode, which creates one ready-to-use agent per role seniority level, for example `backend-engineer-middle`, `qa-engineer-senior`, and `orchestrator-senior`. Amazon Kiro defaults to `single` role levels, which collapses each profile into one agent id such as `backend-engineer`, `qa-engineer`, and `orchestrator`. Single mode requires `--preset none` or `--preset ""` so generated configs omit model fields, and it removes role-level labels from the rendered prompt and description. It also writes a compact `roles.md` catalog in the output root for fallback role selection. Cleanup removes stale generated agent files for both role-level modes inside the selected output tree, but it leaves unrelated files alone. Codex writes `config.toml` when no main config exists and `config.override.toml` when it does. Kilo Code writes `kilo.jsonc` when no main config exists and `kilo.override.jsonc` when it does; OpenCode follows the same main-or-override pattern with `opencode.json` and `opencode.override.json`. Claude Code and Amazon Kiro do not generate override note files.
 
 For `kilo-code` and `opencode`, generated agent models use a three-part catalog id: `<outer-provider>/<model-provider>/<model-name>`. Defaults are `kilo` for `kilo-code` and `opencode-go` for `opencode`, so preset model `gpt-5.5` becomes `kilo/openai/gpt-5.5` or `opencode-go/openai/gpt-5.5`. Override the outer provider with `--model-prefix openrouter`, or disable only the outer provider with `--model-prefix ""`.
 
-Use `orchestrator-senior` as main agent role.
+The default presets are `openai` for Codex, `anthropic` for Claude Code, `opencode` for Kilo Code, `opencode` for OpenCode, and `none` for Amazon Kiro.
+
+Use `--preset none` or `--preset ""` when you want the generator to omit every `model` field from the rendered templates.
+
+Use `--role-levels single` when you want one generated agent per profile instead of one agent per role seniority level.
 
 ### AGENTS.md Templates
 
@@ -220,7 +227,7 @@ Important MCP fields are `enabled`, `exists`, `trust`, `runtime`, `transport.typ
 | `./scripts/discover-skills.py` | Regenerate skill catalogs and packs from `skill-catalog.d/` |
 | `./scripts/discover-mcp.py` | Import disabled candidate MCP entries from configured upstream sources |
 | `./scripts/generate-mcp.py` | Regenerate `mcp/` and `mcp-catalog.md` from `mcp-catalog.d/` |
-| `python scripts/generate-agent-configs.py --cli <cli> --output configs/<cli> --preset <preset> --templates-path "$PWD"` | Generate CLI-specific role agent configs from `registry/profiles.yaml` and `registry/model-tiers.yaml` |
+| `python scripts/generate-agent-configs.py --cli <cli> --output configs/<cli> --templates-path "$PWD"` | Generate CLI-specific role agent configs from `registry/profiles.yaml` and `registry/model-tiers.yaml` using the CLI default preset; Codex, Kilo Code, and OpenCode write a main config when absent and an override when the main config already exists |
 | `./scripts/validate-registry.py` | Validate registry YAML structure and policy constraints |
 
 ## Trust And Policy

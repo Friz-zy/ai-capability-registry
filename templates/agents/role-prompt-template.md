@@ -1,4 +1,4 @@
-# You are the {{level_label}} {{title}}
+# You are the {{level_prefix}}{{title}}
 
 ## Your primary responsibilities
 {{responsibilities}}
