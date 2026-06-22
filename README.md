@@ -1,26 +1,59 @@
 # AI Capability Registry
 
 > **Warning**
-> Connecting this registry through `AGENTS.full-registry.md.template` makes agents read routing indexes and selected capability guides at runtime. This can use substantially more model context and tokens than a minimal static agent setup. Prefer task-, role-, keyword-, or project-specific subsets when context budget matters.
+> Connecting this registry through roles or `AGENTS.md` makes agents read routing indexes and selected capability guides at runtime. This can use substantially more model context and tokens than a minimal static agent setup. Prefer task-, role-, keyword-, or project-specific subsets when context budget matters.
 
-AI Capability Registry is an experiment in dynamic capability routing for AI agents: load the right skills, MCP servers, workflows, and integration instructions only when the current task needs them.
+## At a Glance
 
-Instead of stuffing every agent with a huge static prompt, a random pile of tools, or every available MCP server, this repository treats agent capabilities as versioned infrastructure. An agent can resolve the user's request by task, role, and keywords, then progressively load only the relevant skill instructions or MCP connection guidance.
+A compact snapshot of what is currently enabled in this registry. See the detailed sections below for routing, generation, and editing workflows.
 
-This is not the theoretical optimum for every setup. A carefully hand-tuned agent with the smallest possible set of skills and MCP servers for one specific task will usually be simpler, faster, and easier to reason about. The registry is meant for the more common middle ground: teams and users who run many agents across many tasks and need something better than enabling a broad list of skills and MCP servers for every agent "just in case". Many agent tools make that broad attachment path easy; this project explores a more explicit routing layer between fully minimal per-agent configuration and everything-enabled-by-default capability sprawl.
+**Enabled skill providers** (9 trusted/reviewed upstream sources, pinned by commit):
 
-You can also use the registry as a starting point for minimal static setups. A user can ask their AI assistant to inspect the shared registry and assemble the smallest useful set of skills and MCP servers for a specific role, task, or agent configuration. In that mode, the registry is not the runtime layer itself; it is the common source of reviewed capabilities from which task-specific agent setups are derived.
+- Kilo Marketplace Skills
+- Anthropic Skills
+- Anthropic Knowledge Work Plugins
+- OpenAI Skills
+- Vercel Agent Skills
+- Agent Skills Specification (portable skill format)
+- Superpowers Skills (development methodology)
+- Trail of Bits Skills (security research/audit)
+- Trail of Bits Curated Skills (security plugin marketplace)
 
-The goal is to make AI-agent capability management more modular, reproducible, and reviewable:
+**Enabled MCP servers** (169 enabled servers across 3 catalogs):
 
-- discover and curate skills, MCP servers, workflows, and agent integrations from upstream sources;
-- organize capabilities by tasks, roles, and keywords for runtime routing;
+- Official MCP Registry: 25 enabled / 739 discovered
+- Docker MCP Registry: 59 enabled / 251 discovered
+- Manually curated (`mcp-catalog.d/manual.yml`): 85 enabled / 85 total
+
+**Available workflows** (34):
+
+`saas-from-scratch`, `mobile-app`, `feature-development`, `idea-validation`, `product-strategy`, `pricing-and-monetization`, `go-to-market`, `bugfix`, `technical-debt-refactoring`, `api-design`, `integration-development`, `architecture-review`, `adr-decision`, `infrastructure-provisioning`, `platform-engineering`, `security-review`, `threat-modeling`, `legal-compliance`, `test-planning`, `automated-testing`, `performance-testing`, `incident-response`, `postmortem`, `customer-support`, `customer-feedback-analysis`, `analytics-and-growth`, `sales-support`, `technical-documentation`, `user-documentation`, `knowledge-base-maintenance`, `finops-cost-optimization`, `vendor-selection`, `hiring`, `team-process-improvement`.
+
+**Available subagent roles** (40, level shorthand: `j` = junior, `m` = middle, `s` = senior, `l` = lead):
+
+`orchestrator` (s), `personal-assistant` (m), `founder-ceo` (s/l), `product-manager` (m), `product-strategist` (s/l), `business-analyst` (m/s), `ux-researcher` (m/s), `ux-ui-designer` (j/m/s/l), `software-engineer` (j/m/s/l), `backend-engineer` (j/m/s/l), `frontend-engineer` (j/m/s/l), `mobile-engineer` (j/m/s/l), `data-engineer` (j/m/s/l), `data-analyst` (j/m/s), `ai-engineer` (m/s/l), `blockchain-engineer` (m/s/l), `hardware-iot-engineer` (m/s/l), `qa-engineer` (j/m/s/l), `security-engineer` (m/s/l), `security-architect` (s/l), `solution-architect` (s/l), `tech-lead` (s/l), `devops-platform-engineer` (j/m/s/l), `sre` (j/m/s/l), `incident-manager` (s/l), `release-manager` (s/l), `compliance-officer` (s/l), `data-protection-officer` (s/l), `finops-analyst` (m/s), `finance-manager` (s/l), `operations-manager` (m/s/l), `engineering-manager` (s/l), `hr-manager` (s/l), `growth-marketer` (m/s), `product-marketing-manager` (m/s), `sales-strategist` (m/s/l), `market-researcher` (j/m), `customer-success-support` (j/m/s), `creative-media-producer` (j/m/s), `technical-writer` (j/m/s/l).
+
+**Default workflow behavior and prompt defaults:**
+
+- The default workflow runtime follows a Superpowers-like principle: explicit planning, scoped delegation, quality gates, and staged execution before implementation, rather than jumping straight to code.
+- Token-reduction instructions analogous to `ponitail` are embedded into every generated role prompt by default (see `common_instructions` in `registry/profiles.yaml`) so agents stay terse, avoid fabricated claims, prefer read-only and reversible actions, and request only blocking clarifications.
+
+AI Capability Registry treats agent capabilities (skills, MCP servers, workflows, role prompts) as versioned infrastructure. An agent resolves the user's request by task, role, and keywords, then progressively loads only the relevant instructions instead of carrying a huge static prompt or every available tool.
+
+The registry targets the middle ground between fully minimal per-agent configuration and everything-enabled-by-default capability sprawl. It is not the theoretical optimum for one specific task — a hand-tuned single-purpose agent will usually be simpler — but it scales better across many tasks, roles, and multi-agent setups.
+
+It also works as a source for minimal static setups: ask an AI assistant to inspect the registry and assemble the smallest useful capability set for a specific role, task, or agent.
+
+Core goals:
+
+- discover and curate capabilities from upstream sources;
+- organize them by tasks, roles, and keywords for runtime routing;
 - keep enabled capabilities explicit in Git rather than hidden in local agent state;
 - separate trusted, reviewed, and candidate capabilities;
-- prefer safer MCP runtimes such as hosted endpoints or constrained Docker containers;
-- let multi-agent setups share the same capability registry instead of duplicating prompt/tool configuration.
+- prefer safer MCP runtimes (hosted endpoints, constrained Docker);
+- let multi-agent setups share one registry instead of duplicating prompt/tool config.
 
-This repository turns AI-agent capability sprawl into a reproducible GitOps-style registry. It downloads upstream sources as pinned submodules, inventories every discovered skill and MCP entry, and generates routing catalogs plus symlink packs organized by roles, tasks, and keywords.
+Upstream sources are pinned as submodules; discovered skills and MCP entries are inventoried and turned into routing catalogs and symlink packs organized by roles, tasks, and keywords.
 
 ## Setup
 
