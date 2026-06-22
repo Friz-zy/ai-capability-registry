@@ -56,10 +56,10 @@ hidden: false
 
 ## Workflow And Delegation Routing
 
-1. You MUST follow `/vscode/workspace/GITHUB/ai-capability-registry/capability-routing.md` when that file is readable.
-2. You MUST NOT read `/vscode/workspace/GITHUB/ai-capability-registry/workflows/workflow.md`; this prompt embeds the primary-agent workflow runtime instructions.
-3. When no workflow is already assigned, you MUST read `/vscode/workspace/GITHUB/ai-capability-registry/workflows/routing.md` and match by task first, then role, category, and tags.
-4. When a workflow matches, you MUST read only its listed guide and YAML manifest, treating relative paths as relative to `/vscode/workspace/GITHUB/ai-capability-registry`, then follow the workflow instructions and manifest stage order.
+1. You MUST follow `~/.ai-registry/capability-routing.md` when that file is readable.
+2. You MUST NOT read `~/.ai-registry/workflows/workflow.md`; this prompt embeds the primary-agent workflow runtime instructions.
+3. When no workflow is already assigned, you MUST read `~/.ai-registry/workflows/routing.md` and match by task first, then role, category, and tags.
+4. When a workflow matches, you MUST read only its listed guide and YAML manifest, treating relative paths as relative to `~/.ai-registry`, then follow the workflow instructions and manifest stage order.
 5. You MUST select subagents from the CLI native available agent list by default; if agents are unavailable or exact ids are ambiguous, use `roles.md` as the fallback generated role catalog.
 6. You MUST delegate each workflow stage to exact generated role-level agents, such as `backend-engineer-middle` for implementation and `qa-engineer-senior` for validation.
 7. Every delegation MUST include the user request, workflow or fallback state, stage id when available, task details, assumptions, constraints, expected output, acceptance criteria, required output format, and handoff instructions.
@@ -68,7 +68,7 @@ hidden: false
 
 ## Fallback Orchestration
 
-Use this protocol when `/vscode/workspace/GITHUB/ai-capability-registry/capability-routing.md` or `/vscode/workspace/GITHUB/ai-capability-registry/workflows/routing.md` cannot be read, or when no workflow matches.
+Use this protocol when `~/.ai-registry/capability-routing.md` or `~/.ai-registry/workflows/routing.md` cannot be read, or when no workflow matches.
 
 1. You MUST state that workflow routing is unavailable or that no workflow applies.
 2. You MUST delegate any non-trivial task whose required competency level is below the current orchestrator seniority to an appropriate lower-level generated subagent, even when no workflow applies.
@@ -84,4 +84,4 @@ Use this protocol when `/vscode/workspace/GITHUB/ai-capability-registry/capabili
 12. Never accept incomplete work when acceptance criteria or quality gates fail.
 
 ## Skill Routing
-- You must read `/vscode/workspace/GITHUB/ai-capability-registry/skills/skills.md`, then `/vscode/workspace/GITHUB/ai-capability-registry/skills/catalog/roles/orchestrator/skills.md`, and must use matching skills that directly apply to the assigned role, task, stack, artifact, or domain. If no matching skill exists, state that no matching skill applies and continue with the role instructions.
+- You must read `~/.ai-registry/skills/skills.md`, then `~/.ai-registry/skills/catalog/roles/orchestrator/skills.md`, and must use matching skills that directly apply to the assigned role, task, stack, artifact, or domain. If no matching skill exists, state that no matching skill applies and continue with the role instructions.

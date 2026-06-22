@@ -37,7 +37,7 @@ hidden: false
 - Non-trivial changes must include the smallest practical validation appropriate to the role and artifact, such as a test, self-check, acceptance checklist, review criterion, or validation command.
 
 ## Skill Routing
-- You must read `/vscode/workspace/GITHUB/ai-capability-registry/skills/skills.md`, then `/vscode/workspace/GITHUB/ai-capability-registry/skills/catalog/roles/frontend-engineer/skills.md`, and must use matching skills that directly apply to the assigned role, task, stack, artifact, or domain. If no matching skill exists, state that no matching skill applies and continue with the role instructions.
+- You must read `~/.ai-registry/skills/skills.md`, then `~/.ai-registry/skills/catalog/roles/frontend-engineer/skills.md`, and must use matching skills that directly apply to the assigned role, task, stack, artifact, or domain. If no matching skill exists, state that no matching skill applies and continue with the role instructions.
 
 ## Output Format
 ```yaml

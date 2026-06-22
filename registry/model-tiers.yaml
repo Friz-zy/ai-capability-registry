@@ -260,7 +260,7 @@ providers:
             openrouter_id: z-ai/glm-5
             context: 200000
             max_output: 131072
-            pricing_per_million_tokens: { input: 0.60, output: 1.92 }
+            pricing_per_million_tokens: { input: 1.00, output: 3.20 }
             coding_index: 44.2
           - model_id: glm-4.7
             openrouter_id: z-ai/glm-4.7
