@@ -835,6 +835,7 @@ def generate_primary_role_artifact(
     primary_model: str | None,
     model_disabled: bool,
     role_levels_mode: str,
+    orchestrator_prompt: str | None = None,
 ) -> int:
     """Write the primary-role config or override artifact for the selected CLI.
 
@@ -845,6 +846,7 @@ def generate_primary_role_artifact(
         primary_model: Resolved orchestrator model id when available.
         model_disabled: Whether model fields were disabled by the preset.
         role_levels_mode: Generation mode controlling agent ids.
+        orchestrator_prompt: Rendered orchestrator prompt body for Amazon Kiro steering.
 
     Returns:
         Number of generated primary-role artifacts.
@@ -878,6 +880,14 @@ def generate_primary_role_artifact(
     if cli_id == "claude-code":
         return 0
     if cli_id == "amazon-kiro":
+        # Write steering/orchestrator.md with inclusion: auto frontmatter
+        if orchestrator_prompt is not None:
+            steering_dir = output_directory / "steering"
+            steering_dir.mkdir(parents=True, exist_ok=True)
+            steering_path = steering_dir / "orchestrator.md"
+            steering_content = "---\ninclusion: auto\n---\n\n" + orchestrator_prompt
+            write_text(steering_path, steering_content)
+            return 1
         return 0
     raise ValueError(f"Unsupported CLI '{cli_id}'")
 
@@ -1075,6 +1085,7 @@ def generate_agent_configs(
         generated_role_catalog(entries, role_levels_mode),
     )
     generated_count = 0
+    orchestrator_prompt: str | None = None
     for profile, level in entries:
         profile_id = str(profile.get("id") or "unknown")
         model: str | None = None
@@ -1095,6 +1106,9 @@ def generate_agent_configs(
             templates_path,
             single_mode_id_replacements,
         )
+        # Capture orchestrator prompt for Amazon Kiro steering artifact
+        if profile_id == "orchestrator" and cli_id == "amazon-kiro":
+            orchestrator_prompt = prompt
         generated_agent_id_value, rendered_agent = render_cli_agent(
             cli_id,
             profile,
@@ -1128,6 +1142,7 @@ def generate_agent_configs(
         primary_model,
         model_disabled,
         role_levels_mode,
+        orchestrator_prompt,
     )
     return generated_count
 
