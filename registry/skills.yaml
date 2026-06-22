@@ -450,3 +450,48 @@ skills:
       arbitrary_exec: review_required
       reviewed: true
     enabled: true
+
+  - id: hermes-tweet-skill
+    name: Hermes Tweet Skill
+    description: Hermes Agent plugin skill for X/Twitter search, reads, approved actions, monitors, media workflows, and trends through Xquik.
+    source:
+      type: git
+      repo: https://github.com/Xquik-dev/hermes-tweet
+      subdir: skills/hermes-tweet
+      external_path: external/hermes-tweet-skill
+    category:
+      - social-media
+      - automation
+      - hermes-agent
+      - x-twitter
+      - candidate
+    trust:
+      level: candidate
+      curated: false
+      reviewed: false
+      reason: discovery_only
+    activation:
+      keywords:
+        - hermes tweet
+        - hermes-agent
+        - x twitter
+        - social media automation
+        - xquik
+    compatibility:
+      - codex-cli
+      - claude-code
+      - kilo-code
+      - opencode
+    artifacts:
+      prompt: SKILL.md
+      docs: skill-card.md
+    version:
+      tag: null
+      commit: cd67f9c0b5b56df0906bccf900d4054d996f285c
+      pinned: true
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: false
+    enabled: false
