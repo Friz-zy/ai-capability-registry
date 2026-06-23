@@ -593,7 +593,7 @@ def role_prompt_values(
     title = str(role.get("title") or profile.get("name") or profile_id)
     purpose = str(role.get("mission") or profile.get("description") or "No purpose specified.")
     responsibilities = bullet_list(string_list(role.get("responsibilities")))
-    guardrails_section = markdown_section("You must follow this guardrails", string_list(role.get("guardrails")))
+    guardrails_section = markdown_section("You MUST follow these guardrails", string_list(role.get("guardrails")))
     delegation_level_rules_section = markdown_section(
         "Delegation Level Rules",
         string_list(role.get("delegation_level_rules")),
@@ -616,21 +616,15 @@ def role_prompt_values(
     level_prefix = f"{level} " if role_levels_mode != "single" else ""
     return {
         "agent_id": agent_id,
-        "role_id": profile_id,
         "profile_id": profile_id,
-        "level": level,
-        "level_label": level,
         "level_prefix": level_prefix,
-        "model": model or "",
         "title": title,
-        "purpose": purpose,
         "responsibilities": responsibilities,
         "guardrails_section": guardrails_section,
         "delegation_level_rules_section": delegation_level_rules_section,
         "delegation_examples": delegation_examples,
         "common_instructions": bullet_list(common_instructions),
         "templates_path": runtime_templates_path,
-        "role_catalog_path": "roles.md",
     }
 
 

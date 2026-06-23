@@ -1,6 +1,6 @@
 # Workflow Capability Routing
 
-Read `../capability-routing.md`, `workflow.md`, and `../roles/orchestrator.md` before selecting a workflow.
+Read `../capability-routing.md` and `../roles/orchestrator.md` before selecting a workflow.
 
 Use this file only for primary-agent workflow selection when no workflow scope is assigned.
 
