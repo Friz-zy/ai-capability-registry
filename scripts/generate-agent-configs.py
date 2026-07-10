@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import re
 import sys
@@ -284,6 +285,77 @@ def preset_modeling_disabled(preset: str) -> bool:
         ``True`` when the preset disables model lookup and rendering.
     """
     return preset.strip().lower() in DISABLED_MODEL_PRESETS
+
+
+def parse_role_preset_spec(spec: str) -> tuple[list[str], str]:
+    """Parse a --role-preset CLI spec into role patterns and a preset key.
+
+    A spec has the form ``roles=preset`` where ``roles`` is a comma-separated
+    list of registry profile ids, optionally containing fnmatch globs, and
+    ``preset`` is a model preset key from recommended_defaults.
+
+    Args:
+        spec: Raw spec string such as ``solution-architect=openai`` or
+            ``*-architect,product-manager=openai``.
+
+    Returns:
+        Pair of role pattern list and preset key.
+
+    Raises:
+        ValueError: If the spec has no ``=``, an empty role list, or an empty preset.
+    """
+    if "=" not in spec:
+        raise ValueError(
+            f"Invalid --role-preset '{spec}'. Expected 'roles=preset' with a comma-separated role list."
+        )
+    roles_part, preset_part = spec.split("=", 1)
+    patterns = [token.strip() for token in roles_part.split(",") if token.strip()]
+    preset = preset_part.strip()
+    if not patterns:
+        raise ValueError(f"Invalid --role-preset '{spec}': no role patterns before '='.")
+    if not preset:
+        raise ValueError(f"Invalid --role-preset '{spec}': preset is empty after '='.")
+    return patterns, preset
+
+
+def resolve_role_preset_overrides(
+    specs: list[str],
+    profiles: list[dict[str, Any]],
+) -> dict[str, str]:
+    """Resolve --role-preset specs into a profile-id to preset mapping.
+
+    Patterns are matched against registry profile ids using fnmatch (case
+    sensitive), so ``*-architect`` matches both ``solution-architect`` and
+    ``security-architect``. Specs are applied in order and later matches
+    overwrite earlier ones, letting a broad pattern be refined by a later
+    specific one. A pattern matching no profile prints a warning and is skipped.
+
+    Args:
+        specs: Raw --role-preset spec strings.
+        profiles: Registry profile entries.
+
+    Returns:
+        Mapping from profile id to resolved preset key.
+    """
+    profile_ids = [str(profile.get("id") or "") for profile in profiles if isinstance(profile, dict)]
+    overrides: dict[str, str] = {}
+    for spec in specs:
+        patterns, preset = parse_role_preset_spec(spec)
+        for pattern in patterns:
+            matched_ids = [
+                profile_id
+                for profile_id in profile_ids
+                if profile_id and fnmatch.fnmatchcase(profile_id, pattern)
+            ]
+            if matched_ids:
+                for profile_id in matched_ids:
+                    overrides[profile_id] = preset
+            else:
+                print(
+                    f"WARNING --role-preset pattern '{pattern}' matched no role; ignored.",
+                    file=sys.stderr,
+                )
+    return overrides
 
 
 def model_for_level(recommended_defaults: dict[str, Any], level: str, preset: str, profile_id: str) -> str:
@@ -1032,6 +1104,7 @@ def generate_agent_configs(
     templates_path: str,
     model_prefix: str,
     role_levels_mode: str,
+    role_preset_specs: list[str] | None,
 ) -> int:
     """Generate all role-level agent configs for a CLI target.
 
@@ -1042,6 +1115,8 @@ def generate_agent_configs(
         templates_path: Runtime registry template path used in generated references.
         model_prefix: Outer provider prefix for generated model ids.
         role_levels_mode: ``tiered`` for current behavior or ``single`` for collapsed roles.
+        role_preset_specs: Optional repeatable ``roles=preset`` specs that override the model
+            preset for matching roles; ignored when model lookup is disabled.
 
     Returns:
         Number of generated files.
@@ -1057,6 +1132,7 @@ def generate_agent_configs(
     profiles = profiles_registry.get("profiles", [])
     if not isinstance(profiles, list):
         raise ValueError("registry/profiles.yaml must contain a profiles list")
+    role_preset_overrides: dict[str, str] = {}
     model_tiers_registry: dict[str, Any] = {}
     recommended_defaults: dict[str, Any] = {}
     if not model_disabled:
@@ -1067,6 +1143,21 @@ def generate_agent_configs(
         if selected_preset not in available_presets(recommended_defaults):
             presets = ", ".join(available_presets(recommended_defaults))
             raise ValueError(f"Unknown preset '{selected_preset}'. Available presets: {presets}")
+        if role_preset_specs:
+            role_preset_overrides = resolve_role_preset_overrides(role_preset_specs, profiles)
+            available_preset_names = available_presets(recommended_defaults)
+            for override_profile_id, override_preset in role_preset_overrides.items():
+                if override_preset not in available_preset_names:
+                    presets = ", ".join(available_preset_names)
+                    raise ValueError(
+                        f"Unknown preset '{override_preset}' for role '{override_profile_id}'. "
+                        f"Available presets: {presets}"
+                    )
+    elif role_preset_specs:
+        print(
+            "WARNING --role-preset overrides ignored because --preset disables model fields.",
+            file=sys.stderr,
+        )
 
     common_instructions = string_list(profiles_registry.get("common_instructions"))
     extension = CLI_TARGETS[cli_id]["extension"]
@@ -1082,11 +1173,13 @@ def generate_agent_configs(
     orchestrator_prompt: str | None = None
     for profile, level in entries:
         profile_id = str(profile.get("id") or "unknown")
+        effective_preset = role_preset_overrides.get(profile_id, selected_preset)
+        effective_model_disabled = preset_modeling_disabled(effective_preset)
         model: str | None = None
-        if not model_disabled:
+        if not effective_model_disabled:
             model = rendered_model_id(
                 model_tiers_registry,
-                model_for_level(recommended_defaults, level, selected_preset, profile_id),
+                model_for_level(recommended_defaults, level, effective_preset, profile_id),
                 model_prefix,
                 profile_id,
                 cli_id in DEFAULT_MODEL_PREFIXES,
@@ -1110,23 +1203,25 @@ def generate_agent_configs(
             role_levels_mode,
             model,
             prompt,
-            model_disabled,
+            effective_model_disabled,
         )
         write_text(agent_directory / f"{generated_agent_id_value}{extension}", rendered_agent)
         generated_count += 1
     primary_model = None
     if not model_disabled:
         primary_profile, primary_level = orchestrator_primary_entry(entries, role_levels_mode)
+        primary_profile_id = str(primary_profile.get("id") or "unknown")
+        primary_preset = role_preset_overrides.get(primary_profile_id, selected_preset)
         primary_model = rendered_model_id(
             model_tiers_registry,
             model_for_level(
                 recommended_defaults,
                 primary_level,
-                selected_preset,
-                str(primary_profile.get("id") or "unknown"),
+                primary_preset,
+                primary_profile_id,
             ),
             model_prefix,
-            str(primary_profile.get("id") or "unknown"),
+            primary_profile_id,
             cli_id in DEFAULT_MODEL_PREFIXES,
         )
     generated_count += generate_primary_role_artifact(
@@ -1166,6 +1261,19 @@ def parse_args() -> argparse.Namespace:
         help=(
             "Generate tiered role ids with seniority suffixes or collapse each profile to a single role id. "
             "Defaults to single for Amazon Kiro and tiered for other CLIs."
+        ),
+    )
+    parser.add_argument(
+        "--role-preset",
+        action="append",
+        default=[],
+        metavar="ROLES=PRESET",
+        help=(
+            "Override the model preset for specific roles. ROLES is a comma-separated "
+            "list of registry profile ids and supports fnmatch globs (e.g. '*-architect'). "
+            "Example: --role-preset \"*-architect,product-manager=openai\". Repeatable; "
+            "later rules override earlier ones for the same role. Only applies when "
+            "--preset selects a real model preset."
         ),
     )
     parser.add_argument(
@@ -1209,6 +1317,7 @@ def main() -> int:
             args.templates_path,
             model_prefix,
             role_levels_mode,
+            args.role_preset,
         )
     except (FileNotFoundError, RegistryError, ValueError) as exc:
         print(f"ERROR {exc}", file=sys.stderr)

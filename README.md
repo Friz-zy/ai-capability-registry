@@ -109,6 +109,8 @@ The default presets are `openai` for Codex, `anthropic` for Claude Code, `openco
 
 Use `--preset none` or `--preset ""` when you want the generator to omit every `model` field from the rendered templates.
 
+Use `--role-preset ROLES=PRESET` (repeatable) to override the model preset for specific roles without changing the global preset. `ROLES` is a comma-separated list of registry profile ids and supports `fnmatch` globs, so `--role-preset "*-architect,product-manager,founder-ceo=openai"` switches architects, product managers, and the founder CEO to the `openai` preset while every other role keeps `--preset`. Later rules override earlier ones for the same role, and overrides are ignored when `--preset` is `none`/`""`.
+
 Use `--role-levels single` when you want one generated agent per profile instead of one agent per role seniority level.
 
 ### AGENTS.md Templates
