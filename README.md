@@ -111,6 +111,19 @@ Use `--preset none` or `--preset ""` when you want the generator to omit every `
 
 Use `--role-preset ROLES=PRESET` (repeatable) to override the model preset for specific roles without changing the global preset. `ROLES` is a comma-separated list of registry profile ids and supports `fnmatch` globs, so `--role-preset "*-architect,product-manager,founder-ceo=openai"` switches architects, product managers, and the founder CEO to the `openai` preset while every other role keeps `--preset`. Later rules override earlier ones for the same role, and overrides are ignored when `--preset` is `none`/`""`.
 
+```bash
+# generate kilo-code agents with z-ai-coding as the global preset, but assign the
+# stronger openai preset to roles whose decisions are high-leverage and hard to
+# reverse: architects, founder CEO, product strategist, tech lead, orchestrator,
+# plus security/compliance/finance/release/incident decision-makers. Every other
+# role keeps the global z-ai-coding preset.
+python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
+  --preset z-ai-coding \
+  --role-preset "*-architect,founder-ceo,product-strategist,tech-lead,orchestrator=openai" \
+  --role-preset "security-engineer,data-protection-officer,compliance-officer,finance-manager,release-manager,incident-manager,blockchain-engineer=openai" \
+  --templates-path "$PWD"
+```
+
 Use `--role-levels single` when you want one generated agent per profile instead of one agent per role seniority level.
 
 ### AGENTS.md Templates
