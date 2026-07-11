@@ -51,6 +51,7 @@ ROLE_LEVEL_MODES = {"tiered", "single"}
 DISABLED_MODEL_PRESETS = {"", "none"}
 MODEL_REMOVAL_TOKEN = "__MODEL_FIELD_DISABLED__"
 REASONING_LEVELS = {"none", "minimal", "low", "medium", "high", "xhigh", "max"}
+REASONING_LEVEL_ORDER = ["none", "minimal", "low", "medium", "high", "xhigh", "max"]
 
 CLI_ALIASES = {
     "codex": "codex",
@@ -566,6 +567,83 @@ def resolve_effective_reasoning(
     return str(preset_configuration["level"])
 
 
+def clamp_reasoning_effort(reasoning_effort: str, supported_levels: list[str]) -> str:
+    """Clamp a normalized reasoning level to a provider's supported ordered values.
+
+    Args:
+        reasoning_effort: Requested normalized reasoning level.
+        supported_levels: Provider-supported levels ordered from least to most effort.
+
+    Returns:
+        Supported level closest to the requested level without increasing effort.
+    """
+    requested_index = REASONING_LEVEL_ORDER.index(reasoning_effort)
+    supported_indexes = [(REASONING_LEVEL_ORDER.index(level), level) for level in supported_levels]
+    eligible_levels = [entry for entry in supported_indexes if entry[0] <= requested_index]
+    return (eligible_levels[-1] if eligible_levels else supported_indexes[0])[1]
+
+
+def native_reasoning_provider(model_tiers_registry: dict[str, Any], model_id: str | None) -> str | None:
+    """Resolve a model's provider, including the virtual zai-coding endpoint.
+
+    Args:
+        model_tiers_registry: Loaded ``model-tiers`` registry.
+        model_id: Bare or provider-qualified model id.
+
+    Returns:
+        Native provider id, or ``None`` when the model is unknown.
+    """
+    provider_id, _ = find_model_entry(model_tiers_registry, model_id or "")
+    if provider_id:
+        return provider_id
+    if isinstance(model_id, str) and model_id.startswith("zai-coding/"):
+        return "z-ai-coding"
+    return None
+
+
+def provider_reasoning_yaml(provider_id: str, reasoning_effort: str) -> str:
+    """Render provider-specific Kilo/OpenCode reasoning options from one level.
+
+    Kilo Code and OpenCode forward additional agent frontmatter options to the
+    selected model provider. Providers expose incompatible request schemas, so the
+    generated options preserve the provider's own documented parameter names rather
+    than applying the OpenAI-only ``reasoningEffort`` field universally.
+
+    Args:
+        provider_id: Native model provider id.
+        reasoning_effort: Requested normalized reasoning level.
+
+    Returns:
+        YAML frontmatter suffix, or an empty string for an unknown provider.
+    """
+    if provider_id == "openai":
+        return f'\nreasoningEffort: "{clamp_reasoning_effort(reasoning_effort, REASONING_LEVEL_ORDER)}"'
+    if provider_id == "anthropic":
+        effort = clamp_reasoning_effort(reasoning_effort, ["low", "medium", "high", "xhigh", "max"])
+        return f'\neffort: "{effort}"'
+    if provider_id == "google":
+        effort = clamp_reasoning_effort(reasoning_effort, ["minimal", "low", "medium", "high"])
+        return f'\nthinkingConfig:\n  thinkingLevel: "{effort}"'
+    if provider_id == "xai":
+        effort = clamp_reasoning_effort(reasoning_effort, ["low", "medium", "high", "xhigh"])
+        return f'\nreasoning_effort: "{effort}"'
+    if provider_id in {"deepseek", "z-ai", "z-ai-coding"}:
+        supported_levels = ["high", "max"] if provider_id == "deepseek" else REASONING_LEVEL_ORDER
+        effort = clamp_reasoning_effort(reasoning_effort, supported_levels)
+        return f'\nthinking:\n  type: "enabled"\nreasoning_effort: "{effort}"'
+    if provider_id == "qwen":
+        return "\nenable_thinking: true"
+    if provider_id == "kimi":
+        return '\nthinking:\n  type: "enabled"'
+    if provider_id == "minimax":
+        return '\nthinking:\n  type: "adaptive"'
+    if provider_id == "mimo":
+        return '\nthinking:\n  type: "enabled"'
+    if provider_id == "openrouter":
+        return f'\nreasoning:\n  effort: "{reasoning_effort}"'
+    return ""
+
+
 def agent_reasoning_suffix(
     cli_id: str,
     model: str | None,
@@ -576,9 +654,8 @@ def agent_reasoning_suffix(
     """Build optional reasoning frontmatter appended after the model line.
 
     Emission is restricted to verified CLI/provider combinations:
-      * kilo-code/opencode: ``reasoningEffort`` only for direct
-        OpenAI models (final rendered model starts ``openai/`` with no outer prefix)
-        whose effective preset targets the direct OpenAI provider.
+      * kilo-code/opencode: ``variant`` plus provider-specific model options for
+        every cataloged provider with documented reasoning or thinking controls.
       * claude-code: ``effort`` only when the native resolved provider is Anthropic.
     Codex and Amazon Kiro never emit per-agent reasoning here.
 
@@ -595,15 +672,15 @@ def agent_reasoning_suffix(
     if not model:
         return ""
     if cli_id in ("kilo-code", "opencode"):
-        # Only the direct OpenAI Responses path is verified for these pass-through keys.
-        if not model.startswith("openai/"):
+        provider_id = native_reasoning_provider(model_tiers_registry, model_id)
+        if not provider_id or not reasoning_effort:
             return ""
-        provider_id, _ = find_model_entry(model_tiers_registry, model_id or "")
-        if provider_id != "openai" or not reasoning_effort:
-            return ""
-        return f'\nreasoningEffort: "{reasoning_effort}"'
+        provider_options = provider_reasoning_yaml(provider_id, reasoning_effort)
+        if cli_id in ("kilo-code", "opencode"):
+            return f'\nvariant: "{reasoning_effort}"{provider_options}'
+        return provider_options
     if cli_id == "claude-code":
-        provider_id, _ = find_model_entry(model_tiers_registry, model_id or "")
+        provider_id = native_reasoning_provider(model_tiers_registry, model_id)
         if provider_id != "anthropic":
             return ""
         if not reasoning_effort:
@@ -1429,10 +1506,7 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help=(
             "Outer provider prefix for generated model ids. Defaults to kilo for kilo-code, "
-            "opencode-go for opencode, and no prefix for other CLIs. Use an empty value to disable. "
-            "Kilo Code and OpenCode emit direct OpenAI reasoningEffort only when the rendered "
-            "model id starts with openai/, which requires --model-prefix \"\" and a configured "
-            "direct OpenAI provider."
+            "opencode-go for opencode, and no prefix for other CLIs. Use an empty value to disable."
         ),
     )
     return parser.parse_args()

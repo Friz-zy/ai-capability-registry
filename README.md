@@ -105,17 +105,16 @@ Amazon Kiro generation also writes `steering/orchestrator.md` with `inclusion: a
 
 For `kilo-code` and `opencode`, generated agent models use a three-part catalog id: `<outer-provider>/<model-provider>/<model-name>`. Defaults are `kilo` for `kilo-code` and `opencode-go` for `opencode`, so preset model `gpt-5.5` becomes `kilo/openai/gpt-5.5` or `opencode-go/openai/gpt-5.5`. Override the outer provider with `--model-prefix openrouter`, or disable only the outer provider with `--model-prefix ""`.
 
-The `openai` preset targets base GPT-5.6 model ids (`gpt-5.6-luna`/`gpt-5.6-terra`/`gpt-5.6-sol`). The `openai-pro-medium` and `openai-pro-high` presets select their corresponding `-pro` variants; the junior tier falls back to `gpt-5.4-nano` because no pro variant is cataloged. Their inline `recommended_defaults` entries declare the model and reasoning level: `openai` and `openai-pro-medium` use `medium`; `openai-pro-high` uses `high`. For direct OpenAI models, generated Kilo/OpenCode agents emit `reasoningEffort`, and Codex emits `model_reasoning_effort` in the primary config.
+The `openai` preset targets base GPT-5.6 model ids (`gpt-5.6-luna`/`gpt-5.6-terra`/`gpt-5.6-sol`). The `openai-pro-medium` and `openai-pro-high` presets select their corresponding `-pro` variants; the junior tier falls back to `gpt-5.4-nano` because no pro variant is cataloged. Every inline `recommended_defaults` entry declares a model and reasoning level. Kilo Code and OpenCode translate that level into documented provider-specific agent options for every supported preset; Claude Code emits Anthropic `effort`, and Codex emits OpenAI `model_reasoning_effort` in the primary config.
 
 ```bash
-# Direct OpenAI GPT-5.6 for Kilo Code with the inline openai preset level (medium).
-# Requires a configured direct openai provider and --model-prefix "" to emit reasoningEffort.
+# GPT-5.6 for Kilo Code with the inline openai preset level (medium).
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
-  --preset openai --model-prefix "" --templates-path "$PWD"
+  --preset openai --templates-path "$PWD"
 
-# Same direct path with the higher inline reasoning level.
+# Same provider path with the higher inline reasoning level and -pro model variant.
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
-  --preset openai-pro-high --model-prefix "" --templates-path "$PWD"
+  --preset openai-pro-high --templates-path "$PWD"
 ```
 
 The default presets are `openai` for Codex, `anthropic` for Claude Code, `opencode` for Kilo Code, `opencode` for OpenCode, and `none` for Amazon Kiro.

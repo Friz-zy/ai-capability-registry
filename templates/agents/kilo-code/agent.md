@@ -27,12 +27,12 @@ mode: subagent
 model: anthropic/claude-sonnet-4-20250514
 
 # --- Reasoning ---
-# reasoningEffort is an OpenAI pass-through key (reasoning.effort): none|minimal|low|
-# medium|high|xhigh. It is emitted for direct OpenAI models only (model id starts with
-# "openai/"). When an outer model prefix routes through a gateway (the kilo default
-# prefix, OpenRouter, etc.), reasoning support is provider/model-specific and the
-# generator omits this direct OpenAI pass-through field.
-# reasoningEffort: "medium"
+# Additional frontmatter fields are passed through to the selected model provider. Use the
+# provider's documented parameter shape. For Z-AI and DeepSeek thinking models:
+variant: "max"
+thinking:
+  type: "enabled"
+reasoning_effort: "max"
 
 # --- Sampling ---
 temperature: 0.1                          # 0.0–1.0, lower = more deterministic

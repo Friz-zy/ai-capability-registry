@@ -162,14 +162,14 @@ Shared generated role prompt templates: [role-prompt-template.md](templates/agen
 
 How each CLI exposes reasoning effort / extended thinking in agent configs, and the provider API parameters behind them. Per-role reasoning control is supported by Claude Code, Kilo Code, and OpenCode; Codex and Amazon Kiro expose it globally/session-wide only.
 
-**Direct OpenAI vs. gateway — important caveat.** Kilo Code and OpenCode emit `reasoningEffort` only for the verified direct OpenAI path (model ids such as `openai/gpt-5.6-terra`). The CLIs' default outer prefixes (`kilo`, `opencode-go`) and OpenRouter route through gateways with their own per-model reasoning support. Use `--model-prefix ""` plus a configured direct openai provider when generated frontmatter must carry the direct OpenAI setting.
+**Provider options — important caveat.** Kilo Code and OpenCode forward additional agent fields to the selected provider. The generator translates each preset level into the provider's documented option shape (for example OpenAI `reasoningEffort`, Z-AI/DeepSeek `thinking` plus `reasoning_effort`, Google `thinkingConfig`, and OpenRouter `reasoning`). Gateway routes must still support forwarding those provider options for the setting to take effect.
 
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|
 | **Per-role in config** | ❌ global/profile only | ✅ `effort:` frontmatter | ✅ `reasoningEffort` + `variant` | ✅ `reasoningEffort` + `thinking` + `variant` | ❌ session/global only |
-| **Field(s)** | `model_reasoning_effort`, `plan_mode_reasoning_effort`, `model_reasoning_summary`, `model_verbosity` (config.toml) | `effort` frontmatter; `effortLevel` settings; `--effort`; `/effort`; `CLAUDE_CODE_EFFORT_LEVEL` | `reasoningEffort` (pass-through); `variant`; `/variant` | `reasoningEffort`; `thinking` (Anthropic budget); `variant` | `/effort`; `--effort`; `chat.defaultEffort`; `chat.enableThinking` |
+| **Field(s)** | `model_reasoning_effort`, `plan_mode_reasoning_effort`, `model_reasoning_summary`, `model_verbosity` (config.toml) | `effort` frontmatter; `effortLevel` settings; `--effort`; `/effort`; `CLAUDE_CODE_EFFORT_LEVEL` | `variant` (model variant) plus provider-specific reasoning options; `/variant` | `variant` (model variant) plus provider-specific reasoning options | `/effort`; `--effort`; `chat.defaultEffort`; `chat.enableThinking` |
 | **Accepted levels** | minimal\|low\|medium\|high\|xhigh\|max (GPT-5.6; max = heaviest pro execution) | low\|medium\|high\|xhigh\|max (model-dependent) | none\|minimal\|low\|medium\|high\|xhigh (+max for Anthropic) | none\|minimal\|low\|medium\|high\|xhigh | low\|medium\|high\|xhigh\|max |
-| **Scope limits** | Global/profile only; not in role `.toml` files | frontmatter ignored for Agent-spawned subagents (#64706) and skills (#69267) | `reasoningEffort` only for the verified direct OpenAI path; gateway support is per-model | agent-level parsed but not always applied (#25026/#21632) | per-agent `effort` field = open FR #8754 (2.6.0) |
+| **Scope limits** | Global/profile only; not in role `.toml` files | Extended thinking also inherits from the parent session; effort levels are model-dependent | Provider-specific options are forwarded; gateway support remains provider/model-dependent | Provider-specific options are forwarded; gateway support remains provider/model-dependent | per-agent `effort` field = open FR #8754 (2.6.0) |
 
 ### Provider reasoning/thinking API parameters
 

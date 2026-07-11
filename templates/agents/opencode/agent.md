@@ -24,12 +24,10 @@ mode: subagent
 model: anthropic/claude-sonnet-4-20250514
 
 # --- Reasoning ---
-# reasoningEffort is an OpenAI pass-through key (reasoning.effort): none|minimal|low|
-# medium|high|xhigh. It is emitted for direct OpenAI models only (model id starts with
-# "openai/"). OpenCode's default outer prefix (opencode-go) and OpenRouter route through a
-# gateway with provider/model-specific reasoning support, so the generator omits this
-# direct OpenAI pass-through field there. Agent-level reasoning is parsed but not always
-# applied (see OpenCode issues); prefer the direct path when deterministic configuration matters.
+# variant selects a built-in or configured model variant for this agent. OpenAI variants
+# typically use none|minimal|low|medium|high|xhigh; Anthropic uses high|max; Google uses
+# low|high. The generator also emits provider-specific reasoning options.
+variant: "max"
 # reasoningEffort: "medium"
 
 # --- Prompt ---
