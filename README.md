@@ -105,6 +105,19 @@ Amazon Kiro generation also writes `steering/orchestrator.md` with `inclusion: a
 
 For `kilo-code` and `opencode`, generated agent models use a three-part catalog id: `<outer-provider>/<model-provider>/<model-name>`. Defaults are `kilo` for `kilo-code` and `opencode-go` for `opencode`, so preset model `gpt-5.5` becomes `kilo/openai/gpt-5.5` or `opencode-go/openai/gpt-5.5`. Override the outer provider with `--model-prefix openrouter`, or disable only the outer provider with `--model-prefix ""`.
 
+The `openai` preset targets base GPT-5.6 model ids (`gpt-5.6-luna`/`gpt-5.6-terra`/`gpt-5.6-sol`). The `openai-pro-medium` and `openai-pro-high` presets select their corresponding `-pro` variants; the junior tier falls back to `gpt-5.4-nano` because no pro variant is cataloged. Their inline `recommended_defaults` entries declare the model and reasoning level: `openai` and `openai-pro-medium` use `medium`; `openai-pro-high` uses `high`. For direct OpenAI models, generated Kilo/OpenCode agents emit `reasoningEffort`, and Codex emits `model_reasoning_effort` in the primary config.
+
+```bash
+# Direct OpenAI GPT-5.6 for Kilo Code with the inline openai preset level (medium).
+# Requires a configured direct openai provider and --model-prefix "" to emit reasoningEffort.
+python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
+  --preset openai --model-prefix "" --templates-path "$PWD"
+
+# Same direct path with the higher inline reasoning level.
+python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
+  --preset openai-pro-high --model-prefix "" --templates-path "$PWD"
+```
+
 The default presets are `openai` for Codex, `anthropic` for Claude Code, `opencode` for Kilo Code, `opencode` for OpenCode, and `none` for Amazon Kiro.
 
 Use `--preset none` or `--preset ""` when you want the generator to omit every `model` field from the rendered templates.
@@ -119,8 +132,8 @@ Use `--role-preset ROLES=PRESET` (repeatable) to override the model preset for s
 # role keeps the global z-ai-coding preset.
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
   --preset z-ai-coding \
-  --role-preset "*-architect,founder-ceo,product-strategist,tech-lead,orchestrator=openai" \
-  --role-preset "security-engineer,data-protection-officer,compliance-officer,finance-manager,release-manager,incident-manager,blockchain-engineer=openai" \
+  --role-preset "orchestrator=openai-pro-medium" \
+  --role-preset "*-architect,founder-ceo,product-strategist,tech-lead,security-engineer,data-protection-officer,compliance-officer,finance-manager,release-manager,incident-manager,blockchain-engineer=openai-pro-high" \
   --templates-path "$PWD"
 ```
 

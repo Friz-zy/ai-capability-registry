@@ -23,6 +23,15 @@ mode: subagent
 # Override the model in provider/model-id format.
 model: anthropic/claude-sonnet-4-20250514
 
+# --- Reasoning ---
+# reasoningEffort is an OpenAI pass-through key (reasoning.effort): none|minimal|low|
+# medium|high|xhigh. It is emitted for direct OpenAI models only (model id starts with
+# "openai/"). OpenCode's default outer prefix (opencode-go) and OpenRouter route through a
+# gateway with provider/model-specific reasoning support, so the generator omits this
+# direct OpenAI pass-through field there. Agent-level reasoning is parsed but not always
+# applied (see OpenCode issues); prefer the direct path when deterministic configuration matters.
+# reasoningEffort: "medium"
+
 # --- Prompt ---
 # In markdown files, the body IS the system prompt.
 # In JSON config, use prompt: "..." or prompt: "{file:./prompts/prompt.txt}"

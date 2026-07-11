@@ -22,6 +22,13 @@ model_provider = "openai"                       # Key into [model_providers]
 model_context_window = 200_000                  # Context window in tokens
 model_auto_compact_token_limit = 150_000       # Auto-compact threshold
 # model_auto_compact_token_limit_scope = "full" # "full" | "after_prefix"
+# Reasoning effort is a GLOBAL/PROFILE setting only. Accepted values for GPT-5.x on
+# the OpenAI provider: minimal|low|medium|high|xhigh|max. It is NOT supported inside
+# per-role [agents.<name>] TOML files; set it here in config.toml or in a
+# ~/.codex/<profile>.config.toml profile selected with --profile. Generated role .toml
+# files therefore never carry reasoning effort; the generator writes it only into the
+# primary config when the primary model is a direct OpenAI model.
+# model_reasoning_effort = "medium"
 
 # ---------------------------------------------------------------------------
 # Default permissions

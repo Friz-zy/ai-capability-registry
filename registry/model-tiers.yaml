@@ -10,7 +10,12 @@
 # null = model is not yet evaluated on the index.
 # Pricing is OpenRouter list pricing (USD per 1M tokens); intelligence scores as of 2026-07.
 
-schema_version: "1.3"
+# Per-model `level` is the model's own default reasoning effort. It is an explicit
+# per-model override and is NOT required to match `reasoning_tier_map` (the seniority
+# default); the two are independently configurable so a strong model can sit at a lower
+# effort, or a tier can keep a different default for unlisted models.
+
+schema_version: "1.4"
 
 tier_definitions:
   junior:
@@ -41,6 +46,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 1.00, output: 5.00 }
             coding_index: 30
+            level: low
       middle:
         models:
           - model_id: claude-sonnet-4-6
@@ -49,6 +55,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 3.00, output: 15.00 }
             coding_index: null
+            level: medium
       senior:
         models:
           - model_id: claude-opus-4-8
@@ -57,6 +64,7 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 5.00, output: 25.00 }
             coding_index: 56
+            level: high
       lead:
         models:
           - model_id: claude-fable-5
@@ -65,6 +73,7 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 10.00, output: 50.00 }
             coding_index: 60
+            level: max
 
   - id: openai
     tiers:
@@ -76,6 +85,7 @@ providers:
             max_output: 32000
             pricing_per_million_tokens: { input: 0.20, output: 1.25 }
             coding_index: 38
+            level: low
       middle:
         models:
           - model_id: gpt-5.6-luna-pro
@@ -84,18 +94,28 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 1.00, output: 6.00 }
             coding_index: 51
+            level: medium
+          - model_id: gpt-5.6-luna
+            openrouter_id: openai/gpt-5.6-luna
+            context: 1048576
+            max_output: 128000
+            pricing_per_million_tokens: { input: 1.00, output: 6.00 }
+            coding_index: 51
+            level: medium
           - model_id: gpt-5.5
             openrouter_id: openai/gpt-5.5
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.00, output: 30.00 }
             coding_index: 55
+            level: medium
           - model_id: gpt-5.4-mini
             openrouter_id: openai/gpt-5.4-mini
             context: 400000
             max_output: 64000
             pricing_per_million_tokens: { input: 0.75, output: 4.50 }
             coding_index: 40
+            level: medium
       senior:
         models:
           - model_id: gpt-5.6-terra-pro
@@ -104,24 +124,28 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 2.50, output: 15.00 }
             coding_index: 55
+            level: medium
           - model_id: gpt-5.6-terra
             openrouter_id: openai/gpt-5.6-terra
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 2.50, output: 15.00 }
             coding_index: 55
+            level: medium
           - model_id: gpt-5.5
             openrouter_id: openai/gpt-5.5
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.00, output: 30.00 }
             coding_index: 55
+            level: high
           - model_id: gpt-5.3-codex
             openrouter_id: openai/gpt-5.3-codex
             context: 400000
             max_output: 64000
             pricing_per_million_tokens: { input: 1.75, output: 14.00 }
             coding_index: 44
+            level: high
       lead:
         models:
           - model_id: gpt-5.6-sol-pro
@@ -130,30 +154,35 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 5.00, output: 30.00 }
             coding_index: 59
+            level: medium
           - model_id: gpt-5.6-sol
             openrouter_id: openai/gpt-5.6-sol
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.00, output: 30.00 }
             coding_index: 59
+            level: medium
           - model_id: gpt-5.5
             openrouter_id: openai/gpt-5.5
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.00, output: 30.00 }
             coding_index: 55
+            level: max
           - model_id: gpt-5.5-pro
             openrouter_id: openai/gpt-5.5-pro
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 30.00, output: 180.00 }
             coding_index: null
+            level: max
           - model_id: o3-pro
             openrouter_id: openai/o3-pro
             context: 200000
             max_output: 100000
             pricing_per_million_tokens: { input: 20.00, output: 80.00 }
             coding_index: null
+            level: max
 
   - id: google
     tiers:
@@ -165,6 +194,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 0.25, output: 1.50 }
             coding_index: null
+            level: low
       middle:
         models:
           - model_id: gemini-3-flash-preview
@@ -173,6 +203,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 0.50, output: 3.00 }
             coding_index: null
+            level: medium
       senior:
         models:
           - model_id: gemini-3.1-pro-preview
@@ -181,12 +212,14 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 2.00, output: 12.00 }
             coding_index: 46
+            level: high
           - model_id: gemini-3.5-flash
             openrouter_id: google/gemini-3.5-flash
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 1.50, output: 9.00 }
             coding_index: 50
+            level: high
       lead:
         models:
           - model_id: gemini-3.1-pro-preview
@@ -195,6 +228,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 2.00, output: 12.00 }
             coding_index: 46
+            level: max
 
   - id: xai
     tiers:
@@ -206,6 +240,7 @@ providers:
             max_output: 32000
             pricing_per_million_tokens: { input: 1.00, output: 2.00 }
             coding_index: 40
+            level: low
       middle:
         models:
           - model_id: grok-4.3
@@ -214,12 +249,14 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 1.25, output: 2.50 }
             coding_index: 38
+            level: medium
           - model_id: grok-build-0.1
             openrouter_id: x-ai/grok-build-0.1
             context: 256000
             max_output: 32000
             pricing_per_million_tokens: { input: 1.00, output: 2.00 }
             coding_index: 40
+            level: medium
       senior:
         models:
           - model_id: grok-4.3
@@ -228,6 +265,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 1.25, output: 2.50 }
             coding_index: 38
+            level: high
       lead:
         models:
           - model_id: grok-4.20
@@ -236,6 +274,7 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 2.00, output: 6.00 }
             coding_index: null
+            level: max
 
   - id: deepseek
     tiers:
@@ -247,6 +286,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 0.09, output: 0.18 }
             coding_index: 40
+            level: low
       middle:
         models:
           - model_id: deepseek-v4-flash
@@ -255,6 +295,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 0.09, output: 0.18 }
             coding_index: 40
+            level: medium
       senior:
         models:
           - model_id: deepseek-v4-pro
@@ -263,6 +304,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 0.43, output: 0.87 }
             coding_index: 44
+            level: high
       lead:
         models:
           - model_id: deepseek-v4-pro
@@ -271,6 +313,7 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 0.43, output: 0.87 }
             coding_index: 44
+            level: max
 
   - id: z-ai
     tiers:
@@ -282,6 +325,7 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.06, output: 0.40 }
             coding_index: null
+            level: low
       middle:
         models:
           - model_id: glm-4.7
@@ -290,12 +334,14 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.40, output: 1.75 }
             coding_index: null
+            level: medium
           - model_id: glm-5-turbo
             openrouter_id: z-ai/glm-5-turbo
             context: 262144
             max_output: 131072
             pricing_per_million_tokens: { input: 1.20, output: 4.00 }
             coding_index: 38
+            level: medium
       senior:
         models:
           - model_id: glm-5
@@ -304,12 +350,14 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 1.00, output: 3.20 }
             coding_index: null
+            level: high
           - model_id: glm-4.7
             openrouter_id: z-ai/glm-4.7
             context: 200000
             max_output: 131072
             pricing_per_million_tokens: { input: 0.40, output: 1.75 }
             coding_index: null
+            level: high
       lead:
         models:
           - model_id: glm-5.2
@@ -318,12 +366,14 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 1.40, output: 4.40 }
             coding_index: 51
+            level: max
           - model_id: glm-5.1
             openrouter_id: z-ai/glm-5.1
             context: 200000
             max_output: 131072
             pricing_per_million_tokens: { input: 0.98, output: 3.08 }
             coding_index: 40
+            level: max
 
   - id: kimi
     tiers:
@@ -335,6 +385,7 @@ providers:
             max_output: 32768
             pricing_per_million_tokens: { input: 0.57, output: 2.30 }
             coding_index: null
+            level: low
       middle:
         models:
           - model_id: kimi-k2.5
@@ -343,12 +394,14 @@ providers:
             max_output: 262144
             pricing_per_million_tokens: { input: 0.375, output: 2.025 }
             coding_index: null
+            level: medium
           - model_id: kimi-k2-thinking
             openrouter_id: moonshotai/kimi-k2-thinking
             context: 262144
             max_output: 262144
             pricing_per_million_tokens: { input: 0.60, output: 2.50 }
             coding_index: null
+            level: medium
       senior:
         models:
           - model_id: kimi-k2.6
@@ -357,12 +410,14 @@ providers:
             max_output: 262142
             pricing_per_million_tokens: { input: 0.68, output: 3.41 }
             coding_index: 44
+            level: high
           - model_id: kimi-k2.7-code
             openrouter_id: moonshotai/kimi-k2.7-code
             context: 262144
             max_output: 16384
             pricing_per_million_tokens: { input: 0.74, output: 3.50 }
             coding_index: 42
+            level: high
       lead:
         models:
           - model_id: kimi-k2.6
@@ -371,6 +426,7 @@ providers:
             max_output: 262142
             pricing_per_million_tokens: { input: 0.68, output: 3.41 }
             coding_index: 44
+            level: max
 
   - id: minimax
     tiers:
@@ -382,6 +438,7 @@ providers:
             max_output: 196608
             pricing_per_million_tokens: { input: 0.15, output: 0.90 }
             coding_index: null
+            level: low
       middle:
         models:
           - model_id: minimax-m2.7
@@ -390,6 +447,7 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.25, output: 1.00 }
             coding_index: 38
+            level: medium
       senior:
         models:
           - model_id: minimax-m3
@@ -398,6 +456,7 @@ providers:
             max_output: 512000
             pricing_per_million_tokens: { input: 0.30, output: 1.20 }
             coding_index: 44
+            level: high
       lead:
         models:
           - model_id: minimax-m3
@@ -406,6 +465,7 @@ providers:
             max_output: 512000
             pricing_per_million_tokens: { input: 0.30, output: 1.20 }
             coding_index: 44
+            level: max
 
   - id: mimo
     tiers:
@@ -417,6 +477,7 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.14, output: 0.28 }
             coding_index: null
+            level: low
       middle:
         models:
           - model_id: mimo-v2.5
@@ -425,6 +486,7 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.14, output: 0.28 }
             coding_index: 40
+            level: medium
       senior:
         models:
           - model_id: mimo-v2.5-pro
@@ -433,6 +495,7 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.435, output: 0.87 }
             coding_index: 42
+            level: high
       lead:
         models:
           - model_id: mimo-v2.5-pro
@@ -441,6 +504,7 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 0.435, output: 0.87 }
             coding_index: 42
+            level: max
 
   - id: qwen
     tiers:
@@ -452,12 +516,14 @@ providers:
             max_output: 65536
             pricing_per_million_tokens: { input: 0.065, output: 0.26 }
             coding_index: null
+            level: low
           - model_id: qwen3-coder-flash
             openrouter_id: qwen/qwen3-coder-flash
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 0.195, output: 0.975 }
             coding_index: null
+            level: low
       middle:
         models:
           - model_id: qwen3.7-plus
@@ -466,18 +532,21 @@ providers:
             max_output: 65536
             pricing_per_million_tokens: { input: 0.32, output: 1.28 }
             coding_index: 39
+            level: medium
           - model_id: qwen3.6-plus
             openrouter_id: qwen/qwen3.6-plus
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 0.325, output: 1.95 }
             coding_index: 40
+            level: medium
           - model_id: qwen3-coder
             openrouter_id: qwen/qwen3-coder
             context: 1048576
             max_output: 65536
             pricing_per_million_tokens: { input: 0.22, output: 1.80 }
             coding_index: null
+            level: medium
       senior:
         models:
           - model_id: qwen3.7-max
@@ -486,18 +555,21 @@ providers:
             max_output: 65536
             pricing_per_million_tokens: { input: 1.25, output: 3.75 }
             coding_index: 46
+            level: high
           - model_id: qwen3-coder-plus
             openrouter_id: qwen/qwen3-coder-plus
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 0.65, output: 3.25 }
             coding_index: null
+            level: high
           - model_id: qwen3.6-max-preview
             openrouter_id: qwen/qwen3.6-max-preview
             context: 262144
             max_output: 65536
             pricing_per_million_tokens: { input: 1.04, output: 6.24 }
             coding_index: null
+            level: high
       lead:
         models:
           - model_id: qwen3.7-max
@@ -506,12 +578,14 @@ providers:
             max_output: 65536
             pricing_per_million_tokens: { input: 1.25, output: 3.75 }
             coding_index: 46
+            level: max
           - model_id: qwen3-coder-plus
             openrouter_id: qwen/qwen3-coder-plus
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 0.65, output: 3.25 }
             coding_index: null
+            level: max
 
   - id: openrouter
     notes: OpenRouter is an aggregator, not a model provider. Model IDs use "provider/model" format. Platform fee 5.5% on paid model tokens.
@@ -524,48 +598,56 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 0.09, output: 0.18 }
             coding_index: 40
+            level: low
           - model_id: google/gemini-3.1-flash-lite
             openrouter_id: google/gemini-3.1-flash-lite
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 0.26, output: 1.58 }
             coding_index: null
+            level: low
           - model_id: openai/gpt-5.4-nano
             openrouter_id: openai/gpt-5.4-nano
             context: 400000
             max_output: 32000
             pricing_per_million_tokens: { input: 0.21, output: 1.32 }
             coding_index: 38
+            level: low
           - model_id: anthropic/claude-haiku-4.5
             openrouter_id: anthropic/claude-haiku-4.5
             context: 200000
             max_output: 64000
             pricing_per_million_tokens: { input: 1.05, output: 5.25 }
             coding_index: 30
+            level: low
           - model_id: z-ai/glm-4.7-flash
             openrouter_id: z-ai/glm-4.7-flash
             context: 200000
             max_output: 131072
             pricing_per_million_tokens: { input: 0.06, output: 0.42 }
             coding_index: null
+            level: low
           - model_id: minimax/minimax-m2.5
             openrouter_id: minimax/minimax-m2.5
             context: 204800
             max_output: 196608
             pricing_per_million_tokens: { input: 0.16, output: 0.95 }
             coding_index: null
+            level: low
           - model_id: qwen/qwen3.5-flash-02-23
             openrouter_id: qwen/qwen3.5-flash-02-23
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 0.07, output: 0.27 }
             coding_index: null
+            level: low
           - model_id: moonshotai/kimi-k2
             openrouter_id: moonshotai/kimi-k2
             context: 131072
             max_output: 32768
             pricing_per_million_tokens: { input: 0.60, output: 2.43 }
             coding_index: null
+            level: low
       middle:
         models:
           - model_id: anthropic/claude-sonnet-4.6
@@ -574,72 +656,91 @@ providers:
             max_output: 64000
             pricing_per_million_tokens: { input: 3.16, output: 15.80 }
             coding_index: null
+            level: medium
           - model_id: openai/gpt-5.6-luna-pro
             openrouter_id: openai/gpt-5.6-luna-pro
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 1.06, output: 6.33 }
             coding_index: 51
+            level: medium
+          - model_id: openai/gpt-5.6-luna
+            openrouter_id: openai/gpt-5.6-luna
+            context: 1048576
+            max_output: 128000
+            pricing_per_million_tokens: { input: 1.06, output: 6.33 }
+            coding_index: 51
+            level: medium
           - model_id: openai/gpt-5.4-mini
             openrouter_id: openai/gpt-5.4-mini
             context: 400000
             max_output: 64000
             pricing_per_million_tokens: { input: 0.79, output: 4.75 }
             coding_index: 40
+            level: medium
           - model_id: google/gemini-3-flash-preview
             openrouter_id: google/gemini-3-flash-preview
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 0.53, output: 3.17 }
             coding_index: null
+            level: medium
           - model_id: x-ai/grok-4.3
             openrouter_id: x-ai/grok-4.3
             context: 1000000
             max_output: 64000
             pricing_per_million_tokens: { input: 1.31, output: 2.64 }
             coding_index: 38
+            level: medium
           - model_id: deepseek/deepseek-v4-flash
             openrouter_id: deepseek/deepseek-v4-flash
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 0.09, output: 0.18 }
             coding_index: 40
+            level: medium
           - model_id: z-ai/glm-4.7
             openrouter_id: z-ai/glm-4.7
             context: 200000
             max_output: 131072
             pricing_per_million_tokens: { input: 0.42, output: 1.84 }
             coding_index: null
+            level: medium
           - model_id: z-ai/glm-5-turbo
             openrouter_id: z-ai/glm-5-turbo
             context: 262144
             max_output: 131072
             pricing_per_million_tokens: { input: 1.27, output: 4.22 }
             coding_index: 38
+            level: medium
           - model_id: minimax/minimax-m2.7
             openrouter_id: minimax/minimax-m2.7
             context: 204800
             max_output: 131072
             pricing_per_million_tokens: { input: 0.26, output: 1.06 }
             coding_index: 38
+            level: medium
           - model_id: qwen/qwen3.7-plus
             openrouter_id: qwen/qwen3.7-plus
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 0.34, output: 1.35 }
             coding_index: 39
+            level: medium
           - model_id: xiaomi/mimo-v2.5
             openrouter_id: xiaomi/mimo-v2.5
             context: 1048576
             max_output: 131072
             pricing_per_million_tokens: { input: 0.15, output: 0.30 }
             coding_index: 40
+            level: medium
           - model_id: moonshotai/kimi-k2.5
             openrouter_id: moonshotai/kimi-k2.5
             context: 262144
             max_output: 262144
             pricing_per_million_tokens: { input: 0.40, output: 2.14 }
             coding_index: null
+            level: medium
       senior:
         models:
           - model_id: anthropic/claude-opus-4.8
@@ -648,72 +749,84 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 5.27, output: 26.35 }
             coding_index: 56
+            level: high
           - model_id: openai/gpt-5.6-terra-pro
             openrouter_id: openai/gpt-5.6-terra-pro
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 2.64, output: 15.83 }
             coding_index: 55
+            level: medium
           - model_id: openai/gpt-5.6-terra
             openrouter_id: openai/gpt-5.6-terra
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 2.64, output: 15.83 }
             coding_index: 55
+            level: medium
           - model_id: openai/gpt-5.5
             openrouter_id: openai/gpt-5.5
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.27, output: 31.65 }
             coding_index: 55
+            level: high
           - model_id: google/gemini-3.1-pro-preview
             openrouter_id: google/gemini-3.1-pro-preview
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 2.11, output: 12.66 }
             coding_index: 46
+            level: high
           - model_id: deepseek/deepseek-v4-pro
             openrouter_id: deepseek/deepseek-v4-pro
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 0.45, output: 0.92 }
             coding_index: 44
+            level: high
           - model_id: z-ai/glm-5
             openrouter_id: z-ai/glm-5
             context: 200000
             max_output: 131072
             pricing_per_million_tokens: { input: 0.63, output: 2.02 }
             coding_index: null
+            level: high
           - model_id: x-ai/grok-4.3
             openrouter_id: x-ai/grok-4.3
             context: 1000000
             max_output: 64000
             pricing_per_million_tokens: { input: 1.31, output: 2.64 }
             coding_index: 38
+            level: high
           - model_id: minimax/minimax-m3
             openrouter_id: minimax/minimax-m3
             context: 1048576
             max_output: 512000
             pricing_per_million_tokens: { input: 0.32, output: 1.27 }
             coding_index: 44
+            level: high
           - model_id: qwen/qwen3.7-max
             openrouter_id: qwen/qwen3.7-max
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 1.32, output: 3.96 }
             coding_index: 46
+            level: high
           - model_id: xiaomi/mimo-v2.5-pro
             openrouter_id: xiaomi/mimo-v2.5-pro
             context: 1048576
             max_output: 131072
             pricing_per_million_tokens: { input: 0.46, output: 0.92 }
             coding_index: 42
+            level: high
           - model_id: moonshotai/kimi-k2.6
             openrouter_id: moonshotai/kimi-k2.6
             context: 262144
             max_output: 262142
             pricing_per_million_tokens: { input: 0.72, output: 3.60 }
             coding_index: 44
+            level: high
       lead:
         models:
           - model_id: anthropic/claude-opus-4.8
@@ -722,127 +835,392 @@ providers:
             max_output: 128000
             pricing_per_million_tokens: { input: 5.27, output: 26.35 }
             coding_index: 56
+            level: max
           - model_id: openai/gpt-5.6-sol-pro
             openrouter_id: openai/gpt-5.6-sol-pro
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.27, output: 31.65 }
             coding_index: 59
+            level: medium
           - model_id: openai/gpt-5.6-sol
             openrouter_id: openai/gpt-5.6-sol
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.27, output: 31.65 }
             coding_index: 59
+            level: medium
           - model_id: openai/gpt-5.5
             openrouter_id: openai/gpt-5.5
             context: 1048576
             max_output: 128000
             pricing_per_million_tokens: { input: 5.27, output: 31.65 }
             coding_index: 55
+            level: max
           - model_id: google/gemini-3.1-pro-preview
             openrouter_id: google/gemini-3.1-pro-preview
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 2.11, output: 12.66 }
             coding_index: 46
+            level: max
           - model_id: deepseek/deepseek-v4-pro
             openrouter_id: deepseek/deepseek-v4-pro
             context: 1048576
             max_output: 64000
             pricing_per_million_tokens: { input: 0.45, output: 0.92 }
             coding_index: 44
+            level: max
           - model_id: z-ai/glm-5.2
             openrouter_id: z-ai/glm-5.2
             context: 1048576
             max_output: 131072
             pricing_per_million_tokens: { input: 1.47, output: 4.64 }
             coding_index: 51
+            level: max
           - model_id: z-ai/glm-5.1
             openrouter_id: z-ai/glm-5.1
             context: 200000
             max_output: 131072
             pricing_per_million_tokens: { input: 1.03, output: 3.25 }
             coding_index: 40
+            level: max
           - model_id: x-ai/grok-4.20
             openrouter_id: x-ai/grok-4.20
             context: 2000000
             max_output: 128000
             pricing_per_million_tokens: { input: 1.31, output: 2.64 }
             coding_index: null
+            level: max
           - model_id: minimax/minimax-m3
             openrouter_id: minimax/minimax-m3
             context: 1048576
             max_output: 512000
             pricing_per_million_tokens: { input: 0.32, output: 1.27 }
             coding_index: 44
+            level: max
           - model_id: qwen/qwen3.7-max
             openrouter_id: qwen/qwen3.7-max
             context: 1000000
             max_output: 65536
             pricing_per_million_tokens: { input: 1.32, output: 3.96 }
             coding_index: 46
+            level: max
           - model_id: moonshotai/kimi-k2.6
             openrouter_id: moonshotai/kimi-k2.6
             context: 262144
             max_output: 262142
             pricing_per_million_tokens: { input: 0.72, output: 3.60 }
             coding_index: 44
+            level: max
 
 recommended_defaults:
   junior:
-    anthropic: claude-haiku-4-5
-    openai: gpt-5.4-nano
-    google: gemini-3.1-flash-lite
-    xai: grok-build-0.1
-    deepseek: deepseek-v4-flash
-    z-ai: glm-4.7-flash
-    kimi: kimi-k2
-    minimax: minimax-m2.5
-    mimo: mimo-v2.5
-    qwen: qwen3.5-flash-02-23
-    opencode: deepseek-v4-flash
-    openrouter: deepseek/deepseek-v4-flash
-    z-ai-coding: zai-coding/glm-4.5-air
+    # GPT-5.6 junior base is gpt-5.4-nano, which has no cataloged -pro model variant.
+    # The openai-pro-* presets therefore fall back to this base model in the junior tier.
+    anthropic:
+      model: claude-haiku-4-5
+      level: low
+    openai:
+      model: gpt-5.4-nano
+      level: medium
+    openai-pro-medium:
+      model: gpt-5.4-nano
+      level: medium
+    openai-pro-high:
+      model: gpt-5.4-nano
+      level: high
+    google:
+      model: gemini-3.1-flash-lite
+      level: low
+    xai:
+      model: grok-build-0.1
+      level: low
+    deepseek:
+      model: deepseek-v4-flash
+      level: low
+    z-ai:
+      model: glm-4.7-flash
+      level: low
+    kimi:
+      model: kimi-k2
+      level: low
+    minimax:
+      model: minimax-m2.5
+      level: low
+    mimo:
+      model: mimo-v2.5
+      level: low
+    qwen:
+      model: qwen3.5-flash-02-23
+      level: low
+    opencode:
+      model: deepseek-v4-flash
+      level: low
+    openrouter:
+      model: deepseek/deepseek-v4-flash
+      level: low
+    z-ai-coding:
+      model: zai-coding/glm-4.5-air
+      level: low
   middle:
-    anthropic: claude-sonnet-4-6
-    openai: gpt-5.6-luna-pro
-    google: gemini-3-flash-preview
-    xai: grok-4.3
-    deepseek: deepseek-v4-flash
-    z-ai: glm-4.7
-    kimi: kimi-k2.5
-    minimax: minimax-m2.7
-    mimo: mimo-v2.5
-    qwen: qwen3.7-plus
-    opencode: deepseek-v4-pro
-    openrouter: openai/gpt-5.6-luna-pro
-    z-ai-coding: zai-coding/glm-4.7
+    anthropic:
+      model: claude-sonnet-4-6
+      level: medium
+    openai:
+      model: gpt-5.6-luna
+      level: medium
+    openai-pro-medium:
+      model: gpt-5.6-luna-pro
+      level: medium
+    openai-pro-high:
+      model: gpt-5.6-luna-pro
+      level: high
+    google:
+      model: gemini-3-flash-preview
+      level: medium
+    xai:
+      model: grok-4.3
+      level: medium
+    deepseek:
+      model: deepseek-v4-flash
+      level: medium
+    z-ai:
+      model: glm-4.7
+      level: medium
+    kimi:
+      model: kimi-k2.5
+      level: medium
+    minimax:
+      model: minimax-m2.7
+      level: medium
+    mimo:
+      model: mimo-v2.5
+      level: medium
+    qwen:
+      model: qwen3.7-plus
+      level: medium
+    opencode:
+      model: deepseek-v4-pro
+      level: medium
+    openrouter:
+      model: openai/gpt-5.6-luna-pro
+      level: medium
+    z-ai-coding:
+      model: zai-coding/glm-4.7
+      level: medium
   senior:
-    anthropic: claude-opus-4-8
-    openai: gpt-5.6-terra-pro
-    google: gemini-3.1-pro-preview
-    xai: grok-4.3
-    deepseek: deepseek-v4-pro
-    z-ai: glm-5
-    kimi: kimi-k2.6
-    minimax: minimax-m3
-    mimo: mimo-v2.5-pro
-    qwen: qwen3.7-max
-    opencode: deepseek-v4-pro
-    openrouter: openai/gpt-5.6-terra-pro
-    z-ai-coding: zai-coding/glm-5.2
+    anthropic:
+      model: claude-opus-4-8
+      level: high
+    openai:
+      model: gpt-5.6-terra
+      level: medium
+    openai-pro-medium:
+      model: gpt-5.6-terra-pro
+      level: medium
+    openai-pro-high:
+      model: gpt-5.6-terra-pro
+      level: high
+    google:
+      model: gemini-3.1-pro-preview
+      level: high
+    xai:
+      model: grok-4.3
+      level: high
+    deepseek:
+      model: deepseek-v4-pro
+      level: high
+    z-ai:
+      model: glm-5
+      level: high
+    kimi:
+      model: kimi-k2.6
+      level: high
+    minimax:
+      model: minimax-m3
+      level: high
+    mimo:
+      model: mimo-v2.5-pro
+      level: high
+    qwen:
+      model: qwen3.7-max
+      level: high
+    opencode:
+      model: deepseek-v4-pro
+      level: high
+    openrouter:
+      model: openai/gpt-5.6-terra-pro
+      level: high
+    z-ai-coding:
+      model: zai-coding/glm-5.2
+      level: high
   lead:
-    anthropic: claude-opus-4-8
-    openai: gpt-5.6-sol-pro
-    google: gemini-3.1-pro-preview
-    xai: grok-4.20
-    deepseek: deepseek-v4-pro
-    z-ai: glm-5.2
-    kimi: kimi-k2.6
-    minimax: minimax-m3
-    mimo: mimo-v2.5-pro
-    qwen: qwen3.7-max
-    opencode: glm-5.2
-    openrouter: openai/gpt-5.6-sol-pro
-    z-ai-coding: zai-coding/glm-5.2
+    anthropic:
+      model: claude-opus-4-8
+      level: max
+    openai:
+      model: gpt-5.6-sol
+      level: medium
+    openai-pro-medium:
+      model: gpt-5.6-sol-pro
+      level: medium
+    openai-pro-high:
+      model: gpt-5.6-sol-pro
+      level: high
+    google:
+      model: gemini-3.1-pro-preview
+      level: max
+    xai:
+      model: grok-4.20
+      level: max
+    deepseek:
+      model: deepseek-v4-pro
+      level: max
+    z-ai:
+      model: glm-5.2
+      level: max
+    kimi:
+      model: kimi-k2.6
+      level: max
+    minimax:
+      model: minimax-m3
+      level: max
+    mimo:
+      model: mimo-v2.5-pro
+      level: max
+    qwen:
+      model: qwen3.7-max
+      level: max
+    opencode:
+      model: glm-5.2
+      level: max
+    openrouter:
+      model: openai/gpt-5.6-sol-pro
+      level: max
+    z-ai-coding:
+      model: zai-coding/glm-5.2
+      level: max
+
+
+# Reasoning/thinking API parameters per provider, verified from official docs (Jul 2026).
+# Used to translate the normalized registry reasoning level (see reasoning_tier_map and the
+# per-model `level` field) into provider-specific request parameters at generation/runtime.
+reasoning:
+  openai:
+    param_name: "reasoning.effort"
+    accepted_values: [none, minimal, low, medium, high, xhigh]
+    scope: "per-request"
+    supporting_models: "GPT-5.x family and o-series; gpt-4o does NOT support it"
+    default: "medium"
+    max_variant_concept: "xhigh is the highest level; reasoning.mode=pro selects heavier execution on GPT-5.6; gpt-5-pro is fixed high-only"
+    source_url: "https://developers.openai.com/api/docs/guides/reasoning"
+    notes: "Per-model subsets apply. Reasoning tokens billed as output. Only carried across turns in the stateful Responses API."
+  anthropic:
+    param_name: "effort (output_config.effort); legacy thinking.budget_tokens"
+    accepted_values: [low, medium, high, xhigh, max]
+    scope: "per-request (Messages API)"
+    supporting_models: "Fable 5, Mythos 5, Opus 4.8/4.7/4.6/4.5, Sonnet 5/4.6. xhigh subset: Fable 5, Mythos 5, Opus 4.8/4.7, Sonnet 5. max subset adds Opus 4.6, Sonnet 4.6."
+    default: "high"
+    max_variant_concept: "max = absolute highest thinking depth (newest models); xhigh = extended long-horizon agentic"
+    source_url: "https://platform.claude.com/docs/en/build-with-claude/effort"
+    notes: "Opus 4.8/4.7 and Sonnet 5 reject manual thinking.type=enabled; use effort. budget_tokens deprecated but functional on 4.6."
+  google:
+    param_name: "thinkingConfig.thinking_level; legacy thinkingConfig.thinking_budget"
+    accepted_values: [minimal, low, medium, high]
+    scope: "per-request (generateContent)"
+    supporting_models: "Gemini 3.x and 2.5 models; per-model subsets (e.g. 3.1-pro: low/medium/high; 3.5-flash: all four)"
+    default: "model-dependent (high for Pro/Flash 3.x; medium for 3.5-flash)"
+    max_variant_concept: "No max/xhigh; high is highest (dynamic/adaptive). Numeric budget ceiling is the alternative."
+    source_url: "https://ai.google.dev/gemini-api/docs/thinking"
+    notes: "thinking_level and thinking_budget cannot be combined."
+  xai:
+    param_name: "reasoning_effort; reasoning.effort (Responses API)"
+    accepted_values: [low, medium, high, xhigh]
+    scope: "per-request"
+    supporting_models: "grok-4.5 (low/medium/high); grok-4.20-multi-agent (low/medium/high/xhigh). Reasoning always-on."
+    default: "high"
+    max_variant_concept: "xhigh controls multi-agent depth on grok-4.20"
+    source_url: "https://docs.x.ai/developers/model-capabilities/text/reasoning"
+    notes: "Reasoning cannot be disabled. presencePenalty/frequencyPenalty/stop rejected on reasoning models."
+  deepseek:
+    param_name: "thinking.type (enabled|disabled); reasoning_effort"
+    accepted_values: "thinking.type: [enabled, disabled]; reasoning_effort: [high, max]"
+    scope: "per-request"
+    supporting_models: "deepseek-v4-pro, deepseek-v4-flash (thinking and non-thinking modes)"
+    default: "thinking enabled; reasoning_effort high (auto max for complex agent requests)"
+    max_variant_concept: "max for complex agentic requests"
+    source_url: "https://api-docs.deepseek.com/guides/thinking_mode"
+    notes: "low/medium mapped to high; xhigh mapped to max. CoT returned in reasoning_content."
+  qwen:
+    param_name: "enable_thinking (bool); thinking_budget (int)"
+    accepted_values: "enable_thinking: [true, false]; thinking_budget: integer token count"
+    scope: "per-request (extra_body / DashScope)"
+    supporting_models: "Qwen3.7/3.6/3.5 (default true), Qwen3/Qwen3-VL/Qwen3-Omni (default false), QwQ/-thinking (always-on)"
+    default: "enable_thinking: true (3.7/3.6/3.5); false (Qwen3 family)"
+    max_variant_concept: "thinking_budget caps tokens; no named max level"
+    source_url: "https://docs.qwencloud.com/developer-guides/text-generation/thinking"
+    notes: "/think and /no_think toggle per turn. preserve_thinking carries reasoning across turns (3.7/3.6)."
+  z-ai:
+    param_name: "thinking.type (enabled|disabled); reasoning_effort"
+    accepted_values: "thinking.type: [enabled, disabled]; reasoning_effort: [none, minimal, low, medium, high, xhigh, max]"
+    scope: "per-request"
+    supporting_models: "thinking.type: GLM-4.5+; reasoning_effort: GLM-5.2+ only. GLM-4.7/4.5V forced thinking."
+    default: "thinking.type enabled; reasoning_effort max"
+    max_variant_concept: "max on GLM-5.2+; low/medium mapped to high, xhigh mapped to max"
+    source_url: "https://docs.z.ai/guides/capabilities/thinking"
+    notes: "reasoning_effort has no effect unless thinking.type=enabled. zai-coding endpoint preserves thinking by default."
+  kimi:
+    param_name: "thinking.type (enabled|disabled); thinking.keep (null|all)"
+    accepted_values: "thinking.type: [enabled, disabled]; thinking.keep: [null, all]"
+    scope: "per-request"
+    supporting_models: "kimi-k2.5 (type only); k2.6 (type+keep); k2.7-code/k2-thinking always-on"
+    default: "thinking.type enabled; keep null"
+    max_variant_concept: "No multi-level effort; on/off plus preserved thinking only"
+    source_url: "https://platform.kimi.ai/docs/guide/use-kimi-k2-thinking-model"
+    notes: "Moonshot rejects both reasoning_effort and thinking together. No multi-level effort control."
+  minimax:
+    param_name: "thinking.type (adaptive|disabled) [Chat Completions]; reasoning.effort (none|minimal|low|medium|high) [Responses API, M3]"
+    accepted_values: "thinking.type: [adaptive, disabled]; reasoning.effort: [none, minimal, low, medium, high]"
+    scope: "per-request"
+    supporting_models: "MiniMax-M3 (full thinking.type control); M2.x always-on thinking"
+    default: "thinking adaptive (on); Responses reasoning off (effort none)"
+    max_variant_concept: "No depth tuning; reasoning effectively binary on/off"
+    source_url: "https://platform.minimax.io/docs/api-reference/text-openai-api"
+    notes: "effort values only toggle on/off on M3, do not tune depth."
+  mimo:
+    param_name: "thinking.type (enabled|disabled); enable_thinking (bool, Alibaba Model Studio)"
+    accepted_values: "thinking.type: [enabled, disabled]; enable_thinking: [true, false]"
+    scope: "per-request"
+    supporting_models: "mimo-v2.5-pro, mimo-v2.5, mimo-v2-pro, mimo-v2-omni (thinking on by default); mimo-v2-flash"
+    default: "enabled (on)"
+    max_variant_concept: "No multi-level effort; on/off only. Does not support reasoning_effort/thinking_budget."
+    source_url: "https://mimo.mi.com/docs/en-US/quick-start/usage-guide/other/deep-thinking"
+    notes: "Pass thinking via extra_body. reasoning_content must be passed back in multi-turn tool calls."
+  openrouter:
+    param_name: "reasoning.effort / reasoning_effort / reasoning.max_tokens"
+    accepted_values: "reasoning.effort: [none, minimal, low, medium, high, xhigh, max]; reasoning_effort top-level omits max"
+    scope: "per-request (gateway normalizes across providers)"
+    supporting_models: "Any reasoning-capable model in the catalog"
+    default: "inferred from model; default_effort/default_enabled per-model"
+    max_variant_concept: "max ~95% of max_tokens; reasoning.mode=pro routes to *-pro variants; :nitro is speed not reasoning"
+    source_url: "https://openrouter.ai/docs/api/reference/parameters"
+    notes: "Only ONE of reasoning and reasoning_effort allowed (else 400). Maps effort to provider-specific params."
+  z-ai-coding:
+    param_name: "thinking.type (enabled|disabled); reasoning_effort (zai-coding coding endpoint)"
+    accepted_values: "thinking.type: [enabled, disabled]; reasoning_effort: [none, minimal, low, medium, high, xhigh, max]"
+    scope: "per-request (zai-coding coding plan endpoint)"
+    supporting_models: "zai-coding/glm-4.5-air, glm-4.7, glm-5.1, glm-5.2, glm-5-turbo (uppercase model IDs)"
+    default: "thinking.type enabled; reasoning_effort max; clear_thinking false (Preserved Thinking on)"
+    max_variant_concept: "max on GLM-5.2+; same alias mapping as z-ai"
+    source_url: "https://docs.z.ai/guides/capabilities/thinking"
+    notes: "Reuses z-ai thinking schema. Coding endpoint base https://api.z.ai/api/coding/paas/v4. Preserved Thinking enabled by default (keep=reasoning_content)."
+
+# Normalized reference reasoning level per seniority tier. Every preset now declares its
+# own level in recommended_defaults, which is the generator source of truth; this map is
+# retained for catalog guidance and future presets that need a documented baseline.
+reasoning_tier_map:
+  junior: low
+  middle: medium
+  senior: high
+  lead: max

@@ -2,7 +2,7 @@
 
 A comparative table of AI agent configuration mechanisms via config files (global ~/, project ./, env vars).
 
-> Current as of: May 2026. Sources: official documentation, Context7, GitHub repositories.
+> Current as of: Jul 2026. Sources: official documentation, Context7, GitHub repositories.
 
 Shared generated role prompt templates: [role-prompt-template.md](templates/agents/role-prompt-template.md) · [orchestrator-prompt-template.md](templates/agents/orchestrator-prompt-template.md)
 
@@ -153,8 +153,41 @@ Shared generated role prompt templates: [role-prompt-template.md](templates/agen
 | **Review model** | `review_model` | — | — | — | — |
 | **Context window** | `model_context_window` | — | — | — | — |
 | **Auto-compact** | `model_auto_compact_token_limit` `model_auto_compact_token_limit_scope` | — | — | — | — |
-| **Reasoning effort** | — | — | — | — | — |
+| **Reasoning effort** | `model_reasoning_effort` global/profile only (minimal\|low\|medium\|high\|xhigh\|max on GPT-5.6) | `effort:` frontmatter + `effortLevel`/`--effort`/`/effort` (low\|medium\|high\|xhigh\|max) | `reasoningEffort` pass-through + `variant` (none\|minimal\|low\|medium\|high\|xhigh) | `reasoningEffort` + `thinking` budget + `variant` (same levels) | `/effort`, `--effort`, `chat.defaultEffort` (low\|medium\|high\|xhigh\|max); per-agent field is open FR |
 | **Provider-agnostic** | ❌ (OpenAI-first) | ❌ (Anthropic/Vert.AI) | ✅ (multi-provider) | ✅ (75+ providers) | ❌ (AWS-focused) |
+
+---
+
+## Reasoning and Thinking Controls
+
+How each CLI exposes reasoning effort / extended thinking in agent configs, and the provider API parameters behind them. Per-role reasoning control is supported by Claude Code, Kilo Code, and OpenCode; Codex and Amazon Kiro expose it globally/session-wide only.
+
+**Direct OpenAI vs. gateway — important caveat.** Kilo Code and OpenCode emit `reasoningEffort` only for the verified direct OpenAI path (model ids such as `openai/gpt-5.6-terra`). The CLIs' default outer prefixes (`kilo`, `opencode-go`) and OpenRouter route through gateways with their own per-model reasoning support. Use `--model-prefix ""` plus a configured direct openai provider when generated frontmatter must carry the direct OpenAI setting.
+
+| Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
+|--------|-----------|-------------|-----------|----------|-------------|
+| **Per-role in config** | ❌ global/profile only | ✅ `effort:` frontmatter | ✅ `reasoningEffort` + `variant` | ✅ `reasoningEffort` + `thinking` + `variant` | ❌ session/global only |
+| **Field(s)** | `model_reasoning_effort`, `plan_mode_reasoning_effort`, `model_reasoning_summary`, `model_verbosity` (config.toml) | `effort` frontmatter; `effortLevel` settings; `--effort`; `/effort`; `CLAUDE_CODE_EFFORT_LEVEL` | `reasoningEffort` (pass-through); `variant`; `/variant` | `reasoningEffort`; `thinking` (Anthropic budget); `variant` | `/effort`; `--effort`; `chat.defaultEffort`; `chat.enableThinking` |
+| **Accepted levels** | minimal\|low\|medium\|high\|xhigh\|max (GPT-5.6; max = heaviest pro execution) | low\|medium\|high\|xhigh\|max (model-dependent) | none\|minimal\|low\|medium\|high\|xhigh (+max for Anthropic) | none\|minimal\|low\|medium\|high\|xhigh | low\|medium\|high\|xhigh\|max |
+| **Scope limits** | Global/profile only; not in role `.toml` files | frontmatter ignored for Agent-spawned subagents (#64706) and skills (#69267) | `reasoningEffort` only for the verified direct OpenAI path; gateway support is per-model | agent-level parsed but not always applied (#25026/#21632) | per-agent `effort` field = open FR #8754 (2.6.0) |
+
+### Provider reasoning/thinking API parameters
+
+Verified from official provider docs (Jul 2026). These back the CLI fields above; see `registry/model-tiers.yaml` `reasoning` block for the machine-readable copy.
+
+| Provider | Parameter | Accepted values | Default | Notes |
+|----------|-----------|-----------------|---------|-------|
+| **openai** | `reasoning.effort` | none\|minimal\|low\|medium\|high\|xhigh | medium | GPT-5.x + o-series only; gpt-4o unsupported; per-model subsets |
+| **anthropic** | `effort` (output_config); legacy `thinking.budget_tokens` | low\|medium\|high\|xhigh\|max | high | 4.8/4.7 reject manual thinking; budget_tokens deprecated on 4.6 |
+| **google** | `thinkingConfig.thinking_level`; legacy `thinking_budget` | minimal\|low\|medium\|high | model-dependent | No max/xhigh; level and budget cannot combine |
+| **xai** | `reasoning_effort` / `reasoning.effort` | low\|medium\|high\|xhigh | high | Always-on, cannot disable |
+| **deepseek** | `thinking.type` + `reasoning_effort` | enabled\|disabled + high\|max | enabled / high | low/medium→high, xhigh→max |
+| **qwen** | `enable_thinking` + `thinking_budget` | bool + int | true (3.7/3.6/3.5) | `/think` `/no_think` per turn; hybrid models |
+| **z-ai** | `thinking.type` + `reasoning_effort` | enabled\|disabled + none…max | enabled / max | `reasoning_effort` only GLM-5.2+; zai-coding preserves thinking |
+| **kimi** | `thinking.type` + `thinking.keep` | enabled\|disabled + null\|all | enabled / null | No multi-level effort; on/off + preserved thinking |
+| **minimax** | `thinking.type` / `reasoning.effort` | adaptive\|disabled (+ none…high Responses API, M3) | adaptive (on) | Effectively binary; effort toggles on/off on M3 |
+| **mimo** | `thinking.type` / `enable_thinking` | enabled\|disabled | enabled | On/off only; no multi-level |
+| **openrouter** | `reasoning.effort` / `reasoning_effort` / `reasoning.max_tokens` | none…max (top-level omits max) | inferred per-model | Gateway normalizes providers; only one of `reasoning`/`reasoning_effort` allowed |
 
 ---
 

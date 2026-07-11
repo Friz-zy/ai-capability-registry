@@ -38,6 +38,15 @@ description: >
 # --- Model ---
 model: inherit                             # "inherit" (default) | "sonnet" | "haiku" | model-id
 
+# --- Reasoning effort ---
+# Per-agent effort frontmatter maps to the Anthropic effort parameter
+# (low|medium|high|xhigh|max, model-dependent). Only emitted when the native model
+# provider is Anthropic. CAVEAT: the effort frontmatter is honored for directly invoked
+# agents but is ignored for Agent-tool-spawned subagents (claude-code #64706) and for
+# skills (#69267). Prefer /effort or --effort / CLAUDE_CODE_EFFORT_LEVEL when subagents
+# must honor the level. Non-Anthropic models must omit this field.
+# effort: high
+
 # --- Visibility ---
 hidden: false                              # true = hide from agent picker (still invocable via Task)
 

@@ -26,6 +26,15 @@ Full field-by-field reference for Kiro agent configuration. See `agent.json.exam
 | `welcomeMessage` | string | no | Message shown when switching to this agent. |
 | `useLegacyMcpJson` | boolean | no | Load MCP servers from legacy `.kiro/settings/mcp.json` format. |
 
+## Reasoning Effort
+
+Kiro exposes reasoning effort as a session/global control only, not as a per-agent field:
+
+- Controls: `/effort` (in-session), `--effort` (CLI flag), and `chat.defaultEffort` in settings.
+- Accepted values: `low` | `medium` | `high` | `xhigh` | `max` (model-dependent).
+- Scope: session and global only. As of Jul 2026 there is **no supported per-agent `effort` field** in agent JSON (per-agent effort is an open feature request, FR #8754 tracked for ~2.6.0).
+- Consequence for generated configs: agent JSON files intentionally omit `effort` and `reasoningEffort`. Set the desired effort via `/effort`, `--effort`, or `chat.defaultEffort` instead.
+
 ## Resources
 
 | Type | Example | Description |

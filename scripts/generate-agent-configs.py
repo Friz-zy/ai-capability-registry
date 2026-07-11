@@ -50,6 +50,7 @@ ROLE_LEVEL_MODES = {"tiered", "single"}
 
 DISABLED_MODEL_PRESETS = {"", "none"}
 MODEL_REMOVAL_TOKEN = "__MODEL_FIELD_DISABLED__"
+REASONING_LEVELS = {"none", "minimal", "low", "medium", "high", "xhigh", "max"}
 
 CLI_ALIASES = {
     "codex": "codex",
@@ -358,8 +359,13 @@ def resolve_role_preset_overrides(
     return overrides
 
 
-def model_for_level(recommended_defaults: dict[str, Any], level: str, preset: str, profile_id: str) -> str:
-    """Resolve the model id for a profile level and preset.
+def preset_configuration_for_level(
+    recommended_defaults: dict[str, Any],
+    level: str,
+    preset: str,
+    profile_id: str,
+) -> dict[str, Any]:
+    """Resolve the inline model and reasoning configuration for a profile level.
 
     Args:
         recommended_defaults: ``recommended_defaults`` mapping from model tiers.
@@ -368,18 +374,42 @@ def model_for_level(recommended_defaults: dict[str, Any], level: str, preset: st
         profile_id: Profile id used for precise errors.
 
     Returns:
-        Model id.
+        Preset mapping containing a model id and normalized reasoning level.
 
     Raises:
-        ValueError: If the level or preset is missing.
+        ValueError: If the level, preset, model, or reasoning level is invalid.
     """
     level_defaults = recommended_defaults.get(level)
     if not isinstance(level_defaults, dict):
         raise ValueError(f"Missing recommended_defaults level '{level}' for profile '{profile_id}'")
-    model_id = level_defaults.get(preset)
-    if not model_id:
+    configuration = level_defaults.get(preset)
+    if not isinstance(configuration, dict):
         raise ValueError(f"Missing model preset '{preset}' for profile '{profile_id}' level '{level}'")
-    return str(model_id)
+    model_id = configuration.get("model")
+    reasoning_level = configuration.get("level")
+    if not isinstance(model_id, str) or not model_id:
+        raise ValueError(f"Missing model for preset '{preset}' profile '{profile_id}' level '{level}'")
+    if not isinstance(reasoning_level, str) or reasoning_level not in REASONING_LEVELS:
+        raise ValueError(
+            f"Invalid reasoning level for preset '{preset}' profile '{profile_id}' level '{level}'"
+        )
+    return configuration
+
+
+def model_for_level(recommended_defaults: dict[str, Any], level: str, preset: str, profile_id: str) -> str:
+    """Return the configured model id for a profile level and preset.
+
+    Args:
+        recommended_defaults: ``recommended_defaults`` mapping from model tiers.
+        level: Seniority level such as ``middle`` or ``senior``.
+        preset: Preset key such as ``openai`` or ``anthropic``.
+        profile_id: Profile id used for precise errors.
+
+    Returns:
+        Bare or provider-qualified model id.
+    """
+    configuration = preset_configuration_for_level(recommended_defaults, level, preset, profile_id)
+    return str(configuration["model"])
 
 
 def normalize_model_prefix(model_prefix: str | None) -> str:
@@ -396,19 +426,24 @@ def normalize_model_prefix(model_prefix: str | None) -> str:
     return model_prefix.strip().strip("/")
 
 
-def model_catalog_id_for_id(model_tiers_registry: dict[str, Any], model_id: str) -> str | None:
-    """Find the provider-qualified catalog id for a registry model id.
+def find_model_entry(model_tiers_registry: dict[str, Any], model_id: str) -> tuple[str | None, dict[str, Any] | None]:
+    """Find a model catalog entry by model id.
+
+    A bare id (e.g. ``gpt-5.6-terra``) matches the direct provider entry whose
+    ``model_id`` equals it; a provider-qualified id (e.g. ``openai/gpt-5.6-luna-pro``)
+    matches the provider/model pair that stores it verbatim. The first match wins.
 
     Args:
         model_tiers_registry: Loaded ``model-tiers`` registry.
-        model_id: Model id without provider prefix.
+        model_id: Model id, bare or provider-qualified.
 
     Returns:
-        Provider-qualified catalog id when the model is found, otherwise ``None``.
+        Pair of native provider id and the matched model mapping, or
+        ``(None, None)`` when no catalog entry matches.
     """
     providers = model_tiers_registry.get("providers", [])
     if not isinstance(providers, list):
-        return None
+        return None, None
     for provider in providers:
         if not isinstance(provider, dict):
             continue
@@ -423,12 +458,29 @@ def model_catalog_id_for_id(model_tiers_registry: dict[str, Any], model_id: str)
             if not isinstance(models, list):
                 continue
             for model in models:
-                if not isinstance(model, dict) or model.get("model_id") != model_id:
-                    continue
-                catalog_model_id = model.get("openrouter_id")
-                if isinstance(catalog_model_id, str) and "/" in catalog_model_id:
-                    return catalog_model_id
-                return f"{provider_id}/{model_id}"
+                if isinstance(model, dict) and model.get("model_id") == model_id:
+                    return provider_id, model
+    return None, None
+
+
+def model_catalog_id_for_id(model_tiers_registry: dict[str, Any], model_id: str) -> str | None:
+    """Find the provider-qualified catalog id for a registry model id.
+
+    Args:
+        model_tiers_registry: Loaded ``model-tiers`` registry.
+        model_id: Model id without provider prefix.
+
+    Returns:
+        Provider-qualified catalog id when the model is found, otherwise ``None``.
+    """
+    provider_id, model = find_model_entry(model_tiers_registry, model_id)
+    if model is None:
+        return None
+    catalog_model_id = model.get("openrouter_id")
+    if isinstance(catalog_model_id, str) and "/" in catalog_model_id:
+        return catalog_model_id
+    if isinstance(provider_id, str) and provider_id:
+        return f"{provider_id}/{model_id}"
     return None
 
 
@@ -498,6 +550,66 @@ def rendered_model_id(
         return model_id
     qualified_model_id = provider_qualified_model(model_tiers_registry, model_id, profile_id)
     return prefixed_model_id(qualified_model_id, model_prefix)
+
+
+def resolve_effective_reasoning(
+    preset_configuration: dict[str, Any],
+) -> str:
+    """Return the reasoning level declared by an inline preset configuration.
+
+    Args:
+        preset_configuration: Resolved ``recommended_defaults`` entry.
+
+    Returns:
+        Valid normalized reasoning effort.
+    """
+    return str(preset_configuration["level"])
+
+
+def agent_reasoning_suffix(
+    cli_id: str,
+    model: str | None,
+    model_id: str | None,
+    reasoning_effort: str | None,
+    model_tiers_registry: dict[str, Any],
+) -> str:
+    """Build optional reasoning frontmatter appended after the model line.
+
+    Emission is restricted to verified CLI/provider combinations:
+      * kilo-code/opencode: ``reasoningEffort`` only for direct
+        OpenAI models (final rendered model starts ``openai/`` with no outer prefix)
+        whose effective preset targets the direct OpenAI provider.
+      * claude-code: ``effort`` only when the native resolved provider is Anthropic.
+    Codex and Amazon Kiro never emit per-agent reasoning here.
+
+    Args:
+        cli_id: Canonical CLI target id.
+        model: Final rendered model id (may be ``None`` when disabled).
+        model_id: Bare or provider-qualified model id used for catalog/provider lookup.
+        reasoning_effort: Effective normalized reasoning level from the preset.
+        model_tiers_registry: Loaded ``model-tiers`` registry.
+
+    Returns:
+        Frontmatter suffix starting with a newline when emitted, else an empty string.
+    """
+    if not model:
+        return ""
+    if cli_id in ("kilo-code", "opencode"):
+        # Only the direct OpenAI Responses path is verified for these pass-through keys.
+        if not model.startswith("openai/"):
+            return ""
+        provider_id, _ = find_model_entry(model_tiers_registry, model_id or "")
+        if provider_id != "openai" or not reasoning_effort:
+            return ""
+        return f'\nreasoningEffort: "{reasoning_effort}"'
+    if cli_id == "claude-code":
+        provider_id, _ = find_model_entry(model_tiers_registry, model_id or "")
+        if provider_id != "anthropic":
+            return ""
+        if not reasoning_effort:
+            return ""
+        return f'\neffort: "{reasoning_effort}"'
+    return ""
 
 
 def slugify(value: str) -> str:
@@ -748,6 +860,7 @@ def render_cli_agent(
     model: str | None,
     prompt: str,
     model_disabled: bool,
+    reasoning_yaml: str = "",
 ) -> tuple[str, str]:
     """Render one CLI-specific agent config.
 
@@ -759,6 +872,9 @@ def render_cli_agent(
         model: Resolved model id or ``None`` when model rendering is disabled.
         prompt: Rendered system prompt.
         model_disabled: Whether the template should omit model fields.
+        reasoning_yaml: Optional reasoning frontmatter suffix appended after the
+            model line (e.g. reasoningEffort or effort) for CLIs that support it;
+            empty when not applicable.
 
     Returns:
         Pair of generated agent id and rendered file content.
@@ -783,6 +899,7 @@ def render_cli_agent(
         "model_json": quoted_string(model or MODEL_REMOVAL_TOKEN),
         "model_toml": quoted_string(model or MODEL_REMOVAL_TOKEN),
         "model_yaml": quoted_string(model or MODEL_REMOVAL_TOKEN),
+        "reasoning_yaml": reasoning_yaml,
         "prompt": prompt,
         "prompt_json": quoted_string(prompt),
         "prompt_toml": quoted_string(prompt),
@@ -822,6 +939,7 @@ def orchestrator_primary_entry(
 def codex_config_text(
     entries: list[tuple[dict[str, Any], str]],
     primary_model: str | None,
+    primary_reasoning_effort: str | None,
     model_disabled: bool,
     is_override: bool,
     role_levels_mode: str,
@@ -831,6 +949,9 @@ def codex_config_text(
     Args:
         entries: Profile and seniority pairs being generated.
         primary_model: Resolved orchestrator model id when available.
+        primary_reasoning_effort: Effective reasoning effort for the orchestrator when
+            its primary model is a direct OpenAI model, otherwise ``None``. Effort is a
+            global/profile setting only; it is never written into per-role ``.toml`` files.
         model_disabled: Whether model fields were disabled by the preset.
         is_override: Whether the file is a manual-merge override.
         role_levels_mode: Generation mode controlling agent ids.
@@ -854,6 +975,8 @@ def codex_config_text(
     lines.append(f"default_agent = {quoted_string(primary_agent_id)}")
     if primary_model and not model_disabled:
         lines.append(f"model = {quoted_string(primary_model)}")
+    if primary_reasoning_effort and not model_disabled:
+        lines.append(f"model_reasoning_effort = {quoted_string(primary_reasoning_effort)}")
     lines.append("")
     for profile, level in ordered_entries:
         agent_id = generated_agent_id(profile, level, role_levels_mode)
@@ -899,6 +1022,7 @@ def generate_primary_role_artifact(
     output_directory: Path,
     entries: list[tuple[dict[str, Any], str]],
     primary_model: str | None,
+    primary_reasoning_effort: str | None,
     model_disabled: bool,
     role_levels_mode: str,
     orchestrator_prompt: str | None = None,
@@ -910,6 +1034,8 @@ def generate_primary_role_artifact(
         output_directory: Directory where generated files are written.
         entries: Profile and seniority pairs being generated.
         primary_model: Resolved orchestrator model id when available.
+        primary_reasoning_effort: Effective reasoning effort for the orchestrator when
+            its primary model is a direct OpenAI model (Codex only); otherwise ``None``.
         model_disabled: Whether model fields were disabled by the preset.
         role_levels_mode: Generation mode controlling agent ids.
         orchestrator_prompt: Rendered orchestrator prompt body for Amazon Kiro steering.
@@ -927,6 +1053,7 @@ def generate_primary_role_artifact(
             codex_config_text(
                 entries,
                 primary_model,
+                primary_reasoning_effort,
                 model_disabled,
                 target_path.name.endswith(".override.toml"),
                 role_levels_mode,
@@ -1176,10 +1303,17 @@ def generate_agent_configs(
         effective_preset = role_preset_overrides.get(profile_id, selected_preset)
         effective_model_disabled = preset_modeling_disabled(effective_preset)
         model: str | None = None
+        bare_model_id: str | None = None
+        reasoning_effort: str | None = None
         if not effective_model_disabled:
+            preset_configuration = preset_configuration_for_level(
+                recommended_defaults, level, effective_preset, profile_id
+            )
+            bare_model_id = str(preset_configuration["model"])
+            reasoning_effort = resolve_effective_reasoning(preset_configuration)
             model = rendered_model_id(
                 model_tiers_registry,
-                model_for_level(recommended_defaults, level, effective_preset, profile_id),
+                bare_model_id,
                 model_prefix,
                 profile_id,
                 cli_id in DEFAULT_MODEL_PREFIXES,
@@ -1196,6 +1330,7 @@ def generate_agent_configs(
         # Capture orchestrator prompt for Amazon Kiro steering artifact
         if profile_id == "orchestrator" and cli_id == "amazon-kiro":
             orchestrator_prompt = prompt
+        reasoning_yaml = agent_reasoning_suffix(cli_id, model, bare_model_id, reasoning_effort, model_tiers_registry)
         generated_agent_id_value, rendered_agent = render_cli_agent(
             cli_id,
             profile,
@@ -1204,31 +1339,39 @@ def generate_agent_configs(
             model,
             prompt,
             effective_model_disabled,
+            reasoning_yaml,
         )
         write_text(agent_directory / f"{generated_agent_id_value}{extension}", rendered_agent)
         generated_count += 1
     primary_model = None
+    primary_reasoning_effort: str | None = None
     if not model_disabled:
         primary_profile, primary_level = orchestrator_primary_entry(entries, role_levels_mode)
         primary_profile_id = str(primary_profile.get("id") or "unknown")
         primary_preset = role_preset_overrides.get(primary_profile_id, selected_preset)
+        primary_preset_configuration = preset_configuration_for_level(
+            recommended_defaults, primary_level, primary_preset, primary_profile_id
+        )
+        primary_bare_model_id = str(primary_preset_configuration["model"])
         primary_model = rendered_model_id(
             model_tiers_registry,
-            model_for_level(
-                recommended_defaults,
-                primary_level,
-                primary_preset,
-                primary_profile_id,
-            ),
+            primary_bare_model_id,
             model_prefix,
             primary_profile_id,
             cli_id in DEFAULT_MODEL_PREFIXES,
         )
+        # Codex exposes reasoning as a global/profile setting only. Emit it for the
+        # primary config when the primary model is a direct OpenAI model (native openai
+        # provider, no gateway outer prefix) and an effective effort is available.
+        primary_provider, _ = find_model_entry(model_tiers_registry, primary_bare_model_id)
+        if primary_provider == "openai" and not model_prefix:
+            primary_reasoning_effort = resolve_effective_reasoning(primary_preset_configuration)
     generated_count += generate_primary_role_artifact(
         cli_id,
         output_directory,
         entries,
         primary_model,
+        primary_reasoning_effort,
         model_disabled,
         role_levels_mode,
         orchestrator_prompt,
@@ -1286,7 +1429,10 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help=(
             "Outer provider prefix for generated model ids. Defaults to kilo for kilo-code, "
-            "opencode-go for opencode, and no prefix for other CLIs. Use an empty value to disable."
+            "opencode-go for opencode, and no prefix for other CLIs. Use an empty value to disable. "
+            "Kilo Code and OpenCode emit direct OpenAI reasoningEffort only when the rendered "
+            "model id starts with openai/, which requires --model-prefix \"\" and a configured "
+            "direct OpenAI provider."
         ),
     )
     return parser.parse_args()
