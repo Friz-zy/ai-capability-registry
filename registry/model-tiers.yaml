@@ -419,7 +419,7 @@ providers:
             max_output: 131072
             pricing_per_million_tokens: { input: 3.00, output: 15.00 }
             coding_index: 57
-            level: high
+            level: max
 
   - id: minimax
     tiers:
@@ -1084,7 +1084,7 @@ recommended_defaults:
       level: max
     kimi:
       model: kimi-k3
-      level: high
+      level: max
     minimax:
       model: minimax-m3
       level: max
