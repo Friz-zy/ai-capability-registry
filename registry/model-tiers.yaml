@@ -379,30 +379,14 @@ providers:
     tiers:
       junior:
         models:
-          - model_id: kimi-k2
-            openrouter_id: moonshotai/kimi-k2
-            context: 131072
-            max_output: 32768
-            pricing_per_million_tokens: { input: 0.57, output: 2.30 }
-            coding_index: null
-            level: low
-      middle:
-        models:
           - model_id: kimi-k2.5
             openrouter_id: moonshotai/kimi-k2.5
             context: 262144
             max_output: 262144
             pricing_per_million_tokens: { input: 0.375, output: 2.025 }
             coding_index: null
-            level: medium
-          - model_id: kimi-k2-thinking
-            openrouter_id: moonshotai/kimi-k2-thinking
-            context: 262144
-            max_output: 262144
-            pricing_per_million_tokens: { input: 0.60, output: 2.50 }
-            coding_index: null
-            level: medium
-      senior:
+            level: low
+      middle:
         models:
           - model_id: kimi-k2.6
             openrouter_id: moonshotai/kimi-k2.6
@@ -410,23 +394,32 @@ providers:
             max_output: 262142
             pricing_per_million_tokens: { input: 0.68, output: 3.41 }
             coding_index: 44
-            level: high
+            level: medium
           - model_id: kimi-k2.7-code
             openrouter_id: moonshotai/kimi-k2.7-code
             context: 262144
             max_output: 16384
             pricing_per_million_tokens: { input: 0.74, output: 3.50 }
             coding_index: 42
-            level: high
+            level: medium
+      senior:
+        models:
+          - model_id: kimi-k3
+            openrouter_id: moonshotai/kimi-k3
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 3.00, output: 15.00 }
+            coding_index: 57
+            level: low
       lead:
         models:
-          - model_id: kimi-k2.6
-            openrouter_id: moonshotai/kimi-k2.6
-            context: 262144
-            max_output: 262142
-            pricing_per_million_tokens: { input: 0.68, output: 3.41 }
-            coding_index: 44
-            level: max
+          - model_id: kimi-k3
+            openrouter_id: moonshotai/kimi-k3
+            context: 1048576
+            max_output: 131072
+            pricing_per_million_tokens: { input: 3.00, output: 15.00 }
+            coding_index: 57
+            level: high
 
   - id: minimax
     tiers:
@@ -940,10 +933,10 @@ recommended_defaults:
       model: deepseek-v4-flash
       level: low
     z-ai:
-      model: glm-4.7-flash
+      model: glm-4.5-air
       level: low
     kimi:
-      model: kimi-k2
+      model: kimi-k2.5
       level: low
     minimax:
       model: minimax-m2.5
@@ -956,6 +949,9 @@ recommended_defaults:
       level: low
     opencode:
       model: deepseek-v4-flash
+      level: low
+    opencode-go:
+      model: opencode-go/deepseek-v4-flash
       level: low
     openrouter:
       model: deepseek/deepseek-v4-flash
@@ -989,7 +985,7 @@ recommended_defaults:
       model: glm-4.7
       level: medium
     kimi:
-      model: kimi-k2.5
+      model: kimi-k2.6
       level: medium
     minimax:
       model: minimax-m2.7
@@ -1002,6 +998,9 @@ recommended_defaults:
       level: medium
     opencode:
       model: deepseek-v4-pro
+      level: medium
+    opencode-go:
+      model: opencode-go/deepseek-v4-pro
       level: medium
     openrouter:
       model: openai/gpt-5.6-luna-pro
@@ -1032,11 +1031,11 @@ recommended_defaults:
       model: deepseek-v4-pro
       level: high
     z-ai:
-      model: glm-5
+      model: glm-5.2
       level: high
     kimi:
-      model: kimi-k2.6
-      level: high
+      model: kimi-k3
+      level: low
     minimax:
       model: minimax-m3
       level: high
@@ -1047,7 +1046,10 @@ recommended_defaults:
       model: qwen3.7-max
       level: high
     opencode:
-      model: deepseek-v4-pro
+      model: glm-5.2
+      level: high
+    opencode-go:
+      model: opencode-go/glm-5.2
       level: high
     openrouter:
       model: openai/gpt-5.6-terra-pro
@@ -1081,8 +1083,8 @@ recommended_defaults:
       model: glm-5.2
       level: max
     kimi:
-      model: kimi-k2.6
-      level: max
+      model: kimi-k3
+      level: high
     minimax:
       model: minimax-m3
       level: max
@@ -1093,8 +1095,11 @@ recommended_defaults:
       model: qwen3.7-max
       level: max
     opencode:
-      model: glm-5.2
-      level: max
+      model: kimi-k3
+      level: high
+    opencode-go:
+      model: opencode-go/kimi-k3
+      level: high
     openrouter:
       model: openai/gpt-5.6-sol-pro
       level: max
@@ -1171,14 +1176,14 @@ reasoning:
     source_url: "https://docs.z.ai/guides/capabilities/thinking"
     notes: "reasoning_effort has no effect unless thinking.type=enabled. zai-coding endpoint preserves thinking by default."
   kimi:
-    param_name: "thinking.type (enabled|disabled); thinking.keep (null|all)"
-    accepted_values: "thinking.type: [enabled, disabled]; thinking.keep: [null, all]"
+    param_name: "reasoning_effort (top-level, K3); thinking.type (enabled|disabled) + thinking.keep (null|all) (K2.x)"
+    accepted_values: "reasoning_effort: [low, high, max] (K3); thinking.type: [enabled, disabled]; thinking.keep: [null, all] (K2.x)"
     scope: "per-request"
-    supporting_models: "kimi-k2.5 (type only); k2.6 (type+keep); k2.7-code/k2-thinking always-on"
-    default: "thinking.type enabled; keep null"
-    max_variant_concept: "No multi-level effort; on/off plus preserved thinking only"
-    source_url: "https://platform.kimi.ai/docs/guide/use-kimi-k2-thinking-model"
-    notes: "Moonshot rejects both reasoning_effort and thinking together. No multi-level effort control."
+    supporting_models: "kimi-k3 (reasoning_effort; thinking always-on); kimi-k2.5 (thinking.type only); k2.6 (type+keep); k2.7-code/k2-thinking always-on"
+    default: "K3: reasoning_effort max; K2.x: thinking.type enabled, keep null"
+    max_variant_concept: "K3: max is the highest effort level; K2.x: no multi-level effort, on/off plus preserved thinking only"
+    source_url: "https://platform.kimi.ai/docs/guide/use-reasoning-effort"
+    notes: "K3 always thinks; normalized levels map to K3 as low->low, medium/high/xhigh->high, max->max. When migrating from K2.x to K3, drop the thinking config and use top-level reasoning_effort. K2.x: Moonshot rejects both reasoning_effort and thinking together; no multi-level effort control."
   minimax:
     param_name: "thinking.type (adaptive|disabled) [Chat Completions]; reasoning.effort (none|minimal|low|medium|high) [Responses API, M3]"
     accepted_values: "thinking.type: [adaptive, disabled]; reasoning.effort: [none, minimal, low, medium, high]"

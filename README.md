@@ -105,6 +105,8 @@ Amazon Kiro generation also writes `steering/orchestrator.md` with `inclusion: a
 
 For `kilo-code` and `opencode`, generated agent models use a three-part catalog id: `<outer-provider>/<model-provider>/<model-name>`. Defaults are `kilo` for `kilo-code` and `opencode-go` for `opencode`, so preset model `gpt-5.5` becomes `kilo/openai/gpt-5.5` or `opencode-go/openai/gpt-5.5`. Override the outer provider with `--model-prefix openrouter`, or disable only the outer provider with `--model-prefix ""`.
 
+Use the `opencode-go` preset with `--model-prefix ""` when OpenCode Go expects its two-part model ids, such as `opencode-go/deepseek-v4-pro`.
+
 The `openai` preset targets base GPT-5.6 model ids (`gpt-5.6-luna`/`gpt-5.6-terra`/`gpt-5.6-sol`). The `openai-pro-medium` and `openai-pro-high` presets select their corresponding `-pro` variants; the junior tier falls back to `gpt-5.4-nano` because no pro variant is cataloged. Every inline `recommended_defaults` entry declares a model and reasoning level. Kilo Code and OpenCode translate that level into documented provider-specific agent options for every supported preset; Claude Code emits Anthropic `effort`, and Codex emits OpenAI `model_reasoning_effort` in the primary config.
 
 ```bash
