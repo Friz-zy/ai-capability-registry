@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import re
 import sys
 
 from registry_lib import RegistryError, load_all, load_registry
@@ -18,6 +19,7 @@ ALLOWED_SOURCE_TYPES = {"git", "docker", "hosted_https", "hosted_https_oauth", "
 # reasoning_tier_map, and the provider reasoning tables.
 ALLOWED_LEVELS = {"none", "minimal", "low", "medium", "high", "xhigh", "max"}
 MODEL_TIERS = ["junior", "middle", "senior", "lead"]
+FULL_GIT_COMMIT_PATTERN = re.compile(r"^[0-9a-f]{40}$")
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -51,7 +53,21 @@ def validate_skills(skills: list[dict], trust_levels: set[str], agents: set[str]
         if trust.get("level") == "candidate":
             require(skill.get("enabled") is False, f"skill {skill_id}: candidate skills must not be enabled", errors)
         version = skill.get("version", {})
-        if skill.get("enabled") and version.get("pinned") is not True:
+        if source.get("type") == "git":
+            commit = version.get("commit") if isinstance(version, dict) else None
+            require(
+                isinstance(version, dict) and version.get("pinned") is True,
+                f"skill {skill_id}: git sources must set version.pinned: true",
+                errors,
+            )
+            require(
+                isinstance(commit, str) and FULL_GIT_COMMIT_PATTERN.fullmatch(commit) is not None,
+                f"skill {skill_id}: version.commit must be a full 40-character lowercase commit hash",
+                errors,
+            )
+        elif skill.get("enabled") and (
+            not isinstance(version, dict) or version.get("pinned") is not True
+        ):
             print(f"WARN skill {skill_id}: enabled but not pinned yet", file=sys.stderr)
 
 
