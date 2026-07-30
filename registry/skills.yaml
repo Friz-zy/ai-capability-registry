@@ -370,6 +370,53 @@ skills:
       reviewed: false
     enabled: false
 
+  - id: xquik-tweetclaw
+    name: TweetClaw
+    description: Candidate OpenClaw plugin skill for approved X/Twitter workflows through TweetClaw and Xquik.
+    source:
+      type: git
+      repo: https://github.com/Xquik-dev/tweetclaw
+      subdir: skills
+      external_path: external/xquik-tweetclaw
+    category:
+      - integrations
+      - communication
+      - social
+      - candidate
+    trust:
+      level: candidate
+      curated: false
+      reviewed: false
+      reason: discovery_only
+    activation:
+      keywords:
+        - tweetclaw
+        - xquik
+        - x twitter
+        - tweet scraper
+        - openclaw plugin
+        - social automation
+    compatibility:
+      - claude-code
+      - codex-cli
+      - kilo-code
+      - opencode
+      - cursor
+    artifacts:
+      prompt: SKILL.md
+      examples: examples/
+      scripts: scripts/
+    version:
+      tag: null
+      commit: 4f30d17a46c778c9f02c27bc70b40714ac2dc091
+      pinned: true
+    security_score:
+      signed_releases: unknown
+      maintainer_reputation: medium
+      arbitrary_exec: review_required
+      reviewed: false
+    enabled: false
+
   - id: trailofbits-skills
     name: Trail of Bits Skills
     description: Security research, vulnerability detection, and audit workflows from Trail of Bits.
