@@ -8,7 +8,7 @@
 # Score convention: representative value is the model's maximum reasoning-effort score (max).
 # OpenRouter "-pro" reasoning-mode variants inherit the max-effort score of their model family.
 # null = model is not yet evaluated on the index.
-# Pricing is OpenRouter list pricing (USD per 1M tokens); intelligence scores as of 2026-07.
+# Pricing is OpenRouter list pricing (USD per 1M tokens); intelligence scores as of 2026-08.
 
 # Per-model `level` is the model's own default reasoning effort. It is an explicit
 # per-model override and is NOT required to match `reasoning_tier_map` (the seniority
@@ -319,60 +319,46 @@ providers:
     tiers:
       junior:
         models:
-          - model_id: glm-4.7-flash
-            openrouter_id: z-ai/glm-4.7-flash
-            context: 200000
+          - model_id: glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 0.06, output: 0.40 }
-            coding_index: null
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: low
       middle:
         models:
-          - model_id: glm-4.7
-            openrouter_id: z-ai/glm-4.7
-            context: 200000
+          - model_id: glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 0.40, output: 1.75 }
-            coding_index: null
-            level: medium
-          - model_id: glm-5-turbo
-            openrouter_id: z-ai/glm-5-turbo
-            context: 262144
-            max_output: 131072
-            pricing_per_million_tokens: { input: 1.20, output: 4.00 }
-            coding_index: 38
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: medium
       senior:
         models:
-          - model_id: glm-5
-            openrouter_id: z-ai/glm-5
-            context: 200000
+          - model_id: glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 1.00, output: 3.20 }
-            coding_index: null
-            level: high
-          - model_id: glm-4.7
-            openrouter_id: z-ai/glm-4.7
-            context: 200000
-            max_output: 131072
-            pricing_per_million_tokens: { input: 0.40, output: 1.75 }
-            coding_index: null
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: high
       lead:
         models:
-          - model_id: glm-5.2
-            openrouter_id: z-ai/glm-5.2
-            context: 1048576
+          - model_id: glm-5.3
+            openrouter_id: z-ai/glm-5.3
+            context: 1310720
             max_output: 131072
             pricing_per_million_tokens: { input: 1.40, output: 4.40 }
-            coding_index: 51
+            coding_index: 60
             level: max
-          - model_id: glm-5.1
-            openrouter_id: z-ai/glm-5.1
-            context: 200000
+          - model_id: glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 0.98, output: 3.08 }
-            coding_index: 40
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: max
 
   - id: kimi
@@ -613,12 +599,12 @@ providers:
             pricing_per_million_tokens: { input: 1.05, output: 5.25 }
             coding_index: 30
             level: low
-          - model_id: z-ai/glm-4.7-flash
-            openrouter_id: z-ai/glm-4.7-flash
-            context: 200000
+          - model_id: z-ai/glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 0.06, output: 0.42 }
-            coding_index: null
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: low
           - model_id: minimax/minimax-m2.5
             openrouter_id: minimax/minimax-m2.5
@@ -692,19 +678,12 @@ providers:
             pricing_per_million_tokens: { input: 0.09, output: 0.18 }
             coding_index: 40
             level: medium
-          - model_id: z-ai/glm-4.7
-            openrouter_id: z-ai/glm-4.7
-            context: 200000
+          - model_id: z-ai/glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 0.42, output: 1.84 }
-            coding_index: null
-            level: medium
-          - model_id: z-ai/glm-5-turbo
-            openrouter_id: z-ai/glm-5-turbo
-            context: 262144
-            max_output: 131072
-            pricing_per_million_tokens: { input: 1.27, output: 4.22 }
-            coding_index: 38
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: medium
           - model_id: minimax/minimax-m2.7
             openrouter_id: minimax/minimax-m2.7
@@ -778,12 +757,12 @@ providers:
             pricing_per_million_tokens: { input: 0.45, output: 0.92 }
             coding_index: 44
             level: high
-          - model_id: z-ai/glm-5
-            openrouter_id: z-ai/glm-5
-            context: 200000
+          - model_id: z-ai/glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 0.63, output: 2.02 }
-            coding_index: null
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: high
           - model_id: x-ai/grok-4.3
             openrouter_id: x-ai/grok-4.3
@@ -864,19 +843,19 @@ providers:
             pricing_per_million_tokens: { input: 0.45, output: 0.92 }
             coding_index: 44
             level: max
-          - model_id: z-ai/glm-5.2
-            openrouter_id: z-ai/glm-5.2
-            context: 1048576
+          - model_id: z-ai/glm-5.3
+            openrouter_id: z-ai/glm-5.3
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 1.47, output: 4.64 }
-            coding_index: 51
+            pricing_per_million_tokens: { input: 1.40, output: 4.40 }
+            coding_index: 60
             level: max
-          - model_id: z-ai/glm-5.1
-            openrouter_id: z-ai/glm-5.1
-            context: 200000
+          - model_id: z-ai/glm-5.3-flash
+            openrouter_id: z-ai/glm-5.3-flash
+            context: 1310720
             max_output: 131072
-            pricing_per_million_tokens: { input: 1.03, output: 3.25 }
-            coding_index: 40
+            pricing_per_million_tokens: { input: 0.15, output: 0.50 }
+            coding_index: 57
             level: max
           - model_id: x-ai/grok-4.20
             openrouter_id: x-ai/grok-4.20
@@ -933,7 +912,7 @@ recommended_defaults:
       model: deepseek-v4-flash
       level: low
     z-ai:
-      model: glm-4.5-air
+      model: glm-5.3-flash
       level: low
     kimi:
       model: kimi-k2.5
@@ -982,7 +961,7 @@ recommended_defaults:
       model: deepseek-v4-flash
       level: medium
     z-ai:
-      model: glm-4.7
+      model: glm-5.3-flash
       level: medium
     kimi:
       model: kimi-k2.6
@@ -1031,7 +1010,7 @@ recommended_defaults:
       model: deepseek-v4-pro
       level: high
     z-ai:
-      model: glm-5.2
+      model: glm-5.3-flash
       level: high
     kimi:
       model: kimi-k3
@@ -1046,16 +1025,16 @@ recommended_defaults:
       model: qwen3.7-max
       level: high
     opencode:
-      model: glm-5.2
+      model: glm-5.3
       level: high
     opencode-go:
-      model: opencode-go/glm-5.2
+      model: opencode-go/glm-5.3
       level: high
     openrouter:
       model: openai/gpt-5.6-terra-pro
       level: high
     z-ai-coding:
-      model: zai-coding/glm-5.2
+      model: zai-coding/glm-5.3
       level: high
   lead:
     anthropic:
@@ -1080,7 +1059,7 @@ recommended_defaults:
       model: deepseek-v4-pro
       level: max
     z-ai:
-      model: glm-5.2
+      model: glm-5.3
       level: max
     kimi:
       model: kimi-k3
@@ -1104,7 +1083,7 @@ recommended_defaults:
       model: openai/gpt-5.6-sol-pro
       level: max
     z-ai-coding:
-      model: zai-coding/glm-5.2
+      model: zai-coding/glm-5.3
       level: max
 
 
@@ -1215,7 +1194,7 @@ reasoning:
     param_name: "thinking.type (enabled|disabled); reasoning_effort (zai-coding coding endpoint)"
     accepted_values: "thinking.type: [enabled, disabled]; reasoning_effort: [none, minimal, low, medium, high, xhigh, max]"
     scope: "per-request (zai-coding coding plan endpoint)"
-    supporting_models: "zai-coding/glm-4.5-air, glm-4.7, glm-5.1, glm-5.2, glm-5-turbo (uppercase model IDs)"
+    supporting_models: "zai-coding/glm-4.5-air, glm-4.7, glm-5.1, glm-5.2, glm-5.3, glm-5-turbo (uppercase model IDs)"
     default: "thinking.type enabled; reasoning_effort max; clear_thinking false (Preserved Thinking on)"
     max_variant_concept: "max on GLM-5.2+; same alias mapping as z-ai"
     source_url: "https://docs.z.ai/guides/capabilities/thinking"
