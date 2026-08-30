@@ -4,36 +4,31 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-LUA-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-LUA-001` | `51a312ca5404bd5ec19f19b5fb27fc2ab85c8feb6983529525081d026ed1545b` |
-
-## lua
-
-- **Policy ID:** `SDD-ECO-LUA-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `luarocks`
+**ID:** `SDD-ECO-LUA-001` | **Title:** none | **Group:** lua | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** luarocks | **Digest:** `51a312ca5404bd5ec19f19b5fb27fc2ab85c8feb6983529525081d026ed1545b`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .luarocks/config*
-- applicability.path_globs.lockfiles[0]: luarocks.lock
-- applicability.path_globs.manifests[0]: *.rockspec
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .luarocks/config*
+- **applicability.path_globs.lockfiles:**
+  - luarocks.lock
+- **applicability.path_globs.manifests:**
+  - *.rockspec
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Review rockspec source URLs, build or install commands, native modules, and Git revisions.
-- requirements[1]: Treat rock build and install instructions as arbitrary executable code.
-- requirements[2]: Avoid global host installation for unreviewed packages.
+- **requirements:**
+  - Review rockspec source URLs, build or install commands, native modules, and Git revisions.
+  - Treat rock build and install instructions as arbitrary executable code.
+  - Avoid global host installation for unreviewed packages.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

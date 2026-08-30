@@ -4,41 +4,36 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-SWIFT-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-SWIFT-001` | `e705f3319dd8de52066779770e66f7be2f2ae78df0b5006d118690183da1f85f` |
-
-## swift_objective_c
-
-- **Policy ID:** `SDD-ECO-SWIFT-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `swift_package_manager`, `cocoapods`
+**ID:** `SDD-ECO-SWIFT-001` | **Title:** none | **Group:** swift_objective_c | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** swift_package_manager, cocoapods | **Digest:** `e705f3319dd8de52066779770e66f7be2f2ae78df0b5006d118690183da1f85f`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: *.xcconfig
-- applicability.path_globs.config_files[1]: *.xcodeproj/**
-- applicability.path_globs.lockfiles[0]: Package.resolved
-- applicability.path_globs.lockfiles[1]: Podfile.lock
-- applicability.path_globs.manifests[0]: Package.swift
-- applicability.path_globs.manifests[1]: Podfile
-- applicability.path_globs.manifests[2]: *.podspec
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - *.xcconfig
+  - *.xcodeproj/**
+- **applicability.path_globs.lockfiles:**
+  - Package.resolved
+  - Podfile.lock
+- **applicability.path_globs.manifests:**
+  - Package.swift
+  - Podfile
+  - *.podspec
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Commit dependency resolution for reproducible applications.
-- requirements[1]: Review package plugins, macros, binary targets, Git dependencies, podspec scripts, script phases, and source repositories.
-- requirements[2]: Treat package plugins, macros, build tools, and CocoaPods scripts as executable dependency code.
-- requirements[3]: Execute package and build code in a sandboxed environment where supported.
+- **requirements:**
+  - Commit dependency resolution for reproducible applications.
+  - Review package plugins, macros, binary targets, Git dependencies, podspec scripts, script phases, and source repositories.
+  - Treat package plugins, macros, build tools, and CocoaPods scripts as executable dependency code.
+  - Execute package and build code in a sandboxed environment where supported.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

@@ -78,70 +78,90 @@ def _string_list(value: Any) -> list[str]:
     return [item for item in value if isinstance(item, str) and item]
 
 
-def _bullets(values: list[str], empty_text: str = "None declared.") -> str:
-    """Render Markdown bullets with an explicit empty value.
+def _format_scalar(value: Any) -> str:
+    """Render a canonical scalar consistently.
 
     Args:
-        values: Values to render.
-        empty_text: Text used when no values exist.
+        value: Parsed scalar value.
 
     Returns:
-        Markdown bullet text.
+        Compact scalar text.
     """
-    if not values:
-        return f"- {empty_text}"
-    return "\n".join(f"- {value}" for value in values)
+    if value is None:
+        return "none"
+    if isinstance(value, bool):
+        return str(value).lower()
+    return str(value)
 
 
-def _flatten_mapping(value: Any, prefix: str = "") -> list[str]:
-    """Flatten structured policy requirements into readable deterministic lines.
+def _render_structured_field(value: Any, prefix: str) -> list[str]:
+    """Render structured canonical data without numeric list indices.
 
     Args:
         value: Parsed mapping, list, or scalar.
         prefix: Dotted field path accumulated during recursion.
 
     Returns:
-        Flattened requirement descriptions.
+        Deterministic Markdown lines retaining every scalar leaf.
     """
-    flattened: list[str] = []
+    lines: list[str] = []
     if isinstance(value, dict):
         if not value:
-            return [f"{prefix}: {{}}" if prefix else "{}"]
+            return [f"- **{prefix}:** none"]
         for key in sorted(value):
             child_prefix = f"{prefix}.{key}" if prefix else str(key)
-            flattened.extend(_flatten_mapping(value[key], child_prefix))
+            lines.extend(_render_structured_field(value[key], child_prefix))
     elif isinstance(value, list):
         if not value:
-            return [f"{prefix}: []" if prefix else "[]"]
-        for index, item in enumerate(value):
-            item_prefix = f"{prefix}[{index}]" if prefix else f"[{index}]"
-            if isinstance(item, (dict, list)):
-                flattened.extend(_flatten_mapping(item, item_prefix))
-            else:
-                flattened.append(f"{item_prefix}: {item}")
-    elif value is None:
-        flattened.append(f"{prefix}: null" if prefix else "null")
+            return [f"- **{prefix}:** none"]
+        lines.append(f"- **{prefix}:**")
+        lines.extend(f"  - {_format_scalar(item)}" for item in value)
     else:
-        flattened.append(f"{prefix}: {value}" if prefix else str(value))
-    return flattened
+        lines.append(f"- **{prefix}:** {_format_scalar(value)}")
+    return lines
 
 
-def _source_metadata(policy_ids: list[str], policy_nodes: dict[str, dict[str, Any]]) -> str:
-    """Render source IDs and normalized-node digests.
+def _render_selector_value(value: Any, path: str, indentation: str) -> list[str]:
+    """Render one selector value with deterministic paths and nesting.
 
     Args:
-        policy_ids: Ordered policy IDs represented by an artifact.
-        policy_nodes: Resolved canonical nodes keyed by ID.
+        value: Canonical selector value.
+        path: Dotted and indexed canonical selector path.
+        indentation: Markdown indentation for the current path.
 
     Returns:
-        Markdown source metadata table.
+        Markdown lines for the current selector value and every descendant.
     """
-    rows = ["| Policy ID | Normalized-node SHA-256 |", "| --- | --- |"]
-    rows.extend(
-        f"| `{policy_id}` | `{normalized_node_digest(policy_nodes[policy_id])}` |"
-        for policy_id in policy_ids
-    )
-    return "\n".join(rows)
+    if isinstance(value, dict):
+        if not value:
+            return [f"{indentation}- **{path}:** none"]
+        lines = [f"{indentation}- **{path}:**"]
+        for field_name in sorted(value):
+            child_path = f"{path}.{field_name}"
+            lines.extend(_render_selector_value(value[field_name], child_path, f"{indentation}  "))
+        return lines
+    if isinstance(value, list):
+        if not value:
+            return [f"{indentation}- **{path}:** none"]
+        lines = [f"{indentation}- **{path}:**"]
+        for item_index, item in enumerate(value):
+            lines.extend(
+                _render_selector_value(item, f"{path}[{item_index}]", f"{indentation}  ")
+            )
+        return lines
+    return [f"{indentation}- **{path}:** {_format_scalar(value)}"]
+
+
+def _render_selector_groups(selectors: Any) -> list[str]:
+    """Render selectors recursively without losing parent-row association.
+
+    Args:
+        selectors: Canonical selector list.
+
+    Returns:
+        Grouped selector lines with explicit dotted and indexed paths.
+    """
+    return _render_selector_value(selectors, "selectors", "")
 
 
 def _field_lines(policy_node: dict[str, Any], field_names: set[str]) -> list[str]:
@@ -152,61 +172,92 @@ def _field_lines(policy_node: dict[str, Any], field_names: set[str]) -> list[str
         field_names: Top-level fields assigned to the rendered section.
 
     Returns:
-        Deterministically flattened field lines.
+        Deterministically grouped field lines.
     """
     lines: list[str] = []
     for field_name in sorted(field_names & set(policy_node)):
-        lines.extend(_flatten_mapping(policy_node[field_name], field_name))
+        if field_name == "selectors":
+            lines.extend(_render_selector_groups(policy_node[field_name]))
+        else:
+            lines.extend(_render_structured_field(policy_node[field_name], field_name))
     return lines
 
 
-def _render_policy(policy_id: str, policy_node: dict[str, Any], classifications: dict[str, Any]) -> str:
+def _render_section(policy_node: dict[str, Any], field_names: set[str]) -> str:
+    """Render a policy section with meaningful absence made explicit.
+
+    Args:
+        policy_node: Canonical policy node.
+        field_names: Top-level fields assigned to the rendered section.
+
+    Returns:
+        Markdown body for the section.
+    """
+    lines = _field_lines(policy_node, field_names)
+    return "\n".join(lines) if lines else "- none"
+
+
+def _render_policy(policy_id: str, policy_node: dict[str, Any]) -> str:
     """Render one canonical policy node for agent consumption.
 
     Args:
         policy_id: Stable canonical policy ID.
         policy_node: Resolved canonical policy node.
-        classifications: Enforcement classification descriptions.
-
     Returns:
         Markdown policy section.
     """
     validate_projected_policy_node(policy_id, policy_node)
-    title = policy_node.get("title") or policy_node.get("group") or policy_id
-    risk = policy_node.get("risk", "Inherited from the canonical risk model")
-    enforcement = policy_node.get("enforcement", "See declared gates")
-    classification = classifications.get(enforcement, {}) if isinstance(classifications, dict) else {}
-    classification_description = classification.get("description") if isinstance(classification, dict) else None
-    enforcement_text = f"`{enforcement}`"
-    if isinstance(classification_description, str):
-        enforcement_text += f" — {classification_description}"
+    title = _format_scalar(policy_node.get("title"))
+    group = _format_scalar(policy_node.get("group"))
+    risk = _format_scalar(policy_node.get("risk"))
+    enforcement = _format_scalar(policy_node.get("enforcement"))
     ecosystems = _string_list(policy_node.get("ecosystems"))
+    ecosystem_text = ", ".join(ecosystems) if ecosystems else "none"
+    digest = normalized_node_digest(policy_node)
     return "\n".join(
         [
-            f"## {title}",
+            f"## `{policy_id}`",
             "",
-            f"- **Policy ID:** `{policy_id}`",
-            f"- **Risk:** `{risk}`",
-            f"- **Enforcement classification:** {enforcement_text}",
-            f"- **Ecosystems:** {', '.join(f'`{value}`' for value in ecosystems) if ecosystems else 'Universal or not separately declared.'}",
+            (
+                f"**ID:** `{policy_id}` | **Title:** {title} | **Group:** {group} | "
+                f"**Risk:** `{risk}` | **Enforcement:** `{enforcement}` | "
+                f"**Ecosystems:** {ecosystem_text} | **Digest:** `{digest}`"
+            ),
             "",
             "### Applicability",
             "",
-            _bullets(_field_lines(policy_node, APPLICABILITY_FIELDS)),
+            _render_section(policy_node, APPLICABILITY_FIELDS),
             "",
             "### Requirements",
             "",
-            _bullets(_field_lines(policy_node, REQUIREMENT_FIELDS)),
+            _render_section(policy_node, REQUIREMENT_FIELDS),
             "",
             "### Verification",
             "",
-            _bullets(_field_lines(policy_node, VERIFICATION_FIELDS)),
+            _render_section(policy_node, VERIFICATION_FIELDS),
             "",
             "### Escalation, exceptions, gates, and limitations",
             "",
-            _bullets(_field_lines(policy_node, CONTROL_FIELDS)),
+            _render_section(policy_node, CONTROL_FIELDS),
         ]
     )
+
+
+def _render_enforcement_legend(classifications: dict[str, Any]) -> str:
+    """Render the single enforcement-classification legend.
+
+    Args:
+        classifications: Canonical enforcement classification descriptions.
+
+    Returns:
+        Compact Markdown legend.
+    """
+    lines = ["## Enforcement legend", ""]
+    for classification_name in sorted(classifications):
+        classification = classifications[classification_name]
+        description = classification.get("description") if isinstance(classification, dict) else None
+        lines.append(f"- `{classification_name}`: {_format_scalar(description)}")
+    return "\n".join(lines)
 
 
 def _render_rule_file(
@@ -239,13 +290,11 @@ def _render_rule_file(
         f"# {title}",
         "",
         introduction,
-        "",
-        "## Canonical sources",
-        "",
-        _source_metadata(policy_ids, policy_nodes),
     ]
+    if not focused:
+        sections.extend(["", _render_enforcement_legend(classifications)])
     for policy_id in policy_ids:
-        sections.extend(["", _render_policy(policy_id, policy_nodes[policy_id], classifications)])
+        sections.extend(["", _render_policy(policy_id, policy_nodes[policy_id])])
     return "\n".join(sections)
 
 
@@ -253,7 +302,6 @@ def _render_index(
     title: str,
     section_name: str,
     groups: dict[str, list[str]],
-    policy_nodes: dict[str, dict[str, Any]],
 ) -> str:
     """Render a deterministic language or tool rule index.
 
@@ -261,12 +309,9 @@ def _render_index(
         title: Index title.
         section_name: Projection section name.
         groups: Group-to-policy-ID mapping.
-        policy_nodes: Resolved canonical policy nodes.
-
     Returns:
         Complete Markdown index.
     """
-    policy_ids = [policy_id for group_name in sorted(groups) for policy_id in groups[group_name]]
     lines = [
         GENERATED_MARKER,
         "",
@@ -280,24 +325,19 @@ def _render_index(
     for group_name in sorted(groups):
         source_ids = ", ".join(f"`{policy_id}`" for policy_id in groups[group_name])
         lines.append(f"- [`{group_name}`]({group_name}.md) — {source_ids}")
-    lines.extend(["", "## Canonical sources", "", _source_metadata(policy_ids, policy_nodes)])
     return "\n".join(lines)
 
 
 def _render_routing_index(
     projection: dict[str, Any],
-    policy_nodes: dict[str, dict[str, Any]],
 ) -> str:
     """Render the compact provider-neutral routing contract.
 
     Args:
         projection: Canonical rule-set projection metadata.
-        policy_nodes: Resolved canonical policy nodes.
-
     Returns:
         Complete master routing Markdown.
     """
-    policy_ids = agent_rule_set_policy_ids(projection)
     return "\n".join(
         [
             GENERATED_MARKER,
@@ -314,10 +354,6 @@ def _render_routing_index(
             "",
             "This layer routes canonical requirements; `registry/policies.yaml` remains the sole source of policy prose.",
             "Generated text reports canonical controls and limitations; it does not implement or prove runtime enforcement.",
-            "",
-            "## Canonical sources",
-            "",
-            _source_metadata(policy_ids, policy_nodes),
         ]
     )
 
@@ -342,7 +378,7 @@ def generate_security_rules(policies: dict[str, Any], output_root: Path) -> None
     if rules_directory.exists():
         shutil.rmtree(rules_directory)
 
-    write_text(security_directory / "rules.md", _render_routing_index(projection, policy_nodes))
+    write_text(security_directory / "rules.md", _render_routing_index(projection))
     universal_policy_ids = projection["universal"]
     write_text(
         rules_directory / "universal.md",
@@ -358,7 +394,7 @@ def generate_security_rules(policies: dict[str, Any], output_root: Path) -> None
         groups = projection[section_name]
         write_text(
             rules_directory / section_name / "index.md",
-            _render_index(title, section_name, groups, policy_nodes),
+            _render_index(title, section_name, groups),
         )
         for group_name in sorted(groups):
             write_text(

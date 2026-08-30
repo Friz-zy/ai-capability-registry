@@ -4,38 +4,31 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-INFRA-PLUGINS-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-INFRA-PLUGINS-001` | `c9e3586e19dfe3c8de1e8c94b62fffc1966a7d8cc2e3fedf147e6c9a75533f4d` |
-
-## infrastructure_plugins
-
-- **Policy ID:** `SDD-TOOL-INFRA-PLUGINS-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `runtime_preflight` — A fail-closed check required immediately before execution; enforcement depends on a separately implemented runtime control.
-- **Ecosystems:** `kubectl_plugins`, `helm_plugins`, `terraform_providers`, `packer_plugins`, `ansible_collections`, `ci_plugins`, `language_servers`, `code_generators`, `protoc_plugins`
+**ID:** `SDD-TOOL-INFRA-PLUGINS-001` | **Title:** none | **Group:** infrastructure_plugins | **Risk:** `HIGH` | **Enforcement:** `runtime_preflight` | **Ecosystems:** kubectl_plugins, helm_plugins, terraform_providers, packer_plugins, ansible_collections, ci_plugins, language_servers, code_generators, protoc_plugins | **Digest:** `c9e3586e19dfe3c8de1e8c94b62fffc1966a7d8cc2e3fedf147e6c9a75533f4d`
 
 ### Applicability
 
-- applicability.path_globs.config_files: []
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests: []
-- applicability.semantic_conditions[0]: plugin_or_extension_manifest_present_or_changed
-- applicability.semantic_conditions[1]: plugin_lock_or_checksum_state_present_or_changed
-- applicability.semantic_conditions[2]: infrastructure_or_development_plugin_configuration_present_or_changed
+- **applicability.path_globs.config_files:** none
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:** none
+- **applicability.semantic_conditions:**
+  - plugin_or_extension_manifest_present_or_changed
+  - plugin_lock_or_checksum_state_present_or_changed
+  - infrastructure_or_development_plugin_configuration_present_or_changed
 
 ### Requirements
 
-- requirements[0]: Treat infrastructure, CI, language-server, generator, and protocol plugins as executable dependencies.
-- requirements[1]: Apply dependency review, quarantine, integrity checks, and sandbox execution before installation.
-- requirements[2]: Do not install plugins globally or automatically in the control environment.
+- **requirements:**
+  - Treat infrastructure, CI, language-server, generator, and protocol plugins as executable dependencies.
+  - Apply dependency review, quarantine, integrity checks, and sandbox execution before installation.
+  - Do not install plugins globally or automatically in the control environment.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

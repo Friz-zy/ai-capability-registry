@@ -4,44 +4,39 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-DOTNET-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-DOTNET-001` | `1cf74ba3360f7f76b3752e1f9a1e8735e338db8024111b9f4f65e34dcc15e898` |
-
-## dotnet_csharp_fsharp
-
-- **Policy ID:** `SDD-ECO-DOTNET-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `nuget`, `dotnet`, `msbuild`
+**ID:** `SDD-ECO-DOTNET-001` | **Title:** none | **Group:** dotnet_csharp_fsharp | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** nuget, dotnet, msbuild | **Digest:** `1cf74ba3360f7f76b3752e1f9a1e8735e338db8024111b9f4f65e34dcc15e898`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: NuGet.Config
-- applicability.path_globs.config_files[1]: nuget.config
-- applicability.path_globs.config_files[2]: global.json
-- applicability.path_globs.config_files[3]: dotnet-tools.json
-- applicability.path_globs.config_files[4]: Directory.Build.*
-- applicability.path_globs.lockfiles[0]: packages.lock.json
-- applicability.path_globs.manifests[0]: *.csproj
-- applicability.path_globs.manifests[1]: *.fsproj
-- applicability.path_globs.manifests[2]: *.vbproj
-- applicability.path_globs.manifests[3]: Directory.Packages.props
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - NuGet.Config
+  - nuget.config
+  - global.json
+  - dotnet-tools.json
+  - Directory.Build.*
+- **applicability.path_globs.lockfiles:**
+  - packages.lock.json
+- **applicability.path_globs.manifests:**
+  - *.csproj
+  - *.fsproj
+  - *.vbproj
+  - Directory.Packages.props
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Prefer PackageReference, locked restore, and packages.lock.json where reproducibility is required.
-- requirements[1]: Review package sources, source mappings, MSBuild imports and targets, analyzers, source generators, and tools.
-- requirements[2]: Use trusted package or repository signers where the project configures them.
-- requirements[3]: Do not install arbitrary global dotnet tools; prefer a repository-local tool manifest.
+- **requirements:**
+  - Prefer PackageReference, locked restore, and packages.lock.json where reproducibility is required.
+  - Review package sources, source mappings, MSBuild imports and targets, analyzers, source generators, and tools.
+  - Use trusted package or repository signers where the project configures them.
+  - Do not install arbitrary global dotnet tools; prefer a repository-local tool manifest.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

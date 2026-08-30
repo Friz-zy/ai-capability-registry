@@ -4,39 +4,34 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-HASKELL-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-HASKELL-001` | `dafc841adf2ddc9d6353f1868d28ebf56680ce56a676a5eb0d558a209b1a0e98` |
-
-## haskell
-
-- **Policy ID:** `SDD-ECO-HASKELL-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `cabal`, `stack`
+**ID:** `SDD-ECO-HASKELL-001` | **Title:** none | **Group:** haskell | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** cabal, stack | **Digest:** `dafc841adf2ddc9d6353f1868d28ebf56680ce56a676a5eb0d558a209b1a0e98`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: cabal.project.local
-- applicability.path_globs.lockfiles[0]: cabal.project.freeze
-- applicability.path_globs.lockfiles[1]: stack.yaml.lock
-- applicability.path_globs.manifests[0]: *.cabal
-- applicability.path_globs.manifests[1]: cabal.project
-- applicability.path_globs.manifests[2]: stack.yaml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - cabal.project.local
+- **applicability.path_globs.lockfiles:**
+  - cabal.project.freeze
+  - stack.yaml.lock
+- **applicability.path_globs.manifests:**
+  - *.cabal
+  - cabal.project
+  - stack.yaml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Use reproducible dependency state through freeze files, snapshots, or supported lock metadata.
-- requirements[1]: Review Setup.hs, custom hooks, Git dependencies, compiler plugins, Template Haskell, and native libraries.
-- requirements[2]: Run dependency builds inside the sandbox.
+- **requirements:**
+  - Use reproducible dependency state through freeze files, snapshots, or supported lock metadata.
+  - Review Setup.hs, custom hooks, Git dependencies, compiler plugins, Template Haskell, and native libraries.
+  - Run dependency builds inside the sandbox.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

@@ -4,37 +4,31 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-IDE-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-IDE-001` | `c14c5fba7620d1156665d2a90c945ba23b748505580e0e47f86041f94f55dec7` |
-
-## ide_editor_extensions
-
-- **Policy ID:** `SDD-TOOL-IDE-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `human_gate` — Explicit approval by an authorized human at a named trust boundary; agent approval is not a substitute.
-- **Ecosystems:** `vscode`, `intellij_platform`
+**ID:** `SDD-TOOL-IDE-001` | **Title:** none | **Group:** ide_editor_extensions | **Risk:** `HIGH` | **Enforcement:** `human_gate` | **Ecosystems:** vscode, intellij_platform | **Digest:** `c14c5fba7620d1156665d2a90c945ba23b748505580e0e47f86041f94f55dec7`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .vscode/**
-- applicability.path_globs.config_files[1]: .idea/**
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: .vscode/extensions.json
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .vscode/**
+  - .idea/**
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - .vscode/extensions.json
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Do not automatically install extensions, language-server plugins, debug adapters, or IDE plugins from repository recommendations.
-- requirements[1]: Review identity, publisher, version, permissions, update behavior, and provenance before installation.
-- requirements[2]: Pin versions where the platform supports it.
+- **requirements:**
+  - Do not automatically install extensions, language-server plugins, debug adapters, or IDE plugins from repository recommendations.
+  - Review identity, publisher, version, permissions, update behavior, and provenance before installation.
+  - Pin versions where the platform supports it.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- trust_boundary: HUMAN
+- **trust_boundary:** HUMAN

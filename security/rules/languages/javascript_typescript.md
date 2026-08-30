@@ -4,49 +4,44 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-JAVASCRIPT-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-JAVASCRIPT-001` | `60e9f50131e10b4ec5e3c71bea9f5c3b550b781a63e3c0b5a7fef4d7dbbbc502` |
-
-## javascript_typescript
-
-- **Policy ID:** `SDD-ECO-JAVASCRIPT-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `npm`, `pnpm`, `yarn`, `bun`
+**ID:** `SDD-ECO-JAVASCRIPT-001` | **Title:** none | **Group:** javascript_typescript | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** npm, pnpm, yarn, bun | **Digest:** `60e9f50131e10b4ec5e3c71bea9f5c3b550b781a63e3c0b5a7fef4d7dbbbc502`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .npmrc
-- applicability.path_globs.config_files[1]: .yarnrc*
-- applicability.path_globs.config_files[2]: pnpm-workspace.yaml
-- applicability.path_globs.config_files[3]: bunfig.toml
-- applicability.path_globs.lockfiles[0]: package-lock.json
-- applicability.path_globs.lockfiles[1]: npm-shrinkwrap.json
-- applicability.path_globs.lockfiles[2]: pnpm-lock.yaml
-- applicability.path_globs.lockfiles[3]: yarn.lock
-- applicability.path_globs.lockfiles[4]: bun.lock
-- applicability.path_globs.lockfiles[5]: bun.lockb
-- applicability.path_globs.manifests[0]: package.json
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .npmrc
+  - .yarnrc*
+  - pnpm-workspace.yaml
+  - bunfig.toml
+- **applicability.path_globs.lockfiles:**
+  - package-lock.json
+  - npm-shrinkwrap.json
+  - pnpm-lock.yaml
+  - yarn.lock
+  - bun.lock
+  - bun.lockb
+- **applicability.path_globs.manifests:**
+  - package.json
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Require a committed lockfile and immutable or frozen install.
-- requirements[1]: Pin the package-manager version where practical.
-- requirements[2]: Deny lifecycle scripts by default. Use per-package lifecycle-script allowlisting only when the package manager supports it, and allow only reviewed packages.
-- requirements[3]: npm has no native per-package lifecycle-script allowlist. Use npm ci --ignore-scripts first; execute a lifecycle script only after documented manual review and explicit authorization, and only in a sandbox.
-- requirements[4]: Treat preinstall, install, postinstall, and prepare as arbitrary code execution.
-- requirements[5]: Do not use npx, npm exec, pnpm dlx, yarn dlx, or bunx for an unreviewed package and exact version.
-- requirements[6]: Reject unexpected registry changes, floating Git dependencies, and silent lockfile regeneration.
-- requirements[7]: Prefer a project-local pinned tool over a global install.
+- **requirements:**
+  - Require a committed lockfile and immutable or frozen install.
+  - Pin the package-manager version where practical.
+  - Deny lifecycle scripts by default. Use per-package lifecycle-script allowlisting only when the package manager supports it, and allow only reviewed packages.
+  - npm has no native per-package lifecycle-script allowlist. Use npm ci --ignore-scripts first; execute a lifecycle script only after documented manual review and explicit authorization, and only in a sandbox.
+  - Treat preinstall, install, postinstall, and prepare as arbitrary code execution.
+  - Do not use npx, npm exec, pnpm dlx, yarn dlx, or bunx for an unreviewed package and exact version.
+  - Reject unexpected registry changes, floating Git dependencies, and silent lockfile regeneration.
+  - Prefer a project-local pinned tool over a global install.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

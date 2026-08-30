@@ -4,44 +4,38 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-CONTAINER-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-CONTAINER-001` | `f0df86abeda9cf504125c405c73951ec45796f19d88685491610bdfd45176687` |
-
-## containers
-
-- **Policy ID:** `SDD-TOOL-CONTAINER-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `docker`, `podman`, `buildah`, `compose`, `oci`
+**ID:** `SDD-TOOL-CONTAINER-001` | **Title:** none | **Group:** containers | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** docker, podman, buildah, compose, oci | **Digest:** `f0df86abeda9cf504125c405c73951ec45796f19d88685491610bdfd45176687`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .dockerignore
-- applicability.path_globs.config_files[1]: containers.conf
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: Dockerfile*
-- applicability.path_globs.manifests[1]: Containerfile*
-- applicability.path_globs.manifests[2]: compose*.yaml
-- applicability.path_globs.manifests[3]: compose*.yml
-- applicability.path_globs.manifests[4]: docker-compose*.yaml
-- applicability.path_globs.manifests[5]: docker-compose*.yml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .dockerignore
+  - containers.conf
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - Dockerfile*
+  - Containerfile*
+  - compose*.yaml
+  - compose*.yml
+  - docker-compose*.yaml
+  - docker-compose*.yml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Treat base images as dependencies and pin versions or immutable digests for high assurance.
-- requirements[1]: Reject privileged defaults, host runtime sockets, unnecessary capabilities, and secret persistence in arguments, environment, or layers.
-- requirements[2]: Prefer non-root runtime, read-only filesystems, bounded resources, and ephemeral secret mounts.
-- requirements[3]: Review downloads, package repositories, setuid files, services, and COPY scope.
-- requirements[4]: Scan images and retain SBOM or provenance when required by project policy.
+- **requirements:**
+  - Treat base images as dependencies and pin versions or immutable digests for high assurance.
+  - Reject privileged defaults, host runtime sockets, unnecessary capabilities, and secret persistence in arguments, environment, or layers.
+  - Prefer non-root runtime, read-only filesystems, bounded resources, and ephemeral secret mounts.
+  - Review downloads, package repositories, setuid files, services, and COPY scope.
+  - Scan images and retain SBOM or provenance when required by project policy.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

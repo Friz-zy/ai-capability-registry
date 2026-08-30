@@ -4,39 +4,33 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-CODEGEN-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-CODEGEN-001` | `17806de11008b72030666b8caca97ebb22d0512535c080db37bd6873ad202c72` |
-
-## code_generation
-
-- **Policy ID:** `SDD-TOOL-CODEGEN-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `runtime_preflight` — A fail-closed check required immediately before execution; enforcement depends on a separately implemented runtime control.
-- **Ecosystems:** `protobuf`, `openapi`, `orm`, `graphql`, `sdk`, `compiler_plugins`, `macros`
+**ID:** `SDD-TOOL-CODEGEN-001` | **Title:** none | **Group:** code_generation | **Risk:** `HIGH` | **Enforcement:** `runtime_preflight` | **Ecosystems:** protobuf, openapi, orm, graphql, sdk, compiler_plugins, macros | **Digest:** `17806de11008b72030666b8caca97ebb22d0512535c080db37bd6873ad202c72`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: *codegen*
-- applicability.path_globs.config_files[1]: buf.gen.yaml
-- applicability.path_globs.config_files[2]: openapi-generator*.yaml
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests: []
-- applicability.semantic_conditions[0]: generator_dependency_manifest_present_or_changed
-- applicability.semantic_conditions[1]: generator_dependency_lock_state_present_or_changed
+- **applicability.path_globs.config_files:**
+  - *codegen*
+  - buf.gen.yaml
+  - openapi-generator*.yaml
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:** none
+- **applicability.semantic_conditions:**
+  - generator_dependency_manifest_present_or_changed
+  - generator_dependency_lock_state_present_or_changed
 
 ### Requirements
 
-- requirements[0]: Pin and review generator identity and version as an executable dependency.
-- requirements[1]: Execute generators inside the sandbox without unnecessary credentials or network access.
-- requirements[2]: Treat generated output as untrusted until review, tests, static analysis, and applicable security verification pass.
+- **requirements:**
+  - Pin and review generator identity and version as an executable dependency.
+  - Execute generators inside the sandbox without unnecessary credentials or network access.
+  - Treat generated output as untrusted until review, tests, static analysis, and applicable security verification pass.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

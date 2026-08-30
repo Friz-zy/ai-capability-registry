@@ -4,36 +4,30 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-GIT-DEPS-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-GIT-DEPS-001` | `f2a4faee18ddfbc170dbf9628a8fa80d4f756f623801f6bb145a297bbe5131c5` |
-
-## git_dependencies_and_submodules
-
-- **Policy ID:** `SDD-TOOL-GIT-DEPS-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `git`
+**ID:** `SDD-TOOL-GIT-DEPS-001` | **Title:** none | **Group:** git_dependencies_and_submodules | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** git | **Digest:** `f2a4faee18ddfbc170dbf9628a8fa80d4f756f623801f6bb145a297bbe5131c5`
 
 ### Applicability
 
-- applicability.path_globs.config_files: []
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: .gitmodules
-- applicability.semantic_conditions[0]: dependency_manifest_contains_git_source
+- **applicability.path_globs.config_files:** none
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - .gitmodules
+- **applicability.semantic_conditions:**
+  - dependency_manifest_contains_git_source
 
 ### Requirements
 
-- requirements[0]: Pin immutable commits and avoid branches, latest, and moving tags without verified integrity.
-- requirements[1]: Verify repository ownership and origin.
-- requirements[2]: Treat URL or commit changes as dependency changes subject to full review.
+- **requirements:**
+  - Pin immutable commits and avoid branches, latest, and moving tags without verified integrity.
+  - Verify repository ownership and origin.
+  - Treat URL or commit changes as dependency changes subject to full review.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

@@ -4,46 +4,41 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-JVM-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-JVM-001` | `6d1c0274a50299dbfdee827b6a0ce261cdaa722deca0dd3903b4a5f4ec47201b` |
-
-## java_kotlin_scala_jvm
-
-- **Policy ID:** `SDD-ECO-JVM-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `maven`, `gradle`, `sbt`
+**ID:** `SDD-ECO-JVM-001` | **Title:** none | **Group:** java_kotlin_scala_jvm | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** maven, gradle, sbt | **Digest:** `6d1c0274a50299dbfdee827b6a0ce261cdaa722deca0dd3903b4a5f4ec47201b`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: settings.gradle
-- applicability.path_globs.config_files[1]: settings.gradle.kts
-- applicability.path_globs.config_files[2]: gradle/wrapper/gradle-wrapper.properties
-- applicability.path_globs.config_files[3]: .mvn/**
-- applicability.path_globs.config_files[4]: project/plugins.sbt
-- applicability.path_globs.lockfiles[0]: gradle.lockfile
-- applicability.path_globs.lockfiles[1]: gradle/dependency-locks/**
-- applicability.path_globs.manifests[0]: pom.xml
-- applicability.path_globs.manifests[1]: build.gradle
-- applicability.path_globs.manifests[2]: build.gradle.kts
-- applicability.path_globs.manifests[3]: build.sbt
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - settings.gradle
+  - settings.gradle.kts
+  - gradle/wrapper/gradle-wrapper.properties
+  - .mvn/**
+  - project/plugins.sbt
+- **applicability.path_globs.lockfiles:**
+  - gradle.lockfile
+  - gradle/dependency-locks/**
+- **applicability.path_globs.manifests:**
+  - pom.xml
+  - build.gradle
+  - build.gradle.kts
+  - build.sbt
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Reject SNAPSHOT dependencies, dynamic versions, unbounded ranges, and floating plugin versions unless explicitly reviewed.
-- requirements[1]: Treat build plugins, annotation or compiler processors, generators, buildSrc, and custom tasks as executable supply-chain code.
-- requirements[2]: Pin wrappers, plugins, and repositories.
-- requirements[3]: Enable and review dependency checksums or signatures where supported.
-- requirements[4]: Do not add arbitrary artifact repositories merely to resolve a missing package.
+- **requirements:**
+  - Reject SNAPSHOT dependencies, dynamic versions, unbounded ranges, and floating plugin versions unless explicitly reviewed.
+  - Treat build plugins, annotation or compiler processors, generators, buildSrc, and custom tasks as executable supply-chain code.
+  - Pin wrappers, plugins, and repositories.
+  - Enable and review dependency checksums or signatures where supported.
+  - Do not add arbitrary artifact repositories merely to resolve a missing package.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

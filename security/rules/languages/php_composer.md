@@ -4,38 +4,33 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-PHP-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-PHP-001` | `61e6d34b43b8b6940553b6c668188473fec44fdc44a4934e0bab740bae212a4d` |
-
-## php_composer
-
-- **Policy ID:** `SDD-ECO-PHP-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `composer`
+**ID:** `SDD-ECO-PHP-001` | **Title:** none | **Group:** php_composer | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** composer | **Digest:** `61e6d34b43b8b6940553b6c668188473fec44fdc44a4934e0bab740bae212a4d`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: auth.json
-- applicability.path_globs.lockfiles[0]: composer.lock
-- applicability.path_globs.manifests[0]: composer.json
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - auth.json
+- **applicability.path_globs.lockfiles:**
+  - composer.lock
+- **applicability.path_globs.manifests:**
+  - composer.json
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Require composer.json and composer.lock and use install rather than silently resolving updates.
-- requirements[1]: Treat Composer plugins, scripts, installers, and bootstrap or discovery code as executable dependencies.
-- requirements[2]: Require an explicit plugin allowlist.
-- requirements[3]: Review repositories, VCS or path dependencies, plugins, and scripts.
-- requirements[4]: Do not globally install Composer packages or tools during normal agent work.
+- **requirements:**
+  - Require composer.json and composer.lock and use install rather than silently resolving updates.
+  - Treat Composer plugins, scripts, installers, and bootstrap or discovery code as executable dependencies.
+  - Require an explicit plugin allowlist.
+  - Review repositories, VCS or path dependencies, plugins, and scripts.
+  - Do not globally install Composer packages or tools during normal agent work.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

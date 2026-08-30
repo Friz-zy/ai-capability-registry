@@ -4,39 +4,33 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-GITHUB-ACTIONS-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-GITHUB-ACTIONS-001` | `a248c1fbd39062d3e4e45eed977b6f2b25adaaaff953245e5cf44062d1279eef` |
-
-## github_actions
-
-- **Policy ID:** `SDD-TOOL-GITHUB-ACTIONS-001`
-- **Risk:** `CRITICAL`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `github_actions`
+**ID:** `SDD-TOOL-GITHUB-ACTIONS-001` | **Title:** none | **Group:** github_actions | **Risk:** `CRITICAL` | **Enforcement:** `static_validation` | **Ecosystems:** github_actions | **Digest:** `a248c1fbd39062d3e4e45eed977b6f2b25adaaaff953245e5cf44062d1279eef`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .github/actions/**
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: .github/workflows/*.yml
-- applicability.path_globs.manifests[1]: .github/workflows/*.yaml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .github/actions/**
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - .github/workflows/*.yml
+  - .github/workflows/*.yaml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Treat each uses reference as an executable dependency.
-- requirements[1]: Pin third-party actions to immutable commit SHAs for high assurance.
-- requirements[2]: Declare explicit minimal GITHUB_TOKEN permissions.
-- requirements[3]: Never execute untrusted pull-request code with powerful secrets or write permissions.
+- **requirements:**
+  - Treat each uses reference as an executable dependency.
+  - Pin third-party actions to immutable commit SHAs for high assurance.
+  - Declare explicit minimal GITHUB_TOKEN permissions.
+  - Never execute untrusted pull-request code with powerful secrets or write permissions.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- change_gate.enforcement: human_gate
-- change_gate.trust_boundary: HUMAN
+- **change_gate.enforcement:** human_gate
+- **change_gate.trust_boundary:** HUMAN

@@ -4,42 +4,36 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-MIGRATIONS-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-MIGRATIONS-001` | `2cde7b0223b03b2c2df229291579021aade8400a2aeba6657cbf02a9d9450f14` |
-
-## database_migration_tools
-
-- **Policy ID:** `SDD-TOOL-MIGRATIONS-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `flyway`, `liquibase`, `alembic`, `django`, `rails`, `prisma`, `orm_migrations`
+**ID:** `SDD-TOOL-MIGRATIONS-001` | **Title:** none | **Group:** database_migration_tools | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** flyway, liquibase, alembic, django, rails, prisma, orm_migrations | **Digest:** `2cde7b0223b03b2c2df229291579021aade8400a2aeba6657cbf02a9d9450f14`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: migrations/**
-- applicability.path_globs.config_files[1]: alembic.ini
-- applicability.path_globs.config_files[2]: prisma/schema.prisma
-- applicability.path_globs.config_files[3]: liquibase*.yaml
-- applicability.path_globs.config_files[4]: flyway.conf
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests: []
-- applicability.semantic_conditions[0]: migration_tool_dependency_manifest_present_or_changed
-- applicability.semantic_conditions[1]: migration_tool_dependency_lock_state_present_or_changed
+- **applicability.path_globs.config_files:**
+  - migrations/**
+  - alembic.ini
+  - prisma/schema.prisma
+  - liquibase*.yaml
+  - flyway.conf
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:** none
+- **applicability.semantic_conditions:**
+  - migration_tool_dependency_manifest_present_or_changed
+  - migration_tool_dependency_lock_state_present_or_changed
 
 ### Requirements
 
-- requirements[0]: Review generated migrations and inspect drops, truncation, rewrites, locks, non-transactional operations, and irreversible transformations.
-- requirements[1]: Require rollback or recovery planning for high-risk migrations.
-- requirements[2]: Never automatically execute destructive or production migrations.
+- **requirements:**
+  - Review generated migrations and inspect drops, truncation, rewrites, locks, non-transactional operations, and irreversible transformations.
+  - Require rollback or recovery planning for high-risk migrations.
+  - Never automatically execute destructive or production migrations.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- production_or_destructive_gate.enforcement: human_gate
-- production_or_destructive_gate.trust_boundary: HUMAN
+- **production_or_destructive_gate.enforcement:** human_gate
+- **production_or_destructive_gate.trust_boundary:** HUMAN

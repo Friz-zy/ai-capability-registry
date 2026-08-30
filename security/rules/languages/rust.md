@@ -4,39 +4,34 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-RUST-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-RUST-001` | `aada94fa1d3eacca43c9363618d8d99c095743fa1d8146f5eb0ab162a31af19a` |
-
-## rust
-
-- **Policy ID:** `SDD-ECO-RUST-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `cargo`
+**ID:** `SDD-ECO-RUST-001` | **Title:** none | **Group:** rust | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** cargo | **Digest:** `aada94fa1d3eacca43c9363618d8d99c095743fa1d8146f5eb0ab162a31af19a`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .cargo/config
-- applicability.path_globs.config_files[1]: .cargo/config.toml
-- applicability.path_globs.lockfiles[0]: Cargo.lock
-- applicability.path_globs.manifests[0]: Cargo.toml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .cargo/config
+  - .cargo/config.toml
+- **applicability.path_globs.lockfiles:**
+  - Cargo.lock
+- **applicability.path_globs.manifests:**
+  - Cargo.toml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Require Cargo.lock for applications and binaries and use locked resolution for verification.
-- requirements[1]: Prefer frozen or offline execution after isolated dependency fetch.
-- requirements[2]: Treat build.rs, procedural macros, native build dependencies, and generators as executable dependency code.
-- requirements[3]: Review new crates, feature changes, Git dependencies, workspace patches, and native or system dependencies.
-- requirements[4]: Pin Git dependencies to immutable revisions.
+- **requirements:**
+  - Require Cargo.lock for applications and binaries and use locked resolution for verification.
+  - Prefer frozen or offline execution after isolated dependency fetch.
+  - Treat build.rs, procedural macros, native build dependencies, and generators as executable dependency code.
+  - Review new crates, feature changes, Git dependencies, workspace patches, and native or system dependencies.
+  - Pin Git dependencies to immutable revisions.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

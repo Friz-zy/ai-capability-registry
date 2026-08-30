@@ -4,44 +4,39 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-TERRAFORM-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-TERRAFORM-001` | `a3481a42f652a406bb81ab6c3f63da264c12fbdc0d2c0d6d25144fce9cad71f2` |
-
-## terraform_opentofu
-
-- **Policy ID:** `SDD-TOOL-TERRAFORM-001`
-- **Risk:** `CRITICAL`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `terraform`, `opentofu`
+**ID:** `SDD-TOOL-TERRAFORM-001` | **Title:** none | **Group:** terraform_opentofu | **Risk:** `CRITICAL` | **Enforcement:** `static_validation` | **Ecosystems:** terraform, opentofu | **Digest:** `a3481a42f652a406bb81ab6c3f63da264c12fbdc0d2c0d6d25144fce9cad71f2`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: *.tfvars
-- applicability.path_globs.config_files[1]: *.tfvars.json
-- applicability.path_globs.config_files[2]: *.tfbackend
-- applicability.path_globs.config_files[3]: .terraformrc
-- applicability.path_globs.lockfiles[0]: .terraform.lock.hcl
-- applicability.path_globs.manifests[0]: *.tf
-- applicability.path_globs.manifests[1]: *.tofu
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - *.tfvars
+  - *.tfvars.json
+  - *.tfbackend
+  - .terraformrc
+- **applicability.path_globs.lockfiles:**
+  - .terraform.lock.hcl
+- **applicability.path_globs.manifests:**
+  - *.tf
+  - *.tofu
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Require and review .terraform.lock.hcl and verify provider checksums.
-- requirements[1]: Pin provider and module sources to bounded versions or immutable revisions.
-- requirements[2]: Review backends, provisioners, external data, local-exec, remote-exec, provider sources, and module sources.
-- requirements[3]: Treat init, providers, plugins, and external modules as dependency execution in isolation.
-- requirements[4]: Protect state as secret-bearing data.
+- **requirements:**
+  - Require and review .terraform.lock.hcl and verify provider checksums.
+  - Pin provider and module sources to bounded versions or immutable revisions.
+  - Review backends, provisioners, external data, local-exec, remote-exec, provider sources, and module sources.
+  - Treat init, providers, plugins, and external modules as dependency execution in isolation.
+  - Protect state as secret-bearing data.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- apply_gate.enforcement: human_gate
-- apply_gate.rule: Never automatically apply to production from an ordinary coding-agent workflow.
-- apply_gate.trust_boundary: HUMAN
+- **apply_gate.enforcement:** human_gate
+- **apply_gate.rule:** Never automatically apply to production from an ordinary coding-agent workflow.
+- **apply_gate.trust_boundary:** HUMAN

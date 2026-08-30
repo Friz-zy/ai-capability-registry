@@ -4,43 +4,37 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-ANSIBLE-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-ANSIBLE-001` | `d800edcf9e8da4fef6163a2a37693d1972cb11cbb389cf4da1d566606710a6ff` |
-
-## ansible
-
-- **Policy ID:** `SDD-TOOL-ANSIBLE-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `ansible`, `ansible_galaxy`
+**ID:** `SDD-TOOL-ANSIBLE-001` | **Title:** none | **Group:** ansible | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** ansible, ansible_galaxy | **Digest:** `d800edcf9e8da4fef6163a2a37693d1972cb11cbb389cf4da1d566606710a6ff`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: ansible.cfg
-- applicability.path_globs.config_files[1]: inventories/**
-- applicability.path_globs.config_files[2]: group_vars/**
-- applicability.path_globs.config_files[3]: host_vars/**
-- applicability.path_globs.config_files[4]: playbooks/**/*.yml
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: requirements.yml
-- applicability.path_globs.manifests[1]: galaxy.yml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - ansible.cfg
+  - inventories/**
+  - group_vars/**
+  - host_vars/**
+  - playbooks/**/*.yml
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - requirements.yml
+  - galaxy.yml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Treat roles, collections, modules, plugins, and inventory scripts as executable dependencies.
-- requirements[1]: Pin Galaxy role and collection versions and avoid arbitrary remote role sources.
-- requirements[2]: Use least-privileged credentials and disposable targets for tests where practical.
-- requirements[3]: Do not treat check mode as proof of safety.
+- **requirements:**
+  - Treat roles, collections, modules, plugins, and inventory scripts as executable dependencies.
+  - Pin Galaxy role and collection versions and avoid arbitrary remote role sources.
+  - Use least-privileged credentials and disposable targets for tests where practical.
+  - Do not treat check mode as proof of safety.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- production_gate.enforcement: human_gate
-- production_gate.trust_boundary: HUMAN
+- **production_gate.enforcement:** human_gate
+- **production_gate.trust_boundary:** HUMAN

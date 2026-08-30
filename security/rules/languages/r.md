@@ -4,37 +4,32 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-R-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-R-001` | `1d7958874dadeef0f5bf5c50d4132cabae97b97813166a73345eafe5f8f2dca6` |
-
-## r
-
-- **Policy ID:** `SDD-ECO-R-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `renv`
+**ID:** `SDD-ECO-R-001` | **Title:** none | **Group:** r | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** renv | **Digest:** `1d7958874dadeef0f5bf5c50d4132cabae97b97813166a73345eafe5f8f2dca6`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .Rprofile
-- applicability.path_globs.config_files[1]: renv/settings.json
-- applicability.path_globs.lockfiles[0]: renv.lock
-- applicability.path_globs.manifests[0]: DESCRIPTION
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .Rprofile
+  - renv/settings.json
+- **applicability.path_globs.lockfiles:**
+  - renv.lock
+- **applicability.path_globs.manifests:**
+  - DESCRIPTION
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Prefer a reproducible project dependency environment and committed renv.lock.
-- requirements[1]: Treat source-package compilation, configure scripts, and native dependencies as arbitrary code.
-- requirements[2]: Use isolated project libraries and sandboxed installation, not the user's global R library.
+- **requirements:**
+  - Prefer a reproducible project dependency environment and committed renv.lock.
+  - Treat source-package compilation, configure scripts, and native dependencies as arbitrary code.
+  - Use isolated project libraries and sandboxed installation, not the user's global R library.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

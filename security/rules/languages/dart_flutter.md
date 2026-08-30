@@ -4,38 +4,33 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-DART-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-DART-001` | `eba6eb99e6a513f8631466e80062aabc4a01657f334b1a50df2a6a492f9ede34` |
-
-## dart_flutter
-
-- **Policy ID:** `SDD-ECO-DART-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `pub`, `flutter`
+**ID:** `SDD-ECO-DART-001` | **Title:** none | **Group:** dart_flutter | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** pub, flutter | **Digest:** `eba6eb99e6a513f8631466e80062aabc4a01657f334b1a50df2a6a492f9ede34`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: analysis_options.yaml
-- applicability.path_globs.config_files[1]: build.yaml
-- applicability.path_globs.lockfiles[0]: pubspec.lock
-- applicability.path_globs.manifests[0]: pubspec.yaml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - analysis_options.yaml
+  - build.yaml
+- **applicability.path_globs.lockfiles:**
+  - pubspec.lock
+- **applicability.path_globs.manifests:**
+  - pubspec.yaml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Require pubspec.yaml and pubspec.lock for applications and do not silently update resolution during verification.
-- requirements[1]: Review Git and path dependencies, overrides, build plugins, and native platform packages.
-- requirements[2]: Treat generated and build tooling as executable dependency code.
-- requirements[3]: Do not globally activate arbitrary packages from unreviewed sources.
+- **requirements:**
+  - Require pubspec.yaml and pubspec.lock for applications and do not silently update resolution during verification.
+  - Review Git and path dependencies, overrides, build plugins, and native platform packages.
+  - Treat generated and build tooling as executable dependency code.
+  - Do not globally activate arbitrary packages from unreviewed sources.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

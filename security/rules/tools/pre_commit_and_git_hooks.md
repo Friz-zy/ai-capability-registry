@@ -4,39 +4,33 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-HOOKS-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-HOOKS-001` | `605552767d7f6fb93c2833a1f1158decc30b523eadddb9fab0e6c16879b74f1e` |
-
-## pre_commit_and_git_hooks
-
-- **Policy ID:** `SDD-TOOL-HOOKS-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `pre_commit`, `lefthook`, `husky`, `git_hooks`
+**ID:** `SDD-TOOL-HOOKS-001` | **Title:** none | **Group:** pre_commit_and_git_hooks | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** pre_commit, lefthook, husky, git_hooks | **Digest:** `605552767d7f6fb93c2833a1f1158decc30b523eadddb9fab0e6c16879b74f1e`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .husky/**
-- applicability.path_globs.config_files[1]: .git/hooks/**
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: .pre-commit-config.yaml
-- applicability.path_globs.manifests[1]: lefthook.yml
-- applicability.path_globs.manifests[2]: lefthook.yaml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .husky/**
+  - .git/hooks/**
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - .pre-commit-config.yaml
+  - lefthook.yml
+  - lefthook.yaml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Treat third-party hooks as executable dependencies and pin immutable revisions.
-- requirements[1]: Do not automatically execute newly introduced hooks on the host before review.
-- requirements[2]: Perform initial execution in the sandbox.
+- **requirements:**
+  - Treat third-party hooks as executable dependencies and pin immutable revisions.
+  - Do not automatically execute newly introduced hooks on the host before review.
+  - Perform initial execution in the sandbox.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

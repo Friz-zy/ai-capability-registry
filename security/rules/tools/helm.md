@@ -4,40 +4,35 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-HELM-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-HELM-001` | `4926971009d298cfd23f93869ed70545cdb4db047223655df9cb631156fa356a` |
-
-## helm
-
-- **Policy ID:** `SDD-TOOL-HELM-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `helm`
+**ID:** `SDD-TOOL-HELM-001` | **Title:** none | **Group:** helm | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** helm | **Digest:** `4926971009d298cfd23f93869ed70545cdb4db047223655df9cb631156fa356a`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: values*.yaml
-- applicability.path_globs.config_files[1]: templates/**
-- applicability.path_globs.lockfiles[0]: Chart.lock
-- applicability.path_globs.lockfiles[1]: charts/**/Chart.lock
-- applicability.path_globs.manifests[0]: Chart.yaml
-- applicability.path_globs.manifests[1]: charts/**/Chart.yaml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - values*.yaml
+  - templates/**
+- **applicability.path_globs.lockfiles:**
+  - Chart.lock
+  - charts/**/Chart.lock
+- **applicability.path_globs.manifests:**
+  - Chart.yaml
+  - charts/**/Chart.yaml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Pin chart versions and verify provenance or signatures where available.
-- requirements[1]: Review dependencies, repositories, hooks, CRDs, RBAC, security contexts, host mounts, post-renderers, and plugins.
-- requirements[2]: Do not automatically install Helm plugins.
-- requirements[3]: Render, statically verify, and security-check before separately authorized deployment.
+- **requirements:**
+  - Pin chart versions and verify provenance or signatures where available.
+  - Review dependencies, repositories, hooks, CRDs, RBAC, security contexts, host mounts, post-renderers, and plugins.
+  - Do not automatically install Helm plugins.
+  - Render, statically verify, and security-check before separately authorized deployment.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

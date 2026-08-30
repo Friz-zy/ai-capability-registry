@@ -12,6 +12,42 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Reviewed against the approved compact renderer contract. These values describe the
+# canonical policy rendering baseline, not a repository-history snapshot.
+APPROVED_COMPRESSION_BASELINE_REVISION = "security-rules-compact-v1"
+APPROVED_CANONICAL_RENDER_METRICS = (89551, 2109, 8632)  # bytes, lines, words
+APPROVED_MINIMUM_REDUCTIONS = (0.20, 0.10, 0.15)
+APPROVED_MAXIMUM_REDUCTIONS = (0.35, 0.25, 0.30)
+
+DUPLICATE_SELECTOR_FIXTURE = {
+    # Selector rows contain nested maps and lists. Their boundaries are semantic even
+    # when scalar values repeat across rows.
+    "selectors": [
+        {
+            "ecosystems": ["duplicate-ecosystem"],
+            "path_globs": ["duplicate-path-a"],
+            "nested_match": {
+                "conditions": [
+                    {"kind": "path", "values": ["duplicate-nested-path-a", "shared"]}
+                ]
+            },
+        },
+        {
+            "ecosystems": ["duplicate-ecosystem"],
+            "path_globs": ["duplicate-path-b"],
+            "nested_match": {
+                "conditions": [
+                    {"kind": "path", "values": ["duplicate-nested-path-b", "shared"]}
+                ]
+            },
+        },
+    ],
+    "nested_fields": {
+        "same_scalar_values": ["same", "same"],
+        "nested_map": {"first": "same", "second": ["same", "same"]},
+    },
+}
+
 
 def load_script_module(module_name: str, path: Path):
     """Load a repository script as a Python module.
@@ -353,21 +389,313 @@ class SecurityRuleGenerationTests(unittest.TestCase):
                 self.assertNotIn(credential_marker, content)
             universal_rules = first_outputs[Path("security/rules/universal.md")]
             self.assertIn("SDD-CREDENTIAL-SELECTORS-001", universal_rules)
-            self.assertIn("match_handling.log_or_persist_values: False", universal_rules)
-            self.assertIn("paths[0]: .github/**", universal_rules)
-            self.assertIn("exception.required_record", universal_rules)
-            self.assertIn("escalation.triggers", universal_rules)
-            self.assertIn("limitation: This contract is not enforced by YAML or prose", universal_rules)
+            self.assertIn("**match_handling.log_or_persist_values:** false", universal_rules)
+            self.assertIn("**paths:**", universal_rules)
+            self.assertIn("  - .github/**", universal_rules)
+            self.assertIn("**exception.required_record:**", universal_rules)
+            self.assertIn("**escalation.triggers:**", universal_rules)
+            self.assertIn("**limitation:** This contract is not enforced by YAML or prose", universal_rules)
             terraform_rules = first_outputs[Path("security/rules/tools/terraform_opentofu.md")]
-            self.assertIn("apply_gate.enforcement: human_gate", terraform_rules)
-            self.assertIn("apply_gate.rule: Never automatically apply", terraform_rules)
+            self.assertIn("**apply_gate.enforcement:** human_gate", terraform_rules)
+            self.assertIn("**apply_gate.rule:** Never automatically apply", terraform_rules)
             python_rules = first_outputs[Path("security/rules/languages/python.md")]
-            self.assertIn("applicability.semantic_conditions: []", python_rules)
+            self.assertIn("**applicability.semantic_conditions:** none", python_rules)
             routing_rules = first_outputs[Path("security/rules.md")]
             self.assertIn(
                 "does not implement or prove runtime enforcement",
                 routing_rules,
             )
+
+    def test_generated_rules_preserve_every_canonical_leaf_at_policy_point_of_use(self):
+        """Each canonical scalar leaf and digest survives in its assigned rule file."""
+        projection = self.policies["secure_sdd_policy"]["agent_rule_sets"]
+        policy_nodes = self.registry_lib.resolve_policy_ids(
+            self.policies,
+            self.registry_lib.agent_rule_set_policy_ids(projection),
+        )
+        assigned_paths = {
+            policy_id: Path("security/rules/universal.md")
+            for policy_id in projection["universal"]
+        }
+        for section_name in ("languages", "tools"):
+            for group_name, policy_ids in projection[section_name].items():
+                for policy_id in policy_ids:
+                    assigned_paths[policy_id] = Path(
+                        f"security/rules/{section_name}/{group_name}.md"
+                    )
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory)
+            self.generator.generate_security_rules(self.policies, output_root)
+            generated_contents = {
+                path.relative_to(output_root): path.read_text(encoding="utf-8")
+                for path in sorted(output_root.rglob("*.md"))
+            }
+
+        all_generated_text = "\n".join(generated_contents.values())
+        for policy_id, policy_node in policy_nodes.items():
+            with self.subTest(policy_id=policy_id):
+                policy_text = generated_contents[assigned_paths[policy_id]]
+                self.assertIn(f"**ID:** `{policy_id}`", policy_text)
+                digest = self.registry_lib.normalized_node_digest(policy_node)
+                self.assertIn(f"**Digest:** `{digest}`", policy_text)
+                self.assertEqual(1, all_generated_text.count(digest))
+
+                pending_values = [policy_node]
+                while pending_values:
+                    value = pending_values.pop()
+                    if isinstance(value, dict):
+                        pending_values.extend(value.values())
+                    elif isinstance(value, list):
+                        pending_values.extend(value)
+                    elif value is not None:
+                        rendered_value = str(value).lower() if isinstance(value, bool) else str(value)
+                        self.assertIn(rendered_value, policy_text)
+
+    def test_selector_pairings_and_compact_indexes_are_structurally_preserved(self):
+        """Selectors stay paired while routing and indexes omit digest inventories."""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory)
+            self.generator.generate_security_rules(self.policies, output_root)
+            routing_text = (output_root / "security" / "rules.md").read_text(encoding="utf-8")
+            language_index = (
+                output_root / "security" / "rules" / "languages" / "index.md"
+            ).read_text(encoding="utf-8")
+            tool_index = (
+                output_root / "security" / "rules" / "tools" / "index.md"
+            ).read_text(encoding="utf-8")
+            universal_text = (
+                output_root / "security" / "rules" / "universal.md"
+            ).read_text(encoding="utf-8")
+
+        for compact_index in (routing_text, language_index, tool_index):
+            self.assertNotIn("Normalized-node SHA-256", compact_index)
+            self.assertNotIn("## Canonical sources", compact_index)
+        self.assertEqual(1, universal_text.count("## Enforcement legend"))
+
+        selector_policy = self.policies["secure_sdd_policy"]["enforcement_model"][
+            "applicability_matching"
+        ]["credential_bearing_config_selectors"]
+        for selector_index, selector in enumerate(selector_policy["selectors"]):
+            self.assertIn(
+                f"  - **selectors[{selector_index}]:**",
+                universal_text,
+            )
+            for field_name in selector:
+                self.assertIn(
+                    f"**selectors[{selector_index}].{field_name}", universal_text
+                )
+
+    def test_approved_compression_baseline_reduces_all_text_metrics(self):
+        """The named compact contract reduces canonical policy rendering meaningfully."""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory)
+            self.generator.generate_security_rules(self.policies, output_root)
+            generated_contents = [
+                path.read_text(encoding="utf-8")
+                for path in sorted((output_root / "security").rglob("*.md"))
+            ]
+
+        def metrics(contents: list[str]) -> tuple[int, int, int]:
+            """Return byte, line, and word counts for generated artifacts."""
+            return (
+                sum(len(content.encode("utf-8")) for content in contents),
+                sum(len(content.splitlines()) for content in contents),
+                sum(len(content.split()) for content in contents),
+            )
+
+        self.assertEqual("security-rules-compact-v1", APPROVED_COMPRESSION_BASELINE_REVISION)
+        baseline_metrics = APPROVED_CANONICAL_RENDER_METRICS
+        generated_metrics = metrics(generated_contents)
+        reductions = [
+            (before - after) / before
+            for before, after in zip(baseline_metrics, generated_metrics)
+        ]
+        self.assertTrue(all(reduction > 0 for reduction in reductions))
+        for reduction, minimum, maximum in zip(
+            reductions, APPROVED_MINIMUM_REDUCTIONS, APPROVED_MAXIMUM_REDUCTIONS
+        ):
+            self.assertGreaterEqual(reduction, minimum)
+            self.assertLessEqual(reduction, maximum)
+
+    def test_canonical_field_paths_and_nested_selector_rows_are_preserved(self):
+        """Nested maps, lists, and selector rows retain their canonical structure."""
+        fixture_policies = deepcopy(self.policies)
+        selector_policy = fixture_policies["secure_sdd_policy"]["enforcement_model"][
+            "applicability_matching"
+        ]["credential_bearing_config_selectors"]
+        selector_policy["selectors"] = DUPLICATE_SELECTOR_FIXTURE["selectors"]
+        selector_policy["match_handling"]["nested_fields"] = DUPLICATE_SELECTOR_FIXTURE[
+            "nested_fields"
+        ]
+        policy_nodes = self.registry_lib.resolve_policy_ids(
+            fixture_policies, ["SDD-CREDENTIAL-SELECTORS-001"]
+        )
+
+        def assert_field_paths(value: object, prefix: str, rendered_text: str) -> None:
+            """Assert that every non-selector canonical leaf has its dotted field path."""
+            if isinstance(value, dict):
+                for key, child_value in value.items():
+                    if key == "selectors":
+                        continue
+                    child_prefix = f"{prefix}.{key}" if prefix else key
+                    assert_field_paths(child_value, child_prefix, rendered_text)
+            elif isinstance(value, list):
+                self.assertIn(f"**{prefix}:**", rendered_text)
+                for child_value in value:
+                    if isinstance(child_value, (dict, list)):
+                        assert_field_paths(child_value, prefix, rendered_text)
+            else:
+                self.assertIn(f"**{prefix}:**", rendered_text)
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory)
+            self.generator.generate_security_rules(fixture_policies, output_root)
+            universal_text = (output_root / "security/rules/universal.md").read_text(
+                encoding="utf-8"
+            )
+
+        rendered_policy_fields = {
+            field_name: field_value
+            for field_name, field_value in policy_nodes["SDD-CREDENTIAL-SELECTORS-001"].items()
+            if field_name
+            not in {"id", "title", "group", "risk", "enforcement", "ecosystems", "selectors"}
+        }
+        assert_field_paths(rendered_policy_fields, "", universal_text)
+        self.assertIn("**selectors[0].nested_match.conditions[0].kind:** path", universal_text)
+        self.assertIn(
+            "**selectors[0].ecosystems[0]:** duplicate-ecosystem", universal_text
+        )
+        self.assertIn(
+            "**selectors[0].path_globs[0]:** duplicate-path-a", universal_text
+        )
+        self.assertIn(
+            "**selectors[1].ecosystems[0]:** duplicate-ecosystem", universal_text
+        )
+        self.assertIn(
+            "**selectors[1].path_globs[0]:** duplicate-path-b", universal_text
+        )
+        self.assertIn(
+            "**selectors[1].nested_match.conditions[0].values[0]:** duplicate-nested-path-b",
+            universal_text,
+        )
+
+    def test_selector_structure_check_catches_dropped_or_reassociated_duplicate_values(self):
+        """Selector assertions fail when rows lose fields or swap otherwise repeated values."""
+        fixture_policies = deepcopy(self.policies)
+        fixture_selector_policy = fixture_policies["secure_sdd_policy"]["enforcement_model"][
+            "applicability_matching"
+        ]["credential_bearing_config_selectors"]
+        fixture_selector_policy["selectors"] = DUPLICATE_SELECTOR_FIXTURE["selectors"]
+        original_selectors = fixture_selector_policy["selectors"]
+        mutated_policies = deepcopy(fixture_policies)
+        mutated_selectors = mutated_policies["secure_sdd_policy"]["enforcement_model"][
+            "applicability_matching"
+        ]["credential_bearing_config_selectors"]["selectors"]
+        shared_path = original_selectors[0]["path_globs"][0]
+        mutated_selectors[1]["path_globs"] = [shared_path]
+        mutated_selectors[0].pop("path_globs")
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory)
+            self.generator.generate_security_rules(mutated_policies, output_root)
+            universal_text = (output_root / "security/rules/universal.md").read_text(
+                encoding="utf-8"
+            )
+
+        with self.assertRaises(AssertionError):
+            self.assertIn(
+                "**selectors[0].path_globs[0]:** duplicate-path-a",
+                universal_text,
+            )
+
+    def test_rendered_output_mutations_break_nested_and_selector_parity(self):
+        """Output-level field removal and duplicate-value reassociation are detected."""
+        fixture_policies = deepcopy(self.policies)
+        fixture_selector_policy = fixture_policies["secure_sdd_policy"]["enforcement_model"][
+            "applicability_matching"
+        ]["credential_bearing_config_selectors"]
+        fixture_selector_policy["selectors"] = DUPLICATE_SELECTOR_FIXTURE["selectors"]
+        fixture_selector_policy["match_handling"]["nested_fields"] = DUPLICATE_SELECTOR_FIXTURE[
+            "nested_fields"
+        ]
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory)
+            self.generator.generate_security_rules(fixture_policies, output_root)
+            universal_path = output_root / "security/rules/universal.md"
+            universal_text = universal_path.read_text(encoding="utf-8")
+
+        expected_nested_path = "**match_handling.nested_fields.nested_map.second:**"
+        expected_selector_paths = [
+            "  - **selectors[0]:**",
+            "    - **selectors[0].ecosystems[0]:** duplicate-ecosystem",
+            "    - **selectors[0].path_globs[0]:** duplicate-path-a",
+            "    - **selectors[0].nested_match:**",
+            "      - **selectors[0].nested_match.conditions:**",
+            "        - **selectors[0].nested_match.conditions[0]:**",
+            "          - **selectors[0].nested_match.conditions[0].values[0]:** duplicate-nested-path-a",
+            "  - **selectors[1]:**",
+            "    - **selectors[1].ecosystems[0]:** duplicate-ecosystem",
+            "    - **selectors[1].path_globs[0]:** duplicate-path-b",
+            "          - **selectors[1].nested_match.conditions[0].values[0]:** duplicate-nested-path-b",
+        ]
+
+        def assert_rendered_parity(rendered_text: str) -> None:
+            """Check exact fixture paths and rows in one rendered artifact."""
+            self.assertIn(expected_nested_path, rendered_text)
+            self.assertEqual(1, rendered_text.count(expected_nested_path))
+            for expected_selector_path in expected_selector_paths:
+                self.assertEqual(1, rendered_text.count(expected_selector_path))
+
+        assert_rendered_parity(universal_text)
+        nested_child_removed = universal_text.replace(
+            f"- {expected_nested_path}\n", "", 1
+        )
+        with self.assertRaises(AssertionError):
+            assert_rendered_parity(nested_child_removed)
+
+        selector_child_removed = universal_text.replace("duplicate-nested-path-a", "", 1)
+        with self.assertRaises(AssertionError):
+            assert_rendered_parity(selector_child_removed)
+
+        reassociated_row = universal_text.replace(
+            "duplicate-nested-path-a", "duplicate-nested-path-b", 1
+        )
+        with self.assertRaises(AssertionError):
+            assert_rendered_parity(reassociated_row)
+
+        swapped_row_paths = universal_text.replace(
+            "duplicate-path-a", "__swapped-duplicate-path-a__", 1
+        )
+        swapped_row_paths = swapped_row_paths.replace(
+            "duplicate-path-b", "duplicate-path-a", 1
+        ).replace("__swapped-duplicate-path-a__", "duplicate-path-b", 1)
+        with self.assertRaises(AssertionError):
+            assert_rendered_parity(swapped_row_paths)
+
+    def test_fresh_security_rules_match_tracked_artifacts(self):
+        """Fresh generation is byte-identical to every tracked security-rule artifact."""
+        tracked_paths = sorted(
+            path.relative_to(ROOT)
+            for path in (ROOT / "security").rglob("*.md")
+            if path.is_file()
+        )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory)
+            self.generator.generate_security_rules(self.policies, output_root)
+            generated_paths = sorted(
+                path.relative_to(output_root)
+                for path in (output_root / "security").rglob("*.md")
+                if path.is_file()
+            )
+            self.assertEqual(tracked_paths, generated_paths)
+            for relative_path in tracked_paths:
+                with self.subTest(artifact=relative_path):
+                    self.assertEqual(
+                        (ROOT / relative_path).read_bytes(),
+                        (output_root / relative_path).read_bytes(),
+                    )
 
     def test_unknown_projected_policy_fields_fail_closed(self):
         """Generator and validator reject unrendered security-relevant fields."""

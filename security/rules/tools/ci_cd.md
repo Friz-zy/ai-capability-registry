@@ -4,42 +4,36 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-CICD-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-CICD-001` | `1da0f70d31f3048ce39ae4341942ec550944cbb09875701ba626ec972681ed44` |
-
-## ci_cd
-
-- **Policy ID:** `SDD-TOOL-CICD-001`
-- **Risk:** `CRITICAL`
-- **Enforcement classification:** `human_gate` — Explicit approval by an authorized human at a named trust boundary; agent approval is not a substitute.
-- **Ecosystems:** `github_actions`, `gitlab_ci`, `jenkins`, `circleci`, `buildkite`
+**ID:** `SDD-TOOL-CICD-001` | **Title:** none | **Group:** ci_cd | **Risk:** `CRITICAL` | **Enforcement:** `human_gate` | **Ecosystems:** github_actions, gitlab_ci, jenkins, circleci, buildkite | **Digest:** `1da0f70d31f3048ce39ae4341942ec550944cbb09875701ba626ec972681ed44`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: ci/**
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: .github/workflows/**
-- applicability.path_globs.manifests[1]: .gitlab-ci.yml
-- applicability.path_globs.manifests[2]: Jenkinsfile
-- applicability.path_globs.manifests[3]: .circleci/**
-- applicability.path_globs.manifests[4]: .buildkite/**
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - ci/**
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - .github/workflows/**
+  - .gitlab-ci.yml
+  - Jenkinsfile
+  - .circleci/**
+  - .buildkite/**
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Treat CI configuration as trust-root code requiring elevated independent review.
-- requirements[1]: Use minimal token permissions, immutable third-party components, and no secrets for untrusted code.
-- requirements[2]: Separate build and test contexts from deployment authority.
-- requirements[3]: Never combine untrusted code, repository secrets, and write permissions in one execution context.
-- requirements[4]: Do not interpolate untrusted contribution data directly into shell commands.
+- **requirements:**
+  - Treat CI configuration as trust-root code requiring elevated independent review.
+  - Use minimal token permissions, immutable third-party components, and no secrets for untrusted code.
+  - Separate build and test contexts from deployment authority.
+  - Never combine untrusted code, repository secrets, and write permissions in one execution context.
+  - Do not interpolate untrusted contribution data directly into shell commands.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- trust_boundary: HUMAN
+- **trust_boundary:** HUMAN

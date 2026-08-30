@@ -4,40 +4,33 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-SHELL-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-SHELL-001` | `ac7f4113a4c977b6b4d783f5bd24778b480c313611af1b383301c86003ef58c3` |
-
-## shell_scripts
-
-- **Policy ID:** `SDD-ECO-SHELL-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `posix_shell`, `bash`, `zsh`, `make`
+**ID:** `SDD-ECO-SHELL-001` | **Title:** none | **Group:** shell_scripts | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** posix_shell, bash, zsh, make | **Digest:** `ac7f4113a4c977b6b4d783f5bd24778b480c313611af1b383301c86003ef58c3`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: *.sh
-- applicability.path_globs.config_files[1]: *.bash
-- applicability.path_globs.config_files[2]: *.zsh
-- applicability.path_globs.config_files[3]: Makefile
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests: []
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - *.sh
+  - *.bash
+  - *.zsh
+  - Makefile
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:** none
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Reject download-and-execute, remote source, and eval of untrusted content.
-- requirements[1]: Quote variables and validate filenames, temporary paths, substitutions, and world-writable locations.
-- requirements[2]: Use strict error handling where semantics permit without treating it as a security boundary.
-- requirements[3]: Run ShellCheck or the configured equivalent.
+- **requirements:**
+  - Reject download-and-execute, remote source, and eval of untrusted content.
+  - Quote variables and validate filenames, temporary paths, substitutions, and world-writable locations.
+  - Use strict error handling where semantics permit without treating it as a security boundary.
+  - Run ShellCheck or the configured equivalent.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

@@ -4,42 +4,36 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-TOOL-KUBERNETES-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-TOOL-KUBERNETES-001` | `0c70036bdf7c724cc74d1b26cd466f819266d149d64feed8af5d3195e370f313` |
-
-## kubernetes
-
-- **Policy ID:** `SDD-TOOL-KUBERNETES-001`
-- **Risk:** `CRITICAL`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `kubernetes`, `kubectl`, `kustomize`
+**ID:** `SDD-TOOL-KUBERNETES-001` | **Title:** none | **Group:** kubernetes | **Risk:** `CRITICAL` | **Enforcement:** `static_validation` | **Ecosystems:** kubernetes, kubectl, kustomize | **Digest:** `0c70036bdf7c724cc74d1b26cd466f819266d149d64feed8af5d3195e370f313`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: kustomization.yaml
-- applicability.path_globs.config_files[1]: kustomization.yml
-- applicability.path_globs.config_files[2]: kubeconfig
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: k8s/**/*.yaml
-- applicability.path_globs.manifests[1]: kubernetes/**/*.yaml
-- applicability.path_globs.manifests[2]: manifests/**/*.yaml
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - kustomization.yaml
+  - kustomization.yml
+  - kubeconfig
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - k8s/**/*.yaml
+  - kubernetes/**/*.yaml
+  - manifests/**/*.yaml
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Review cluster-wide RBAC, host namespaces, host paths, privileged mode, capabilities, tokens, ports, and unsafe sysctls.
-- requirements[1]: Prefer namespaced least privilege, dedicated service accounts, non-root workloads, read-only root filesystems, seccomp, and appropriate network policy.
-- requirements[2]: Separate rendering and static validation from deployment authority.
-- requirements[3]: Never apply to production from an ordinary agent sandbox.
+- **requirements:**
+  - Review cluster-wide RBAC, host namespaces, host paths, privileged mode, capabilities, tokens, ports, and unsafe sysctls.
+  - Prefer namespaced least privilege, dedicated service accounts, non-root workloads, read-only root filesystems, seccomp, and appropriate network policy.
+  - Separate rendering and static validation from deployment authority.
+  - Never apply to production from an ordinary agent sandbox.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- deployment_gate.enforcement: human_gate
-- deployment_gate.trust_boundary: HUMAN
+- **deployment_gate.enforcement:** human_gate
+- **deployment_gate.trust_boundary:** HUMAN

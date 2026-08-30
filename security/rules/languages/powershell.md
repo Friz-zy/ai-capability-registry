@@ -4,38 +4,32 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-POWERSHELL-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-POWERSHELL-001` | `13a78b6fe754a86b6b48a4a41a8b1554156780b5763afdac70487bb3afbdbb90` |
-
-## powershell
-
-- **Policy ID:** `SDD-ECO-POWERSHELL-001`
-- **Risk:** `HIGH`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `powershell`, `powershell_gallery`
+**ID:** `SDD-ECO-POWERSHELL-001` | **Title:** none | **Group:** powershell | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** powershell, powershell_gallery | **Digest:** `13a78b6fe754a86b6b48a4a41a8b1554156780b5763afdac70487bb3afbdbb90`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: *.ps1
-- applicability.path_globs.config_files[1]: *.psm1
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: *.psd1
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - *.ps1
+  - *.psm1
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - *.psd1
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Treat Invoke-Expression, dynamic script blocks, download-and-execute, and untrusted module installation as high risk.
-- requirements[1]: Pin and review modules before use.
-- requirements[2]: Do not weaken execution or security policy as a workaround.
-- requirements[3]: Use ScriptAnalyzer or the configured equivalent.
+- **requirements:**
+  - Treat Invoke-Expression, dynamic script blocks, download-and-execute, and untrusted module installation as high risk.
+  - Pin and review modules before use.
+  - Do not weaken execution or security policy as a workaround.
+  - Use ScriptAnalyzer or the configured equivalent.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

@@ -4,38 +4,32 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-CLOJURE-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-CLOJURE-001` | `eefe55fbfa853851b97c3d84d8b77e093fffb0098b6591acc358ee1ab162db2b` |
-
-## clojure
-
-- **Policy ID:** `SDD-ECO-CLOJURE-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `tools_deps`, `leiningen`
+**ID:** `SDD-ECO-CLOJURE-001` | **Title:** none | **Group:** clojure | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** tools_deps, leiningen | **Digest:** `eefe55fbfa853851b97c3d84d8b77e093fffb0098b6591acc358ee1ab162db2b`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: build.clj
-- applicability.path_globs.config_files[1]: shadow-cljs.edn
-- applicability.path_globs.lockfiles: []
-- applicability.path_globs.manifests[0]: deps.edn
-- applicability.path_globs.manifests[1]: project.clj
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - build.clj
+  - shadow-cljs.edn
+- **applicability.path_globs.lockfiles:** none
+- **applicability.path_globs.manifests:**
+  - deps.edn
+  - project.clj
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Pin dependency versions and Git revisions and avoid dynamic coordinates.
-- requirements[1]: Treat plugins, executable aliases, build.clj, compile-time macros, and Java dependencies as executable supply-chain surface.
-- requirements[2]: Apply JVM controls in addition to Clojure-specific controls.
+- **requirements:**
+  - Pin dependency versions and Git revisions and avoid dynamic coordinates.
+  - Treat plugins, executable aliases, build.clj, compile-time macros, and Java dependencies as executable supply-chain surface.
+  - Apply JVM controls in addition to Clojure-specific controls.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

@@ -4,38 +4,33 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-RUBY-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-RUBY-001` | `6e93f7ea72438c7836dc283e75ad643467c0ea6ded74360a22025ec8d2177afe` |
-
-## ruby
-
-- **Policy ID:** `SDD-ECO-RUBY-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `rubygems`, `bundler`
+**ID:** `SDD-ECO-RUBY-001` | **Title:** none | **Group:** ruby | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** rubygems, bundler | **Digest:** `6e93f7ea72438c7836dc283e75ad643467c0ea6ded74360a22025ec8d2177afe`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: .bundle/config
-- applicability.path_globs.lockfiles[0]: Gemfile.lock
-- applicability.path_globs.manifests[0]: Gemfile
-- applicability.path_globs.manifests[1]: *.gemspec
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - .bundle/config
+- **applicability.path_globs.lockfiles:**
+  - Gemfile.lock
+- **applicability.path_globs.manifests:**
+  - Gemfile
+  - *.gemspec
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Require Gemfile and Gemfile.lock and use frozen or deployment-style verification.
-- requirements[1]: Treat native extensions, installation hooks, Rake tasks, and generators as untrusted execution.
-- requirements[2]: Do not perform arbitrary host-level gem installs.
-- requirements[3]: Run the configured ecosystem vulnerability check.
+- **requirements:**
+  - Require Gemfile and Gemfile.lock and use frozen or deployment-style verification.
+  - Treat native extensions, installation hooks, Rake tasks, and generators as untrusted execution.
+  - Do not perform arbitrary host-level gem installs.
+  - Run the configured ecosystem vulnerability check.
 
 ### Verification
 
-- None declared.
+- none
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none

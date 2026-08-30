@@ -4,40 +4,36 @@
 
 Load `../universal.md` first. It remains in force and is referenced rather than duplicated here.
 
-## Canonical sources
+## `SDD-ECO-GO-001`
 
-| Policy ID | Normalized-node SHA-256 |
-| --- | --- |
-| `SDD-ECO-GO-001` | `51342e1adaca1a22b9d1e95a568a00b4ac36455e00a4f90b586ba062f04465dd` |
-
-## go
-
-- **Policy ID:** `SDD-ECO-GO-001`
-- **Risk:** `MEDIUM`
-- **Enforcement classification:** `static_validation` — Deterministic inspection of repository state or configuration; it cannot prove runtime isolation.
-- **Ecosystems:** `go_modules`
+**ID:** `SDD-ECO-GO-001` | **Title:** none | **Group:** go | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** go_modules | **Digest:** `51342e1adaca1a22b9d1e95a568a00b4ac36455e00a4f90b586ba062f04465dd`
 
 ### Applicability
 
-- applicability.path_globs.config_files[0]: go.work
-- applicability.path_globs.config_files[1]: go.work.sum
-- applicability.path_globs.lockfiles[0]: go.sum
-- applicability.path_globs.manifests[0]: go.mod
-- applicability.semantic_conditions: []
+- **applicability.path_globs.config_files:**
+  - go.work
+  - go.work.sum
+- **applicability.path_globs.lockfiles:**
+  - go.sum
+- **applicability.path_globs.manifests:**
+  - go.mod
+- **applicability.semantic_conditions:** none
 
 ### Requirements
 
-- requirements[0]: Require go.mod and go.sum and keep public-module checksum verification enabled.
-- requirements[1]: Do not globally disable GOSUMDB; scope private-module exceptions narrowly.
-- requirements[2]: Review GOPROXY, GONOSUMDB, GOPRIVATE, replace directives, and tool dependency changes.
-- requirements[3]: Treat an unexpected local, path, or Git replace target as a dependency-policy change.
+- **requirements:**
+  - Require go.mod and go.sum and keep public-module checksum verification enabled.
+  - Do not globally disable GOSUMDB; scope private-module exceptions narrowly.
+  - Review GOPROXY, GONOSUMDB, GOPRIVATE, replace directives, and tool dependency changes.
+  - Treat an unexpected local, path, or Git replace target as a dependency-policy change.
 
 ### Verification
 
-- verification[0]: go_mod_verify
-- verification[1]: configured_tests_vet_static_analysis_and_vulnerability_check
-- verification[2]: race_and_native_fuzzing_when_applicable
+- **verification:**
+  - go_mod_verify
+  - configured_tests_vet_static_analysis_and_vulnerability_check
+  - race_and_native_fuzzing_when_applicable
 
 ### Escalation, exceptions, gates, and limitations
 
-- None declared.
+- none
