@@ -475,9 +475,31 @@ def validate_portable_sdd_guidance(path: Path, errors: list[str]) -> None:
         "deterministic verify", "security review when required", "independent final review", "converge",
         "POLICY GATE",
     ]
-    token_positions = [content.find(token) for token in workflow_tokens]
+    development_workflow_match = re.search(
+        r"^##\s+Development Workflow\s*$([\s\S]*?)(?=^##\s+|\Z)",
+        content,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+    development_workflow_content = (
+        development_workflow_match.group(1) if development_workflow_match else ""
+    )
+    next_token_start = 0
+    workflow_order_is_valid = True
+    for workflow_token in workflow_tokens:
+        token_pattern = r"\s+".join(
+            re.escape(token_word) for token_word in workflow_token.split()
+        )
+        token_match = re.search(
+            rf"(?<!\w){token_pattern}(?!\w)",
+            development_workflow_content[next_token_start:],
+            flags=re.IGNORECASE,
+        )
+        if token_match is None:
+            workflow_order_is_valid = False
+            break
+        next_token_start += token_match.end()
     require(
-        all(position >= 0 for position in token_positions) and token_positions == sorted(token_positions),
+        workflow_order_is_valid,
         "AGENTS.md.sdd: Development Workflow must contain canonical POLICY GATE order",
         errors,
     )

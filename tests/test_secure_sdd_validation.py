@@ -316,11 +316,17 @@ class SecureSddValidationTests(unittest.TestCase):
                 self.assertEqual([expected_error], errors)
 
     def test_validates_portable_policy_tokens_and_dependencies(self):
-        """Portable guidance rejects token-order and dependency mutations."""
+        """Portable guidance accepts concise workflow syntax and isolated mutations."""
         source = (ROOT / "AGENTS.md.sdd").read_text(encoding="utf-8")
         mutations = {
-            "missing": (source.replace("→ clarify\n", "", 1), "AGENTS.md.sdd: Development Workflow must contain canonical POLICY GATE order"),
-            "reordered": (source.replace("specify\n→ clarify", "clarify\n→ specify", 1), "AGENTS.md.sdd: Development Workflow must contain canonical POLICY GATE order"),
+            "missing": (
+                source.replace("→ clarify →", "→ removed →", 1),
+                "AGENTS.md.sdd: Development Workflow must contain canonical POLICY GATE order",
+            ),
+            "reordered": (
+                source.replace("specify → clarify", "clarify → specify", 1),
+                "AGENTS.md.sdd: Development Workflow must contain canonical POLICY GATE order",
+            ),
             "registry": (source + "\nregistry dependency\n", "AGENTS.md.sdd: forbidden registry dependency"),
             "provider": (source + "\nprovider selection\n", "AGENTS.md.sdd: forbidden provider dependency"),
             "model": (source + "\nmodel configuration\n", "AGENTS.md.sdd: forbidden model dependency"),
@@ -335,6 +341,25 @@ class SecureSddValidationTests(unittest.TestCase):
                     errors: list[str] = []
                     self.validator.validate_portable_sdd_guidance(guidance_path, errors)
                     self.assertEqual([expected_error], errors)
+
+    def test_accepts_concise_workflow_with_case_whitespace_and_inline_arrows(self):
+        """Portable workflow tokens accept concise arrow-delimited formatting."""
+        source = (ROOT / "AGENTS.md.sdd").read_text(encoding="utf-8")
+        concise_source = source.replace(
+            "specify → clarify → independent spec review",
+            "SpEcIfY→\tClArIfY → INDEPENDENT   SPEC REVIEW",
+            1,
+        ).replace(
+            "architecture review when\nrequired",
+            "ARCHITECTURE REVIEW WHEN\tREQUIRED",
+            1,
+        )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            guidance_path = Path(temporary_directory) / "AGENTS.md.sdd"
+            guidance_path.write_text(concise_source, encoding="utf-8")
+            errors: list[str] = []
+            self.validator.validate_portable_sdd_guidance(guidance_path, errors)
+            self.assertEqual([], errors)
 
     def test_rejects_bidirectional_sdd_artifact_dependencies(self):
         """Portable guidance and Secure SDD remain independent in both directions."""
