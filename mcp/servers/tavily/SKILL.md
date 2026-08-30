@@ -41,4 +41,8 @@ Official Tavily MCP for search and extraction research workflows.
 
 ## Security policy
 
-- Authentication: `OAuth`
+- Trust: `trusted`
+- Default mode: `search_extract_only`
+- Permission default: `search_extract_only`
+- Authentication: `Unspecified in source metadata`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

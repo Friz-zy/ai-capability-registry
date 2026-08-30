@@ -76,18 +76,52 @@ def docker_config(server: dict[str, Any]) -> dict[str, Any] | None:
     return docker if isinstance(docker, dict) else None
 
 
-def source_auth(server: dict[str, Any]) -> str:
+def source_authentication(server: dict[str, Any]) -> str:
+    """Return the authentication value exactly as declared in source metadata.
+
+    Args:
+        server: MCP server record from the source catalog.
+
+    Returns:
+        The unmodified authentication value or an explicit absence marker.
+    """
     source = server.get("source", {})
-    if isinstance(source, dict) and source.get("authentication"):
+    if isinstance(source, dict) and "authentication" in source:
         return str(source["authentication"])
-    if "oauth" in str(server.get("runtime") or ""):
-        return "OAuth"
-    docker = docker_config(server)
-    if docker:
-        args = docker.get("args", [])
-        if isinstance(args, list) and "-e" in [str(arg) for arg in args]:
-            return "Environment variables"
-    return "Open or unspecified"
+    return "Unspecified in source metadata"
+
+
+def security_posture(server: dict[str, Any]) -> str:
+    """Render a fail-closed posture for entries that require explicit review.
+
+    Args:
+        server: MCP server record from the source catalog.
+
+    Returns:
+        Markdown policy text derived from the declared trust and review defaults.
+    """
+    security = server.get("security", {}) if isinstance(server.get("security"), dict) else {}
+    trust = str(server.get("trust") or "unknown")
+    default_mode = str(server.get("default_mode") or "unknown")
+    permission_default = str(security.get("permission_default") or "unknown")
+    warnings = []
+
+    if trust == "unknown":
+        warnings.append("Trust is `unknown`; source metadata does not establish approval.")
+    elif trust == "candidate":
+        warnings.append("Trust is `candidate`; this server is not approved for automatic use.")
+    if default_mode == "manual_review":
+        warnings.append("Default mode is `manual_review`.")
+    if permission_default == "manual_review":
+        warnings.append("Permission default is `manual_review`.")
+    if warnings:
+        return "\n".join(
+            [f"- **Warning:** {warning}" for warning in warnings]
+            + [
+                "- **Required posture:** Complete manual review before connecting or invoking tools; this generated record does not grant approval."
+            ]
+        )
+    return "- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review."
 
 
 def string_list(value: Any) -> list[str]:
@@ -157,9 +191,10 @@ def skill_content(server: dict[str, Any]) -> str:
             "docker_notes_section": markdown_section("Docker launch notes", docker_notes) if docker_notes else "",
             "references_section": markdown_section("References", references) if references else "",
             "trust": server.get("trust", "unknown"),
-            "default_mode": server.get("default_mode", "manual_review"),
-            "permission_default": security.get("permission_default", "manual_review"),
-            "authentication": source_auth(server),
+            "default_mode": server.get("default_mode", "unknown"),
+            "permission_default": security.get("permission_default", "unknown"),
+            "authentication": source_authentication(server),
+            "security_posture": security_posture(server),
         },
     )
 

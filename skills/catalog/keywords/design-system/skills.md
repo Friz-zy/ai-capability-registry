@@ -1,7 +1,7 @@
 # design-system
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
+Select only the most relevant skills by description; read each matching `SKILL.md` before applying it.
 
 ### design-system
 Audit, document, or extend your design system. Use when checking for naming inconsistencies or hardcoded values across components, writing documentation for a component's variants, states, and accessibility notes, or designing a new pattern that fits the existing system.

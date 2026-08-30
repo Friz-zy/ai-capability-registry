@@ -1,12 +1,8 @@
 # Technical Writer Workflows
-
 Route type: `role`
 Route id: `technical-writer`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **API Design Workflow** (`api-design`): Coordinate OpenAPI contract, auth model, error model, pagination and filtering rules, versioning strategy, and SDK/client notes. Guide: `workflows/engineering/api-design/workflow.md`. Manifest: `workflows/engineering/api-design/workflow.yaml`.
 - **Customer Support Workflow** (`customer-support`): Coordinate ticket classification, user impact, workaround, escalation, and bug or feature request routing. Guide: `workflows/customer-success/customer-support/workflow.md`. Manifest: `workflows/customer-success/customer-support/workflow.yaml`.
 - **Go To Market Workflow** (`go-to-market`): Coordinate launch plan, messaging, landing page brief, sales materials, onboarding flow, support readiness, and launch checklist. Guide: `workflows/business-growth/go-to-market/workflow.md`. Manifest: `workflows/business-growth/go-to-market/workflow.yaml`.

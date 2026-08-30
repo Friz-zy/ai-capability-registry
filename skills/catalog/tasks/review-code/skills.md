@@ -9,7 +9,7 @@ Review diffs, pull requests, architecture changes, and implementation quality.
 - `qa`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. Read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
+Select 1-3 directly matching keywords. Prefer exact stack/tool keywords; read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
 
 - **code-review**: 10 skills
 - **review**: 18 skills

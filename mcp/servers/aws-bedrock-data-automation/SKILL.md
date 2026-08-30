@@ -51,4 +51,10 @@ Analyze documents, images, videos, and audio.
 
 ## Security policy
 
-- Authentication: `Open or unspecified`
+- Trust: `reviewed`
+- Default mode: `manual_review`
+- Permission default: `manual_review`
+- Authentication: `Unspecified in source metadata`
+- **Warning:** Default mode is `manual_review`.
+- **Warning:** Permission default is `manual_review`.
+- **Required posture:** Complete manual review before connecting or invoking tools; this generated record does not grant approval.

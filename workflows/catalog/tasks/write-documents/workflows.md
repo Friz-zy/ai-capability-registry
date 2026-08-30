@@ -1,12 +1,8 @@
 # Write Docs or Documents Workflows
-
 Route type: `task`
 Route id: `write-documents`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **ADR Decision Workflow** (`adr-decision`): Coordinate technical decision context, options, pros and cons, decision, consequences, migration plan, and ADR summary. Guide: `workflows/architecture/adr-decision/workflow.md`. Manifest: `workflows/architecture/adr-decision/workflow.yaml`.
 - **API Design Workflow** (`api-design`): Coordinate OpenAPI contract, auth model, error model, pagination and filtering rules, versioning strategy, and SDK/client notes. Guide: `workflows/engineering/api-design/workflow.md`. Manifest: `workflows/engineering/api-design/workflow.yaml`.
 - **Go To Market Workflow** (`go-to-market`): Coordinate launch plan, messaging, landing page brief, sales materials, onboarding flow, support readiness, and launch checklist. Guide: `workflows/business-growth/go-to-market/workflow.md`. Manifest: `workflows/business-growth/go-to-market/workflow.yaml`.

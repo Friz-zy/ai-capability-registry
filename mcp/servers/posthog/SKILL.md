@@ -40,4 +40,8 @@ Official PostHog MCP for product analytics and operational insight workflows.
 
 ## Security policy
 
-- Authentication: `Open or unspecified`
+- Trust: `trusted`
+- Default mode: `read_only`
+- Permission default: `read_only`
+- Authentication: `Unspecified in source metadata`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

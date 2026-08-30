@@ -1,12 +1,8 @@
 # Business and Product Analyst Workflows
-
 Route type: `role`
 Route id: `business-analyst`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **Analytics And Growth Workflow** (`analytics-and-growth`): Coordinate funnel analysis, retention report, cohort analysis, growth experiments, A/B test plan, and instrumentation gaps. Guide: `workflows/business-growth/analytics-and-growth/workflow.md`. Manifest: `workflows/business-growth/analytics-and-growth/workflow.yaml`.
 - **API Design Workflow** (`api-design`): Coordinate OpenAPI contract, auth model, error model, pagination and filtering rules, versioning strategy, and SDK/client notes. Guide: `workflows/engineering/api-design/workflow.md`. Manifest: `workflows/engineering/api-design/workflow.yaml`.
 - **Customer Feedback Analysis Workflow** (`customer-feedback-analysis`): Coordinate feedback clusters, pain points, feature requests, churn risks, roadmap inputs, and follow-up research. Guide: `workflows/customer-success/customer-feedback-analysis/workflow.md`. Manifest: `workflows/customer-success/customer-feedback-analysis/workflow.yaml`.

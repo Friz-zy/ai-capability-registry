@@ -27,4 +27,8 @@ keywords:
 
 ## Security policy
 
+- Trust: `{{trust}}`
+- Default mode: `{{default_mode}}`
+- Permission default: `{{permission_default}}`
 - Authentication: `{{authentication}}`
+{{security_posture}}

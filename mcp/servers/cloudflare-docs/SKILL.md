@@ -37,4 +37,8 @@ Documentation MCP server by Cloudflare.
 
 ## Security policy
 
+- Trust: `trusted`
+- Default mode: `ask_before_write`
+- Permission default: `ask_before_write`
 - Authentication: `Open`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

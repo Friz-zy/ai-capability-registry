@@ -42,4 +42,8 @@ Official hosted MCP for Sentry issues, errors, projects, and incident analysis.
 
 ## Security policy
 
-- Authentication: `OAuth`
+- Trust: `trusted`
+- Default mode: `read_only`
+- Permission default: `read_only`
+- Authentication: `Unspecified in source metadata`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

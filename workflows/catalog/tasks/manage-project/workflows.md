@@ -1,12 +1,8 @@
 # Manage Product or Project Workflows
-
 Route type: `task`
 Route id: `manage-project`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **Analytics And Growth Workflow** (`analytics-and-growth`): Coordinate funnel analysis, retention report, cohort analysis, growth experiments, A/B test plan, and instrumentation gaps. Guide: `workflows/business-growth/analytics-and-growth/workflow.md`. Manifest: `workflows/business-growth/analytics-and-growth/workflow.yaml`.
 - **Architecture Review Workflow** (`architecture-review`): Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability notes, security notes, and cost estimate. Guide: `workflows/architecture/architecture-review/workflow.md`. Manifest: `workflows/architecture/architecture-review/workflow.yaml`.
 - **Feature Development Workflow** (`feature-development`): Coordinate scoped discovery, UX fit, architecture review, implementation planning, regression testing, rollout, and iteration for an existing product feature. Guide: `workflows/product-delivery/feature-development/workflow.md`. Manifest: `workflows/product-delivery/feature-development/workflow.yaml`.

@@ -1,7 +1,7 @@
 # communication
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
+Select only the most relevant skills by description; read each matching `SKILL.md` before applying it.
 
 ### content-research-writer
 Assists in writing high-quality content by conducting research, adding citations, improving hooks, iterating on outlines, and providing real-time feedback on each section. Transforms your writing process from solo effort to collaborative partnership.

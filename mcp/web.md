@@ -2,20 +2,17 @@
 
 ## Authentication (HTTPS)
 
-Methods in order of priority:
+Use only the authentication method and header names documented for the specific reviewed server. Store credential values in the approved secret store or MCP client secret mechanism, and reference them with redacted placeholders.
 
-```javascript
-// Option A: Bearer token in header
-authorization_token: "Bearer eyJhbGci..."
-
-// Option B: API key as query param
-url: "https://mcp.example.com/sse?api_key=KEY"
-
-// Option C: Basic auth
-authorization_token: "Basic " + btoa("user:password")
+```json
+{
+  "headers": {
+    "<DOCUMENTED_HEADER_NAME>": "<REDACTED_SECRET_REFERENCE>"
+  }
+}
 ```
 
-Check the server's documentation first. If unspecified, try Bearer.
+Never place credentials in URL query strings. Do not guess an authentication scheme or try fallback credentials when the reviewed server documentation does not specify one. Do not log credential values, authorization headers, or URLs derived from secrets.
 
 ## Health Check
 

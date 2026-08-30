@@ -1,12 +1,8 @@
 # Customer Success and Support Specialist Workflows
-
 Route type: `role`
 Route id: `customer-success-support`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **Bugfix Workflow** (`bugfix`): Coordinate defect triage, reproduction, root cause, fix plan, regression checklist, and hotfix or normal release decision. Guide: `workflows/engineering/bugfix/workflow.md`. Manifest: `workflows/engineering/bugfix/workflow.yaml`.
 - **Customer Feedback Analysis Workflow** (`customer-feedback-analysis`): Coordinate feedback clusters, pain points, feature requests, churn risks, roadmap inputs, and follow-up research. Guide: `workflows/customer-success/customer-feedback-analysis/workflow.md`. Manifest: `workflows/customer-success/customer-feedback-analysis/workflow.yaml`.
 - **Customer Support Workflow** (`customer-support`): Coordinate ticket classification, user impact, workaround, escalation, and bug or feature request routing. Guide: `workflows/customer-success/customer-support/workflow.md`. Manifest: `workflows/customer-success/customer-support/workflow.yaml`.

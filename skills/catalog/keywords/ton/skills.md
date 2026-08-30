@@ -1,7 +1,7 @@
 # ton
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
+Select only the most relevant skills by description; read each matching `SKILL.md` before applying it.
 
 ### ton-vulnerability-scanner
 Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks. Use when auditing FunC contracts.

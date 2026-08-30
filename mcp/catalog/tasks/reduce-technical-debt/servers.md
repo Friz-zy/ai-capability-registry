@@ -9,7 +9,7 @@ Inventory debt, plan behavior-preserving refactoring, validate regression risk, 
 - `devops`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+Select 1-3 keywords directly matching the current request; prefer exact service/platform keywords when present. Before acting, read `mcp/catalog/keywords/<keyword>/servers.md` for each match.
 
 - **aks**: 1 server(s)
 - **amazon**: 15 server(s)

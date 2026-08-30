@@ -39,4 +39,8 @@ Trusted hosted MCP for retrieving current library documentation and code example
 
 ## Security policy
 
-- Authentication: `Open or unspecified`
+- Trust: `trusted`
+- Default mode: `docs_lookup_only`
+- Permission default: `docs_lookup_only`
+- Authentication: `Unspecified in source metadata`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

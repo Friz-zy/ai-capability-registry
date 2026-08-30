@@ -41,4 +41,8 @@ Official Notion MCP integration controlled by workspace permissions.
 
 ## Security policy
 
-- Authentication: `OAuth`
+- Trust: `trusted`
+- Default mode: `restricted_workspace`
+- Permission default: `restricted_workspace`
+- Authentication: `Unspecified in source metadata`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

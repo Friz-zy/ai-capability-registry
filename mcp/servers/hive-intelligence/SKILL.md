@@ -40,4 +40,8 @@ Crypto MCP server by Hive Intelligence.
 
 ## Security policy
 
+- Trust: `trusted`
+- Default mode: `ask_before_write`
+- Permission default: `ask_before_write`
 - Authentication: `OAuth 2.1`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

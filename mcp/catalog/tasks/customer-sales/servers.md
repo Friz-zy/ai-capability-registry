@@ -10,7 +10,7 @@ Research accounts, prepare customer interactions, triage support, and manage out
 - `research`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+Select 1-3 keywords directly matching the current request; prefer exact service/platform keywords when present. Before acting, read `mcp/catalog/keywords/<keyword>/servers.md` for each match.
 
 - **amazon-kendra-index**: 1 server(s)
 - **apollo**: 1 server(s)

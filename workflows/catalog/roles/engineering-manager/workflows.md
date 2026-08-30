@@ -1,12 +1,8 @@
 # Engineering Manager Workflows
-
 Route type: `role`
 Route id: `engineering-manager`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **FinOps Cost Optimization Workflow** (`finops-cost-optimization`): Coordinate cost breakdown, unused resources list, rightsizing plan, reserved or savings plan recommendation, and cost guardrails. Guide: `workflows/business-operations/finops-cost-optimization/workflow.md`. Manifest: `workflows/business-operations/finops-cost-optimization/workflow.yaml`.
 - **Hiring Workflow** (`hiring`): Coordinate role description, candidate scorecard, interview plan, test task, sourcing plan, and hiring recommendation. Guide: `workflows/people-operations/hiring/workflow.md`. Manifest: `workflows/people-operations/hiring/workflow.yaml`.
 - **Incident Response Workflow** (`incident-response`): Coordinate incident timeline, impact analysis, mitigation actions, customer communication, recovery validation, and follow-up tasks. Guide: `workflows/operations/incident-response/workflow.md`. Manifest: `workflows/operations/incident-response/workflow.yaml`.

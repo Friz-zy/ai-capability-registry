@@ -1,12 +1,8 @@
 # Release Manager Workflows
-
 Route type: `role`
 Route id: `release-manager`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **ADR Decision Workflow** (`adr-decision`): Coordinate technical decision context, options, pros and cons, decision, consequences, migration plan, and ADR summary. Guide: `workflows/architecture/adr-decision/workflow.md`. Manifest: `workflows/architecture/adr-decision/workflow.yaml`.
 - **Architecture Review Workflow** (`architecture-review`): Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability notes, security notes, and cost estimate. Guide: `workflows/architecture/architecture-review/workflow.md`. Manifest: `workflows/architecture/architecture-review/workflow.yaml`.
 - **Bugfix Workflow** (`bugfix`): Coordinate defect triage, reproduction, root cause, fix plan, regression checklist, and hotfix or normal release decision. Guide: `workflows/engineering/bugfix/workflow.md`. Manifest: `workflows/engineering/bugfix/workflow.yaml`.

@@ -1,12 +1,8 @@
 # DevOps and Platform Engineer Workflows
-
 Route type: `role`
 Route id: `devops-platform-engineer`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **ADR Decision Workflow** (`adr-decision`): Coordinate technical decision context, options, pros and cons, decision, consequences, migration plan, and ADR summary. Guide: `workflows/architecture/adr-decision/workflow.md`. Manifest: `workflows/architecture/adr-decision/workflow.yaml`.
 - **Architecture Review Workflow** (`architecture-review`): Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability notes, security notes, and cost estimate. Guide: `workflows/architecture/architecture-review/workflow.md`. Manifest: `workflows/architecture/architecture-review/workflow.yaml`.
 - **Automated Testing Workflow** (`automated-testing`): Coordinate unit, integration, and e2e test plans, CI test pipeline, flaky-test policy, reporting, and maintenance plan. Guide: `workflows/quality/automated-testing/workflow.md`. Manifest: `workflows/quality/automated-testing/workflow.yaml`.

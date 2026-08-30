@@ -1,12 +1,8 @@
 # Product Manager Workflows
-
 Route type: `role`
 Route id: `product-manager`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **ADR Decision Workflow** (`adr-decision`): Coordinate technical decision context, options, pros and cons, decision, consequences, migration plan, and ADR summary. Guide: `workflows/architecture/adr-decision/workflow.md`. Manifest: `workflows/architecture/adr-decision/workflow.yaml`.
 - **Analytics And Growth Workflow** (`analytics-and-growth`): Coordinate funnel analysis, retention report, cohort analysis, growth experiments, A/B test plan, and instrumentation gaps. Guide: `workflows/business-growth/analytics-and-growth/workflow.md`. Manifest: `workflows/business-growth/analytics-and-growth/workflow.yaml`.
 - **API Design Workflow** (`api-design`): Coordinate OpenAPI contract, auth model, error model, pagination and filtering rules, versioning strategy, and SDK/client notes. Guide: `workflows/engineering/api-design/workflow.md`. Manifest: `workflows/engineering/api-design/workflow.yaml`.

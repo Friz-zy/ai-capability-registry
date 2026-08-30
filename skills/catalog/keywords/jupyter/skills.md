@@ -1,7 +1,7 @@
 # jupyter
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
+Select only the most relevant skills by description; read each matching `SKILL.md` before applying it.
 
 ### jupyter-notebook
 Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.

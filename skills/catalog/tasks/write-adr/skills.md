@@ -8,7 +8,7 @@ Compare options, document tradeoffs, record a decision, consequences, and migrat
 - `documents`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. Read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
+Select 1-3 directly matching keywords. Prefer exact stack/tool keywords; read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
 
 - **architecture**: 6 skills
 - **documentation**: 13 skills

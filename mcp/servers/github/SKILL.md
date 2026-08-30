@@ -56,4 +56,8 @@ Tools for interacting with the GitHub API, enabling file operations, repository 
 
 ## Security policy
 
-- Authentication: `Environment variables`
+- Trust: `trusted`
+- Default mode: `read_only`
+- Permission default: `read_only`
+- Authentication: `Unspecified in source metadata`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

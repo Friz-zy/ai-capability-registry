@@ -1,7 +1,7 @@
 # netlify
 
 ## Skills
-Select only the most relevant skills by description. If a skill matches, read its `SKILL.md` before applying it.
+Select only the most relevant skills by description; read each matching `SKILL.md` before applying it.
 
 ### openai-netlify-deploy
 Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks

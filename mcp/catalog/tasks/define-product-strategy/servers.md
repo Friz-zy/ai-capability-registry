@@ -9,7 +9,7 @@ Define product vision, positioning, north-star metric, roadmap direction, moneti
 - `founder`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+Select 1-3 keywords directly matching the current request; prefer exact service/platform keywords when present. Before acting, read `mcp/catalog/keywords/<keyword>/servers.md` for each match.
 
 - **amazon-kendra-index**: 1 server(s)
 - **aws-knowledge**: 1 server(s)

@@ -9,7 +9,7 @@ Classify customer tickets, assess impact, provide workaround, escalate, and rout
 - `qa`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+Select 1-3 keywords directly matching the current request; prefer exact service/platform keywords when present. Before acting, read `mcp/catalog/keywords/<keyword>/servers.md` for each match.
 
 - **competitive-intelligence**: 1 server(s)
 - **customer-support**: 1 server(s)

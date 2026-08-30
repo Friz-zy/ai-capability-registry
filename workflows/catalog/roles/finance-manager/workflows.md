@@ -1,12 +1,8 @@
 # Finance Manager Workflows
-
 Route type: `role`
 Route id: `finance-manager`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **FinOps Cost Optimization Workflow** (`finops-cost-optimization`): Coordinate cost breakdown, unused resources list, rightsizing plan, reserved or savings plan recommendation, and cost guardrails. Guide: `workflows/business-operations/finops-cost-optimization/workflow.md`. Manifest: `workflows/business-operations/finops-cost-optimization/workflow.yaml`.
 - **Hiring Workflow** (`hiring`): Coordinate role description, candidate scorecard, interview plan, test task, sourcing plan, and hiring recommendation. Guide: `workflows/people-operations/hiring/workflow.md`. Manifest: `workflows/people-operations/hiring/workflow.yaml`.
 - **Idea Validation Workflow** (`idea-validation`): Coordinate pre-development validation of problem, audience, market signals, value proposition, pricing hypothesis, MVP scope, and go/no-go decision. Guide: `workflows/product-discovery/idea-validation/workflow.md`. Manifest: `workflows/product-discovery/idea-validation/workflow.yaml`.

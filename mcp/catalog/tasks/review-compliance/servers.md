@@ -10,7 +10,7 @@ Review legal, privacy, regulatory, data-processing, terms, compliance risks, and
 - `product`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+Select 1-3 keywords directly matching the current request; prefer exact service/platform keywords when present. Before acting, read `mcp/catalog/keywords/<keyword>/servers.md` for each match.
 
 - **audit**: 1 server(s)
 - **authentication**: 2 server(s)

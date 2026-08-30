@@ -1,7 +1,7 @@
 # Security Architect
 
 ## Keywords
-Select only keywords that directly match the current request. Prefer exact stack/tool keywords over broad categories. Read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
+Select only directly matching keywords. Prefer exact stack/tool keywords; read `skills/catalog/keywords/<keyword>/skills.md` for each match before acting.
 
 - **analysis**: 27 skills
 - **architecture**: 6 skills

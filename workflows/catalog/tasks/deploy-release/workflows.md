@@ -1,12 +1,8 @@
 # Deploy or Release Workflows
-
 Route type: `task`
 Route id: `deploy-release`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **Bugfix Workflow** (`bugfix`): Coordinate defect triage, reproduction, root cause, fix plan, regression checklist, and hotfix or normal release decision. Guide: `workflows/engineering/bugfix/workflow.md`. Manifest: `workflows/engineering/bugfix/workflow.yaml`.
 - **Feature Development Workflow** (`feature-development`): Coordinate scoped discovery, UX fit, architecture review, implementation planning, regression testing, rollout, and iteration for an existing product feature. Guide: `workflows/product-delivery/feature-development/workflow.md`. Manifest: `workflows/product-delivery/feature-development/workflow.yaml`.
 - **Go To Market Workflow** (`go-to-market`): Coordinate launch plan, messaging, landing page brief, sales materials, onboarding flow, support readiness, and launch checklist. Guide: `workflows/business-growth/go-to-market/workflow.md`. Manifest: `workflows/business-growth/go-to-market/workflow.yaml`.

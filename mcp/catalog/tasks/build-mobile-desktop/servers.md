@@ -10,7 +10,7 @@ Build and review native or cross-platform mobile and desktop apps, SDKs, platfor
 - `qa`
 
 ## Keywords
-Select 1-3 keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+Select 1-3 keywords directly matching the current request; prefer exact service/platform keywords when present. Before acting, read `mcp/catalog/keywords/<keyword>/servers.md` for each match.
 
 - **android**: 1 server(s)
 - **androidmanagement**: 1 server(s)

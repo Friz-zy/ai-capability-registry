@@ -1,12 +1,8 @@
 # QA Engineer Workflows
-
 Route type: `role`
 Route id: `qa-engineer`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **API Design Workflow** (`api-design`): Coordinate OpenAPI contract, auth model, error model, pagination and filtering rules, versioning strategy, and SDK/client notes. Guide: `workflows/engineering/api-design/workflow.md`. Manifest: `workflows/engineering/api-design/workflow.yaml`.
 - **Automated Testing Workflow** (`automated-testing`): Coordinate unit, integration, and e2e test plans, CI test pipeline, flaky-test policy, reporting, and maintenance plan. Guide: `workflows/quality/automated-testing/workflow.md`. Manifest: `workflows/quality/automated-testing/workflow.yaml`.
 - **Bugfix Workflow** (`bugfix`): Coordinate defect triage, reproduction, root cause, fix plan, regression checklist, and hotfix or normal release decision. Guide: `workflows/engineering/bugfix/workflow.md`. Manifest: `workflows/engineering/bugfix/workflow.yaml`.

@@ -41,4 +41,8 @@ Official Linear remote MCP for issues, projects, comments, and planning workflow
 
 ## Security policy
 
-- Authentication: `OAuth`
+- Trust: `trusted`
+- Default mode: `ask_before_write`
+- Permission default: `ask_before_write`
+- Authentication: `Unspecified in source metadata`
+- **Posture:** Follow the declared defaults; this generated record does not replace server-specific review.

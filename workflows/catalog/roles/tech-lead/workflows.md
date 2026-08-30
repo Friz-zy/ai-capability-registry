@@ -1,12 +1,8 @@
 # Tech Lead Workflows
-
 Route type: `role`
 Route id: `tech-lead`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **ADR Decision Workflow** (`adr-decision`): Coordinate technical decision context, options, pros and cons, decision, consequences, migration plan, and ADR summary. Guide: `workflows/architecture/adr-decision/workflow.md`. Manifest: `workflows/architecture/adr-decision/workflow.yaml`.
 - **Analytics And Growth Workflow** (`analytics-and-growth`): Coordinate funnel analysis, retention report, cohort analysis, growth experiments, A/B test plan, and instrumentation gaps. Guide: `workflows/business-growth/analytics-and-growth/workflow.md`. Manifest: `workflows/business-growth/analytics-and-growth/workflow.yaml`.
 - **Architecture Review Workflow** (`architecture-review`): Coordinate architecture review, ADR inputs, C4 notes, risk matrix, scalability notes, security notes, and cost estimate. Guide: `workflows/architecture/architecture-review/workflow.md`. Manifest: `workflows/architecture/architecture-review/workflow.yaml`.

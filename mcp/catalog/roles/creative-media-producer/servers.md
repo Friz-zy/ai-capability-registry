@@ -1,7 +1,7 @@
 # Creative Media Producer
 
 ## Keywords
-Select only keywords that directly match the current request. Prefer exact service/platform keywords when present. Read `mcp/catalog/keywords/<keyword>/servers.md` for each match before acting.
+Select only keywords directly matching the current request; prefer exact service/platform keywords when present. Before acting, read `mcp/catalog/keywords/<keyword>/servers.md` for each match.
 
 - **audio**: 2 server(s)
 - **aws-diagram**: 1 server(s)

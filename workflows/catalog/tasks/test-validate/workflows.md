@@ -1,12 +1,8 @@
 # Test and Validate Workflows
-
 Route type: `task`
 Route id: `test-validate`
-
-Use this generated index only after `../../../workflow.md` and `../../../routing.md` apply.
-
+Use this index after `../../../workflow.md` and `../../../routing.md` apply.
 ## Matching Workflows
-
 - **Automated Testing Workflow** (`automated-testing`): Coordinate unit, integration, and e2e test plans, CI test pipeline, flaky-test policy, reporting, and maintenance plan. Guide: `workflows/quality/automated-testing/workflow.md`. Manifest: `workflows/quality/automated-testing/workflow.yaml`.
 - **Bugfix Workflow** (`bugfix`): Coordinate defect triage, reproduction, root cause, fix plan, regression checklist, and hotfix or normal release decision. Guide: `workflows/engineering/bugfix/workflow.md`. Manifest: `workflows/engineering/bugfix/workflow.yaml`.
 - **Feature Development Workflow** (`feature-development`): Coordinate scoped discovery, UX fit, architecture review, implementation planning, regression testing, rollout, and iteration for an existing product feature. Guide: `workflows/product-delivery/feature-development/workflow.md`. Manifest: `workflows/product-delivery/feature-development/workflow.yaml`.
