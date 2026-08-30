@@ -1,6 +1,6 @@
 id: bugfix
 name: Bugfix Workflow
-description: Workflow for resolving a defect through triage, reproduction, root cause analysis, fix planning, regression validation, and release decision.
+description: Distinct corrective path for assessing a defect, applying a behavior-preserving fix, testing, verifying, and independently reviewing the result.
 entry_conditions:
   - User reports a bug, defect, regression, or incorrect behavior in an existing product.
   - Reproduction, root cause, fix plan, regression checklist, or release decision is needed.
@@ -14,6 +14,32 @@ delegation_mode:
     - Run roles inside the same stage in parallel when their inputs are ready.
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
+process_metadata:
+  role_separation:
+    - The independent reviewer must not implement the fix or approve their own verification evidence.
+  independent_reviewers:
+    fresh: true
+    read_only: true
+  escalation:
+    workflow_id: secure-sdd
+    required_before: FIX
+    required_when:
+      - The proposed change modifies intended behavior.
+      - The proposed change changes architecture, system boundaries, public interfaces, data models, or trust boundaries.
+      - The proposed change changes dependency provenance, lock integrity, dependency resolution, or build tooling.
+      - The proposed change changes sandboxing, execution isolation, permissions, or privilege boundaries.
+      - The proposed change affects untrusted input handling, content interpretation, prompt handling, or prompt-injection defenses.
+      - The proposed change affects secrets, authentication, authorization, identity, or access control.
+      - The proposed change affects infrastructure, deployment topology, runtime configuration, or operational controls.
+    terminal_outcome: escalated_to_secure_sdd
+    requirement: Stop the bugfix path and explicitly hand off to secure-sdd when escalation conditions are met; no subsequent bugfix stage may run.
+  remediation_and_re_verification:
+    deterministic_verification_failure:
+      outputs:
+        - failed_verification_evidence
+        - verification_exception_request
+      requirement: Return the work to remediation and re-run deterministic verification before INDEPENDENT REVIEW or release.
+      restriction: A HUMAN authority, coordinator, and independent reviewers cannot waive a deterministic verification failure.
 conflict_resolution:
   severity: product-manager
   reproduction: qa-engineer
@@ -21,9 +47,9 @@ conflict_resolution:
   implementation: tech-lead
   release: release-manager
 stages:
-  - id: triage_reproduction
-    name: Triage & Reproduction
-    coordinator_goal: Confirm impact, severity, reproduction steps, expected behavior, and affected scope.
+  - id: assess
+    name: ASSESS
+    coordinator_goal: Confirm impact, reproduction, intended behavior, root cause, affected scope, and whether the change remains a behavior-preserving bugfix.
     roles:
       - customer-success-support
       - qa-engineer
@@ -37,57 +63,119 @@ stages:
       - reproduction_steps
       - impact_assessment
       - severity_recommendation
+      - root_cause
+      - affected_modules
+      - secure_sdd_escalation_decision
+      - secure_sdd_escalation_handoff
     acceptance_criteria:
       - Expected and actual behavior are clear.
       - Reproduction status and impacted users are documented.
       - Severity and urgency are justified.
+      - Intended behavior, architecture, dependency and build-tool, sandbox and privilege, untrusted input and prompt injection, secrets, authentication and authorization, and infrastructure impact are assessed before FIX begins.
+      - secure_sdd_escalation_decision is either not_required or escalated_to_secure_sdd; escalation is terminal for this workflow.
     gate:
-      type: approval_required
+      type: escalation_check
       by: coordinator
-  - id: root_cause_fix_plan
-    name: Root Cause & Fix Plan
-    coordinator_goal: Identify root cause, affected modules, minimal fix scope, and implementation risks.
+  - id: fix
+    name: FIX
+    coordinator_goal: Apply the minimal behavior-preserving correction after ASSESS confirms no Secure SDD escalation is required.
     roles:
       - tech-lead
       - backend-engineer
       - frontend-engineer
       - mobile-engineer
     inputs:
-      - bug_report
-      - reproduction_steps
-      - impact_assessment
-    outputs:
       - root_cause
       - affected_modules
-      - fix_plan
+      - secure_sdd_escalation_decision
+    entry_conditions:
+      - secure_sdd_escalation_decision: not_required
+    outputs:
+      - implementation_changes
+      - fix_evidence
       - implementation_risks
     acceptance_criteria:
-      - Root cause is plausible and traceable to evidence.
-      - Fix plan is minimal and avoids unrelated changes.
-      - Affected modules and risks are listed.
+      - FIX is permitted only when secure_sdd_escalation_decision is not_required.
+      - The fix is minimal, traceable to root-cause evidence, and avoids unrelated changes.
+      - Implementation risks are listed.
     gate:
       type: quality_check
       by: coordinator
-  - id: validation_release
-    name: Validation & Release Decision
-    coordinator_goal: Define regression coverage, verification evidence, release path, and rollback notes.
+  - id: test
+    name: TEST
+    coordinator_goal: Execute focused defect, negative-path, and regression tests for the behavior-preserving fix.
     roles:
       - qa-engineer
       - release-manager
       - devops-platform-engineer
     inputs:
-      - fix_plan
+      - implementation_changes
       - affected_modules
       - implementation_risks
     outputs:
+      - test_results
+      - regression_results
+      - test_findings
+      - deterministic_test_plan
+    acceptance_criteria:
+      - Focused and regression tests cover the affected behavior.
+      - Failures and test limitations are explicit.
+      - The deterministic test plan identifies reproducible commands, inputs, environment assumptions, and expected results.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: verify
+    name: VERIFY
+    coordinator_goal: Produce reproducible deterministic verification evidence that observed behavior matches intended behavior and that release or rollback evidence is complete.
+    roles:
+      - qa-engineer
+      - release-manager
+      - devops-platform-engineer
+    inputs:
+      - implementation_changes
+      - test_results
+      - regression_results
+      - test_findings
+      - deterministic_test_plan
+    outputs:
+      - verification_evidence
+      - deterministic_verification_results
+      - failed_verification_evidence
+      - verification_exception_request
       - regression_checklist
-      - verification_plan
       - hotfix_normal_release_decision
       - rollback_notes
     acceptance_criteria:
-      - Regression checklist covers affected behavior.
-      - Hotfix versus normal release decision is justified.
-      - Rollback or mitigation notes are included.
+      - Expected behavior is verified against the ASSESS record.
+      - Release decision and rollback or mitigation evidence are explicit.
+      - Deterministic verification evidence records reproducible commands, inputs, environment assumptions, expected results, and actual results.
+      - On failure, this stage emits only failed_verification_evidence and verification_exception_request for the remediation path; it cannot emit an exception decision.
+      - A deterministic verification failure is blocking, returns the work to remediation and re-verification, and cannot receive a human waiver.
     gate:
-      type: final_review
+      type: verification_check
+      by: coordinator
+  - id: independent_review
+    name: INDEPENDENT REVIEW
+    coordinator_goal: Independently review scope adherence, root-cause traceability, verification evidence, and remaining regression risk.
+    roles:
+      - tech-lead
+      - security-engineer
+    inputs:
+      - bug_report
+      - root_cause
+      - implementation_changes
+      - verification_evidence
+      - deterministic_verification_results
+      - regression_checklist
+    outputs:
+      - independent_review
+      - review_findings
+      - review_disposition
+    acceptance_criteria:
+      - Fresh, read-only reviewers did not implement the fix.
+      - The review confirms behavior preservation or identifies a required Secure SDD escalation.
+      - Material findings are resolved, rejected, or escalated before release.
+      - Deterministic verification passed.
+    gate:
+      type: final_independent_review
       by: coordinator

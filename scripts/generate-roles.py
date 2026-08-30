@@ -121,6 +121,71 @@ def markdown_section(title: str, values: list[str]) -> str:
     return f"## {title}\n\n{bullet_list(values)}\n\n"
 
 
+def security_baseline_from_policy(profiles_registry: dict[str, Any]) -> list[str]:
+    """Resolve the configured prompt-security baseline from the canonical policy registry.
+
+    Args:
+        profiles_registry: Loaded profiles registry containing the baseline policy reference.
+
+    Returns:
+        Baseline instructions and their policy-declared enforcement limit.
+
+    Raises:
+        ValueError: If the configured policy control or required fields are unavailable.
+    """
+    baseline_configuration = profiles_registry.get("security_baseline_policy")
+    if not isinstance(baseline_configuration, dict):
+        raise ValueError("registry/profiles.yaml must contain security_baseline_policy")
+    policy_id = baseline_configuration.get("id")
+    if not isinstance(policy_id, str) or not policy_id.strip():
+        raise ValueError("security_baseline_policy.id must be a non-empty string")
+    include_requirements = baseline_configuration.get("include_requirements")
+    include_enforcement_limit = baseline_configuration.get("include_enforcement_limit")
+    if not isinstance(include_requirements, bool):
+        raise ValueError("security_baseline_policy.include_requirements must be a boolean")
+    if not isinstance(include_enforcement_limit, bool):
+        raise ValueError("security_baseline_policy.include_enforcement_limit must be a boolean")
+
+    secure_sdd_policy = load_registry("policies").get("secure_sdd_policy")
+    if not isinstance(secure_sdd_policy, dict):
+        raise ValueError("registry/policies.yaml must contain secure_sdd_policy")
+    controls = secure_sdd_policy.get("controls")
+    if not isinstance(controls, list):
+        raise ValueError("secure_sdd_policy.controls must be a list")
+    matching_controls = [
+        item for item in controls if isinstance(item, dict) and item.get("id") == policy_id
+    ]
+    if len(matching_controls) != 1:
+        raise ValueError(
+            f"security_baseline_policy must reference exactly one policy control '{policy_id}'"
+        )
+    control = matching_controls[0]
+
+    baseline: list[str] = []
+    if include_requirements:
+        requirements = control.get("requirements")
+        if (
+            not isinstance(requirements, list)
+            or not requirements
+            or any(not isinstance(requirement, str) or not requirement.strip() for requirement in requirements)
+        ):
+            raise ValueError(f"Policy '{policy_id}' must have non-empty string requirements")
+        baseline.extend(requirements)
+    if include_enforcement_limit:
+        enforcement_name = control.get("enforcement")
+        if not isinstance(enforcement_name, str) or not enforcement_name.strip():
+            raise ValueError(f"Policy '{policy_id}' has no valid enforcement classification")
+        classifications = secure_sdd_policy.get("enforcement_model", {}).get("classifications", {})
+        enforcement = classifications.get(enforcement_name) if isinstance(classifications, dict) else None
+        enforcement_description = enforcement.get("description") if isinstance(enforcement, dict) else None
+        if not isinstance(enforcement_description, str) or not enforcement_description.strip():
+            raise ValueError(f"Policy '{policy_id}' has no declared enforcement-limit description")
+        baseline.append(f"Enforcement limit: {enforcement_description}")
+    if not baseline:
+        raise ValueError(f"security_baseline_policy '{policy_id}' selected no baseline content")
+    return baseline
+
+
 def profile_role(profile: dict[str, Any]) -> dict[str, Any]:
     """Return the role metadata mapping for a profile.
 
@@ -134,12 +199,17 @@ def profile_role(profile: dict[str, Any]) -> dict[str, Any]:
     return role if isinstance(role, dict) else {}
 
 
-def generated_role_content(profile: dict[str, Any], common_instructions: list[str]) -> str:
+def generated_role_content(
+    profile: dict[str, Any],
+    common_instructions: list[str],
+    security_baseline: list[str],
+) -> str:
     """Generate one role prompt from a profile.
 
     Args:
         profile: Profile registry entry.
         common_instructions: Instructions shared by every generated role.
+        security_baseline: Security and prompt-injection instructions shared by every generated role.
 
     Returns:
         Rendered role prompt.
@@ -150,6 +220,10 @@ def generated_role_content(profile: dict[str, Any], common_instructions: list[st
     purpose = str(role.get("mission") or profile.get("description") or "No purpose specified.")
     responsibilities = bullet_list(string_list(role.get("responsibilities")))
     guardrails_section = markdown_section("Guardrails", string_list(role.get("guardrails")))
+    security_baseline_section = markdown_section(
+        "Always-On Security and Prompt-Injection Baseline",
+        security_baseline,
+    )
     delegation_level_rules_section = markdown_section(
         "Delegation Level Rules",
         string_list(role.get("delegation_level_rules")),
@@ -164,6 +238,7 @@ def generated_role_content(profile: dict[str, Any], common_instructions: list[st
             "responsibilities": responsibilities,
             "delegation_level_rules_section": delegation_level_rules_section,
             "guardrails_section": guardrails_section,
+            "security_baseline_section": security_baseline_section,
             "common_instructions": rendered_common_instructions,
         },
     )
@@ -196,18 +271,26 @@ def clean_roles_directory() -> None:
         path.unlink()
 
 
-def write_roles(profiles: list[dict[str, Any]], common_instructions: list[str]) -> None:
+def write_roles(
+    profiles: list[dict[str, Any]],
+    common_instructions: list[str],
+    security_baseline: list[str],
+) -> None:
     """Write generated role prompts and the role registry index.
 
     Args:
         profiles: Profile registry entries.
         common_instructions: Instructions shared by every generated role.
+        security_baseline: Security and prompt-injection instructions shared by every generated role.
     """
     clean_roles_directory()
     sorted_profiles = sorted(profiles, key=lambda item: str(item.get("id") or ""))
     for profile in sorted_profiles:
         profile_id = str(profile.get("id") or "unknown")
-        write_text(ROLES_DIR / f"{profile_id}.md", generated_role_content(profile, common_instructions))
+        write_text(
+            ROLES_DIR / f"{profile_id}.md",
+            generated_role_content(profile, common_instructions, security_baseline),
+        )
 
     roles = "\n".join(role_registry_line(profile) for profile in sorted_profiles)
     write_text(ROLES_DIR / "roles.md", render("roles.md", {"roles": roles}))
@@ -229,8 +312,9 @@ def main() -> int:
     registry = load_registry("profiles")
     profiles = registry.get("profiles", [])
     common_instructions = string_list(registry.get("common_instructions"))
+    security_baseline = security_baseline_from_policy(registry)
     cleanup_legacy_role_directory()
-    write_roles(profiles, common_instructions)
+    write_roles(profiles, common_instructions, security_baseline)
     print(f"Generated role prompts: {len(profiles)} roles")
     print(f"Generated role registry: {ROLES_DIR / 'roles.md'}")
     return 0

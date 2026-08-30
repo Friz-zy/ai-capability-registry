@@ -1,0 +1,177 @@
+id: secure-sdd
+policy_id: secure-sdd-registry-v1
+process_metadata:
+  role_separation:
+    - Producers and reviewers are separate.
+  independent_reviewers:
+    fresh: true
+    read_only: true
+  remediation_and_re_review:
+    blocking_findings:
+      - Return to remediation and fresh re-review.
+    residual_risk_disposition:
+      required_evidence:
+        - explicit_risk_classification
+        - remediation_evidence
+        - fresh_independent_re_review_evidence
+      rejection_route: IMPLEMENT
+conditional_stage_results:
+  architecture_review:
+    artifact: architecture_review_result
+    required_status_values:
+      - reviewed
+      - escalated
+      - not_applicable
+    status_specific_required_fields:
+      reviewed:
+        - review_evidence
+        - findings
+        - decision_rationale
+        - infrastructure_assessment
+        - sandbox_privilege_assessment
+        - dependency_provenance_lock_integrity_assessment
+      escalated:
+        - escalation_workflow_id
+        - escalation_handoff
+        - blocking_disposition
+      not_applicable:
+        - not_applicable_basis
+        - condition_evidence
+    consumed_by:
+      - CHECKLIST
+  security_review:
+    artifact: security_review_result
+    required_status_values:
+      - reviewed
+      - escalated
+      - not_applicable
+    status_specific_required_fields:
+      reviewed:
+        - review_evidence
+        - findings
+        - residual_risks
+        - remediation_requirements
+      escalated:
+        - escalation_workflow_id
+        - escalation_handoff
+        - blocking_disposition
+      not_applicable:
+        - not_applicable_basis
+        - risk_evidence
+    consumed_by:
+      - FINAL INDEPENDENT REVIEW
+      - CONVERGE
+      - POLICY GATE
+human_escalation:
+  required_at: POLICY GATE
+  required_when:
+    - HIGH or CRITICAL risk
+  restrictions:
+    - Blocking findings cannot be waived.
+    - A HUMAN disposition may address only explicitly classified residual risk.
+stages:
+  - id: specify
+    roles:
+      - product-manager
+  - id: clarify
+    roles:
+      - product-manager
+  - id: independent_spec_review
+    roles:
+      - qa-engineer
+    gate:
+      type: independent_review
+  - id: plan
+    roles:
+      - product-manager
+  - id: architecture_review
+    conditional: true
+    roles:
+      - qa-engineer
+    outputs:
+      - architecture_review_result
+    gate:
+      type: independent_review
+  - id: checklist
+    roles:
+      - product-manager
+    inputs:
+      - architecture_review_result
+  - id: tasks
+    roles:
+      - product-manager
+  - id: verification_plan
+    roles:
+      - qa-engineer
+  - id: analyze
+    roles:
+      - qa-engineer
+    outputs:
+      - pre_implementation_independent_risk_review
+      - prompt_injection_assessment
+      - dependency_provenance_quarantine_integrity_assessment
+      - sandbox_privilege_assessment
+      - risk_classification
+      - unresolved_risk_findings
+      - pre_implementation_risk_review_disposition
+      - pre_implementation_risk_review_escalation
+    gate:
+      type: independent_risk_review
+  - id: implement
+    roles:
+      - backend-engineer
+  - id: adversarial_test
+    roles:
+      - qa-engineer
+  - id: deterministic_verify
+    roles:
+      - qa-engineer
+    outputs:
+      - deterministic_verification_results
+      - failed_verification_evidence
+      - verification_exception_request
+    gate:
+      type: deterministic_verification
+  - id: security_review
+    conditional: true
+    roles:
+      - security-engineer
+    outputs:
+      - security_review_result
+    gate:
+      type: independent_review
+  - id: final_independent_review
+    roles:
+      - qa-engineer
+    gate:
+      type: final_independent_review
+    inputs:
+      - clarified_specification
+      - checklist_status
+      - implementation_change_summary
+      - adversarial_test_results
+      - adversarial_test_disposition
+      - regression_results
+      - deterministic_verification_results
+      - risk_assessment
+      - architecture_review_result
+      - security_review_result
+  - id: converge
+    roles:
+      - product-manager
+    inputs:
+      - security_review_result
+  - id: policy_gate
+    roles:
+      - product-manager
+    inputs:
+      - security_review_result
+    acceptance_criteria:
+      - Blocking findings cannot be waived; a HUMAN disposition addresses only explicitly classified residual risk.
+    gate:
+      type: human_policy_gate
+escalation_targets:
+  - workflow_id: threat-modeling
+    task_id: model-threats
+  - workflow_id: security-review
+    task_id: review-security

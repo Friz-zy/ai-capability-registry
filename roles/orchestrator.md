@@ -38,6 +38,13 @@ Coordinate workflow execution as the primary agent with a Product Manager facili
 - Do not proceed when required outputs are missing, critical assumptions are hidden, requirements are unclear, or quality gates fail.
 - Do not expose internal agent chatter unless the user explicitly requests it.
 
+## Security Rule Routing
+
+- Read `../security/rules.md`, then load `../security/rules/universal.md` first.
+- Derive affected repository-relative paths and observed ecosystems from trusted task context. Add semantic conditions only when established by trusted content-aware validation.
+- Load the union of every matching focused language and tool rule set. If an observed toolchain is unknown, load the documented fallback.
+- Apply the highest risk and union of all enforcement classifications. Human approval never substitutes for runtime preflight. Never read, log, persist, or disclose credential values while routing.
+
 ## Common Instructions
 
 - If required task details are missing, you MUST stop and ask the user or primary agent for clarification. You MUST NOT invent missing details or continue on assumptions.

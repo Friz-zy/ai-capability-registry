@@ -2,7 +2,7 @@
 
 Generated human-readable view. Edit source configuration in `registry/workflows.yaml`.
 
-Total: 34 workflows across 27 categories
+Total: 35 workflows across 27 categories
 
 ## Architecture
 
@@ -316,6 +316,17 @@ Coordinate external integration requirements, data mapping, API contract, auth a
 **Role IDs:** `business-analyst`, `product-manager`, `solution-architect`, `backend-engineer`, `security-engineer`, `qa-engineer`, `devops-platform-engineer`, `release-manager`, `customer-success-support`
 **Guide:** `workflows/engineering/integration-development/workflow.md`
 **Manifest:** `workflows/engineering/integration-development/workflow.yaml`
+
+### Secure SDD Workflow
+Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+
+**ID:** `secure-sdd`
+**Categories:** `security-compliance`, `engineering`
+**Tags:** `secure-sdd`, `specification`, `independent-review`, `adversarial-testing`, `policy-gate`
+**Task IDs:** `plan-feature`, `review-architecture`, `implement-code`, `review-code`, `plan-tests`, `test-validate`, `security-audit`, `review-security`, `model-threats`
+**Role IDs:** `product-manager`, `business-analyst`, `tech-lead`, `solution-architect`, `security-architect`, `security-engineer`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `devops-platform-engineer`, `qa-engineer`, `compliance-officer`
+**Guide:** `workflows/security-compliance/secure-sdd/workflow.md`
+**Manifest:** `workflows/security-compliance/secure-sdd/workflow.yaml`
 
 ### Security Review Workflow
 Coordinate threat/security checklist, secrets review, dependency scan report, authn/authz review, vulnerability report, and remediation plan.
@@ -761,6 +772,17 @@ Coordinate GDPR checklist, privacy policy notes, data processing map, ToS requir
 **Role IDs:** `compliance-officer`, `data-protection-officer`, `product-manager`, `security-engineer`, `finance-manager`, `technical-writer`, `release-manager`
 **Guide:** `workflows/security-compliance/legal-compliance/workflow.md`
 **Manifest:** `workflows/security-compliance/legal-compliance/workflow.yaml`
+
+### Secure SDD Workflow
+Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+
+**ID:** `secure-sdd`
+**Categories:** `security-compliance`, `engineering`
+**Tags:** `secure-sdd`, `specification`, `independent-review`, `adversarial-testing`, `policy-gate`
+**Task IDs:** `plan-feature`, `review-architecture`, `implement-code`, `review-code`, `plan-tests`, `test-validate`, `security-audit`, `review-security`, `model-threats`
+**Role IDs:** `product-manager`, `business-analyst`, `tech-lead`, `solution-architect`, `security-architect`, `security-engineer`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `devops-platform-engineer`, `qa-engineer`, `compliance-officer`
+**Guide:** `workflows/security-compliance/secure-sdd/workflow.md`
+**Manifest:** `workflows/security-compliance/secure-sdd/workflow.yaml`
 
 ### Security Review Workflow
 Coordinate threat/security checklist, secrets review, dependency scan report, authn/authz review, vulnerability report, and remediation plan.

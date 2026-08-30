@@ -1,6 +1,6 @@
 # Workflow Capability Routing
 
-Read `../capability-routing.md` and `../roles/orchestrator.md` before selecting a workflow.
+Read `../capability-routing.md`, `workflow.md`, and `../roles/orchestrator.md` before selecting a workflow.
 
 Use this file only for primary-agent workflow selection when no workflow scope is assigned.
 
@@ -329,6 +329,24 @@ Coordinate assets, actors, trust boundaries, threat list, attack paths, mitigati
 ### Threat Modeling Workflow Role IDs
 
 `security-architect`, `solution-architect`, `product-manager`, `security-engineer`, `backend-engineer`, `devops-platform-engineer`, `qa-engineer`, `tech-lead`
+
+### Secure SDD Workflow
+
+Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+
+**ID:** `secure-sdd`
+**Guide:** `workflows/security-compliance/secure-sdd/workflow.md`
+**Manifest:** `workflows/security-compliance/secure-sdd/workflow.yaml`
+**Categories:** `security-compliance`, `engineering`
+**Tags:** `secure-sdd`, `specification`, `independent-review`, `adversarial-testing`, `policy-gate`
+
+### Secure SDD Workflow Task IDs
+
+`plan-feature`, `review-architecture`, `implement-code`, `review-code`, `plan-tests`, `test-validate`, `security-audit`, `review-security`, `model-threats`
+
+### Secure SDD Workflow Role IDs
+
+`product-manager`, `business-analyst`, `tech-lead`, `solution-architect`, `security-architect`, `security-engineer`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `devops-platform-engineer`, `qa-engineer`, `compliance-officer`
 
 ### Legal Compliance Workflow
 

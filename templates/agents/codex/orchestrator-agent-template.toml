@@ -1,3 +1,4 @@
+# generated-by: scripts/generate-agent-configs.py
 name = {{agent_id_toml}}
 description = {{agent_description_toml}}
 model = {{model_toml}}

@@ -1,0 +1,8 @@
+secure_sdd_policy:
+  selectors:
+    - ecosystems:
+        - pip
+        - pypi
+      path_globs:
+        - pip.conf
+        - '**/pip.conf'

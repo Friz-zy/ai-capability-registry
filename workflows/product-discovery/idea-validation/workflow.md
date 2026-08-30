@@ -12,6 +12,8 @@ Use this workflow to evaluate a product or business idea before committing to fu
 
 ## Coordinator Notes
 
-This workflow should produce evidence, assumptions, and a go/no-go recommendation. Use `saas-from-scratch` only after the opportunity, audience, and MVP hypothesis are strong enough to enter delivery planning.
+This workflow follows a distinct pre-delivery path: CAPTURE, EVIDENCE, REFINE, DESIGN, then GO, CLARIFY, or KILL. It should produce evidence, assumptions, and a decision with rationale.
+
+A GO decision may record an explicit handoff target, but it must not automatically start any delivery workflow. CLARIFY returns the work to the appropriate earlier stage with targeted evidence gaps. KILL ends the validation path and records the rationale.
 
 Follow the manifest for stage order, role delegation, gates, and acceptance criteria.

@@ -1,0 +1,528 @@
+id: secure-sdd
+name: Secure SDD Workflow
+description: Strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+entry_conditions:
+  - A feature, architecture change, or high-confidence implementation requires specification-driven delivery.
+  - The work can provide explicit requirements, verification evidence, and accountable policy disposition.
+clarification_questions:
+  - What behavior, constraints, assets, and non-goals must the specification define?
+  - What existing interfaces, data, trust boundaries, or operational constraints can the change affect?
+  - Which risks require architecture review, threat modeling, security review, or human policy disposition?
+process_metadata:
+  role_separation:
+    - Producers must not independently approve their own specification, implementation, or final review output.
+    - Independent-review roles must not perform implementation work for the change under review.
+    - ANALYZE reviewers must be disjoint from IMPLEMENT roles for the change under review.
+    - CONVERGE may consolidate findings but cannot override an unresolved independent-review or policy-gate failure.
+  independent_reviewers:
+    fresh: true
+    read_only: true
+    requirements:
+      - Each independent review uses a reviewer session with no prior producer work on the reviewed artifact.
+      - Reviewers may inspect approved inputs and evidence but must not modify the change under review.
+  human_escalation:
+    required_at: POLICY GATE
+    required_when:
+      - An explicitly classified residual security, privacy, compliance, data-integrity, or operational risk remains after remediation and fresh independent re-review.
+      - The coordinator cannot determine whether the change satisfies applicable policy.
+    outcomes:
+      - approve
+      - reject
+      - request_clarification
+      - defer
+    restrictions:
+      - Blocking findings cannot be waived by a HUMAN authority, coordinator, CONVERGE, or POLICY GATE.
+      - A HUMAN disposition may address only an explicitly classified residual risk after remediation and fresh independent re-review.
+      - A HUMAN rejection returns the work to remediation and requires fresh independent re-review before another disposition.
+  remediation_and_re_review:
+    blocking_findings:
+      - Must return to remediation and pass the applicable verification and independent re-review before downstream progress resumes.
+      - Cannot be converted into a residual-risk disposition.
+    residual_risk_disposition:
+      required_evidence:
+        - explicit_risk_classification
+        - remediation_evidence
+        - fresh_independent_re_review_evidence
+      rejection_route: IMPLEMENT
+  mandatory_independent_risk_gates:
+    required_before:
+      - PLAN
+      - IMPLEMENT
+    reviewer_requirements:
+      fresh: true
+      read_only: true
+    topics:
+      - untrusted_content_and_prompt_injection
+      - dependency_provenance_quarantine_and_integrity
+      - sandbox_and_privilege_boundaries
+    required_outputs:
+      - prompt_injection_assessment
+      - dependency_provenance_quarantine_integrity_assessment
+      - sandbox_privilege_assessment
+      - risk_classification
+      - unresolved_risk_findings
+    uncertainty_handling:
+      requirement: Uncertainty is a blocking escalation, not a pass.
+      escalation_workflows:
+        - threat-modeling
+        - security-review
+  conditional_stage_results:
+    architecture_review:
+      artifact: architecture_review_result
+      required_status_values:
+        - reviewed
+        - escalated
+        - not_applicable
+      status_specific_required_fields:
+        reviewed:
+          - review_evidence
+          - findings
+          - decision_rationale
+          - infrastructure_assessment
+          - sandbox_privilege_assessment
+          - dependency_provenance_lock_integrity_assessment
+        escalated:
+          - escalation_workflow_id
+          - escalation_handoff
+          - blocking_disposition
+        not_applicable:
+          - not_applicable_basis
+          - condition_evidence
+      consumed_by:
+        - CHECKLIST
+    security_review:
+      artifact: security_review_result
+      required_status_values:
+        - reviewed
+        - escalated
+        - not_applicable
+      status_specific_required_fields:
+        reviewed:
+          - review_evidence
+          - findings
+          - residual_risks
+          - remediation_requirements
+        escalated:
+          - escalation_workflow_id
+          - escalation_handoff
+          - blocking_disposition
+        not_applicable:
+          - not_applicable_basis
+          - risk_evidence
+      consumed_by:
+        - FINAL INDEPENDENT REVIEW
+        - CONVERGE
+        - POLICY GATE
+escalation_targets:
+  - workflow_id: threat-modeling
+    task_id: model-threats
+    required_when: The change adds or changes assets, trust boundaries, attacker capabilities, sensitive data flows, or attack paths.
+  - workflow_id: security-review
+    task_id: review-security
+    required_when: Risk assessment identifies security-sensitive implementation or release risk requiring dedicated review.
+delegation_mode:
+  type: staged_parallel
+  rules:
+    - Preserve the listed stage order; conditional stages may be skipped only when their recorded condition is false.
+    - A conditional stage must emit its single mandatory result artifact even when its condition is false.
+    - Do not start a stage until its predecessor gate passes or records an approved escalation outcome.
+    - Assign independent reviews to fresh, read-only reviewers under process_metadata.
+conflict_resolution:
+  specification: product-manager
+  architecture: solution-architect
+  implementation: tech-lead
+  verification: qa-engineer
+  security: security-engineer
+  policy_disposition: human_escalation
+stages:
+  - id: specify
+    name: SPECIFY
+    coordinator_goal: Define intended behavior, constraints, security-relevant properties, acceptance criteria, and explicit non-goals.
+    roles:
+      - product-manager
+      - business-analyst
+      - tech-lead
+    inputs:
+      - user_request
+      - existing_context
+    outputs:
+      - specification
+      - acceptance_criteria
+      - non_goals
+      - assumptions
+      - initial_risk_context
+    acceptance_criteria:
+      - Intended behavior and non-goals are explicit and testable.
+      - Constraints and security-relevant properties are documented.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: clarify
+    name: CLARIFY
+    coordinator_goal: Resolve ambiguities, conflicting assumptions, and missing acceptance criteria before independent review.
+    roles:
+      - product-manager
+      - business-analyst
+      - tech-lead
+    inputs:
+      - specification
+      - assumptions
+      - initial_risk_context
+    outputs:
+      - clarified_specification
+      - decision_log
+      - unresolved_questions
+    acceptance_criteria:
+      - Material ambiguity has a decision, an explicit assumption, or a blocking escalation.
+      - Acceptance criteria remain traceable to intended behavior.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: independent_spec_review
+    name: INDEPENDENT SPEC REVIEW
+    coordinator_goal: Independently assess specification completeness, consistency, feasibility, and risk before planning.
+    roles:
+      - solution-architect
+      - security-architect
+      - qa-engineer
+    inputs:
+      - clarified_specification
+      - decision_log
+      - unresolved_questions
+    outputs:
+      - specification_review
+      - review_findings
+      - review_disposition
+      - pre_planning_risk_gate
+      - pre_planning_risk_gate_disposition
+      - pre_planning_risk_gate_escalation
+    acceptance_criteria:
+      - Review is performed by fresh, read-only reviewers.
+      - Material findings are resolved, accepted through human escalation, or block progress.
+      - Fresh, read-only reviewers independently assess untrusted content and prompt injection, dependency provenance, quarantine, and integrity, and sandbox or privilege boundaries before PLAN.
+      - Uncertainty about a mandatory risk topic is escalated to threat-modeling or security-review and blocks PLAN until disposition.
+    gate:
+      type: independent_review
+      by: coordinator
+  - id: plan
+    name: PLAN
+    coordinator_goal: Define a minimal implementation approach, dependencies, migration needs, and risk controls traceable to the reviewed specification.
+    roles:
+      - tech-lead
+      - solution-architect
+      - devops-platform-engineer
+    inputs:
+      - clarified_specification
+      - review_disposition
+      - pre_planning_risk_gate_disposition
+      - pre_planning_risk_gate_escalation
+    outputs:
+      - implementation_plan
+      - dependency_plan
+      - migration_plan
+      - risk_assessment
+    acceptance_criteria:
+      - The plan is traceable to approved specification requirements.
+      - Dependencies, migration needs, and risk controls are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: architecture_review
+    name: ARCHITECTURE REVIEW
+    conditional: true
+    required_when: The plan changes system boundaries, public interfaces, data models, deployment topology, trust boundaries, or operational characteristics.
+    coordinator_goal: Independently validate architecture decisions and initiate required threat-modeling escalation.
+    roles:
+      - security-architect
+      - compliance-officer
+      - qa-engineer
+    inputs:
+      - implementation_plan
+      - dependency_plan
+      - risk_assessment
+    outputs:
+      - architecture_review_result
+    acceptance_criteria:
+      - The stage emits only architecture_review_result with status reviewed, escalated, or not_applicable before CHECKLIST begins.
+      - architecture_review_result contains every status-specific field declared by conditional_stage_results.
+      - A reviewed result assesses architecture, infrastructure, sandbox and privilege boundaries, and dependency provenance, quarantine, and integrity; uncertainty is escalated.
+    gate:
+      type: conditional_architecture_review
+      by: coordinator
+  - id: checklist
+    name: CHECKLIST
+    coordinator_goal: Convert approved requirements, plan controls, and review findings into an implementation and review checklist.
+    roles:
+      - tech-lead
+      - qa-engineer
+      - security-engineer
+    inputs:
+      - clarified_specification
+      - implementation_plan
+      - architecture_review_result
+    outputs:
+      - delivery_checklist
+      - security_checklist
+      - traceability_matrix
+    acceptance_criteria:
+      - Each requirement and material finding maps to a checklist item or explicit disposition.
+      - Security and regression checks are included when applicable.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: tasks
+    name: TASKS
+    coordinator_goal: Break the approved plan into small, ordered, reviewable tasks with owners and dependencies.
+    roles:
+      - tech-lead
+      - backend-engineer
+      - frontend-engineer
+      - mobile-engineer
+      - security-architect
+      - security-engineer
+      - qa-engineer
+      - devops-platform-engineer
+    inputs:
+      - implementation_plan
+      - delivery_checklist
+      - traceability_matrix
+    outputs:
+      - task_breakdown
+      - implementation_order
+      - task_dependencies
+      - shared_code_risks
+    acceptance_criteria:
+      - Tasks are traceable, reviewable, and ordered by dependency.
+      - Shared-code and rollback risks are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
+  - id: verification_plan
+    name: VERIFICATION PLAN
+    coordinator_goal: Define deterministic, adversarial, regression, and security verification evidence before implementation begins.
+    roles:
+      - qa-engineer
+      - security-engineer
+      - tech-lead
+    inputs:
+      - clarified_specification
+      - delivery_checklist
+      - task_breakdown
+      - risk_assessment
+    outputs:
+      - verification_plan
+      - deterministic_test_plan
+      - adversarial_test_plan
+      - regression_scope
+    acceptance_criteria:
+      - Verification maps to requirements, risk controls, and material edge cases.
+      - Deterministic and adversarial coverage are distinguishable.
+    gate:
+      type: approval_required
+      by: coordinator
+  - id: analyze
+    name: ANALYZE
+    coordinator_goal: Perform a fresh, read-only, independent pre-IMPLEMENT risk review of affected scope, interfaces, data flows, and implementation risks against approved artifacts.
+    roles:
+      - security-engineer
+      - security-architect
+      - qa-engineer
+      - compliance-officer
+    inputs:
+      - task_breakdown
+      - verification_plan
+      - risk_assessment
+    outputs:
+      - affected_scope
+      - implementation_analysis
+      - analysis_findings
+      - pre_implementation_independent_risk_review
+      - prompt_injection_assessment
+      - dependency_provenance_quarantine_integrity_assessment
+      - sandbox_privilege_assessment
+      - risk_classification
+      - unresolved_risk_findings
+      - pre_implementation_risk_review_disposition
+      - pre_implementation_risk_review_escalation
+    acceptance_criteria:
+      - Fresh, read-only ANALYZE reviewers are disjoint from IMPLEMENT roles and do not modify the change under review.
+      - Affected scope and implementation risks are evidence-based.
+      - Material analysis findings update the checklist before implementation.
+      - The independent review records assessments for prompt injection, dependency provenance, quarantine, and integrity, and sandbox and privilege boundaries, plus a risk classification and unresolved findings.
+      - Uncertainty about a mandatory risk topic is escalated to threat-modeling or security-review and blocks IMPLEMENT until disposition.
+    gate:
+      type: independent_risk_review
+      by: coordinator
+  - id: implement
+    name: IMPLEMENT
+    coordinator_goal: Implement only the approved tasks and retain traceability to the specification and checklist.
+    roles:
+      - backend-engineer
+      - frontend-engineer
+      - mobile-engineer
+      - devops-platform-engineer
+    inputs:
+      - task_breakdown
+      - implementation_analysis
+      - delivery_checklist
+      - pre_implementation_risk_review_disposition
+      - pre_implementation_risk_review_escalation
+    outputs:
+      - implementation_changes
+      - implementation_change_summary
+      - implementation_evidence
+      - checklist_status
+    acceptance_criteria:
+      - Changes remain within approved task scope or record a blocking deviation.
+      - Implementation evidence maps to checklist items.
+    gate:
+      type: implementation_complete
+      by: coordinator
+  - id: adversarial_test
+    name: ADVERSARIAL TEST
+    coordinator_goal: Exercise abuse cases, negative paths, malformed inputs, privilege boundaries, and risk-specific attacks.
+    roles:
+      - qa-engineer
+      - security-engineer
+    inputs:
+      - implementation_changes
+      - adversarial_test_plan
+      - risk_assessment
+    outputs:
+      - adversarial_test_results
+      - security_test_findings
+      - adversarial_test_disposition
+    acceptance_criteria:
+      - Risk-relevant negative and abuse cases produce recorded evidence.
+      - Material failures block deterministic verification until resolved or escalated.
+    gate:
+      type: adversarial_test_review
+      by: coordinator
+  - id: deterministic_verify
+    name: DETERMINISTIC VERIFY
+    coordinator_goal: Run reproducible verification for acceptance criteria, regression scope, and resolved adversarial findings.
+    roles:
+      - qa-engineer
+    inputs:
+      - implementation_changes
+      - deterministic_test_plan
+      - regression_scope
+      - adversarial_test_disposition
+    outputs:
+      - deterministic_verification_results
+      - regression_results
+      - failed_verification_evidence
+      - verification_exception_request
+    acceptance_criteria:
+      - Deterministic verification is reproducible and traceable to requirements.
+      - Regression results and unresolved failures are explicit.
+      - On failure, this stage emits only failed_verification_evidence and verification_exception_request for the remediation path; it cannot emit an exception decision.
+      - A deterministic verification failure is a blocking finding that returns work to remediation and re-verification; it cannot receive a human waiver.
+    gate:
+      type: deterministic_verification
+      by: coordinator
+  - id: security_review
+    name: SECURITY REVIEW
+    conditional: true
+    required_when: Risk assessment or verification findings identify security-sensitive implementation, release, dependency, authentication, authorization, secret, or infrastructure risk.
+    coordinator_goal: Perform or explicitly escalate a risk-based security review after deterministic verification.
+    roles:
+      - security-engineer
+      - security-architect
+      - compliance-officer
+    inputs:
+      - risk_assessment
+      - security_test_findings
+      - deterministic_verification_results
+    outputs:
+      - security_review_result
+    acceptance_criteria:
+      - The stage emits only security_review_result with status reviewed, escalated, or not_applicable before FINAL INDEPENDENT REVIEW begins.
+      - security_review_result contains every status-specific field declared by conditional_stage_results.
+      - A blocking verification failure returns work to remediation and re-verification before SECURITY REVIEW begins.
+    gate:
+      type: risk_based_security_review
+      by: coordinator
+  - id: final_independent_review
+    name: FINAL INDEPENDENT REVIEW
+    coordinator_goal: Independently assess completed evidence, scope adherence, residual risks, and release readiness.
+    roles:
+      - solution-architect
+      - security-architect
+      - qa-engineer
+    inputs:
+      - clarified_specification
+      - checklist_status
+      - implementation_change_summary
+      - adversarial_test_results
+      - adversarial_test_disposition
+      - regression_results
+      - deterministic_verification_results
+      - risk_assessment
+      - architecture_review_result
+      - security_review_result
+    outputs:
+      - final_review
+      - final_findings
+      - final_review_disposition
+      - classified_residual_risks
+      - remediation_re_review_evidence
+    acceptance_criteria:
+      - Fresh, read-only reviewers confirm traceability, implementation scope adherence, adversarial and regression evidence, deterministic verification, risk assessment, and conditional review results.
+      - Blocking findings return to remediation and re-review; they cannot be waived through human escalation.
+      - A residual-risk classification and remediation/re-review evidence are produced before any human disposition.
+      - Deterministic verification passed.
+    gate:
+      type: final_independent_review
+      by: coordinator
+  - id: converge
+    name: CONVERGE
+    coordinator_goal: Consolidate approved evidence, findings, exceptions, and residual-risk disposition without changing reviewed implementation.
+    roles:
+      - tech-lead
+      - product-manager
+    inputs:
+      - final_review_disposition
+      - final_findings
+      - deterministic_verification_results
+      - security_review_result
+      - classified_residual_risks
+      - remediation_re_review_evidence
+    outputs:
+      - convergence_record
+      - release_recommendation
+      - policy_gate_input
+    acceptance_criteria:
+      - All blocking findings are remediated and re-reviewed before convergence.
+      - Only explicitly classified residual risks with remediation and fresh independent re-review evidence may be included for a human disposition.
+      - CONVERGE does not override independent-review failures.
+      - CONVERGE does not waive or otherwise disposition a blocking finding.
+    gate:
+      type: convergence_check
+      by: coordinator
+  - id: policy_gate
+    name: POLICY GATE
+    coordinator_goal: Obtain required human policy disposition for release, exception, deferral, or rejection.
+    roles:
+      - compliance-officer
+      - tech-lead
+    inputs:
+      - policy_gate_input
+      - convergence_record
+      - deterministic_verification_results
+      - security_review_result
+      - classified_residual_risks
+      - remediation_re_review_evidence
+    outputs:
+      - policy_gate_decision
+      - human_escalation_record
+      - final_disposition
+    acceptance_criteria:
+      - Required human escalation is completed and recorded.
+      - Release approval is not inferred from automated or role-only review.
+      - Blocking findings cannot be waived; they return to remediation and fresh independent re-review.
+      - A HUMAN disposition addresses only explicitly classified residual risk after remediation and fresh independent re-review evidence.
+      - A HUMAN rejection returns work to remediation.
+    gate:
+      type: human_policy_gate
+      by: human_escalation

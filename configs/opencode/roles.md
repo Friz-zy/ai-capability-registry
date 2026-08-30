@@ -1,3 +1,4 @@
+<!-- generated-by: scripts/generate-agent-configs.py -->
 # Available Generated Roles
 
 Use the CLI native available agent list by default. Use this catalog only as a fallback when the CLI cannot expose available agents or when exact generated role ids are needed.

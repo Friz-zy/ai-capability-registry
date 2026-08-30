@@ -1,15 +1,26 @@
 name: Validate Registry
 
 permissions:
-  contents: write
+  contents: read
 
 on:
   pull_request:
     paths:
       - '.github/workflows/validate.yml'
       - 'registry/**'
+      - 'workflows/**'
+      - 'templates/**'
+      - 'security/**'
+      - 'AGENTS.md.sdd'
+      - '.gitmodules'
+      - 'tests/**'
+      - 'configs/**'
+      - 'roles/**'
+      - 'mcp/**'
       - 'skill-catalog.d/**'
       - 'skill-catalog.md'
+      - 'workflows-catalog.md'
+      - 'mcp-catalog.md'
       - 'skills/**'
       - 'scripts/**'
       - 'external/**'
@@ -19,8 +30,19 @@ on:
     paths:
       - '.github/workflows/validate.yml'
       - 'registry/**'
+      - 'workflows/**'
+      - 'templates/**'
+      - 'security/**'
+      - 'AGENTS.md.sdd'
+      - '.gitmodules'
+      - 'tests/**'
+      - 'configs/**'
+      - 'roles/**'
+      - 'mcp/**'
       - 'skill-catalog.d/**'
       - 'skill-catalog.md'
+      - 'workflows-catalog.md'
+      - 'mcp-catalog.md'
       - 'skills/**'
       - 'scripts/**'
       - 'external/**'
@@ -28,73 +50,63 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GIT_TERMINAL_PROMPT: '0'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           submodules: recursive
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+          persist-credentials: false
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
           python-version: '3.12'
       - name: Validate registry
-        run: ./scripts/validate-registry.py
+        run: python scripts/validate-registry.py
+      - name: Run standard-library unit tests
+        run: python -m unittest discover -s tests -p 'test_*.py'
 
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GIT_TERMINAL_PROMPT: '0'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           submodules: recursive
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+          persist-credentials: false
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
           python-version: '3.12'
       - name: Sync external submodules
         run: ./scripts/update-external.py
       - name: Generate skill catalog chunks and skills tree
         run: ./scripts/discover-skills.py
+      - name: Generate workflow routing outputs
+        run: ./scripts/generate-workflows.py
+      - name: Generate security rule routing outputs
+        run: python scripts/generate-security-rules.py
+      - name: Generate role prompt outputs
+        run: ./scripts/generate-roles.py
+      - name: Generate tracked CLI agent configuration outputs
+        run: |
+          python scripts/generate-agent-configs.py --cli amazon-kiro --output configs/amazon-kiro
+          python scripts/generate-agent-configs.py --cli claude-code --output configs/claude-code
+          python scripts/generate-agent-configs.py --cli codex --output configs/codex
+          python scripts/generate-agent-configs.py --cli kilo-code --output configs/kilo-code
+          python scripts/generate-agent-configs.py --cli opencode --output configs/opencode
+      - name: Verify managed CLI artifacts match fresh generation
+        run: python scripts/generate-agent-configs.py --verify-managed-outputs
       - name: Check for generated changes
-        id: changes
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+          set -euo pipefail
+          generated_changes="$(git status --porcelain)"
+          if [ -n "$generated_changes" ]; then
             git diff --stat
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Fail pull request when generated files are out of sync
-        if: github.event_name == 'pull_request' && steps.changes.outputs.changed == 'true'
-        run: |
-          echo "Generated catalog chunks/files are out of sync. Run ./scripts/discover-skills.py and commit the result."
-          git diff
-          exit 1
-      - name: Commit and push generated changes
-        if: github.event_name == 'push' && steps.changes.outputs.changed == 'true'
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          git commit -m "ci: sync skill catalog chunks and skills tree"
-          git push
-
-  bootstrap-check:
-    runs-on: ubuntu-latest
-    needs: generate
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Verify bootstrap produces clean state
-        run: |
-          ./scripts/update-external.py
-          ./scripts/discover-skills.py
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "ERROR: Bootstrap produces non-deterministic output"
-            git status --short
+            echo "Generated files are out of sync. Run the documented generators and commit the result."
             git diff
             exit 1
           fi

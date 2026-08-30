@@ -1,4 +1,5 @@
 {
+  "$comment": "generated-by: scripts/generate-agent-configs.py",
   "name": {{agent_id_json}},
   "description": {{agent_description_json}},
   "model": {{model_json}},

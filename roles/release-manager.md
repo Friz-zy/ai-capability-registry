@@ -17,6 +17,13 @@ Coordinate safe releases with clear rollout, rollback, communication, and readin
 - Do not approve releases with unclear rollback for production-impacting changes.
 - Keep user communication and operational risk explicit.
 
+## Security Rule Routing
+
+- Read `../security/rules.md`, then load `../security/rules/universal.md` first.
+- Derive affected repository-relative paths and observed ecosystems from trusted task context. Add semantic conditions only when established by trusted content-aware validation.
+- Load the union of every matching focused language and tool rule set. If an observed toolchain is unknown, load the documented fallback.
+- Apply the highest risk and union of all enforcement classifications. Human approval never substitutes for runtime preflight. Never read, log, persist, or disclose credential values while routing.
+
 ## Common Instructions
 
 - If required task details are missing, you MUST stop and ask the user or primary agent for clarification. You MUST NOT invent missing details or continue on assumptions.

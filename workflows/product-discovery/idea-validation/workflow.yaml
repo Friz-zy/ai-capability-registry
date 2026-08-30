@@ -1,6 +1,6 @@
 id: idea-validation
 name: Idea Validation Workflow
-description: Workflow for validating a product or business idea before delivery investment.
+description: Distinct pre-delivery path for capturing an idea, gathering evidence, refining it, designing a testable proposition, and deciding GO, CLARIFY, or KILL.
 entry_conditions:
   - User wants to validate an idea, opportunity, or product concept before development.
   - The main risk is business desirability, market demand, pricing, or MVP scope rather than implementation.
@@ -15,6 +15,18 @@ delegation_mode:
     - Run roles inside the same stage in parallel when their inputs are ready.
     - Do not start the next stage until the current stage gate passes.
     - Request revisions from roles when acceptance criteria are not met.
+decision_metadata:
+  outcomes:
+    - GO
+    - CLARIFY
+    - KILL
+  go_handoff:
+    automatic: false
+    requirement: A GO decision may name a handoff workflow or owner only through an explicit coordinator or human decision.
+  clarify_loop:
+    requirement: CLARIFY records the evidence gap and returns to CAPTURE, EVIDENCE, REFINE, or DESIGN as appropriate.
+  kill_disposition:
+    requirement: KILL records the rationale, supporting evidence, and any conditions for reconsideration.
 conflict_resolution:
   business_decision: founder-ceo
   product_scope: product-manager
@@ -23,9 +35,9 @@ conflict_resolution:
   financial_assumptions: finance-manager
   user_evidence: ux-researcher
 stages:
-  - id: problem_framing
-    name: Problem Framing
-    coordinator_goal: Clarify the problem, target audience, assumptions, constraints, and decision criteria.
+  - id: capture
+    name: CAPTURE
+    coordinator_goal: Capture the idea, problem, target audience, assumptions, constraints, and decision criteria.
     roles:
       - founder-ceo
       - product-manager
@@ -34,6 +46,7 @@ stages:
       - user_request
       - existing_context
     outputs:
+      - captured_idea
       - problem_statement
       - target_audience_hypothesis
       - assumptions
@@ -45,9 +58,9 @@ stages:
     gate:
       type: approval_required
       by: coordinator
-  - id: market_customer_research
-    name: Market & Customer Research
-    coordinator_goal: Evaluate market signals, competitors, customer pains, and evidence quality.
+  - id: evidence
+    name: EVIDENCE
+    coordinator_goal: Gather and assess market signals, competitors, customer pains, and evidence quality.
     roles:
       - market-researcher
       - ux-researcher
@@ -67,9 +80,9 @@ stages:
     gate:
       type: quality_check
       by: coordinator
-  - id: value_pricing_mvp
-    name: Value, Pricing & MVP Hypothesis
-    coordinator_goal: Form a value proposition, pricing hypothesis, and minimal testable MVP scope.
+  - id: refine
+    name: REFINE
+    coordinator_goal: Refine the problem framing, value proposition, pricing hypothesis, and MVP assumptions from evidence.
     roles:
       - product-manager
       - finance-manager
@@ -79,38 +92,64 @@ stages:
       - customer_pains
       - competitor_analysis
     outputs:
+      - refined_problem_statement
       - value_proposition
       - pricing_hypothesis
-      - mvp_scope
+      - mvp_hypothesis
       - risks
     acceptance_criteria:
-      - Value proposition addresses the stated problem and audience.
-      - Pricing and MVP assumptions are explicit.
+      - Value proposition addresses the stated problem and audience using the gathered evidence.
+      - Pricing and MVP assumptions are explicit and distinguishable from evidence.
       - Risks and non-goals are documented.
     gate:
       type: quality_check
       by: coordinator
+  - id: design
+    name: DESIGN
+    coordinator_goal: Design the smallest testable validation approach, MVP boundary, and decision-ready evidence package.
+    roles:
+      - product-manager
+      - ux-researcher
+      - business-analyst
+    inputs:
+      - refined_problem_statement
+      - value_proposition
+      - pricing_hypothesis
+      - mvp_hypothesis
+      - evidence_gaps
+    outputs:
+      - validation_design
+      - mvp_scope
+      - success_signals
+      - design_risks
+    acceptance_criteria:
+      - The proposed validation or MVP is the smallest practical test of the hypothesis.
+      - Success signals, evidence gaps, and non-goals are explicit.
+    gate:
+      type: quality_check
+      by: coordinator
   - id: decision
-    name: Decision
-    coordinator_goal: Produce a concise go/no-go recommendation with rationale and next steps.
+    name: GO | CLARIFY | KILL
+    coordinator_goal: Produce an evidence-traceable GO, CLARIFY, or KILL decision with rationale and next steps.
     roles:
       - founder-ceo
       - product-manager
       - market-researcher
     inputs:
-      - value_proposition
-      - pricing_hypothesis
+      - validation_design
       - mvp_scope
+      - success_signals
       - evidence_gaps
     outputs:
-      - go_no_go_decision
+      - decision
       - decision_rationale
       - next_steps
       - validation_backlog
+      - optional_handoff
     acceptance_criteria:
-      - Recommendation is traceable to evidence and assumptions.
-      - Follow-up research or MVP steps are actionable.
-      - Decision risks are explicit.
+      - GO, CLARIFY, or KILL is traceable to evidence and assumptions.
+      - A GO handoff, if any, is explicit and non-automatic.
+      - CLARIFY and KILL decisions include actionable rationale and risks.
     gate:
       type: final_review
       by: coordinator

@@ -8,6 +8,7 @@ import fnmatch
 import json
 import re
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -52,6 +53,10 @@ DISABLED_MODEL_PRESETS = {"", "none"}
 MODEL_REMOVAL_TOKEN = "__MODEL_FIELD_DISABLED__"
 REASONING_LEVELS = {"none", "minimal", "low", "medium", "high", "xhigh", "max"}
 REASONING_LEVEL_ORDER = ["none", "minimal", "low", "medium", "high", "xhigh", "max"]
+GENERATOR_MARKER_VALUE = "scripts/generate-agent-configs.py"
+TOML_GENERATOR_MARKER = f"# generated-by: {GENERATOR_MARKER_VALUE}"
+JSONC_GENERATOR_MARKER = f"// generated-by: {GENERATOR_MARKER_VALUE}"
+MARKDOWN_GENERATOR_MARKER = f"<!-- generated-by: {GENERATOR_MARKER_VALUE} -->"
 
 CLI_ALIASES = {
     "codex": "codex",
@@ -64,6 +69,21 @@ CLI_ALIASES = {
     "opencode": "opencode",
     "kiro": "amazon-kiro",
     "amazon-kiro": "amazon-kiro",
+}
+
+MANAGED_CLI_GENERATION_OPTIONS = {
+    "amazon-kiro": {"preset": "none", "model_prefix": "", "role_levels_mode": "single"},
+    "claude-code": {"preset": "anthropic", "model_prefix": "", "role_levels_mode": "tiered"},
+    "codex": {"preset": "openai", "model_prefix": "", "role_levels_mode": "tiered"},
+    "kilo-code": {"preset": "opencode", "model_prefix": "kilo", "role_levels_mode": "tiered"},
+    "opencode": {"preset": "opencode", "model_prefix": "opencode-go", "role_levels_mode": "tiered"},
+}
+
+# This exact historical Amazon Kiro tiered-role ID was tracked before the
+# target changed to single-level roles. Keeping the manifest finite prevents a
+# user-created legacy-looking file from acquisition.
+HISTORICAL_MANAGED_LEGACY_AGENT_IDS = {
+    "amazon-kiro": frozenset({"backend-engineer-senior"}),
 }
 
 
@@ -184,6 +204,71 @@ def markdown_section(title: str, values: list[str]) -> str:
     if not values:
         return ""
     return f"## {title}\n\n{bullet_list(values)}\n\n"
+
+
+def security_baseline_from_policy(profiles_registry: dict[str, Any]) -> list[str]:
+    """Resolve the configured prompt-security baseline from the canonical policy registry.
+
+    Args:
+        profiles_registry: Loaded profiles registry containing the baseline policy reference.
+
+    Returns:
+        Baseline instructions and their policy-declared enforcement limit.
+
+    Raises:
+        ValueError: If the configured policy control or required fields are unavailable.
+    """
+    baseline_configuration = profiles_registry.get("security_baseline_policy")
+    if not isinstance(baseline_configuration, dict):
+        raise ValueError("registry/profiles.yaml must contain security_baseline_policy")
+    policy_id = baseline_configuration.get("id")
+    if not isinstance(policy_id, str) or not policy_id.strip():
+        raise ValueError("security_baseline_policy.id must be a non-empty string")
+    include_requirements = baseline_configuration.get("include_requirements")
+    include_enforcement_limit = baseline_configuration.get("include_enforcement_limit")
+    if not isinstance(include_requirements, bool):
+        raise ValueError("security_baseline_policy.include_requirements must be a boolean")
+    if not isinstance(include_enforcement_limit, bool):
+        raise ValueError("security_baseline_policy.include_enforcement_limit must be a boolean")
+
+    secure_sdd_policy = load_registry("policies").get("secure_sdd_policy")
+    if not isinstance(secure_sdd_policy, dict):
+        raise ValueError("registry/policies.yaml must contain secure_sdd_policy")
+    controls = secure_sdd_policy.get("controls")
+    if not isinstance(controls, list):
+        raise ValueError("secure_sdd_policy.controls must be a list")
+    matching_controls = [
+        item for item in controls if isinstance(item, dict) and item.get("id") == policy_id
+    ]
+    if len(matching_controls) != 1:
+        raise ValueError(
+            f"security_baseline_policy must reference exactly one policy control '{policy_id}'"
+        )
+    control = matching_controls[0]
+
+    baseline: list[str] = []
+    if include_requirements:
+        requirements = control.get("requirements")
+        if (
+            not isinstance(requirements, list)
+            or not requirements
+            or any(not isinstance(requirement, str) or not requirement.strip() for requirement in requirements)
+        ):
+            raise ValueError(f"Policy '{policy_id}' must have non-empty string requirements")
+        baseline.extend(requirements)
+    if include_enforcement_limit:
+        enforcement_name = control.get("enforcement")
+        if not isinstance(enforcement_name, str) or not enforcement_name.strip():
+            raise ValueError(f"Policy '{policy_id}' has no valid enforcement classification")
+        classifications = secure_sdd_policy.get("enforcement_model", {}).get("classifications", {})
+        enforcement = classifications.get(enforcement_name) if isinstance(classifications, dict) else None
+        enforcement_description = enforcement.get("description") if isinstance(enforcement, dict) else None
+        if not isinstance(enforcement_description, str) or not enforcement_description.strip():
+            raise ValueError(f"Policy '{policy_id}' has no declared enforcement-limit description")
+        baseline.append(f"Enforcement limit: {enforcement_description}")
+    if not baseline:
+        raise ValueError(f"security_baseline_policy '{policy_id}' selected no baseline content")
+    return baseline
 
 
 def quoted_string(value: str) -> str:
@@ -814,17 +899,20 @@ def agent_description(title: str, level: str, role_levels_mode: str, purpose: st
 
 
 def normalized_reference_path(path: str) -> str:
-    """Normalize a registry template path for generated prompt references.
+    """Normalize a registry template path for portable generated prompts.
 
     Args:
         path: User-provided path to the runtime registry templates.
 
     Returns:
-        Path without trailing slashes, preserving ``~`` when provided.
+        A stable runtime reference. Absolute paths identify a build checkout and
+        are normalized to the default installed registry location.
     """
     normalized_path = path.strip().rstrip("/")
     if not normalized_path:
         raise ValueError("templates path must not be empty")
+    if Path(normalized_path).is_absolute():
+        return DEFAULT_TEMPLATES_PATH
     return normalized_path
 
 
@@ -834,6 +922,7 @@ def role_prompt_values(
     role_levels_mode: str,
     model: str | None,
     common_instructions: list[str],
+    security_baseline: list[str],
     templates_path: str,
 ) -> dict[str, str]:
     """Build placeholder values for role prompt templates.
@@ -844,6 +933,7 @@ def role_prompt_values(
         role_levels_mode: Generation mode controlling agent ids.
         model: Resolved model id or ``None`` when model rendering is disabled.
         common_instructions: Shared profile instructions.
+        security_baseline: Security and prompt-injection instructions shared by every generated agent.
         templates_path: Runtime registry template path used in generated references.
 
     Returns:
@@ -855,6 +945,10 @@ def role_prompt_values(
     purpose = str(role.get("mission") or profile.get("description") or "No purpose specified.")
     responsibilities = bullet_list(string_list(role.get("responsibilities")))
     guardrails_section = markdown_section("You MUST follow these guardrails", string_list(role.get("guardrails")))
+    security_baseline_section = markdown_section(
+        "Always-On Security and Prompt-Injection Baseline",
+        security_baseline,
+    )
     delegation_level_rules_section = markdown_section(
         "Delegation Level Rules",
         string_list(role.get("delegation_level_rules")),
@@ -882,6 +976,7 @@ def role_prompt_values(
         "title": title,
         "responsibilities": responsibilities,
         "guardrails_section": guardrails_section,
+        "security_baseline_section": security_baseline_section,
         "delegation_level_rules_section": delegation_level_rules_section,
         "delegation_examples": delegation_examples,
         "common_instructions": bullet_list(common_instructions),
@@ -895,6 +990,7 @@ def render_role_prompt(
     role_levels_mode: str,
     model: str | None,
     common_instructions: list[str],
+    security_baseline: list[str],
     templates_path: str,
     single_mode_id_replacements: dict[str, str] | None,
 ) -> str:
@@ -906,6 +1002,7 @@ def render_role_prompt(
         role_levels_mode: Generation mode controlling agent ids.
         model: Resolved model id or ``None`` when model rendering is disabled.
         common_instructions: Shared profile instructions.
+        security_baseline: Security and prompt-injection instructions shared by every generated agent.
         templates_path: Runtime registry template path used in generated references.
         single_mode_id_replacements: Tiered-to-single generated id replacements.
 
@@ -915,7 +1012,15 @@ def render_role_prompt(
     profile_id = str(profile.get("id") or "unknown")
     prompt_template_name = "orchestrator-prompt-template.md" if profile_id == "orchestrator" else "role-prompt-template.md"
     prompt_template_path = AGENT_TEMPLATES_DIR / prompt_template_name
-    values = role_prompt_values(profile, level, role_levels_mode, model, common_instructions, templates_path)
+    values = role_prompt_values(
+        profile,
+        level,
+        role_levels_mode,
+        model,
+        common_instructions,
+        security_baseline,
+        templates_path,
+    )
     rendered_prompt = render_text(
         template_text(prompt_template_path),
         values,
@@ -1018,10 +1123,9 @@ def codex_config_text(
     primary_model: str | None,
     primary_reasoning_effort: str | None,
     model_disabled: bool,
-    is_override: bool,
     role_levels_mode: str,
 ) -> str:
-    """Render the Codex main config or override file.
+    """Render the Codex primary config.
 
     Args:
         entries: Profile and seniority pairs being generated.
@@ -1030,7 +1134,6 @@ def codex_config_text(
             its primary model is a direct OpenAI model, otherwise ``None``. Effort is a
             global/profile setting only; it is never written into per-role ``.toml`` files.
         model_disabled: Whether model fields were disabled by the preset.
-        is_override: Whether the file is a manual-merge override.
         role_levels_mode: Generation mode controlling agent ids.
 
     Returns:
@@ -1046,9 +1149,7 @@ def codex_config_text(
             if generated_agent_id(profile, level, role_levels_mode) != primary_agent_id
         ],
     ]
-    lines = ["# Generated by scripts/generate-agent-configs.py."]
-    if is_override:
-        lines.append("# Manual merge required: apply this file to an existing Codex config.toml.")
+    lines = [TOML_GENERATOR_MARKER]
     lines.append(f"default_agent = {quoted_string(primary_agent_id)}")
     if primary_model and not model_disabled:
         lines.append(f"model = {quoted_string(primary_model)}")
@@ -1072,26 +1173,276 @@ def default_agent_json_text(agent_name: str) -> str:
     Returns:
         JSON object text with a single default-agent setting.
     """
-    return "{\n" + f"  \"default_agent\": {quoted_string(agent_name)}\n" + "}\n"
+    return (
+        "{\n"
+        + f"  \"$comment\": {quoted_string(f'generated-by: {GENERATOR_MARKER_VALUE}')},\n"
+        + f"  \"default_agent\": {quoted_string(agent_name)}\n"
+        + "}\n"
+    )
 
 
-def kilo_default_config_text(agent_name: str, is_override: bool) -> str:
-    """Render the Kilo Code main config or override file.
+def kilo_default_config_text(agent_name: str) -> str:
+    """Render the Kilo Code primary config.
 
     Args:
         agent_name: Primary agent name to activate.
-        is_override: Whether the generated file is a manual-merge override.
-
     Returns:
         JSONC content selecting the default agent.
     """
-    lines = ["// Generated by scripts/generate-agent-configs.py."]
-    if is_override:
-        lines.append("// Manual merge required: apply this override to an existing kilo.jsonc file.")
+    lines = [JSONC_GENERATOR_MARKER]
     lines.append("{")
     lines.append(f"  \"default_agent\": {quoted_string(agent_name)}")
     lines.append("}")
     return "\n".join(lines) + "\n"
+
+
+def has_generated_marker(path: Path) -> bool:
+    """Return whether a file has an anchored, format-valid ownership marker.
+
+    Args:
+        path: File to inspect.
+
+    Returns:
+        ``True`` only when the format-specific marker exactly identifies this
+        generator without relying on a substring match.
+    """
+    if not path.is_file():
+        return False
+    content = path.read_text(encoding="utf-8")
+    if path.suffix == ".toml":
+        return content.startswith(TOML_GENERATOR_MARKER + "\n")
+    if path.suffix == ".jsonc":
+        return content.startswith(JSONC_GENERATOR_MARKER + "\n")
+    if path.suffix == ".json":
+        try:
+            parsed_content = json.loads(content)
+        except json.JSONDecodeError:
+            return False
+        return isinstance(parsed_content, dict) and parsed_content.get("$comment") == (
+            f"generated-by: {GENERATOR_MARKER_VALUE}"
+        )
+    if path.suffix == ".md":
+        if content.startswith(MARKDOWN_GENERATOR_MARKER + "\n"):
+            return True
+        front_matter_match = re.match(r"\A---\ngenerated_by: ([^\n]+)\n", content)
+        return front_matter_match is not None and front_matter_match.group(1) == quoted_string(GENERATOR_MARKER_VALUE)
+    return False
+
+
+def is_known_managed_output_directory(output_directory: Path, cli_id: str) -> bool:
+    """Return whether an output path is the repository's tracked CLI output.
+
+    Args:
+        output_directory: Output directory being evaluated.
+        cli_id: Canonical CLI target id.
+
+    Returns:
+        ``True`` only for the repository-managed output path of the CLI target.
+    """
+    return output_directory.resolve() == (ROOT / "configs" / cli_id).resolve()
+
+
+def has_legacy_role_catalog_signature(output_directory: Path, cli_id: str) -> bool:
+    """Verify the exact legacy catalog signature at a managed output path.
+
+    Args:
+        output_directory: Output directory being evaluated.
+        cli_id: Canonical CLI target id.
+
+    Returns:
+        ``True`` when the legacy catalog header and explanatory line match.
+    """
+    if not is_known_managed_output_directory(output_directory, cli_id):
+        return False
+    catalog_path = output_directory / CLI_TARGETS[cli_id]["role_catalog_path"]
+    if not catalog_path.is_file():
+        return False
+    catalog_lines = catalog_path.read_text(encoding="utf-8").splitlines()
+    return len(catalog_lines) >= 3 and catalog_lines[0] == "# Available Generated Roles" and catalog_lines[2] == (
+        "Use the CLI native available agent list by default. Use this catalog only as a fallback when the CLI "
+        "cannot expose available agents or when exact generated role ids are needed."
+    )
+
+
+def has_legacy_primary_signature(
+    path: Path,
+    output_directory: Path,
+    cli_id: str,
+    primary_agent_id: str,
+    require_legacy_catalog: bool = True,
+) -> bool:
+    """Verify a legacy primary or override artifact without broad marker matching.
+
+    Args:
+        path: Candidate primary or override artifact.
+        output_directory: Output directory being evaluated.
+        cli_id: Canonical CLI target id.
+        primary_agent_id: Expected generated default agent id.
+        require_legacy_catalog: Whether the legacy catalog must still be present.
+
+    Returns:
+        ``True`` only when the known managed path and CLI-specific legacy
+        signature both match.
+    """
+    primary_file_names = {
+        "codex": {"config.toml", "config.override.toml"},
+        "opencode": {"opencode.json", "opencode.override.json"},
+        "kilo-code": {"kilo.jsonc", "kilo.override.jsonc"},
+    }
+    expected_primary_paths = {output_directory / file_name for file_name in primary_file_names.get(cli_id, set())}
+    if (
+        not is_known_managed_output_directory(output_directory, cli_id)
+        or path not in expected_primary_paths
+        or not path.is_file()
+        or (require_legacy_catalog and not has_legacy_role_catalog_signature(output_directory, cli_id))
+    ):
+        return False
+    content = path.read_text(encoding="utf-8")
+    if cli_id == "codex":
+        return content.startswith("# Generated by scripts/generate-agent-configs.py.\n") and (
+            f'default_agent = "{primary_agent_id}"' in content
+        ) and f"[agents.{primary_agent_id}]" in content
+    if cli_id == "kilo-code":
+        return content.startswith("// Generated by scripts/generate-agent-configs.py.\n") and (
+            f'"default_agent": "{primary_agent_id}"' in content
+        )
+    if cli_id == "opencode":
+        try:
+            parsed_content = json.loads(content)
+        except json.JSONDecodeError:
+            return False
+        return parsed_content == {"default_agent": primary_agent_id}
+    return False
+
+
+def has_legacy_role_signature(
+    path: Path,
+    output_directory: Path,
+    cli_id: str,
+    agent_id: str,
+    require_legacy_catalog: bool = True,
+    expected_agent_ids: frozenset[str] = frozenset(),
+) -> bool:
+    """Verify a legacy generated role artifact at an expected managed path.
+
+    Args:
+        path: Candidate role artifact.
+        output_directory: Output directory being evaluated.
+        cli_id: Canonical CLI target id.
+        agent_id: Expected generated agent id from the role file name.
+        require_legacy_catalog: Whether the legacy catalog must still be present.
+        expected_agent_ids: Current managed agent IDs eligible for a one-time
+            migration when the catalog already has a current marker.
+
+    Returns:
+        ``True`` only for a known managed legacy role signature.
+    """
+    if (
+        not is_known_managed_output_directory(output_directory, cli_id)
+        or not path.is_file()
+        or (require_legacy_catalog and not has_legacy_role_catalog_signature(output_directory, cli_id))
+        or (
+            not require_legacy_catalog
+            and agent_id not in HISTORICAL_MANAGED_LEGACY_AGENT_IDS.get(cli_id, frozenset())
+            and agent_id not in expected_agent_ids
+        )
+    ):
+        return False
+    expected_path = output_directory / CLI_TARGETS[cli_id]["agent_directory"] / f"{agent_id}{CLI_TARGETS[cli_id]['extension']}"
+    if path != expected_path:
+        return False
+    content = path.read_text(encoding="utf-8")
+    legacy_runtime_reference_sets = (
+        (f"Read `{ROOT}/security/rules.md", f"read `{ROOT}/skills/skills.md"),
+        ("Read `~/.ai-registry/security/rules.md", "read `~/.ai-registry/skills/skills.md"),
+    )
+    if cli_id == "codex":
+        legacy_footer_prefix = "# Generated from registry/profiles.yaml by scripts/generate-agent-configs.py.\n"
+        legacy_role_footer = legacy_footer_prefix + (
+            "# Reference this file from config.toml [agents.<name>].config_file when needed.\n"
+        )
+        legacy_orchestrator_footer = legacy_footer_prefix + (
+            "# This orchestrator role is intended to be user-facing and to delegate to exact role-level agents.\n"
+        )
+        expected_footer = legacy_orchestrator_footer if agent_id.startswith("orchestrator") else legacy_role_footer
+        return (
+            content.startswith(f'name = "{agent_id}"\n')
+            and any(all(reference in content for reference in references) for references in legacy_runtime_reference_sets)
+            and content.endswith(expected_footer)
+        )
+    if cli_id == "amazon-kiro":
+        try:
+            parsed_content = json.loads(content)
+        except json.JSONDecodeError:
+            return False
+        return (
+            parsed_content.get("name") == agent_id
+            and isinstance(parsed_content.get("description"), str)
+            and isinstance(parsed_content.get("prompt"), str)
+            and any(
+                all(reference in parsed_content["prompt"] for reference in references)
+                for references in legacy_runtime_reference_sets
+            )
+            and parsed_content.get("tools") == ["*"]
+        )
+    return (
+        content.startswith("---\n")
+        and any(all(reference in content for reference in references) for references in legacy_runtime_reference_sets)
+        and "\nhidden: false\n---\n\n# You are " in content
+    )
+
+
+def has_legacy_steering_signature(
+    path: Path, output_directory: Path, require_legacy_catalog: bool = True
+) -> bool:
+    """Verify the legacy Amazon Kiro steering artifact at its managed path.
+
+    Args:
+        path: Candidate steering artifact.
+        output_directory: Output directory being evaluated.
+        require_legacy_catalog: Whether the legacy catalog must still be present.
+
+    Returns:
+        ``True`` only for the known legacy steering header and prompt signature.
+    """
+    expected_path = output_directory / "steering" / "orchestrator.md"
+    return (
+        is_known_managed_output_directory(output_directory, "amazon-kiro")
+        and path == expected_path
+        and path.is_file()
+        and (not require_legacy_catalog or has_legacy_role_catalog_signature(output_directory, "amazon-kiro"))
+        and path.read_text(encoding="utf-8").startswith(
+            f"---\ninclusion: auto\n---\n\n# You are the Orchestrator\n\n"
+        )
+        and f"read {ROOT}/capability-routing.md" in path.read_text(encoding="utf-8")
+    )
+
+
+def has_legacy_note_signature(
+    path: Path, output_directory: Path, cli_id: str, require_legacy_catalog: bool = True
+) -> bool:
+    """Verify a legacy manual-merge note at its sole managed output path.
+
+    Args:
+        path: Candidate note path.
+        output_directory: Output directory being evaluated.
+        cli_id: Canonical CLI target id.
+        require_legacy_catalog: Whether the legacy catalog must still be present.
+
+    Returns:
+        ``True`` only for the expected legacy generated note format.
+    """
+    note_names = {"claude-code": "settings.override.md", "amazon-kiro": "agent.override.md"}
+    expected_name = note_names.get(cli_id)
+    if (
+        not expected_name
+        or not is_known_managed_output_directory(output_directory, cli_id)
+        or (require_legacy_catalog and not has_legacy_role_catalog_signature(output_directory, cli_id))
+    ):
+        return False
+    return path == output_directory / expected_name and path.is_file() and path.read_text(encoding="utf-8").startswith(
+        "# Generated by scripts/generate-agent-configs.py.\n# Manual merge required:"
+    )
 
 
 def generate_primary_role_artifact(
@@ -1103,8 +1454,11 @@ def generate_primary_role_artifact(
     model_disabled: bool,
     role_levels_mode: str,
     orchestrator_prompt: str | None = None,
+    legacy_primary_eligible: bool | None = None,
+    legacy_override_eligible: bool | None = None,
+    legacy_steering_eligible: bool | None = None,
 ) -> int:
-    """Write the primary-role config or override artifact for the selected CLI.
+    """Write the primary config for managed output or an override for user output.
 
     Args:
         cli_id: Canonical CLI target id.
@@ -1116,6 +1470,12 @@ def generate_primary_role_artifact(
         model_disabled: Whether model fields were disabled by the preset.
         role_levels_mode: Generation mode controlling agent ids.
         orchestrator_prompt: Rendered orchestrator prompt body for Amazon Kiro steering.
+        legacy_primary_eligible: Prevalidated legacy ownership of the primary
+            config, or ``None`` to validate immediately.
+        legacy_override_eligible: Prevalidated legacy ownership of the override
+            config, or ``None`` to validate immediately.
+        legacy_steering_eligible: Prevalidated legacy ownership of Amazon Kiro
+            steering, or ``None`` to validate immediately.
 
     Returns:
         Number of generated primary-role artifacts.
@@ -1124,7 +1484,26 @@ def generate_primary_role_artifact(
     primary_agent_id = generated_agent_id(primary_profile, primary_level, role_levels_mode)
     if cli_id == "codex":
         main_config_path = output_directory / "config.toml"
-        target_path = output_directory / ("config.override.toml" if main_config_path.exists() else "config.toml")
+        override_path = output_directory / "config.override.toml"
+        if legacy_primary_eligible is None:
+            legacy_primary_eligible = has_legacy_primary_signature(
+                main_config_path, output_directory, cli_id, primary_agent_id
+            )
+        if legacy_override_eligible is None:
+            legacy_override_eligible = has_legacy_primary_signature(
+                override_path, output_directory, cli_id, primary_agent_id
+            )
+        if not main_config_path.exists() or has_generated_marker(main_config_path) or legacy_primary_eligible:
+            target_path = main_config_path
+        elif not override_path.exists() or has_generated_marker(override_path) or legacy_override_eligible:
+            target_path = override_path
+        else:
+            return 0
+        if target_path == main_config_path and (
+            has_generated_marker(override_path)
+            or legacy_override_eligible
+        ):
+            override_path.unlink()
         write_text(
             target_path,
             codex_config_text(
@@ -1132,20 +1511,57 @@ def generate_primary_role_artifact(
                 primary_model,
                 primary_reasoning_effort,
                 model_disabled,
-                target_path.name.endswith(".override.toml"),
                 role_levels_mode,
             ),
         )
         return 1
     if cli_id == "opencode":
         main_config_path = output_directory / "opencode.json"
-        target_path = output_directory / ("opencode.override.json" if main_config_path.exists() else "opencode.json")
+        override_path = output_directory / "opencode.override.json"
+        if legacy_primary_eligible is None:
+            legacy_primary_eligible = has_legacy_primary_signature(
+                main_config_path, output_directory, cli_id, primary_agent_id
+            )
+        if legacy_override_eligible is None:
+            legacy_override_eligible = has_legacy_primary_signature(
+                override_path, output_directory, cli_id, primary_agent_id
+            )
+        if not main_config_path.exists() or has_generated_marker(main_config_path) or legacy_primary_eligible:
+            target_path = main_config_path
+        elif not override_path.exists() or has_generated_marker(override_path) or legacy_override_eligible:
+            target_path = override_path
+        else:
+            return 0
+        if target_path == main_config_path and (
+            has_generated_marker(override_path)
+            or legacy_override_eligible
+        ):
+            override_path.unlink()
         write_text(target_path, default_agent_json_text(primary_agent_id))
         return 1
     if cli_id == "kilo-code":
         main_config_path = output_directory / "kilo.jsonc"
-        target_path = output_directory / ("kilo.override.jsonc" if main_config_path.exists() else "kilo.jsonc")
-        write_text(target_path, kilo_default_config_text(primary_agent_id, target_path.name.endswith(".override.jsonc")))
+        override_path = output_directory / "kilo.override.jsonc"
+        if legacy_primary_eligible is None:
+            legacy_primary_eligible = has_legacy_primary_signature(
+                main_config_path, output_directory, cli_id, primary_agent_id
+            )
+        if legacy_override_eligible is None:
+            legacy_override_eligible = has_legacy_primary_signature(
+                override_path, output_directory, cli_id, primary_agent_id
+            )
+        if not main_config_path.exists() or has_generated_marker(main_config_path) or legacy_primary_eligible:
+            target_path = main_config_path
+        elif not override_path.exists() or has_generated_marker(override_path) or legacy_override_eligible:
+            target_path = override_path
+        else:
+            return 0
+        if target_path == main_config_path and (
+            has_generated_marker(override_path)
+            or legacy_override_eligible
+        ):
+            override_path.unlink()
+        write_text(target_path, kilo_default_config_text(primary_agent_id))
         return 1
     if cli_id == "claude-code":
         return 0
@@ -1155,9 +1571,12 @@ def generate_primary_role_artifact(
             steering_dir = output_directory / "steering"
             steering_dir.mkdir(parents=True, exist_ok=True)
             steering_path = steering_dir / "orchestrator.md"
-            steering_content = "---\ninclusion: auto\n---\n\n" + orchestrator_prompt
-            write_text(steering_path, steering_content)
-            return 1
+            steering_content = f"---\ngenerated_by: {quoted_string(GENERATOR_MARKER_VALUE)}\ninclusion: auto\n---\n\n" + orchestrator_prompt
+            if legacy_steering_eligible is None:
+                legacy_steering_eligible = has_legacy_steering_signature(steering_path, output_directory)
+            if not steering_path.exists() or has_generated_marker(steering_path) or legacy_steering_eligible:
+                write_text(steering_path, steering_content)
+                return 1
         return 0
     raise ValueError(f"Unsupported CLI '{cli_id}'")
 
@@ -1239,6 +1658,7 @@ def generated_role_catalog(entries: list[tuple[dict[str, Any], str]], role_level
         Markdown catalog content.
     """
     lines = [
+        MARKDOWN_GENERATOR_MARKER,
         "# Available Generated Roles",
         "",
         "Use the CLI native available agent list by default. Use this catalog only as a fallback when the CLI cannot expose available agents or when exact generated role ids are needed.",
@@ -1254,7 +1674,12 @@ def generated_role_catalog(entries: list[tuple[dict[str, Any], str]], role_level
     return "\n".join(lines)
 
 
-def cleanup_previous_generated_files(output_directory: Path, cli_id: str, profiles: list[dict[str, Any]]) -> None:
+def cleanup_previous_generated_files(
+    output_directory: Path,
+    cli_id: str,
+    profiles: list[dict[str, Any]],
+    verified_legacy_role_paths: set[Path] | None = None,
+) -> None:
     """Remove previously generated files for the current CLI target.
 
     This removes files matching generated agent ids in the current flat output
@@ -1281,7 +1706,13 @@ def cleanup_previous_generated_files(output_directory: Path, cli_id: str, profil
             generated_paths = [output_directory / file_name]
             generated_paths.extend(agent_directory / file_name for agent_directory in agent_directories)
             for generated_path in generated_paths:
-                if generated_path.is_file():
+                if (
+                    has_generated_marker(generated_path)
+                    or (verified_legacy_role_paths is not None and generated_path in verified_legacy_role_paths)
+                    or has_legacy_role_signature(
+                    generated_path, output_directory, cli_id, generated_id
+                    )
+                ):
                     generated_path.unlink()
 
     for legacy_path in LEGACY_AGENT_DIRECTORIES.get(cli_id, []):
@@ -1297,7 +1728,9 @@ def cleanup_previous_generated_files(output_directory: Path, cli_id: str, profil
         "claude-code": [output_directory / "settings.override.md"],
         "amazon-kiro": [output_directory / "agent.override.md"],
     }.get(cli_id, []):
-        if stale_note_path.is_file():
+        if has_generated_marker(stale_note_path) or has_legacy_note_signature(
+            stale_note_path, output_directory, cli_id
+        ):
             stale_note_path.unlink()
 
 
@@ -1364,15 +1797,54 @@ def generate_agent_configs(
         )
 
     common_instructions = string_list(profiles_registry.get("common_instructions"))
+    security_baseline = security_baseline_from_policy(profiles_registry)
     extension = CLI_TARGETS[cli_id]["extension"]
     agent_directory = output_directory / CLI_TARGETS[cli_id]["agent_directory"]
     entries = generated_agent_entries(profiles, role_levels_mode)
     single_mode_id_replacements = single_mode_agent_id_replacements(profiles) if role_levels_mode == "single" else None
-    cleanup_previous_generated_files(output_directory, cli_id, profiles)
-    write_text(
-        output_directory / CLI_TARGETS[cli_id]["role_catalog_path"],
-        generated_role_catalog(entries, role_levels_mode),
+    expected_agent_ids = frozenset(
+        generated_agent_id(profile, level, role_levels_mode) for profile, level in entries
     )
+    verified_legacy_role_paths = {
+        output_directory / CLI_TARGETS[cli_id]["agent_directory"] / f"{agent_id}{extension}"
+        for agent_id in expected_agent_ids
+        if has_legacy_role_signature(
+            output_directory / CLI_TARGETS[cli_id]["agent_directory"] / f"{agent_id}{extension}",
+            output_directory,
+            cli_id,
+            agent_id,
+            require_legacy_catalog=False,
+            expected_agent_ids=expected_agent_ids,
+        )
+    }
+    legacy_primary_eligible = False
+    legacy_override_eligible = False
+    legacy_steering_eligible = False
+    if cli_id in {"codex", "opencode", "kilo-code"}:
+        primary_profile, primary_level = orchestrator_primary_entry(entries, role_levels_mode)
+        primary_agent_id = generated_agent_id(primary_profile, primary_level, role_levels_mode)
+        primary_file_names = {
+            "codex": ("config.toml", "config.override.toml"),
+            "opencode": ("opencode.json", "opencode.override.json"),
+            "kilo-code": ("kilo.jsonc", "kilo.override.jsonc"),
+        }
+        primary_file_name, override_file_name = primary_file_names[cli_id]
+        legacy_primary_eligible = has_legacy_primary_signature(
+            output_directory / primary_file_name, output_directory, cli_id, primary_agent_id
+        )
+        legacy_override_eligible = has_legacy_primary_signature(
+            output_directory / override_file_name, output_directory, cli_id, primary_agent_id
+        )
+    elif cli_id == "amazon-kiro":
+        legacy_steering_eligible = has_legacy_steering_signature(
+            output_directory / "steering" / "orchestrator.md", output_directory
+        )
+    cleanup_previous_generated_files(output_directory, cli_id, profiles, verified_legacy_role_paths)
+    role_catalog_path = output_directory / CLI_TARGETS[cli_id]["role_catalog_path"]
+    if not role_catalog_path.exists() or has_generated_marker(role_catalog_path) or has_legacy_role_catalog_signature(
+        output_directory, cli_id
+    ):
+        write_text(role_catalog_path, generated_role_catalog(entries, role_levels_mode))
     generated_count = 0
     orchestrator_prompt: str | None = None
     for profile, level in entries:
@@ -1401,6 +1873,7 @@ def generate_agent_configs(
             role_levels_mode,
             model,
             common_instructions,
+            security_baseline,
             templates_path,
             single_mode_id_replacements,
         )
@@ -1418,8 +1891,12 @@ def generate_agent_configs(
             effective_model_disabled,
             reasoning_yaml,
         )
-        write_text(agent_directory / f"{generated_agent_id_value}{extension}", rendered_agent)
-        generated_count += 1
+        agent_path = agent_directory / f"{generated_agent_id_value}{extension}"
+        if not agent_path.exists() or has_generated_marker(agent_path) or has_legacy_role_signature(
+            agent_path, output_directory, cli_id, generated_agent_id_value
+        ):
+            write_text(agent_path, rendered_agent)
+            generated_count += 1
     primary_model = None
     primary_reasoning_effort: str | None = None
     if not model_disabled:
@@ -1452,8 +1929,93 @@ def generate_agent_configs(
         model_disabled,
         role_levels_mode,
         orchestrator_prompt,
+        legacy_primary_eligible,
+        legacy_override_eligible,
+        legacy_steering_eligible,
     )
     return generated_count
+
+
+def verify_managed_output_drift() -> list[str]:
+    """Compare every managed CLI artifact against a freshly generated manifest.
+
+    Returns:
+        Deterministic validation errors for missing, unmarked, non-portable, or
+        byte-drifted managed artifacts.
+    """
+    validation_errors: list[str] = []
+    for cli_id, options in MANAGED_CLI_GENERATION_OPTIONS.items():
+        managed_output_directory = ROOT / "configs" / cli_id
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            fresh_output_directory = Path(temporary_directory) / cli_id
+            generate_agent_configs(
+                cli_id,
+                fresh_output_directory,
+                options["preset"],
+                DEFAULT_TEMPLATES_PATH,
+                options["model_prefix"],
+                options["role_levels_mode"],
+                [],
+            )
+            expected_paths = sorted(path for path in fresh_output_directory.rglob("*") if path.is_file())
+            expected_relative_paths = {
+                expected_path.relative_to(fresh_output_directory) for expected_path in expected_paths
+            }
+            for expected_path in expected_paths:
+                relative_path = expected_path.relative_to(fresh_output_directory)
+                managed_path = managed_output_directory / relative_path
+                artifact_label = f"{cli_id}/{relative_path.as_posix()}"
+                if not managed_path.is_file():
+                    validation_errors.append(f"Missing managed generated artifact: {artifact_label}")
+                    continue
+                if not has_generated_marker(managed_path):
+                    validation_errors.append(f"Missing structural generator marker: {artifact_label}")
+                managed_content = managed_path.read_text(encoding="utf-8")
+                if str(ROOT) in managed_content:
+                    validation_errors.append(f"Checkout-specific absolute reference: {artifact_label}")
+                if managed_path.read_bytes() != expected_path.read_bytes():
+                    validation_errors.append(f"Generated artifact drift: {artifact_label}")
+            if not managed_output_directory.exists():
+                continue
+            primary_agent_id = "orchestrator" if cli_id == "amazon-kiro" else "orchestrator-senior"
+            primary_file_names = {
+                "codex": {"config.toml", "config.override.toml"},
+                "opencode": {"opencode.json", "opencode.override.json"},
+                "kilo-code": {"kilo.jsonc", "kilo.override.jsonc"},
+            }
+            legacy_note_names = {"claude-code": "settings.override.md", "amazon-kiro": "agent.override.md"}
+            for managed_path in sorted(path for path in managed_output_directory.rglob("*") if path.is_file()):
+                relative_path = managed_path.relative_to(managed_output_directory)
+                if relative_path in expected_relative_paths:
+                    continue
+                is_owned_generated_artifact = has_generated_marker(managed_path)
+                if not is_owned_generated_artifact and relative_path == Path(CLI_TARGETS[cli_id]["role_catalog_path"]):
+                    is_owned_generated_artifact = has_legacy_role_catalog_signature(managed_output_directory, cli_id)
+                if not is_owned_generated_artifact and managed_path.name in primary_file_names.get(cli_id, set()):
+                    is_owned_generated_artifact = has_legacy_primary_signature(
+                        managed_path, managed_output_directory, cli_id, primary_agent_id, require_legacy_catalog=False
+                    )
+                if not is_owned_generated_artifact and managed_path.parent == (
+                    managed_output_directory / CLI_TARGETS[cli_id]["agent_directory"]
+                ):
+                    is_owned_generated_artifact = has_legacy_role_signature(
+                        managed_path, managed_output_directory, cli_id, managed_path.stem, require_legacy_catalog=False
+                    )
+                if not is_owned_generated_artifact and cli_id == "amazon-kiro" and relative_path == Path(
+                    "steering/orchestrator.md"
+                ):
+                    is_owned_generated_artifact = has_legacy_steering_signature(
+                        managed_path, managed_output_directory, require_legacy_catalog=False
+                    )
+                if not is_owned_generated_artifact and managed_path.name == legacy_note_names.get(cli_id):
+                    is_owned_generated_artifact = has_legacy_note_signature(
+                        managed_path, managed_output_directory, cli_id, require_legacy_catalog=False
+                    )
+                if is_owned_generated_artifact:
+                    validation_errors.append(
+                        f"Unexpected stale managed generated artifact: {cli_id}/{relative_path.as_posix()}"
+                    )
+    return validation_errors
 
 
 def parse_args() -> argparse.Namespace:
@@ -1463,8 +2025,8 @@ def parse_args() -> argparse.Namespace:
         Parsed argparse namespace.
     """
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--cli", required=True, help="Target CLI name, such as codex, claude, kilo, opencode, or kiro.")
-    parser.add_argument("--output", required=True, help="Directory where generated agent configs will be written.")
+    parser.add_argument("--cli", help="Target CLI name, such as codex, claude, kilo, opencode, or kiro.")
+    parser.add_argument("--output", help="Directory where generated agent configs will be written.")
     parser.add_argument(
         "--preset",
         default=None,
@@ -1499,7 +2061,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--templates-path",
         default=DEFAULT_TEMPLATES_PATH,
-        help="Runtime registry template path embedded in generated prompts. Defaults to ~/.ai-registry.",
+        help=(
+            "Stable runtime registry path embedded in generated prompts. "
+            "Absolute build-checkout paths are normalized to ~/.ai-registry."
+        ),
     )
     parser.add_argument(
         "--model-prefix",
@@ -1508,6 +2073,11 @@ def parse_args() -> argparse.Namespace:
             "Outer provider prefix for generated model ids. Defaults to kilo for kilo-code, "
             "opencode-go for opencode, and no prefix for other CLIs. Use an empty value to disable."
         ),
+    )
+    parser.add_argument(
+        "--verify-managed-outputs",
+        action="store_true",
+        help="Fail when tracked managed CLI artifacts differ from fresh generation.",
     )
     return parser.parse_args()
 
@@ -1520,6 +2090,19 @@ def main() -> int:
     """
     args = parse_args()
     try:
+        if args.verify_managed_outputs:
+            validation_errors = verify_managed_output_drift()
+            if validation_errors:
+                print("ERROR managed CLI output verification failed:", file=sys.stderr)
+                for validation_error in validation_errors:
+                    print(f"- {validation_error}", file=sys.stderr)
+                return 1
+            print("Managed CLI outputs match fresh generation")
+            return 0
+        if not args.cli:
+            raise ValueError("--cli is required unless --verify-managed-outputs is used")
+        if not args.output:
+            raise ValueError("--output is required unless --verify-managed-outputs is used")
         cli_id = canonical_cli(args.cli)
         output_directory = Path(args.output)
         default_role_levels_mode = "single" if cli_id == "amazon-kiro" else "tiered"

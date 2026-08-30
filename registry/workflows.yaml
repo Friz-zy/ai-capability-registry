@@ -497,6 +497,44 @@ workflows:
       - qa-engineer
       - tech-lead
 
+  - id: secure-sdd
+    name: Secure SDD Workflow
+    description: Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+    guide: workflows/security-compliance/secure-sdd/workflow.md
+    manifest: workflows/security-compliance/secure-sdd/workflow.yaml
+    category:
+      - security-compliance
+      - engineering
+    tags:
+      - secure-sdd
+      - specification
+      - independent-review
+      - adversarial-testing
+      - policy-gate
+    match_tasks:
+      - plan-feature
+      - review-architecture
+      - implement-code
+      - review-code
+      - plan-tests
+      - test-validate
+      - security-audit
+      - review-security
+      - model-threats
+    match_roles:
+      - product-manager
+      - business-analyst
+      - tech-lead
+      - solution-architect
+      - security-architect
+      - security-engineer
+      - backend-engineer
+      - frontend-engineer
+      - mobile-engineer
+      - devops-platform-engineer
+      - qa-engineer
+      - compliance-officer
+
   - id: legal-compliance
     name: Legal Compliance Workflow
     description: Coordinate GDPR checklist, privacy policy notes, data processing map, ToS requirements, compliance risks, and action plan.

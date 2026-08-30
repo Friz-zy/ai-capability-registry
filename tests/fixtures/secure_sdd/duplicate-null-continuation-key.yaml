@@ -1,0 +1,4 @@
+selectors:
+  - id:
+      value: first
+    id: second

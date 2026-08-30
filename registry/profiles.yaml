@@ -14,6 +14,11 @@ common_instructions:
   - When making an intentional simplification with a known ceiling, state the ceiling and the upgrade path in the relevant artifact or summary; for code, add a concise comment only when it clarifies a non-obvious tradeoff.
   - Non-trivial changes must include the smallest practical validation appropriate to the role and artifact, such as a test, self-check, acceptance checklist, review criterion, or validation command.
 
+security_baseline_policy:
+  id: SDD-PROMPT-INJECTION-001
+  include_requirements: true
+  include_enforcement_limit: true
+
 profiles:
   - id: personal-assistant
     name: Personal Assistant

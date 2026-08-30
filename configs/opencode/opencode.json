@@ -1,3 +1,4 @@
 {
+  "$comment": "generated-by: scripts/generate-agent-configs.py",
   "default_agent": "orchestrator-senior"
 }
