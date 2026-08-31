@@ -107,16 +107,16 @@ For `kilo-code` and `opencode`, generated agent models use a three-part catalog 
 
 Use the `opencode-go` preset with `--model-prefix ""` when OpenCode Go expects its two-part model ids, such as `opencode-go/deepseek-v4-pro`.
 
-The `openai` preset targets base GPT-5.6 model ids (`gpt-5.6-luna`/`gpt-5.6-terra`/`gpt-5.6-sol`). The `openai-pro-medium` and `openai-pro-high` presets select their corresponding `-pro` variants; the junior tier falls back to `gpt-5.4-nano` because no pro variant is cataloged. Every inline `recommended_defaults` entry declares a model and reasoning level. Kilo Code and OpenCode translate that level into documented provider-specific agent options for every supported preset; Claude Code emits Anthropic `effort`, and Codex emits OpenAI `model_reasoning_effort` in the primary config.
+The `openai` preset uses `gpt-5.6-luna` for junior through senior and `gpt-5.6-terra` for lead, with tier-specific reasoning levels. The `openai-critical` preset uses the higher-capability `gpt-5.6-luna`/`gpt-5.6-terra`/`gpt-5.6-sol` sequence. The `zai-codex` preset combines Z.AI Coding models for junior through senior with `openai/gpt-5.6-sol` for lead. Every inline `recommended_defaults` entry declares a model and reasoning level. Kilo Code and OpenCode translate that level into documented provider-specific agent options for every supported preset; Claude Code emits Anthropic `effort`, and Codex emits OpenAI `model_reasoning_effort` in the primary config.
 
 ```bash
-# GPT-5.6 for Kilo Code with the inline openai preset level (medium).
+# GPT-5.6 for Kilo Code with the inline openai preset level.
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
   --preset openai --templates-path "$PWD"
 
-# Same provider path with the higher inline reasoning level and -pro model variant.
+# Critical OpenAI sequence with the highest inline reasoning levels.
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
-  --preset openai-pro-high --templates-path "$PWD"
+  --preset openai-critical --templates-path "$PWD"
 ```
 
 The default presets are `openai` for Codex, `anthropic` for Claude Code, `opencode` for Kilo Code, `opencode` for OpenCode, and `none` for Amazon Kiro.
@@ -133,9 +133,16 @@ Use `--role-preset ROLES=PRESET` (repeatable) to override the model preset for s
 # role keeps the global z-ai-coding preset.
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
   --preset z-ai-coding \
-  --role-preset "orchestrator=openai-pro-medium" \
-  --role-preset "*-architect,founder-ceo,product-strategist,tech-lead,security-engineer,data-protection-officer,compliance-officer,finance-manager,release-manager,incident-manager,blockchain-engineer=openai-pro-high" \
+  --role-preset "orchestrator=openai-critical" \
+  --role-preset "*-architect,founder-ceo,product-strategist,tech-lead,security-engineer,data-protection-officer,compliance-officer,finance-manager,release-manager,incident-manager,blockchain-engineer=openai-critical" \
   --templates-path "$PWD"
+```
+
+Use the quoted `"zai-codex"` preset argument when generating a Z.AI Coding and OpenAI hybrid configuration:
+
+```bash
+python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
+  --preset 'zai-codex' --templates-path "$PWD"
 ```
 
 Use `--role-levels single` when you want one generated agent per profile instead of one agent per role seniority level.

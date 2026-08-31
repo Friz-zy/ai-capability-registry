@@ -949,9 +949,24 @@ def validate_model_tiers(errors: list[str]) -> None:
                     errors,
                 )
         for preset, expected_levels in {
-            "openai": {level_id: "medium" for level_id in MODEL_TIERS},
-            "openai-pro-medium": {level_id: "medium" for level_id in MODEL_TIERS},
-            "openai-pro-high": {level_id: "high" for level_id in MODEL_TIERS},
+            "openai": {
+                "junior": "low",
+                "middle": "high",
+                "senior": "max",
+                "lead": "max",
+            },
+            "openai-critical": {
+                "junior": "max",
+                "middle": "max",
+                "senior": "medium",
+                "lead": "high",
+            },
+            "zai-codex": {
+                "junior": "low",
+                "middle": "high",
+                "senior": "max",
+                "lead": "high",
+            },
         }.items():
             for level_id in MODEL_TIERS:
                 level_defaults = recommended_defaults.get(level_id, {})
@@ -968,22 +983,22 @@ def validate_model_tiers(errors: list[str]) -> None:
                 )
         expected_openai_models = {
             "openai": {
-                "junior": "gpt-5.4-nano",
+                "junior": "gpt-5.6-luna",
                 "middle": "gpt-5.6-luna",
-                "senior": "gpt-5.6-terra",
+                "senior": "gpt-5.6-luna",
+                "lead": "gpt-5.6-terra",
+            },
+            "openai-critical": {
+                "junior": "gpt-5.6-luna",
+                "middle": "gpt-5.6-terra",
+                "senior": "gpt-5.6-sol",
                 "lead": "gpt-5.6-sol",
             },
-            "openai-pro-medium": {
-                "junior": "gpt-5.4-nano",
-                "middle": "gpt-5.6-luna-pro",
-                "senior": "gpt-5.6-terra-pro",
-                "lead": "gpt-5.6-sol-pro",
-            },
-            "openai-pro-high": {
-                "junior": "gpt-5.4-nano",
-                "middle": "gpt-5.6-luna-pro",
-                "senior": "gpt-5.6-terra-pro",
-                "lead": "gpt-5.6-sol-pro",
+            "zai-codex": {
+                "junior": "zai-coding/glm-5.3-flash",
+                "middle": "zai-coding/glm-5.3-flash",
+                "senior": "zai-coding/glm-5.3",
+                "lead": "openai/gpt-5.6-sol",
             },
         }
         for preset, expected_models in expected_openai_models.items():
