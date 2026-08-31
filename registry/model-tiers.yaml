@@ -967,10 +967,10 @@ recommended_defaults:
       model: qwen3.5-flash-02-23
       level: low
     opencode:
-      model: deepseek-v4-flash
+      model: deepseek-v4-flash-0731
       level: low
     opencode-go:
-      model: opencode-go/deepseek-v4-flash
+      model: opencode-go/deepseek-v4-flash-0731
       level: low
     openrouter:
       model: deepseek/deepseek-v4-flash-0731

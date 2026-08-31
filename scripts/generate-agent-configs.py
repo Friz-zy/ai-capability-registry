@@ -899,20 +899,19 @@ def agent_description(title: str, level: str, role_levels_mode: str, purpose: st
 
 
 def normalized_reference_path(path: str) -> str:
-    """Normalize a registry template path for portable generated prompts.
+    """Normalize a registry template path for generated prompts.
 
     Args:
         path: User-provided path to the runtime registry templates.
 
     Returns:
-        A stable runtime reference. Absolute paths identify a build checkout and
-        are normalized to the default installed registry location.
+        The supplied path with surrounding whitespace and trailing slashes
+        removed. Explicit absolute paths are preserved; the CLI default remains
+        ``~/.ai-registry`` when no path is supplied.
     """
     normalized_path = path.strip().rstrip("/")
     if not normalized_path:
         raise ValueError("templates path must not be empty")
-    if Path(normalized_path).is_absolute():
-        return DEFAULT_TEMPLATES_PATH
     return normalized_path
 
 
@@ -2062,8 +2061,9 @@ def parse_args() -> argparse.Namespace:
         "--templates-path",
         default=DEFAULT_TEMPLATES_PATH,
         help=(
-            "Stable runtime registry path embedded in generated prompts. "
-            "Absolute build-checkout paths are normalized to ~/.ai-registry."
+            "Runtime registry path embedded in generated prompts. Explicit paths "
+            "are embedded as provided after trimming whitespace and trailing slashes; "
+            "defaults to ~/.ai-registry."
         ),
     )
     parser.add_argument(

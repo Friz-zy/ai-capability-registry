@@ -83,7 +83,7 @@ class GenerateAgentConfigsTests(unittest.TestCase):
             cli_id,
             output_directory,
             options["preset"],
-            str(output_directory),
+            self.generator.DEFAULT_TEMPLATES_PATH,
             options["model_prefix"],
             options["role_levels_mode"],
             [],
@@ -151,6 +151,29 @@ class GenerateAgentConfigsTests(unittest.TestCase):
             self.assertNotIn(str(first_checkout_root), rendered_content)
             self.assertNotIn(str(second_checkout_root), rendered_content)
             self.assertIn("~/.ai-registry/skills/skills.md", rendered_content)
+
+    def test_explicit_absolute_templates_path_is_embedded_in_generated_role(self):
+        """An explicitly supplied absolute templates path is preserved in role content."""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            output_directory = temporary_root / "generated"
+            explicit_templates_path = temporary_root / "explicit-registry"
+            options = self.generator.MANAGED_CLI_GENERATION_OPTIONS["amazon-kiro"]
+
+            self.generator.generate_agent_configs(
+                "amazon-kiro",
+                output_directory,
+                options["preset"],
+                f"  {explicit_templates_path}/  ",
+                options["model_prefix"],
+                options["role_levels_mode"],
+                [],
+            )
+
+            role_path = output_directory / "agents" / "orchestrator.json"
+            role_content = role_path.read_text(encoding="utf-8")
+            self.assertIn(f"{explicit_templates_path}/skills/skills.md", role_content)
+            self.assertNotIn("~/.ai-registry", role_content)
 
     def test_per_cli_marked_roles_refresh_after_cleanup(self):
         """Every supported CLI refreshes an exact-marker role artifact safely."""
