@@ -89,6 +89,68 @@ class GenerateAgentConfigsTests(unittest.TestCase):
             [],
         )
 
+    def generated_prompt_paths(self, cli_id: str, output_directory: Path) -> tuple[Path, Path]:
+        """Return the generated specialist and orchestrator prompt paths for a CLI."""
+        options = self.generator.MANAGED_CLI_GENERATION_OPTIONS[cli_id]
+        extension = self.generator.CLI_TARGETS[cli_id]["extension"]
+        agent_directory = output_directory / self.generator.CLI_TARGETS[cli_id]["agent_directory"]
+        specialist_id = self.generator.generated_agent_id(
+            {"id": "backend-engineer", "seniority": ["senior"]},
+            "senior",
+            options["role_levels_mode"],
+        )
+        orchestrator_id = self.generator.generated_agent_id(
+            {"id": "orchestrator", "seniority": ["senior"]},
+            "senior",
+            options["role_levels_mode"],
+        )
+        return (
+            agent_directory / f"{specialist_id}{extension}",
+            agent_directory / f"{orchestrator_id}{extension}",
+        )
+
+    def test_every_cli_routes_skills_only_in_orchestrator_prompts(self):
+        """Generated specialist prompts omit self-routing while orchestrators assign skills."""
+        cli_ids = ("amazon-kiro", "claude-code", "codex", "kilo-code", "opencode")
+        orchestrator_guidance = (
+            "Keep workflow and delegation proportional",
+            "For simple work, do not invent stages or parallel agents",
+            "Preserve mandatory gates",
+            "For complex work, split only into independently testable tasks",
+            "target role",
+            "explicit task",
+            "skills/skills.md",
+            "skills/catalog/roles/<target-role>/skills.md",
+            "Stop after reading the relevant keyword catalogs.",
+            "canonical skill name/path/reference",
+            "target subagent to read and use its assigned `SKILL.md`",
+            "target subagent is responsible for reading that skill body",
+            "none",
+            "rationale",
+            "user request",
+            "workflow",
+            "stage",
+            "Revisit",
+            "security policy",
+        )
+        delegated_skill_body_instruction = "Read the selected `SKILL.md` files"
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            for cli_id in cli_ids:
+                with self.subTest(cli_id=cli_id):
+                    output_directory = temporary_root / cli_id
+                    self.generate_cli(cli_id, output_directory)
+                    specialist_path, orchestrator_path = self.generated_prompt_paths(cli_id, output_directory)
+                    specialist_content = specialist_path.read_text(encoding="utf-8")
+                    orchestrator_content = orchestrator_path.read_text(encoding="utf-8")
+
+                    self.assertNotIn("## Skill Routing", specialist_content)
+                    self.assertNotIn("skills/catalog/roles/", specialist_content)
+                    self.assertNotIn(delegated_skill_body_instruction, orchestrator_content)
+                    for guidance in orchestrator_guidance:
+                        with self.subTest(guidance=guidance):
+                            self.assertIn(guidance, orchestrator_content)
+
     def write_legacy_catalog(self, output_directory: Path) -> None:
         """Write the exact legacy catalog signature used for migration tests."""
         (output_directory / "roles.md").write_text(
@@ -356,6 +418,20 @@ class GenerateAgentConfigsTests(unittest.TestCase):
                         ).replace(
                             f"generated_by: \"{self.generator.GENERATOR_MARKER_VALUE}\"\n", "", 1
                         )
+                        # Preserve the former skill reference in this migration
+                        # fixture so it remains an actual pre-refactor legacy role.
+                        if cli_id == "codex":
+                            fixture_content = fixture_content.replace(
+                                "\\n\\n## Output Format",
+                                "\\n\\n- read `~/.ai-registry/skills/skills.md`\\n\\n## Output Format",
+                                1,
+                            )
+                        else:
+                            fixture_content = fixture_content.replace(
+                                "\n## Output Format",
+                                "\n- read `~/.ai-registry/skills/skills.md`\n\n## Output Format",
+                                1,
+                            )
                         role_path = managed_root / "configs" / cli_id / relative_role_path
                         role_path.write_text(
                             fixture_content.replace(str(ROOT), str(managed_root)), encoding="utf-8"
