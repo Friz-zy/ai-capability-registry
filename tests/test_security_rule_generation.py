@@ -347,6 +347,31 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             route["enforcements"],
         )
 
+    def test_trusted_chat_approval_path_keeps_resources_best_effort(self):
+        """Trusted sandbox execution needs chat approval, not a resource-control form."""
+        sandbox_policy = self.policies["secure_sdd_policy"]["contracts"]["sandbox"]
+        resources = sandbox_policy["required_guarantees"]["resources"]
+        approval_path = sandbox_policy["exception"]
+
+        self.assertEqual([], resources["critical"])
+        self.assertEqual(
+            [
+                "process_and_pid_limits",
+                "memory_and_cpu_limits",
+                "execution_timeout",
+                "bounded_disk_usage",
+            ],
+            resources["non_critical_by_default"],
+        )
+        self.assertNotIn("required_record", approval_path)
+        self.assertEqual(
+            "Clear active-chat user approval is sufficient HUMAN approval.",
+            approval_path["chat_approval"]["authorization"],
+        )
+        self.assertIn("no user form", approval_path["chat_approval"]["handling"])
+        self.assertIn("never repository/agent declaration", approval_path["applies_when"][0])
+        self.assertIn("Podman cgroup limits", " ".join(approval_path["requirements"]))
+
     def test_policy_selectors_reject_unsafe_paths_and_invalid_semantic_ids(self):
         """Canonical path and semantic selectors are repository-safe identifiers."""
         policy = deepcopy(self.policies["secure_sdd_policy"])
