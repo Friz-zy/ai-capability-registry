@@ -13,6 +13,11 @@ from registry_lib import ROOT, load_registry, write_text
 
 ROLES_DIR = ROOT / "roles"
 TEMPLATES_DIR = ROOT / "templates" / "roles"
+ABOVE_JUNIOR_LEVELS = {"middle", "senior", "lead"}
+LOW_LEVEL_WORKER_PROFILE_IDS = {
+    "bulk_reader_agent_id": "bulk-reader",
+    "boilerplate_writer_agent_id": "boilerplate-writer",
+}
 
 
 def template(name: str) -> str:
@@ -199,10 +204,46 @@ def profile_role(profile: dict[str, Any]) -> dict[str, Any]:
     return role if isinstance(role, dict) else {}
 
 
+def low_level_worker_placeholder_values() -> dict[str, str]:
+    """Resolve canonical delegation placeholders to CLI-neutral worker ids.
+
+    Returns:
+        Placeholder values for generic role prompts.
+    """
+    return dict(LOW_LEVEL_WORKER_PROFILE_IDS)
+
+
+def low_level_delegation_section(
+    profile: dict[str, Any],
+    low_level_delegation_instructions: list[str],
+) -> str:
+    """Render generic-role guidance for profiles that support higher levels.
+
+    Args:
+        profile: Profile receiving the generated generic role prompt.
+        low_level_delegation_instructions: Canonical delegation guidance.
+
+    Returns:
+        Rendered Markdown section, or an empty string for junior-only workers.
+    """
+    profile_levels = string_list(profile.get("seniority"))
+    if profile.get("subagent_only") is True or not set(profile_levels) & ABOVE_JUNIOR_LEVELS:
+        return ""
+    worker_values = low_level_worker_placeholder_values()
+    rendered_instructions: list[str] = []
+    for instruction in low_level_delegation_instructions:
+        rendered_instruction = instruction
+        for key, value in worker_values.items():
+            rendered_instruction = rendered_instruction.replace(f"{{{{{key}}}}}", value)
+        rendered_instructions.append(rendered_instruction)
+    return markdown_section("Low-Level Delegation", rendered_instructions)
+
+
 def generated_role_content(
     profile: dict[str, Any],
     common_instructions: list[str],
     security_baseline: list[str],
+    low_level_delegation_instructions: list[str] | None = None,
 ) -> str:
     """Generate one role prompt from a profile.
 
@@ -210,6 +251,8 @@ def generated_role_content(
         profile: Profile registry entry.
         common_instructions: Instructions shared by every generated role.
         security_baseline: Security and prompt-injection instructions shared by every generated role.
+        low_level_delegation_instructions: Canonical guidance for profiles with
+            at least one above-junior level.
 
     Returns:
         Rendered role prompt.
@@ -228,6 +271,10 @@ def generated_role_content(
         "Delegation Level Rules",
         string_list(role.get("delegation_level_rules")),
     )
+    low_level_delegation_section_content = low_level_delegation_section(
+        profile,
+        low_level_delegation_instructions or [],
+    )
     rendered_common_instructions = bullet_list(common_instructions)
     return render(
         template_name_for_profile(profile_id),
@@ -237,6 +284,7 @@ def generated_role_content(
             "purpose": purpose,
             "responsibilities": responsibilities,
             "delegation_level_rules_section": delegation_level_rules_section,
+            "low_level_delegation_section": low_level_delegation_section_content,
             "guardrails_section": guardrails_section,
             "security_baseline_section": security_baseline_section,
             "common_instructions": rendered_common_instructions,
@@ -275,6 +323,7 @@ def write_roles(
     profiles: list[dict[str, Any]],
     common_instructions: list[str],
     security_baseline: list[str],
+    low_level_delegation_instructions: list[str] | None = None,
 ) -> None:
     """Write generated role prompts and the role registry index.
 
@@ -282,6 +331,8 @@ def write_roles(
         profiles: Profile registry entries.
         common_instructions: Instructions shared by every generated role.
         security_baseline: Security and prompt-injection instructions shared by every generated role.
+        low_level_delegation_instructions: Canonical delegation guidance for
+            profiles with at least one above-junior level.
     """
     clean_roles_directory()
     sorted_profiles = sorted(profiles, key=lambda item: str(item.get("id") or ""))
@@ -289,7 +340,12 @@ def write_roles(
         profile_id = str(profile.get("id") or "unknown")
         write_text(
             ROLES_DIR / f"{profile_id}.md",
-            generated_role_content(profile, common_instructions, security_baseline),
+            generated_role_content(
+                profile,
+                common_instructions,
+                security_baseline,
+                low_level_delegation_instructions,
+            ),
         )
 
     roles = "\n".join(role_registry_line(profile) for profile in sorted_profiles)
@@ -313,8 +369,16 @@ def main() -> int:
     profiles = registry.get("profiles", [])
     common_instructions = string_list(registry.get("common_instructions"))
     security_baseline = security_baseline_from_policy(registry)
+    low_level_delegation_instructions = string_list(
+        registry.get("low_level_delegation_instructions")
+    )
     cleanup_legacy_role_directory()
-    write_roles(profiles, common_instructions, security_baseline)
+    write_roles(
+        profiles,
+        common_instructions,
+        security_baseline,
+        low_level_delegation_instructions,
+    )
     print(f"Generated role prompts: {len(profiles)} roles")
     print(f"Generated role registry: {ROLES_DIR / 'roles.md'}")
     return 0

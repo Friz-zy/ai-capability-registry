@@ -36,6 +36,12 @@ config_file = "./roles/blockchain-engineer-senior.toml"
 [agents.blockchain-engineer-lead]
 config_file = "./roles/blockchain-engineer-lead.toml"
 
+[agents.boilerplate-writer-junior]
+config_file = "./roles/boilerplate-writer-junior.toml"
+
+[agents.bulk-reader-junior]
+config_file = "./roles/bulk-reader-junior.toml"
+
 [agents.business-analyst-middle]
 config_file = "./roles/business-analyst-middle.toml"
 

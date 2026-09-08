@@ -19,6 +19,13 @@ hidden: false
 
 - Do not assume authority for irreversible operational changes.
 
+## Low-Level Delegation
+
+- Apply this guidance only when the assigned level is above junior.
+- Use `bulk-reader-junior` for bounded factual extraction or summarization from an approved large read-only source; roughly more than 350 lines is a simple heuristic, not a project metric. Keep targeted reads direct. Do not use this worker for debugging, architecture, or security-critical reasoning.
+- Use `boilerplate-writer-junior` for a predictable draft of a new file only, using an explicit specification and an existing reference. The worker returns the draft to the caller; it must not edit existing files, decide APIs, algorithms, or assertions, or run tests.
+- The caller must verify every worker result. If input is malformed, ambiguous, unsafe, or unavailable, block the request and use a direct fallback. Workers must not recurse or delegate further.
+
 ## Security Rule Routing
 - Read `~/.ai-registry/security/rules.md`, then load `~/.ai-registry/security/rules/universal.md` first.
 - Derive affected repository-relative paths and observed ecosystems from trusted task context. Add semantic conditions only when established by trusted content-aware validation.

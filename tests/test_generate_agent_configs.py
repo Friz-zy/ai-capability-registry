@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -26,6 +27,17 @@ def load_generator_module():
     return module
 
 
+def load_roles_generator_module():
+    """Load the standalone role generator for direct rendering tests."""
+    specification = importlib.util.spec_from_file_location(
+        "generate_roles", ROOT / "scripts" / "generate-roles.py"
+    )
+    module = importlib.util.module_from_spec(specification)
+    assert specification.loader is not None
+    specification.loader.exec_module(module)
+    return module
+
+
 class GenerateAgentConfigsTests(unittest.TestCase):
     """Verify portable output and structurally verified ownership behavior."""
 
@@ -33,6 +45,52 @@ class GenerateAgentConfigsTests(unittest.TestCase):
     def setUpClass(cls):
         """Load the generator once for this focused suite."""
         cls.generator = load_generator_module()
+        cls.roles_generator = load_roles_generator_module()
+
+    def registry_profiles(self) -> list[dict]:
+        """Return canonical profiles used by generator behavior tests."""
+        return self.generator.load_registry("profiles")["profiles"]
+
+    def worker_profiles(self) -> dict[str, dict]:
+        """Return canonical subagent-only worker profiles by id."""
+        return {
+            str(profile["id"]): profile
+            for profile in self.registry_profiles()
+            if profile.get("subagent_only") is True
+        }
+
+    def generate_cli_mode(
+        self,
+        cli_id: str,
+        output_directory: Path,
+        role_levels_mode: str,
+        preset: str = "",
+        model_prefix: str = "",
+    ) -> None:
+        """Generate one CLI target with explicit mode and model settings."""
+        self.generator.generate_agent_configs(
+            cli_id,
+            output_directory,
+            preset,
+            self.generator.DEFAULT_TEMPLATES_PATH,
+            model_prefix,
+            role_levels_mode,
+            [],
+        )
+
+    def agent_content(
+        self,
+        cli_id: str,
+        output_directory: Path,
+        profile: dict,
+        level: str,
+        role_levels_mode: str,
+    ) -> str:
+        """Read one generated agent artifact using the canonical generated id."""
+        options = self.generator.CLI_TARGETS[cli_id]
+        agent_id = self.generator.generated_agent_id(profile, level, role_levels_mode)
+        path = output_directory / options["agent_directory"] / f"{agent_id}{options['extension']}"
+        return path.read_text(encoding="utf-8")
 
     def orchestrator_entries(self):
         """Return the minimal primary-agent entry required by primary generators."""
@@ -150,6 +208,262 @@ class GenerateAgentConfigsTests(unittest.TestCase):
                     for guidance in orchestrator_guidance:
                         with self.subTest(guidance=guidance):
                             self.assertIn(guidance, orchestrator_content)
+
+    def test_canonical_profiles_define_exactly_two_junior_workers(self):
+        """Canonical registry data contains only the two approved junior workers."""
+        profiles = self.registry_profiles()
+        worker_profiles = self.worker_profiles()
+
+        self.assertEqual({"bulk-reader", "boilerplate-writer"}, set(worker_profiles))
+        self.assertEqual(2, len(worker_profiles))
+        self.assertEqual(42, len(profiles))
+        for worker_id, profile in worker_profiles.items():
+            with self.subTest(worker_id=worker_id):
+                self.assertFalse(profile["default"])
+                self.assertEqual(["junior"], profile["seniority"])
+                self.assertTrue(profile["subagent_only"])
+                role = profile["role"]
+                role_text = " ".join(
+                    [
+                        str(role["title"]),
+                        str(profile["description"]),
+                        str(role["mission"]),
+                        " ".join(role["responsibilities"]),
+                        " ".join(role["guardrails"]),
+                    ]
+                ).lower()
+                self.assertIn("junior", role_text)
+                self.assertIn("recur", role_text)
+                self.assertIn("outside", role_text)
+
+    def test_existing_profile_seniority_is_unchanged(self):
+        """Every pre-existing profile retains its approved seniority levels."""
+        expected_seniority = {
+            "personal-assistant": ["middle"],
+            "orchestrator": ["senior"],
+            "founder-ceo": ["senior", "lead"],
+            "product-manager": ["middle"],
+            "software-engineer": ["junior", "middle", "senior", "lead"],
+            "backend-engineer": ["junior", "middle", "senior", "lead"],
+            "frontend-engineer": ["junior", "middle", "senior", "lead"],
+            "mobile-engineer": ["junior", "middle", "senior", "lead"],
+            "qa-engineer": ["junior", "middle", "senior", "lead"],
+            "security-engineer": ["middle", "senior", "lead"],
+            "devops-platform-engineer": ["junior", "middle", "senior", "lead"],
+            "data-analyst": ["junior", "middle", "senior"],
+            "ai-engineer": ["middle", "senior", "lead"],
+            "ux-ui-designer": ["junior", "middle", "senior", "lead"],
+            "business-analyst": ["middle", "senior"],
+            "ux-researcher": ["middle", "senior"],
+            "solution-architect": ["senior", "lead"],
+            "tech-lead": ["senior", "lead"],
+            "release-manager": ["senior", "lead"],
+            "customer-success-support": ["junior", "middle", "senior"],
+            "operations-manager": ["middle", "senior", "lead"],
+            "creative-media-producer": ["junior", "middle", "senior"],
+            "data-engineer": ["junior", "middle", "senior", "lead"],
+            "blockchain-engineer": ["middle", "senior", "lead"],
+            "hardware-iot-engineer": ["middle", "senior", "lead"],
+            "product-strategist": ["senior", "lead"],
+            "market-researcher": ["junior", "middle"],
+            "growth-marketer": ["middle", "senior"],
+            "product-marketing-manager": ["middle", "senior"],
+            "sales-strategist": ["middle", "senior", "lead"],
+            "security-architect": ["senior", "lead"],
+            "compliance-officer": ["senior", "lead"],
+            "data-protection-officer": ["senior", "lead"],
+            "sre": ["junior", "middle", "senior", "lead"],
+            "incident-manager": ["senior", "lead"],
+            "finops-analyst": ["middle", "senior"],
+            "finance-manager": ["senior", "lead"],
+            "technical-writer": ["junior", "middle", "senior", "lead"],
+            "hr-manager": ["senior", "lead"],
+            "engineering-manager": ["senior", "lead"],
+        }
+        actual_seniority = {
+            str(profile["id"]): profile.get("seniority")
+            for profile in self.registry_profiles()
+            if profile.get("subagent_only") is not True
+        }
+        self.assertEqual(expected_seniority, actual_seniority)
+
+    def test_above_junior_guidance_is_rendered_for_all_profiles_and_clis(self):
+        """Every effective above-junior role gets guidance on all CLI targets."""
+        above_junior_levels = {"middle", "senior", "lead"}
+        profiles = self.registry_profiles()
+        cli_ids = ("amazon-kiro", "claude-code", "codex", "kilo-code", "opencode")
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            for cli_id in cli_ids:
+                with self.subTest(cli_id=cli_id):
+                    output_directory = temporary_root / cli_id
+                    self.generate_cli_mode(cli_id, output_directory, "tiered")
+                    for profile in profiles:
+                        profile_id = str(profile["id"])
+                        generated_levels = self.generator.profile_generation_levels(profile, "tiered")
+                        for level in generated_levels:
+                            content = self.agent_content(
+                                cli_id, output_directory, profile, level, "tiered"
+                            )
+                            with self.subTest(profile_id=profile_id, level=level):
+                                self.assertNotIn("{{", content)
+                                if level in above_junior_levels and profile.get("subagent_only") is not True:
+                                    self.assertIn("## Low-Level Delegation", content)
+                                    self.assertIn("only when the assigned level is above junior", content)
+                                    self.assertIn("bulk-reader-junior", content)
+                                    self.assertIn("boilerplate-writer-junior", content)
+                                else:
+                                    self.assertNotIn("## Low-Level Delegation", content)
+
+    def test_generic_roles_use_profile_capability_without_effective_level(self):
+        """Generic role files use neutral worker ids and no generated level title."""
+        registry = self.generator.load_registry("profiles")
+        common_instructions = self.generator.string_list(registry.get("common_instructions"))
+        security_baseline = self.generator.security_baseline_from_policy(registry)
+        guidance = self.generator.string_list(registry.get("low_level_delegation_instructions"))
+        for profile in registry["profiles"]:
+            profile_id = str(profile["id"])
+            content = self.roles_generator.generated_role_content(
+                profile, common_instructions, security_baseline, guidance
+            )
+            with self.subTest(profile_id=profile_id):
+                self.assertNotIn("{{", content)
+                self.assertNotRegex(content, r"^# Role: (junior|middle|senior|lead) ", re.MULTILINE)
+                if set(profile.get("seniority", [])) & {"middle", "senior", "lead"}:
+                    self.assertIn("## Low-Level Delegation", content)
+                    self.assertIn("only when the assigned level is above junior", content)
+                    self.assertIn("`bulk-reader`", content)
+                    self.assertIn("`boilerplate-writer`", content)
+                else:
+                    self.assertNotIn("## Low-Level Delegation", content)
+
+    def test_single_mode_selected_levels_get_collapsed_worker_guidance(self):
+        """Single-mode selected middle, senior, and lead roles use collapsed ids."""
+        above_junior_levels = {"middle", "senior", "lead"}
+        cli_ids = ("amazon-kiro", "claude-code", "codex", "kilo-code", "opencode")
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            for cli_id in cli_ids:
+                with self.subTest(cli_id=cli_id):
+                    output_directory = temporary_root / cli_id
+                    self.generate_cli_mode(cli_id, output_directory, "single")
+                    for profile in self.registry_profiles():
+                        level = self.generator.selected_role_level(profile)
+                        content = self.agent_content(
+                            cli_id, output_directory, profile, level, "single"
+                        )
+                        with self.subTest(profile_id=profile["id"], level=level):
+                            if level in above_junior_levels and profile.get("subagent_only") is not True:
+                                self.assertIn("## Low-Level Delegation", content)
+                                self.assertIn("`bulk-reader`", content)
+                                self.assertIn("`boilerplate-writer`", content)
+                            else:
+                                self.assertNotIn("## Low-Level Delegation", content)
+
+    def test_workers_have_no_guidance_and_minimal_cli_controls(self):
+        """Workers remain non-recursive and receive only supported read-only controls."""
+        worker_profiles = self.worker_profiles()
+        cli_ids = ("amazon-kiro", "claude-code", "codex", "kilo-code", "opencode")
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            for cli_id in cli_ids:
+                with self.subTest(cli_id=cli_id):
+                    output_directory = temporary_root / cli_id
+                    self.generate_cli_mode(cli_id, output_directory, "tiered")
+                    for worker_id, profile in worker_profiles.items():
+                        content = self.agent_content(
+                            cli_id, output_directory, profile, "junior", "tiered"
+                        )
+                        with self.subTest(worker_id=worker_id):
+                            self.assertNotIn("## Low-Level Delegation", content)
+                            self.assertNotIn("{{", content)
+                            self.assertIn("must not recurse", content.lower())
+                            if cli_id == "claude-code":
+                                self.assertRegex(content, r"(?m)^tools:\n  - Read$")
+                                self.assertIn("hidden: true", content)
+                            elif cli_id in {"kilo-code", "opencode"}:
+                                self.assertIn("mode: subagent", content)
+                                self.assertIn("hidden: true", content)
+                                for denied_permission in (
+                                    "task: deny",
+                                    "edit: deny",
+                                    "bash: deny",
+                                    "webfetch: deny",
+                                    "websearch: deny",
+                                ):
+                                    self.assertIn(denied_permission, content)
+                                self.assertNotIn("mcp:", content)
+                                self.assertNotIn("network:", content)
+                            elif cli_id == "amazon-kiro":
+                                parsed_content = json.loads(content)
+                                self.assertEqual(["read"], parsed_content["tools"])
+                                for unsupported_field in ("hidden", "mode", "permission", "mcpServers"):
+                                    self.assertNotIn(unsupported_field, parsed_content)
+                            else:
+                                self.assertNotRegex(
+                                    content,
+                                    r"(?m)^(tools|permission|hidden|mode|network|mcp)\s*[:=]",
+                                )
+
+    def test_single_mode_worker_ids_and_markers_remain_explicitly_junior(self):
+        """Collapsed worker artifacts keep junior markers in identity and prompt."""
+        worker_profiles = self.worker_profiles()
+        cli_ids = ("amazon-kiro", "claude-code", "codex", "kilo-code", "opencode")
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            for cli_id in cli_ids:
+                with self.subTest(cli_id=cli_id):
+                    output_directory = temporary_root / cli_id
+                    self.generate_cli_mode(cli_id, output_directory, "single")
+                    for worker_id, profile in worker_profiles.items():
+                        content = self.agent_content(
+                            cli_id, output_directory, profile, "junior", "single"
+                        )
+                        with self.subTest(worker_id=worker_id):
+                            self.assertIn(worker_id, content)
+                            self.assertNotIn(f"{worker_id}-junior", content)
+                            self.assertIn("junior", content.lower())
+                            self.assertIn("As a junior", content)
+
+    def test_workers_use_existing_junior_model_defaults(self):
+        """Model resolution for workers uses each CLI preset's existing junior tier."""
+        worker_profiles = self.worker_profiles()
+        model_tiers_registry = self.generator.load_registry("model-tiers")
+        for cli_id, options in self.generator.MANAGED_CLI_GENERATION_OPTIONS.items():
+            if cli_id == "amazon-kiro":
+                continue
+            with tempfile.TemporaryDirectory() as temporary_directory:
+                output_directory = Path(temporary_directory) / cli_id
+                self.generate_cli_mode(
+                    cli_id,
+                    output_directory,
+                    options["role_levels_mode"],
+                    options["preset"],
+                    options["model_prefix"],
+                )
+                for worker_id, profile in worker_profiles.items():
+                    expected_configuration = self.generator.preset_configuration_for_level(
+                        model_tiers_registry["recommended_defaults"],
+                        "junior",
+                        options["preset"],
+                        worker_id,
+                    )
+                    expected_model = self.generator.rendered_model_id(
+                        model_tiers_registry,
+                        str(expected_configuration["model"]),
+                        options["model_prefix"],
+                        worker_id,
+                        cli_id in self.generator.DEFAULT_MODEL_PREFIXES,
+                    )
+                    content = self.agent_content(
+                        cli_id,
+                        output_directory,
+                        profile,
+                        "junior",
+                        options["role_levels_mode"],
+                    )
+                    with self.subTest(cli_id=cli_id, worker_id=worker_id):
+                        self.assertIn(f'model: "{expected_model}"' if cli_id != "codex" else f'model = "{expected_model}"', content)
 
     def write_legacy_catalog(self, output_directory: Path) -> None:
         """Write the exact legacy catalog signature used for migration tests."""

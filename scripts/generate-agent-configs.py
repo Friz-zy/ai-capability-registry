@@ -48,6 +48,11 @@ DEFAULT_PRESETS: dict[str, str] = {
 }
 
 ROLE_LEVEL_MODES = {"tiered", "single"}
+ABOVE_JUNIOR_LEVELS = {"middle", "senior", "lead"}
+LOW_LEVEL_WORKER_PROFILE_IDS = {
+    "bulk_reader_agent_id": "bulk-reader",
+    "boilerplate_writer_agent_id": "boilerplate-writer",
+}
 
 DISABLED_MODEL_PRESETS = {"", "none"}
 MODEL_REMOVAL_TOKEN = "__MODEL_FIELD_DISABLED__"
@@ -833,6 +838,75 @@ def generated_agent_id(profile: dict[str, Any], level: str, role_levels_mode: st
     return f"{domain_slug}-{level_slug}"
 
 
+def low_level_worker_placeholder_values(
+    profiles: list[dict[str, Any]], role_levels_mode: str
+) -> dict[str, str]:
+    """Resolve canonical low-level worker placeholders to generated agent ids.
+
+    Args:
+        profiles: Canonical profile entries containing the worker profiles.
+        role_levels_mode: Generation mode controlling worker id shape.
+
+    Returns:
+        Placeholder values for the canonical delegation guidance.
+
+    Raises:
+        ValueError: If a required worker profile is missing or has multiple levels.
+    """
+    profiles_by_id = {
+        str(profile.get("id") or ""): profile
+        for profile in profiles
+        if isinstance(profile, dict)
+    }
+    values: dict[str, str] = {}
+    for placeholder, worker_profile_id in LOW_LEVEL_WORKER_PROFILE_IDS.items():
+        worker_profile = profiles_by_id.get(worker_profile_id)
+        if worker_profile is None:
+            raise ValueError(f"Missing required low-level worker profile '{worker_profile_id}'")
+        worker_levels = profile_generation_levels(worker_profile, role_levels_mode)
+        if len(worker_levels) != 1:
+            raise ValueError(
+                f"Low-level worker profile '{worker_profile_id}' must resolve to exactly one generated level"
+            )
+        values[placeholder] = generated_agent_id(
+            worker_profile,
+            worker_levels[0],
+            role_levels_mode,
+        )
+    return values
+
+
+def low_level_delegation_section(
+    profile: dict[str, Any],
+    level: str,
+    role_levels_mode: str,
+    low_level_delegation_instructions: list[str],
+    profiles: list[dict[str, Any]],
+) -> str:
+    """Render delegation guidance only for eligible non-worker agents.
+
+    Args:
+        profile: Profile receiving the generated prompt.
+        level: Effective seniority level for this generated agent.
+        role_levels_mode: Generation mode controlling worker ids.
+        low_level_delegation_instructions: Canonical delegation guidance.
+        profiles: Canonical profiles used to resolve worker ids.
+
+    Returns:
+        Rendered Markdown section, or an empty string for junior and worker agents.
+    """
+    if level not in ABOVE_JUNIOR_LEVELS or profile.get("subagent_only") is True:
+        return ""
+    worker_values = low_level_worker_placeholder_values(profiles, role_levels_mode)
+    rendered_instructions: list[str] = []
+    for instruction in low_level_delegation_instructions:
+        rendered_instruction = instruction
+        for key, value in worker_values.items():
+            rendered_instruction = rendered_instruction.replace(f"{{{{{key}}}}}", value)
+        rendered_instructions.append(rendered_instruction)
+    return markdown_section("Low-Level Delegation", rendered_instructions)
+
+
 def selected_role_level(profile: dict[str, Any]) -> str:
     """Choose the internal level used when levels are collapsed.
 
@@ -880,6 +954,8 @@ def role_display_title(level: str, title: str, role_levels_mode: str) -> str:
     """
     if role_levels_mode == "single":
         return title
+    if title.lower().startswith(f"{level.lower()} "):
+        return title
     return f"{level} {title}"
 
 
@@ -923,6 +999,7 @@ def role_prompt_values(
     common_instructions: list[str],
     security_baseline: list[str],
     templates_path: str,
+    low_level_delegation_section: str = "",
 ) -> dict[str, str]:
     """Build placeholder values for role prompt templates.
 
@@ -934,6 +1011,7 @@ def role_prompt_values(
         common_instructions: Shared profile instructions.
         security_baseline: Security and prompt-injection instructions shared by every generated agent.
         templates_path: Runtime registry template path used in generated references.
+        low_level_delegation_section: Optional delegation guidance for eligible agents.
 
     Returns:
         Placeholder mapping for ``templates/roles`` prompt templates.
@@ -967,7 +1045,11 @@ def role_prompt_values(
         delegation_examples = ""
     agent_id = generated_agent_id(profile, level, role_levels_mode)
     runtime_templates_path = normalized_reference_path(templates_path)
-    level_prefix = f"{level} " if role_levels_mode != "single" else ""
+    level_prefix = (
+        f"{level} "
+        if role_levels_mode != "single" and not title.lower().startswith(f"{level.lower()} ")
+        else ""
+    )
     return {
         "agent_id": agent_id,
         "profile_id": profile_id,
@@ -977,6 +1059,7 @@ def role_prompt_values(
         "guardrails_section": guardrails_section,
         "security_baseline_section": security_baseline_section,
         "delegation_level_rules_section": delegation_level_rules_section,
+        "low_level_delegation_section": low_level_delegation_section,
         "delegation_examples": delegation_examples,
         "common_instructions": bullet_list(common_instructions),
         "templates_path": runtime_templates_path,
@@ -992,6 +1075,7 @@ def render_role_prompt(
     security_baseline: list[str],
     templates_path: str,
     single_mode_id_replacements: dict[str, str] | None,
+    low_level_delegation_section: str = "",
 ) -> str:
     """Render the system prompt for one generated agent.
 
@@ -1004,6 +1088,7 @@ def render_role_prompt(
         security_baseline: Security and prompt-injection instructions shared by every generated agent.
         templates_path: Runtime registry template path used in generated references.
         single_mode_id_replacements: Tiered-to-single generated id replacements.
+        low_level_delegation_section: Optional delegation guidance for eligible agents.
 
     Returns:
         Rendered system prompt.
@@ -1019,6 +1104,7 @@ def render_role_prompt(
         common_instructions,
         security_baseline,
         templates_path,
+        low_level_delegation_section,
     )
     rendered_prompt = render_text(
         template_text(prompt_template_path),
@@ -1031,6 +1117,43 @@ def render_role_prompt(
         ):
             rendered_prompt = rendered_prompt.replace(tiered_agent_id, single_agent_id)
     return rendered_prompt
+
+
+def worker_cli_control_values(cli_id: str, profile: dict[str, Any]) -> dict[str, str]:
+    """Return supported CLI controls for a canonical subagent-only worker.
+
+    Args:
+        cli_id: Canonical CLI target id.
+        profile: Profile being rendered.
+
+    Returns:
+        Placeholder values for CLI-specific worker controls. Unsupported
+        controls remain absent from the corresponding template.
+    """
+    is_worker = profile.get("subagent_only") is True
+    values = {
+        "agent_hidden_yaml": "true" if is_worker else "false",
+        "worker_tools_yaml": "",
+        "worker_permissions_yaml": "",
+        "agent_tools_json": json.dumps(["read"] if is_worker and cli_id == "amazon-kiro" else ["*"]),
+    }
+    if not is_worker:
+        return values
+    if cli_id == "claude-code":
+        values["worker_tools_yaml"] = "\ntools:\n  - Read"
+    elif cli_id in {"kilo-code", "opencode"}:
+        values["worker_permissions_yaml"] = (
+            "\npermission:\n"
+            "  read: allow\n"
+            "  edit: deny\n"
+            "  bash: deny\n"
+            "  glob: allow\n"
+            "  grep: allow\n"
+            "  webfetch: deny\n"
+            "  websearch: deny\n"
+            "  task: deny"
+        )
+    return values
 
 
 def render_cli_agent(
@@ -1070,6 +1193,7 @@ def render_cli_agent(
     extension = CLI_TARGETS[cli_id]["extension"]
     cli_template_path = AGENT_TEMPLATES_DIR / template_dir / f"{template_kind}{extension}"
     generated_description = agent_description(title, level, role_levels_mode, purpose)
+    worker_controls = worker_cli_control_values(cli_id, profile)
     values = {
         "agent_id_json": quoted_string(generated_agent_id_value),
         "agent_id_toml": quoted_string(generated_agent_id_value),
@@ -1081,6 +1205,10 @@ def render_cli_agent(
         "model_toml": quoted_string(model or MODEL_REMOVAL_TOKEN),
         "model_yaml": quoted_string(model or MODEL_REMOVAL_TOKEN),
         "reasoning_yaml": reasoning_yaml,
+        "agent_hidden_yaml": worker_controls["agent_hidden_yaml"],
+        "worker_tools_yaml": worker_controls["worker_tools_yaml"],
+        "worker_permissions_yaml": worker_controls["worker_permissions_yaml"],
+        "agent_tools_json": worker_controls["agent_tools_json"],
         "prompt": prompt,
         "prompt_json": quoted_string(prompt),
         "prompt_toml": quoted_string(prompt),
@@ -1797,6 +1925,9 @@ def generate_agent_configs(
 
     common_instructions = string_list(profiles_registry.get("common_instructions"))
     security_baseline = security_baseline_from_policy(profiles_registry)
+    low_level_delegation_instructions = string_list(
+        profiles_registry.get("low_level_delegation_instructions")
+    )
     extension = CLI_TARGETS[cli_id]["extension"]
     agent_directory = output_directory / CLI_TARGETS[cli_id]["agent_directory"]
     entries = generated_agent_entries(profiles, role_levels_mode)
@@ -1875,6 +2006,13 @@ def generate_agent_configs(
             security_baseline,
             templates_path,
             single_mode_id_replacements,
+            low_level_delegation_section(
+                profile,
+                level,
+                role_levels_mode,
+                low_level_delegation_instructions,
+                profiles,
+            ),
         )
         # Capture orchestrator prompt for Amazon Kiro steering artifact
         if profile_id == "orchestrator" and cli_id == "amazon-kiro":

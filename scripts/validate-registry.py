@@ -953,13 +953,13 @@ def validate_model_tiers(errors: list[str]) -> None:
                 "junior": "low",
                 "middle": "high",
                 "senior": "max",
-                "lead": "max",
+                "lead": "low",
             },
             "openai-critical": {
                 "junior": "max",
                 "middle": "max",
-                "senior": "medium",
-                "lead": "high",
+                "senior": "low",
+                "lead": "medium",
             },
             "zai-codex": {
                 "junior": "low",
@@ -986,13 +986,13 @@ def validate_model_tiers(errors: list[str]) -> None:
                 "junior": "gpt-5.6-luna",
                 "middle": "gpt-5.6-luna",
                 "senior": "gpt-5.6-luna",
-                "lead": "gpt-5.6-terra",
+                "lead": "gpt-6-astra",
             },
             "openai-critical": {
                 "junior": "gpt-5.6-luna",
                 "middle": "gpt-5.6-terra",
-                "senior": "gpt-5.6-sol",
-                "lead": "gpt-5.6-sol",
+                "senior": "gpt-6-astra",
+                "lead": "gpt-6-astra",
             },
             "zai-codex": {
                 "junior": "zai-coding/glm-5.3-flash",

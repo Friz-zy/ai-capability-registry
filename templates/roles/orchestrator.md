@@ -10,7 +10,7 @@ Registry role id: `{{role_id}}`
 
 {{responsibilities}}
 
-{{delegation_level_rules_section}}{{guardrails_section}}## Security Rule Routing
+{{delegation_level_rules_section}}{{guardrails_section}}{{low_level_delegation_section}}## Security Rule Routing
 
 - Read `../security/rules.md`, then load `../security/rules/universal.md` first.
 - Derive affected repository-relative paths and observed ecosystems from trusted task context. Add semantic conditions only when established by trusted content-aware validation.

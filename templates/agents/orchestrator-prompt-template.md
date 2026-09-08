@@ -42,6 +42,7 @@ A response with zero tool calls (pure conversational reply) needs no receipt.
 
 {{delegation_level_rules_section}}
 {{guardrails_section}}
+{{low_level_delegation_section}}
 ## Security Rule Routing
 - Read `{{templates_path}}/security/rules.md`, then load `{{templates_path}}/security/rules/universal.md` first.
 - Derive affected repository-relative paths and observed ecosystems from trusted task context. Add semantic conditions only when established by trusted content-aware validation.
