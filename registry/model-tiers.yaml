@@ -142,12 +142,12 @@ providers:
             pricing_per_million_tokens: { input: 4.00, output: 20.00 }
             coding_index: 59
             level: medium
-          - model_id: gpt-5.6-sol
-            openrouter_id: openai/gpt-5.6-sol
+          - model_id: gpt-6-astra
+            openrouter_id: openai/gpt-6-astra
             context: 1048576
             max_output: 128000
-            pricing_per_million_tokens: { input: 4.00, output: 20.00 }
-            coding_index: 59
+            pricing_per_million_tokens: { input: 10.00, output: 50.00 }
+            coding_index: 53
             level: medium
 
   - id: google
@@ -857,12 +857,12 @@ providers:
             pricing_per_million_tokens: { input: 4.00, output: 20.00 }
             coding_index: 59
             level: medium
-          - model_id: openai/gpt-5.6-sol
-            openrouter_id: openai/gpt-5.6-sol
+          - model_id: openai/gpt-6-astra
+            openrouter_id: openai/gpt-6-astra
             context: 1048576
             max_output: 128000
-            pricing_per_million_tokens: { input: 4.00, output: 20.00 }
-            coding_index: 59
+            pricing_per_million_tokens: { input: 10.00, output: 50.00 }
+            coding_index: 53
             level: medium
           - model_id: google/gemini-3.1-pro-preview
             openrouter_id: google/gemini-3.1-pro-preview
@@ -1035,8 +1035,8 @@ recommended_defaults:
       model: gpt-5.6-luna
       level: max
     openai-critical:
-      model: gpt-5.6-sol
-      level: medium
+      model: gpt-6-astra
+      level: low
     zai-codex:
       model: zai-coding/glm-5.3
       level: max
@@ -1081,11 +1081,11 @@ recommended_defaults:
       model: claude-opus-4-8
       level: max
     openai:
-      model: gpt-5.6-terra
-      level: max
+      model: gpt-6-astra
+      level: low
     openai-critical:
-      model: gpt-5.6-sol
-      level: high
+      model: gpt-6-astra
+      level: medium
     zai-codex:
       model: openai/gpt-5.6-sol
       level: high
