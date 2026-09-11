@@ -87,6 +87,10 @@ providers:
     tiers:
       junior:
         models:
+          - model_id: gpt-5.3-codex-spark
+            openrouter_id: openai/gpt-5.3-codex-spark
+            # Provider lookup-only stub; unverified context, output, pricing, and index metadata are intentionally omitted.
+            level: low
           - model_id: gpt-5.4-nano
             openrouter_id: openai/gpt-5.4-nano
             context: 400000
@@ -939,9 +943,18 @@ recommended_defaults:
     openai-critical:
       model: gpt-5.6-luna
       level: max
-    zai-codex:
-      model: zai-coding/glm-5.3-flash
+    codex:
+      model: gpt-5.3-codex-spark
       level: low
+    codex-critical:
+      model: gpt-5.3-codex-spark
+      level: max
+    zai-codex:
+      model: gpt-5.3-codex-spark
+      level: low
+    zai-codex-critical:
+      model: gpt-5.3-codex-spark
+      level: max
     google:
       model: gemini-3.1-flash-lite
       level: low
@@ -976,7 +989,7 @@ recommended_defaults:
       model: deepseek/deepseek-v4-flash-0731
       level: low
     z-ai-coding:
-      model: zai-coding/glm-4.5-air
+      model: zai-coding-plan/glm-4.5-air
       level: low
   middle:
     anthropic:
@@ -988,8 +1001,17 @@ recommended_defaults:
     openai-critical:
       model: gpt-5.6-terra
       level: max
+    codex:
+      model: gpt-5.6-luna
+      level: high
+    codex-critical:
+      model: gpt-5.6-terra
+      level: max
     zai-codex:
-      model: zai-coding/glm-5.3-flash
+      model: zai-coding-plan/glm-5.3-flash
+      level: high
+    zai-codex-critical:
+      model: zai-coding-plan/glm-5.3-flash
       level: high
     google:
       model: gemini-3.5-flash-lite
@@ -1025,7 +1047,7 @@ recommended_defaults:
       model: openai/gpt-5.6-luna-pro
       level: medium
     z-ai-coding:
-      model: zai-coding/glm-4.7
+      model: zai-coding-plan/glm-4.7
       level: medium
   senior:
     anthropic:
@@ -1037,9 +1059,18 @@ recommended_defaults:
     openai-critical:
       model: gpt-6-astra
       level: low
-    zai-codex:
-      model: zai-coding/glm-5.3
+    codex:
+      model: gpt-5.6-luna
       level: max
+    codex-critical:
+      model: gpt-6-astra
+      level: low
+    zai-codex:
+      model: zai-coding-plan/glm-5.3
+      level: max
+    zai-codex-critical:
+      model: gpt-6-astra
+      level: low
     google:
       model: gemini-3.1-pro-preview
       level: high
@@ -1074,7 +1105,7 @@ recommended_defaults:
       model: openai/gpt-5.6-terra-pro
       level: high
     z-ai-coding:
-      model: zai-coding/glm-5.3
+      model: zai-coding-plan/glm-5.3
       level: high
   lead:
     anthropic:
@@ -1086,9 +1117,18 @@ recommended_defaults:
     openai-critical:
       model: gpt-6-astra
       level: medium
+    codex:
+      model: gpt-6-astra
+      level: low
+    codex-critical:
+      model: gpt-6-astra
+      level: medium
     zai-codex:
-      model: openai/gpt-5.6-sol
-      level: high
+      model: gpt-6-astra
+      level: low
+    zai-codex-critical:
+      model: gpt-6-astra
+      level: medium
     google:
       model: gemini-3.1-pro-preview
       level: max
@@ -1123,7 +1163,7 @@ recommended_defaults:
       model: openai/gpt-5.6-sol-pro
       level: max
     z-ai-coding:
-      model: zai-coding/glm-5.3
+      model: zai-coding-plan/glm-5.3
       level: max
 
 
@@ -1234,7 +1274,7 @@ reasoning:
     param_name: "thinking.type (enabled|disabled); reasoning_effort (zai-coding coding endpoint)"
     accepted_values: "thinking.type: [enabled, disabled]; reasoning_effort: [none, minimal, low, medium, high, xhigh, max]"
     scope: "per-request (zai-coding coding plan endpoint)"
-    supporting_models: "zai-coding/glm-4.5-air, glm-4.7, glm-5.1, glm-5.2, glm-5.3, glm-5-turbo (uppercase model IDs)"
+    supporting_models: "zai-coding-plan/glm-4.5-air, glm-4.7, glm-5.1, glm-5.2, glm-5.3, glm-5-turbo (uppercase model IDs)"
     default: "thinking.type enabled; reasoning_effort max; clear_thinking false (Preserved Thinking on)"
     max_variant_concept: "max on GLM-5.2+; same alias mapping as z-ai"
     source_url: "https://docs.z.ai/guides/capabilities/thinking"

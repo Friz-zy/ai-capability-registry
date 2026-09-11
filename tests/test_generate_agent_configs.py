@@ -66,6 +66,7 @@ class GenerateAgentConfigsTests(unittest.TestCase):
         role_levels_mode: str,
         preset: str = "",
         model_prefix: str = "",
+        role_preset_specs: list[str] | None = None,
     ) -> None:
         """Generate one CLI target with explicit mode and model settings."""
         self.generator.generate_agent_configs(
@@ -75,7 +76,7 @@ class GenerateAgentConfigsTests(unittest.TestCase):
             self.generator.DEFAULT_TEMPLATES_PATH,
             model_prefix,
             role_levels_mode,
-            [],
+            role_preset_specs or [],
         )
 
     def agent_content(
@@ -464,6 +465,227 @@ class GenerateAgentConfigsTests(unittest.TestCase):
                     )
                     with self.subTest(cli_id=cli_id, worker_id=worker_id):
                         self.assertIn(f'model: "{expected_model}"' if cli_id != "codex" else f'model = "{expected_model}"', content)
+
+    def test_explicit_codex_presets_preserve_current_yaml_matrix(self):
+        """Explicit generation preserves the current model and level matrix for all four presets."""
+        expected_configurations = {
+            "codex": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "low"},
+                "middle": {"model": "gpt-5.6-luna", "level": "high"},
+                "senior": {"model": "gpt-5.6-luna", "level": "max"},
+                "lead": {"model": "gpt-6-astra", "level": "low"},
+            },
+            "codex-critical": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "max"},
+                "middle": {"model": "gpt-5.6-terra", "level": "max"},
+                "senior": {"model": "gpt-6-astra", "level": "low"},
+                "lead": {"model": "gpt-6-astra", "level": "medium"},
+            },
+            "zai-codex": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "low"},
+                "middle": {"model": "zai-coding-plan/glm-5.3-flash", "level": "high"},
+                "senior": {"model": "zai-coding-plan/glm-5.3", "level": "max"},
+                "lead": {"model": "openai/gpt-5.6-sol", "level": "high"},
+            },
+            "zai-codex-critical": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "max"},
+                "middle": {"model": "zai-coding-plan/glm-5.3-flash", "level": "high"},
+                "senior": {"model": "gpt-6-astra", "level": "low"},
+                "lead": {"model": "gpt-6-astra", "level": "medium"},
+            },
+        }
+        model_tiers_registry = self.generator.load_registry("model-tiers")
+        recommended_defaults = model_tiers_registry["recommended_defaults"]
+        backend_profile = next(
+            profile for profile in self.registry_profiles() if profile.get("id") == "backend-engineer"
+        )
+
+        for preset, expected_by_level in expected_configurations.items():
+            with self.subTest(preset=preset):
+                for level, expected_configuration in expected_by_level.items():
+                    self.assertEqual(expected_configuration, recommended_defaults[level][preset])
+                with tempfile.TemporaryDirectory() as temporary_directory:
+                    output_directory = Path(temporary_directory)
+                    self.generate_cli_mode("codex", output_directory, "tiered", preset)
+                    for level, expected_configuration in expected_by_level.items():
+                        content = self.agent_content(
+                            "codex", output_directory, backend_profile, level, "tiered"
+                        )
+                        self.assertIn(f'model = "{expected_configuration["model"]}"', content)
+
+    def test_role_preset_selects_each_current_codex_preset(self):
+        """Role-preset overrides select every current Codex preset without normalizing its values."""
+        expected_configurations = {
+            "codex": {
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "gpt-5.6-luna",
+                "senior": "gpt-5.6-luna",
+                "lead": "gpt-6-astra",
+            },
+            "codex-critical": {
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "gpt-5.6-terra",
+                "senior": "gpt-6-astra",
+                "lead": "gpt-6-astra",
+            },
+            "zai-codex": {
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "zai-coding-plan/glm-5.3-flash",
+                "senior": "zai-coding-plan/glm-5.3",
+                "lead": "openai/gpt-5.6-sol",
+            },
+            "zai-codex-critical": {
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "zai-coding-plan/glm-5.3-flash",
+                "senior": "gpt-6-astra",
+                "lead": "gpt-6-astra",
+            },
+        }
+        backend_profile = next(
+            profile for profile in self.registry_profiles() if profile.get("id") == "backend-engineer"
+        )
+
+        for preset, expected_models in expected_configurations.items():
+            with self.subTest(preset=preset), tempfile.TemporaryDirectory() as temporary_directory:
+                output_directory = Path(temporary_directory)
+                self.generate_cli_mode(
+                    "codex",
+                    output_directory,
+                    "tiered",
+                    "openai",
+                    role_preset_specs=[
+                        f"backend-engineer={preset}",
+                        f"orchestrator={preset}",
+                    ],
+                )
+                for level, expected_model in expected_models.items():
+                    content = self.agent_content(
+                        "codex", output_directory, backend_profile, level, "tiered"
+                    )
+                    self.assertIn(f'model = "{expected_model}"', content)
+
+    def test_kilo_and_opencode_provider_lookup_handles_all_presets_and_hybrids(self):
+        """Kilo and OpenCode resolve all four presets and retain hybrid provider reasoning mappings."""
+        expected_configurations = {
+            "codex": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "low"},
+                "middle": {"model": "gpt-5.6-luna", "level": "high"},
+                "senior": {"model": "gpt-5.6-luna", "level": "max"},
+                "lead": {"model": "gpt-6-astra", "level": "low"},
+            },
+            "codex-critical": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "max"},
+                "middle": {"model": "gpt-5.6-terra", "level": "max"},
+                "senior": {"model": "gpt-6-astra", "level": "low"},
+                "lead": {"model": "gpt-6-astra", "level": "medium"},
+            },
+            "zai-codex": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "low"},
+                "middle": {"model": "zai-coding-plan/glm-5.3-flash", "level": "high"},
+                "senior": {"model": "zai-coding-plan/glm-5.3", "level": "max"},
+                "lead": {"model": "openai/gpt-5.6-sol", "level": "high"},
+            },
+            "zai-codex-critical": {
+                "junior": {"model": "gpt-5.3-codex-spark", "level": "max"},
+                "middle": {"model": "zai-coding-plan/glm-5.3-flash", "level": "high"},
+                "senior": {"model": "gpt-6-astra", "level": "low"},
+                "lead": {"model": "gpt-6-astra", "level": "medium"},
+            },
+        }
+        backend_profile = next(
+            profile for profile in self.registry_profiles() if profile.get("id") == "backend-engineer"
+        )
+
+        for cli_id in ("kilo-code", "opencode"):
+            model_prefix = self.generator.MANAGED_CLI_GENERATION_OPTIONS[cli_id]["model_prefix"]
+            for preset, expected_by_level in expected_configurations.items():
+                with self.subTest(cli_id=cli_id, preset=preset), tempfile.TemporaryDirectory() as temporary_directory:
+                    output_directory = Path(temporary_directory)
+                    self.generate_cli_mode(
+                        cli_id,
+                        output_directory,
+                        "tiered",
+                        preset,
+                        model_prefix,
+                    )
+                    for level, expected_configuration in expected_by_level.items():
+                        content = self.agent_content(
+                            cli_id, output_directory, backend_profile, level, "tiered"
+                        )
+                        expected_model = expected_configuration["model"]
+                        native_model = (
+                            expected_model
+                            if "/" in expected_model
+                            else f"openai/{expected_model}"
+                        )
+                        rendered_model = f"{model_prefix}/{native_model}"
+                        self.assertIn(f'model: "{rendered_model}"', content)
+                        if expected_model.startswith(("zai-coding-plan/", "zai-coding/")):
+                            self.assertIn(f'variant: "{expected_configuration["level"]}"', content)
+                            self.assertIn('thinking:\n  type: "enabled"', content)
+                            self.assertIn(
+                                f'reasoning_effort: "{expected_configuration["level"]}"',
+                                content,
+                            )
+                            self.assertNotIn("reasoningEffort:", content)
+                        elif "/" in expected_model:
+                            # Provider-qualified models not present in the catalog remain
+                            # lookup-only model values and intentionally receive no provider options.
+                            self.assertNotIn("variant:", content)
+                            self.assertNotIn("reasoningEffort:", content)
+                            self.assertNotIn('thinking:\n  type: "enabled"', content)
+                        else:
+                            self.assertIn(f'variant: "{expected_configuration["level"]}"', content)
+                            self.assertIn(
+                                f'reasoningEffort: "{expected_configuration["level"]}"',
+                                content,
+                            )
+                            self.assertNotIn('thinking:\n  type: "enabled"', content)
+
+    def test_codex_primary_reasoning_follows_direct_openai_models(self):
+        """Codex emits primary reasoning only for direct OpenAI hybrid mappings."""
+        expected_primary = {
+            "codex": {"model": "gpt-5.6-luna", "level": "max"},
+            "codex-critical": {"model": "gpt-6-astra", "level": "low"},
+            "zai-codex": {"model": "zai-coding-plan/glm-5.3", "level": None},
+            "zai-codex-critical": {"model": "gpt-6-astra", "level": "low"},
+        }
+
+        for preset, expected_configuration in expected_primary.items():
+            with self.subTest(preset=preset), tempfile.TemporaryDirectory() as temporary_directory:
+                output_directory = Path(temporary_directory)
+                self.generate_cli_mode("codex", output_directory, "tiered", preset)
+                primary_content = (output_directory / "config.toml").read_text(encoding="utf-8")
+                self.assertIn(f'model = "{expected_configuration["model"]}"', primary_content)
+                if expected_configuration["level"] is None:
+                    self.assertNotIn("model_reasoning_effort", primary_content)
+                else:
+                    self.assertIn(
+                        f'model_reasoning_effort = "{expected_configuration["level"]}"',
+                        primary_content,
+                    )
+
+    def test_zai_coding_prefixes_resolve_virtual_provider_reasoning(self):
+        """Current and legacy Z.AI coding prefixes share the virtual provider mapping."""
+        model_tiers_registry = self.generator.load_registry("model-tiers")
+
+        for model_prefix in ("zai-coding-plan/", "zai-coding/"):
+            with self.subTest(model_prefix=model_prefix):
+                model_id = f"{model_prefix}glm-5.3"
+                self.assertEqual(
+                    "z-ai-coding",
+                    self.generator.native_reasoning_provider(model_tiers_registry, model_id),
+                )
+                reasoning_suffix = self.generator.agent_reasoning_suffix(
+                    "kilo-code",
+                    model_id,
+                    model_id,
+                    "max",
+                    model_tiers_registry,
+                )
+                self.assertIn('variant: "max"', reasoning_suffix)
+                self.assertIn('thinking:\n  type: "enabled"', reasoning_suffix)
+                self.assertIn('reasoning_effort: "max"', reasoning_suffix)
 
     def write_legacy_catalog(self, output_directory: Path) -> None:
         """Write the exact legacy catalog signature used for migration tests."""

@@ -686,7 +686,7 @@ def native_reasoning_provider(model_tiers_registry: dict[str, Any], model_id: st
     provider_id, _ = find_model_entry(model_tiers_registry, model_id or "")
     if provider_id:
         return provider_id
-    if isinstance(model_id, str) and model_id.startswith("zai-coding/"):
+    if isinstance(model_id, str) and model_id.startswith(("zai-coding-plan/", "zai-coding/")):
         return "z-ai-coding"
     return None
 

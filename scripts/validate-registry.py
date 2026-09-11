@@ -961,11 +961,35 @@ def validate_model_tiers(errors: list[str]) -> None:
                 "senior": "low",
                 "lead": "medium",
             },
+            "codex": {
+                "junior": "low",
+                "middle": "high",
+                "senior": "max",
+                "lead": "low",
+            },
+            "codex-critical": {
+                "junior": "max",
+                "middle": "max",
+                "senior": "low",
+                "lead": "medium",
+            },
             "zai-codex": {
                 "junior": "low",
                 "middle": "high",
                 "senior": "max",
                 "lead": "high",
+            },
+            "zai-codex-critical": {
+                "junior": "max",
+                "middle": "high",
+                "senior": "low",
+                "lead": "medium",
+            },
+            "z-ai-coding": {
+                "junior": "low",
+                "middle": "medium",
+                "senior": "high",
+                "lead": "max",
             },
         }.items():
             for level_id in MODEL_TIERS:
@@ -981,7 +1005,7 @@ def validate_model_tiers(errors: list[str]) -> None:
                     f"model-tiers: recommended_defaults.{level_id}.{preset}.level must be {expected_levels[level_id]}",
                     errors,
                 )
-        expected_openai_models = {
+        expected_models = {
             "openai": {
                 "junior": "gpt-5.6-luna",
                 "middle": "gpt-5.6-luna",
@@ -994,15 +1018,39 @@ def validate_model_tiers(errors: list[str]) -> None:
                 "senior": "gpt-6-astra",
                 "lead": "gpt-6-astra",
             },
+            "codex": {
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "gpt-5.6-luna",
+                "senior": "gpt-5.6-luna",
+                "lead": "gpt-6-astra",
+            },
+            "codex-critical": {
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "gpt-5.6-terra",
+                "senior": "gpt-6-astra",
+                "lead": "gpt-6-astra",
+            },
             "zai-codex": {
-                "junior": "zai-coding/glm-5.3-flash",
-                "middle": "zai-coding/glm-5.3-flash",
-                "senior": "zai-coding/glm-5.3",
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "zai-coding-plan/glm-5.3-flash",
+                "senior": "zai-coding-plan/glm-5.3",
                 "lead": "openai/gpt-5.6-sol",
             },
+            "zai-codex-critical": {
+                "junior": "gpt-5.3-codex-spark",
+                "middle": "zai-coding-plan/glm-5.3-flash",
+                "senior": "gpt-6-astra",
+                "lead": "gpt-6-astra",
+            },
+            "z-ai-coding": {
+                "junior": "zai-coding-plan/glm-4.5-air",
+                "middle": "zai-coding-plan/glm-4.7",
+                "senior": "zai-coding-plan/glm-5.3",
+                "lead": "zai-coding-plan/glm-5.3",
+            },
         }
-        for preset, expected_models in expected_openai_models.items():
-            for level_id, expected_model in expected_models.items():
+        for preset, expected_models_by_level in expected_models.items():
+            for level_id, expected_model in expected_models_by_level.items():
                 level_defaults = recommended_defaults.get(level_id, {})
                 value = level_defaults.get(preset) if isinstance(level_defaults, dict) else None
                 require(
