@@ -103,18 +103,18 @@ The generator defaults to `tiered` role levels for Codex, Claude Code, Kilo Code
 
 Amazon Kiro generation also writes `steering/orchestrator.md` with `inclusion: auto` frontmatter and the rendered orchestrator role prompt body. This steering file is overwritten on each run and is included in the generated count.
 
-For `kilo-code` and `opencode`, generated agent models use a three-part catalog id: `<outer-provider>/<model-provider>/<model-name>`. Defaults are `kilo` for `kilo-code` and `opencode-go` for `opencode`, so preset model `gpt-5.5` becomes `kilo/openai/gpt-5.5` or `opencode-go/openai/gpt-5.5`. Override the outer provider with `--model-prefix openrouter`, or disable only the outer provider with `--model-prefix ""`.
+For `kilo-code` and `opencode`, generated agent models use a three-part catalog id: `<outer-provider>/<model-provider>/<model-name>`. Defaults are `kilo` for `kilo-code` and `opencode-go` for `opencode`, so preset model `gpt-6-luna` becomes `kilo/openai/gpt-6-luna` or `opencode-go/openai/gpt-6-luna`. Override the outer provider with `--model-prefix openrouter`, or disable only the outer provider with `--model-prefix ""`.
 
 Use the `opencode-go` preset with `--model-prefix ""` when OpenCode Go expects its two-part model ids, such as `opencode-go/deepseek-v4-pro`.
 
-The `openai` preset uses `gpt-5.6-luna` for junior through senior and `gpt-5.6-terra` for lead, with tier-specific reasoning levels. The `openai-critical` preset uses the higher-capability `gpt-5.6-luna`/`gpt-5.6-terra`/`gpt-5.6-sol` sequence. The `zai-codex` preset combines Z.AI Coding models for junior through senior with `openai/gpt-5.6-sol` for lead. Every inline `recommended_defaults` entry declares a model and reasoning level. Kilo Code and OpenCode translate that level into documented provider-specific agent options for every supported preset; Claude Code emits Anthropic `effort`, and Codex emits OpenAI `model_reasoning_effort` in the primary config.
+The `openai` preset selects `gpt-6-luna` at junior (`low`), middle (`medium`), and senior (`max`), then `gpt-6-astra` at lead (`low`). The `openai-critical` preset selects `gpt-6-luna` at junior (`medium`) and middle (`high`), then `gpt-6-astra` at senior (`low`) and lead (`medium`). The `zai-codex` preset selects `gpt-5.3-codex-spark` at junior (`low`), Z.AI Coding `glm-5.3-flash` at middle (`high`) and `glm-5.3` at senior (`max`), then `gpt-6-astra` at lead (`low`). GPT-6 Luna and Sol use the published API identifiers and prices in `registry/model-tiers.yaml`; the OpenAI announcement does not specify their context or maximum output limits. Every inline `recommended_defaults` entry declares the authoritative model and normalized reasoning level for its tier and preset. Provider translations are platform-specific: for example, normalized OpenAI `max` is rendered as `xhigh`. Kilo Code and OpenCode translate the declared level into provider-specific agent options; Claude Code emits Anthropic `effort`, and Codex emits OpenAI `model_reasoning_effort` in the primary config.
 
 ```bash
-# GPT-5.6 for Kilo Code with the inline openai preset level.
+# GPT-6 for Kilo Code with the inline openai preset level.
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
   --preset openai --templates-path "$PWD"
 
-# Critical OpenAI sequence with the highest inline reasoning levels.
+# OpenAI-critical sequence with its declared per-tier reasoning levels.
 python scripts/generate-agent-configs.py --cli kilo-code --output ~/.config/kilo \
   --preset openai-critical --templates-path "$PWD"
 ```
@@ -127,7 +127,7 @@ Use `--role-preset ROLES=PRESET` (repeatable) to override the model preset for s
 
 ```bash
 # generate kilo-code agents with z-ai-coding as the global preset, but assign the
-# stronger openai preset to roles whose decisions are high-leverage and hard to
+# openai-critical preset to roles whose decisions are high-leverage and hard to
 # reverse: architects, founder CEO, product strategist, tech lead, orchestrator,
 # plus security/compliance/finance/release/incident decision-makers. Every other
 # role keeps the global z-ai-coding preset.

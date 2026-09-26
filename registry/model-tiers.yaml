@@ -8,7 +8,8 @@
 # Score convention: representative value is the model's maximum reasoning-effort score (max).
 # OpenRouter "-pro" reasoning-mode variants inherit the max-effort score of their model family.
 # null = model is not yet evaluated on the index.
-# Pricing is USD per 1M tokens at non-promotional OpenRouter model-page base rates, without platform fees.
+# Pricing is USD per 1M tokens at non-promotional OpenRouter model-page base rates, without platform fees,
+# except where an entry explicitly records the provider's published API price.
 # Platform fees, temporary discounts, cache/BYOK/routing discounts, regional uplifts, priority/flex routes, and context-threshold overrides are excluded; intelligence scores as of 2026-08.
 
 # Per-model `level` is the model's own default reasoning effort. It is an explicit
@@ -100,19 +101,14 @@ providers:
             level: low
       middle:
         models:
-          - model_id: gpt-5.6-luna-pro
-            openrouter_id: openai/gpt-5.6-luna-pro
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 0.20, output: 1.20 }
-            coding_index: 51
-            level: medium
-          - model_id: gpt-5.6-luna
-            openrouter_id: openai/gpt-5.6-luna
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 0.20, output: 1.20 }
-            coding_index: 51
+          # GPT-6 context and maximum output are not specified in the OpenAI announcement,
+          # so those fields remain intentionally absent rather than carrying forward
+          # unverified legacy operational limits.
+          - model_id: gpt-6-luna
+            openrouter_id: openai/gpt-6-luna
+            pricing_per_million_tokens: { input: 0.10, output: 0.50 }
+            coding_index: null
+            capabilities: [improved_coding, improved_factuality, improved_computer_use, improved_collaboration, improved_caching, improved_alignment]
             level: medium
           - model_id: gpt-5.4-mini
             openrouter_id: openai/gpt-5.4-mini
@@ -123,29 +119,15 @@ providers:
             level: medium
       senior:
         models:
-          - model_id: gpt-5.6-terra-pro
-            openrouter_id: openai/gpt-5.6-terra-pro
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 2.00, output: 12.00 }
-            coding_index: 55
-            level: medium
-          - model_id: gpt-5.6-terra
-            openrouter_id: openai/gpt-5.6-terra
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 2.00, output: 12.00 }
-            coding_index: 55
+          # GPT-6 Sol is the higher-capability counterpart to the former Terra tier.
+          - model_id: gpt-6-sol
+            openrouter_id: openai/gpt-6-sol
+            pricing_per_million_tokens: { input: 2.00, output: 10.00 }
+            coding_index: null
+            capabilities: [improved_coding, improved_factuality, improved_computer_use, improved_collaboration, improved_caching, improved_alignment]
             level: medium
       lead:
         models:
-          - model_id: gpt-5.6-sol-pro
-            openrouter_id: openai/gpt-5.6-sol-pro
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 4.00, output: 20.00 }
-            coding_index: 59
-            level: medium
           - model_id: gpt-6-astra
             openrouter_id: openai/gpt-6-astra
             context: 1048576
@@ -644,19 +626,13 @@ providers:
             pricing_per_million_tokens: { input: 3.00, output: 15.00 }
             coding_index: null
             level: medium
-          - model_id: openai/gpt-5.6-luna-pro
-            openrouter_id: openai/gpt-5.6-luna-pro
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 0.20, output: 1.20 }
-            coding_index: 51
-            level: medium
-          - model_id: openai/gpt-5.6-luna
-            openrouter_id: openai/gpt-5.6-luna
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 0.20, output: 1.20 }
-            coding_index: 51
+          # Provider-qualified lookup row for the published GPT-6 Luna API model.
+          # The announcement does not specify context or maximum output limits.
+          - model_id: openai/gpt-6-luna
+            openrouter_id: openai/gpt-6-luna
+            pricing_per_million_tokens: { input: 0.10, output: 0.50 }
+            coding_index: null
+            capabilities: [improved_coding, improved_factuality, improved_computer_use, improved_collaboration, improved_caching, improved_alignment]
             level: medium
           - model_id: openai/gpt-5.4-mini
             openrouter_id: openai/gpt-5.4-mini
@@ -739,19 +715,11 @@ providers:
             pricing_per_million_tokens: { input: 5.00, output: 25.00 }
             coding_index: 56
             level: high
-          - model_id: openai/gpt-5.6-terra-pro
-            openrouter_id: openai/gpt-5.6-terra-pro
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 2.00, output: 12.00 }
-            coding_index: 55
-            level: medium
-          - model_id: openai/gpt-5.6-terra
-            openrouter_id: openai/gpt-5.6-terra
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 2.00, output: 12.00 }
-            coding_index: 55
+          - model_id: openai/gpt-6-sol
+            openrouter_id: openai/gpt-6-sol
+            pricing_per_million_tokens: { input: 2.00, output: 10.00 }
+            coding_index: null
+            capabilities: [improved_coding, improved_factuality, improved_computer_use, improved_collaboration, improved_caching, improved_alignment]
             level: medium
           - model_id: google/gemini-3.1-pro-preview
             openrouter_id: google/gemini-3.1-pro-preview
@@ -854,12 +822,11 @@ providers:
             pricing_per_million_tokens: { input: 5.00, output: 25.00 }
             coding_index: 56
             level: max
-          - model_id: openai/gpt-5.6-sol-pro
-            openrouter_id: openai/gpt-5.6-sol-pro
-            context: 1048576
-            max_output: 128000
-            pricing_per_million_tokens: { input: 4.00, output: 20.00 }
-            coding_index: 59
+          - model_id: openai/gpt-6-sol
+            openrouter_id: openai/gpt-6-sol
+            pricing_per_million_tokens: { input: 2.00, output: 10.00 }
+            coding_index: null
+            capabilities: [improved_coding, improved_factuality, improved_computer_use, improved_collaboration, improved_caching, improved_alignment]
             level: medium
           - model_id: openai/gpt-6-astra
             openrouter_id: openai/gpt-6-astra
@@ -938,11 +905,11 @@ recommended_defaults:
       model: claude-haiku-4-5
       level: low
     openai:
-      model: gpt-5.6-luna
+      model: gpt-6-luna
       level: low
     openai-critical:
-      model: gpt-5.6-luna
-      level: max
+      model: gpt-6-luna
+      level: medium
     codex:
       model: gpt-5.3-codex-spark
       level: low
@@ -996,17 +963,17 @@ recommended_defaults:
       model: claude-sonnet-4-6
       level: medium
     openai:
-      model: gpt-5.6-luna
-      level: high
+      model: gpt-6-luna
+      level: medium
     openai-critical:
-      model: gpt-5.6-terra
-      level: max
-    codex:
-      model: gpt-5.6-luna
+      model: gpt-6-luna
       level: high
+    codex:
+      model: gpt-6-luna
+      level: medium
     codex-critical:
-      model: gpt-5.6-terra
-      level: max
+      model: gpt-6-luna
+      level: high
     zai-codex:
       model: zai-coding-plan/glm-5.3-flash
       level: high
@@ -1044,7 +1011,7 @@ recommended_defaults:
       model: opencode-go/deepseek-v4-pro
       level: medium
     openrouter:
-      model: openai/gpt-5.6-luna-pro
+      model: openai/gpt-6-luna
       level: medium
     z-ai-coding:
       model: zai-coding-plan/glm-4.7
@@ -1054,13 +1021,13 @@ recommended_defaults:
       model: claude-opus-4-8
       level: high
     openai:
-      model: gpt-5.6-luna
+      model: gpt-6-luna
       level: max
     openai-critical:
       model: gpt-6-astra
       level: low
     codex:
-      model: gpt-5.6-luna
+      model: gpt-6-luna
       level: max
     codex-critical:
       model: gpt-6-astra
@@ -1102,8 +1069,8 @@ recommended_defaults:
       model: opencode-go/glm-5.3
       level: high
     openrouter:
-      model: openai/gpt-5.6-terra-pro
-      level: high
+      model: gpt-6-luna
+      level: max
     z-ai-coding:
       model: zai-coding-plan/glm-5.3
       level: high
@@ -1160,24 +1127,24 @@ recommended_defaults:
       model: opencode-go/kimi-k3
       level: high
     openrouter:
-      model: openai/gpt-5.6-sol-pro
-      level: max
+      model: gpt-6-astra
+      level: low
     z-ai-coding:
       model: zai-coding-plan/glm-5.3
       level: max
 
 
-# Reasoning/thinking API parameters per provider, verified from official docs (Jul 2026).
+# Reasoning/thinking API parameters per provider; accepted levels vary by model.
 # Used to translate the normalized registry reasoning level (see reasoning_tier_map and the
 # per-model `level` field) into provider-specific request parameters at generation/runtime.
 reasoning:
   openai:
     param_name: "reasoning.effort"
-    accepted_values: [none, minimal, low, medium, high, xhigh]
+    accepted_values: [none, minimal, low, medium, high, xhigh, max]
     scope: "per-request"
-    supporting_models: "GPT-5.x family and o-series; gpt-4o does NOT support it"
-    default: "medium"
-    max_variant_concept: "xhigh is the highest level; reasoning.mode=pro selects heavier execution on GPT-5.6; gpt-5-pro is fixed high-only"
+    supporting_models: "GPT-5.x and GPT-6 families plus o-series; gpt-4o does NOT support it"
+    default: "model-dependent (medium for GPT-6 Luna and Sol)"
+    max_variant_concept: "GPT-6 Luna, Sol, and Astra accept API max; generated OpenAI provider options and direct Codex settings map normalized max to xhigh for compatibility"
     source_url: "https://developers.openai.com/api/docs/guides/reasoning"
     notes: "Per-model subsets apply. Reasoning tokens billed as output. Only carried across turns in the stateful Responses API."
   anthropic:

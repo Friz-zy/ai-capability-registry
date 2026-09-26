@@ -58,6 +58,9 @@ DISABLED_MODEL_PRESETS = {"", "none"}
 MODEL_REMOVAL_TOKEN = "__MODEL_FIELD_DISABLED__"
 REASONING_LEVELS = {"none", "minimal", "low", "medium", "high", "xhigh", "max"}
 REASONING_LEVEL_ORDER = ["none", "minimal", "low", "medium", "high", "xhigh", "max"]
+# Preserve the OpenAI provider option and direct Codex compatibility translation
+# from normalized ``max`` to ``xhigh``; API levels vary by model and can include ``max``.
+OPENAI_REASONING_LEVELS = ["none", "minimal", "low", "medium", "high", "xhigh"]
 GENERATOR_MARKER_VALUE = "scripts/generate-agent-configs.py"
 TOML_GENERATOR_MARKER = f"# generated-by: {GENERATOR_MARKER_VALUE}"
 JSONC_GENERATOR_MARKER = f"// generated-by: {GENERATOR_MARKER_VALUE}"
@@ -520,8 +523,8 @@ def normalize_model_prefix(model_prefix: str | None) -> str:
 def find_model_entry(model_tiers_registry: dict[str, Any], model_id: str) -> tuple[str | None, dict[str, Any] | None]:
     """Find a model catalog entry by model id.
 
-    A bare id (e.g. ``gpt-5.6-terra``) matches the direct provider entry whose
-    ``model_id`` equals it; a provider-qualified id (e.g. ``openai/gpt-5.6-luna-pro``)
+    A bare id (e.g. ``gpt-6-sol``) matches the direct provider entry whose
+    ``model_id`` equals it; a provider-qualified id (e.g. ``openai/gpt-6-luna``)
     matches the provider/model pair that stores it verbatim. The first match wins.
 
     Args:
@@ -707,7 +710,8 @@ def provider_reasoning_yaml(provider_id: str, reasoning_effort: str) -> str:
         YAML frontmatter suffix, or an empty string for an unknown provider.
     """
     if provider_id == "openai":
-        return f'\nreasoningEffort: "{clamp_reasoning_effort(reasoning_effort, REASONING_LEVEL_ORDER)}"'
+        effort = clamp_reasoning_effort(reasoning_effort, OPENAI_REASONING_LEVELS)
+        return f'\nreasoningEffort: "{effort}"'
     if provider_id == "anthropic":
         effort = clamp_reasoning_effort(reasoning_effort, ["low", "medium", "high", "xhigh", "max"])
         return f'\neffort: "{effort}"'
@@ -1257,9 +1261,9 @@ def codex_config_text(
     Args:
         entries: Profile and seniority pairs being generated.
         primary_model: Resolved orchestrator model id when available.
-        primary_reasoning_effort: Effective reasoning effort for the orchestrator when
-            its primary model is a direct OpenAI model, otherwise ``None``. Effort is a
-            global/profile setting only; it is never written into per-role ``.toml`` files.
+        primary_reasoning_effort: Provider-translated reasoning effort for the orchestrator
+            when its primary model is a direct OpenAI model, otherwise ``None``. Effort is
+            a global/profile setting only; it is never written into per-role ``.toml`` files.
         model_disabled: Whether model fields were disabled by the preset.
         role_levels_mode: Generation mode controlling agent ids.
 
@@ -2053,10 +2057,14 @@ def generate_agent_configs(
         )
         # Codex exposes reasoning as a global/profile setting only. Emit it for the
         # primary config when the primary model is a direct OpenAI model (native openai
-        # provider, no gateway outer prefix) and an effective effort is available.
+        # provider, no gateway outer prefix) and an effective effort is available. The
+        # provider translation maps normalized max to OpenAI/Codex xhigh.
         primary_provider, _ = find_model_entry(model_tiers_registry, primary_bare_model_id)
         if primary_provider == "openai" and not model_prefix:
-            primary_reasoning_effort = resolve_effective_reasoning(primary_preset_configuration)
+            primary_reasoning_effort = clamp_reasoning_effort(
+                resolve_effective_reasoning(primary_preset_configuration),
+                OPENAI_REASONING_LEVELS,
+            )
     generated_count += generate_primary_role_artifact(
         cli_id,
         output_directory,

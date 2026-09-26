@@ -1,7 +1,7 @@
 # generated-by: scripts/generate-agent-configs.py
 default_agent = "orchestrator-senior"
-model = "gpt-5.6-luna"
-model_reasoning_effort = "max"
+model = "gpt-6-luna"
+model_reasoning_effort = "xhigh"
 
 [agents.orchestrator-senior]
 config_file = "./roles/orchestrator-senior.toml"

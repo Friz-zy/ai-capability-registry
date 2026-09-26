@@ -153,7 +153,7 @@ Shared generated role prompt templates: [role-prompt-template.md](templates/agen
 | **Review model** | `review_model` | — | — | — | — |
 | **Context window** | `model_context_window` | — | — | — | — |
 | **Auto-compact** | `model_auto_compact_token_limit` `model_auto_compact_token_limit_scope` | — | — | — | — |
-| **Reasoning effort** | `model_reasoning_effort` global/profile only (minimal\|low\|medium\|high\|xhigh\|max on GPT-5.6) | `effort:` frontmatter + `effortLevel`/`--effort`/`/effort` (low\|medium\|high\|xhigh\|max) | `reasoningEffort` pass-through + `variant` (none\|minimal\|low\|medium\|high\|xhigh) | `reasoningEffort` + `thinking` budget + `variant` (same levels) | `/effort`, `--effort`, `chat.defaultEffort` (low\|medium\|high\|xhigh\|max); per-agent field is open FR |
+| **Reasoning effort** | `model_reasoning_effort` global/profile only (generator maps normalized `max` to `xhigh` for direct OpenAI compatibility) | `effort:` frontmatter + `effortLevel`/`--effort`/`/effort` (low\|medium\|high\|xhigh\|max) | `reasoningEffort` provider option + normalized `variant` (including `max`) | `reasoningEffort` provider option + normalized `variant` (including `max`) | `/effort`, `--effort`, `chat.defaultEffort` (low\|medium\|high\|xhigh\|max); per-agent field is open FR |
 | **Provider-agnostic** | ❌ (OpenAI-first) | ❌ (Anthropic/Vert.AI) | ✅ (multi-provider) | ✅ (75+ providers) | ❌ (AWS-focused) |
 
 ---
@@ -162,22 +162,22 @@ Shared generated role prompt templates: [role-prompt-template.md](templates/agen
 
 How each CLI exposes reasoning effort / extended thinking in agent configs, and the provider API parameters behind them. Per-role reasoning control is supported by Claude Code, Kilo Code, and OpenCode; Codex and Amazon Kiro expose it globally/session-wide only.
 
-**Provider options — important caveat.** Kilo Code and OpenCode forward additional agent fields to the selected provider. The generator translates each preset level into the provider's documented option shape (for example OpenAI `reasoningEffort`, Z-AI/DeepSeek `thinking` plus `reasoning_effort`, Google `thinkingConfig`, and OpenRouter `reasoning`). Gateway routes must still support forwarding those provider options for the setting to take effect.
+**Provider options — important caveat.** The generator writes the normalized preset level as Kilo Code/OpenCode `variant` and translates provider options separately (for example OpenAI `reasoningEffort`, Z-AI/DeepSeek `thinking` plus `reasoning_effort`, Google `thinkingConfig`, and OpenRouter `reasoning`). For OpenAI, normalized `max` remains `variant: "max"` but becomes `reasoningEffort: "xhigh"` as a compatibility translation, not because the OpenAI API universally rejects `max`. Gateway forwarding of these options is unverified and must be supported by the selected route for the setting to take effect.
 
 | Aspect | Codex CLI | Claude Code | Kilo Code | OpenCode | Amazon Kiro |
 |--------|-----------|-------------|-----------|----------|-------------|
 | **Per-role in config** | ❌ global/profile only | ✅ `effort:` frontmatter | ✅ `reasoningEffort` + `variant` | ✅ `reasoningEffort` + `thinking` + `variant` | ❌ session/global only |
 | **Field(s)** | `model_reasoning_effort`, `plan_mode_reasoning_effort`, `model_reasoning_summary`, `model_verbosity` (config.toml) | `effort` frontmatter; `effortLevel` settings; `--effort`; `/effort`; `CLAUDE_CODE_EFFORT_LEVEL` | `variant` (model variant) plus provider-specific reasoning options; `/variant` | `variant` (model variant) plus provider-specific reasoning options | `/effort`; `--effort`; `chat.defaultEffort`; `chat.enableThinking` |
-| **Accepted levels** | minimal\|low\|medium\|high\|xhigh\|max (GPT-5.6; max = heaviest pro execution) | low\|medium\|high\|xhigh\|max (model-dependent) | none\|minimal\|low\|medium\|high\|xhigh (+max for Anthropic) | none\|minimal\|low\|medium\|high\|xhigh | low\|medium\|high\|xhigh\|max |
-| **Scope limits** | Global/profile only; not in role `.toml` files | Extended thinking also inherits from the parent session; effort levels are model-dependent | Provider-specific options are forwarded; gateway support remains provider/model-dependent | Provider-specific options are forwarded; gateway support remains provider/model-dependent | per-agent `effort` field = open FR #8754 (2.6.0) |
+| **Accepted levels** | Model-dependent; generated direct OpenAI `max` becomes `xhigh` | low\|medium\|high\|xhigh\|max (model-dependent) | Normalized `variant`: none\|minimal\|low\|medium\|high\|xhigh\|max; provider option may differ | Normalized `variant`: none\|minimal\|low\|medium\|high\|xhigh\|max; provider option may differ | low\|medium\|high\|xhigh\|max |
+| **Scope limits** | Global/profile only; not in role `.toml` files | Extended thinking also inherits from the parent session; effort levels are model-dependent | Provider-specific options are emitted; gateway forwarding is unverified | Provider-specific options are emitted; gateway forwarding is unverified | per-agent `effort` field = open FR #8754 (2.6.0) |
 
 ### Provider reasoning/thinking API parameters
 
-Verified from official provider docs (Jul 2026). These back the CLI fields above; see `registry/model-tiers.yaml` `reasoning` block for the machine-readable copy.
+Provider API parameters; accepted values can vary by model. See `registry/model-tiers.yaml` `reasoning` block for the machine-readable copy.
 
 | Provider | Parameter | Accepted values | Default | Notes |
 |----------|-----------|-----------------|---------|-------|
-| **openai** | `reasoning.effort` | none\|minimal\|low\|medium\|high\|xhigh | medium | GPT-5.x + o-series only; gpt-4o unsupported; per-model subsets |
+| **openai** | `reasoning.effort` | none\|minimal\|low\|medium\|high\|xhigh\|max (model-dependent) | model-dependent | GPT-6 Luna/Sol accept `max` but not `minimal`; Astra accepts `max` but not `none`; normalized registry `max` becomes `xhigh` in generated OpenAI provider options and direct Codex settings |
 | **anthropic** | `effort` (output_config); legacy `thinking.budget_tokens` | low\|medium\|high\|xhigh\|max | high | 4.8/4.7 reject manual thinking; budget_tokens deprecated on 4.6 |
 | **google** | `thinkingConfig.thinking_level`; legacy `thinking_budget` | minimal\|low\|medium\|high | model-dependent | No max/xhigh; level and budget cannot combine |
 | **xai** | `reasoning_effort` / `reasoning.effort` | low\|medium\|high\|xhigh | high | Always-on, cannot disable |
