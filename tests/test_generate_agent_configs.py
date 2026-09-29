@@ -540,6 +540,30 @@ class GenerateAgentConfigsTests(unittest.TestCase):
         self.assertNotIn("openai/gpt-6-luna-pro", openrouter_models)
         self.assertNotIn("openai/gpt-6-sol-pro", openrouter_models)
 
+    def test_gpt6_1_sol_catalog_entries_are_lookup_stubs(self):
+        """GPT-6.1 Sol remains unverified while its provider IDs are cataloged."""
+        model_tiers_registry = self.generator.load_registry("model-tiers")
+        providers_by_id = {provider["id"]: provider for provider in model_tiers_registry["providers"]}
+
+        def models_by_id(provider_id):
+            """Index one provider's model rows by their catalog id."""
+            return {
+                model["model_id"]: model
+                for tier in providers_by_id[provider_id]["tiers"].values()
+                for model in tier["models"]
+            }
+
+        openai_model = models_by_id("openai")["gpt-6.1-sol"]
+        openrouter_model = models_by_id("openrouter")["openai/gpt-6.1-sol"]
+        for catalog_model in (openai_model, openrouter_model):
+            self.assertEqual("openai/gpt-6.1-sol", catalog_model["openrouter_id"])
+            self.assertIsNone(catalog_model["coding_index"])
+            self.assertEqual("medium", catalog_model["level"])
+            self.assertNotIn("context", catalog_model)
+            self.assertNotIn("max_output", catalog_model)
+            self.assertNotIn("pricing_per_million_tokens", catalog_model)
+            self.assertNotIn("capabilities", catalog_model)
+
     def test_role_preset_selects_each_current_codex_preset(self):
         """Role-preset overrides use the source matrix for every tier and preset."""
         model_tiers_registry = self.generator.load_registry("model-tiers")

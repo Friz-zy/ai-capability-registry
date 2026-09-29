@@ -128,6 +128,11 @@ providers:
             level: medium
       lead:
         models:
+          # GPT-6.1 Sol is the replacement lead default; provider metadata is not yet verified.
+          - model_id: gpt-6.1-sol
+            openrouter_id: openai/gpt-6.1-sol
+            coding_index: null
+            level: medium
           - model_id: gpt-6-astra
             openrouter_id: openai/gpt-6-astra
             context: 1048576
@@ -828,6 +833,11 @@ providers:
             coding_index: null
             capabilities: [improved_coding, improved_factuality, improved_computer_use, improved_collaboration, improved_caching, improved_alignment]
             level: medium
+          # GPT-6.1 Sol is the replacement lead default; provider metadata is not yet verified.
+          - model_id: openai/gpt-6.1-sol
+            openrouter_id: openai/gpt-6.1-sol
+            coding_index: null
+            level: medium
           - model_id: openai/gpt-6-astra
             openrouter_id: openai/gpt-6-astra
             context: 1048576
@@ -1024,19 +1034,19 @@ recommended_defaults:
       model: gpt-6-luna
       level: max
     openai-critical:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: low
     codex:
       model: gpt-6-luna
       level: max
     codex-critical:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: low
     zai-codex:
       model: zai-coding-plan/glm-5.3
       level: max
     zai-codex-critical:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: low
     google:
       model: gemini-3.1-pro-preview
@@ -1079,22 +1089,22 @@ recommended_defaults:
       model: claude-opus-4-8
       level: max
     openai:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: low
     openai-critical:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: medium
     codex:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: low
     codex-critical:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: medium
     zai-codex:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: low
     zai-codex-critical:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: medium
     google:
       model: gemini-3.1-pro-preview
@@ -1127,7 +1137,7 @@ recommended_defaults:
       model: opencode-go/kimi-k3
       level: high
     openrouter:
-      model: gpt-6-astra
+      model: gpt-6.1-sol
       level: low
     z-ai-coding:
       model: zai-coding-plan/glm-5.3
