@@ -921,17 +921,17 @@ recommended_defaults:
       model: gpt-6-luna
       level: medium
     codex:
-      model: gpt-5.3-codex-spark
+      model: gpt-6-luna
       level: low
     codex-critical:
-      model: gpt-5.3-codex-spark
-      level: max
+      model: gpt-6-luna
+      level: low
     zai-codex:
-      model: gpt-5.3-codex-spark
+      model: glm-5.3-flash
       level: low
     zai-codex-critical:
-      model: gpt-5.3-codex-spark
-      level: max
+      model: glm-5.3-flash
+      level: low
     google:
       model: gemini-3.1-flash-lite
       level: low
