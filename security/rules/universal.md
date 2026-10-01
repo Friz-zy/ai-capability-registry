@@ -297,7 +297,7 @@ Load this universal rule set before any situation-specific language or tool rule
 
 ## `SDD-POLICY-CONTROL-001`
 
-**ID:** `SDD-POLICY-CONTROL-001` | **Title:** Policy exceptions are explicit and bounded | **Group:** none | **Risk:** `CRITICAL` | **Enforcement:** `human_gate` | **Ecosystems:** none | **Digest:** `bafac590c2843533365102cae34e48fc11637e4384155361c52015a7001d8af6`
+**ID:** `SDD-POLICY-CONTROL-001` | **Title:** Policy exceptions are explicit and bounded | **Group:** none | **Risk:** `CRITICAL` | **Enforcement:** `human_gate` | **Ecosystems:** none | **Digest:** `ac28f769f0dedf558f8749f1a59fdc58fbbd3e9ba4c49c6e129c4df1f2862b90`
 
 ### Applicability
 
@@ -311,6 +311,7 @@ Load this universal rule set before any situation-specific language or tool rule
   - Exceptions must not be created or approved solely by an agent.
   - Expired or ambiguous exceptions fail closed.
   - A local portable guidance file cannot override or disable this registry policy.
+  - A clear active-chat user instruction may request relaxing a security control. Before any permitted relaxation, the agent must explicitly request approval and concisely identify all affected controls, scope, and material risks. Proceed only after explicit approval and only where canonical policy permits; approval does not override non-waivable controls or required gates.
 
 ### Verification
 

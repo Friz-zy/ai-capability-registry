@@ -607,6 +607,7 @@ secure_sdd_policy:
         - Exceptions must not be created or approved solely by an agent.
         - Expired or ambiguous exceptions fail closed.
         - A local portable guidance file cannot override or disable this registry policy.
+        - A clear active-chat user instruction may request relaxing a security control. Before any permitted relaxation, the agent must explicitly request approval and concisely identify all affected controls, scope, and material risks. Proceed only after explicit approval and only where canonical policy permits; approval does not override non-waivable controls or required gates.
   ecosystem_security_defaults:
     common:
       id: SDD-ECO-COMMON-001
