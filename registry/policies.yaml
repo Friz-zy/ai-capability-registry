@@ -517,7 +517,7 @@ secure_sdd_policy:
         - No credentials, sockets, devices, or host paths.
         - Verify network, mounts, privileges, capabilities, and sandbox isolation.
       failure_behavior:
-        - Fail closed if critical sandbox isolation is unverifiable; execute sandboxed; never weaken isolation or replace preflight with HUMAN approval.
+        - Fail closed if critical sandbox isolation is unverifiable; execute sandboxed; you can weak isolation or replace preflight ONLY with direct HUMAN approval after you request.
       exception:
         trust_boundary: HUMAN
         enforcement: human_gate

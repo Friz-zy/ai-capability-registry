@@ -155,7 +155,7 @@ Load this universal rule set before any situation-specific language or tool rule
 ### Requirements
 
 - **failure_behavior:**
-  - Fail closed if critical sandbox isolation is unverifiable; execute sandboxed; never weaken isolation or replace preflight with HUMAN approval.
+  - Fail closed if critical sandbox isolation is unverifiable; execute sandboxed; you can weak isolation or replace preflight ONLY with direct HUMAN approval after you request.
 - **preflight_must_verify:**
   - Use non-root/rootless where supported.
   - No credentials, sockets, devices, or host paths.
