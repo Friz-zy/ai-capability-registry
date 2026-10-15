@@ -1,37 +1,3 @@
-Before resolving `~/` or `$HOME` and read files, discover the actual home directory from the environment instead of assuming `/root/` as home dir.
-
-## Follow these instructions if you are the user-facing Primary Agent
-
-You MUST read and apply the shared workflow runtime instructions listed below before acting:
-
-1. `~/.ai-registry/workflows/workflow.md`
-
-Then perform workflow capability routing before acting:
-
-* Decide whether a workflow applies.
-* If a workflow applies, follow the selected workflow.
-* If no workflow applies, explicitly use the no-workflow fallback from `~/.ai-registry/workflows/workflow.md`.
-
-For trivial conversational requests, still obey the registry files, but no workflow delegation is required unless the routing instructions require it.
-
-## Mandatory Registry Bootstrap
-
-Before any substantive response, tool use, planning, analysis, implementation, review, or command execution, read and apply the shared registry runtime files listed below in order:
-
-1. `~/.ai-registry/capability-routing.md`
-2. `~/.ai-registry/skills/skills.md`
-
-This bootstrap is mandatory when these files are listed. Do not rely on memory, prior summaries, or assumptions about their contents.
-
-After reading them, perform skill capability routing before acting:
-
-* Select skills only according to `~/.ai-registry/skills/skills.md`.
-* Do not dynamically route to MCP servers unless local instructions separately enable MCP routing.
-
-Local repository instructions override shared registry guidance when more specific.
-These shared registry files are the source of truth. Do not replace them with summaries or assumptions.
-If `~/.ai-registry` is unavailable, state that and continue with local instructions only.
-
 ## Common Rules
 * After any planning or brainstorming phase, before you actually start making changes to the files, show me your work plan and ask for my opinion.
 * All code, comments, docstrings, and documentation must be in **English**. When talking to me, use the same language I do.
