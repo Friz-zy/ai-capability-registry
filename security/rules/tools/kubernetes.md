@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-KUBERNETES-001`
 
-**ID:** `SDD-TOOL-KUBERNETES-001` | **Title:** none | **Group:** kubernetes | **Risk:** `CRITICAL` | **Enforcement:** `static_validation` | **Ecosystems:** kubernetes, kubectl, kustomize | **Digest:** `0c70036bdf7c724cc74d1b26cd466f819266d149d64feed8af5d3195e370f313`
+**ID:** `SDD-TOOL-KUBERNETES-001` | **Title:** none | **Group:** kubernetes | **Risk:** `CRITICAL` | **Enforcement:** `static_validation` | **Ecosystems:** kubernetes, kubectl, kustomize | **Digest:** `1d3256a71db4c65a4b35b9f8d908014ee653d893fc95d94378865de9ddf3b6bd`
 
 ### Applicability
 
@@ -36,4 +36,5 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Escalation, exceptions, gates, and limitations
 
 - **deployment_gate.enforcement:** human_gate
+- **deployment_gate.rule:** Activate before deployment to production, not for manifest inspection, rendering, or local validation.
 - **deployment_gate.trust_boundary:** HUMAN

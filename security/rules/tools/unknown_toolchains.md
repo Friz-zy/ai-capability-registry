@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-UNKNOWN-001`
 
-**ID:** `SDD-TOOL-UNKNOWN-001` | **Title:** none | **Group:** unknown_toolchains | **Risk:** `HIGH` | **Enforcement:** `human_gate` | **Ecosystems:** unknown | **Digest:** `8af68ad8f3d59c71f3cc77546a59d471e1a94f30573ab9137b349e92a02afb27`
+**ID:** `SDD-TOOL-UNKNOWN-001` | **Title:** none | **Group:** unknown_toolchains | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** unknown | **Digest:** `61a1887cee996ea10227df8ea99b3717ed7a80d8e122c7f390fa79e4dbaa6a88`
 
 ### Applicability
 
@@ -25,7 +25,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
   - Identify lock, integrity, provenance, lifecycle-hook, network, and credential behavior.
   - Pin dependencies and tooling where possible.
   - Resolve and fetch in a dependency sandbox, then build, test, and execute in a verification sandbox.
-  - Do not assume an unfamiliar package manager or tool is safe by default.
+  - Do not assume an unfamiliar package manager or tool is safe by default. Investigate before executing unfamiliar code; escalate a concrete unresolved integrity, authority, or containment risk, not unfamiliarity or read-only inspection by itself.
   - Escalate when safe isolation or integrity verification cannot be established.
 
 ### Verification
@@ -34,4 +34,4 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ### Escalation, exceptions, gates, and limitations
 
-- **trust_boundary:** HUMAN
+- none

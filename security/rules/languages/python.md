@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-ECO-PYTHON-001`
 
-**ID:** `SDD-ECO-PYTHON-001` | **Title:** none | **Group:** python | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** pip, uv, poetry, pipenv | **Digest:** `949c2cbd2f38dd252ca4e170b6f35701c6c1be6f662ec408a07fb42debaa5e22`
+**ID:** `SDD-ECO-PYTHON-001` | **Title:** none | **Group:** python | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** pip, uv, poetry, pipenv | **Digest:** `de11334167381782d6068233268ebbfec6ba22303998c610693f50be06116a77`
 
 ### Applicability
 
@@ -32,7 +32,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
   - Keep build isolation enabled unless an exception is reviewed.
   - Review additional indexes and prevent public or private index dependency confusion.
   - Do not install into host or system Python.
-  - Apply the 7-day package quarantine before resolving new versions.
+  - Assess the 7-day age signal for new versions; age alone does not prohibit a verified dependency or delay an urgent security fix.
 
 ### Verification
 

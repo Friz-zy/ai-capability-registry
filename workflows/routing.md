@@ -332,7 +332,7 @@ Coordinate assets, actors, trust boundaries, threat list, attack paths, mitigati
 
 ### Secure SDD Workflow
 
-Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+Coordinate full specification-driven delivery for explicitly selected or material trust-boundary changes with independent reviews and a policy gate.
 
 **ID:** `secure-sdd`
 **Guide:** `workflows/security-compliance/secure-sdd/workflow.md`

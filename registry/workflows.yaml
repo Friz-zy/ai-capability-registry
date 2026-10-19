@@ -499,7 +499,7 @@ workflows:
 
   - id: secure-sdd
     name: Secure SDD Workflow
-    description: Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+    description: Coordinate full specification-driven delivery for explicitly selected or material trust-boundary changes with independent reviews and a policy gate.
     guide: workflows/security-compliance/secure-sdd/workflow.md
     manifest: workflows/security-compliance/secure-sdd/workflow.yaml
     category:

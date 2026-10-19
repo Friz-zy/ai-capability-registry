@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-SECRETS-001`
 
-**ID:** `SDD-TOOL-SECRETS-001` | **Title:** none | **Group:** secrets_and_credentials_tooling | **Risk:** `CRITICAL` | **Enforcement:** `runtime_preflight` | **Ecosystems:** environment_files, secret_store_clients, ci_secret_injection | **Digest:** `2abe0aa02b4166d4b9ca8754fffe33e1cf9e25c3ea7039b375ac38e6cd370965`
+**ID:** `SDD-TOOL-SECRETS-001` | **Title:** none | **Group:** secrets_and_credentials_tooling | **Risk:** `CRITICAL` | **Enforcement:** `runtime_preflight` | **Ecosystems:** environment_files, secret_store_clients, ci_secret_injection | **Digest:** `8d1fde7d150caa23460a7b75bbf42294af5199cbf6005319d5d7d300fef09731`
 
 ### Applicability
 
@@ -41,4 +41,5 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Escalation, exceptions, gates, and limitations
 
 - **access_gate.enforcement:** human_gate
+- **access_gate.rule:** Activate before access to secret values or expanded credential authority, not for inspecting configuration structure without revealing values.
 - **access_gate.trust_boundary:** HUMAN

@@ -1,9 +1,9 @@
 id: secure-sdd
 name: Secure SDD Workflow
-description: Strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+description: Full specification-driven delivery for explicitly selected or materially security-sensitive changes, with independent reviews and a policy gate.
 entry_conditions:
-  - A feature, architecture change, or high-confidence implementation requires specification-driven delivery.
-  - The work can provide explicit requirements, verification evidence, and accountable policy disposition.
+  - The user explicitly requests full specification-driven delivery, or the proposed action materially changes a trust boundary or security enforcement.
+  - Ordinary reversible implementation and unchanged-scope verification use a shorter assess, implement, test, and review path instead.
 clarification_questions:
   - What behavior, constraints, assets, and non-goals must the specification define?
   - What existing interfaces, data, trust boundaries, or operational constraints can the change affect?

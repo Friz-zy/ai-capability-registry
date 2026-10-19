@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-GITHUB-ACTIONS-001`
 
-**ID:** `SDD-TOOL-GITHUB-ACTIONS-001` | **Title:** none | **Group:** github_actions | **Risk:** `CRITICAL` | **Enforcement:** `static_validation` | **Ecosystems:** github_actions | **Digest:** `a248c1fbd39062d3e4e45eed977b6f2b25adaaaff953245e5cf44062d1279eef`
+**ID:** `SDD-TOOL-GITHUB-ACTIONS-001` | **Title:** none | **Group:** github_actions | **Risk:** `CRITICAL` | **Enforcement:** `static_validation` | **Ecosystems:** github_actions | **Digest:** `f76d8c4e28a93472d3ca77e551dfda29351f302802b54ed381aaca4c759213af`
 
 ### Applicability
 
@@ -33,4 +33,5 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Escalation, exceptions, gates, and limitations
 
 - **change_gate.enforcement:** human_gate
+- **change_gate.rule:** Activate for a material GitHub Actions trust or permission change, not a path match or read-only inspection.
 - **change_gate.trust_boundary:** HUMAN

@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-IDE-001`
 
-**ID:** `SDD-TOOL-IDE-001` | **Title:** none | **Group:** ide_editor_extensions | **Risk:** `HIGH` | **Enforcement:** `human_gate` | **Ecosystems:** vscode, intellij_platform | **Digest:** `c14c5fba7620d1156665d2a90c945ba23b748505580e0e47f86041f94f55dec7`
+**ID:** `SDD-TOOL-IDE-001` | **Title:** none | **Group:** ide_editor_extensions | **Risk:** `HIGH` | **Enforcement:** `human_gate` | **Ecosystems:** vscode, intellij_platform | **Digest:** `237ce1edaaca72a25da2126780f1253299ae2571a578390386e1575ab108a2b3`
 
 ### Applicability
 
@@ -24,6 +24,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
   - Do not automatically install extensions, language-server plugins, debug adapters, or IDE plugins from repository recommendations.
   - Review identity, publisher, version, permissions, update behavior, and provenance before installation.
   - Pin versions where the platform supports it.
+  - HUMAN approval applies to installing a new privileged extension or expanding its authority, not reading or editing a recommendation file by itself.
 
 ### Verification
 

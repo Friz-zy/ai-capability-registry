@@ -318,7 +318,7 @@ Coordinate external integration requirements, data mapping, API contract, auth a
 **Manifest:** `workflows/engineering/integration-development/workflow.yaml`
 
 ### Secure SDD Workflow
-Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+Coordinate full specification-driven delivery for explicitly selected or material trust-boundary changes with independent reviews and a policy gate.
 
 **ID:** `secure-sdd`
 **Categories:** `security-compliance`, `engineering`
@@ -774,7 +774,7 @@ Coordinate GDPR checklist, privacy policy notes, data processing map, ToS requir
 **Manifest:** `workflows/security-compliance/legal-compliance/workflow.yaml`
 
 ### Secure SDD Workflow
-Coordinate strict specification-driven delivery with independent reviews, risk-based security escalation, and a human policy gate.
+Coordinate full specification-driven delivery for explicitly selected or material trust-boundary changes with independent reviews and a policy gate.
 
 **ID:** `secure-sdd`
 **Categories:** `security-compliance`, `engineering`

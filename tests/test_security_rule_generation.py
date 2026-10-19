@@ -166,8 +166,8 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             errors,
         )
 
-    def test_matching_sets_union_enforcements_while_risk_uses_maximum(self):
-        """Mixed changes retain every enforcement while selecting maximum risk."""
+    def test_matching_sets_do_not_activate_human_gates_from_paths(self):
+        """A Dockerfile match loads guidance without activating approval."""
         route = self.registry_lib.resolve_security_rule_route(
             self.policies,
             affected_paths=["pyproject.toml", "Dockerfile"],
@@ -179,10 +179,8 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             route["focused_rule_sets"],
         )
         self.assertEqual("HIGH", route["risk"])
-        self.assertEqual(
-            ["static_validation", "human_gate"],
-            route["enforcements"],
-        )
+        self.assertEqual(["static_validation"], route["enforcements"])
+        self.assertEqual("not_performed_including_universal_rules", route["gate_evaluation"])
         self.assertNotIn("enforcement", route)
 
     def test_unknown_observed_toolchain_loads_fallback(self):
@@ -194,8 +192,29 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             semantic_observations=[],
         )
         self.assertEqual(["tools/unknown_toolchains"], route["focused_rule_sets"])
-        self.assertEqual("HIGH", route["risk"])
-        self.assertEqual(["human_gate"], route["enforcements"])
+        self.assertEqual("MEDIUM", route["risk"])
+        self.assertEqual(["static_validation"], route["enforcements"])
+        self.assertEqual("not_performed_including_universal_rules", route["gate_evaluation"])
+
+    def test_routing_never_clears_universal_action_gates(self):
+        """A focused-route result cannot authorize execution or secret access."""
+        for affected_paths, observed_ecosystems in (
+            ([], []),
+            ([".github/workflows/build.yml"], ["github_actions"]),
+            ([".env"], []),
+            (["src/main.py"], ["python"]),
+        ):
+            with self.subTest(affected_paths=affected_paths):
+                route = self.registry_lib.resolve_security_rule_route(
+                    self.policies,
+                    affected_paths=affected_paths,
+                    observed_ecosystems=observed_ecosystems,
+                    semantic_observations=[],
+                )
+                self.assertEqual(
+                    "not_performed_including_universal_rules", route["gate_evaluation"]
+                )
+                self.assertNotIn("active_enforcements", route)
 
     def test_route_rejects_absolute_and_parent_paths(self):
         """Routing fails closed for paths outside the repository boundary."""
@@ -335,23 +354,42 @@ class SecurityRuleGenerationTests(unittest.TestCase):
         self.assertNotIn("condition_id", observation_fields)
 
     def test_runtime_preflight_and_human_gate_are_both_retained(self):
-        """Human approval never masks a separately required runtime preflight."""
+        """Path matches retain possible gates without treating them as active."""
         route = self.registry_lib.resolve_security_rule_route(
             self.policies,
             affected_paths=["buf.gen.yaml", ".vscode/extensions.json"],
             observed_ecosystems=["protobuf", "vscode"],
             semantic_observations=[],
         )
-        self.assertEqual(
-            ["runtime_preflight", "human_gate"],
-            route["enforcements"],
-        )
+        self.assertEqual(["runtime_preflight", "human_gate"], route["enforcements"])
+        self.assertEqual("not_performed_including_universal_rules", route["gate_evaluation"])
 
-    def test_trusted_chat_approval_path_keeps_resources_best_effort(self):
-        """Trusted sandbox execution needs chat approval, not a resource-control form."""
+    def test_dependency_fetch_requires_bounded_scope_and_fresh_containment(self):
+        """Dependency fetching uses the sandbox without waiving existing review gates."""
+        sandbox_policy = self.policies["secure_sdd_policy"]["contracts"]["sandbox"]
+        fetch_policy = sandbox_policy["required_guarantees"]["network"][
+            "dependency_fetch_phase"
+        ]
+        preflight_requirements = " ".join(sandbox_policy["preflight_must_verify"])
+        failure_behavior = " ".join(sandbox_policy["failure_behavior"])
+        review_requirements = " ".join(sandbox_policy["requirements"])
+
+        self.assertIn("dependency_fetching", sandbox_policy["applies_when"])
+        self.assertIn("fixed, explicitly approved set", fetch_policy)
+        self.assertIn("IPv4, IPv6, and host/bridge gateways", fetch_policy)
+        self.assertIn("redirects and DNS changes unable to expand", fetch_policy)
+        self.assertIn("Proxy environment variables or configuration alone", fetch_policy)
+        self.assertIn("Immediately before and throughout dependency fetching", preflight_requirements)
+        self.assertIn("does not execute project- or dependency-supplied hooks", preflight_requirements)
+        self.assertIn("unchanged helper", review_requirements)
+        self.assertIn("all existing risk-triggered", review_requirements)
+        self.assertIn("cannot replace a required preflight", failure_behavior)
+        self.assertIn("An independently permitted exception", failure_behavior)
+
+    def test_noncritical_resource_gaps_do_not_require_approval(self):
+        """Resource-control gaps cannot create a HUMAN gate or waive isolation."""
         sandbox_policy = self.policies["secure_sdd_policy"]["contracts"]["sandbox"]
         resources = sandbox_policy["required_guarantees"]["resources"]
-        approval_path = sandbox_policy["exception"]
 
         self.assertEqual([], resources["critical"])
         self.assertEqual(
@@ -363,14 +401,8 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             ],
             resources["non_critical_by_default"],
         )
-        self.assertNotIn("required_record", approval_path)
-        self.assertEqual(
-            "Clear active-chat user approval is sufficient HUMAN approval.",
-            approval_path["chat_approval"]["authorization"],
-        )
-        self.assertIn("no user form", approval_path["chat_approval"]["handling"])
-        self.assertIn("never repository/agent declaration", approval_path["applies_when"][0])
-        self.assertIn("Podman cgroup limits", " ".join(approval_path["requirements"]))
+        self.assertNotIn("exception", sandbox_policy)
+        self.assertIn("without requiring approval", " ".join(sandbox_policy["requirements"]))
 
     def test_policy_selectors_reject_unsafe_paths_and_invalid_semantic_ids(self):
         """Canonical path and semantic selectors are repository-safe identifiers."""

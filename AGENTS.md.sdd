@@ -13,7 +13,9 @@ pass. Do not invent important behavior, evidence, authority, or enforcement.
 
 ## Development Workflow
 
-For every non-trivial behavioral change, use:
+Use the full specification-driven workflow when explicitly requested or when a material
+security or trust-boundary change needs independent specification and policy
+disposition:
 
 ```text
 specify → clarify → independent spec review → plan → architecture review when
@@ -22,17 +24,18 @@ adversarial test → deterministic verify → security review when required →
 independent final review → converge → POLICY GATE
 ```
 
-The POLICY GATE affirms or rejects completion after confirming that required
+For ordinary reversible workspace changes, use assess → implement → targeted test
+→ verify → review as warranted by the observed risk. Do not create full-workflow
+artifacts or require fresh independent reviewers merely because files mention a
+dependency, configuration, or tool. Escalate to the full workflow when the actual
+change expands credentials, production or CI authority, security enforcement, or
+an irreversible effect. The POLICY GATE affirms or rejects full-workflow completion after confirming that required
 artifacts, reviews, tests, security checks, and deterministic verification are
 complete. Required deterministic and security gates block completion and cannot
 be waived. HUMAN may disposition only explicitly classified residual risk after
 remediation and a fresh independent review; the POLICY GATE must affirm or reject
-that disposition. Documentation-only or other non-behavioral edits may use a
-reduced workflow only when they have no security, dependency, configuration,
-trust-boundary, generated-output, or protected-file impact. An isolated bug fix
-may use assess → fix → test → verify → review only when it has none of those
-impacts; otherwise use the full SDD workflow or escalate. It must also return to
-the full workflow if intended behavior or architecture changes.
+that disposition. Matching a protected path or regenerating an unchanged
+authority-bearing source alone does not force the full workflow.
 
 ---
 
@@ -112,7 +115,10 @@ Resolve blocking findings before coding.
 
 ## Independent Verification
 
-An artifact author must not be its sole verifier. Where practical, the producer
+Required independent review applies to material security-boundary changes and
+full specification-driven artifacts. Otherwise the author may run deterministic checks and
+review their own ordinary changes; another reviewer is useful when warranted by
+risk or complexity. Where practical, the producer
 and reviewer are different people or agents; the reviewer uses fresh context and
 is read-only. Reviewers must attempt to falsify the artifact, not merely confirm
 it.
@@ -158,7 +164,8 @@ checks, static analysis, unit and integration tests, property tests, fuzzing, ra
 checks, dependency integrity, vulnerability scanning, security analysis, secret
 scanning, and container or infrastructure checks.
 
-Required failing checks block completion and cannot be waived. Do not silently
+Required failing checks block claims that they passed; report unrelated or
+unavailable checks distinctly and continue safe, in-scope work. Do not silently
 regenerate approved inputs or suppress findings. HUMAN may disposition only
 explicitly classified residual risk after remediation and a fresh independent
 review; the POLICY GATE must affirm or reject that disposition.
@@ -167,13 +174,14 @@ review; the POLICY GATE must affirm or reject that disposition.
 
 ## Dependency Security
 
-Every new or updated dependency is a security-sensitive change. First verify that
+Every new or updated dependency merits proportional scrutiny. First verify that
 it is necessary and prefer standard capabilities or existing dependencies. Verify
 package identity, upstream source, integrity, provenance where supported,
 transitive changes, install and build hooks, native code or binaries where
 relevant, known vulnerabilities, and lock or checksum changes. Treat absence of
 known vulnerabilities as insufficient proof of trust. Dependency manifest and
-lockfile changes should receive independent review.
+lockfile changes need independent security review when they materially change
+origin, executable hooks, authority, or the trust boundary.
 
 Use pinned or locked, reproducible resolution where supported. Keep fetching,
 resolution, and execution appropriately separated. Unknown dependency mechanisms
@@ -191,11 +199,12 @@ requests them.
 
 ## Sandbox
 
-Treat project code, dependencies, build and install scripts, tests, fuzz targets,
-generators, and generated binaries as potentially untrusted. Use approved
-isolation where available. If safe isolation is unavailable, do not execute
-untrusted dependency, build, test, fuzz, generator, or installer code in the
-control environment; escalate or defer instead.
+Treat newly fetched or untrusted dependencies, build and install scripts, tests,
+fuzz targets, generators, and generated binaries as potentially untrusted. Use
+an established low-privilege workspace boundary for routine tests of already
+reviewed code, and a separately verified sandbox for newly fetched or untrusted
+code. If the necessary boundary is unavailable, defer that execution, not safe
+analysis or remediation.
 
 Sandbox execution should use least privilege, no host credentials or agent tokens,
 no unnecessary sockets or capabilities, resource limits, disabled network unless
@@ -234,13 +243,10 @@ results do not prove security.
 
 ## Risk
 
-Treat dependency changes, public APIs, untrusted input, parsers and file processing,
-network behavior, and concurrency as at least elevated risk. Treat authentication
-or authorization, secrets, data or schema migration, distributed state,
-infrastructure, and destructive operations as high risk. Treat cryptography,
-production access, CI trust, agent permissions, sandbox or security policy,
-release or signing, and repository instruction or security-policy changes as
-critical or trust-boundary work.
+Assess the actual change to authority, exposure, reversibility, and execution
+scope. Domain labels such as dependencies, parsers, network, infrastructure, or
+cryptography identify review topics, not automatic gate activation. A path match
+or tool presence is not evidence that its trust boundary changed.
 
 Risk classification controls assurance depth. HIGH-risk work requires an
 independent security review. CRITICAL or trust-boundary work requires an
@@ -263,11 +269,12 @@ implementation step.
 
 ## Protected Trust Files
 
-Ordinary implementation must not silently modify repository trust infrastructure,
-including instruction and security policy files, CI configuration, security
-directories, sandbox or dependency tooling, runtime permissions, and release or
-signing configuration. Required changes are separate trust-boundary work with
-elevated review and recorded human authorization before completion.
+Ordinary implementation must not silently change repository trust authority,
+including instructions, CI permissions, sandbox enforcement, credentials, and
+release or signing controls. A matching path or non-authoritative documentation
+edit is not itself an approval gate. Before a material authority change, obtain
+scoped human authorization and independent security review. Generated copies
+inherit the reviewed canonical-source decision unless they add authority.
 
 ---
 
@@ -297,8 +304,9 @@ verification, and explicit escalation.
 ## Security Rule Selection
 
 Universal rules always apply. Focused language- or tool-specific rules are optional
-additional guidance when available. The union of matching rules applies; the
-highest risk and strongest cumulative gates win. For unknown toolchains, use the
+additional guidance when available. Match paths and ecosystems to load relevant
+rules, then apply only gates whose action-specific conditions are established.
+Unknown facts about a material action block that action, not read-only work. For unknown toolchains, use the
 universal fallback: identify execution, integrity, network, and credential risks;
 pin or verify inputs where possible; isolate untrusted execution; and escalate
 when safe verification cannot be established.

@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-OS-PACKAGES-001`
 
-**ID:** `SDD-TOOL-OS-PACKAGES-001` | **Title:** none | **Group:** os_package_managers | **Risk:** `HIGH` | **Enforcement:** `human_gate` | **Ecosystems:** apt, dnf, yum, zypper, apk, pacman, brew, winget, choco | **Digest:** `9d335591510cbdf6f86eddf1d5fb572480557871d5766d7f5a4116a4d126b894`
+**ID:** `SDD-TOOL-OS-PACKAGES-001` | **Title:** none | **Group:** os_package_managers | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** apt, dnf, yum, zypper, apk, pacman, brew, winget, choco | **Digest:** `c3159cbaf79261c3939d5adc931153e9c4971bdb52cb998b4cefc96ca99355a1`
 
 ### Applicability
 
@@ -24,7 +24,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 - **requirements:**
   - Normal agents must not modify host or system packages to satisfy project dependencies.
   - Prefer an approved image, sandbox, or project-local toolchain.
-  - Treat new repositories, signing keys, PPAs, and third-party package sources as HUMAN trust-boundary changes.
+  - A Dockerfile or Containerfile match alone is not a host-package change or HUMAN gate. Isolated image-layer package changes require dependency scrutiny; new repositories, signing keys, PPAs, and host package mutations cross a HUMAN trust boundary.
 
 ### Verification
 
@@ -32,4 +32,4 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ### Escalation, exceptions, gates, and limitations
 
-- **trust_boundary:** HUMAN
+- none

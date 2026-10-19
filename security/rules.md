@@ -7,7 +7,7 @@
 3. Add semantic conditions only when a trusted content-aware validator establishes them; filenames are not semantic proof.
 4. Load the union of every matching [language](rules/languages/index.md) and [tool](rules/tools/index.md) set using any-match path, ecosystem, or semantic selectors.
 5. If an observed toolchain is unknown, load the fallback [`tools/unknown_toolchains`](rules/tools/unknown_toolchains.md).
-6. Apply the highest risk and the union of all enforcement classifications and human/runtime gates across matching focused policies; never lower, omit, or waive them without canonical authorization.
+6. Treat matched rule-set risk and enforcement metadata as potential, not an action-specific approval result. This router does not evaluate gates, including universal rules. Determine the proposed action and verified effect before applying every applicable safeguard; never waive an active gate.
 7. Credential-bearing selectors identify sensitive files only. Do not read values by default, and never log, persist, or place values in prompts or generated artifacts.
 
 This layer routes canonical requirements; `registry/policies.yaml` remains the sole source of policy prose.

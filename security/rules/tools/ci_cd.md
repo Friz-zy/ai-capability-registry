@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-CICD-001`
 
-**ID:** `SDD-TOOL-CICD-001` | **Title:** none | **Group:** ci_cd | **Risk:** `CRITICAL` | **Enforcement:** `human_gate` | **Ecosystems:** github_actions, gitlab_ci, jenkins, circleci, buildkite | **Digest:** `1da0f70d31f3048ce39ae4341942ec550944cbb09875701ba626ec972681ed44`
+**ID:** `SDD-TOOL-CICD-001` | **Title:** none | **Group:** ci_cd | **Risk:** `CRITICAL` | **Enforcement:** `human_gate` | **Ecosystems:** github_actions, gitlab_ci, jenkins, circleci, buildkite | **Digest:** `0c2a12cd42abb175f320e201f3b4d4b76602127bc24751c995fafb643b5af8a4`
 
 ### Applicability
 
@@ -24,7 +24,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Requirements
 
 - **requirements:**
-  - Treat CI configuration as trust-root code requiring elevated independent review.
+  - Require HUMAN approval and independent security review before changing CI secrets, tokens, write permissions, deploy authority, or execution of untrusted code; inspection and non-authoritative edits alone do not activate that gate.
   - Use minimal token permissions, immutable third-party components, and no secrets for untrusted code.
   - Separate build and test contexts from deployment authority.
   - Never combine untrusted code, repository secrets, and write permissions in one execution context.

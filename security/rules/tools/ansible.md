@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-ANSIBLE-001`
 
-**ID:** `SDD-TOOL-ANSIBLE-001` | **Title:** none | **Group:** ansible | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** ansible, ansible_galaxy | **Digest:** `d800edcf9e8da4fef6163a2a37693d1972cb11cbb389cf4da1d566606710a6ff`
+**ID:** `SDD-TOOL-ANSIBLE-001` | **Title:** none | **Group:** ansible | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** ansible, ansible_galaxy | **Digest:** `a66327e040898240e4f188e129560e0c1d24c17dfe4b78623fcdeff0eaea467a`
 
 ### Applicability
 
@@ -37,4 +37,5 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Escalation, exceptions, gates, and limitations
 
 - **production_gate.enforcement:** human_gate
+- **production_gate.rule:** Activate before applying changes to production systems, not before local check-mode inspection.
 - **production_gate.trust_boundary:** HUMAN

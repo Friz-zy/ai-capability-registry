@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-MIGRATIONS-001`
 
-**ID:** `SDD-TOOL-MIGRATIONS-001` | **Title:** none | **Group:** database_migration_tools | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** flyway, liquibase, alembic, django, rails, prisma, orm_migrations | **Digest:** `2cde7b0223b03b2c2df229291579021aade8400a2aeba6657cbf02a9d9450f14`
+**ID:** `SDD-TOOL-MIGRATIONS-001` | **Title:** none | **Group:** database_migration_tools | **Risk:** `HIGH` | **Enforcement:** `static_validation` | **Ecosystems:** flyway, liquibase, alembic, django, rails, prisma, orm_migrations | **Digest:** `22b9a4e2a084507857f91b7f3eb3e9537475a02d585d5473af636cddb3e1f250`
 
 ### Applicability
 
@@ -36,4 +36,5 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Escalation, exceptions, gates, and limitations
 
 - **production_or_destructive_gate.enforcement:** human_gate
+- **production_or_destructive_gate.rule:** Activate before production or destructive migrations, not for local reversible migration review.
 - **production_or_destructive_gate.trust_boundary:** HUMAN

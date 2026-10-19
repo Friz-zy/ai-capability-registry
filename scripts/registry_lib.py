@@ -695,7 +695,8 @@ def _build_security_rule_resolver():
             semantic_observations: Typed raw facts evaluated by internal predicates.
 
         Returns:
-            Selected focused sets, maximum risk, and enforcement union.
+            Selected focused sets and potential risk/enforcement metadata. Gate
+            evaluation is not performed for either focused or universal rules.
 
         Raises:
             RegistryError: If observations, projection references, or selectors are invalid.
@@ -767,12 +768,13 @@ def _build_security_rule_resolver():
             matching_nodes.extend(
                 resolved_nodes[policy_id] for policy_id in groups[group_name]
             )
-        risk, enforcements = _policy_route_metadata(matching_nodes)
+        risk, potential_enforcements = _policy_route_metadata(matching_nodes)
         return {
             "universal_rule_set": "universal.md",
             "focused_rule_sets": sorted(matching_rule_sets),
             "risk": risk,
-            "enforcements": enforcements,
+            "enforcements": potential_enforcements,
+            "gate_evaluation": "not_performed_including_universal_rules",
         }
 
     return resolve_security_rule_route

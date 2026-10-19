@@ -2,7 +2,7 @@
 
 Workflow id: `secure-sdd`
 
-Use this workflow when a change needs specification-driven delivery with strict, independent quality and security gates.
+Use this full workflow when explicitly requested or when an actual material trust-boundary or security-enforcement change needs independent specification and policy disposition. Ordinary reversible implementation and unchanged-scope verification use a shorter assess, implement, test, and review path.
 
 ## Files
 
