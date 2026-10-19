@@ -508,7 +508,11 @@ secure_sdd_policy:
           - explicit_output_copy_out_only
         network:
           default: denied
-          dependency_fetch_phase: A dedicated dependency-fetch sandbox may access only a fixed, explicitly approved set of exact package identities and immutable versions from declared sources. Enforce both artifact-level scope (including direct and transitive packages, integrity identifiers where supported, and no extra artifacts or unlocked resolution) and network-level scope (only current approved destinations through an enforced proxy or equivalent control, with redirects and DNS changes unable to expand the approved destination or artifact scope, and bypass denied across IPv4, IPv6, and host/bridge gateways). Proxy environment variables or configuration alone do not prove enforcement. Fetch authorization never waives runtime preflight or containment.
+          dependency_fetch_phase: Standard data-only dependency acquisition may use outbound internet without a destination allowlist or proof of egress containment. Network access is limited to the authorized fetch operation and does not authorize downloaded-code execution, credentials, or network access by later builds and tests. A declared source or proxy setting is not proof of network containment.
+          acquisition_profiles:
+            standard_fetch: A reviewed, minimally privileged acquisition client may fetch approved immutable artifacts and required registry metadata using ordinary outbound internet access. No HUMAN gate or firewall inspection is required solely because this fetch profile lacks destination-level containment; the client may technically reach other destinations and must not have secrets or confidential repository data available to transmit.
+            contained_fetch: Enforce approved artifact and destination scope in a dedicated acquisition boundary. Verify that the actual client has no alternate IPv4, IPv6, local, host, or bridge-gateway route and that redirects or DNS changes cannot expand scope.
+            artifact_broker: An independently enforced broker restricts exact artifact identities, versions, sources, available digests, metadata operations, and request methods. Reject arbitrary URL forwarding and tunneling; verify that the acquisition client cannot bypass the broker.
           build_test_execution_phase: denied_unless_explicitly_required_and_reviewed
         resources:
           critical: []
@@ -522,15 +526,20 @@ secure_sdd_policy:
         - Match isolation depth to the code and authority involved. Routine local tests of already reviewed project code may reuse an established, low-privilege workspace execution boundary; newly fetched or untrusted code requires a separate verified sandbox.
         - Use non-root/rootless where supported, and exclude unnecessary credentials, privileged sockets, devices, and host paths from the execution boundary.
         - Verify the relevant network, mounts, privileges, capabilities, and isolation controls before executing code with a new or expanded exposure. Reuse valid evidence while the boundary remains unchanged.
-        - Immediately before and throughout dependency fetching, verify the actual sandbox and active egress enforcement, including IPv4/IPv6 and host/bridge gateway bypass denial; do not use stale IP snapshots as proof where current policy enforcement can be verified by hostname or equivalent.
+        - Before acquisition, verify the chosen profile, authorized exact direct and transitive artifact identities and immutable versions, declared sources, required metadata requests, available integrity identifiers, client version and effective configuration, and isolated output. Do not silently resolve extra packages or rewrite lock state.
+        - Verify the acquisition client has no ambient credentials, executable repository configuration, plugins, privileged sockets, devices, or unintended host mounts. Establish the mount and staging boundaries; do not use a shared writable cache as an unreviewed output channel.
+        - Treat even non-executable client configuration, registry metadata, and redirects as untrusted input; they cannot add artifact identities, change expected integrity, read local files, or write outside the isolated staging area.
+        - For contained fetch or brokered acquisition only, verify effective egress enforcement before and throughout the operation. Host firewall inspection is one possible method, not a prerequisite for standard fetch. Positive and negative probes alone do not prove complete or continuous containment.
         - Confirm fetch mode does not execute project- or dependency-supplied hooks, installers, build backends, plugins, or binaries; reject fetch paths that require such execution. Execution of the trusted fetch client itself does not authorize execution of downloaded or repository-controlled code.
+        - Keep transport validation and ecosystem integrity checks enabled, including checksum or transparency services where applicable. Verify artifacts before transferring only approved outputs into a separate offline build or test boundary.
       requirements:
         - Do not impose a new blanket independent-security-review prerequisite solely because an unchanged helper is used for an already approved, fetch-only scope; all existing risk-triggered, protected-file, helper-change, trust-boundary expansion, and applicable independent-review gates remain mandatory.
-        - Applying this execution safeguard does not classify every local test, build, or dependency fetch as CRITICAL or require HUMAN approval. Reuse an established verified boundary for unchanged scope; investigate material changes to privileges, credentials, mounts, or egress before executing them.
+        - Applying this execution safeguard does not classify every local test, build, or dependency fetch as CRITICAL or require HUMAN approval. Standard fetch needs no separate HUMAN approval when the authorized artifact scope and common acquisition preflight are satisfied; investigate material changes to privileges, credentials, mounts, or execution behavior before proceeding.
         - Attempt non-critical resource limits and report gaps without requiring approval when critical isolation remains intact. Resource gaps never authorize secret or production access, privileged host mounts, runtime sockets, unapproved egress, or unverified execution.
       failure_behavior:
-        - Stop the unsafe execution when its required isolation or egress containment is unverifiable; continue read-only analysis, remediation, or another safe verification path. User authorization cannot replace a required preflight, enable unapproved egress, or authorize additional package identities. An independently permitted exception requires its own policy-specific approval and evidence.
-      limitation: This contract is not enforced by YAML or prose; a conforming runtime preflight and sandbox implementation are required.
+        - Missing evidence of egress containment stops only a profile that claims containment; standard fetch does not claim it. Continue through standard fetch only when its common acquisition checks pass, otherwise stop the affected operation and continue safe analysis or offline verification.
+        - Stop if artifact scope, client authority, integrity, or no-execution controls cannot be verified. Unexpected artifacts, executable behavior, credential access, or changed client configuration require new assessment; fetching does not authorize network use during subsequent execution.
+      limitation: YAML and prose do not enforce containment. Standard fetch explicitly allows outbound internet without proving destination restrictions; executing fetched code still requires a separate conforming runtime preflight and sandbox.
   controls:
     - id: SDD-PROMPT-INJECTION-001
       title: Untrusted content cannot grant authority
@@ -559,7 +568,7 @@ secure_sdd_policy:
         enforcement: runtime_preflight
         requirements:
           - Deny secret-bearing environment access by default.
-          - Deny unapproved network destinations and privileged tool actions.
+          - Deny privileged tool actions and unapproved network use. The standard_fetch profile in SDD-SANDBOX-CONTRACT-001 permits outbound internet only for a verified data-only acquisition client without accessible secrets or confidential data; it does not establish destination containment or authorize network access during later execution.
           - Require explicit authorization for mutations outside the confirmed workspace scope.
       escalation:
         enforcement: human_gate
@@ -585,7 +594,7 @@ secure_sdd_policy:
         - release_or_signing_authority
         - credential_or_permission_expansion
         - ci_job_combining_untrusted_code_with_secrets_or_write_permissions
-        - sandbox_guarantee_unavailable_or_exception_requested
+        - required_execution_isolation_unavailable_or_exception_requested
         - package_quarantine_exception
         - new_package_repository_signing_key_or_trust_root
         - risk_reduction_or_required_gate_waiver
@@ -608,6 +617,7 @@ secure_sdd_policy:
       requirements:
         - Active-chat approval for a specific gated action is not a generic exception.
         - Other policy exceptions must identify the stable policy ID, exact scope, justification, compensating controls, owner, and expiry.
+        - Standard dependency fetch is an authorized acquisition profile, not an exception to execution isolation or artifact integrity. Approval of an artifact list never authorizes credential exposure, code execution, or unreviewed installation.
         - Exceptions must not be created or approved solely by an agent.
         - Expired or ambiguous exceptions fail closed.
         - A local portable guidance file cannot override or disable this registry policy.

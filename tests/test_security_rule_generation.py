@@ -364,27 +364,66 @@ class SecurityRuleGenerationTests(unittest.TestCase):
         self.assertEqual(["runtime_preflight", "human_gate"], route["enforcements"])
         self.assertEqual("not_performed_including_universal_rules", route["gate_evaluation"])
 
-    def test_dependency_fetch_requires_bounded_scope_and_fresh_containment(self):
-        """Dependency fetching uses the sandbox without waiving existing review gates."""
+    def test_dependency_fetch_profiles_keep_containment_evidence_distinct(self):
+        """Standard fetch does not claim the guarantees of contained acquisition."""
         sandbox_policy = self.policies["secure_sdd_policy"]["contracts"]["sandbox"]
-        fetch_policy = sandbox_policy["required_guarantees"]["network"][
-            "dependency_fetch_phase"
-        ]
+        network_policy = sandbox_policy["required_guarantees"]["network"]
+        acquisition_profiles = network_policy["acquisition_profiles"]
         preflight_requirements = " ".join(sandbox_policy["preflight_must_verify"])
         failure_behavior = " ".join(sandbox_policy["failure_behavior"])
         review_requirements = " ".join(sandbox_policy["requirements"])
 
         self.assertIn("dependency_fetching", sandbox_policy["applies_when"])
-        self.assertIn("fixed, explicitly approved set", fetch_policy)
-        self.assertIn("IPv4, IPv6, and host/bridge gateways", fetch_policy)
-        self.assertIn("redirects and DNS changes unable to expand", fetch_policy)
-        self.assertIn("Proxy environment variables or configuration alone", fetch_policy)
-        self.assertIn("Immediately before and throughout dependency fetching", preflight_requirements)
+        self.assertEqual(
+            {"standard_fetch", "contained_fetch", "artifact_broker"},
+            set(acquisition_profiles),
+        )
+        self.assertIn("ordinary outbound internet access", acquisition_profiles["standard_fetch"])
+        self.assertIn("No HUMAN gate or firewall inspection", acquisition_profiles["standard_fetch"])
+        self.assertIn("must not have secrets or confidential repository data", acquisition_profiles["standard_fetch"])
+        self.assertIn("no alternate IPv4, IPv6", acquisition_profiles["contained_fetch"])
+        self.assertIn("cannot bypass the broker", acquisition_profiles["artifact_broker"])
+        self.assertIn("not a prerequisite for standard fetch", preflight_requirements)
+        self.assertIn("probes alone do not prove complete or continuous containment", preflight_requirements)
         self.assertIn("does not execute project- or dependency-supplied hooks", preflight_requirements)
+        self.assertIn("authorized exact direct and transitive artifact identities", preflight_requirements)
+        self.assertIn("no ambient credentials, executable repository configuration", preflight_requirements)
+        self.assertIn("Establish the mount and staging boundaries", preflight_requirements)
+        self.assertIn("registry metadata, and redirects as untrusted input", preflight_requirements)
+        self.assertIn("read local files, or write outside the isolated staging area", preflight_requirements)
         self.assertIn("unchanged helper", review_requirements)
         self.assertIn("all existing risk-triggered", review_requirements)
-        self.assertIn("cannot replace a required preflight", failure_behavior)
-        self.assertIn("An independently permitted exception", failure_behavior)
+        self.assertIn("Missing evidence of egress containment stops only a profile", failure_behavior)
+        self.assertIn("standard fetch does not claim it", failure_behavior)
+
+    def test_standard_fetch_needs_no_network_gate_but_preserves_execution_gates(self):
+        """Data-only acquisition is not approval to run or expose dependencies."""
+        secure_policy = self.policies["secure_sdd_policy"]
+        sandbox_policy = secure_policy["contracts"]["sandbox"]
+        policy_control = next(
+            control for control in secure_policy["controls"]
+            if control["id"] == "SDD-POLICY-CONTROL-001"
+        )
+
+        self.assertNotIn("exception", sandbox_policy)
+        self.assertIn(
+            "Standard fetch needs no separate HUMAN approval",
+            " ".join(sandbox_policy["requirements"]),
+        )
+        self.assertIn("Stop if artifact scope, client authority, integrity", " ".join(sandbox_policy["failure_behavior"]))
+        self.assertIn("separate conforming runtime preflight and sandbox", sandbox_policy["limitation"])
+        prompt_injection_control = next(
+            control for control in secure_policy["controls"]
+            if control["id"] == "SDD-PROMPT-INJECTION-001"
+        )
+        runtime_backstops = " ".join(prompt_injection_control["runtime_backstops"]["requirements"])
+        self.assertIn("Deny privileged tool actions", runtime_backstops)
+        self.assertIn("standard_fetch profile", runtime_backstops)
+        self.assertIn("only for a verified data-only acquisition client", runtime_backstops)
+        self.assertIn(
+            "Approval of an artifact list never authorizes credential exposure",
+            " ".join(policy_control["requirements"]),
+        )
 
     def test_noncritical_resource_gaps_do_not_require_approval(self):
         """Resource-control gaps cannot create a HUMAN gate or waive isolation."""
@@ -451,7 +490,7 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             self.assertIn("  - .github/**", universal_rules)
             self.assertIn("**exception.required_record:**", universal_rules)
             self.assertIn("**escalation.triggers:**", universal_rules)
-            self.assertIn("**limitation:** This contract is not enforced by YAML or prose", universal_rules)
+            self.assertIn("**limitation:** YAML and prose do not enforce containment", universal_rules)
             terraform_rules = first_outputs[Path("security/rules/tools/terraform_opentofu.md")]
             self.assertIn("**apply_gate.enforcement:** human_gate", terraform_rules)
             self.assertIn("**apply_gate.rule:** Never automatically apply", terraform_rules)
