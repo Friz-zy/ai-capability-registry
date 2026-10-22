@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-ECO-JAVASCRIPT-001`
 
-**ID:** `SDD-ECO-JAVASCRIPT-001` | **Title:** none | **Group:** javascript_typescript | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** npm, pnpm, yarn, bun | **Digest:** `60e9f50131e10b4ec5e3c71bea9f5c3b550b781a63e3c0b5a7fef4d7dbbbc502`
+**ID:** `SDD-ECO-JAVASCRIPT-001` | **Title:** none | **Group:** javascript_typescript | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** npm, pnpm, yarn, bun | **Digest:** `cf02c838b200425b4ed2305ca2faa395aa2e68fa559eb6567ca0b23616de41c5`
 
 ### Applicability
 
@@ -30,9 +30,11 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 - **requirements:**
   - Require a committed lockfile and immutable or frozen install.
+  - Verify each new registry artifact against lockfile integrity and authenticated registry metadata. Lockfile integrity supports repeatability but is not equivalent to a public checksum-transparency service; investigate unexpected changes without accepting a regenerated integrity value as proof.
   - Pin the package-manager version where practical.
-  - Deny lifecycle scripts by default. Use per-package lifecycle-script allowlisting only when the package manager supports it, and allow only reviewed packages.
-  - npm has no native per-package lifecycle-script allowlist. Use npm ci --ignore-scripts first; execute a lifecycle script only after documented manual review and explicit authorization, and only in a sandbox.
+  - Deny lifecycle scripts by default. Use a reviewed per-package lifecycle-script allowlist when the installed manager version supports it; bind approval to an exact version where supported and re-review version changes otherwise. Check effective overrides that could bypass the allowlist. If unsupported, use a script-disabled locked install and execute only required reviewed hooks later in a sandbox.
+  - For npm versions without an enforceable per-package allowlist, use npm ci --ignore-scripts first. Newer npm versions may support package-scoped script approvals; verify actual version and effective settings rather than assuming either behavior. A required script still needs explicit authorization and a separate execution preflight.
+  - Some npm installs and audits send dependency information to configured registries by default. If private package names or a confidential dependency graph are present, disable automatic external audit submission and query approved public coordinates separately or use a private advisory service.
   - Treat preinstall, install, postinstall, and prepare as arbitrary code execution.
   - Do not use npx, npm exec, pnpm dlx, yarn dlx, or bunx for an unreviewed package and exact version.
   - Reject unexpected registry changes, floating Git dependencies, and silent lockfile regeneration.

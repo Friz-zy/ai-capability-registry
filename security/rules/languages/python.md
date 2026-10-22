@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-ECO-PYTHON-001`
 
-**ID:** `SDD-ECO-PYTHON-001` | **Title:** none | **Group:** python | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** pip, uv, poetry, pipenv | **Digest:** `de11334167381782d6068233268ebbfec6ba22303998c610693f50be06116a77`
+**ID:** `SDD-ECO-PYTHON-001` | **Title:** none | **Group:** python | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** pip, uv, poetry, pipenv | **Digest:** `0a5fdfa7ba12e1eac77468ba59280486da2496df3bb2122d397361290e4b9d67`
 
 ### Applicability
 
@@ -28,11 +28,13 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 - **requirements:**
   - Prefer a committed lockfile, isolated virtual environment, and reproducible locked install.
+  - For a new PyPI artifact, prefer a fully pinned hash-checked requirements set with hashes for every selected transitive artifact; pip --require-hashes provides a stronger precommitted expectation than the hash supplied alongside a download URL. If a project lacks that state, establish and record authoritative registry hashes first without claiming independent publisher authentication or silently changing an existing lock.
   - Prefer wheels; treat source distributions, editable installs, and PEP 517 or 518 backends as arbitrary code execution.
+  - Metadata preparation or wheel building from a source distribution may run backend code even during resolution or download. Use a separately verified execution boundary if that work is necessary; build isolation by itself is not a security sandbox.
   - Keep build isolation enabled unless an exception is reviewed.
   - Review additional indexes and prevent public or private index dependency confusion.
   - Do not install into host or system Python.
-  - Assess the 7-day age signal for new versions; age alone does not prohibit a verified dependency or delay an urgent security fix.
+  - Apply the 7-day public-registry age-risk disposition to new versions; do not delay an otherwise verified urgent security fix solely because it is new.
 
 ### Verification
 

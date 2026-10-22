@@ -20,6 +20,7 @@ process_metadata:
     requirements:
       - Each independent review uses a reviewer session with no prior producer work on the reviewed artifact.
       - Reviewers may inspect approved inputs and evidence but must not modify the change under review.
+      - An immutable review snapshot gates only the dependent decision; producers may continue independent implementation, investigation, and tests in a successor candidate. Re-review affected claims after a material change, not every unrelated edit.
   human_escalation:
     required_at: POLICY GATE
     required_when:
@@ -62,7 +63,7 @@ process_metadata:
       - risk_classification
       - unresolved_risk_findings
     uncertainty_handling:
-      requirement: Uncertainty is a blocking escalation, not a pass.
+      requirement: Uncertainty about a material required condition blocks the dependent action, not independent remediation, analysis, or implementation. Recheck applicability and seek current equivalent evidence; never invent historical provenance or claim uncertainty is a pass.
       escalation_workflows:
         - threat-modeling
         - security-review

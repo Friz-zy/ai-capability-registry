@@ -9,6 +9,14 @@ independent verification, minimal scope and complexity, and minimal dependencies
 Never weaken requirements, tests, verification, or security merely to make work
 pass. Do not invent important behavior, evidence, authority, or enforcement.
 
+Before declining an operator request or calling the whole task blocked, identify
+the particular action, applicable rule, missing evidence, and any existing scoped
+approval. Recheck facts with available tools and authoritative sources, then try
+a narrower implementation, verified container, existing dependency or image,
+static inspection, or offline test. Continue authorized independent work and
+report a concrete solution for any remaining boundary. Never manufacture a pass
+or cross a required gate just to avoid reporting a partial result.
+
 ---
 
 ## Development Workflow
@@ -126,7 +134,10 @@ it.
 A blocking finding should identify the requirement or invariant, a concrete
 counterexample, the affected location, expected behavior, and failure behavior.
 After remediation, perform deterministic verification and a fresh independent
-review. AI approval never overrides a failed deterministic check.
+review of the affected artifact when required. A review snapshot gates the
+reviewed action, not independent edits or diagnostics; reuse still-valid evidence
+and do not repeat unchanged reviews solely to resume other work. AI approval
+never overrides a failed deterministic check.
 
 ---
 
@@ -183,6 +194,34 @@ known vulnerabilities as insufficient proof of trust. Dependency manifest and
 lockfile changes need independent security review when they materially change
 origin, executable hooks, authority, or the trust boundary.
 
+For new public registry versions, confirm exact direct and newly resolved
+transitive identities, verify artifacts against supported lock/checksum state,
+and check exact versions in OSV or a relevant public advisory source. Record
+source, check time, coverage, and applicable findings; an empty or unavailable
+result is not proof of safety. Send only necessary public coordinates to external
+services, never private names or a full confidential dependency graph. A changed
+artifact or digest at the same locked version is a new risk, not a routine reuse.
+
+Prefer versions first published at least seven days ago when authoritative
+timestamps exist. For a younger or unknown-age public version, document why it
+is needed and evaluate identity, integrity, advisories, and execution hooks;
+age alone does not require approval, independent review, or delaying a verified
+security fix. An unchanged integrity-verified lock entry has no new age gate;
+Git commit times and Go pseudo-version timestamps are not publication proof.
+Preserve native Go SumDB checks; npm lock integrity and pip registry-supplied
+hashes do not provide the same first-use assurance. Run required package hooks
+or source builds only in a separately verified execution boundary.
+
+Distinguish packages in authenticated official Linux distribution repositories
+from application-registry dependencies such as pip, npm, and Composer. Within a
+disposable Docker or Podman image using existing distribution trust roots,
+verify signed repository metadata and package integrity, record resolved versions,
+and keep host credentials, sockets, and writable roots out. Distro package age
+and application lockfile rules do not apply there. Maintainer scripts still
+execute code: allow container-local root only for installation, assess network
+exposure when scripts run online, then use a non-root identity for project code.
+New repositories or signing keys and host package changes remain separate gates.
+
 Use pinned or locked, reproducible resolution where supported. Keep fetching,
 resolution, and execution appropriately separated. Unknown dependency mechanisms
 must be investigated before use rather than trusted by default.
@@ -205,6 +244,15 @@ an established low-privilege workspace boundary for routine tests of already
 reviewed code, and a separately verified sandbox for newly fetched or untrusted
 code. If the necessary boundary is unavailable, defer that execution, not safe
 analysis or remediation.
+
+Treat a Docker or Podman container as a usable execution boundary when the
+effective workload configuration confirms its image, identity, privileges,
+capabilities, namespaces, mounts, credential exclusion, and network mode.
+Reuse evidence for an unchanged boundary. Do not demand host-wide firewall,
+cgroup, or kernel-rule access unless a required guarantee actually relies on
+that host control; non-critical resource-limit gaps alone do not invalidate the
+boundary. A changed privileged mount, exposed secret, or required network
+restriction still needs fresh action-specific verification.
 
 Sandbox execution should use least privilege, no host credentials or agent tokens,
 no unnecessary sockets or capabilities, resource limits, disabled network unless

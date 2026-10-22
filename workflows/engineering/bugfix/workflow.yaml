@@ -24,22 +24,18 @@ process_metadata:
     workflow_id: secure-sdd
     required_before: FIX
     required_when:
-      - The proposed change modifies intended behavior.
-      - The proposed change changes architecture, system boundaries, public interfaces, data models, or trust boundaries.
-      - The proposed change changes dependency provenance, lock integrity, dependency resolution, or build tooling.
-      - The proposed change changes sandboxing, execution isolation, permissions, or privilege boundaries.
-      - The proposed change affects untrusted input handling, content interpretation, prompt handling, or prompt-injection defenses.
-      - The proposed change affects secrets, authentication, authorization, identity, or access control.
-      - The proposed change affects infrastructure, deployment topology, runtime configuration, or operational controls.
+      - The user explicitly requests full specification-driven delivery for the fix.
+      - The proposed fix materially changes a trust boundary, security enforcement, credential or permission authority, or production control.
+      - A destructive or irreversible migration requires a separate approved design and policy disposition.
     terminal_outcome: escalated_to_secure_sdd
-    requirement: Stop the bugfix path and explicitly hand off to secure-sdd when escalation conditions are met; no subsequent bugfix stage may run.
+    requirement: Hand off the dependent boundary-crossing fix to secure-sdd when an escalation condition is established; continue independent diagnosis, safe remediation, and verification rather than abandoning the user task.
   remediation_and_re_verification:
     deterministic_verification_failure:
       outputs:
         - failed_verification_evidence
         - verification_exception_request
-      requirement: Return the work to remediation and re-run deterministic verification before INDEPENDENT REVIEW or release.
-      restriction: A HUMAN authority, coordinator, and independent reviewers cannot waive a deterministic verification failure.
+      requirement: Return the affected fix to remediation and re-run deterministic verification before claiming verified completion or release; diagnostic review and independent safe work may continue.
+      restriction: A HUMAN authority, coordinator, and independent reviewers cannot turn a failed required check into a passing result.
 conflict_resolution:
   severity: product-manager
   reproduction: qa-engineer

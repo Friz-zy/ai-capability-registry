@@ -14,8 +14,8 @@ Use this workflow to triage, reproduce, diagnose, fix, validate, and release a d
 
 This workflow follows a distinct corrective path: ASSESS, FIX, TEST, VERIFY, and INDEPENDENT REVIEW. It is narrower than `feature-development`: preserve intended behavior, minimize change scope, and validate regression risk. Use `incident-response` when the issue is an active production incident.
 
-ASSESS is a terminal routing gate. Escalate to `secure-sdd` before FIX when the fix requires changing intended behavior, architecture, dependencies or build tooling, sandbox or privilege boundaries, untrusted inputs or prompt handling, secrets, authentication or authorization, or infrastructure. Only an ASSESS result of `secure_sdd_escalation_decision: not_required` permits FIX.
+ASSESS routes the affected fix to `secure-sdd` before FIX only when the user requests the full process or the action materially changes a trust boundary, security enforcement, production authority, or an irreversible operation. A path, domain label, normal dependency update, or routine configuration fix alone is not escalation. Handoff is not abandonment: continue independent diagnosis and safe remediation while the dependent action waits.
 
-Every bugfix requires reproducible deterministic verification evidence. On failure, VERIFY emits failed verification evidence and an exception request, not an exception decision. The failure remains blocking and returns work to remediation and re-verification; it cannot be waived by a HUMAN authority. INDEPENDENT REVIEW and release remain blocked until deterministic verification passes.
+Every bugfix needs applicable deterministic verification evidence. A failed required check returns the affected change to remediation; it cannot be declared passing by HUMAN approval. Distinguish a failing check from an unavailable environment check, pursue alternative diagnostics or verification, and report remaining limits honestly. Diagnostic review and independent work can proceed while verified completion or release remains blocked.
 
 Follow the manifest for stage order, role delegation, gates, and acceptance criteria.

@@ -512,27 +512,12 @@ workflows:
       - adversarial-testing
       - policy-gate
     match_tasks:
-      - plan-feature
-      - review-architecture
-      - implement-code
-      - review-code
-      - plan-tests
-      - test-validate
       - security-audit
       - review-security
       - model-threats
     match_roles:
-      - product-manager
-      - business-analyst
-      - tech-lead
-      - solution-architect
       - security-architect
       - security-engineer
-      - backend-engineer
-      - frontend-engineer
-      - mobile-engineer
-      - devops-platform-engineer
-      - qa-engineer
       - compliance-officer
 
   - id: legal-compliance

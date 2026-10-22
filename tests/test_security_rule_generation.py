@@ -178,7 +178,7 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             ["languages/python", "tools/containers", "tools/os_package_managers"],
             route["focused_rule_sets"],
         )
-        self.assertEqual("HIGH", route["risk"])
+        self.assertEqual("MEDIUM", route["risk"])
         self.assertEqual(["static_validation"], route["enforcements"])
         self.assertEqual("not_performed_including_universal_rules", route["gate_evaluation"])
         self.assertNotIn("enforcement", route)
@@ -386,7 +386,7 @@ class SecurityRuleGenerationTests(unittest.TestCase):
         self.assertIn("not a prerequisite for standard fetch", preflight_requirements)
         self.assertIn("probes alone do not prove complete or continuous containment", preflight_requirements)
         self.assertIn("does not execute project- or dependency-supplied hooks", preflight_requirements)
-        self.assertIn("authorized exact direct and transitive artifact identities", preflight_requirements)
+        self.assertIn("For data-only acquisition, verify the chosen profile", preflight_requirements)
         self.assertIn("no ambient credentials, executable repository configuration", preflight_requirements)
         self.assertIn("Establish the mount and staging boundaries", preflight_requirements)
         self.assertIn("registry metadata, and redirects as untrusted input", preflight_requirements)
@@ -424,6 +424,113 @@ class SecurityRuleGenerationTests(unittest.TestCase):
             "Approval of an artifact list never authorizes credential exposure",
             " ".join(policy_control["requirements"]),
         )
+
+    def test_public_package_age_disposition_is_not_an_approval_gate(self):
+        """Young and unknown-age public versions receive a reviewable disposition."""
+        secure_policy = self.policies["secure_sdd_policy"]
+        quarantine_policy = secure_policy["package_quarantine"]
+        quarantine_requirements = " ".join(quarantine_policy["requirements"])
+        dependency_contract = secure_policy["contracts"]["dependency"]
+        escalation_policy = next(
+            control for control in secure_policy["controls"]
+            if control["id"] == "SDD-HUMAN-ESCALATION-001"
+        )
+
+        self.assertEqual(168, quarantine_policy["threshold_hours"])
+        self.assertEqual("package_age_hours >= 168", quarantine_policy["decision"]["prefer_mature_version"])
+        self.assertIn("publication_time_unverifiable", quarantine_policy["decision"]["document_age_risk"])
+        self.assertIn("At exactly 168 hours", quarantine_requirements)
+        self.assertIn("Age alone neither prohibits", quarantine_requirements)
+        self.assertIn("prompt verified security fix need not wait seven days", quarantine_requirements)
+        self.assertIn("Go pseudo-version timestamp, Git commit date", quarantine_requirements)
+        self.assertIn("unchanged, integrity-verified lock entry", quarantine_requirements)
+        self.assertIn("ordinary age-risk disposition is not such an exception", quarantine_policy["exception"]["applies_when"][0])
+        self.assertNotIn("quarantine_exception", dependency_contract["review_requirement"]["triggers"])
+        self.assertIn("public_package_age_risk_disposition_with_required_checks_satisfied", escalation_policy["non_triggers"])
+
+    def test_public_artifact_checks_preserve_origin_privacy_and_execution_separation(self):
+        """Registry checks do not imply publisher trust or authorization to run."""
+        secure_policy = self.policies["secure_sdd_policy"]
+        dependency_contract = secure_policy["contracts"]["dependency"]
+        dependency_requirements = " ".join(dependency_contract["requirements"])
+        ecosystem_policies = {
+            language["group"]: " ".join(language["requirements"])
+            for language in secure_policy["ecosystem_security_defaults"]["languages"]
+        }
+
+        self.assertIn("a changed artifact, source, expected digest, or executable hook", dependency_requirements)
+        self.assertIn("authenticated authoritative registry metadata where the ecosystem provides it", dependency_requirements)
+        self.assertIn("first-fetch digest over the received bytes", dependency_requirements)
+        self.assertIn("cannot independently authenticate the publisher", dependency_requirements)
+        self.assertIn("Reject later mismatches without silently replacing the trusted digest", dependency_requirements)
+        self.assertIn("against OSV or a relevant open ecosystem", dependency_requirements)
+        self.assertIn("source revision where available", dependency_requirements)
+        self.assertIn("cached result whose acquisition time", dependency_requirements)
+        self.assertIn("report the unknown coverage, and continue", dependency_requirements)
+        self.assertIn("do not upload a private manifest", dependency_requirements)
+        self.assertIn("an unresolved applicable HIGH or CRITICAL finding retains its own gate", dependency_requirements)
+        self.assertIn("release binary needs its own verified artifact digest", dependency_requirements)
+        self.assertIn("pip --require-hashes", ecosystem_policies["python"])
+        self.assertIn("source distribution may run backend code", ecosystem_policies["python"])
+        self.assertIn("Newer npm versions may support package-scoped script approvals", ecosystem_policies["javascript_typescript"])
+        self.assertIn("bind approval to an exact version where supported", ecosystem_policies["javascript_typescript"])
+        self.assertIn("Check effective overrides", ecosystem_policies["javascript_typescript"])
+        self.assertIn("disable automatic external audit submission", ecosystem_policies["javascript_typescript"])
+        self.assertIn("public-module checksum database verification", ecosystem_policies["go"])
+        self.assertIn("go.sum as a complete dependency lock", ecosystem_policies["go"])
+        self.assertIn("Avoid leaking private module identities", ecosystem_policies["go"])
+
+    def test_distro_image_install_is_distinct_from_host_and_source_packages(self):
+        """Official distro packages can be installed in an isolated image."""
+        secure_policy = self.policies["secure_sdd_policy"]
+        quarantine_policy = secure_policy["package_quarantine"]
+        operating_system_policy = next(
+            tool for tool in secure_policy["ecosystem_security_defaults"]["tools"]
+            if tool["id"] == "SDD-TOOL-OS-PACKAGES-001"
+        )
+        container_policy = next(
+            tool for tool in secure_policy["ecosystem_security_defaults"]["tools"]
+            if tool["id"] == "SDD-TOOL-CONTAINER-001"
+        )
+        installation_requirements = " ".join(operating_system_policy["requirements"])
+
+        self.assertIn("official Linux distribution repository", " ".join(quarantine_policy["requirements"]))
+        self.assertIn("authenticated repository metadata and package integrity", installation_requirements)
+        self.assertIn("no host secrets, privileged sockets, or writable host roots", installation_requirements)
+        self.assertIn("Distribution packages may run maintainer scripts", installation_requirements)
+        self.assertIn("container-local root only during image installation", installation_requirements)
+        self.assertIn("new repositories, signing keys, PPAs, and host package mutations", installation_requirements)
+        self.assertIn(
+            "non_root_user_except_bounded_container_local_distro_image_install",
+            secure_policy["contracts"]["sandbox"]["required_guarantees"]["execution_identity"],
+        )
+        self.assertIn(
+            "no_new_privileges",
+            secure_policy["contracts"]["sandbox"]["required_guarantees"]["execution_identity"],
+        )
+        self.assertIn(
+            "drop_all_unneeded_capabilities",
+            secure_policy["contracts"]["sandbox"]["required_guarantees"]["execution_identity"],
+        )
+        self.assertIn(
+            "no accessible host secrets, writable host roots, or runtime sockets",
+            secure_policy["contracts"]["sandbox"]["required_guarantees"]["network"]["distribution_image_install_phase"],
+        )
+        self.assertEqual("MEDIUM", container_policy["risk"])
+
+    def test_sandbox_preflight_checks_workload_not_unrelated_host_controls(self):
+        """Established container isolation does not require host cgroup access."""
+        sandbox_policy = self.policies["secure_sdd_policy"]["contracts"]["sandbox"]
+        preflight_requirements = " ".join(sandbox_policy["preflight_must_verify"])
+        failure_behavior = " ".join(sandbox_policy["failure_behavior"])
+
+        self.assertIn("effective image, process identity, privilege mode", preflight_requirements)
+        self.assertIn("do not require host-wide firewall or cgroup introspection", preflight_requirements)
+        self.assertIn("Reuse a verified container boundary", preflight_requirements)
+        self.assertIn("use non-root for later project execution", preflight_requirements)
+        self.assertIn("Distro image installation is a separate execution phase", preflight_requirements)
+        self.assertIn("missing non-critical resource limits alone do not invalidate isolation", preflight_requirements)
+        self.assertIn("Defer only the affected execution", failure_behavior)
 
     def test_noncritical_resource_gaps_do_not_require_approval(self):
         """Resource-control gaps cannot create a HUMAN gate or waive isolation."""

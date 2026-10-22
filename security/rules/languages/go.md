@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-ECO-GO-001`
 
-**ID:** `SDD-ECO-GO-001` | **Title:** none | **Group:** go | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** go_modules | **Digest:** `51342e1adaca1a22b9d1e95a568a00b4ac36455e00a4f90b586ba062f04465dd`
+**ID:** `SDD-ECO-GO-001` | **Title:** none | **Group:** go | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** go_modules | **Digest:** `ff211399e10918757d957131317b0033915ceb91e6e1506a6e103f26da56f4fd`
 
 ### Applicability
 
@@ -22,10 +22,11 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Requirements
 
 - **requirements:**
-  - Require go.mod and go.sum and keep public-module checksum verification enabled.
+  - Require go.mod and go.sum and keep public-module checksum database verification enabled. Native Go module hashing and SumDB provide first-use consistency for public modules; do not duplicate them with a weaker hand-calculated archive hash or treat go.sum as a complete dependency lock or vulnerability verdict.
   - Do not globally disable GOSUMDB; scope private-module exceptions narrowly.
-  - Review GOPROXY, GONOSUMDB, GOPRIVATE, replace directives, and tool dependency changes.
+  - Review GOPROXY, GONOSUMDB, GOPRIVATE, replace directives, effective module resolution, and tool dependency changes. Avoid leaking private module identities to public proxy, checksum, or advisory services.
   - Treat an unexpected local, path, or Git replace target as a dependency-policy change.
+  - Distinguish module data download from go run, go install, build, test, generator execution, and automatic toolchain acquisition; each execution or new toolchain needs its own applicable checks.
 
 ### Verification
 

@@ -90,7 +90,7 @@ Use this protocol when `{{templates_path}}/capability-routing.md` or `{{template
 8. Use `middle` for clear implementation, `senior` for complex integration/debugging/review, and `lead` for architecture or high-impact decisions.
 9. When implementation is assigned to `middle`, the quality gate MUST be assigned to `senior` or `lead`.
 10. After delegated implementation, run a read-only quality gate that checks acceptance/spec compliance first, then code quality and maintainability.
-11. If a subagent needs context or is blocked, provide context, raise the role level, split the task, or stop and report the blocker.
+11. If a subagent needs context or is blocked, provide context, raise the role level, split the task, or pursue an independent safe path. Stop only the action requiring an unmet gate and report the concrete next viable step.
 12. Never accept incomplete work when acceptance criteria or quality gates fail.
 
 ## Subagent Result Consumption
@@ -99,5 +99,5 @@ Delegated subagents return a YAML result (role, status, summary, assumptions, ri
 
 - `complete` → advance if quality gates pass; otherwise treat as `failed`.
 - `failed` → do not advance; rerun the gate after targeted revisions (see the delegate→gate→re-delegate flow).
-- `blocked` / `needs_review` → do not advance; resolve `open_questions` via re-delegation or minimum user clarification.
+- `blocked` / `needs_review` → do not advance the dependent action; investigate the applicable gate, re-delegate, use a narrower safe route, or request minimum user clarification while continuing independent work.
 - Absence of any success signal → treat as a failed gate.

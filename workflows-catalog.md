@@ -323,8 +323,8 @@ Coordinate full specification-driven delivery for explicitly selected or materia
 **ID:** `secure-sdd`
 **Categories:** `security-compliance`, `engineering`
 **Tags:** `secure-sdd`, `specification`, `independent-review`, `adversarial-testing`, `policy-gate`
-**Task IDs:** `plan-feature`, `review-architecture`, `implement-code`, `review-code`, `plan-tests`, `test-validate`, `security-audit`, `review-security`, `model-threats`
-**Role IDs:** `product-manager`, `business-analyst`, `tech-lead`, `solution-architect`, `security-architect`, `security-engineer`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `devops-platform-engineer`, `qa-engineer`, `compliance-officer`
+**Task IDs:** `security-audit`, `review-security`, `model-threats`
+**Role IDs:** `security-architect`, `security-engineer`, `compliance-officer`
 **Guide:** `workflows/security-compliance/secure-sdd/workflow.md`
 **Manifest:** `workflows/security-compliance/secure-sdd/workflow.yaml`
 
@@ -779,8 +779,8 @@ Coordinate full specification-driven delivery for explicitly selected or materia
 **ID:** `secure-sdd`
 **Categories:** `security-compliance`, `engineering`
 **Tags:** `secure-sdd`, `specification`, `independent-review`, `adversarial-testing`, `policy-gate`
-**Task IDs:** `plan-feature`, `review-architecture`, `implement-code`, `review-code`, `plan-tests`, `test-validate`, `security-audit`, `review-security`, `model-threats`
-**Role IDs:** `product-manager`, `business-analyst`, `tech-lead`, `solution-architect`, `security-architect`, `security-engineer`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `devops-platform-engineer`, `qa-engineer`, `compliance-officer`
+**Task IDs:** `security-audit`, `review-security`, `model-threats`
+**Role IDs:** `security-architect`, `security-engineer`, `compliance-officer`
 **Guide:** `workflows/security-compliance/secure-sdd/workflow.md`
 **Manifest:** `workflows/security-compliance/secure-sdd/workflow.yaml`
 

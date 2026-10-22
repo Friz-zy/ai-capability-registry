@@ -314,7 +314,7 @@ secure_sdd_policy:
     limitations:
       - This registry defines required behavior and validation targets but does not itself create a sandbox.
       - Prompt guidance and static validation must not be represented as proof of runtime containment.
-      - Runtime controls must fail closed when their required guarantees cannot be established.
+      - An operation that requires an unverified runtime guarantee must stop; independent safe work, diagnostics, and remediation remain available.
   risk_model:
     order:
       - LOW
@@ -362,6 +362,7 @@ secure_sdd_policy:
       - Agents must not lower risk or waive a gate without explicit HUMAN authorization recorded outside untrusted content.
       - Classify the proposed action and its effects, not filenames, tool presence, or the severity of a safeguard used by a low-risk operation. A listed domain is a review topic, not proof that its trust boundary changed.
       - The highest trigger established for the actual action determines the minimum risk; missing evidence for a material effect blocks that effect, not unrelated analysis or remediation.
+      - Before reporting a blocker or refusing an operator request, recheck the actual action, required control, existing approvals and evidence, and available lower-risk routes. Perform safe independent work, investigate missing facts from available sources, and present an actionable path; never claim an unverified gate passed or cross a genuinely blocked boundary.
     review_gates:
       HIGH:
         required_reviewer: independent_security_reviewer
@@ -393,22 +394,26 @@ secure_sdd_policy:
       age_calculation: evaluation_time_utc minus first_authoritative_registry_publication_time_utc
       timezone: UTC
     decision:
-      review: package_age_hours < 168 or publication_time_unverifiable
-      no_age_flag: package_age_hours >= 168
+      prefer_mature_version: package_age_hours >= 168
+      document_age_risk: package_age_hours < 168 or publication_time_unverifiable
+      no_age_flag: package_age_hours >= 168 or unchanged_integrity_verified_lock_entry
     applies_when:
-      - adding_a_package_version
-      - updating_a_package_version
-      - resolving_a_previously_unlocked_package_version
+      - adding_a_new_public_application_registry_package_version
+      - updating_a_public_application_registry_package_version
+      - resolving_a_previously_unlocked_public_package_version
     requirements:
       - Use the first publication time for the exact package version reported by the authoritative package registry, not a mirror ingestion, metadata update, tag, commit, or republish time.
-      - Treat versions newer than 168 hours and missing or unverifiable publication times as review signals, not proof of compromise or an automatic execution ban. Check identity, origin, integrity, hooks, and risk before use; do not delay a verified security fix solely to satisfy an age heuristic.
+      - Prefer a version first published at least 168 hours ago. At exactly 168 hours, clear only the age flag; identity, integrity, advisory, and execution checks still apply.
+      - For a version newer than 168 hours or with unknown publication time, record the authoritative timestamp or its absence, why this version is needed instead of an older suitable one, and the identity, integrity, advisory, and hook assessment. Age alone neither prohibits an otherwise verified installation nor requires HUMAN approval or independent review; a prompt verified security fix need not wait seven days.
+      - Do not treat a Go pseudo-version timestamp, Git commit date, release tag, or mirror observation as authoritative first publication. Unknown, inconsistent, or future timestamps remain unknown; use current supported evidence rather than fabricating a seven-day history.
       - Do not apply quarantine retroactively to an unchanged, integrity-verified lock entry.
+      - Do not apply this ecosystem-registry publication-age heuristic to packages from an authenticated official Linux distribution repository; use its native repository trust and package-integrity checks instead.
     exception:
       trust_boundary: HUMAN
       enforcement: human_gate
       minimum_risk: HIGH
       applies_when:
-        - A material unresolved dependency-origin, integrity, or execution risk requires an explicitly approved exception; age alone does not.
+        - A material unresolved dependency-origin, integrity, or execution risk requires a separately approved exception; an ordinary age-risk disposition is not such an exception.
       required_record:
         - package_identity_and_exact_version
         - necessity
@@ -465,6 +470,13 @@ secure_sdd_policy:
         - Do not install unreviewed dependencies globally or into the host control environment.
         - Do not silently regenerate lockfiles during verification.
         - Apply the package quarantine policy to new or updated versions.
+        - Verify current artifact identity, integrity, and applicable origin through available authoritative metadata; do not demand unrecoverable historical review or publication evidence for an unrelated unchanged dependency. If an optional source is unavailable, use equivalent supported evidence and state what remains unknown.
+        - For each newly resolved public direct or transitive package, record the exact ecosystem, canonical name, version or full immutable revision, source, and selected artifact. Reuse an existing trusted lock digest for unchanged entries; a changed artifact, source, expected digest, or executable hook is a new decision even if the version string matches.
+        - For a new artifact, use native integrity verification and compare a strong digest with authenticated authoritative registry metadata where the ecosystem provides it; retain the expected digest in supported lock or checksum state. Where no registry digest exists, pin the immutable source, calculate and record a first-fetch digest over the received bytes, and disclose that this fingerprint cannot independently authenticate the publisher or detect a compromised first fetch. Use native checksum transparency or verified signer-to-artifact provenance where available without making optional attestations a universal prerequisite. Reject later mismatches without silently replacing the trusted digest.
+        - Check exact public package identities and versions, including newly resolved transitive packages, against OSV or a relevant open ecosystem or upstream advisory source. Record check time, coverage, findings, and source revision where available; a clean result is not proof of safety. If a source is unavailable or does not cover the package, try another supported source or a cached result whose acquisition time and supported freshness evidence are suitable for the action, report the unknown coverage, and continue when the other applicable checks pass unless a material finding remains unresolved.
+        - Send external advisory services only necessary public coordinates; do not upload a private manifest, private package identity, full dependency graph, internal URL, repository path, or credential. Assess private components through local data or an approved internal service.
+        - Evaluate a serious advisory against the exact version, platform, installed artifact, and exposed use before declaring it applicable or not applicable. Document supported non-applicability and choose a fixed version when practical; an unresolved applicable HIGH or CRITICAL finding retains its own gate, but an empty or unavailable scan must not be labeled clean.
+        - A Git or GitHub dependency must identify the expected repository and full immutable commit; moving tags or branches do not pin contents. A release binary needs its own verified artifact digest or attestation; a source commit does not authenticate binary bytes.
       runtime_requirement:
         enforcement: runtime_preflight
         rule: Dependency hooks, builds, generators, plugins, tests, and binaries execute only in a conforming sandbox.
@@ -476,7 +488,7 @@ secure_sdd_policy:
           - new_repository_or_signing_key
           - integrity_verification_disabled
           - unresolved_high_or_critical_vulnerability
-          - quarantine_exception
+          - material_quarantine_control_exception_not_age_disposition
     sandbox:
       id: SDD-SANDBOX-CONTRACT-001
       risk: MEDIUM
@@ -490,7 +502,7 @@ secure_sdd_policy:
       required_guarantees:
         execution_identity:
           - rootless_where_supported
-          - non_root_user
+          - non_root_user_except_bounded_container_local_distro_image_install
           - no_new_privileges
           - drop_all_unneeded_capabilities
         host_isolation:
@@ -513,6 +525,7 @@ secure_sdd_policy:
             standard_fetch: A reviewed, minimally privileged acquisition client may fetch approved immutable artifacts and required registry metadata using ordinary outbound internet access. No HUMAN gate or firewall inspection is required solely because this fetch profile lacks destination-level containment; the client may technically reach other destinations and must not have secrets or confidential repository data available to transmit.
             contained_fetch: Enforce approved artifact and destination scope in a dedicated acquisition boundary. Verify that the actual client has no alternate IPv4, IPv6, local, host, or bridge-gateway route and that redirects or DNS changes cannot expand scope.
             artifact_broker: An independently enforced broker restricts exact artifact identities, versions, sources, available digests, metadata operations, and request methods. Reject arbitrary URL forwarding and tunneling; verify that the acquisition client cannot bypass the broker.
+          distribution_image_install_phase: Network access for authenticated official distribution repositories may be used during isolated image installation when necessary; maintainer scripts execute with only reviewed network exposure and no accessible host secrets, writable host roots, or runtime sockets. This does not grant network access to subsequent project code.
           build_test_execution_phase: denied_unless_explicitly_required_and_reviewed
         resources:
           critical: []
@@ -526,12 +539,15 @@ secure_sdd_policy:
         - Match isolation depth to the code and authority involved. Routine local tests of already reviewed project code may reuse an established, low-privilege workspace execution boundary; newly fetched or untrusted code requires a separate verified sandbox.
         - Use non-root/rootless where supported, and exclude unnecessary credentials, privileged sockets, devices, and host paths from the execution boundary.
         - Verify the relevant network, mounts, privileges, capabilities, and isolation controls before executing code with a new or expanded exposure. Reuse valid evidence while the boundary remains unchanged.
-        - Before acquisition, verify the chosen profile, authorized exact direct and transitive artifact identities and immutable versions, declared sources, required metadata requests, available integrity identifiers, client version and effective configuration, and isolated output. Do not silently resolve extra packages or rewrite lock state.
-        - Verify the acquisition client has no ambient credentials, executable repository configuration, plugins, privileged sockets, devices, or unintended host mounts. Establish the mount and staging boundaries; do not use a shared writable cache as an unreviewed output channel.
-        - Treat even non-executable client configuration, registry metadata, and redirects as untrusted input; they cannot add artifact identities, change expected integrity, read local files, or write outside the isolated staging area.
+        - For Docker or Podman, inspect the effective image, process identity, privilege mode, capabilities, namespaces, mounts, credential exposure, and network mode of the actual workload. A normal engine-managed container is an eligible execution boundary when those controls satisfy the operation; do not require host-wide firewall or cgroup introspection merely to recognize it. Inspect host controls only when a claimed guarantee depends on them.
+        - Reuse a verified container boundary while its image, mounts, privileges, credentials, network mode, and workload authority remain unchanged. Recheck only affected guarantees when those properties change; missing non-critical resource limits alone do not invalidate isolation.
+        - Container-local root is permitted only for the bounded official-distro image installation phase when required by the package manager. Verify the installation container has no host privilege, credentials, runtime sockets, or writable host roots, and use non-root for later project execution.
+        - For data-only acquisition, verify the chosen profile, authorized exact direct and transitive artifact identities and immutable versions, declared sources, required metadata requests, available integrity identifiers, client version and effective configuration, and isolated output. Do not silently resolve extra packages or rewrite lock state.
+        - For data-only acquisition, verify the client has no ambient credentials, executable repository configuration, plugins, privileged sockets, devices, or unintended host mounts. Establish the mount and staging boundaries; do not use a shared writable cache as an unreviewed output channel.
+        - For data-only acquisition, treat even non-executable client configuration, registry metadata, and redirects as untrusted input; they cannot add artifact identities, change expected integrity, read local files, or write outside the isolated staging area.
         - For contained fetch or brokered acquisition only, verify effective egress enforcement before and throughout the operation. Host firewall inspection is one possible method, not a prerequisite for standard fetch. Positive and negative probes alone do not prove complete or continuous containment.
         - Confirm fetch mode does not execute project- or dependency-supplied hooks, installers, build backends, plugins, or binaries; reject fetch paths that require such execution. Execution of the trusted fetch client itself does not authorize execution of downloaded or repository-controlled code.
-        - Keep transport validation and ecosystem integrity checks enabled, including checksum or transparency services where applicable. Verify artifacts before transferring only approved outputs into a separate offline build or test boundary.
+        - For data-only acquisition, keep transport validation and ecosystem integrity checks enabled, including checksum or transparency services where applicable. Verify artifacts before transferring only approved outputs into a separate offline build or test boundary. Distro image installation is a separate execution phase governed by its own workload preflight and official repository checks.
       requirements:
         - Do not impose a new blanket independent-security-review prerequisite solely because an unchanged helper is used for an already approved, fetch-only scope; all existing risk-triggered, protected-file, helper-change, trust-boundary expansion, and applicable independent-review gates remain mandatory.
         - Applying this execution safeguard does not classify every local test, build, or dependency fetch as CRITICAL or require HUMAN approval. Standard fetch needs no separate HUMAN approval when the authorized artifact scope and common acquisition preflight are satisfied; investigate material changes to privileges, credentials, mounts, or execution behavior before proceeding.
@@ -539,6 +555,7 @@ secure_sdd_policy:
       failure_behavior:
         - Missing evidence of egress containment stops only a profile that claims containment; standard fetch does not claim it. Continue through standard fetch only when its common acquisition checks pass, otherwise stop the affected operation and continue safe analysis or offline verification.
         - Stop if artifact scope, client authority, integrity, or no-execution controls cannot be verified. Unexpected artifacts, executable behavior, credential access, or changed client configuration require new assessment; fetching does not authorize network use during subsequent execution.
+        - If one execution mode cannot establish a required boundary, try a narrower container configuration, existing verified image, offline or static verification, or a separately authorized path. Defer only the affected execution and report the concrete condition and next viable action; do not abandon unrelated implementation.
       limitation: YAML and prose do not enforce containment. Standard fetch explicitly allows outbound internet without proving destination restrictions; executing fetched code still requires a separate conforming runtime preflight and sandbox.
   controls:
     - id: SDD-PROMPT-INJECTION-001
@@ -595,7 +612,7 @@ secure_sdd_policy:
         - credential_or_permission_expansion
         - ci_job_combining_untrusted_code_with_secrets_or_write_permissions
         - required_execution_isolation_unavailable_or_exception_requested
-        - package_quarantine_exception
+        - material_quarantine_control_exception_not_age_disposition
         - new_package_repository_signing_key_or_trust_root
         - risk_reduction_or_required_gate_waiver
       requirements:
@@ -608,6 +625,7 @@ secure_sdd_policy:
         - Do not repeat a valid scoped approval for the same action; an applicable rule or sensitive path alone is not an approval request.
       non_triggers:
         - ordinary_reversible_implementation_inside_existing_policy
+        - public_package_age_risk_disposition_with_required_checks_satisfied
         - read_only_analysis_without_sensitive_data
     - id: SDD-POLICY-CONTROL-001
       title: Policy exceptions are explicit and bounded
@@ -675,11 +693,13 @@ secure_sdd_policy:
           semantic_conditions: []
         requirements:
           - Prefer a committed lockfile, isolated virtual environment, and reproducible locked install.
+          - For a new PyPI artifact, prefer a fully pinned hash-checked requirements set with hashes for every selected transitive artifact; pip --require-hashes provides a stronger precommitted expectation than the hash supplied alongside a download URL. If a project lacks that state, establish and record authoritative registry hashes first without claiming independent publisher authentication or silently changing an existing lock.
           - Prefer wheels; treat source distributions, editable installs, and PEP 517 or 518 backends as arbitrary code execution.
+          - Metadata preparation or wheel building from a source distribution may run backend code even during resolution or download. Use a separately verified execution boundary if that work is necessary; build isolation by itself is not a security sandbox.
           - Keep build isolation enabled unless an exception is reviewed.
           - Review additional indexes and prevent public or private index dependency confusion.
           - Do not install into host or system Python.
-          - Assess the 7-day age signal for new versions; age alone does not prohibit a verified dependency or delay an urgent security fix.
+          - Apply the 7-day public-registry age-risk disposition to new versions; do not delay an otherwise verified urgent security fix solely because it is new.
         verification:
           - dependency_vulnerability_scan
           - configured_static_analysis_and_type_checking
@@ -712,9 +732,11 @@ secure_sdd_policy:
           semantic_conditions: []
         requirements:
           - Require a committed lockfile and immutable or frozen install.
+          - Verify each new registry artifact against lockfile integrity and authenticated registry metadata. Lockfile integrity supports repeatability but is not equivalent to a public checksum-transparency service; investigate unexpected changes without accepting a regenerated integrity value as proof.
           - Pin the package-manager version where practical.
-          - Deny lifecycle scripts by default. Use per-package lifecycle-script allowlisting only when the package manager supports it, and allow only reviewed packages.
-          - npm has no native per-package lifecycle-script allowlist. Use npm ci --ignore-scripts first; execute a lifecycle script only after documented manual review and explicit authorization, and only in a sandbox.
+          - Deny lifecycle scripts by default. Use a reviewed per-package lifecycle-script allowlist when the installed manager version supports it; bind approval to an exact version where supported and re-review version changes otherwise. Check effective overrides that could bypass the allowlist. If unsupported, use a script-disabled locked install and execute only required reviewed hooks later in a sandbox.
+          - For npm versions without an enforceable per-package allowlist, use npm ci --ignore-scripts first. Newer npm versions may support package-scoped script approvals; verify actual version and effective settings rather than assuming either behavior. A required script still needs explicit authorization and a separate execution preflight.
+          - Some npm installs and audits send dependency information to configured registries by default. If private package names or a confidential dependency graph are present, disable automatic external audit submission and query approved public coordinates separately or use a private advisory service.
           - Treat preinstall, install, postinstall, and prepare as arbitrary code execution.
           - Do not use npx, npm exec, pnpm dlx, yarn dlx, or bunx for an unreviewed package and exact version.
           - Reject unexpected registry changes, floating Git dependencies, and silent lockfile regeneration.
@@ -736,10 +758,11 @@ secure_sdd_policy:
               - go.work.sum
           semantic_conditions: []
         requirements:
-          - Require go.mod and go.sum and keep public-module checksum verification enabled.
+          - Require go.mod and go.sum and keep public-module checksum database verification enabled. Native Go module hashing and SumDB provide first-use consistency for public modules; do not duplicate them with a weaker hand-calculated archive hash or treat go.sum as a complete dependency lock or vulnerability verdict.
           - Do not globally disable GOSUMDB; scope private-module exceptions narrowly.
-          - Review GOPROXY, GONOSUMDB, GOPRIVATE, replace directives, and tool dependency changes.
+          - Review GOPROXY, GONOSUMDB, GOPRIVATE, replace directives, effective module resolution, and tool dependency changes. Avoid leaking private module identities to public proxy, checksum, or advisory services.
           - Treat an unexpected local, path, or Git replace target as a dependency-policy change.
+          - Distinguish module data download from go run, go install, build, test, generator execution, and automatic toolchain acquisition; each execution or new toolchain needs its own applicable checks.
         verification:
           - go_mod_verify
           - configured_tests_vet_static_analysis_and_vulnerability_check
@@ -1192,9 +1215,11 @@ secure_sdd_policy:
             - repository_setup_script_adds_or_changes_os_package_source
             - host_or_image_package_manager_configuration_present_or_changed
         requirements:
-          - Normal agents must not modify host or system packages to satisfy project dependencies.
+          - Do not modify host or system packages merely to satisfy project dependencies; host mutation needs its own confirmed target and authorization.
           - Prefer an approved image, sandbox, or project-local toolchain.
           - A Dockerfile or Containerfile match alone is not a host-package change or HUMAN gate. Isolated image-layer package changes require dependency scrutiny; new repositories, signing keys, PPAs, and host package mutations cross a HUMAN trust boundary.
+          - In a disposable Docker or Podman image, installation from existing official distribution repositories is routine when authenticated repository metadata and package integrity remain enabled, resolved package identities and versions are recorded, and no host secrets, privileged sockets, or writable host roots are exposed. Apply distro-native checks, not application-registry publication-age or lockfile rules.
+          - Distribution packages may run maintainer scripts. Allow necessary container-local root only during image installation; run subsequent project code without it. Prefer verified package download followed by offline installation; if scripts must execute with network access, assess that execution and its exposed data separately rather than treating it as data-only fetch.
       - id: SDD-TOOL-CONTAINER-001
         group: containers
         ecosystems:
@@ -1203,7 +1228,7 @@ secure_sdd_policy:
           - buildah
           - compose
           - oci
-        risk: HIGH
+        risk: MEDIUM
         enforcement: static_validation
         applicability:
           path_globs:
@@ -1225,6 +1250,7 @@ secure_sdd_policy:
           - Prefer non-root runtime, read-only filesystems, bounded resources, and ephemeral secret mounts.
           - Review downloads, package repositories, setuid files, services, and COPY scope.
           - Scan images and retain SBOM or provenance when required by project policy.
+          - A Dockerfile or container runtime match alone does not establish HIGH risk or require host-wide firewall/cgroup proof. Escalate actual privileged mounts, host runtime sockets, exposed credentials, expanded authority, or unverified isolation for the affected operation.
       - id: SDD-TOOL-KUBERNETES-001
         group: kubernetes
         ecosystems:

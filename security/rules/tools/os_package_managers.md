@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-OS-PACKAGES-001`
 
-**ID:** `SDD-TOOL-OS-PACKAGES-001` | **Title:** none | **Group:** os_package_managers | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** apt, dnf, yum, zypper, apk, pacman, brew, winget, choco | **Digest:** `c3159cbaf79261c3939d5adc931153e9c4971bdb52cb998b4cefc96ca99355a1`
+**ID:** `SDD-TOOL-OS-PACKAGES-001` | **Title:** none | **Group:** os_package_managers | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** apt, dnf, yum, zypper, apk, pacman, brew, winget, choco | **Digest:** `1daffce4a4c00d9ebeec001ebc636af60fb768b231ded4bd954c92878371750a`
 
 ### Applicability
 
@@ -22,9 +22,11 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 ### Requirements
 
 - **requirements:**
-  - Normal agents must not modify host or system packages to satisfy project dependencies.
+  - Do not modify host or system packages merely to satisfy project dependencies; host mutation needs its own confirmed target and authorization.
   - Prefer an approved image, sandbox, or project-local toolchain.
   - A Dockerfile or Containerfile match alone is not a host-package change or HUMAN gate. Isolated image-layer package changes require dependency scrutiny; new repositories, signing keys, PPAs, and host package mutations cross a HUMAN trust boundary.
+  - In a disposable Docker or Podman image, installation from existing official distribution repositories is routine when authenticated repository metadata and package integrity remain enabled, resolved package identities and versions are recorded, and no host secrets, privileged sockets, or writable host roots are exposed. Apply distro-native checks, not application-registry publication-age or lockfile rules.
+  - Distribution packages may run maintainer scripts. Allow necessary container-local root only during image installation; run subsequent project code without it. Prefer verified package download followed by offline installation; if scripts must execute with network access, assess that execution and its exposed data separately rather than treating it as data-only fetch.
 
 ### Verification
 

@@ -342,11 +342,11 @@ Coordinate full specification-driven delivery for explicitly selected or materia
 
 ### Secure SDD Workflow Task IDs
 
-`plan-feature`, `review-architecture`, `implement-code`, `review-code`, `plan-tests`, `test-validate`, `security-audit`, `review-security`, `model-threats`
+`security-audit`, `review-security`, `model-threats`
 
 ### Secure SDD Workflow Role IDs
 
-`product-manager`, `business-analyst`, `tech-lead`, `solution-architect`, `security-architect`, `security-engineer`, `backend-engineer`, `frontend-engineer`, `mobile-engineer`, `devops-platform-engineer`, `qa-engineer`, `compliance-officer`
+`security-architect`, `security-engineer`, `compliance-officer`
 
 ### Legal Compliance Workflow
 

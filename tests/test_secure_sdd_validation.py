@@ -58,6 +58,41 @@ class SecureSddValidationTests(unittest.TestCase):
         """A complete Secure SDD fixture satisfies the static contract."""
         self.assertEqual([], self.validate_manifest(self.baseline))
 
+    def test_workflow_routing_and_blockers_preserve_safe_progress(self):
+        """Routine bugfixes do not inherit the full security workflow."""
+        registry = load_all()
+        secure_workflow = next(
+            workflow for workflow in registry["workflows"]
+            if workflow["id"] == "secure-sdd"
+        )
+        orchestrator = next(
+            profile for profile in registry["profiles"]
+            if profile["id"] == "orchestrator"
+        )
+        bugfix_manifest = load_yaml(ROOT / "workflows/engineering/bugfix/workflow.yaml")
+        security_manifest = load_yaml(ROOT / "workflows/security-compliance/secure-sdd/workflow.yaml")
+        common_instructions = " ".join(
+            load_yaml(ROOT / "registry/profiles.yaml")["common_instructions"]
+        )
+
+        self.assertNotIn("implement-code", secure_workflow["match_tasks"])
+        self.assertNotIn("backend-engineer", secure_workflow["match_roles"])
+        self.assertIn("entry conditions apply to the actual action", " ".join(orchestrator["role"]["responsibilities"]))
+        self.assertIn("continue independent safe work", common_instructions)
+        self.assertIn("Before declining an operator request", common_instructions)
+        escalation = bugfix_manifest["process_metadata"]["escalation"]
+        self.assertIn("materially changes a trust boundary", " ".join(escalation["required_when"]))
+        self.assertIn("continue independent diagnosis", escalation["requirement"])
+        verification_failure = bugfix_manifest["process_metadata"]["remediation_and_re_verification"]["deterministic_verification_failure"]
+        self.assertIn("before claiming verified completion or release", verification_failure["requirement"])
+        self.assertIn("cannot turn a failed required check into a passing result", verification_failure["restriction"])
+        reviewer_requirements = " ".join(security_manifest["process_metadata"]["independent_reviewers"]["requirements"])
+        self.assertIn("review snapshot gates only the dependent decision", reviewer_requirements)
+        self.assertIn(
+            "Uncertainty about a material required condition blocks the dependent action",
+            security_manifest["process_metadata"]["mandatory_independent_risk_gates"]["uncertainty_handling"]["requirement"],
+        )
+
     def test_rejects_missing_analyze_risk_evidence(self):
         """ANALYZE must retain every independent risk-topic output."""
         manifest = deepcopy(self.baseline)
