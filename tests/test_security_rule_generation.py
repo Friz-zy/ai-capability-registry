@@ -495,8 +495,9 @@ class SecurityRuleGenerationTests(unittest.TestCase):
         installation_requirements = " ".join(operating_system_policy["requirements"])
 
         self.assertIn("official Linux distribution repository", " ".join(quarantine_policy["requirements"]))
-        self.assertIn("authenticated repository metadata and package integrity", installation_requirements)
-        self.assertIn("no host secrets, privileged sockets, or writable host roots", installation_requirements)
+        self.assertIn("native signature/integrity checks enabled", installation_requirements)
+        self.assertIn("Distro age/lockfile rules and separate SBOM", installation_requirements)
+        self.assertIn("exclude host secrets, runtime sockets, and writable host roots", installation_requirements)
         self.assertIn("Distribution packages may run maintainer scripts", installation_requirements)
         self.assertIn("container-local root only during image installation", installation_requirements)
         self.assertIn("new repositories, signing keys, PPAs, and host package mutations", installation_requirements)
@@ -524,13 +525,39 @@ class SecurityRuleGenerationTests(unittest.TestCase):
         preflight_requirements = " ".join(sandbox_policy["preflight_must_verify"])
         failure_behavior = " ".join(sandbox_policy["failure_behavior"])
 
-        self.assertIn("effective image, process identity, privilege mode", preflight_requirements)
-        self.assertIn("do not require host-wide firewall or cgroup introspection", preflight_requirements)
+        self.assertIn("Check image, workload identity/privileges/capabilities", preflight_requirements)
+        self.assertIn("host controls/provenance matter only when a guarantee depends on them", preflight_requirements)
         self.assertIn("Reuse a verified container boundary", preflight_requirements)
         self.assertIn("use non-root for later project execution", preflight_requirements)
         self.assertIn("Distro image installation is a separate execution phase", preflight_requirements)
         self.assertIn("missing non-critical resource limits alone do not invalidate isolation", preflight_requirements)
         self.assertIn("Defer only the affected execution", failure_behavior)
+
+    def test_routine_tool_and_container_checks_are_proportional(self):
+        """Routine local verification uses available runtimes without forensic gates."""
+        secure_policy = self.policies["secure_sdd_policy"]
+        sandbox_policy = secure_policy["contracts"]["sandbox"]
+        preflight_requirements = " ".join(sandbox_policy["preflight_must_verify"])
+        container_policy = next(
+            tool
+            for tool in secure_policy["ecosystem_security_defaults"]["tools"]
+            if tool["id"] == "SDD-TOOL-CONTAINER-001"
+        )
+
+        self.assertIn("Docker/Podman, or unprivileged LXC/LXD", preflight_requirements)
+        self.assertIn("A practical Docker/Podman baseline", preflight_requirements)
+        self.assertIn("do not inventory unrelated configuration", preflight_requirements)
+        self.assertIn("Do not require package ownership", preflight_requirements)
+        self.assertIn("do not install or reconfigure a runtime or ask approval just to use it", preflight_requirements)
+        self.assertIn("Name disposable test containers", preflight_requirements)
+        self.assertIn("Docker/Podman `--rm`", preflight_requirements)
+        self.assertIn("never remove pre-existing or shared containers", preflight_requirements)
+        self.assertIn(
+            "rootless_preferred_when_already_available",
+            sandbox_policy["required_guarantees"]["execution_identity"],
+        )
+        self.assertIn("lxc", container_policy["ecosystems"])
+        self.assertIn("lxd", container_policy["ecosystems"])
 
     def test_noncritical_resource_gaps_do_not_require_approval(self):
         """Resource-control gaps cannot create a HUMAN gate or waive isolation."""

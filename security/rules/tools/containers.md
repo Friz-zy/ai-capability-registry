@@ -6,7 +6,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
 
 ## `SDD-TOOL-CONTAINER-001`
 
-**ID:** `SDD-TOOL-CONTAINER-001` | **Title:** none | **Group:** containers | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** docker, podman, buildah, compose, oci | **Digest:** `03c43419c2b1d0bd7a3da665a668cbbc4f84238b0ebe1963c68041fd1e18ac7d`
+**ID:** `SDD-TOOL-CONTAINER-001` | **Title:** none | **Group:** containers | **Risk:** `MEDIUM` | **Enforcement:** `static_validation` | **Ecosystems:** docker, podman, buildah, compose, oci, lxc, lxd | **Digest:** `0976b63682af91d56d83b59e3bb12d61623b4dca20e948e0adfc2f14a9f0d1e5`
 
 ### Applicability
 
@@ -32,6 +32,7 @@ Load `../universal.md` first. It remains in force and is referenced rather than 
   - Review downloads, package repositories, setuid files, services, and COPY scope.
   - Scan images and retain SBOM or provenance when required by project policy.
   - A Dockerfile or container runtime match alone does not establish HIGH risk or require host-wide firewall/cgroup proof. Escalate actual privileged mounts, host runtime sockets, exposed credentials, expanded authority, or unverified isolation for the affected operation.
+  - For routine local checks, use available runtime defaults and a few explicit least-privilege settings; custom host policy is unnecessary when the workload already has the required isolation.
 
 ### Verification
 

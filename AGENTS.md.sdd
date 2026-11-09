@@ -214,13 +214,16 @@ or source builds only in a separately verified execution boundary.
 
 Distinguish packages in authenticated official Linux distribution repositories
 from application-registry dependencies such as pip, npm, and Composer. Within a
-disposable Docker or Podman image using existing distribution trust roots,
-verify signed repository metadata and package integrity, record resolved versions,
-and keep host credentials, sockets, and writable roots out. Distro package age
-and application lockfile rules do not apply there. Maintainer scripts still
-execute code: allow container-local root only for installation, assess network
-exposure when scripts run online, then use a non-root identity for project code.
-New repositories or signing keys and host package changes remain separate gates.
+disposable container using already configured official distribution repositories,
+keep native signature and integrity checks enabled, record packages and versions
+changed, and keep host credentials, runtime sockets, and writable host roots out.
+Distro package age and application lockfile rules do not apply there. Do not add
+separate SBOM, external provenance, or historical-origin checks for every routine
+system package. Use native package ownership or file-verification commands when a
+concrete mismatch needs investigation. Maintainer scripts still execute code:
+allow container-local root only for installation, assess network exposure when
+scripts run online, then use a non-root identity for project code. New repositories,
+signing keys, and host package changes remain separate gates.
 
 Use pinned or locked, reproducible resolution where supported. Keep fetching,
 resolution, and execution appropriately separated. Unknown dependency mechanisms
@@ -245,14 +248,39 @@ reviewed code, and a separately verified sandbox for newly fetched or untrusted
 code. If the necessary boundary is unavailable, defer that execution, not safe
 analysis or remediation.
 
-Treat a Docker or Podman container as a usable execution boundary when the
-effective workload configuration confirms its image, identity, privileges,
-capabilities, namespaces, mounts, credential exclusion, and network mode.
-Reuse evidence for an unchanged boundary. Do not demand host-wide firewall,
-cgroup, or kernel-rule access unless a required guarantee actually relies on
-that host control; non-critical resource-limit gaps alone do not invalidate the
-boundary. A changed privileged mount, exposed secret, or required network
-restriction still needs fresh action-specific verification.
+Use an already available workspace sandbox, Docker, Podman, or unprivileged
+LXC/LXD instance. For a routine local run, check only the effective workload
+settings that matter: image, process identity and privilege, capabilities,
+mounts and credential exposure, and network mode. Use targeted runtime inspection
+or the explicit launch arguments; do not inventory unrelated configuration layers.
+A practical container baseline is no privileged mode, non-root execution, dropped
+unnecessary capabilities, no-new-privileges, read-only root where practical, only
+required project/output mounts, and no network unless needed. Prefer rootless mode
+when already available; do not install or reconfigure a runtime solely to get it.
+Give test containers descriptive task/purpose, project, and runtime/image/version
+names within runtime limits, without secrets. Use Docker/Podman `--rm` unless a
+later step needs the container; otherwise remove only the test container you
+created after its final use. Never remove pre-existing or shared containers.
+Use normal runtime profiles and the closest supported settings; custom seccomp,
+firewall, cgroup, or kernel inspection is not required for routine work unless a
+specific guarantee depends on it. A root-managed Docker/Podman daemon alone does
+not make a normally configured workload privileged. Reuse evidence for an
+unchanged boundary; non-critical resource-limit gaps alone do not invalidate it.
+A changed privileged mount, exposed secret, or required network restriction still
+needs fresh action-specific verification.
+
+For an existing local helper, review its source, path, interpreter, and arguments.
+A normal binary path and version are enough for an already installed runtime unless
+there is a concrete sign of replacement, integrity failure, or untrusted origin.
+Do not require RPM ownership, package-integrity, or historical provenance checks
+for every helper or interpreter invocation. A helper's digest can confirm which
+file was reviewed, but does not prove its publisher.
+
+If a check is unavailable, use an equivalent check or another already available
+runtime. Missing optional host inspection or historical provenance is not by
+itself a reason to stop. Pause only the execution whose required property remains
+unclear, state that property and the simplest next check, and continue independent
+implementation, static analysis, or offline verification.
 
 Sandbox execution should use least privilege, no host credentials or agent tokens,
 no unnecessary sockets or capabilities, resource limits, disabled network unless

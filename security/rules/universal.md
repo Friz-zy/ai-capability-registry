@@ -153,7 +153,7 @@ Load this universal rule set before any situation-specific language or tool rule
 
 ## `SDD-SANDBOX-CONTRACT-001`
 
-**ID:** `SDD-SANDBOX-CONTRACT-001` | **Title:** none | **Group:** none | **Risk:** `MEDIUM` | **Enforcement:** `runtime_preflight` | **Ecosystems:** none | **Digest:** `883d4aaea1b5f53a98daea8cab8daa353fe06596502feb1f91621ccbff91546e`
+**ID:** `SDD-SANDBOX-CONTRACT-001` | **Title:** none | **Group:** none | **Risk:** `MEDIUM` | **Enforcement:** `runtime_preflight` | **Ecosystems:** none | **Digest:** `10e39caf54bc5cb608b2e1c89685f2349ae1f54313489b24f50517686ccc2bdf`
 
 ### Applicability
 
@@ -172,11 +172,14 @@ Load this universal rule set before any situation-specific language or tool rule
   - If one execution mode cannot establish a required boundary, try a narrower container configuration, existing verified image, offline or static verification, or a separately authorized path. Defer only the affected execution and report the concrete condition and next viable action; do not abandon unrelated implementation.
 - **preflight_must_verify:**
   - Match isolation depth to the code and authority involved. Routine local tests of already reviewed project code may reuse an established, low-privilege workspace execution boundary; newly fetched or untrusted code requires a separate verified sandbox.
-  - Use non-root/rootless where supported, and exclude unnecessary credentials, privileged sockets, devices, and host paths from the execution boundary.
+  - Run the workload as non-root where practical; prefer an already available rootless runtime, but do not install or reconfigure a runtime solely to obtain rootless mode. Exclude unnecessary credentials, privileged sockets, devices, and host paths.
   - Verify the relevant network, mounts, privileges, capabilities, and isolation controls before executing code with a new or expanded exposure. Reuse valid evidence while the boundary remains unchanged.
-  - For Docker or Podman, inspect the effective image, process identity, privilege mode, capabilities, namespaces, mounts, credential exposure, and network mode of the actual workload. A normal engine-managed container is an eligible execution boundary when those controls satisfy the operation; do not require host-wide firewall or cgroup introspection merely to recognize it. Inspect host controls only when a claimed guarantee depends on them.
+  - For routine checks, reuse an existing workspace, Docker/Podman, or unprivileged LXC/LXD; do not install or reconfigure a runtime or ask approval just to use it or get rootless mode. Check image, workload identity/privileges/capabilities, mounts/secrets, and network via launch arguments or targeted inspection only; do not inventory unrelated configuration, and reuse unchanged evidence. A normal managed container is valid; a rootful daemon alone does not make its workload privileged, and host controls/provenance matter only when a guarantee depends on them.
+  - A practical Docker/Podman baseline is ephemeral, non-privileged, non-root execution with `--cap-drop=ALL`, `--security-opt=no-new-privileges`, read-only root where practical, only required project/output mounts, and `--network=none` unless network is needed. For LXC/LXD, use an unprivileged profile with no credential/socket/device mounts. Use supported equivalents; do not build custom seccomp, firewall, cgroup, or kernel rules for routine checks.
+  - Name disposable test containers to describe their task/purpose, project, and environment (runtime/image and relevant version), as fully as runtime limits allow; never include secrets. Use Docker/Podman `--rm` unless a later step needs the container. If auto-removal is unavailable, remove only the test container created for this task after its final use; never remove pre-existing or shared containers.
   - Reuse a verified container boundary while its image, mounts, privileges, credentials, network mode, and workload authority remain unchanged. Recheck only affected guarantees when those properties change; missing non-critical resource limits alone do not invalidate isolation.
   - Container-local root is permitted only for the bounded official-distro image installation phase when required by the package manager. Verify the installation container has no host privilege, credentials, runtime sockets, or writable host roots, and use non-root for later project execution.
+  - For an existing tool or local helper, check its normal path/version and review helper source, interpreter, and arguments. Do not require package ownership, file-integrity, or provenance checks by default; check only when a concrete mismatch or untrusted source warrants it. A helper digest identifies bytes but does not prove publisher identity.
   - For data-only acquisition, verify the chosen profile, authorized exact direct and transitive artifact identities and immutable versions, declared sources, required metadata requests, available integrity identifiers, client version and effective configuration, and isolated output. Do not silently resolve extra packages or rewrite lock state.
   - For data-only acquisition, verify the client has no ambient credentials, executable repository configuration, plugins, privileged sockets, devices, or unintended host mounts. Establish the mount and staging boundaries; do not use a shared writable cache as an unreviewed output channel.
   - For data-only acquisition, treat even non-executable client configuration, registry metadata, and redirects as untrusted input; they cannot add artifact identities, change expected integrity, read local files, or write outside the isolated staging area.
@@ -184,7 +187,7 @@ Load this universal rule set before any situation-specific language or tool rule
   - Confirm fetch mode does not execute project- or dependency-supplied hooks, installers, build backends, plugins, or binaries; reject fetch paths that require such execution. Execution of the trusted fetch client itself does not authorize execution of downloaded or repository-controlled code.
   - For data-only acquisition, keep transport validation and ecosystem integrity checks enabled, including checksum or transparency services where applicable. Verify artifacts before transferring only approved outputs into a separate offline build or test boundary. Distro image installation is a separate execution phase governed by its own workload preflight and official repository checks.
 - **required_guarantees.execution_identity:**
-  - rootless_where_supported
+  - rootless_preferred_when_already_available
   - non_root_user_except_bounded_container_local_distro_image_install
   - no_new_privileges
   - drop_all_unneeded_capabilities

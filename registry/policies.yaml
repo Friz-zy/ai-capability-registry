@@ -501,7 +501,7 @@ secure_sdd_policy:
         - executing_generated_binary_or_plugin
       required_guarantees:
         execution_identity:
-          - rootless_where_supported
+          - rootless_preferred_when_already_available
           - non_root_user_except_bounded_container_local_distro_image_install
           - no_new_privileges
           - drop_all_unneeded_capabilities
@@ -537,11 +537,14 @@ secure_sdd_policy:
           classification: Controls are best effort; report gaps without a HUMAN gate when critical isolation remains intact.
       preflight_must_verify:
         - Match isolation depth to the code and authority involved. Routine local tests of already reviewed project code may reuse an established, low-privilege workspace execution boundary; newly fetched or untrusted code requires a separate verified sandbox.
-        - Use non-root/rootless where supported, and exclude unnecessary credentials, privileged sockets, devices, and host paths from the execution boundary.
+        - Run the workload as non-root where practical; prefer an already available rootless runtime, but do not install or reconfigure a runtime solely to obtain rootless mode. Exclude unnecessary credentials, privileged sockets, devices, and host paths.
         - Verify the relevant network, mounts, privileges, capabilities, and isolation controls before executing code with a new or expanded exposure. Reuse valid evidence while the boundary remains unchanged.
-        - For Docker or Podman, inspect the effective image, process identity, privilege mode, capabilities, namespaces, mounts, credential exposure, and network mode of the actual workload. A normal engine-managed container is an eligible execution boundary when those controls satisfy the operation; do not require host-wide firewall or cgroup introspection merely to recognize it. Inspect host controls only when a claimed guarantee depends on them.
+        - For routine checks, reuse an existing workspace, Docker/Podman, or unprivileged LXC/LXD; do not install or reconfigure a runtime or ask approval just to use it or get rootless mode. Check image, workload identity/privileges/capabilities, mounts/secrets, and network via launch arguments or targeted inspection only; do not inventory unrelated configuration, and reuse unchanged evidence. A normal managed container is valid; a rootful daemon alone does not make its workload privileged, and host controls/provenance matter only when a guarantee depends on them.
+        - A practical Docker/Podman baseline is ephemeral, non-privileged, non-root execution with `--cap-drop=ALL`, `--security-opt=no-new-privileges`, read-only root where practical, only required project/output mounts, and `--network=none` unless network is needed. For LXC/LXD, use an unprivileged profile with no credential/socket/device mounts. Use supported equivalents; do not build custom seccomp, firewall, cgroup, or kernel rules for routine checks.
+        - Name disposable test containers to describe their task/purpose, project, and environment (runtime/image and relevant version), as fully as runtime limits allow; never include secrets. Use Docker/Podman `--rm` unless a later step needs the container. If auto-removal is unavailable, remove only the test container created for this task after its final use; never remove pre-existing or shared containers.
         - Reuse a verified container boundary while its image, mounts, privileges, credentials, network mode, and workload authority remain unchanged. Recheck only affected guarantees when those properties change; missing non-critical resource limits alone do not invalidate isolation.
         - Container-local root is permitted only for the bounded official-distro image installation phase when required by the package manager. Verify the installation container has no host privilege, credentials, runtime sockets, or writable host roots, and use non-root for later project execution.
+        - For an existing tool or local helper, check its normal path/version and review helper source, interpreter, and arguments. Do not require package ownership, file-integrity, or provenance checks by default; check only when a concrete mismatch or untrusted source warrants it. A helper digest identifies bytes but does not prove publisher identity.
         - For data-only acquisition, verify the chosen profile, authorized exact direct and transitive artifact identities and immutable versions, declared sources, required metadata requests, available integrity identifiers, client version and effective configuration, and isolated output. Do not silently resolve extra packages or rewrite lock state.
         - For data-only acquisition, verify the client has no ambient credentials, executable repository configuration, plugins, privileged sockets, devices, or unintended host mounts. Establish the mount and staging boundaries; do not use a shared writable cache as an unreviewed output channel.
         - For data-only acquisition, treat even non-executable client configuration, registry metadata, and redirects as untrusted input; they cannot add artifact identities, change expected integrity, read local files, or write outside the isolated staging area.
@@ -1218,7 +1221,7 @@ secure_sdd_policy:
           - Do not modify host or system packages merely to satisfy project dependencies; host mutation needs its own confirmed target and authorization.
           - Prefer an approved image, sandbox, or project-local toolchain.
           - A Dockerfile or Containerfile match alone is not a host-package change or HUMAN gate. Isolated image-layer package changes require dependency scrutiny; new repositories, signing keys, PPAs, and host package mutations cross a HUMAN trust boundary.
-          - In a disposable Docker or Podman image, installation from existing official distribution repositories is routine when authenticated repository metadata and package integrity remain enabled, resolved package identities and versions are recorded, and no host secrets, privileged sockets, or writable host roots are exposed. Apply distro-native checks, not application-registry publication-age or lockfile rules.
+          - Routine installation in a disposable image from already configured official distro repositories is allowed with native signature/integrity checks enabled; record packages and versions changed and exclude host secrets, runtime sockets, and writable host roots. Distro age/lockfile rules and separate SBOM, provenance, or forensic checks do not apply by default; use native ownership/file verification only to investigate a concrete mismatch. New repositories, signing keys, and host package changes remain separate gates.
           - Distribution packages may run maintainer scripts. Allow necessary container-local root only during image installation; run subsequent project code without it. Prefer verified package download followed by offline installation; if scripts must execute with network access, assess that execution and its exposed data separately rather than treating it as data-only fetch.
       - id: SDD-TOOL-CONTAINER-001
         group: containers
@@ -1228,6 +1231,8 @@ secure_sdd_policy:
           - buildah
           - compose
           - oci
+          - lxc
+          - lxd
         risk: MEDIUM
         enforcement: static_validation
         applicability:
@@ -1251,6 +1256,7 @@ secure_sdd_policy:
           - Review downloads, package repositories, setuid files, services, and COPY scope.
           - Scan images and retain SBOM or provenance when required by project policy.
           - A Dockerfile or container runtime match alone does not establish HIGH risk or require host-wide firewall/cgroup proof. Escalate actual privileged mounts, host runtime sockets, exposed credentials, expanded authority, or unverified isolation for the affected operation.
+          - For routine local checks, use available runtime defaults and a few explicit least-privilege settings; custom host policy is unnecessary when the workload already has the required isolation.
       - id: SDD-TOOL-KUBERNETES-001
         group: kubernetes
         ecosystems:
