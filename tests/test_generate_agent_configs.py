@@ -639,6 +639,55 @@ class GenerateAgentConfigsTests(unittest.TestCase):
                         else:
                             self.assertNotIn("variant:", content)
 
+    def test_kilo_zai_codex_auto_free_junior_middle_emit_no_reasoning_options(self):
+        """Auto Free junior and middle agents keep the bare rendered id without reasoning fields.
+
+        The registry declares ``kilo-zai-codex`` level ``max`` for junior and middle,
+        but Kilo's Auto Free entry resolves its underlying model dynamically and has
+        no client-selectable reasoning variants, so the generated configs must carry
+        only the ``kilo/kilo-auto/free`` model id. Emission of ``variant`` or provider
+        reasoning options would send unsupported configuration to Auto Free.
+        """
+        model_tiers_registry = self.generator.load_registry("model-tiers")
+        recommended_defaults = model_tiers_registry["recommended_defaults"]
+        backend_profile = next(
+            profile for profile in self.registry_profiles() if profile.get("id") == "backend-engineer"
+        )
+
+        for level in ("junior", "middle"):
+            with self.subTest(level=level):
+                self.assertEqual(
+                    {"model": "kilo-auto/free", "level": "max"},
+                    dict(recommended_defaults[level]["kilo-zai-codex"]),
+                )
+
+        model_prefix = self.generator.MANAGED_CLI_GENERATION_OPTIONS["kilo-code"]["model_prefix"]
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_directory = Path(temporary_directory)
+            self.generate_cli_mode(
+                "kilo-code",
+                output_directory,
+                "tiered",
+                "kilo-zai-codex",
+                model_prefix,
+            )
+            for level in ("junior", "middle"):
+                content = self.agent_content(
+                    "kilo-code", output_directory, backend_profile, level, "tiered"
+                )
+                with self.subTest(level=level):
+                    self.assertIn('model: "kilo/kilo-auto/free"', content)
+                    for unsupported_reasoning_field in (
+                        "variant:",
+                        "effort:",
+                        "thinking:",
+                        "thinkingConfig:",
+                        "enable_thinking:",
+                        "reasoningEffort:",
+                        "reasoning_effort:",
+                    ):
+                        self.assertNotIn(unsupported_reasoning_field, content)
+
     def test_codex_primary_reasoning_follows_direct_openai_models(self):
         """Codex primary settings follow the senior defaults and OpenAI translation."""
         model_tiers_registry = self.generator.load_registry("model-tiers")
